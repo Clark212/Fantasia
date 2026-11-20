@@ -9,7 +9,6 @@ import random
 import sys
 import tarfile
 import tempfile
-import textwrap
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -18,6 +17,8 @@ sys.path.insert(0, str(ROOT / "benchmarks"))
 import dev16_subjects as S  # noqa: E402
 from asm.coding.faultloc import _offsets, apply_site, enumerate_sites  # noqa: E402
 from asm.coding.repair_ops import site_edits  # noqa: E402
+sys.path.insert(0, str(ROOT / "tools"))
+from generate_pairs import strip_indent  # noqa: E402
 
 
 def main():
@@ -49,9 +50,9 @@ def main():
                     rec = {"id": jid, "generator": "standin_mutation", "prompt_version": None, "subject": subj["name"],
                            "version": subj["version"], "sdist_sha256": subj["sdist_sha256"], "path": fn["path"],
                            "qualname": fn["qualname"], "line": fn["line"], "end_line": fn["end_line"],
-                           "file_sha256": fn["file_sha256"], "original_sha256": hashlib.sha256(textwrap.dedent(orig_fn).encode()).hexdigest(),
+                           "file_sha256": fn["file_sha256"], "original_sha256": hashlib.sha256(strip_indent(orig_fn, indent).encode()).hexdigest(),
                            "indent": indent, "bug_kind": f"standin:{s.kind}", "model": None, "model_digest": None,
-                           "accepted_locally": True, "reject_reason": None, "buggy_function": textwrap.dedent(bfn)}
+                           "accepted_locally": True, "reject_reason": None, "buggy_function": strip_indent(bfn, indent)}
                     f.write(json.dumps(rec, sort_keys=True) + "\n")
                     n += 1
     print(n, "stand-in records ->", out)

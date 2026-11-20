@@ -61,9 +61,12 @@ def summary_tried(xs):
 
 
 def main():
-    src, model_out, report_out = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3])
+    src, model_out, report_out = sys.argv[1], Path(sys.argv[2]), Path(sys.argv[3])
     kind = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--kind=")), "logistic")
-    manifest, recs = read_records(src)
+    manifest, recs = {}, []
+    for part in str(src).split(","):  # several training files (shards) may be given, comma-separated
+        m, r = read_records(part)
+        manifest, recs = manifest or m, recs + r
     pairs = [r for r in recs if r.get("status") == "ok"]
     subjects = sorted({p["subject"] for p in pairs})
     folds, all_groups, all_given, all_learned = {}, [], [], []
@@ -83,14 +86,14 @@ def main():
     rows = [r for p in pairs for r in p["rows"]]
     final = make_model(kind).fit([r["features"] for r in rows], [r["label"] for r in rows])
     reachable = sum(1 for p in pairs if p.get("true_candidate"))
-    report = {"input_sha256": file_sha256(src), "kind": kind, "pairs": len(pairs), "subjects": subjects,
+    report = {"input_sha256": {Path(x).name: file_sha256(x) for x in src.split(",")}, "kind": kind, "pairs": len(pairs), "subjects": subjects,
               "generators": sorted({str(p.get("generator")) for p in pairs}),
               "fix_in_generated_lists": reachable, "fix_in_repair_space": sum(1 for p in pairs if p.get("in_repair_space")),
               "leave_one_project_out": {"ranking": evaluate_ranking(all_groups), "tried_given": summary_tried(all_given),
                                         "tried_learned": summary_tried(all_learned)},
               "folds": folds}
     lm = LearnedModel("dev16_candidate_ranker", final, None,
-                      {"training_file_sha256": file_sha256(src), "dataset_sha256": dataset_hash([r["features"] for r in rows],
+                      {"training_file_sha256": {Path(x).name: file_sha256(x) for x in src.split(",")}, "dataset_sha256": dataset_hash([r["features"] for r in rows],
                                                                                                 [r["label"] for r in rows]),
                        "rows": len(rows), "groups": len(subjects), "kind": kind, "pairs": len(pairs),
                        "generators": report["generators"], "asm_coding_sha256_of_data": manifest.get("asm_coding_sha256")},

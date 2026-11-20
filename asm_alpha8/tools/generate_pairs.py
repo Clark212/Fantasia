@@ -30,7 +30,6 @@ import random
 import re
 import sys
 import tarfile
-import textwrap
 import time
 import urllib.error
 import urllib.request
@@ -114,6 +113,39 @@ def fetch_sdist(subject: dict, cache: Path) -> Path:
     return roots[0] if len(roots) == 1 else out
 
 
+def _string_continuation_lines(text: str) -> set:
+    """1-based numbers of lines that BEGIN inside a multi-line string literal: their leading whitespace is string
+    content, so indentation must never be added to or removed from them."""
+    import tokenize
+    out = set()
+    try:
+        for tok in tokenize.generate_tokens(io.StringIO(text).readline):
+            if tok.type == tokenize.STRING and tok.end[0] > tok.start[0]:
+                out.update(range(tok.start[0] + 1, tok.end[0] + 1))
+    except (tokenize.TokenError, IndentationError, SyntaxError):
+        pass
+    return out
+
+
+def strip_indent(text: str, indent: str | None = None) -> str:
+    """Remove `indent` (default: the first line's indentation) from every code line that has it.
+    Not textwrap.dedent: dedent strips only the COMMON prefix, which is nothing when a docstring line is indented less
+    than the code (found on semver's Version.parse in the DEV16 dry run: the method was then indented twice).
+    Lines that begin inside a multi-line string are left exactly as they are."""
+    lines = text.splitlines(keepends=True)
+    if indent is None:
+        first = next((l for l in lines if l.strip()), "")
+        indent = first[: len(first) - len(first.lstrip())]
+    keep = _string_continuation_lines(text)
+    return "".join(l if (i in keep or not l.startswith(indent)) else l[len(indent):] for i, l in enumerate(lines, 1))
+
+
+def add_indent(text: str, indent: str) -> str:
+    """Inverse of strip_indent for placing a function back into its file."""
+    keep = _string_continuation_lines(text)
+    return "".join(l if (i in keep or not l.strip()) else indent + l for i, l in enumerate(text.splitlines(keepends=True), 1))
+
+
 def function_source(root: Path, fn: dict) -> tuple:
     """(dedented source, indentation) of the function at the manifest's lines; checks the file hash."""
     p = root / fn["sdist_path"]
@@ -123,7 +155,7 @@ def function_source(root: Path, fn: dict) -> tuple:
     lines = raw.decode("utf-8").splitlines(keepends=True)[fn["line"] - 1: fn["end_line"]]
     text = "".join(lines)
     indent = re.match(r"[ \t]*", lines[0]).group(0) if lines else ""
-    return textwrap.dedent(text), indent
+    return strip_indent(text, indent), indent
 
 
 def extract_code(reply: str) -> str | None:

@@ -14,7 +14,6 @@ import json
 import shutil
 import sys
 import tempfile
-import textwrap
 import time
 from pathlib import Path
 
@@ -22,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "benchmarks"))
 import dev16_subjects as S  # noqa: E402
-from dev16_verify_pairs import build_buggy  # noqa: E402
+from dev16_verify_pairs import build_buggy, strip_indent  # noqa: E402
 from asm.coding import SafeTestRunner  # noqa: E402
 from asm.coding.faultloc import (FaultLocalizer, _ranking_context, ast_normal, collect_spectrum, generate_candidates,  # noqa: E402
                                  reconcile_spectrum)
@@ -64,7 +63,7 @@ def main():
             reconcile_spectrum(spectrum, set(plain.failed_ids))
             rec = {"id": r["id"], "subject": name, "qualname": r["qualname"], "bug_kind": r.get("bug_kind"),
                    "generator": r.get("generator"), "model": r.get("model")}
-            sig = edit_signature(textwrap.dedent(r["buggy_function"]), textwrap.dedent(orig_fn))
+            sig = edit_signature(strip_indent(r["buggy_function"]), strip_indent(orig_fn))
             rec.update(signature=sig, signature_key=signature_key(sig))
             funcs = CodeUnderstanding().analyze(work).functions
             ranges_by_file: dict = {}

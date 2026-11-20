@@ -13,6 +13,8 @@ Output: a hash-chained JSONL (`ChainedWriter`) with a run manifest, one record p
 and the full buggy file hash. Only `status == "verified"` records may train anything.
 Usage: python benchmarks/dev16_verify_pairs.py <pairs.jsonl> <out.jsonl> [--limit=N]
 """
+import ast
+import hashlib
 import json
 import shutil
 import sys
@@ -27,6 +29,8 @@ import dev16_subjects as S  # noqa: E402
 from asm.coding import SafeTestRunner  # noqa: E402
 from asm.coding.integrity import ChainedWriter, code_hash, environment_provenance, file_sha256  # noqa: E402
 from asm.coding.sandbox import new_risks  # noqa: E402
+sys.path.insert(0, str(ROOT / "tools"))
+from generate_pairs import add_indent, strip_indent  # noqa: E402  (one implementation, shared with the generator)
 
 PREREG = ROOT / "benchmarks" / "preregistration" / "dev16_study.md"
 
@@ -35,9 +39,8 @@ def build_buggy(original_file: str, rec: dict) -> tuple:
     """(buggy file text, original function text) with the buggy function placed at the recorded lines/indent."""
     lines = original_file.splitlines(keepends=True)
     orig_fn = "".join(lines[rec["line"] - 1: rec["end_line"]])
-    import textwrap
-    body = textwrap.dedent(rec["buggy_function"]).rstrip("\n") + "\n"
-    placed = "".join((rec["indent"] + ln if ln.strip() else ln) for ln in body.splitlines(keepends=True))
+    body = strip_indent(rec["buggy_function"]).rstrip("\n") + "\n"
+    placed = add_indent(body, rec["indent"])
     return "".join(lines[: rec["line"] - 1]) + placed + "".join(lines[rec["end_line"]:]), orig_fn
 
 
@@ -83,9 +86,7 @@ def main():
                 continue
             original_file = target.read_text(encoding="utf-8")
             buggy_file, orig_fn = build_buggy(original_file, rec)
-            import hashlib
-            import textwrap
-            if hashlib.sha256(textwrap.dedent(orig_fn).encode()).hexdigest() != rec["original_sha256"]:
+            if hashlib.sha256(strip_indent(orig_fn, rec["indent"]).encode()).hexdigest() != rec["original_sha256"]:
                 w.append(dict(base, status="original_mismatch"))
                 continue
             try:
@@ -93,7 +94,6 @@ def main():
             except SyntaxError as exc:
                 w.append(dict(base, status="invalid_python", why=str(exc)[:120]))
                 continue
-            import ast
             if ast.dump(ast.parse(buggy_file)) == ast.dump(ast.parse(original_file)):
                 w.append(dict(base, status="identical_to_original"))
                 continue

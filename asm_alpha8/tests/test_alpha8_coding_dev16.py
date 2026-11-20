@@ -300,6 +300,17 @@ class GeneratorTests(unittest.TestCase):
 
 
 class VerifierTests(unittest.TestCase):
+    def test_docstring_less_indented_than_code_round_trips(self):
+        # regression (DEV16 dry run, semver Version.parse): textwrap.dedent left such a method indented, and it was
+        # then indented a second time when put back
+        from dev16_verify_pairs import build_buggy
+        orig = 'class C:\n    def m(self):\n        """Doc\ncontinued at column 0."""\n        return 1\n'
+        src = G.strip_indent("".join(orig.splitlines(keepends=True)[1:5]), "    ")
+        self.assertTrue(src.startswith("def m(self):"))
+        self.assertIn("\ncontinued at column 0.", src)  # string content untouched
+        new, _ = build_buggy(orig, {"line": 2, "end_line": 5, "indent": "    ", "buggy_function": src.replace("return 1", "return 2")})
+        self.assertEqual(new, orig.replace("return 1", "return 2"))
+
     def test_buggy_method_is_placed_at_its_indentation(self):
         from dev16_verify_pairs import build_buggy
         orig = "class C:\n    def m(self, x):\n        return x + 1\n\n    def k(self):\n        return 2\n"
