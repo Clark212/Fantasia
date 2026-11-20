@@ -1,0 +1,27 @@
+{
+  "correlated_then_independent": {
+    "calibration_gap": 0.1663126175325741,
+    "effective": {
+      "correlation_denominator": 26.804862073465387,
+      "effective_count": 3.0218398355492138,
+      "raw_count": 9.0,
+      "scale": 0.3357599817276904
+    },
+    "raw_correlation": 0.49728236548298455,
+    "tail_accuracy": 0.9021,
+    "tail_confidence": 0.7357873824674259
+  },
+  "independent_then_correlated": {
+    "calibration_gap": 0.23268365609681319,
+    "effective": {
+      "correlation_denominator": 26.156205118735432,
+      "effective_count": 3.0967795072833595,
+      "raw_count": 9.0,
+      "scale": 0.34408661192037326
+    },
+    "raw_correlation": 0.4881399662485169,
+    "tail_accuracy": 0.6997,
+    "tail_confidence": 0.9323836560968132
+  },
+  "interpretation": "alpha.7 uses cumulative dependency statistics; dependency regime changes remain a known limitation."
+}

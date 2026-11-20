@@ -1,0 +1,242 @@
+===== python -m py_compile asm/evidence_dependency.py asm/engine.py asm/config.py asm/__init__.py benchmark_v040a71_torture.py run_release_checks.py =====
+RC=0
+===== python -m unittest tests.test_v040a71 -q =====
+----------------------------------------------------------------------
+Ran 11 tests in 0.095s
+
+OK
+RC=0
+===== python smoke_test.py =====
+ASM v0.4.0-alpha.7.1 smoke test passed.
+{'heat_top_relation': 'RELATION:THRESHOLD', 'learning_top_relation': 'RELATION:ENABLE', 'electrical_top_relation': 'RELATION:TRIGGER', 'motion_top_relation': 'RELATION:TRIGGER', 'heat_top_hypotheses': [{'hypothesis': 'ANALOGY:INCREASE', 'score': 1.0, 'evidence': ['repeated charging increases battery heat; battery heat crosses threshold, battery shuts down (0.55)', 'repeated traffic increases road pressure; road pressure crosses threshold, traffic flow fails (0.50)', 'repeated requests increase queue pressure; queue pressure crosses threshold, server fails (0.49)']}, {'hypothesis': 'ANALOGY:THRESHOLD', 'score': 0.6948000000000001, 'evidence': ['repeated charging increases battery heat; battery heat crosses threshold, battery shuts down (0.55)', 'repeated traffic increases road pressure; road pressure crosses threshold, traffic flow fails (0.50)', 'repeated requests increase queue pressure; queue pressure crosses threshold, server fails (0.49)']}, {'hypothesis': 'ANALOGY:ENABLE', 'score': 0.6120000000000001, 'evidence': ['daily practice increases skill; skill enables accurate performance (0.45)', 'study increases knowledge; knowledge enables problem solving (0.45)', 'training increases strength; strength enables lifting (0.45)']}, {'hypothesis': 'CUE:THRESHOLD', 'score': 0.4940800000000001, 'evidence': ['transferred from repeated charging increases battery heat; battery heat crosses threshold, battery shuts down (0.55)', 'transferred from repeated traffic increases road pressure; road pressure crosses threshold, traffic flow fails (0.50)', 'transferred from repeated requests increase queue pressure; queue pressure crosses threshold, server fails (0.49)']}, {'hypothesis': 'CUE:FAILURE', 'score': 0.4940800000000001, 'evidence': ['transferred from repeated charging increases battery heat; battery heat crosses threshold, battery shuts down (0.55)', 'transferred from repeated traffic increases road pressure; road pressure crosses threshold, traffic flow fails (0.50)', 'transferred from repeated requests increase queue pressure; queue pressure crosses threshold, server fails (0.49)']}], 'abstractions': 4}
+RC=0
+===== python benchmark_v040a71.py =====
+{
+  "benchmark": "ASM v0.4.0-alpha.7.1 dependency regime learning",
+  "cases": {
+    "correlated_to_independent": {
+      "after_alpha71_temporal": {
+        "accuracy": 0.9021,
+        "calibration_gap": 0.00034222152628793356,
+        "confidence": 0.902442221526288
+      },
+      "after_status": {
+        "active_correlation": 0.0,
+        "cumulative_active_correlation": 0.49728236548298455,
+        "cumulative_raw_correlation": 0.49728236548298455,
+        "current_regime_version": 2,
+        "pair_samples": 144000,
+        "raw_correlation": -0.020249289306800696,
+        "recent_trials": 192,
+        "redundancy_strength": 0.0,
+        "regime_count": 2,
+        "source_id": "s",
+        "status": "independent_or_unproven",
+        "trials": 2000,
+        "view": "recent"
+      },
+      "before_alpha7_cumulative": {
+        "accuracy": 0.9021,
+        "calibration_gap": 0.1663126175325741,
+        "confidence": 0.7357873824674259
+      },
+      "before_status": {
+        "active_correlation": 0.49728236548298455,
+        "cumulative_active_correlation": 0.49728236548298455,
+        "cumulative_raw_correlation": 0.49728236548298455,
+        "current_regime_version": 0,
+        "pair_samples": 144000,
+        "raw_correlation": 0.49728236548298455,
+        "recent_trials": 0,
+        "redundancy_strength": 0.2472897510203526,
+        "regime_count": 0,
+        "source_id": "s",
+        "status": "dependent",
+        "trials": 2000,
+        "view": "cumulative"
+      },
+      "regimes": [
+        {
+          "active_correlation": 0.9715868454068881,
+          "detected_index": 64.0,
+          "end_index": 1028.0,
+          "label": "dependent",
+          "raw_correlation": 0.9715868454068881,
+          "start_index": 1.0,
+          "version": 1
+        },
+        {
+          "active_correlation": 0.0,
+          "detected_index": 1028.0,
+          "end_index": null,
+          "label": "independent_or_unproven",
+          "raw_correlation": 0.03495834091937169,
+          "start_index": 965.0,
+          "version": 2
+        }
+      ]
+    },
+    "independent_to_correlated": {
+      "after_alpha71_temporal": {
+        "accuracy": 0.6997,
+        "calibration_gap": 0.0003000000003162695,
+        "confidence": 0.7000000000003163
+      },
+      "after_status": {
+        "active_correlation": 0.999999999999,
+        "cumulative_active_correlation": 0.4881399662485169,
+        "cumulative_raw_correlation": 0.4881399662485169,
+        "current_regime_version": 2,
+        "pair_samples": 144000,
+        "raw_correlation": 1.0,
+        "recent_trials": 192,
+        "redundancy_strength": 0.999999999998,
+        "regime_count": 2,
+        "source_id": "s",
+        "status": "dependent",
+        "trials": 2000,
+        "view": "recent"
+      },
+      "before_alpha7_cumulative": {
+        "accuracy": 0.6997,
+        "calibration_gap": 0.23268365609681319,
+        "confidence": 0.9323836560968132
+      },
+      "before_status": {
+        "active_correlation": 0.4881399662485169,
+        "cumulative_active_correlation": 0.4881399662485169,
+        "cumulative_raw_correlation": 0.4881399662485169,
+        "current_regime_version": 0,
+        "pair_samples": 144000,
+        "raw_correlation": 0.4881399662485169,
+        "recent_trials": 0,
+        "redundancy_strength": 0.23828062664910324,
+        "regime_count": 0,
+        "source_id": "s",
+        "status": "dependent",
+        "trials": 2000,
+        "view": "cumulative"
+      },
+      "regimes": [
+        {
+          "active_correlation": 0.0,
+          "detected_index": 64.0,
+          "end_index": 1048.0,
+          "label": "independent_or_unproven",
+          "raw_correlation": 0.04025348732405084,
+          "start_index": 1.0,
+          "version": 1
+        },
+        {
+          "active_correlation": 0.9856632364578215,
+          "detected_index": 1048.0,
+          "end_index": null,
+          "label": "dependent",
+          "raw_correlation": 0.9856632364578215,
+          "start_index": 985.0,
+          "version": 2
+        }
+      ]
+    }
+  },
+  "checks": {
+    "c2i_after_gap_below_1pct": true,
+    "c2i_baseline_failure_reproduced": true,
+    "c2i_decision_accuracy_preserved": true,
+    "detection_20_of_20_both_directions": true,
+    "i2c_after_gap_below_1pct": true,
+    "i2c_baseline_failure_reproduced": true,
+    "i2c_decision_accuracy_preserved": true,
+    "reversal_20_of_20_three_regimes": true
+  },
+  "detection": {
+    "correlated_to_independent": {
+      "mean": 27.15,
+      "values": [
+        26,
+        30,
+        23,
+        30,
+        27,
+        29,
+        25,
+        29,
+        29,
+        28,
+        26,
+        27,
+        28,
+        26,
+        24,
+        24,
+        29,
+        29,
+        27,
+        27
+      ]
+    },
+    "independent_to_correlated": {
+      "mean": 50.1,
+      "values": [
+        49,
+        51,
+        49,
+        50,
+        52,
+        53,
+        51,
+        49,
+        50,
+        48,
+        50,
+        47,
+        46,
+        53,
+        51,
+        50,
+        49,
+        53,
+        50,
+        51
+      ]
+    }
+  },
+  "passed": 8,
+  "reversal": {
+    "passed": 20,
+    "total": 20
+  },
+  "total": 8
+}
+RC=0
+===== python benchmark_v040a71_torture.py =====
+{
+  "checks": {
+    "inference_order_invariant_and_read_only": true,
+    "malformed_and_capacity_fail_atomic": true,
+    "no_nan_inf": true,
+    "non_temporal_order_invariant_alpha7_semantics": true,
+    "partial_shifts_detected_both_directions": true,
+    "schema1_migration_no_fake_temporal_history": true,
+    "source_count_extremes_and_finite": true,
+    "stationary_cross_zero_false_splits_24": true,
+    "stationary_self_zero_false_splits_100": true
+  },
+  "passed": 9,
+  "summary": {
+    "false_cross": 0,
+    "false_self": 0,
+    "partial_cross_regimes": [
+      2,
+      2
+    ],
+    "partial_self_regimes": [
+      2,
+      2
+    ]
+  },
+  "total": 9
+}
+RC=0
+
+All final critical recertification commands completed.

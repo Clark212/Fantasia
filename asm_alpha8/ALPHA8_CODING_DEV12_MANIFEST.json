@@ -1,0 +1,39 @@
+{
+  "version": "alpha8-coding-dev12",
+  "status": "experimental-not-promoted (DEV11 also not promoted)",
+  "parent": "alpha8-dev11",
+  "tests": {
+    "new_dev12": 31,
+    "alpha8_passed_fresh_full_run": 367,
+    "mutants_caught": "15/15",
+    "v01": "72 passed",
+    "v02_v04": "identical failures to pristine DEV7 (PyTorch absent)"
+  },
+  "fresh_seed_benchmark": {
+    "faults": 15,
+    "top1": "10/15",
+    "top3": "13/15",
+    "resolved": "13/15",
+    "oracle": {
+      "restored": 9,
+      "equivalent": 1,
+      "unknown": 3,
+      "wrong": 0
+    },
+    "counterexample_available": "1/13",
+    "known_overfits_rerun": "both still accepted; new machinery unavailable for both"
+  },
+  "sha256": {
+    "asm/coding/faultloc.py": "5c10b8b41ea66f0a82ce930da3ea9ae96c75740b158f3b29997dff288053aca3",
+    "asm/coding/counterexamples.py": "7a97a5a815dabc8515e8cbacbb833bbd32e0fde1e740c9a2c04661eee7bee1c5",
+    "asm/coding/sandbox.py": "e320767c89cf9b25f393ca12eef0ce56f73d0324de1e7e089700b588049f37c1",
+    "asm/coding/semantics.py": "0ec3ebc5d0850725e04c4ca70bdcf885d4410ef0ed0e10768a6cb684178159a7",
+    "asm/coding/agent.py": "8ee9b71a4c9d8b7b623dc66b372cbfa92ebf4bc8936296324cea51a9d9acea49",
+    "asm/coding/__init__.py": "83a5a7d1b61e98c514de693d19c372224d8c3d5f1cf4bd18076db3d398a53e0c",
+    "tests/test_alpha8_coding_dev11.py": "a00c21e3e49ab3446df6835065e05c5907263a77e36aa93c1994cb49d2ec56fa",
+    "tests/test_alpha8_coding_dev12.py": "c1dcf8814270082e192f3020a9409e39a697c44dd78d61740e1138f708378ff2",
+    "benchmarks/dev12_repair_reliability.py": "b428b2c17e179b8dd855d96865fea1295e77e7f0318d57c46aeca09b6054cae8",
+    "benchmarks/dev12_aggregate.py": "64c97e73b133e41e0a1df0ab5edbd065afa1c5caf348ac69c71f3d3c510a151a",
+    "ALPHA8_CODING_DEV12_IMPLEMENTATION.md": "b1f8bf795c70386d8461bebbd5c36f6d96952b8cd57f2d8361de2af7e04b26c6"
+  }
+}

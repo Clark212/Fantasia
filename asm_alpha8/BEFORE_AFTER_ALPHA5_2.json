@@ -1,0 +1,40 @@
+{
+  "version": "0.4.0-alpha.5.2",
+  "event_stream": {
+    "controlled_conditions": {
+      "python_hash_seed": 0,
+      "random_seed": 1337,
+      "vocab_size": 72,
+      "training": true
+    },
+    "pre_review_alpha51_vs_alpha52_20_events": {
+      "before": {"total_ms": 2038.2726880006885, "first10_mean_ms": 21.798190200070167, "last10_mean_ms": 182.02907859999868, "p50_ms": 69.17663700005505},
+      "after": {"total_ms": 172.8123829989272, "first10_mean_ms": 6.624737699939942, "last10_mean_ms": 10.656500599952778, "p50_ms": 8.59606799986068},
+      "speedup": {"total": 11.794714317511273, "last10": 17.081505968366887, "p50": 8.047474380283663},
+      "decision_signature_equal": true
+    },
+    "review_patch_vs_alpha52_160_events": {
+      "before": {"total_ms": 8615.130729001521, "first10_mean_ms": 6.17457349999313, "last10_mean_ms": 75.0047818999974, "p50_ms": 61.797368999577884},
+      "after": {"total_ms": 3249.1226289989754, "first10_mean_ms": 6.729721000056088, "last10_mean_ms": 29.810345999976562, "p50_ms": 19.118329999855632},
+      "speedup": {"total": 2.651525261653717, "last10": 2.5160654592890794, "p50": 3.232362293152411},
+      "decision_signature_equal": true
+    }
+  },
+  "same_core_ab": {
+    "cases": 12,
+    "plain_vector_correct": 1,
+    "asm_structured_correct": 12,
+    "claim_boundary": "controlled structured belief-memory retrieval only"
+  },
+  "belief_benchmarks": {
+    "alpha5": "13/13 PASS",
+    "alpha5_hard_feed": "6/6 PASS",
+    "alpha51_torture": "10/10 PASS",
+    "alpha51_extreme": "9/9 PASS",
+    "unchanged_mega_feed": "13/14; known incomplete-likelihood contract incompatibility"
+  },
+  "suite_limits": {
+    "full_unittest_discover": "attempted but exceeded 120-second environment cap",
+    "ancient_alpha8_alpha10_long_stream": "not freshly rerun"
+  }
+}

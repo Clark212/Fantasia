@@ -1,0 +1,30 @@
+{
+  "binary_all_within_budget": true,
+  "binary_cases_with_belief_merges": 80,
+  "binary_max_abs_error": 4.440892098500626e-16,
+  "binary_max_policy_nodes": 80,
+  "binary_random_cases": 80,
+  "checks": {
+    "binary_80_match_closed_form": true,
+    "binary_all_bounded": true,
+    "binary_merging_exercised": true,
+    "random_posterior_200_match_direct_bayes": true,
+    "ternary_is_not_binary_special_case": true,
+    "ternary_matches_exact_enumeration": true
+  },
+  "passed": 6,
+  "posterior_consistency": {
+    "passed": 200,
+    "total": 200
+  },
+  "ternary_three_clue": {
+    "abs_error": 2.220446049250313e-16,
+    "actual": 0.8154999999999999,
+    "belief_merges": 84,
+    "expansions": 80,
+    "oracle": 0.8154999999999997,
+    "policy_nodes": 97,
+    "unique_belief_states": 57
+  },
+  "total": 6
+}

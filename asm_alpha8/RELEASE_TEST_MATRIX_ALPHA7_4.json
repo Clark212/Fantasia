@@ -1,0 +1,34 @@
+{
+  "version": "0.4.0-alpha.7.4",
+  "unit_regression": {
+    "v0.1": {"executed": 72, "passed": 72, "skipped": 0},
+    "v0.2": {"executed": 84, "passed": 84, "skipped": 0},
+    "v0.3": {"executed": 77, "passed": 76, "skipped": 1, "note": "inherited intentional skip"},
+    "v0.4": {"executed": 150, "passed": 150, "skipped": 0},
+    "review_procedure_graft": {"executed": 21, "passed": 21, "skipped": 0},
+    "total": {"executed": 404, "passed": 403, "skipped": 1}
+  },
+  "behavior_gates": {
+    "alpha5": "13/13 PASS",
+    "alpha5_hard_feed": "6/6 PASS",
+    "alpha5_1_torture": "10/10 PASS",
+    "alpha5_1_extreme": "9/9 PASS",
+    "alpha6_torture": "12/12 PASS",
+    "alpha6_1_drift": "30/30 recovered",
+    "alpha6_1_stationary": "0 false splits",
+    "alpha6_2_torture": "10/10 PASS",
+    "alpha7": "7/7 benchmark + 9/9 torture PASS",
+    "alpha7_1": "8/8 benchmark + 9/9 torture PASS",
+    "alpha7_2": "8/8 benchmark + 8/8 torture PASS",
+    "alpha7_3": "10/10 benchmark + 7/7 torture PASS",
+    "alpha7_4": "11/11 benchmark + 8/8 torture PASS"
+  },
+  "preserved_failure": {
+    "benchmark": "benchmark_v040a5_mega_stress.py",
+    "result": "13/14",
+    "failed_check": "topk_truncation_keeps_unknown_mass",
+    "classification": "inherited architecture/benchmark limitation"
+  },
+  "migration": "9/9 PASS",
+  "timed_out_aggregate_commands_counted": false
+}

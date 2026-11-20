@@ -1,0 +1,56 @@
+{
+  "performance": {
+    "covariance_median_ms": 0.648419,
+    "local_median_ms": 0.552272
+  },
+  "real": {
+    "drift": {
+      "after_context": "left",
+      "after_status": "routed",
+      "after_support": 3.470516320957432,
+      "before_status": "abstain",
+      "before_support": 2.928571428571917,
+      "route_history_unchanged": true
+    },
+    "duplicate_majority": {
+      "cov_left_support": 0.9761904761913914,
+      "cov_right_support": 2.9285714285714284,
+      "covariance": "abstain",
+      "covariance_context": null,
+      "frequency": "routed",
+      "frequency_context": "left"
+    },
+    "query": {
+      "covariance_feature": "z_good",
+      "frequency_feature": "a_bad"
+    }
+  },
+  "synthetic": {
+    "cases": 222,
+    "covariance_false_routes": 0,
+    "covariance_max_abs_error": 3.552713678800501e-15,
+    "covariance_mean_abs_error": 4.0008036923429065e-16,
+    "covariance_wrong_decisions": 0,
+    "decisions": 2040,
+    "local_false_routes": 0,
+    "local_max_abs_error": 0.40909090909091006,
+    "local_mean_abs_error": 0.03511018915632274,
+    "local_wrong_decisions": 25,
+    "worst_covariance": [
+      3.552713678800501e-15,
+      "equi",
+      14,
+      0.05,
+      8.484848484848486,
+      8.484848484848483
+    ],
+    "worst_local": [
+      0.40909090909091006,
+      "star",
+      11,
+      0.1,
+      9.59090909090909,
+      10.0
+    ]
+  }
+}

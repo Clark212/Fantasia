@@ -1,0 +1,18 @@
+{
+  "version": "alpha8-dev8-combined",
+  "status": "experimental-not-promoted",
+  "parent": "alpha8-coding-dev8",
+  "tests": {
+    "alpha8_passed": 170,
+    "v01": "72 passed",
+    "v02_v04": "identical failures to pristine DEV7 (PyTorch not installed in test env)",
+    "v03": "3 collection errors, identical to DEV7 (torch)"
+  },
+  "sha256": {
+    "asm/coding/research.py": "49b2b83b43bd09bc8ae0bbf48e03eb058314224dff2be31d1eacff823d33e1c0",
+    "asm/coding/agent.py": "b4bec52d6df00c611c5497e6fe0ce84f17a1048344339f0b400d360328438e8b",
+    "asm/coding/__init__.py": "ed04088e48f2499a969dae19d8f56d62fef910c2ca4b207b035782d58d42bff7",
+    "tests/test_alpha8_coding_dev8.py": "62172ec1327dd04af48e6a7722a43f325fc164c3b9bfe6e12c43103ddc5f8b16",
+    "RELEASE_NOTES_ALPHA8_DEV8_COMBINED.md": "8017b294e7792f2f53113d781937b53b275363dc28af2c6814d17e8ec0e50890"
+  }
+}

@@ -1,0 +1,10 @@
+# ASM v0.4.0-alpha.6.2 core has no mandatory third-party Python dependency.
+# Standard-library cognition, persistence, belief planning, and the default fallback
+# language path can import and run without PyTorch.
+
+# Optional learned recurrent reader/writer + training utilities:
+# torch>=2.0
+
+# Optional real RWKV-7 backend (third-party runtime and model weights are not bundled):
+# rwkv>=0.8.28
+# numpy

@@ -1,0 +1,20 @@
+ASM v0.4.0-alpha.7.4 package recertification
+
+Fresh extraction of packaged ZIP:
+- MANIFEST: 312/312 hashes verified (pre-log package)
+- smoke_test.py: PASS
+- tests.test_v040a74: 12/12 PASS
+- benchmark_v040a74.py: 11/11 PASS
+- benchmark_v040a74_torture.py: 8/8 PASS
+
+Full bounded unit batches from the extracted ZIP:
+- v0.1: 72/72 PASS
+- v0.2: 84/84 PASS
+- v0.3: 77 executed = 76 PASS + 1 inherited intentional SKIP
+- v0.4: 150/150 PASS
+- non-versioned review / Procedure Cortex / Astra-graft: 21/21 PASS
+
+TOTAL: 404 executed = 403 PASS + 1 inherited intentional SKIP
+
+The v0.4 batch emitted inherited unclosed-SQLite ResourceWarnings while passing.
+No timed-out command is counted in this recertification.

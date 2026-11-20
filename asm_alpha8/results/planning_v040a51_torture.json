@@ -1,0 +1,481 @@
+{
+  "benchmark": "ASM v0.4.0-alpha.5.1 additional torture feed",
+  "checks": {
+    "10_to_200k_reversible_updates_without_nan": true,
+    "2_to_32_exact_small_horizons": true,
+    "32way_10k_finite": true,
+    "budget_status_is_explicit": true,
+    "machine_precision_likelihood_finite": true,
+    "many_reversals_finite": true,
+    "memo_quantization_no_action_collision_20k": true,
+    "misspecification_remains_visible": true,
+    "sensor_reliability_vs_cost_changes_choice": true,
+    "sufficient_budget_recovers_oracle": true
+  },
+  "passed": 10,
+  "results": {
+    "budget_pressure": {
+      "oracle": 0.8570880000000053,
+      "rows": [
+        {
+          "budget": 16,
+          "budget_exhausted": true,
+          "error_vs_oracle": 0.8078400000000053,
+          "expansions": 16,
+          "goal": 0.04924800000000001,
+          "memo_hits": 4,
+          "nodes": 59,
+          "search_complete": false,
+          "status": "budget_exhausted_partial_policy"
+        },
+        {
+          "budget": 32,
+          "budget_exhausted": true,
+          "error_vs_oracle": 0.8026560000000053,
+          "expansions": 32,
+          "goal": 0.05443200000000001,
+          "memo_hits": 23,
+          "nodes": 84,
+          "search_complete": false,
+          "status": "budget_exhausted_partial_policy"
+        },
+        {
+          "budget": 64,
+          "budget_exhausted": true,
+          "error_vs_oracle": 0.7948800000000052,
+          "expansions": 64,
+          "goal": 0.06220800000000002,
+          "memo_hits": 67,
+          "nodes": 122,
+          "search_complete": false,
+          "status": "budget_exhausted_partial_policy"
+        },
+        {
+          "budget": 128,
+          "budget_exhausted": true,
+          "error_vs_oracle": 0.7865280000000052,
+          "expansions": 128,
+          "goal": 0.07056000000000003,
+          "memo_hits": 138,
+          "nodes": 221,
+          "search_complete": false,
+          "status": "budget_exhausted_partial_policy"
+        },
+        {
+          "budget": 256,
+          "budget_exhausted": true,
+          "error_vs_oracle": 0.7742880000000053,
+          "expansions": 256,
+          "goal": 0.08280000000000003,
+          "memo_hits": 319,
+          "nodes": 386,
+          "search_complete": false,
+          "status": "budget_exhausted_partial_policy"
+        },
+        {
+          "budget": 512,
+          "budget_exhausted": true,
+          "error_vs_oracle": 0.6733440000000053,
+          "expansions": 512,
+          "goal": 0.18374400000000005,
+          "memo_hits": 661,
+          "nodes": 724,
+          "search_complete": false,
+          "status": "budget_exhausted_partial_policy"
+        },
+        {
+          "budget": 1024,
+          "budget_exhausted": true,
+          "error_vs_oracle": 0.4553200000000052,
+          "expansions": 1024,
+          "goal": 0.40176800000000007,
+          "memo_hits": 1386,
+          "nodes": 1365,
+          "search_complete": false,
+          "status": "budget_exhausted_partial_policy"
+        },
+        {
+          "budget": 2048,
+          "budget_exhausted": false,
+          "error_vs_oracle": 5.10702591327572e-15,
+          "expansions": 1485,
+          "goal": 0.8570880000000002,
+          "memo_hits": 2030,
+          "nodes": 1931,
+          "search_complete": true,
+          "status": "belief_contingent_plan_found"
+        },
+        {
+          "budget": 4096,
+          "budget_exhausted": false,
+          "error_vs_oracle": 5.10702591327572e-15,
+          "expansions": 1485,
+          "goal": 0.8570880000000002,
+          "memo_hits": 2030,
+          "nodes": 1931,
+          "search_complete": true,
+          "status": "belief_contingent_plan_found"
+        }
+      ]
+    },
+    "hidden_space_scale": [
+      {
+        "cap_reached": false,
+        "clues": 5,
+        "error": 2.220446049250313e-16,
+        "expansions": 66,
+        "goal": 0.8623521792,
+        "hypotheses": 2,
+        "memo_hits": 80,
+        "nodes": 53,
+        "oracle": 0.8623521792000002,
+        "peak_bytes": null,
+        "runtime_s": 0.0037220009999145987,
+        "status": "belief_contingent_plan_found"
+      },
+      {
+        "cap_reached": false,
+        "clues": 4,
+        "error": 5.551115123125783e-16,
+        "expansions": 184,
+        "goal": 0.86966784,
+        "hypotheses": 3,
+        "memo_hits": 245,
+        "nodes": 170,
+        "oracle": 0.8696678399999994,
+        "peak_bytes": null,
+        "runtime_s": 0.011675281999941944,
+        "status": "belief_contingent_plan_found"
+      },
+      {
+        "cap_reached": false,
+        "clues": 4,
+        "error": 1.2212453270876722e-15,
+        "expansions": 595,
+        "goal": 0.8935014400000001,
+        "hypotheses": 4,
+        "memo_hits": 849,
+        "nodes": 580,
+        "oracle": 0.8935014399999989,
+        "peak_bytes": null,
+        "runtime_s": 0.04477842000005694,
+        "status": "belief_contingent_plan_found"
+      },
+      {
+        "cap_reached": false,
+        "clues": 3,
+        "error": 5.10702591327572e-15,
+        "expansions": 1485,
+        "goal": 0.8570880000000002,
+        "hypotheses": 8,
+        "memo_hits": 2030,
+        "nodes": 1931,
+        "oracle": 0.8570880000000053,
+        "peak_bytes": null,
+        "runtime_s": 0.16368402499983858,
+        "status": "belief_contingent_plan_found"
+      },
+      {
+        "cap_reached": false,
+        "clues": 2,
+        "error": 2.6645352591003757e-15,
+        "expansions": 2601,
+        "goal": 0.7200000000000001,
+        "hypotheses": 16,
+        "memo_hits": 3880,
+        "nodes": 3465,
+        "oracle": 0.7199999999999974,
+        "peak_bytes": null,
+        "runtime_s": 0.4376115420000133,
+        "status": "belief_contingent_plan_found"
+      },
+      {
+        "cap_reached": true,
+        "clues": 1,
+        "error": 0.0,
+        "expansions": 1089,
+        "goal": 0.7199999999999999,
+        "hypotheses": 32,
+        "memo_hits": 992,
+        "nodes": 2177,
+        "oracle": 0.7199999999999999,
+        "peak_bytes": null,
+        "runtime_s": 0.3361869979999028,
+        "status": "belief_contingent_plan_found"
+      }
+    ],
+    "hostile_32way": {
+      "entropy": 2.1024763633779926e-35,
+      "finite_entropy": true,
+      "finite_logs": true,
+      "hypotheses": 32,
+      "max_log": 0.0,
+      "min_log": -882.6342639803285,
+      "steps": 10000,
+      "sum_public": 1.0
+    },
+    "machine_precision": {
+      "finite_entropy": true,
+      "finite_logs": true,
+      "logs": {
+        "A": 0.0,
+        "B": -744.4400719213812
+      },
+      "posterior": {
+        "A": 1.0,
+        "B": 5e-324
+      },
+      "tiny": 5e-324
+    },
+    "many_reversals": {
+      "block": 200,
+      "cycles": 100,
+      "entropy": 1.0,
+      "map": "B",
+      "max_abs_log": 919.0239700269128,
+      "posterior": {
+        "A": 0.4999999999999942,
+        "B": 0.5000000000000058
+      },
+      "updates": 20000
+    },
+    "memo_decision_boundary": {
+      "cases": 20000,
+      "decision_boundary_key_collisions": 0,
+      "sample": [
+        {
+          "action": "B",
+          "key": "A:0.499999999985|B:0.500000000015;rank=B,A",
+          "p": 0.4999999999847648
+        },
+        {
+          "action": "A",
+          "key": "A:0.500000000000|B:0.500000000000;rank=A,B",
+          "p": 0.5000000000001006
+        },
+        {
+          "action": "A",
+          "key": "A:0.500000000000|B:0.500000000000;rank=A,B",
+          "p": 0.500000000000473
+        },
+        {
+          "action": "A",
+          "key": "A:0.500000000014|B:0.499999999986;rank=A,B",
+          "p": 0.5000000000144
+        },
+        {
+          "action": "B",
+          "key": "A:0.499999999984|B:0.500000000016;rank=B,A",
+          "p": 0.4999999999841055
+        }
+      ]
+    },
+    "model_misspecification": {
+      "automatic_mismatch_detection": false,
+      "drift_and_breakage": [
+        {
+          "actual": 0.8607199999999998,
+          "assumed": 0.8,
+          "case": "drift",
+          "claimed": 0.9420800000000005,
+          "confidence_gap": 0.08136000000000065,
+          "true_sequence": [
+            0.9,
+            0.8,
+            0.7,
+            0.6,
+            0.55
+          ]
+        },
+        {
+          "actual": 0.2245600000000001,
+          "assumed": 0.9,
+          "case": "adversarial_flip",
+          "claimed": 0.99144,
+          "confidence_gap": 0.7668799999999999,
+          "true_sequence": [
+            0.9,
+            0.9,
+            0.1,
+            0.1,
+            0.1
+          ]
+        },
+        {
+          "actual": 0.8000000000000002,
+          "assumed": 0.9,
+          "case": "broken_after_two",
+          "claimed": 0.99144,
+          "confidence_gap": 0.19143999999999983,
+          "true_sequence": [
+            0.9,
+            0.9,
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "actual": 0.3459200000000003,
+          "assumed": 0.8,
+          "case": "world_change_stale",
+          "claimed": 0.9420800000000005,
+          "confidence_gap": 0.5961600000000002,
+          "true_sequence": [
+            0.8,
+            0.8,
+            0.2,
+            0.2,
+            0.2
+          ]
+        }
+      ],
+      "fixed_and_correlated": [
+        {
+          "actual": 0.8369199999999997,
+          "assumed": 0.9,
+          "claimed": 0.99144,
+          "clues": 5,
+          "confidence_gap": 0.15452000000000032,
+          "expansions": 63,
+          "status": "belief_contingent_plan_found",
+          "true": 0.7
+        },
+        {
+          "actual": 0.9914400000000001,
+          "assumed": 0.7,
+          "claimed": 0.8369199999999998,
+          "clues": 5,
+          "confidence_gap": -0.15452000000000032,
+          "expansions": 63,
+          "status": "belief_contingent_plan_found",
+          "true": 0.9
+        },
+        {
+          "actual": 0.7,
+          "assumed": 0.7,
+          "claimed": 0.8369199999999998,
+          "clues": 5,
+          "confidence_gap": 0.13691999999999982,
+          "expansions": 63,
+          "status": "belief_contingent_plan_found",
+          "true": 0.7
+        },
+        {
+          "actual": 0.10400000000000001,
+          "assumed": 0.8,
+          "claimed": 0.8960000000000004,
+          "clues": 3,
+          "confidence_gap": 0.7920000000000004,
+          "expansions": 33,
+          "status": "belief_contingent_plan_found",
+          "true": 0.2
+        }
+      ]
+    },
+    "reversible_update_scales": [
+      {
+        "entropy": 1.0,
+        "err": 1.3322676295501878e-15,
+        "final": {
+          "A": 0.5000000000000013,
+          "B": 0.49999999999999867
+        },
+        "mid_min_log": -45.95119850134591,
+        "mid_public": {
+          "A": 1.0,
+          "B": 1.1057273553218723e-20
+        },
+        "updates": 20
+      },
+      {
+        "entropy": 1.0,
+        "err": 5.773159728050814e-15,
+        "final": {
+          "A": 0.4999999999999942,
+          "B": 0.5000000000000058
+        },
+        "mid_min_log": -459.51198501345766,
+        "mid_public": {
+          "A": 1.0,
+          "B": 2.731999026432664e-200
+        },
+        "updates": 200
+      },
+      {
+        "entropy": 1.0,
+        "err": 6.261657858885883e-14,
+        "final": {
+          "A": 0.4999999999999374,
+          "B": 0.5000000000000626
+        },
+        "mid_min_log": -4595.119850134631,
+        "mid_public": {
+          "A": 1.0,
+          "B": 0.0
+        },
+        "updates": 2000
+      },
+      {
+        "entropy": 1.0,
+        "err": 6.261657858885883e-14,
+        "final": {
+          "A": 0.4999999999999374,
+          "B": 0.5000000000000626
+        },
+        "mid_min_log": -45951.19850135102,
+        "mid_public": {
+          "A": 1.0,
+          "B": 0.0
+        },
+        "updates": 20000
+      },
+      {
+        "entropy": 1.0,
+        "err": 7.33835214816736e-12,
+        "final": {
+          "A": 0.49999999999266165,
+          "B": 0.5000000000073384
+        },
+        "mid_min_log": -459511.9850137284,
+        "mid_public": {
+          "A": 1.0,
+          "B": 0.0
+        },
+        "updates": 200000
+      },
+      {
+        "entropy": 1.0,
+        "err": 7.33835214816736e-12,
+        "final": {
+          "A": 0.49999999999266165,
+          "B": 0.5000000000073384
+        },
+        "mid_min_log": -459511.9850137284,
+        "mid_public": {
+          "A": 1.0,
+          "B": 0.0
+        },
+        "updates": 200000
+      }
+    ],
+    "sensor_choice_and_cost": [
+      {
+        "cost90": 0.0,
+        "expected_cost": 0.0,
+        "goal": 0.9,
+        "root_action": "sense90",
+        "status": "belief_contingent_plan_found"
+      },
+      {
+        "cost90": 0.25,
+        "expected_cost": 0.0,
+        "goal": 0.6999999999999998,
+        "root_action": "sense70",
+        "status": "belief_contingent_plan_found"
+      }
+    ]
+  },
+  "runtime_seconds": 5.613891124725342,
+  "total": 10
+}

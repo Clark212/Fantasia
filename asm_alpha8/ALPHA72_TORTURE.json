@@ -1,0 +1,54 @@
+{
+  "benchmark": "alpha.7.2 autonomous procedure torture",
+  "checks": {
+    "20_drift_reversal_runs": {
+      "failures": [],
+      "passed": true,
+      "runs": 20
+    },
+    "32_affine_rules": {
+      "cases": 32,
+      "failures": [],
+      "passed": true
+    },
+    "50_random_no_false_active": {
+      "false_active": [],
+      "passed": true,
+      "runs": 50
+    },
+    "capacity_fail_closed": {
+      "passed": true,
+      "status": "blocked",
+      "versions": 2
+    },
+    "manual_compatibility": {
+      "passed": true,
+      "prediction": {
+        "confidence": 0.9,
+        "contradictions": 0,
+        "status": "predicted",
+        "support": 8,
+        "value": 496,
+        "version": 1
+      }
+    },
+    "restart_mid_validation": {
+      "after_attempts": 1,
+      "before_attempts": 1,
+      "passed": true
+    },
+    "root_and_trust_guards": {
+      "low_trust_versions": 0,
+      "passed": true,
+      "same_root_versions": 0
+    },
+    "single_outlier_recovery": {
+      "passed": true,
+      "recovery_mode": "revalidation",
+      "temporary_abstention": true,
+      "versions": 2
+    }
+  },
+  "passed": 8,
+  "total": 8
+}

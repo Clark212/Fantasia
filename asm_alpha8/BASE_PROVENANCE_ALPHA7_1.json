@@ -1,0 +1,8 @@
+{
+  "release": "0.4.0-alpha.7.1",
+  "authoritative_base": "ASM_v0.4.0-alpha.7.zip",
+  "authoritative_base_sha256": "8465354b0261424123e7dc58b1a1d5cd15997f22d7402fb9d69658247511b6f6",
+  "base_hash_matches_handoff": true,
+  "procedure_cortex": "experimental_not_integrated",
+  "scope": "same-stage dependency regime learning hardening"
+}

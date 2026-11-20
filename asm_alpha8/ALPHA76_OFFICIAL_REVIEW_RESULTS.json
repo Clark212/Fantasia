@@ -1,0 +1,26 @@
+{
+  "version": "0.4.0-alpha.7.6",
+  "status": "official_consolidation_candidate",
+  "review_decision": "promote_alpha76_then_continue_alpha77",
+  "regression": {
+    "v0_1_v0_2": {"executed": 156, "passed": 156, "skipped": 0},
+    "v0_3": {"executed": 77, "passed": 76, "skipped": 1},
+    "v0_4": {"executed": 150, "passed": 150, "skipped": 0},
+    "review_graft_procedure_routing_r3_r4": {"executed": 45, "passed": 45, "skipped": 0},
+    "release_identity_migration": {"executed": 2, "passed": 2, "skipped": 0},
+    "total": {"executed": 430, "passed": 429, "skipped": 1}
+  },
+  "migration": {
+    "alpha74_fallback_preserves_route_records": true,
+    "alpha74_fallback_preserves_route_decision": true,
+    "new_snapshot_written_only_after_save": true,
+    "fabricated_route_records": 0
+  },
+  "known_inherited": [
+    "alpha.5 mega-stress topk_truncation_keeps_unknown_mass",
+    "SQLite ResourceWarnings in historical v0.4 unit batch"
+  ],
+  "consciousness_phase_verdict": "no_subjective_consciousness_evidence",
+  "milestone": "Adaptive Research AI",
+  "next_version": "0.4.0-alpha.7.7"
+}

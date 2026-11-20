@@ -1,0 +1,18 @@
+{
+  "copy_roots": [
+    "evidence:root"
+  ],
+  "cumulative_reliability": 0.7365384615384615,
+  "dependency": {
+    "active_cross_dependencies": 0,
+    "active_self_dependencies": 0,
+    "pairs": 0,
+    "sources": 0,
+    "trials": 0,
+    "version": 0
+  },
+  "effective_reliability": 0.4170212765957447,
+  "lineage_nodes": 2,
+  "regime_count": 2,
+  "source_observations": 100.0
+}

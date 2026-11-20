@@ -1,0 +1,27 @@
+{
+  "version": "0.4.0-alpha.6.1",
+  "completed_unit_batches": [
+    {"name": "legacy_review_v02", "executed": 159, "passed": 159, "skipped": 0},
+    {"name": "v03", "executed": 77, "passed": 76, "skipped": 1, "note": "one inherited intentional skip"},
+    {"name": "v04_alpha61_and_procedure_experimental", "executed": 90, "passed": 90, "skipped": 0}
+  ],
+  "completed_unit_total": {"executed": 326, "passed": 325, "skipped": 1},
+  "completed_benchmarks": [
+    {"name": "alpha5_belief_state", "passed": 13, "total": 13},
+    {"name": "alpha5_hard_feed", "passed": 6, "total": 6},
+    {"name": "alpha5_1_torture", "passed": 10, "total": 10},
+    {"name": "alpha5_extreme_resurrection", "passed": 9, "total": 9},
+    {"name": "alpha61_abrupt_drift", "seeds": 30, "recovered": 30},
+    {"name": "alpha61_stationary_false_split_70pct", "seeds": 50, "false_splits": 0},
+    {"name": "alpha61_multirate_stationary_torture", "seeds": 100, "false_splits": 0},
+    {"name": "alpha61_90_10_90_return", "seeds": 20, "recovered_down": 20, "recovered_up": 20},
+    {"name": "procedure_cortex_experimental_generated", "passed": 350, "total": 350}
+  ],
+  "not_rerun": [
+    "ancient v0.3 alpha.8-alpha.10 heavy long-stream suites",
+    "old alpha.5 mega-stress compatibility test with intentionally invalid incomplete likelihood matrix",
+    "full language generalization benchmark",
+    "500/1000+ event scaling benchmark",
+    "complete all-at-once unittest command (timed out; equivalent surface completed in split batches)"
+  ]
+}

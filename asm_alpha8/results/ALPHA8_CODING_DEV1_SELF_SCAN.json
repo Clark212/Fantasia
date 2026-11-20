@@ -1,0 +1,46 @@
+{
+  "scan_seconds": 0.8248,
+  "summary": {
+    "root": "/mnt/data/asm_dev4_work",
+    "scanned_files": 235,
+    "skipped_files": 0,
+    "total_bytes": 2345027,
+    "symbols": 2699,
+    "imports": 1590,
+    "dependency_edges": 457,
+    "diagnostics": 0,
+    "fingerprint": "a0fd5a6f1d3a10ad0a1cf8e27f137ac84994e0f89e491729c46e4a323eb7147a"
+  },
+  "sample_plan": {
+    "task": "Debug the structural transfer candidate budget starvation in procedure induction",
+    "task_type": "debug",
+    "confidence": 0.88,
+    "repository_fingerprint": "a0fd5a6f1d3a10ad0a1cf8e27f137ac84994e0f89e491729c46e4a323eb7147a",
+    "relevant_files": [
+      "tests/test_alpha71_astra_graft.py",
+      "tests/test_v040a74.py",
+      "asm/engine.py",
+      "asm/learning/structtransfer.py",
+      "asm/perception.py",
+      "asm/planning.py",
+      "asm/procedure_cortex.py",
+      "asm/relation_discovery.py"
+    ],
+    "steps": [
+      "Reproduce the failure and capture the complete traceback.",
+      "Trace the failing symbol through callers and dependencies.",
+      "Form a minimal root-cause hypothesis and identify a regression test.",
+      "Make the smallest isolated change, then rerun focused and regression tests."
+    ],
+    "evidence": [
+      "Repository fingerprint: a0fd5a6f1d3a10ad0a1cf8e27f137ac84994e0f89e491729c46e4a323eb7147a",
+      "Indexed 235 Python files and 2699 symbols.",
+      "Relevant paths matched task vocabulary: tests/test_alpha71_astra_graft.py, tests/test_v040a74.py, asm/engine.py, asm/learning/structtransfer.py, asm/perception.py, asm/planning.py, asm/procedure_cortex.py, asm/relation_discovery.py"
+    ],
+    "cautions": [
+      "This planner is heuristic: its file ranking is a lead, not proof of relevance.",
+      "Static indexing does not execute code, prove correctness, or inspect runtime behavior.",
+      "No files have been modified and no commands have been run."
+    ]
+  }
+}

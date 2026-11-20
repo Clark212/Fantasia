@@ -1,0 +1,56 @@
+{
+  "auto_state": {
+    "attempts": 1,
+    "last_attempt_seq": 3,
+    "last_signature": "93bc2239aacd2d9dc10e83148a5654fe614875ecf3272426403409bbb7a25e32",
+    "last_status": "proposed"
+  },
+  "legacy_prediction": {
+    "confidence": 0.9,
+    "contradictions": 0,
+    "status": "predicted",
+    "support": 8,
+    "value": 62,
+    "version": 1
+  },
+  "legacy_versions": [
+    {
+      "contradictions": 0,
+      "created_seq": 3,
+      "dependencies": {
+        "oracle": 1
+      },
+      "program": {
+        "expression": [
+          "add",
+          [
+            "mul",
+            3,
+            "x"
+          ],
+          2
+        ],
+        "inputs": {
+          "x": "int"
+        }
+      },
+      "provenance": "asm_induction:grammar",
+      "state": "active",
+      "support": 8,
+      "version": 1
+    }
+  ],
+  "new_multi_versions": [],
+  "new_snapshot_after_save": true,
+  "new_snapshot_before_save": false,
+  "reopen_prediction": {
+    "confidence": 0.9,
+    "contradictions": 0,
+    "status": "predicted",
+    "support": 8,
+    "value": 65,
+    "version": 1
+  },
+  "snapshot_key_present": true,
+  "version": "0.4.0-alpha.7.3"
+}

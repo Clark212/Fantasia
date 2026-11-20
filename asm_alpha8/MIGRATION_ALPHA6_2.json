@@ -1,0 +1,10 @@
+{
+  "from": "0.4.0-alpha.6.1",
+  "to": "0.4.0-alpha.6.2",
+  "resolved_source_observations": 100,
+  "cumulative_reliability_preserved": 0.9,
+  "effective_reliability_preserved": 0.9058823529411765,
+  "regime_count_preserved": 1,
+  "lineage_nodes_after_migration": 0,
+  "migration_pass": true
+}

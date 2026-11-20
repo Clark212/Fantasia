@@ -1,0 +1,67 @@
+{
+  "artifact": "ASM_v0.4.0-alpha.7.1-procedure-graft",
+  "astra_donor_sha256": "ca4a255b88c30d0efdfcf169e0a0dfdf0bda3e5296e5df5a6b9b9cfec2671176",
+  "base_sha256": "3dfb15a801a86946a194bec0f6fcaf20406cf778ac795e093ebbf144eae47159",
+  "benchmarks": {
+    "alpha71_frozen": {
+      "passed": 8,
+      "total": 8
+    },
+    "alpha71_torture": {
+      "passed": 9,
+      "total": 9
+    },
+    "alpha7_frozen": {
+      "passed": 7,
+      "total": 7
+    },
+    "alpha7_torture": {
+      "passed": 9,
+      "total": 9
+    },
+    "smoke": "PASS"
+  },
+  "graft_tests": {
+    "executed": 10,
+    "passed": 10,
+    "skipped": 0
+  },
+  "not_counted": [
+    {
+      "command": "combined recertification batch",
+      "reason": "tool timeout"
+    }
+  ],
+  "performance_claims": {
+    "reason": "quick microbenchmark was dominated by existing similar-result cache; no speedup claim made",
+    "semantic_pair_cache_speedup": null
+  },
+  "unit_batches": [
+    {
+      "executed": 159,
+      "name": "review_v01_v02",
+      "passed": 159,
+      "skipped": 0
+    },
+    {
+      "executed": 77,
+      "name": "v03",
+      "passed": 76,
+      "skipped": 1
+    },
+    {
+      "executed": 136,
+      "name": "v04_and_graft",
+      "passed": 136,
+      "skipped": 0
+    }
+  ],
+  "unit_total": {
+    "executed": 372,
+    "passed": 371,
+    "skipped": 1
+  },
+  "warnings": [
+    "Legacy v0.4 tests can emit ResourceWarning for engine/database instances they do not explicitly close; graft-targeted tests passed with ResourceWarning promoted to error."
+  ]
+}

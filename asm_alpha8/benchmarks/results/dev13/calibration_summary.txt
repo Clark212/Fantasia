@@ -1,0 +1,55 @@
+32 detected faults; by subject: {'cachetools': 12, 'toolz': 12, 'understanding': 8}
+
+====================================================================================================
+SUITE STRENGTH: half  (32 faults analysed, 0 skipped: {})
+
+A. PLAUSIBLE PATCHES: 36; oracle classes {'equivalent': 10, 'restored': 26}; faults containing >=1 wrong plausible patch: 0/32; verification available on 34/36
+   by subject: cachetools: {'equivalent': 5, 'restored': 10}; toolz: {'equivalent': 4, 'restored': 12}; understanding: {'restored': 4, 'equivalent': 1}
+
+   flag                                               fires on WRONG   fires on CORRECT (false alarm)
+   behaviour_changed_where_tests_passed              0/0                          3/36               
+   behaviour_unverified                              0/0                          2/36               
+   tied_localization                                 0/0                          5/36               
+
+   label      n  restored  equiv  WRONG  unknown   P(wrong | label), known only
+   high      26        18      8      0        0   0/26 (0%, 95% CI 0-13%)
+   medium    10         8      2      0        0   0/10 (0%, 95% CI 0-28%)
+   low        0         0      0      0        0   0/0
+
+   detection of wrong patches:  any flag 0/0;  label low 0/0
+   false alarms on correct:     any flag 10/36 (28%, 95% CI 16-44%);  label low 0/36 (0%, 95% CI 0-10%)
+
+B. REAL WORKFLOW: 32 runs, status {'resolved': 28, 'unresolved': 4}; chosen-patch oracle classes {'equivalent': 8, 'restored': 20}
+   accepted & correct 28/28 (100%, 95% CI 88-100%);  accepted & WRONG 0/28 (0%, 95% CI 0-12%);  unknown 0
+   label high    n=18  correct 18, WRONG 0, unknown 0
+   label medium  n=10  correct 10, WRONG 0, unknown 0
+   label low     n=0   correct 0, WRONG 0, unknown 0
+   localization top-1 (pessimistic): 21/32, top-3: 26/32
+
+====================================================================================================
+SUITE STRENGTH: weak  (32 faults analysed, 0 skipped: {})
+
+A. PLAUSIBLE PATCHES: 33; oracle classes {'equivalent': 9, 'restored': 20, 'wrong': 4}; faults containing >=1 wrong plausible patch: 2/32; verification available on 31/33
+   by subject: cachetools: {'equivalent': 4, 'restored': 6, 'wrong': 4}; toolz: {'equivalent': 5, 'restored': 12}; understanding: {'restored': 2}
+
+   flag                                               fires on WRONG   fires on CORRECT (false alarm)
+   behaviour_unverified                              0/4                          2/29               
+   competing_patches_in_other_functions              4/4                          3/29               
+   tied_localization                                 4/4                         11/29               
+
+   label      n  restored  equiv  WRONG  unknown   P(wrong | label), known only
+   high      16        11      5      0        0   0/16 (0%, 95% CI 0-19%)
+   medium    10         7      3      0        0   0/10 (0%, 95% CI 0-28%)
+   low        7         2      1      4        0   4/7 (57%, 95% CI 25-84%)
+
+   detection of wrong patches:  any flag 4/4 (100%, 95% CI 51-100%);  label low 4/4 (100%, 95% CI 51-100%)
+   false alarms on correct:     any flag 13/29 (45%, 95% CI 28-62%);  label low 3/29 (10%, 95% CI 4-26%)
+
+B. REAL WORKFLOW: 32 runs, status {'resolved': 20, 'unresolved': 11, 'partial': 1}; chosen-patch oracle classes {'equivalent': 6, 'restored': 12, 'wrong': 2}
+   accepted & correct 18/20 (90%, 95% CI 70-97%);  accepted & WRONG 2/20 (10%, 95% CI 3-30%);  unknown 0
+   label high    n=12  correct 12, WRONG 0, unknown 0
+   label medium  n=6   correct 6, WRONG 0, unknown 0
+   label low     n=2   correct 0, WRONG 2, unknown 0
+   WRONG accepted: cachetools truth=__setitem__ patched=__init__ compare: 'is not' -> 'is' at line 40 | label low ['competing_patches_in_other_functions', 'tied_localization']
+   WRONG accepted: cachetools truth=__setitem__ patched=__init__ compare: 'is not' -> 'is' at line 40 | label low ['competing_patches_in_other_functions', 'tied_localization']
+   localization top-1 (pessimistic): 13/32, top-3: 19/32

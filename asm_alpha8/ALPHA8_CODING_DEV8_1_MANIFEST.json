@@ -1,0 +1,20 @@
+{
+  "version": "alpha8-coding-dev8.1-hardened",
+  "status": "experimental-not-promoted",
+  "parent": "alpha8-dev9",
+  "tests": {
+    "alpha8_passed": 249,
+    "new_hardening": 49,
+    "mutants_caught": "16/16",
+    "v01": "72 passed",
+    "v02_v04": "identical failures to pristine DEV7 (PyTorch absent)"
+  },
+  "sha256": {
+    "asm/coding/sandbox.py": "966dffb8e301326867e759d25dac5ed70a44734752fb19d940136f32b990ac60",
+    "asm/coding/research.py": "5e426f441e4d1a0108741fd77458e1906a83ca0f922f648d10c1580bdbe04faa",
+    "asm/coding/__init__.py": "1a4dc17187b2b3fc3ab82e1bd0b66496d7ee1bf341efc18ff1768beea1188fe9",
+    "tests/test_alpha8_coding_dev8.py": "7d7749b37ea90251e90bda473449129f9e2dec08e48eedc911eac2dae1cd5633",
+    "tests/test_alpha8_coding_dev8_hardening.py": "e2c97a0a1973cc289fc2a7b33169df245878a48bc4396d8a38fa8e1794cc458e",
+    "ALPHA8_CODING_DEV8_1_HARDENING.md": "ffa5976bb73fa9bcdbd4c2e065e8e1750259628854076769346fab037276c6cc"
+  }
+}

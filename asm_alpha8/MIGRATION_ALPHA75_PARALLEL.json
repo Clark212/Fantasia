@@ -1,0 +1,21 @@
+{
+  "A_versions": 1,
+  "B_versions": 1,
+  "A_prediction": {
+    "status": "predicted",
+    "value": 6,
+    "version": 1,
+    "confidence": 0.9,
+    "support": 8,
+    "contradictions": 0
+  },
+  "B_prediction": {
+    "status": "predicted",
+    "value": 4,
+    "version": 1,
+    "confidence": 0.9,
+    "support": 8,
+    "contradictions": 0
+  },
+  "route_records": 0
+}

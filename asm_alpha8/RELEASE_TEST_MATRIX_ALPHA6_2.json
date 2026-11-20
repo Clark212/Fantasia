@@ -1,0 +1,19 @@
+{
+  "version": "0.4.0-alpha.6.2",
+  "unit_batches": [
+    {"name": "legacy_review_v01_v02", "executed": 167, "passed": 167, "skipped": 0},
+    {"name": "v03", "executed": 77, "passed": 76, "skipped": 1},
+    {"name": "v04", "executed": 94, "passed": 94, "skipped": 0}
+  ],
+  "unit_total": {"executed": 338, "passed": 337, "skipped": 1},
+  "benchmarks": {
+    "alpha5": "13/13 PASS",
+    "alpha5_hard_feed": "6/6 PASS",
+    "alpha5_extreme": "9/9 PASS",
+    "alpha6_torture": "12/12 PASS",
+    "alpha61_stationary_false_splits": "0/100",
+    "alpha62_torture": "10/10 PASS",
+    "smoke": "PASS"
+  },
+  "not_counted": ["monolithic unittest discover timed out; split batches cover all test modules"]
+}
