@@ -643,6 +643,23 @@ def ast_normal(source: str) -> str:
         return source
 
 
+def _line_rank(scores: dict, line: int) -> int:
+    """1 = the most suspicious distinct score in this file's line scores."""
+    distinct = sorted({v for v in scores.values()}, reverse=True)
+    v = scores.get(line, 0.0)
+    return distinct.index(v) + 1 if v in distinct else len(distinct) + 1
+
+
+def _meta(scores: dict, line: int, kind: str, family: str, original: str, option: str, extra: dict | None = None) -> dict:
+    """DEV16: structured description of a candidate, the input of learned candidate ranking. Purely descriptive;
+    generation order and content are unchanged."""
+    m = {"kind": kind, "family": family, "line": line, "line_score": round(scores.get(line, 0.0), 4),
+         "line_rank": _line_rank(scores, line), "original": original[:40], "option": option[:40]}
+    if extra:
+        m.update(extra)
+    return m
+
+
 def generate_candidates(source: str, path: str, suspect: Suspect, ranges: list, line_scores: dict,
                         extended: bool = False, failure_texts=(), pairs: bool = True) -> list:
     """Template repair candidates for one suspect function, most suspicious source lines first.
@@ -662,7 +679,9 @@ def generate_candidates(source: str, path: str, suspect: Suspect, ranges: list, 
                     ast.parse(new)
                 except SyntaxError:
                     continue
-                out.append(Candidate(path, new, s.describe(opt)))
+                c = Candidate(path, new, s.describe(opt))
+                c.meta = _meta(scores, s.line, s.kind, "single_site", s.original, opt)
+                out.append(c)
         return out
     from . import repair_ops as R
     starts = _offsets(source.encode("utf-8"))
@@ -685,7 +704,13 @@ def generate_candidates(source: str, path: str, suspect: Suspect, ranges: list, 
         if norm in seen:  # e.g. a guard identical to an existing one: same program, no new evidence
             continue
         seen.add(norm)
-        out.append(Candidate(path, new, s.describe(opt) if ins is None else ins.describe()))
+        c = Candidate(path, new, s.describe(opt) if ins is None else ins.describe())
+        if ins is None:
+            c.meta = _meta(scores, s.line, s.kind, "single_site" if s.kind in _KIND_PRIORITY else s.kind, s.original, opt)
+        else:
+            c.meta = _meta(scores, ins.anchor_line, ins.kind, ins.kind, "", ins.note,
+                           {"span": ins.end_line - ins.start_line + 1})
+        out.append(c)
     if pairs:
         pool = [(k, s, opt) for k, s, opt, ins in singles if ins is None and k[0] < 0][: R.MAX_PAIR_SITES]
         made = 0
@@ -707,7 +732,10 @@ def generate_candidates(source: str, path: str, suspect: Suspect, ranges: list, 
                     continue
                 seen.add(norm)
                 made += 1
-                out.append(Candidate(path, new, f"pair: {a.describe(oa)} + {b.describe(ob)}"))
+                c = Candidate(path, new, f"pair: {a.describe(oa)} + {b.describe(ob)}")
+                c.meta = _meta(scores, a.line, f"{a.kind}+{b.kind}", "pair", a.original, oa,
+                               {"line2": b.line, "line_score2": round(scores.get(b.line, 0.0), 4), "same_line": a.line == b.line})
+                out.append(c)
     return out
 
 
@@ -834,6 +862,14 @@ class Dossier:
         return "\n".join(L)
 
 
+def _ranking_context(spectrum, sus, rank: int, phase: int) -> dict:
+    from .repair_ops import _exception_names
+    texts = list(spectrum.failures.values())
+    tb = {int(m.group(2)) for t in texts for m in _FRAME.finditer(t or "") if m.group(1).endswith(sus.path)}
+    return {"suspect_rank": rank, "suspect_score": round(sus.score, 4), "phase": phase, "traceback_lines": tb,
+            "exceptions": _exception_names(texts)}
+
+
 def _unified(path: str, old: str, new: str) -> str:
     return "".join(difflib.unified_diff(old.splitlines(keepends=True), new.splitlines(keepends=True),
                                         f"a/{path}", f"b/{path}", n=2))
@@ -851,8 +887,9 @@ class RepairWorkflow:
                  time_budget_seconds: float = 180.0, confirm_runs: int = 1, ledger: FailureLedger | None = None,
                  semantic_check: bool = True, counterexamples: bool = True, explore_alternatives: bool = True,
                  max_extra_candidates: int = 30, competing_max_suspects: int = 8, competing_time_seconds: float = 75.0,
-                 extended_ops: bool = True):
+                 extended_ops: bool = True, ranker=None):
         self.counterexamples = counterexamples
+        self.ranker = ranker  # DEV16 learned candidate ordering (asm.coding.learned.CandidateRanker); None = DEV15 order
         self.extended_ops = extended_ops  # DEV15 repair families (repair_ops); False reproduces the DEV14 repair space
         self.explore_alternatives, self.max_extra_candidates = explore_alternatives, max_extra_candidates
         self.competing_max_suspects, self.competing_time = competing_max_suspects, competing_time_seconds
@@ -895,6 +932,8 @@ class RepairWorkflow:
                 (work / "tests" / "test_asm_counterexamples.py").write_text("\n".join(lines) + "\n")
                 notes.append(f"{len(examples)} human-supplied example(s) were added as tests in the working copy")
             first_loc = None
+            if self.ranker is not None:
+                notes.append(f"candidate order learned by {self.ranker.provenance}")
             for it in range(1, self.max_iterations + 1):
                 if remaining() < 5:
                     status, _ = "time_budget", notes.append("time budget exhausted before localization finished")
@@ -962,6 +1001,8 @@ class RepairWorkflow:
                                                     extended=extended_phase, failure_texts=list(spectrum.failures.values()))
                         if extended_phase:  # DEV14 templates were already tried in phase 1
                             cands = [c for c in cands if family_of(c.reason) != "single_site"]
+                        if self.ranker is not None and cands:  # DEV16: reorder within this phase only
+                            cands = self.ranker.rerank(cands, _ranking_context(spectrum, sus, rank, 2 if extended_phase else 1))
                         if not cands:
                             reasons["no_template_sites"] += 1
                             rejected.append({"suspect": sus.qname, "description": "no mutation sites in this function",
