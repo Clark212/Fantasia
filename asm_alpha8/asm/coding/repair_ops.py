@@ -185,8 +185,19 @@ def _simple_statements(fn, lines: list):
             continue
         if isinstance(n, ast.Expr) and isinstance(n.value, ast.Constant):
             continue  # docstrings and bare literals
+        if _suspends(n):
+            continue  # see _suspends
         out.append(n)
     return out
+
+
+def _suspends(node) -> bool:
+    """yield / yield from / await inside `node`. DEV15 bug found on real bug cookiecutter-4 (first DEV15 run, discarded):
+    try/except around the `yield` of a @contextmanager catches exceptions raised in the CALLER's `with` block, i.e. in
+    the test itself, so the test's own failure was swallowed and the patch was accepted (label high). Exceptions at a
+    suspension point come from someone else's code, and guarding one breaks the generator protocol, so no wrapper or
+    guard is ever placed around one, and generator functions get no early-return guard."""
+    return any(isinstance(x, (ast.Yield, ast.YieldFrom, ast.Await)) for x in ast.walk(node))
 
 
 def _indent_block(lines: list, a: int, b: int, extra: str) -> list:
@@ -236,7 +247,7 @@ def insertion_edits(source: str, path: str, ranges: list, qname: str, line_score
     # GUARD_RETURN at function entry (after a docstring)
     body0 = fn.body[1] if (len(fn.body) > 1 and isinstance(fn.body[0], ast.Expr)
                            and isinstance(fn.body[0].value, ast.Constant) and isinstance(fn.body[0].value.value, str)) else fn.body[0]
-    if lines[body0.lineno - 1][:body0.col_offset].strip() == "":
+    if lines[body0.lineno - 1][:body0.col_offset].strip() == "" and not any(_suspends(x) for x in fn.body):
         ind = lines[body0.lineno - 1][:body0.col_offset]
         params = [p for p in _params(fn) if p not in _ALWAYS_SKIP_NAMES][:MAX_GUARD_PARAMS]
         for p in params:

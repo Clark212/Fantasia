@@ -104,6 +104,26 @@ class GenerationOrderTests(unittest.TestCase):
         excs = {i.note for i in ins if i.kind == "try_except"}
         self.assertTrue(excs and all("IndexError" in e for e in excs), excs)
 
+    def test_no_wrapper_or_guard_around_a_suspension_point(self):
+        # regression for the cookiecutter-4 bug: try/except around a context manager's `yield` swallows the caller's
+        # (the test's) exceptions
+        src = ("import contextlib\n@contextlib.contextmanager\ndef work_in(d=None):\n    cur = d\n    try:\n"
+               "        yield\n    finally:\n        cur = None\n")
+        ranges = [("m.work_in", 2, 8)]
+        ins = insertion_edits(src, "m.py", ranges, "m.work_in", {i: 1.0 for i in range(1, 9)}, ["AttributeError: x"])
+        self.assertFalse([i for i in ins if i.start_line <= 6 <= i.end_line], [i.describe() for i in ins])
+        self.assertFalse([i for i in ins if i.kind == "guard_return"])
+        self.assertTrue([i for i in ins if i.kind == "try_except" and i.anchor_line == 4])  # ordinary statements still are
+
+    def test_contextmanager_yield_wrapper_cannot_hide_a_failing_test(self):
+        files = {"m.py": "import contextlib\n@contextlib.contextmanager\ndef ctx():\n    x = 1\n    yield x\n"
+                         "def broken():\n    return None\n",
+                 "tests/test_m.py": "from m import ctx, broken\ndef test_b():\n    with ctx():\n        broken().missing\n"}
+        d = run(files)
+        for st in d.steps:
+            self.assertNotIn("yield", st["diff"].split("+try:")[-1][:40], st["diff"])
+        self.assertNotEqual(d.status, "resolved", d.diff)
+
     def test_guard_return_goes_after_the_docstring(self):
         ins = next(i for i in insertion_edits(SRC, "m.py", RANGES, "m.write", SCORES["m.py"]) if i.kind == "guard_return")
         from asm.coding.repair_ops import apply_insertion
