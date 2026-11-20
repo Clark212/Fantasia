@@ -24,6 +24,11 @@ import random
 INT_BOUNDARY = [0, 1, -1, 2, -2, 3, 10, -10, 100, 1000]
 FLOAT_VALUES = [0.0, -0.0, 0.5, -0.5, 1.5, -2.25, 1e-9, 1000.0]
 STR_VALUES = ["", " ", "a", "A", "ab", "aB c", "0", "-1", "üß", "a\nb", "x" * 20]
+# DEV15: strings up to 80 characters are mined (DEV14: 20). Real bug thefuck-15 tests `A in stderr and B in stderr`;
+# both constants are longer than 20 characters, and only an input containing BOTH tells the developer's fix from ASM's
+# patch, so mined strings are also offered joined in pairs (and appended to the recorded value).
+MAX_MINED_STR = 80
+MAX_STR_PAIRS = 6
 
 
 def mine_constants(fn: ast.AST) -> dict:
@@ -35,7 +40,7 @@ def mine_constants(fn: ast.AST) -> dict:
                 nums.update({n.value - 1, n.value, n.value + 1})
             elif isinstance(n.value, float):
                 nums.update({n.value, n.value + 1.0, n.value - 1.0})
-            elif isinstance(n.value, str) and len(n.value) <= 20:
+            elif isinstance(n.value, str) and len(n.value) <= MAX_MINED_STR:
                 strs.add(n.value)
     return {"nums": sorted(nums, key=lambda v: (abs(v), v)), "strs": sorted(strs)}
 
@@ -55,11 +60,15 @@ def typed_values(v, mined: dict, rng: random.Random) -> list:
     if isinstance(v, bool):
         out = [not v]
     elif isinstance(v, int):
-        out = INT_BOUNDARY + [x for x in mined["nums"] if isinstance(x, int) and abs(x) <= 1000] + [-v, v + 7]
+        # DEV15: values mined from the function come first; with several arguments the per-argument budget is small
+        # and DEV14's order (generic values first) never reached them (found on real bug thefuck-15)
+        out = [x for x in mined["nums"] if isinstance(x, int) and abs(x) <= 1000] + INT_BOUNDARY + [-v, v + 7]
     elif isinstance(v, float):
-        out = FLOAT_VALUES + [float(x) for x in mined["nums"] if abs(x) <= 1000] + [-v]
+        out = [float(x) for x in mined["nums"] if abs(x) <= 1000] + FLOAT_VALUES + [-v]
     elif isinstance(v, str):
-        out = STR_VALUES + list(mined["strs"]) + [v.upper(), v * 2 if len(v) <= 10 else v, v.strip()]
+        ms = list(mined["strs"])
+        joined = [a + " " + b for i, a in enumerate(ms) for b in ms[i + 1:]][:MAX_STR_PAIRS]
+        out = joined + [v + " " + m for m in ms[:3]] + ms + STR_VALUES + [v.upper(), v * 2 if len(v) <= 10 else v, v.strip()]
     elif isinstance(v, (list, tuple)):
         out = _seq_variants(v, rng, mined)
     elif isinstance(v, dict):
@@ -133,3 +142,32 @@ def find_function_node(source: str, line: int):
         if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)) and n.lineno == line:
             return n
     return None
+
+
+def find_function_by_qualname(source: str, local_qualname: str):
+    """Function node by its module-local qualified name ('Cls.meth', 'outer.inner'); robust to line shifts between
+    versions (DEV15: a candidate that inserts lines moves every later function)."""
+    try:
+        tree = ast.parse(source)
+    except (SyntaxError, ValueError):
+        return None
+    parts = local_qualname.split(".")
+
+    def walk(body, i):
+        for n in body:
+            if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)) and n.name == parts[i]:
+                if i == len(parts) - 1:
+                    return n if not isinstance(n, ast.ClassDef) else None
+                found = walk(n.body, i + 1)
+                if found is not None:
+                    return found
+        return None
+    return walk(tree.body, 0)
+
+
+def merge_mined(items: list) -> dict:
+    nums, strs = set(), set()
+    for m in items:
+        nums.update(m["nums"])
+        strs.update(m["strs"])
+    return {"nums": sorted(nums, key=lambda v: (abs(v), v)), "strs": sorted(strs)}

@@ -31,14 +31,14 @@ import tempfile
 from pathlib import Path
 
 from .counterexamples import perturb_values
-from .generation import find_function_node, generate_sets, mine_constants
+from .generation import find_function_by_qualname, find_function_node, generate_sets, merge_mined, mine_constants
 from .patches import apply_proposal
 from .sandbox import copy_repo, run_python_worker
 
 MAX_INPUTS = 120
 
 _WORKER2 = r'''
-import sys, os, json, importlib, io, copy, signal, contextlib, ast, types, time, pickle, base64, hashlib, random, shutil
+import sys, os, json, importlib, io, copy, signal, contextlib, ast, types, time, pickle, base64, hashlib, random, shutil, re
 job = json.load(open(sys.argv[1])); out_path = sys.argv[2]
 sys.dont_write_bytecode = True
 if job.get("root"): sys.path.insert(0, job["root"])
@@ -55,6 +55,7 @@ _ur = [random.Random(99)]
 os.urandom = lambda n: bytes(_ur[0].getrandbits(8) for _ in range(n))
 def reset_env():
     random.seed(1234); _clock[0] = 1700000000.0; _ur[0] = random.Random(99)
+_PAT = type(re.compile(""))
 _SKIP = (types.FunctionType, types.MethodType, types.BuiltinFunctionType, types.ModuleType, type)
 def enc(v, d=0, seen=None):
     seen = seen if seen is not None else frozenset()
@@ -66,6 +67,7 @@ def enc(v, d=0, seen=None):
     if isinstance(v, bytes): return {"t": "bytes", "v": v[:200].hex()}
     if isinstance(v, ast.AST): return {"t": "ast", "v": ast.dump(v)[:1500]}
     if isinstance(v, _SKIP): return {"t": "callable", "v": getattr(v, "__qualname__", type(v).__name__)}
+    if isinstance(v, _PAT): return {"t": "re", "v": [v.pattern if isinstance(v.pattern, str) else repr(v.pattern), v.flags]}
     if id(v) in seen or d > 4: return {"t": "ref", "v": type(v).__qualname__}
     seen = seen | {id(v)}
     if isinstance(v, (list, tuple)): return {"t": type(v).__name__, "v": [enc(x, d + 1, seen) for x in v[:60]]}
@@ -153,6 +155,8 @@ for m in job["modules"]:
     except BaseException as e:
         signal.setitimer(signal.ITIMER_REAL, 0)
         emit({"module": m["module"], "import_error": type(e).__name__ + ": " + str(e)[:120]}); continue
+    if m.get("dump_state"):  # DEV15: module state right after import (for functions that run only at import time)
+        emit({"module": m["module"], "state": {k: json.dumps(enc(v), sort_keys=True) for k, v in gvals(mod).items()}})
     for f in m["functions"]:
         key = {"module": m["module"], "qualname": f["qualname"], "id": f["id"]}
         try:
@@ -376,15 +380,28 @@ def _short(r: dict) -> str:
     return s if len(s) <= 90 else s[:87] + "..."
 
 
-def generation_plan(base: Path, target, budget: int, seed: int) -> dict | None:
-    """Constants mined from the target function's own source, plus the generation budget and seed."""
+def generation_plan(base: Path, target, budget: int, seed: int, extra_sources=()) -> dict | None:
+    """Constants mined from the target function's source, plus the generation budget and seed.
+    DEV15: also mined from the same function in every other version being compared (`extra_sources`: full file texts).
+    Found on real bug thefuck-15: the oracle mined only the developer's fixed function, which no longer contained the
+    string the patch tested for, so no generated input contained it and a wrong patch looked equivalent."""
     if budget <= 0:
         return None
+    local = target.qname[len(target.module) + 1:]
+    mined = []
     try:
-        node = find_function_node((Path(base) / target.path).read_text(encoding="utf-8"), target.line)
+        src = (Path(base) / target.path).read_text(encoding="utf-8")
+        node = find_function_node(src, target.line) or find_function_by_qualname(src, local)
     except OSError:
         node = None
-    return {"mined": mine_constants(node) if node is not None else {"nums": [], "strs": []}, "budget": budget, "seed": seed}
+    if node is not None:
+        mined.append(mine_constants(node))
+    for other in extra_sources:
+        n2 = find_function_by_qualname(other, local)
+        if n2 is not None:
+            mined.append(mine_constants(n2))
+    return {"mined": merge_mined(mined) if mined else {"nums": [], "strs": []}, "budget": budget, "seed": seed,
+            "mined_from_versions": len(mined)}
 
 
 def verify_patch(base: Path, qname: str, accepted: tuple, alternatives: list, spectrum, funcs: dict,
@@ -397,13 +414,17 @@ def verify_patch(base: Path, qname: str, accepted: tuple, alternatives: list, sp
     local = target.qname[len(target.module) + 1:]
     info = {"qname": target.qname, "kind": target.kind, "via_enclosing": via}
     records = spectrum.records.get(f"{target.path}:{local}", [])
+    if not records and import_time_function(base, target):
+        versions = {"original": None, accepted[0]: accepted[1], **{n: p for n, p in alternatives}}
+        return verify_import_state(base, target, info, versions, accepted[0], alternatives, spectrum)
     if not records:
         return {"available": False, "target": info,
                 "reason": f"no replayable calls to {local} were recorded during the tests "
                           "(arguments may be unpicklable, or the tests do not call it)"}
-    inputs = build_inputs(records, spectrum.outcomes, generate=generation_plan(base, target, gen_budget, gen_seed))
-    diags: list = []
     versions = {"original": None, accepted[0]: accepted[1], **{n: p for n, p in alternatives}}
+    extra = [p.replacement for p in versions.values() if p is not None and p.path == target.path]
+    inputs = build_inputs(records, spectrum.outcomes, generate=generation_plan(base, target, gen_budget, gen_seed, extra))
+    diags: list = []
     outs = run_versions(base, target.module, local, versions, inputs, diags)
     if any(v is None for v in outs.values()):
         return {"available": False, "reason": "the function could not be replayed in the sandbox", "diagnostics": diags[:3],
@@ -447,3 +468,152 @@ def verify_patch(base: Path, qname: str, accepted: tuple, alternatives: list, sp
             "changed_on_passing_recorded": passing, "changed_on_failing_recorded": failing, "changed_components": comps,
             "distinguishing": distinguishing[:6],
             "alternatives_agree_everywhere": bool(alternatives) and not distinguishing}
+
+
+# ------------------------------------------------------------ DEV15: import-time functions
+def import_time_function(base: Path, target) -> bool:
+    """True if a module-level function is called while its module is imported (module-level statements, class bodies,
+    decorators, default values). Such a function is never called inside a test, so no call is recorded; DEV14 reported
+    every patch to it as unverifiable (96 of 174 fresh decoys, all in inflection's `_irregular`)."""
+    if target is None or target.kind != "function":
+        return False
+    try:
+        tree = ast.parse((Path(base) / target.path).read_text(encoding="utf-8"))
+    except (OSError, SyntaxError, ValueError):
+        return False
+    stack = list(tree.body)
+    while stack:
+        n = stack.pop()
+        if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            stack += n.decorator_list + n.args.defaults + [d for d in n.args.kw_defaults if d is not None]
+            continue
+        if isinstance(n, ast.Lambda):
+            continue
+        if isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == target.name:
+            return True
+        if isinstance(n, ast.Name) and n.id == target.name and isinstance(n.ctx, ast.Load) and _is_decorator_use(tree, n):
+            return True
+        stack += list(ast.iter_child_nodes(n))
+    return False
+
+
+def _is_decorator_use(tree, name_node) -> bool:
+    for n in ast.walk(tree):
+        if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)) and name_node in n.decorator_list:
+            return True
+    return False
+
+
+def run_module_job(base: Path, prop, module: str, functions: list, dump_state: bool, diags: list, name: str = "v") -> dict | None:
+    """One worker for one version: optional module state after import + replay of `functions`
+    ([{"qualname", "inputs"}]). Returns {"state": {...} | None, "funcs": {qualname: {i: record}}} or None."""
+    with tempfile.TemporaryDirectory(prefix="asm_ver15_") as td:
+        td = Path(td)
+        repo, cwd = td / "repo", td / "cwd"
+        cwd.mkdir()
+        copy_repo(base, repo)
+        if prop is not None:
+            apply_proposal(repo, prop, backup=False)
+        job = {"root": str(repo), "cwd": str(cwd), "call_timeout": 1.0, "import_timeout": 10.0, "function_budget": 20.0,
+               "modules": [{"module": module, "dump_state": dump_state, "functions": [
+                   {"qualname": f["qualname"], "id": f["qualname"], "inputs": [
+                       {"blob": i["blob"], "set": i["set"], "donor": i.get("donor"), "take": i.get("take", [])}
+                       for i in f["inputs"]]} for f in functions]}]}
+        jp, op = td / "job.json", td / "out.jsonl"
+        jp.write_text(json.dumps(job))
+        op.write_text("")
+        run = run_python_worker(_WORKER2, [str(jp), str(op)], cwd, timeout=90, memory_mb=1024)
+        if run["timed_out"]:
+            diags.append({"code": "verification_timeout", "version": name})
+        out = {"state": None, "funcs": {}}
+        for line in op.read_text().splitlines():
+            try:
+                r = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if "import_error" in r:
+                diags.append({"code": "verification_import_error", "version": name, "message": r["import_error"]})
+                return None
+            if "state" in r:
+                out["state"] = r["state"]
+            elif "results" in r:
+                out["funcs"][r["qualname"]] = {x["i"]: x for x in r["results"]}
+        return out if (out["state"] is not None or not dump_state) else None
+
+
+def consumer_inputs(target, spectrum, max_functions: int = 4, per_function: int = 30) -> list:
+    """Recorded calls of OTHER functions in the target's module: they run with whatever state import produced, so they
+    show whether a change to import-time state reaches observable behaviour."""
+    pref = f"{target.path}:"
+    keys = sorted((k for k in spectrum.records if k.startswith(pref) and spectrum.records[k]),
+                  key=lambda k: (-len(spectrum.records[k]), k))[:max_functions]
+    return [{"qualname": k[len(pref):], "inputs": build_inputs(spectrum.records[k], spectrum.outcomes, limit=per_function)}
+            for k in keys]
+
+
+def compare_import_state(a: dict, b: dict, consumers: list) -> dict:
+    """Differences between two run_module_job results: state keys, and consumer inputs (with origin and test outcomes)."""
+    state_keys = sorted(k for k in set(a["state"] or {}) | set(b["state"] or {})
+                        if (a["state"] or {}).get(k) != (b["state"] or {}).get(k))
+    diffs, compared = [], 0
+    for f in consumers:
+        ra, rb = a["funcs"].get(f["qualname"], {}), b["funcs"].get(f["qualname"], {})
+        for i in sorted(set(ra) & set(rb)):
+            x, y = ra[i], rb[i]
+            if "skip" in x or "skip" in y or not x.get("det") or not y.get("det"):
+                continue
+            compared += 1
+            if _canon(x) != _canon(y):
+                diffs.append({"function": f["qualname"], "input": f["inputs"][i], "a": x, "b": y})
+    return {"state_keys": state_keys, "consumer_diffs": diffs, "consumer_compared": compared}
+
+
+def verify_import_state(base: Path, target, info: dict, versions: dict, name0: str, alternatives: list, spectrum) -> dict:
+    info = dict(info, mode="import_state")
+    consumers = consumer_inputs(target, spectrum)
+    diags: list = []
+    outs = {n: run_module_job(base, p, target.module, consumers, True, diags, n) for n, p in versions.items()}
+    if any(v is None for v in outs.values()):
+        return {"available": False, "reason": "the module could not be imported in the sandbox for an import-time comparison",
+                "diagnostics": diags[:3], "target": info}
+    footprint, passing, failing, comps, by_origin, state_changed = {}, {}, {}, {}, {}, {}
+    n_cmp = 0
+    for n in versions:
+        if n == "original":
+            continue
+        c = compare_import_state(outs["original"], outs[n], consumers)
+        n_cmp = max(n_cmp, c["consumer_compared"])
+        state_changed[n] = c["state_keys"]
+        units = c["consumer_compared"] + max(1, len(outs["original"]["state"]))
+        footprint[n] = round((len(c["consumer_diffs"]) + len(c["state_keys"])) / units, 3)
+        passing[n] = [f"{d['function']}{d['input']['desc']}" for d in c["consumer_diffs"]
+                      if d["input"]["origin"] == "recorded" and "passed" in d["input"]["outcomes"]]
+        failing[n] = [f"{d['function']}{d['input']['desc']}" for d in c["consumer_diffs"]
+                      if d["input"]["origin"] == "recorded" and "passed" not in d["input"]["outcomes"]]
+        comps[n] = {"module_state": len(c["state_keys"])} if c["state_keys"] else {}
+        for d in c["consumer_diffs"]:
+            for comp in _components(d["a"], d["b"]):
+                comps[n][comp] = comps[n].get(comp, 0) + 1
+        o: dict = {}
+        for d in c["consumer_diffs"]:
+            o[d["input"]["origin"]] = o.get(d["input"]["origin"], 0) + 1
+        by_origin[n] = o
+    distinguishing = []
+    for n, _ in alternatives:
+        c = compare_import_state(outs[name0], outs[n], consumers)
+        for d in c["consumer_diffs"][:3]:
+            distinguishing.append({"input": f"{d['function']}{d['input']['desc']}", "alternative": n,
+                                   "accepted_output": _short(d["a"]), "alternative_output": _short(d["b"]),
+                                   "original_output": "n/a", "differs_in": _components(d["a"], d["b"]),
+                                   "origin": d["input"]["origin"]})
+        if not c["consumer_diffs"] and c["state_keys"]:
+            distinguishing.append({"input": f"module state after import ({', '.join(c['state_keys'][:3])})", "alternative": n,
+                                   "accepted_output": "state A", "alternative_output": "state B", "original_output": "n/a",
+                                   "differs_in": ["module_state"], "origin": "import"})
+    return {"available": True, "reason": None, "target": info, "mode": "import_state",
+            "inputs_total": n_cmp + 1, "inputs_tested": n_cmp + 1,
+            "inputs_recorded": n_cmp, "inputs_by_origin": {"recorded": n_cmp, "perturbed": 0, "generated": 0, "import": 1},
+            "consumers": [f["qualname"] for f in consumers], "state_changed": state_changed,
+            "changed_by_origin": by_origin, "excluded_nondeterministic": 0, "footprint": footprint,
+            "changed_on_passing_recorded": passing, "changed_on_failing_recorded": failing, "changed_components": comps,
+            "distinguishing": distinguishing[:6], "alternatives_agree_everywhere": bool(alternatives) and not distinguishing}

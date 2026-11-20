@@ -29,6 +29,7 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
 from .patches import PatchProposal, PatchProposalBuilder, apply_proposal
+from .repair_ops import family_of
 from .research import CodingResearchLoop, Candidate, FailureLedger, compare_outcomes, tree_fingerprint
 from .sandbox import SafeTestRunner, copy_repo, interpreter
 from .semantics import SemanticAnalyzer
@@ -642,28 +643,79 @@ def ast_normal(source: str) -> str:
         return source
 
 
-def generate_candidates(source: str, path: str, suspect: Suspect, ranges: list, line_scores: dict) -> list:
-    """Template repair candidates for one suspect function, most suspicious source lines first."""
+def generate_candidates(source: str, path: str, suspect: Suspect, ranges: list, line_scores: dict,
+                        extended: bool = False, failure_texts=(), pairs: bool = True) -> list:
+    """Template repair candidates for one suspect function, most suspicious source lines first.
+    extended=False is exactly DEV14 (single-site operator / constant / condition edits). extended=True (DEV15) adds the
+    repair_ops families on the same line ordering (DEV14 templates first on each line), then two-edit pairs."""
     if is_test_path(path):  # defence in depth: the localizer already excludes test code
         return []
     sites = [s for s in enumerate_sites(source, path, ranges) if s.function == suspect.qname]
     scores = line_scores.get(path, {})
-    sites.sort(key=lambda s: (-scores.get(s.line, 0.0), _KIND_PRIORITY[s.kind], s.start))
-    out = []
-    for s in sites:
-        for opt in s.options:
-            new = apply_site(source, s, opt)
-            try:
-                ast.parse(new)
-            except SyntaxError:
-                continue
-            out.append(Candidate(path, new, s.describe(opt)))
+    if not extended:
+        sites.sort(key=lambda s: (-scores.get(s.line, 0.0), _KIND_PRIORITY[s.kind], s.start))
+        out = []
+        for s in sites:
+            for opt in s.options:
+                new = apply_site(source, s, opt)
+                try:
+                    ast.parse(new)
+                except SyntaxError:
+                    continue
+                out.append(Candidate(path, new, s.describe(opt)))
+        return out
+    from . import repair_ops as R
+    starts = _offsets(source.encode("utf-8"))
+    ext_sites = R.site_edits(source, path, ranges, suspect.qname, starts)
+    singles = []  # (sort key, Candidate)
+    for s in sites + ext_sites:
+        tier, pri = (0, _KIND_PRIORITY[s.kind]) if s.kind in _KIND_PRIORITY else (1, R.FAMILY_PRIORITY[s.kind])
+        for k, opt in enumerate(s.options):
+            singles.append(((-scores.get(s.line, 0.0), tier, pri, s.start, k), s, opt, None))
+    for ins in R.insertion_edits(source, path, ranges, suspect.qname, scores, failure_texts):
+        singles.append(((-scores.get(ins.anchor_line, 0.0), 1, R.FAMILY_PRIORITY[ins.kind], ins.start_line, 0), None, None, ins))
+    singles.sort(key=lambda x: x[0])
+    out, seen = [], {ast_normal(source)}
+    for _, s, opt, ins in singles:
+        new = apply_site(source, s, opt) if ins is None else R.apply_insertion(source, ins)
+        try:
+            norm = ast.unparse(ast.parse(new))
+        except SyntaxError:
+            continue
+        if norm in seen:  # e.g. a guard identical to an existing one: same program, no new evidence
+            continue
+        seen.add(norm)
+        out.append(Candidate(path, new, s.describe(opt) if ins is None else ins.describe()))
+    if pairs:
+        pool = [(k, s, opt) for k, s, opt, ins in singles if ins is None and k[0] < 0][: R.MAX_PAIR_SITES]
+        made = 0
+        for i in range(len(pool)):
+            for j in range(i + 1, len(pool)):
+                if made >= R.MAX_PAIRS:
+                    break
+                (_, a, oa), (_, b, ob) = pool[i], pool[j]
+                if a is b:
+                    continue
+                new = R.apply_pair(source, a, oa, b, ob)
+                if new is None:
+                    continue
+                try:
+                    norm = ast.unparse(ast.parse(new))
+                except SyntaxError:
+                    continue
+                if norm in seen:
+                    continue
+                seen.add(norm)
+                made += 1
+                out.append(Candidate(path, new, f"pair: {a.describe(oa)} + {b.describe(ob)}"))
     return out
 
 
 # ================================================================ workflow + dossier
 LIMITS = [
-    "No code-generating model: only single-site operator / constant / condition edits are tried.",
+    "No code-generating model: only template edits are tried (DEV14 single-site operator / constant / condition edits; "
+    "DEV15 variable swaps, dropped clauses, getattr fallbacks, guards, try/except wrappers and two-edit pairs within one "
+    "function). String/regex edits, new calls and multi-file fixes are outside the repair space.",
     "Passing the given tests is evidence, not proof; behaviour outside those tests is unverified.",
     "Regression protection covers only the test targets that were run.",
     "The original repository is never modified; applying a fix is a separate approved step.",
@@ -795,11 +847,13 @@ INFORMATIONAL_FLAGS = frozenset({"tied_localization"})
 
 class RepairWorkflow:
     def __init__(self, runner: SafeTestRunner | None = None, localizer: FaultLocalizer | None = None,
-                 max_suspects: int = 3, max_iterations: int = 3, candidates_per_round: int = 8, max_rounds: int = 8,
+                 max_suspects: int = 3, max_iterations: int = 3, candidates_per_round: int = 8, max_rounds: int = 10,
                  time_budget_seconds: float = 180.0, confirm_runs: int = 1, ledger: FailureLedger | None = None,
                  semantic_check: bool = True, counterexamples: bool = True, explore_alternatives: bool = True,
-                 max_extra_candidates: int = 30, competing_max_suspects: int = 8, competing_time_seconds: float = 75.0):
+                 max_extra_candidates: int = 30, competing_max_suspects: int = 8, competing_time_seconds: float = 75.0,
+                 extended_ops: bool = True):
         self.counterexamples = counterexamples
+        self.extended_ops = extended_ops  # DEV15 repair families (repair_ops); False reproduces the DEV14 repair space
         self.explore_alternatives, self.max_extra_candidates = explore_alternatives, max_extra_candidates
         self.competing_max_suspects, self.competing_time = competing_max_suspects, competing_time_seconds
         self.runner = runner or SafeTestRunner(timeout_seconds=60)
@@ -893,82 +947,106 @@ class RepairWorkflow:
                 for f in und.functions:
                     ranges_by_file[f.path].append((f.qname, f.line, f.end_line))
                 accepted = None
-                for rank, sus in enumerate([s for s in loc.suspects if s.score > 0][: self.max_suspects], 1):
-                    if remaining() < 5:
-                        break
-                    source = (work / sus.path).read_text(encoding="utf-8")
-                    cands = generate_candidates(source, sus.path, sus, ranges_by_file[sus.path], loc.line_scores)
-                    if not cands:
-                        reasons["no_template_sites"] += 1
-                        rejected.append({"suspect": sus.qname, "description": "no mutation sites in this function",
-                                         "status": "no_candidates", "why": "", "iteration": it})
-                        continue
-
-                    def generator(ctx, cands=cands, size=self.candidates_per_round):
-                        return cands[(ctx.round - 1) * size: ctx.round * size]
-                    task_id = f"{sus.qname}"
-                    for attempt_no in range(3):
-                        if remaining() < 5:
-                            break
-                        loop = CodingResearchLoop(
-                            generator, test_runner=self.runner, ledger=ledger, max_rounds=min(self.max_rounds, 10),
-                            max_candidates_per_round=self.candidates_per_round,
-                            time_budget_seconds=max(5.0, remaining() - 2), baseline_runs=1,
-                            confirm_runs=self.confirm_runs, protect_tests=True)
-                        res = loop.run(work, f"{task} [{sus.qname}]", task_id=task_id, targets=targets)
-                        for a in res.attempts:
-                            why = a.detail or (f"still failing: {a.failed_tests[:2]}" if a.status == "failed" and a.failed_tests else "")
-                            if a.regressions:
-                                why = f"regressions: {a.regressions[:2]}"
-                            if a.status != "passed":
-                                reasons[a.status] += 1
-                                rejected.append({"suspect": sus.qname, "description": a.reason, "status": a.status, "why": why,
-                                                 "fixed": a.fixed_tests[:3], "regressions": a.regressions[:3],
-                                                 "vanished": a.vanished_tests[:3], "iteration": it})
-                        passed = [a for a in res.attempts if a.status == "passed"]
-                        partial = [a for a in res.attempts if a.status == "failed" and a.fixed_tests and not a.regressions
-                                   and not a.vanished_tests and not a.newly_skipped]
-                        # choose by evidence order (candidates are generated most-suspicious-first), never by timing noise
-                        best = (min(passed, key=lambda a: (a.round, a.index)) if passed else
-                                min(partial, key=lambda a: (-len(a.fixed_tests), a.diff_lines, a.round, a.index))
-                                if partial else None)
-                        if best is None:
-                            break
-                        cand = next(c for c in cands if hashlib.sha256(c.replacement.encode("utf-8", "replace")).hexdigest()
-                                    == best.replacement_sha256)
-                        prop = PatchProposalBuilder.from_replacement(work, cand.path, cand.replacement, cand.reason)
-                        ok, detail, info = self._contract_check(work, prop, sus.qname)
-                        if ok:
-                            same = passed if passed else [a for a in partial if set(a.fixed_tests) == set(best.fixed_tests)]
-                            alt_attempts = [a for a in same if a is not best and a.replacement_sha256 != best.replacement_sha256]
-                            alternatives = [a.reason for a in alt_attempts]
-                            alt_pairs = []
-                            for a in alt_attempts[:5]:  # proposals for the counterexample search (cands is this suspect's list)
-                                c = next(c for c in cands if hashlib.sha256(c.replacement.encode("utf-8", "replace")).hexdigest()
-                                         == a.replacement_sha256)
-                                alt_pairs.append((a.reason, PatchProposalBuilder.from_replacement(work, c.path, c.replacement, c.reason)))
-                            if self.explore_alternatives:
-                                sha = lambda c: hashlib.sha256(c.replacement.encode("utf-8", "replace")).hexdigest()  # noqa: E731
-                                seen = {best.replacement_sha256} | {a.replacement_sha256 for a in alt_attempts}
-                                evaluated = {a.replacement_sha256 for a in res.attempts}
-                                for c in [c for c in cands if sha(c) not in evaluated][: self.max_extra_candidates]:
-                                    if remaining() < 8 or len(alt_pairs) >= 8:
-                                        break
-                                    p2 = self._quick_pass(work, c, targets, spectrum.outcomes)
-                                    if p2 is not None and sha(c) not in seen:
-                                        seen.add(sha(c))
-                                        alt_pairs.append((c.reason, p2))
-                                        alternatives.append(c.reason)
-                            accepted = (rank, sus, res, best, detail, info, prop, bool(passed), alternatives, alt_pairs)
-                            break
-                        reasons["rejected_semantic_contract"] += 1
-                        rejected.append({"suspect": sus.qname, "description": best.reason,
-                                         "status": "rejected_semantic_contract", "why": detail,
-                                         "fixed": best.fixed_tests[:3], "regressions": [], "vanished": [], "iteration": it})
-                        best.status, best.detail = "failed", detail  # remember it so the next search skips this candidate
-                        ledger.append(task_id, best, tree_fingerprint(work))
+                # DEV15: phase 1 is exactly the DEV14 repair space over every suspect; the new families (phase 2) are
+                # tried only if phase 1 accepts nothing. Mixing them into one ordering pushed a correct DEV14 fix past
+                # the per-suspect candidate cap on a fresh-subject smoke run (parse.date_convert), so DEV15 lost a
+                # repair DEV14 makes.
+                for extended_phase in ([False, True] if self.extended_ops else [False]):
                     if accepted:
                         break
+                    for rank, sus in enumerate([s for s in loc.suspects if s.score > 0][: self.max_suspects], 1):
+                        if remaining() < 5:
+                            break
+                        source = (work / sus.path).read_text(encoding="utf-8")
+                        cands = generate_candidates(source, sus.path, sus, ranges_by_file[sus.path], loc.line_scores,
+                                                    extended=extended_phase, failure_texts=list(spectrum.failures.values()))
+                        if extended_phase:  # DEV14 templates were already tried in phase 1
+                            cands = [c for c in cands if family_of(c.reason) != "single_site"]
+                        if not cands:
+                            reasons["no_template_sites"] += 1
+                            rejected.append({"suspect": sus.qname, "description": "no mutation sites in this function",
+                                             "status": "no_candidates", "why": "", "iteration": it})
+                            continue
+
+                        def generator(ctx, cands=cands, size=self.candidates_per_round):
+                            return cands[(ctx.round - 1) * size: ctx.round * size]
+                        task_id = f"{sus.qname}"
+                        for attempt_no in range(3):
+                            if remaining() < 5:
+                                break
+                            loop = CodingResearchLoop(
+                                generator, test_runner=self.runner, ledger=ledger, max_rounds=min(self.max_rounds, 10),
+                                max_candidates_per_round=self.candidates_per_round,
+                                time_budget_seconds=max(5.0, remaining() - 2), baseline_runs=1,
+                                confirm_runs=self.confirm_runs, protect_tests=True)
+                            res = loop.run(work, f"{task} [{sus.qname}]", task_id=task_id, targets=targets)
+                            for a in res.attempts:
+                                why = a.detail or (f"still failing: {a.failed_tests[:2]}" if a.status == "failed" and a.failed_tests else "")
+                                if a.regressions:
+                                    why = f"regressions: {a.regressions[:2]}"
+                                if a.status != "passed":
+                                    reasons[a.status] += 1
+                                    rejected.append({"suspect": sus.qname, "description": a.reason, "status": a.status, "why": why,
+                                                     "fixed": a.fixed_tests[:3], "regressions": a.regressions[:3],
+                                                     "vanished": a.vanished_tests[:3], "iteration": it})
+                            passed = [a for a in res.attempts if a.status == "passed"]
+                            partial = [a for a in res.attempts if a.status == "failed" and a.fixed_tests and not a.regressions
+                                       and not a.vanished_tests and not a.newly_skipped]
+                            # choose by evidence order (candidates are generated most-suspicious-first), never by timing noise
+                            best = (min(passed, key=lambda a: (a.round, a.index)) if passed else
+                                    min(partial, key=lambda a: (-len(a.fixed_tests), a.diff_lines, a.round, a.index))
+                                    if partial else None)
+                            if best is None:
+                                break
+                            cand = next(c for c in cands if hashlib.sha256(c.replacement.encode("utf-8", "replace")).hexdigest()
+                                        == best.replacement_sha256)
+                            prop = PatchProposalBuilder.from_replacement(work, cand.path, cand.replacement, cand.reason)
+                            ok, detail, info = self._contract_check(work, prop, sus.qname)
+                            if ok:
+                                same = passed if passed else [a for a in partial if set(a.fixed_tests) == set(best.fixed_tests)]
+                                alt_attempts = [a for a in same if a is not best and a.replacement_sha256 != best.replacement_sha256
+                                            and (family_of(best.reason) == "pair" or family_of(a.reason) != "pair")]
+                                # DEV15 minimal-repair rule: once a single edit passes, a two-edit program is not a
+                                # competing explanation (it is the fix plus an extra edit, i.e. a decoy), so pairs
+                                # count as alternatives only when the accepted patch is itself a pair
+                                alternatives = [a.reason for a in alt_attempts]
+                                alt_pairs = []
+                                for a in alt_attempts[:5]:  # proposals for the counterexample search (cands is this suspect's list)
+                                    c = next(c for c in cands if hashlib.sha256(c.replacement.encode("utf-8", "replace")).hexdigest()
+                                             == a.replacement_sha256)
+                                    alt_pairs.append((a.reason, PatchProposalBuilder.from_replacement(work, c.path, c.replacement, c.reason)))
+                                if self.explore_alternatives:
+                                    sha = lambda c: hashlib.sha256(c.replacement.encode("utf-8", "replace")).hexdigest()  # noqa: E731
+                                    seen = {best.replacement_sha256} | {a.replacement_sha256 for a in alt_attempts}
+                                    evaluated = {a.replacement_sha256 for a in res.attempts}
+                                    pool = [c for c in cands if sha(c) not in evaluated and (
+                                        family_of(best.reason) == "pair" or family_of(c.reason) != "pair")][: self.max_extra_candidates]
+                                    if self.extended_ops and not extended_phase:
+                                        # DEV15: alternatives are evidence, not acceptance, so they come from the new
+                                        # families too even when a DEV14 template was accepted (thefuck-15: the
+                                        # developer's dropped clause is what shows the accepted negation is wrong)
+                                        pool += [c for c in generate_candidates(
+                                            source, sus.path, sus, ranges_by_file[sus.path], loc.line_scores, extended=True,
+                                            failure_texts=list(spectrum.failures.values()))
+                                            if family_of(c.reason) not in ("single_site", "pair")][: self.max_extra_candidates]
+                                    for c in pool:
+                                        if remaining() < 8 or len(alt_pairs) >= 8:
+                                            break
+                                        p2 = self._quick_pass(work, c, targets, spectrum.outcomes)
+                                        if p2 is not None and sha(c) not in seen:
+                                            seen.add(sha(c))
+                                            alt_pairs.append((c.reason, p2))
+                                            alternatives.append(c.reason)
+                                accepted = (rank, sus, res, best, detail, info, prop, bool(passed), alternatives, alt_pairs)
+                                break
+                            reasons["rejected_semantic_contract"] += 1
+                            rejected.append({"suspect": sus.qname, "description": best.reason,
+                                             "status": "rejected_semantic_contract", "why": detail,
+                                             "fixed": best.fixed_tests[:3], "regressions": [], "vanished": [], "iteration": it})
+                            best.status, best.detail = "failed", detail  # remember it so the next search skips this candidate
+                            ledger.append(task_id, best, tree_fingerprint(work))
+                        if accepted:
+                            break
                 if accepted is None:
                     status = "partial" if steps else ("time_budget" if remaining() < 5 else "unresolved")
                     break
@@ -1007,7 +1085,8 @@ class RepairWorkflow:
                 steps.append({"iteration": it, "suspect": sus.qname, "rank": rank, "kind": "full" if full else "partial",
                               "description": best.reason, "fixed_tests": best.fixed_tests, "path": prop.path, "diff": diff,
                               "why_accepted": why, "confirmed": best.confirmed, "diff_lines": best.diff_lines,
-                              "behavioural_verdict": verdict, "behavioural_note": verdict_note})
+                              "behavioural_verdict": verdict, "behavioural_note": verdict_note,
+                              "edit_family": family_of(best.reason)})
                 steps[-1]["competing_patches"] = competing
                 steps[-1]["alternatives_passing"] = alternatives[:8]
                 steps[-1]["tied_with"] = tied[:8]
