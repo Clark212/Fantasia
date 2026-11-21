@@ -56,7 +56,7 @@ def builtin_position(before: str, after: str) -> int | None:
 
 def p17_programs(kb: KnowledgeBase, before: str, limit=None) -> list:
     out = []
-    for _, progs in kb.retrieve(before, (1, before.count("\n") + 1)):
+    for _, progs in kb.retrieve(before, (1, before.count("\n") + 1), max_programs=limit):  # A2: same programs
         out += progs
         if limit and len(out) >= limit:
             return out[:limit]

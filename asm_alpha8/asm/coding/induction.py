@@ -440,10 +440,18 @@ class Procedure:
         """Rewritten programs, one per match inside lines span=(first, last). [] if nothing matches."""
         return [prog for prog, _ in self.apply_detailed(source, span)]
 
-    def apply_detailed(self, source: str, span: tuple, fill=None) -> list:
+    def apply_detailed(self, source: str, span: tuple, fill=None, max_results: int | None = None) -> list:
         """[(program, info)]. DEV18: `fill(binding, node, tree)` may return [(rhs_term, info), ...] to instantiate the
         replacement per match (open procedures whose content holes are filled from the problem); default: the rule's
-        own replacement with the match's binding."""
+        own replacement with the match's binding.
+        DEV18 A2 (performance; same results): candidates are validated as they are built, and with `max_results` the
+        search stops at that many valid ones, which are exactly the first `max_results` of the full list."""
+        try:
+            return self._apply_detailed(source, span, fill, _Collector(max_results))
+        except _Enough as e:
+            return e.results
+
+    def _apply_detailed(self, source, span, fill, out) -> list:
         try:
             tree = ast.parse(source)
         except SyntaxError:
@@ -451,7 +459,6 @@ class Procedure:
         lo, hi = span
         src = source.encode("utf-8")
         starts = _offsets(src)
-        out, seen = [], set()
 
         # DEV18 bug fix (found by the DEV18 self-check on boltons human_readable_list): only the nodes INSIDE an f-string
         # are excluded; the f-string node itself has a reliable position and may be rewritten as a whole
@@ -484,7 +491,7 @@ class Procedure:
                             q = text[1]
                             rep = ("r" + q + new_val + q) if q not in new_val and not new_val.endswith("\\") else repr(new_val)
                         out.append(((src[:a] + rep.encode() + src[b:]).decode(), {}))
-            return self._valid(out, seen)
+            return out.results
         if self.kind == "expr":
             for n in ast.walk(tree):
                 if not isinstance(n, ast.expr) or not inside(n):
@@ -511,7 +518,7 @@ class Procedure:
                                 break
                         except SyntaxError:
                             continue
-            return self._valid(out, seen)
+            return out.results
         # statement windows
         width = len(self.lhs[1])
         lines = source.splitlines(keepends=True)
@@ -550,10 +557,10 @@ class Procedure:
                             body = "el" + body
                         text = _indent_code(body, indent)
                         out.append(("".join(lines[:start_line - 1]) + text + "".join(lines[last.end_lineno:]), info))
-        return self._valid(out, seen)
+        return out.results
 
     @staticmethod
-    def _valid(cands: list, seen: set) -> list:
+    def _valid(cands: list, seen: set) -> list:  # the rule _Collector applies incrementally
         res = []
         for c, info in cands:
             try:
@@ -564,6 +571,33 @@ class Procedure:
                 seen.add(norm)
                 res.append((c, info))
         return res
+
+
+class _Enough(Exception):
+    def __init__(self, results):
+        self.results = results
+
+
+class _Collector:
+    """Validates and de-duplicates candidates as they are appended (exactly `Procedure._valid`, in order); raises
+    `_Enough` once `limit` valid candidates are held, so no further candidate is built."""
+
+    def __init__(self, limit=None):
+        self.limit, self.results, self.seen = limit, [], set()
+
+    def append(self, item):
+        if self.limit is not None and len(self.results) >= self.limit:
+            raise _Enough(self.results)
+        c, info = item
+        try:
+            norm = ast.unparse(ast.parse(c))
+        except (SyntaxError, ValueError):
+            return
+        if norm not in self.seen:
+            self.seen.add(norm)
+            self.results.append((c, info))
+            if self.limit is not None and len(self.results) >= self.limit:
+                raise _Enough(self.results)
 
 
 _PRIMITIVE_FIELDS = {"id", "attr", "arg", "name", "module", "asname", "value_str"}

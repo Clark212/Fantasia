@@ -241,7 +241,7 @@ class ShapeLibrary:
                     out.append((_subst(_fill_term(sh.rhs, vals), binding),
                                 {"shape": sh.id, "ops": [op for _, _, op in combo], "rank": j}))
                 return out
-            got = Procedure(sh.kind, sh.lhs, sh.rhs, sh.level).apply_detailed(source, span, fill)[:PER_SHAPE]
+            got = Procedure(sh.kind, sh.lhs, sh.rhs, sh.level).apply_detailed(source, span, fill, max_results=PER_SHAPE)
             for k, (prog, info) in enumerate(got):
                 op_rank = max(OP_RANK.get(o, 6) for o in info.get("ops", ["structural"]))
                 # where the content came from, then how good this filler is for ITS match, then shape support, then

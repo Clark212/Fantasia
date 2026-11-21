@@ -54,3 +54,26 @@ operator after seeing fresh data, which R3 forbids. The same holds for edits wit
 full, unchanged, on the fixed code (run 2). Run 1 is allowed to finish only as a consistency check: none of the three
 fixes is on the scoring path of Q1/Q2, so run 2's Q1/Q2 rows are expected to equal run 1's. Any difference will be
 reported.
+
+## A2: a performance defect fixed; run 2 stopped during its learning cycle and re-run in full (run 3)
+
+**Defect (found during run 2; no result depends on it).** The per-shape cap (40) limited what was kept, not what was
+built: every candidate was built in full (a copy of the whole function, parsed and compared several times) and only then
+cut. On one 167-line fresh function the shapes built 6,253 candidates to keep 386 and use 80. DEV17 procedure retrieval
+likewise built every program where the learning cycle uses only the first 80. Run 2's learning cycle was projected at
+3.5–5 hours.
+
+**Fix.** Candidates are validated and de-duplicated as they are built, by exactly the rule used before
+(`Procedure._valid`, in the same order), and a search with a limit stops at it: `Procedure.apply_detailed(...,
+max_results=)`, used with the per-shape cap; `KnowledgeBase.retrieve(..., max_programs=)`, used by the evaluation where it
+already truncated to K. Without a limit, results are built exactly as before. No operator, ranking, budget, threshold or
+criterion changed.
+
+**Evidence it changes no result.** On 53 fresh problems, 3,551 comparisons of limited against full-then-truncated
+output: 0 differ. Regression tests: `tests/test_alpha8_coding_dev18.py::EarlyStopTests`. Speed: the shapes step on that
+167-line function, 37.1 s → 2.3 s.
+
+**Action.** Run 2 (complete for fresh and BugsInPy, stopped in its learning cycle) is kept in
+`benchmarks/results/dev18/run2_partial/`. Run 1 (discarded under A1) was stopped in its learning cycle too; its fresh and
+BugsInPy rows are kept, and its cycle consistency check is not available. The evaluation is re-run in full on the new code
+(run 3); run 3 is the result if its 531 scored rows equal run 2's, and any difference is reported.

@@ -189,6 +189,42 @@ class SerializationTests(unittest.TestCase):
         self.assertGreater(len(kb.entries), 0)
 
 
+class EarlyStopTests(unittest.TestCase):
+    """A2 (performance): stopping at the limit gives exactly the first results of the full search, and builds less."""
+    SRC = "def f(a, b, c, d):\n" + "".join(f"    x{i} = g(a, b, c, d) + {i}\n" for i in range(30)) + "    return x0\n"
+
+    def test_a_limited_search_returns_the_first_results_of_the_full_search(self):
+        from asm.coding.induction import Procedure
+        p = Procedure("expr", ("?", 0), ("Call", (("func", ("Name", (("id", ("=", "h")), ("ctx", ("Load", ()))))),
+                                                  ("args", ("[]", (("?", 0),))), ("keywords", ("[]", ())))), 0)
+        span = (1, self.SRC.count("\n") + 1)
+        built = []
+
+        def fill(binding, node, tree):
+            built.append(1)
+            return [(("Call", (("func", ("Name", (("id", ("=", n)), ("ctx", ("Load", ()))))), ("args", ("[]", (binding[0],))),
+                               ("keywords", ("[]", ())))), {}) for n in ("h", "k")]
+        full = p.apply_detailed(self.SRC, span, fill)
+        n_full = len(built)
+        built.clear()
+        for k in (1, 5, 40):
+            self.assertEqual(p.apply_detailed(self.SRC, span, fill, max_results=k), full[:k])
+        self.assertGreater(len(full), 40)
+        built.clear()
+        p.apply_detailed(self.SRC, span, fill, max_results=5)
+        self.assertLess(len(built), n_full)
+
+    def test_limited_retrieval_returns_the_first_programs_of_the_full_retrieval(self):
+        kb = KnowledgeBase()
+        kb.learn([STRING_FIX, REGEX_FIX, TRY_FIX], "t")
+        src = "def r(cmd):\n" + "".join(f"    cmd = cmd.replace('push', 'push --force') + str({i})\n" for i in range(12)) + "    return cmd\n"
+        span = (1, src.count("\n") + 1)
+        full = [x for _, ps in kb.retrieve(src, span) for x in ps]
+        self.assertGreater(len(full), 3)
+        for k in (1, 3, len(full) + 5):
+            self.assertEqual([x for _, ps in kb.retrieve(src, span, max_programs=k) for x in ps][:k], full[:k])
+
+
 class WorkflowTests(unittest.TestCase):
     FILES = {"m.py": "def push_command(script):\n    return script.replace('push', 'push --force')\n",
              "tests/test_m.py": "from m import push_command\n"

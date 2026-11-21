@@ -133,16 +133,22 @@ class KnowledgeBase:
         return self.summary()
 
     # ------------------------------------------------------------------ search + apply
-    def retrieve(self, source: str, span: tuple, include_candidates: bool = True) -> list:
+    def retrieve(self, source: str, span: tuple, include_candidates: bool = True, max_programs: int | None = None) -> list:
+        """[(entry, programs)] in trust order. DEV18 A2 (performance; same results): with `max_programs`, stops once that
+        many programs are held; the result is then exactly the first `max_programs` programs of the full retrieval."""
         order = sorted((e for e in self.entries.values() if e.status == "active" or
                         (include_candidates and e.status == "candidate")),
                        key=lambda e: (e.status != "active", -(e.validation["hits"] + e.field["hits"]),
                                       -(e.precision() or 0.0), -len(e.support), e.id))
-        out = []
+        out, held = [], 0
         for ent in order:
-            progs = ent.procedure.apply(source, span)
+            if max_programs is not None and held >= max_programs:
+                break
+            left = None if max_programs is None else max_programs - held
+            progs = [p for p, _ in ent.procedure.apply_detailed(source, span, max_results=left)]
             if progs:
                 out.append((ent, progs))
+                held += len(progs)
         return out
 
     def candidates_for(self, source: str, path: str, span: tuple, limit: int = MAX_CANDIDATES) -> list:
