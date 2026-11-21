@@ -33,8 +33,25 @@ MAX_CHANGED_LINES = 6
 PREREG = ROOT / "benchmarks" / "preregistration" / "dev17_study.md"
 
 
+def decode_output(b: bytes) -> str:
+    """git output as text. DEV19 A1 bug fix (found mining dateutil, which has a latin-1 source file): strict UTF-8
+    decoding raised and lost the whole project. Output that is valid UTF-8 is decoded exactly as before (`text=True`:
+    UTF-8, universal newlines); otherwise a Python source's declared encoding (PEP 263) is used, else UTF-8 with
+    replacement characters."""
+    try:
+        s = b.decode("utf-8")
+    except UnicodeDecodeError:
+        import io
+        import tokenize
+        try:
+            s = b.decode(tokenize.detect_encoding(io.BytesIO(b).readline)[0])
+        except (SyntaxError, UnicodeDecodeError, LookupError):
+            s = b.decode("utf-8", errors="replace")
+    return s.replace("\r\n", "\n").replace("\r", "\n")
+
+
 def git(repo: Path, *args) -> str:
-    return subprocess.run(["git", *args], cwd=repo, capture_output=True, text=True, timeout=600).stdout
+    return decode_output(subprocess.run(["git", *args], cwd=repo, capture_output=True, timeout=600).stdout)
 
 
 def is_test_path(p: str) -> bool:
