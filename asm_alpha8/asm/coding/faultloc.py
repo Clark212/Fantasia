@@ -887,9 +887,10 @@ class RepairWorkflow:
                  time_budget_seconds: float = 180.0, confirm_runs: int = 1, ledger: FailureLedger | None = None,
                  semantic_check: bool = True, counterexamples: bool = True, explore_alternatives: bool = True,
                  max_extra_candidates: int = 30, competing_max_suspects: int = 8, competing_time_seconds: float = 75.0,
-                 extended_ops: bool = True, ranker=None):
+                 extended_ops: bool = True, ranker=None, knowledge=None):
         self.counterexamples = counterexamples
         self.ranker = ranker  # DEV16 learned candidate ordering (asm.coding.learned.CandidateRanker); None = DEV15 order
+        self.knowledge = knowledge  # DEV17 learned procedures (asm.coding.knowledge.KnowledgeBase): phase 3; None = off
         self.extended_ops = extended_ops  # DEV15 repair families (repair_ops); False reproduces the DEV14 repair space
         self.explore_alternatives, self.max_extra_candidates = explore_alternatives, max_extra_candidates
         self.competing_max_suspects, self.competing_time = competing_max_suspects, competing_time_seconds
@@ -990,19 +991,27 @@ class RepairWorkflow:
                 # tried only if phase 1 accepts nothing. Mixing them into one ordering pushed a correct DEV14 fix past
                 # the per-suspect candidate cap on a fresh-subject smoke run (parse.date_convert), so DEV15 lost a
                 # repair DEV14 makes.
-                for extended_phase in ([False, True] if self.extended_ops else [False]):
+                phases = [1, 2] if self.extended_ops else [1]
+                if self.knowledge is not None:
+                    phases.append(3)  # DEV17: procedures ASM learned itself, only when no built-in operation worked
+                for phase in phases:
+                    extended_phase = phase >= 2
                     if accepted:
                         break
                     for rank, sus in enumerate([s for s in loc.suspects if s.score > 0][: self.max_suspects], 1):
                         if remaining() < 5:
                             break
                         source = (work / sus.path).read_text(encoding="utf-8")
-                        cands = generate_candidates(source, sus.path, sus, ranges_by_file[sus.path], loc.line_scores,
-                                                    extended=extended_phase, failure_texts=list(spectrum.failures.values()))
-                        if extended_phase:  # DEV14 templates were already tried in phase 1
+                        if phase == 3:
+                            span = next(((a, b) for q, a, b in ranges_by_file[sus.path] if q == sus.qname), (sus.line, sus.end_line))
+                            cands = self.knowledge.candidates_for(source, sus.path, span)
+                        else:
+                            cands = generate_candidates(source, sus.path, sus, ranges_by_file[sus.path], loc.line_scores,
+                                                        extended=extended_phase, failure_texts=list(spectrum.failures.values()))
+                        if phase == 2:  # DEV14 templates were already tried in phase 1
                             cands = [c for c in cands if family_of(c.reason) != "single_site"]
-                        if self.ranker is not None and cands:  # DEV16: reorder within this phase only
-                            cands = self.ranker.rerank(cands, _ranking_context(spectrum, sus, rank, 2 if extended_phase else 1))
+                        if self.ranker is not None and cands and phase < 3:  # DEV16: reorder within this phase only
+                            cands = self.ranker.rerank(cands, _ranking_context(spectrum, sus, rank, phase))
                         if not cands:
                             reasons["no_template_sites"] += 1
                             rejected.append({"suspect": sus.qname, "description": "no mutation sites in this function",
@@ -1062,7 +1071,7 @@ class RepairWorkflow:
                                     evaluated = {a.replacement_sha256 for a in res.attempts}
                                     pool = [c for c in cands if sha(c) not in evaluated and (
                                         family_of(best.reason) == "pair" or family_of(c.reason) != "pair")][: self.max_extra_candidates]
-                                    if self.extended_ops and not extended_phase:
+                                    if self.extended_ops and phase == 1:
                                         # DEV15: alternatives are evidence, not acceptance, so they come from the new
                                         # families too even when a DEV14 template was accepted (thefuck-15: the
                                         # developer's dropped clause is what shows the accepted negation is wrong)
@@ -1127,7 +1136,8 @@ class RepairWorkflow:
                               "description": best.reason, "fixed_tests": best.fixed_tests, "path": prop.path, "diff": diff,
                               "why_accepted": why, "confirmed": best.confirmed, "diff_lines": best.diff_lines,
                               "behavioural_verdict": verdict, "behavioural_note": verdict_note,
-                              "edit_family": family_of(best.reason)})
+                              "edit_family": family_of(best.reason),
+                              "learned_procedure": getattr(cand, "meta", {}).get("procedure")})
                 steps[-1]["competing_patches"] = competing
                 steps[-1]["alternatives_passing"] = alternatives[:8]
                 steps[-1]["tied_with"] = tied[:8]

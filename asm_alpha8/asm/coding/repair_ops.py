@@ -301,8 +301,8 @@ def apply_pair(source: str, a, opt_a: str, b, opt_b: str) -> str | None:
 def family_of(reason: str) -> str:
     """Edit family from a candidate description ('pair' / DEV15 families / 'single_site' for DEV14 templates)."""
     head = (reason or "").split(":", 1)[0].strip()
-    if head == "pair":
-        return "pair"
+    if head in ("pair", "learned"):
+        return head
     if head in SITE_FAMILIES or head in INSERT_FAMILIES:
         return head
     return "single_site"
