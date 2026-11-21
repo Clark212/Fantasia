@@ -1,0 +1,10 @@
+{"repo": "pluggy", "head": "93de545c3a31", "commits": 853, "fix_message": 123, "examples": 27, "with_test_context": 14}
+{"repo": "wcwidth", "head": "cd984fb579b2", "commits": 527, "fix_message": 54, "examples": 5, "with_test_context": 1}
+{"repo": "xmltodict", "head": "6e29fba282e6", "commits": 284, "fix_message": 41, "examples": 9, "with_test_context": 6}
+{"repo": "slugify", "head": "4b6b5b42f050", "commits": 265, "fix_message": 21, "examples": 1, "with_test_context": 1}
+{"repo": "cerberus", "head": "83f5dada76aa", "commits": 960, "fix_message": 180, "examples": 29, "with_test_context": 17}
+{"repo": "schema", "head": "310a1239b62f", "commits": 372, "fix_message": 93, "examples": 18, "with_test_context": 11}
+{"repo": "jmespath", "head": "2812594e69d4", "commits": 423, "fix_message": 57, "examples": 8, "with_test_context": 2}
+{"repo": "parsimonious", "head": "eb79639859a9", "commits": 260, "fix_message": 41, "examples": 6, "with_test_context": 1}
+{"head": "c00d45c2972a0845eaefd33e2d28c0b7921b8875d118cc72f10f001aadf5732b"}
+MINEDONE

@@ -1,0 +1,12 @@
+{"repo": "dateutil", "head": "261e29139618", "commits": 1262, "fix_message": 230, "examples": 38, "with_test_context": 22}
+{"repo": "pyparsing", "head": "810199f89bf9", "commits": 1670, "fix_message": 431, "examples": 65, "with_test_context": 22}
+{"repo": "itsdangerous", "head": "672971d66a2e", "commits": 436, "fix_message": 49, "examples": 10, "with_test_context": 4}
+{"repo": "markupsafe", "head": "4e111271b149", "commits": 544, "fix_message": 48, "examples": 5, "with_test_context": 3}
+{"repo": "jsonschema", "head": "64b62de5df4e", "commits": 2637, "fix_message": 351, "examples": 53, "with_test_context": 30}
+{"repo": "pathspec", "head": "3dfbd9192ae3", "commits": 496, "fix_message": 106, "examples": 11, "with_test_context": 4}
+{"repo": "tomlkit", "head": "7bf7284dbd62", "commits": 557, "fix_message": 190, "examples": 58, "with_test_context": 38}
+{"repo": "sqlparse", "head": "09dbe1eec31e", "commits": 1246, "fix_message": 305, "examples": 53, "with_test_context": 27}
+{"repo": "pyflakes", "head": "5324946c5d86", "commits": 573, "fix_message": 123, "examples": 27, "with_test_context": 18}
+{"repo": "isort", "head": "f5b5649f3ed4", "commits": 3634, "fix_message": 1054, "examples": 268, "with_test_context": 89}
+{"head": "0a4ccf38597c1906d437ae8b413c40bacf0ac5d45d933f5b69f177481d6d2812"}
+MINEDONE
