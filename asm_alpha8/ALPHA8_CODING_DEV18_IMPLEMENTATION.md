@@ -32,6 +32,8 @@ model-generated data at all, only real developer fixes from git history.
     come first and take part of the 80.
 - **Three bugs in ASM were found and fixed** (amendment A1), each with a regression test. The first evaluation run was
   discarded and re-run in full on the fixed code: all 531 scored rows (472 fresh, 59 BugsInPy) are identical in both runs.
+  A performance defect was then fixed (A2) and the evaluation re-run again (run 3, 63 minutes instead of 7–9 hours), with
+  the same rows.
   - A saved shape library holding a shape with 11 or more variables failed its own integrity check on load.
   - `bytes`, `complex` and `Ellipsis` constants did not survive save and load.
   - A whole f-string could never be rewritten.
@@ -79,7 +81,9 @@ model-generated data at all, only real developer fixes from git history.
   - BugsInPy (secondary: the designer has read these fixes): B 4 (2 within 80), P17 0, S18 1, D18 1; new by D18: 1, thefuck-19 (EXTEND grows a test literal; lost without test-derived content). thefuck-19 is one of the three fixes EXTEND was illustrated and tuned on before the pre-registration, so it is not independent evidence.
 - **Q3:** not run (gate).
 - **Q4 (learning cycle over the fresh fixes in date order: attempt with D18, then learn from the revealed fix):**
-  running at the time of this commit (the learning cycle rebuilds every candidate against a growing library; see "Cheaper candidates"); its numbers are added in a follow-up commit.
+  **5 reproduced online against 2 static.** Learning from each revealed fix before the next one added 3 fixes. By the end
+  the library held 365 shapes (25 active) and 676 procedures (11 active), learned from 563 fixes, with 29 string edits.
+  Learning from more fixes helps, which is the direction for DEV19, but 5 of 472 (1%) is still small.
 
 ## Bugs found and fixed (amendment A1; `benchmarks/preregistration/dev18_amendments.md`)
 | bug | found by | effect |
@@ -89,7 +93,11 @@ model-generated data at all, only real developer fixes from git history.
 | the f-string node itself was excluded from rewriting, not only its interior | boltons `human_readable_list` (self-check part A) | only the learning cycle could change |
 
 - Run 1 (code `d07d6946…`) is discarded and kept in `benchmarks/results/dev18/discarded_run1/`.
-- Run 2 (code `eff849ac…`) is the result; its rows so far are in `run2_partial/` (the full file, with the summary record, follows when the learning cycle ends). All 531 scored rows of run 2 equal run 1's, field by field, as A1 predicted (no fix is on the Q1/Q2 scoring path).
+- Run 2 (code `eff849ac…`): all 531 scored rows equal run 1's, field by field, as A1 predicted. It was stopped in its
+  learning cycle for A2 (`run2_partial/`).
+- **Run 3 (code `f4f9029f…`, amendment A2: performance only) is the result** (`dev18_eval.jsonl`): all 531 scored rows
+  equal run 2's, and it completed the learning cycle. Run 1 was stopped in its cycle too, so its cycle check is not
+  available.
 
 ## Exploratory: where the fixes are lost (`benchmarks/results/dev18/selfcheck/`, not pre-registered)
 Each fix is checked against its own shape (learned from that fix alone) and its own content.
@@ -149,18 +157,11 @@ candidates), but 91 training fixes teach too few shapes: 56 of 325 fresh fixes, 
   ranking (the DEV16 ranker) could replace the fixed order.
 - **D18 ordering:** 3 shape reproductions were lost because DEV17's procedures always come first. Ordering by evidence
   instead would avoid that.
-- **Cheaper candidates (a performance defect found during the runs; no result depends on it):** the caps limit what
-  is kept, not what is built.
-  - Every candidate is built in full (a copy of the whole function, parsed and compared several times), and only then
-    are the first 40 per shape kept.
-  - On one 167-line fresh function, the shapes built 6,253 candidates, 386 survived the per-shape cap, and 80 were
-    used; one generic shape built 2,856 to keep 40. DEV17's procedures likewise build every candidate even where only
-    80 are used.
-  - Profiles: shapes take 61% of the static scoring and 49% of the learning cycle, procedure retrieval 28% and 40%.
-  - Stopping each shape at its 40th valid candidate gives exactly the same 40, so the fix cannot change a result. It
-    is not made now, because R3 would then require yet another full run.
-  - Cost: the DEV18 evaluation took over 5 (fresh and BugsInPy alone; the learning cycle several more) hours. The largest functions took about 20 minutes each (tabulate's
-    695-line `tabulate`, youtube-dl-2's 270 lines).
+- **Cheaper candidates: done during DEV18 (amendment A2).** The caps limited what was kept, not what was built: on a
+  167-line function the shapes built 6,253 candidates to use 80. Candidates are now validated as they are built, and a
+  limited search stops at its limit, with identical results (3,551 comparisons, 0 differ; all 531 scored rows of run 3
+  equal run 2's). The full evaluation went from a projected 7–9 hours to 63 minutes. Procedure retrieval without a limit
+  (the pre-registered "P17 any" measure) still builds everything.
 - **Operators:** case changes and substring shrinking for strings; edits inside f-strings.
 - Each of these is a change after seeing this data, so it needs a new pre-registration (DEV19) and a new fresh set.
 
