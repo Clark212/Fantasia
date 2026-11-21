@@ -77,3 +77,13 @@ output: 0 differ. Regression tests: `tests/test_alpha8_coding_dev18.py::EarlySto
 `benchmarks/results/dev18/run2_partial/`. Run 1 (discarded under A1) was stopped in its learning cycle too; its fresh and
 BugsInPy rows are kept, and its cycle consistency check is not available. The evaluation is re-run in full on the new code
 (run 3); run 3 is the result if its 531 scored rows equal run 2's, and any difference is reported.
+
+## Correction found in DEV19 (DEV19 amendment A2): the learning cycle tried 81 candidates where P17 filled the budget
+
+Found and fixed in DEV19 (`benchmarks/preregistration/dev19_amendments.md`, A2): `ShapeLibrary.candidates_for` returned
+one candidate for `limit=0`, so whenever DEV17's procedures alone filled K = 80, an 81st program was tried. No scored row
+of run 3 can change (no D18 hit is at position 80; the highest is 57). The learning cycle (Q4) did change: replayed on the
+fixed code (`benchmarks/dev19_cycle_check.py`, output `benchmarks/results/dev19/diagnostic/dev18_cycle_replay.jsonl`), it
+finds **4** fixes within 80 candidates. The fifth reported fix, marshmallow `Time._serialize`, was found only by the 81st
+candidate. With that candidate counted, the replay gives exactly run 3's 5, so it reproduces the run. The DEV18 report
+now gives Q4 as 4 online against 2 static.

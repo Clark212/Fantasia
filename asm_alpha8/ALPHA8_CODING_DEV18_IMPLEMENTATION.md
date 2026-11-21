@@ -81,9 +81,15 @@ model-generated data at all, only real developer fixes from git history.
   - BugsInPy (secondary: the designer has read these fixes): B 4 (2 within 80), P17 0, S18 1, D18 1; new by D18: 1, thefuck-19 (EXTEND grows a test literal; lost without test-derived content). thefuck-19 is one of the three fixes EXTEND was illustrated and tuned on before the pre-registration, so it is not independent evidence.
 - **Q3:** not run (gate).
 - **Q4 (learning cycle over the fresh fixes in date order: attempt with D18, then learn from the revealed fix):**
-  **5 reproduced online against 2 static.** Learning from each revealed fix before the next one added 3 fixes. By the end
-  the library held 365 shapes (25 active) and 676 procedures (11 active), learned from 563 fixes, with 29 string edits.
-  Learning from more fixes helps, which is the direction for DEV19, but 5 of 472 (1%) is still small.
+  **4 reproduced online within 80 candidates, against 2 static** (corrected in DEV19; run 3 reported 5). Learning
+  from each revealed fix before the next one added 2 fixes. By the end the library held 365 shapes (25 active) and 676
+  procedures (11 active), learned from 563 fixes, with 29 string edits.
+  - **Correction (found in DEV19, amendment A2 there).** When DEV17's procedures alone filled the 80 candidates, the
+    shape library still returned 1 candidate, so 81 were tried; that happened on 400 of the 472 cycle problems. Replayed
+    on the fixed code (`benchmarks/dev19_cycle_check.py`), the cycle finds 4 fixes within 80. The fifth, marshmallow
+    `Time._serialize`, was found only by the 81st candidate. With that candidate the replay gives exactly run 3's 5. No
+    scored row (Q1, Q2) changes: none has a hit at position 80.
+  - Learning from more fixes helps here, which is the direction DEV19 tested, but 4 of 472 (0.8%) is still small.
 
 ## Bugs found and fixed (amendment A1; `benchmarks/preregistration/dev18_amendments.md`)
 | bug | found by | effect |
@@ -132,7 +138,7 @@ Each fix is checked against its own shape (learned from that fix alone) and its 
   | – | fix location inside an f-string | 4 |
 
 ## Validation
-- `tests/test_alpha8_coding_dev18.py`, 17 tests:
+- `tests/test_alpha8_coding_dev18.py`, 19 tests:
   - content: literals come only from the named test functions; failure messages give quoted text and exception
     names; EXTEND grows to token boundaries; vocabulary edits and their contexts; similar test and module literals;
     names and exceptions;
@@ -141,8 +147,10 @@ Each fix is checked against its own shape (learned from that fix alone) and its 
     tamper refusal and retirement;
   - the A1 regressions (each fails on the code of run 1), and DEV17 knowledge still loading with its original seal;
   - **in the real workflow, content from the failing test completes a learned shape and fixes the bug**;
-  - the fresh miner takes context only from the test functions the fix changed.
-- Full `test_alpha8_*` on the final DEV18 code: **523 passed, 3 skipped, 0 failed** (DEV11–DEV18).
+  - the fresh miner takes context only from the test functions the fix changed;
+  - A2: a limited search returns exactly the first results of the full one (shapes, and procedure retrieval).
+- Full `test_alpha8_*`: **523 passed, 3 skipped, 0 failed** before A2 (DEV11–DEV18). With A2's 2 tests and the DEV19
+  changes: 532 passed, 3 skipped, 0 failed (DEV19 report).
 
 ## What this means, and what is next
 DEV18 shows that ASM can take a learned fix shape and complete it with content from the problem in front of it,
