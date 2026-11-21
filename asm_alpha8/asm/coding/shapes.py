@@ -217,7 +217,10 @@ class ShapeLibrary:
 
     def candidates_for(self, source: str, path: str, span: tuple, ctx: C.ProblemContext, limit: int = LIMIT,
                        as_candidates: bool = True) -> list:
-        """Ranked repair candidates (research.Candidate, or (program, info) when as_candidates=False)."""
+        """Ranked repair candidates (research.Candidate, or (program, info) when as_candidates=False), at most `limit`.
+        DEV19 A2 bug fix: with limit 0 (a caller's budget already full) one candidate was returned, so 81 were tried."""
+        if limit <= 0:
+            return []
         lines = source.splitlines(keepends=True)
         fn_src = "".join(lines[span[0] - 1: span[1]])
         scope = C.scope_names(C_strip(fn_src))

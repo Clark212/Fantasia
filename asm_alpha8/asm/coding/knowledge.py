@@ -152,7 +152,11 @@ class KnowledgeBase:
         return out
 
     def candidates_for(self, source: str, path: str, span: tuple, limit: int = MAX_CANDIDATES) -> list:
+        """At most `limit` candidates (DEV19 A2: the same limit-0 defect as ShapeLibrary.candidates_for; no caller
+        passed 0 here)."""
         from .research import Candidate
+        if limit <= 0:
+            return []
         cands = []
         for ent, progs in self.retrieve(source, span):
             for k, prog in enumerate(progs):
