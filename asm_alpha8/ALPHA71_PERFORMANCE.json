@@ -1,0 +1,47 @@
+{
+  "benchmark": "ASM alpha.7.1 O(1) dependency performance profile",
+  "rows": {
+    "1_source_1000": {
+      "non_temporal_runs": [
+        0.005243912999958411,
+        0.005331685000101061,
+        0.004877129000078639
+      ],
+      "non_temporal_seconds_median": 0.005243912999958411,
+      "temporal_overhead_x": 1.9829638668730134,
+      "temporal_runs": [
+        0.01015460400003576,
+        0.010533875999954034,
+        0.010398489999943195
+      ],
+      "temporal_seconds_median": 0.010398489999943195
+    },
+    "9_source_1000": {
+      "non_temporal_runs": [
+        0.025839651000069352,
+        0.025786692000110634,
+        0.026515370999959487
+      ],
+      "non_temporal_seconds_median": 0.025839651000069352,
+      "temporal_overhead_x": 7.732449288865621,
+      "temporal_runs": [
+        0.2095034169999508,
+        0.1998037910000221,
+        0.19828274600013174
+      ],
+      "temporal_seconds_median": 0.1998037910000221
+    },
+    "9_source_3000_temporal": {
+      "seconds": 0.6274420620000001,
+      "trials_per_second": 4781.317960159323
+    },
+    "query_profile": {
+      "loops": 10000,
+      "note": "Reference rescan emulates the rejected bounded-window rescanning cost; it is not a recovered copy of the interrupted WIP implementation.",
+      "o1_seconds": 0.019190527999853657,
+      "recent_items": 192,
+      "rescan_over_o1_x": 14.476739670850343,
+      "rescan_reference_seconds": 0.2778162780000457
+    }
+  }
+}

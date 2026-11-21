@@ -1,0 +1,20 @@
+ASM v0.4.0-alpha.7.3 package recertification
+
+PREVIOUS CLEAN EXTRACTION OF CODE PAYLOAD
+- manifest: 291/291 hashes verified
+- smoke: PASS
+- procedure/graft integration: 30/30 PASS
+- alpha.7.3 BEFORE/AFTER: 10/10 PASS
+- alpha.7.3 torture: 7/7 PASS
+- v0.1: 72/72 PASS
+- v0.2: 84/84 PASS
+- v0.3: 77 executed = 76 PASS + 1 inherited intentional SKIP
+- v0.4: 138/138 PASS
+- misc review/procedure/Astra graft: 21/21 PASS
+- TOTAL: 392 executed = 391 PASS + 1 inherited intentional SKIP
+
+WARNING PROVENANCE
+- alpha.7.3 clean v0.4 unit run emitted 25 unclosed SQLite ResourceWarnings
+- exact untouched alpha.7.2 v0.4 unit run emitted the same 25 warnings
+- alpha.7.2 result: 128/128 PASS
+- warning is inherited and remains an open cleanup item

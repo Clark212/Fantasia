@@ -1,0 +1,42 @@
+ASM v0.4.0-alpha.7.3 final working-tree recertification
+
+UNIT BATCHES
+- v0.1: Ran 72 tests — OK
+- v0.2: Ran 84 tests — OK
+- v0.3: Ran 77 tests — OK (skipped=1 inherited intentional skip)
+- v0.4: Ran 138 tests — OK
+- misc review/procedure/Astra-graft: Ran 21 tests — OK
+TOTAL: 392 executed = 391 PASS + 1 inherited intentional SKIP
+
+BEHAVIOR GATES
+- alpha.5 frozen benchmark: 13/13 PASS
+- alpha.5.1 torture: 10/10 PASS
+- alpha.5.1 extreme torture: 9/9 PASS
+- alpha.6 torture: 12/12 PASS
+- alpha.6.1 current drift: 30/30 recovered
+- alpha.6.1 stationary: 0 false splits / 100
+- alpha.6.2 lineage torture: 10/10 PASS
+- alpha.7: 7/7 PASS
+- alpha.7 torture: 9/9 PASS
+- alpha.7.1: 8/8 PASS
+- alpha.7.1 torture: 9/9 PASS
+- alpha.7.2: 8/8 PASS
+- alpha.7.2 torture: 8/8 PASS
+- alpha.7.3 BEFORE/AFTER: 10/10 PASS
+- alpha.7.3 torture: 7/7 PASS
+
+PRESERVED FAILURE
+- alpha.5 mega stress: 13/14
+- failed check: topk_truncation_keeps_unknown_mass
+- exact untouched alpha.7.2 artifact reproduces the same 13/14 and same failed check
+- therefore preserved as inherited, not counted as an alpha.7.3 regression
+
+TIMEOUT DISCIPLINE
+- one aggregate old-gate command timed out; none of its partial output was counted
+- alpha.7 / alpha.7.1 / alpha.7.2 gates were rerun separately to completion
+
+MIGRATION
+- real alpha.7.2 DB -> alpha.7.3 PASS
+- procedure/autonomy/source dependency state preserved
+- 0 fabricated multi-input procedure versions
+- new alpha.7.3 snapshot saved and reopened

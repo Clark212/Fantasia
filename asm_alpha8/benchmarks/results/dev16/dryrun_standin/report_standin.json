@@ -1,0 +1,336 @@
+{
+ "fix_in_generated_lists": 186,
+ "fix_in_repair_space": 199,
+ "folds": {
+  "cachetools": {
+   "ranking": {
+    "given_order": {
+     "mean_rank": 4.45,
+     "mrr": 0.5031,
+     "tasks": 29,
+     "top1": 9,
+     "top20": 29,
+     "top5": 20
+    },
+    "improved": 14,
+    "learned": {
+     "mean_rank": 2.72,
+     "mrr": 0.7035,
+     "tasks": 29,
+     "top1": 17,
+     "top20": 29,
+     "top5": 24
+    },
+    "tasks_without_true_item": 0,
+    "worsened": 2
+   },
+   "test_pairs": 35,
+   "train_pairs": 184,
+   "tried_given": {
+    "mean": 32.1,
+    "median": 8,
+    "pairs": 29,
+    "within_40": 23,
+    "within_80": 26
+   },
+   "tried_learned": {
+    "mean": 30.4,
+    "median": 6,
+    "pairs": 29,
+    "within_40": 23,
+    "within_80": 26
+   }
+  },
+  "inflection": {
+   "ranking": {
+    "given_order": {
+     "mean_rank": 4.33,
+     "mrr": 0.3542,
+     "tasks": 6,
+     "top1": 1,
+     "top20": 6,
+     "top5": 4
+    },
+    "improved": 2,
+    "learned": {
+     "mean_rank": 5.67,
+     "mrr": 0.4771,
+     "tasks": 6,
+     "top1": 2,
+     "top20": 6,
+     "top5": 4
+    },
+    "tasks_without_true_item": 0,
+    "worsened": 4
+   },
+   "test_pairs": 7,
+   "train_pairs": 212,
+   "tried_given": {
+    "mean": 6.2,
+    "median": 5.5,
+    "pairs": 6,
+    "within_40": 6,
+    "within_80": 6
+   },
+   "tried_learned": {
+    "mean": 7.5,
+    "median": 9.0,
+    "pairs": 6,
+    "within_40": 6,
+    "within_80": 6
+   }
+  },
+  "more_itertools": {
+   "ranking": {
+    "given_order": {
+     "mean_rank": 3.93,
+     "mrr": 0.5149,
+     "tasks": 27,
+     "top1": 8,
+     "top20": 27,
+     "top5": 21
+    },
+    "improved": 10,
+    "learned": {
+     "mean_rank": 3.26,
+     "mrr": 0.5745,
+     "tasks": 27,
+     "top1": 10,
+     "top20": 27,
+     "top5": 22
+    },
+    "tasks_without_true_item": 0,
+    "worsened": 6
+   },
+   "test_pairs": 28,
+   "train_pairs": 191,
+   "tried_given": {
+    "mean": 10.1,
+    "median": 5,
+    "pairs": 27,
+    "within_40": 25,
+    "within_80": 27
+   },
+   "tried_learned": {
+    "mean": 9.4,
+    "median": 4,
+    "pairs": 27,
+    "within_40": 25,
+    "within_80": 27
+   }
+  },
+  "more_itertools_more": {
+   "ranking": {
+    "given_order": {
+     "mean_rank": 6.61,
+     "mrr": 0.4284,
+     "tasks": 71,
+     "top1": 19,
+     "top20": 68,
+     "top5": 45
+    },
+    "improved": 33,
+    "learned": {
+     "mean_rank": 5.56,
+     "mrr": 0.5568,
+     "tasks": 71,
+     "top1": 29,
+     "top20": 67,
+     "top5": 53
+    },
+    "tasks_without_true_item": 0,
+    "worsened": 22
+   },
+   "test_pairs": 84,
+   "train_pairs": 135,
+   "tried_given": {
+    "mean": 18.1,
+    "median": 10,
+    "pairs": 71,
+    "within_40": 61,
+    "within_80": 68
+   },
+   "tried_learned": {
+    "mean": 17.0,
+    "median": 9,
+    "pairs": 71,
+    "within_40": 63,
+    "within_80": 67
+   }
+  },
+  "parse": {
+   "ranking": {
+    "given_order": {
+     "mean_rank": 14.56,
+     "mrr": 0.3023,
+     "tasks": 9,
+     "top1": 1,
+     "top20": 7,
+     "top5": 5
+    },
+    "improved": 5,
+    "learned": {
+     "mean_rank": 15.33,
+     "mrr": 0.3612,
+     "tasks": 9,
+     "top1": 2,
+     "top20": 8,
+     "top5": 4
+    },
+    "tasks_without_true_item": 0,
+    "worsened": 4
+   },
+   "test_pairs": 14,
+   "train_pairs": 205,
+   "tried_given": {
+    "mean": 155.7,
+    "median": 102,
+    "pairs": 9,
+    "within_40": 3,
+    "within_80": 3
+   },
+   "tried_learned": {
+    "mean": 156.4,
+    "median": 122,
+    "pairs": 9,
+    "within_40": 3,
+    "within_80": 4
+   }
+  },
+  "semver": {
+   "ranking": {
+    "given_order": {
+     "mean_rank": 2.29,
+     "mrr": 0.7155,
+     "tasks": 14,
+     "top1": 8,
+     "top20": 14,
+     "top5": 13
+    },
+    "improved": 4,
+    "learned": {
+     "mean_rank": 2.14,
+     "mrr": 0.7446,
+     "tasks": 14,
+     "top1": 8,
+     "top20": 14,
+     "top5": 13
+    },
+    "tasks_without_true_item": 0,
+    "worsened": 4
+   },
+   "test_pairs": 19,
+   "train_pairs": 200,
+   "tried_given": {
+    "mean": 7,
+    "median": 2.0,
+    "pairs": 14,
+    "within_40": 14,
+    "within_80": 14
+   },
+   "tried_learned": {
+    "mean": 6.9,
+    "median": 2.0,
+    "pairs": 14,
+    "within_40": 14,
+    "within_80": 14
+   }
+  },
+  "toolz": {
+   "ranking": {
+    "given_order": {
+     "mean_rank": 7.87,
+     "mrr": 0.3079,
+     "tasks": 30,
+     "top1": 2,
+     "top20": 27,
+     "top5": 19
+    },
+    "improved": 19,
+    "learned": {
+     "mean_rank": 5.53,
+     "mrr": 0.5706,
+     "tasks": 30,
+     "top1": 13,
+     "top20": 28,
+     "top5": 22
+    },
+    "tasks_without_true_item": 0,
+    "worsened": 10
+   },
+   "test_pairs": 32,
+   "train_pairs": 187,
+   "tried_given": {
+    "mean": 14.7,
+    "median": 7.0,
+    "pairs": 30,
+    "within_40": 28,
+    "within_80": 28
+   },
+   "tried_learned": {
+    "mean": 12.3,
+    "median": 5.5,
+    "pairs": 30,
+    "within_40": 29,
+    "within_80": 29
+   }
+  }
+ },
+ "generators": [
+  "standin_mutation"
+ ],
+ "input_sha256": {
+  "snap_0.jsonl": "9f6963eddfcbb89c06c78481927776cfeab6063aaf66429962141ee8ddc0a953",
+  "snap_1.jsonl": "584aa9a2d61635144cfebe57a9498b24191361ae4db021a3f80ba9db3ed3399b",
+  "snap_2.jsonl": "63de222ac9909b4bfb1b9831d1454adc4187e3515482d544a11eb1466c1fbde7"
+ },
+ "kind": "logistic",
+ "leave_one_project_out": {
+  "ranking": {
+   "given_order": {
+    "mean_rank": 6.07,
+    "mrr": 0.4463,
+    "tasks": 186,
+    "top1": 48,
+    "top20": 178,
+    "top5": 127
+   },
+   "improved": 87,
+   "learned": {
+    "mean_rank": 5.0,
+    "mrr": 0.5866,
+    "tasks": 186,
+    "top1": 81,
+    "top20": 179,
+    "top5": 142
+   },
+   "tasks_without_true_item": 0,
+   "worsened": 52
+  },
+  "tried_given": {
+   "mean": 24,
+   "median": 7.0,
+   "pairs": 186,
+   "within_40": 160,
+   "within_80": 172
+  },
+  "tried_learned": {
+   "mean": 22.9,
+   "median": 6.0,
+   "pairs": 186,
+   "within_40": 163,
+   "within_80": 173
+  }
+ },
+ "model_sha256": "57b092be48c829e01c8363c4d2aedeb5558ecd6dce255c3e61e0123ef8ebe2ed",
+ "pairs": 219,
+ "subjects": [
+  "cachetools",
+  "inflection",
+  "more_itertools",
+  "more_itertools_more",
+  "parse",
+  "semver",
+  "toolz"
+ ]
+}

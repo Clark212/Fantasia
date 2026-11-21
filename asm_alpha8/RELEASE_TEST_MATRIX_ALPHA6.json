@@ -1,0 +1,23 @@
+{
+  "version": "0.4.0-alpha.6",
+  "unit_tests": {
+    "legacy_v01_v02": {"executed": 156, "passed": 156, "skipped": 0},
+    "v03": {"executed": 77, "passed": 76, "skipped": 1, "skip_reason": "test_v030a3 skips when alpha.2 source artifact is unavailable"},
+    "v04_including_alpha6": {"executed": 74, "passed": 74, "skipped": 0},
+    "review_patch": {"executed": 3, "passed": 3, "skipped": 0},
+    "total": {"executed": 310, "passed": 309, "skipped": 1}
+  },
+  "benchmarks": {
+    "alpha5_controlled": "13/13 PASS; current-version assertion migrated only",
+    "alpha5_hard_feed": "6/6 PASS",
+    "alpha51_torture": "10/10 PASS",
+    "alpha51_extreme_torture": "9/9 PASS",
+    "alpha6_torture": "12/12 PASS",
+    "alpha5_mega_legacy": "13/14; legacy top-k unknown-mass expectation remains incompatible with strict fail-closed likelihood contract"
+  },
+  "not_freshly_rerun": [
+    "heavyweight benchmark_v030a8.py --mode all",
+    "heavyweight benchmark_v030a9.py --mode all",
+    "heavyweight benchmark_v030a10.py --mode all"
+  ]
+}

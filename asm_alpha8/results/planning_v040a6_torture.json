@@ -1,0 +1,265 @@
+{
+  "seed": 4061,
+  "tests": [
+    {
+      "name": "million_updates_finite",
+      "pass": true,
+      "detail": {
+        "source_id": "million",
+        "reliability": 0.7000007999968,
+        "effective_reliability": 0.7000007999968,
+        "uncertainty_stddev": 0.0004582560747087702,
+        "effective_uncertainty_stddev": 0.0004582560747087702,
+        "alpha": 700003.6,
+        "beta": 300000.4,
+        "resolved_observations": 1000000.0,
+        "prior_reliability": 0.9,
+        "prior_strength": 4.0,
+        "supplied_reliability": 0.9,
+        "model_mismatch_abs": 0.19999920000320004,
+        "effective_model_mismatch_abs": 0.19999920000320004,
+        "calibrated": true,
+        "regime_count": 1,
+        "active_regime_id": 1,
+        "active_regime_observations": 1000000.0,
+        "drift_score": 0.0,
+        "drift_zscore": 0.0,
+        "drift_log_bayes_factor": 0.0,
+        "last_temporal_index": null,
+        "last_change_temporal_index": null,
+        "regimes": [
+          {
+            "regime_id": 1,
+            "alpha": 700003.6,
+            "beta": 300000.4,
+            "reliability": 0.7000007999968,
+            "uncertainty_stddev": 0.0004582560747087702,
+            "start_observation": 0.0,
+            "resolved_observations": 1000000.0,
+            "start_temporal_index": null,
+            "end_temporal_index": null,
+            "trigger": "initial"
+          }
+        ]
+      }
+    },
+    {
+      "name": "million_updates_converge_70",
+      "pass": true,
+      "detail": 0.7000007999968
+    },
+    {
+      "name": "exact_one_prior_recovers",
+      "pass": true,
+      "detail": {
+        "source_id": "s",
+        "reliability": 0.0007993605114309831,
+        "effective_reliability": 0.0007993605114309831,
+        "uncertainty_stddev": 0.00039948056534297867,
+        "effective_uncertainty_stddev": 0.00039948056534297867,
+        "alpha": 4.0,
+        "beta": 5000.000001,
+        "resolved_observations": 5000.0,
+        "prior_reliability": 1.0,
+        "prior_strength": 4.0,
+        "supplied_reliability": 1.0,
+        "model_mismatch_abs": 0.999200639488569,
+        "effective_model_mismatch_abs": 0.999200639488569,
+        "calibrated": true,
+        "regime_count": 1,
+        "active_regime_id": 1,
+        "active_regime_observations": 5000.0,
+        "drift_score": 0.0,
+        "drift_zscore": 0.0,
+        "drift_log_bayes_factor": 0.0,
+        "last_temporal_index": null,
+        "last_change_temporal_index": null,
+        "regimes": [
+          {
+            "regime_id": 1,
+            "alpha": 4.0,
+            "beta": 5000.000001,
+            "reliability": 0.0007993605114309831,
+            "uncertainty_stddev": 0.00039948056534297867,
+            "start_observation": 0.0,
+            "resolved_observations": 5000.0,
+            "start_temporal_index": null,
+            "end_temporal_index": null,
+            "trigger": "initial"
+          }
+        ]
+      }
+    },
+    {
+      "name": "exact_zero_prior_recovers",
+      "pass": true,
+      "detail": {
+        "source_id": "s",
+        "reliability": 0.999200639488569,
+        "effective_reliability": 0.999200639488569,
+        "uncertainty_stddev": 0.00039948056534297867,
+        "effective_uncertainty_stddev": 0.00039948056534297867,
+        "alpha": 5000.000001,
+        "beta": 4.0,
+        "resolved_observations": 5000.0,
+        "prior_reliability": 0.0,
+        "prior_strength": 4.0,
+        "supplied_reliability": 0.0,
+        "model_mismatch_abs": 0.999200639488569,
+        "effective_model_mismatch_abs": 0.999200639488569,
+        "calibrated": true,
+        "regime_count": 1,
+        "active_regime_id": 1,
+        "active_regime_observations": 5000.0,
+        "drift_score": 0.0,
+        "drift_zscore": 0.0,
+        "drift_log_bayes_factor": 0.0,
+        "last_temporal_index": null,
+        "last_change_temporal_index": null,
+        "regimes": [
+          {
+            "regime_id": 1,
+            "alpha": 5000.000001,
+            "beta": 4.0,
+            "reliability": 0.999200639488569,
+            "uncertainty_stddev": 0.00039948056534297867,
+            "start_observation": 0.0,
+            "resolved_observations": 5000.0,
+            "start_temporal_index": null,
+            "end_temporal_index": null,
+            "trigger": "initial"
+          }
+        ]
+      }
+    },
+    {
+      "name": "32_source_scale",
+      "pass": true,
+      "detail": {
+        "max_error": 9.089091272662664e-05
+      }
+    },
+    {
+      "name": "source_cap_fail_closed",
+      "pass": true,
+      "detail": {
+        "sources": 32
+      }
+    },
+    {
+      "name": "snapshot_roundtrip_exact",
+      "pass": true,
+      "detail": {
+        "sources": 32
+      }
+    },
+    {
+      "name": "random_beta_oracle_250",
+      "pass": true,
+      "detail": {
+        "max_error": 1.1102230246251565e-16
+      }
+    },
+    {
+      "name": "multiclass_contract_2_to_32",
+      "pass": true,
+      "detail": {
+        "worst_sum_error": 1.1102230246251565e-16
+      }
+    },
+    {
+      "name": "inference_is_read_only",
+      "pass": true,
+      "detail": {
+        "source_id": "readonly",
+        "reliability": 0.8,
+        "effective_reliability": 0.8,
+        "uncertainty_stddev": 0.17888543819998315,
+        "effective_uncertainty_stddev": 0.17888543819998315,
+        "alpha": 3.2,
+        "beta": 0.7999999999999998,
+        "resolved_observations": 0.0,
+        "prior_reliability": 0.8,
+        "prior_strength": 4.0,
+        "supplied_reliability": 0.8,
+        "model_mismatch_abs": 0.0,
+        "effective_model_mismatch_abs": 0.0,
+        "calibrated": false,
+        "regime_count": 1,
+        "active_regime_id": 1,
+        "active_regime_observations": 0.0,
+        "drift_score": 0.0,
+        "drift_zscore": 0.0,
+        "drift_log_bayes_factor": 0.0,
+        "last_temporal_index": null,
+        "last_change_temporal_index": null,
+        "regimes": [
+          {
+            "regime_id": 1,
+            "alpha": 3.2,
+            "beta": 0.7999999999999998,
+            "reliability": 0.8,
+            "uncertainty_stddev": 0.17888543819998315,
+            "start_observation": 0.0,
+            "resolved_observations": 0.0,
+            "start_temporal_index": null,
+            "end_temporal_index": null,
+            "trigger": "initial"
+          }
+        ]
+      }
+    },
+    {
+      "name": "malformed_snapshot_rejected",
+      "pass": true,
+      "detail": {
+        "rejected": 3,
+        "total": 3
+      }
+    },
+    {
+      "name": "tiny_weights_finite",
+      "pass": true,
+      "detail": {
+        "source_id": "tiny",
+        "reliability": 0.9545454545454558,
+        "effective_reliability": 0.9545454545454558,
+        "uncertainty_stddev": 0.20829774959079045,
+        "effective_uncertainty_stddev": 0.20829774959079045,
+        "alpha": 1.0500000000000303e-05,
+        "beta": 5e-07,
+        "resolved_observations": 1.0000000000000058e-05,
+        "prior_reliability": 0.5,
+        "prior_strength": 1e-06,
+        "supplied_reliability": 0.5,
+        "model_mismatch_abs": 0.4545454545454558,
+        "effective_model_mismatch_abs": 0.4545454545454558,
+        "calibrated": true,
+        "regime_count": 1,
+        "active_regime_id": 1,
+        "active_regime_observations": 1.0000000000000058e-05,
+        "drift_score": 0.0,
+        "drift_zscore": 0.0,
+        "drift_log_bayes_factor": 0.0,
+        "last_temporal_index": null,
+        "last_change_temporal_index": null,
+        "regimes": [
+          {
+            "regime_id": 1,
+            "alpha": 1.0500000000000303e-05,
+            "beta": 5e-07,
+            "reliability": 0.9545454545454558,
+            "uncertainty_stddev": 0.20829774959079045,
+            "start_observation": 0.0,
+            "resolved_observations": 1.0000000000000058e-05,
+            "start_temporal_index": null,
+            "end_temporal_index": null,
+            "trigger": "initial"
+          }
+        ]
+      }
+    }
+  ],
+  "passed": 12,
+  "total": 12
+}

@@ -1,0 +1,23 @@
+{
+  "version": "alpha8-coding-dev9",
+  "status": "experimental-not-promoted",
+  "parent": "alpha8-dev8-combined",
+  "tests": {
+    "new": 30,
+    "alpha8_passed": 200,
+    "mutants_caught": "10/10",
+    "v01": "72 passed",
+    "v02_v04": "identical failures to pristine DEV7 (PyTorch absent)"
+  },
+  "oracles": {
+    "radon_agree": "2458/2458 (rules mirrored)",
+    "pyflakes_F841": "7/7"
+  },
+  "sha256": {
+    "asm/coding/understanding.py": "a834cf446b76cd7e7af443270a74b1466f78888946a5b2385e19d7f60cf5fe90",
+    "asm/coding/agent.py": "9839437c0b07fb96c52315b51f2aa7ec321d63c9b10f5f8230b328e7f8974da4",
+    "asm/coding/__init__.py": "7cb3bc9a9a30cd7117afebd756d208d0c14040060f0c1bf1f54db49ecf1331e9",
+    "tests/test_alpha8_coding_dev9.py": "0032178b064e4607b00b3e8afeaeb878bd6a68206dee1c990d53bf7f2bd9376c",
+    "ALPHA8_CODING_DEV9_IMPLEMENTATION.md": "960c48324bf95807a88d6ce50654344c92340877c6a3c004b2a8fb90df749361"
+  }
+}

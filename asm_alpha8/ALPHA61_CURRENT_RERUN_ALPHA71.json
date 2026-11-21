@@ -1,0 +1,190 @@
+{
+  "benchmark": "alpha6.1 current drift gate rerun under alpha7.1",
+  "mean_recovery": 22.566666666666666,
+  "mean_tail_accuracy": 0.9041666666666667,
+  "pass": true,
+  "recovered": 30,
+  "runs": [
+    {
+      "effective_r": 0.15588235294117647,
+      "recovery": 16,
+      "regimes": 2,
+      "tail_accuracy": 0.93
+    },
+    {
+      "effective_r": 0.1264705882352941,
+      "recovery": 22,
+      "regimes": 2,
+      "tail_accuracy": 0.9
+    },
+    {
+      "effective_r": 0.1411764705882353,
+      "recovery": 18,
+      "regimes": 2,
+      "tail_accuracy": 0.89
+    },
+    {
+      "effective_r": 0.1264705882352941,
+      "recovery": 27,
+      "regimes": 2,
+      "tail_accuracy": 0.9
+    },
+    {
+      "effective_r": 0.22941176470588234,
+      "recovery": 26,
+      "regimes": 2,
+      "tail_accuracy": 0.87
+    },
+    {
+      "effective_r": 0.08235294117647059,
+      "recovery": 26,
+      "regimes": 2,
+      "tail_accuracy": 0.94
+    },
+    {
+      "effective_r": 0.11176470588235293,
+      "recovery": 17,
+      "regimes": 2,
+      "tail_accuracy": 0.91
+    },
+    {
+      "effective_r": 0.17058823529411765,
+      "recovery": 23,
+      "regimes": 2,
+      "tail_accuracy": 0.865
+    },
+    {
+      "effective_r": 0.15588235294117647,
+      "recovery": 19,
+      "regimes": 2,
+      "tail_accuracy": 0.9
+    },
+    {
+      "effective_r": 0.1264705882352941,
+      "recovery": 23,
+      "regimes": 2,
+      "tail_accuracy": 0.875
+    },
+    {
+      "effective_r": 0.1264705882352941,
+      "recovery": 25,
+      "regimes": 2,
+      "tail_accuracy": 0.91
+    },
+    {
+      "effective_r": 0.17058823529411765,
+      "recovery": 30,
+      "regimes": 2,
+      "tail_accuracy": 0.92
+    },
+    {
+      "effective_r": 0.1411764705882353,
+      "recovery": 22,
+      "regimes": 2,
+      "tail_accuracy": 0.915
+    },
+    {
+      "effective_r": 0.18529411764705883,
+      "recovery": 24,
+      "regimes": 2,
+      "tail_accuracy": 0.895
+    },
+    {
+      "effective_r": 0.15588235294117647,
+      "recovery": 23,
+      "regimes": 2,
+      "tail_accuracy": 0.88
+    },
+    {
+      "effective_r": 0.1264705882352941,
+      "recovery": 25,
+      "regimes": 2,
+      "tail_accuracy": 0.925
+    },
+    {
+      "effective_r": 0.1411764705882353,
+      "recovery": 23,
+      "regimes": 2,
+      "tail_accuracy": 0.93
+    },
+    {
+      "effective_r": 0.11176470588235293,
+      "recovery": 23,
+      "regimes": 2,
+      "tail_accuracy": 0.93
+    },
+    {
+      "effective_r": 0.1411764705882353,
+      "recovery": 19,
+      "regimes": 2,
+      "tail_accuracy": 0.915
+    },
+    {
+      "effective_r": 0.15588235294117647,
+      "recovery": 27,
+      "regimes": 2,
+      "tail_accuracy": 0.92
+    },
+    {
+      "effective_r": 0.17058823529411765,
+      "recovery": 19,
+      "regimes": 2,
+      "tail_accuracy": 0.89
+    },
+    {
+      "effective_r": 0.17058823529411765,
+      "recovery": 25,
+      "regimes": 2,
+      "tail_accuracy": 0.91
+    },
+    {
+      "effective_r": 0.19999999999999998,
+      "recovery": 19,
+      "regimes": 2,
+      "tail_accuracy": 0.895
+    },
+    {
+      "effective_r": 0.15588235294117647,
+      "recovery": 21,
+      "regimes": 2,
+      "tail_accuracy": 0.915
+    },
+    {
+      "effective_r": 0.1411764705882353,
+      "recovery": 24,
+      "regimes": 2,
+      "tail_accuracy": 0.9
+    },
+    {
+      "effective_r": 0.11176470588235293,
+      "recovery": 19,
+      "regimes": 2,
+      "tail_accuracy": 0.88
+    },
+    {
+      "effective_r": 0.17058823529411765,
+      "recovery": 24,
+      "regimes": 2,
+      "tail_accuracy": 0.88
+    },
+    {
+      "effective_r": 0.17058823529411765,
+      "recovery": 27,
+      "regimes": 2,
+      "tail_accuracy": 0.895
+    },
+    {
+      "effective_r": 0.11176470588235293,
+      "recovery": 18,
+      "regimes": 2,
+      "tail_accuracy": 0.93
+    },
+    {
+      "effective_r": 0.1411764705882353,
+      "recovery": 23,
+      "regimes": 2,
+      "tail_accuracy": 0.91
+    }
+  ],
+  "total": 30
+}

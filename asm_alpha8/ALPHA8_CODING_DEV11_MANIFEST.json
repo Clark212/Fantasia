@@ -1,0 +1,37 @@
+{
+  "version": "alpha8-coding-dev11",
+  "status": "experimental-not-promoted",
+  "parent": "alpha8-dev10",
+  "tests": {
+    "new": 42,
+    "alpha8_passed": 335,
+    "mutants_caught": "20/20",
+    "v01": "72 passed",
+    "v02_v04": "identical failures to pristine DEV7 (PyTorch absent)"
+  },
+  "benchmark": {
+    "localization_faults": 40,
+    "combined_top1": "27/40",
+    "combined_top3": "35/40",
+    "spectrum_top1": "18/40",
+    "traceback_fires": "17/40",
+    "semantic_localized": "0/40",
+    "repair_faults": 17,
+    "resolved": "11/17",
+    "correct": "9/17",
+    "plausible_but_wrong": "2/17",
+    "unresolved_or_timeout": "6/17"
+  },
+  "sha256": {
+    "asm/coding/faultloc.py": "50b14f282cccf5f9066d9758cab33d8c80798075eb9867ce980b0dd60308cf50",
+    "asm/coding/sandbox.py": "e320767c89cf9b25f393ca12eef0ce56f73d0324de1e7e089700b588049f37c1",
+    "asm/coding/semantics.py": "0ec3ebc5d0850725e04c4ca70bdcf885d4410ef0ed0e10768a6cb684178159a7",
+    "asm/coding/agent.py": "b1c00edaba92e1d370c27ebe94ca2cdca0767b4a4ea56e7ec3b4c3b3eae2c970",
+    "asm/coding/__init__.py": "01de251a47d17d7c4f769ad308f852abf51719cf6cbdcc9f10f6fba767b43be0",
+    "tests/test_alpha8_coding_dev11.py": "d2f04cf3dc10e759b8b2ac0253d2aa2568a60289111fed8135c6efb94468d3c5",
+    "benchmarks/dev11_seeded_faults.py": "a26fb79062610c4086c5ccf8d195a9c03258a0d9aab6b1615cd6ecabadae9dfe",
+    "benchmarks/dev11_aggregate.py": "37b2f54e1ad4addcbed82af4cdf31efd5386f860f0104ae74fdbadb09aa92b72",
+    "benchmarks/dev11_aggregate_repair.py": "ede111d4639cea675b6f78811827dc7ea7a84527768fd2b89c989203fedff865",
+    "ALPHA8_CODING_DEV11_IMPLEMENTATION.md": "1bad8f91dd84fbbfb86e58b83042485fdfd75bbf04b769275470277d6d3bc617"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "version": "alpha8-coding-dev8",
+  "status": "experimental-not-promoted",
+  "parent": "alpha8-coding-dev7",
+  "tests": {
+    "new": 13,
+    "alpha8_total_passed": 169,
+    "subtests": 8,
+    "full_historical_suite": "not run"
+  },
+  "sha256": {
+    "asm/coding/research.py": "49b2b83b43bd09bc8ae0bbf48e03eb058314224dff2be31d1eacff823d33e1c0",
+    "asm/coding/__init__.py": "ed04088e48f2499a969dae19d8f56d62fef910c2ca4b207b035782d58d42bff7",
+    "tests/test_alpha8_coding_dev8.py": "dc1d23b2f3c1a30a814cc6427ef6371095b1bb9098cb9aef24defd0e413bacf8",
+    "ALPHA8_CODING_DEV8_IMPLEMENTATION.md": "6f64c9671d5841552e62e51e71694ec5f43f7d2f97ef0f3de67d4220d9a241fb"
+  }
+}

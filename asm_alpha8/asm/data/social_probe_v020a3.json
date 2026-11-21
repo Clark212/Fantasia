@@ -1,0 +1,14 @@
+{
+  "format": "asm-social-probe-v1",
+  "seed": 20260924,
+  "input_dims": 96,
+  "hidden_dims": 32,
+  "training_examples": 2800,
+  "validation_examples": 800,
+  "overall_accuracy": 0.8362500071525574,
+  "threshold": 0.9,
+  "precision": 0.9274447949526814,
+  "recall": 0.735,
+  "selected": 317,
+  "frozen_at_runtime": true
+}

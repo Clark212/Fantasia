@@ -1,0 +1,25 @@
+{
+  "version": "0.4.0-alpha.7",
+  "unit_test_batches": [
+    {"name": "v0.4_review_procedure_alpha7", "executed": 118, "passed": 118, "skipped": 0},
+    {"name": "v0.3", "executed": 77, "passed": 76, "skipped": 1, "skip_reason": "inherited alpha.2 source unavailable"},
+    {"name": "v0.1_v0.2", "executed": 156, "passed": 156, "skipped": 0}
+  ],
+  "unit_total": {"executed": 351, "passed": 350, "skipped": 1},
+  "benchmarks": {
+    "alpha5": "13/13 PASS",
+    "alpha5_hard_feed": "6/6 PASS",
+    "alpha5_1_torture": "10/10 PASS",
+    "alpha5_extreme": "9/9 PASS",
+    "alpha6_torture": "12/12 PASS",
+    "alpha6_1_abrupt_recovery": "30/30 recovered; mean 22.57 observations",
+    "alpha6_1_stationary": "0 false splits / 100 runs",
+    "alpha6_2_torture": "10/10 PASS",
+    "alpha7": "7/7 PASS",
+    "alpha7_torture": "9/9 PASS",
+    "smoke": "PASS"
+  },
+  "not_counted": [
+    "combined all-batches wrapper timed out after completed first two batches; each batch was subsequently/previously run to completion separately"
+  ]
+}

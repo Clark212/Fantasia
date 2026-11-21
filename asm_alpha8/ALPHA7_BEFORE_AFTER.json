@@ -1,0 +1,146 @@
+{
+  "benchmark": "ASM alpha.7 hidden evidence dependency learning",
+  "checks": {
+    "cross_corr_gap_below_1pct": true,
+    "cross_independent_unchanged": true,
+    "full_copy_detected": true,
+    "no_false_dependencies": true,
+    "self_corr_gap_below_1pct": true,
+    "self_corr_improves_gap_20x": true,
+    "self_independent_unchanged": true
+  },
+  "clues": 9,
+  "eval_trials": 10000,
+  "passed": 7,
+  "results": {
+    "cross_correlated": {
+      "after": {
+        "accuracy": 0.6988,
+        "brier": 0.21048000000000075,
+        "calibration_gap": 0.0012000000003161704,
+        "confidence": 0.7000000000003161
+      },
+      "before": {
+        "accuracy": 0.6988,
+        "brier": 0.3009065524449537,
+        "calibration_gap": 0.3007124747079072,
+        "confidence": 0.9995124747079072
+      },
+      "learned_pair": {
+        "active_correlation": 0.999999999999,
+        "cumulative_active_correlation": 0.999999999999,
+        "cumulative_raw_correlation": 1.0,
+        "current_regime_version": 0,
+        "raw_correlation": 1.0,
+        "recent_trials": 0,
+        "regime_count": 0,
+        "source_a": "s0",
+        "source_b": "s1",
+        "status": "dependent",
+        "trials": 500,
+        "view": "cumulative"
+      }
+    },
+    "cross_independent": {
+      "after": {
+        "accuracy": 0.9009,
+        "brier": 0.07441057257325007,
+        "calibration_gap": 0.0005993387801485062,
+        "confidence": 0.9014993387801485
+      },
+      "before": {
+        "accuracy": 0.9009,
+        "brier": 0.07441057257325007,
+        "calibration_gap": 0.0005993387801485062,
+        "confidence": 0.9014993387801485
+      },
+      "learned_pair": {
+        "active_correlation": 0.0,
+        "cumulative_active_correlation": 0.0,
+        "cumulative_raw_correlation": -0.06503688597124929,
+        "current_regime_version": 0,
+        "raw_correlation": -0.06503688597124929,
+        "recent_trials": 0,
+        "regime_count": 0,
+        "source_a": "s0",
+        "source_b": "s1",
+        "status": "independent_or_unproven",
+        "trials": 500,
+        "view": "cumulative"
+      }
+    },
+    "detection_latency_full_copy": {
+      "minimum_trials": 64,
+      "trials_to_active": 64
+    },
+    "false_positive_stress": {
+      "active_pair_false": 0,
+      "active_self_false": 0,
+      "pair_tests": 1120,
+      "runs": 40,
+      "self_tests": 320,
+      "trials_per_run": 300
+    },
+    "self_correlated": {
+      "after": {
+        "accuracy": 0.6933,
+        "brier": 0.21268000000000425,
+        "calibration_gap": 0.006700000000316231,
+        "confidence": 0.7000000000003163
+      },
+      "before": {
+        "accuracy": 0.6933,
+        "brier": 0.3064011896667407,
+        "calibration_gap": 0.30621247470790713,
+        "confidence": 0.9995124747079072
+      },
+      "learned": {
+        "active_correlation": 0.999999999999,
+        "cumulative_active_correlation": 0.999999999999,
+        "cumulative_raw_correlation": 1.0,
+        "current_regime_version": 0,
+        "pair_samples": 36000,
+        "raw_correlation": 1.0,
+        "recent_trials": 0,
+        "redundancy_strength": 0.999999999998,
+        "regime_count": 0,
+        "source_id": "s",
+        "status": "dependent",
+        "trials": 500,
+        "view": "cumulative"
+      }
+    },
+    "self_independent": {
+      "after": {
+        "accuracy": 0.9024,
+        "brier": 0.07410207171085212,
+        "calibration_gap": 0.0009048978599494051,
+        "confidence": 0.9033048978599494
+      },
+      "before": {
+        "accuracy": 0.9024,
+        "brier": 0.07410207171085212,
+        "calibration_gap": 0.0009048978599494051,
+        "confidence": 0.9033048978599494
+      },
+      "learned": {
+        "active_correlation": 0.0,
+        "cumulative_active_correlation": 0.0,
+        "cumulative_raw_correlation": -0.004993317339221716,
+        "current_regime_version": 0,
+        "pair_samples": 36000,
+        "raw_correlation": -0.004993317339221716,
+        "recent_trials": 0,
+        "redundancy_strength": 0.0,
+        "regime_count": 0,
+        "source_id": "s",
+        "status": "independent_or_unproven",
+        "trials": 500,
+        "view": "cumulative"
+      }
+    }
+  },
+  "seed": 4070,
+  "total": 7,
+  "train_trials": 500
+}

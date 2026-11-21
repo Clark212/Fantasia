@@ -1,0 +1,59 @@
+32 faults; by subject: {'cachetools': 12, 'toolz': 12, 'understanding': 8}
+
+====================================================================================================
+SUITE STRENGTH: half  (0 faults skipped)
+   true_fix  n=32   oracle {'restored': 32}
+   single    n=39   oracle {'equivalent': 10, 'restored': 29}
+   decoy     n=70   oracle {'wrong': 4, 'equivalent': 62, 'unknown': 4}
+   decoys constructed 445; passed the repair suite (kept) 70
+
+   WRONG decoys (test-passing, behaviour confirmed different from the correct program): 4;  benign decoys (extra edit had no observable effect): 62;  correct controls: 71
+
+   flag                                                on WRONG decoys        on CORRECT controls
+   alternatives_disagree                               3/4                        0/71           
+   behaviour_changed_where_tests_passed                2/4                       10/71           
+   behaviour_unverified                                0/4                        6/71           
+   tied_localization                                   1/4                       13/71           
+   underdetermined                                     0/4                        3/71           
+
+   detection (WRONG flagged):      any flag 4/4 (100%, 95% CI 51-100%)
+                                   label low 2/4 (50%, 95% CI 15-85%)
+   false alarms (CORRECT flagged): any flag 27/71 (38%, 95% CI 28-50%)
+                                   label low 4/71 (6%, 95% CI 2-14%)
+
+   label    WRONG  correct   P(wrong | label) among wrong decoys + correct controls
+   high         0       44   0/44 (0%, 95% CI 0-8%)
+   medium       2       23   2/25 (8%, 95% CI 2-25%)
+   low          2        4   2/6 (33%, 95% CI 10-70%)
+
+   by subject (wrong decoys flagged / wrong decoys): cachetools: 1/1; toolz: 0/0; understanding: 3/3
+
+====================================================================================================
+SUITE STRENGTH: weak  (0 faults skipped)
+   true_fix  n=32   oracle {'restored': 32}
+   single    n=41   oracle {'equivalent': 12, 'restored': 29}
+   decoy     n=88   oracle {'wrong': 7, 'equivalent': 77, 'unknown': 4}
+   decoys constructed 299; passed the repair suite (kept) 88
+
+   WRONG decoys (test-passing, behaviour confirmed different from the correct program): 7;  benign decoys (extra edit had no observable effect): 77;  correct controls: 73
+
+   flag                                                on WRONG decoys        on CORRECT controls
+   alternatives_disagree                               3/7                        0/73           
+   behaviour_unverified                                0/7                       10/73           
+   tied_localization                                   5/7                       38/73           
+   underdetermined                                     0/7                        5/73           
+
+   detection (WRONG flagged):      any flag 5/7 (71%, 95% CI 36-92%)
+                                   label low 3/7 (43%, 95% CI 16-75%)
+   false alarms (CORRECT flagged): any flag 42/73 (58%, 95% CI 46-68%)
+                                   label low 8/73 (11%, 95% CI 6-20%)
+
+   label    WRONG  correct   P(wrong | label) among wrong decoys + correct controls
+   high         2       31   2/33 (6%, 95% CI 2-20%)
+   medium       2       34   2/36 (6%, 95% CI 2-18%)
+   low          3        8   3/11 (27%, 95% CI 10-57%)
+
+   by subject (wrong decoys flagged / wrong decoys): cachetools: 3/3; toolz: 0/0; understanding: 2/4
+   examples of WRONG decoys that got NO flag (2):
+      understanding: true fix + const: '1' -> '0' at line 302 (verified=True)
+      understanding: true fix + negate: '_truthy_const(s.test)' -> 'not (_truthy_const(s.te (verified=True)

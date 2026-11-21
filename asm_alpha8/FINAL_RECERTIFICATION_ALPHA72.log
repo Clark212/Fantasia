@@ -1,0 +1,51 @@
+ASM v0.4.0-alpha.7.2 final bounded recertification
+
+SMOKE
+- smoke_test.py: PASS
+
+UNIT BATCHES
+- v0.1: 72/72 PASS
+- v0.2: 84/84 PASS
+- v0.3: 77 executed = 76 PASS + 1 inherited intentional SKIP
+- v0.4 a1-a4: 37/37 PASS
+- v0.4 a5-a6.2: 57/57 PASS
+- v0.4 a7-a7.2 + Astra graft: 44/44 PASS
+- review + legacy experimental Procedure Cortex: 11/11 PASS
+TOTAL: 382 executed = 381 PASS + 1 inherited intentional SKIP
+
+BEHAVIOR GATES
+- alpha.5 frozen benchmark: 13/13 PASS
+- alpha.5.1 torture: 10/10 PASS
+- alpha.5.1 extreme torture: 9/9 PASS
+- alpha.6 torture: 12/12 PASS
+- alpha.6.1 current abrupt drift: 30/30 recovered
+- alpha.6.1 stationary torture: 0 false splits / 100 stationary seeds
+- alpha.6.2 lineage torture: 10/10 PASS
+- alpha.7 frozen benchmark: 7/7 PASS
+- alpha.7 torture: 9/9 PASS
+- alpha.7.1 frozen benchmark: 8/8 PASS
+- alpha.7.1 torture: 9/9 PASS
+- alpha.7.2 BEFORE/AFTER: 8/8 PASS
+- alpha.7.2 torture: 8/8 PASS
+
+MIGRATION
+- real alpha.7.1 database -> alpha.7.2: PASS
+- adaptive source state exact: PASS
+- evidence-dependency state exact: PASS
+- arbitrary persisted probe: PASS
+- fabricated procedure versions: 0
+
+PERFORMANCE (environment-specific)
+- discovery manual median: 0.0036416295 s
+- discovery auto median: 0.0038948655 s
+- discovery ratio: 1.069539x
+- 500 active observations manual median: 0.0297468070 s
+- 500 active observations auto median: 0.0316951370 s
+- steady ratio: 1.065497x
+- median DB bytes: 147456 on both paths
+
+TIMEOUT DISCIPLINE
+Timed-out aggregate commands were not counted as complete passes.
+- combined post-version unit command timed out entering v0.3; v0.3 was rerun separately.
+- combined critical-gate command timed out before alpha.7.2 torture completed; alpha.7.2 torture was rerun separately.
+- combined inherited-gate command timed out entering alpha.6.1 stationary; stationary and alpha.6.2 torture were rerun separately.

@@ -1,0 +1,107 @@
+{
+  "approximate_null": {
+    "false_activations": 0,
+    "rate": 0.0,
+    "trials": 20000
+  },
+  "latency": {
+    "alpha78_median_ms": 0.19147300002941847,
+    "alpha79_median_ms": 0.19779249998919113
+  },
+  "migration": {
+    "new_group_after": {
+      "s10": 0.5455537370430986,
+      "s11": 0.5455537370430986,
+      "s8": 0.5455537370430986,
+      "s9": 0.5455537370430986
+    },
+    "old_group_after": {
+      "s0": 1.0,
+      "s1": 1.0,
+      "s2": 1.0,
+      "s3": 1.0
+    },
+    "old_group_before": {
+      "s0": 0.5455537370430986,
+      "s1": 0.5455537370430986,
+      "s2": 0.5455537370430986,
+      "s3": 0.5455537370430986
+    }
+  },
+  "overlap": {
+    "alpha78_support": 20.0,
+    "alpha79_support": 7.471619992533491,
+    "sources": 20
+  },
+  "real_learned": {
+    "independent_false_detections": 0,
+    "independent_runs": 12,
+    "signed_alpha78_mean_support": 7.718143839120411,
+    "signed_alpha79_mean_support": 3.976045036109261,
+    "signed_detections": 12,
+    "signed_per_seed": [
+      {
+        "alpha78": 8.0,
+        "alpha79": 3.9132463036369445,
+        "seed": 0
+      },
+      {
+        "alpha78": 7.5479973501043975,
+        "alpha79": 3.7799563405709025,
+        "seed": 1
+      },
+      {
+        "alpha78": 8.0,
+        "alpha79": 4.273295952696979,
+        "seed": 2
+      },
+      {
+        "alpha78": 8.0,
+        "alpha79": 4.053694798751674,
+        "seed": 3
+      },
+      {
+        "alpha78": 8.0,
+        "alpha79": 3.9422587216265326,
+        "seed": 4
+      },
+      {
+        "alpha78": 6.684353288650063,
+        "alpha79": 3.581415229417098,
+        "seed": 5
+      },
+      {
+        "alpha78": 6.899784691445983,
+        "alpha79": 3.531777555686862,
+        "seed": 6
+      },
+      {
+        "alpha78": 8.0,
+        "alpha79": 3.929817795339284,
+        "seed": 7
+      },
+      {
+        "alpha78": 8.0,
+        "alpha79": 4.131786030649099,
+        "seed": 8
+      },
+      {
+        "alpha78": 8.0,
+        "alpha79": 4.636562653313513,
+        "seed": 9
+      },
+      {
+        "alpha78": 7.485590739244492,
+        "alpha79": 4.054780120884072,
+        "seed": 10
+      },
+      {
+        "alpha78": 8.0,
+        "alpha79": 3.8839489307381694,
+        "seed": 11
+      }
+    ],
+    "signed_runs": 12
+  },
+  "version": "0.4.0-alpha.7.9-experimental"
+}

@@ -1,0 +1,79 @@
+{
+  "checks": [
+    {
+      "detail": {
+        "posterior_A": 0.7,
+        "roots": 1
+      },
+      "name": "copy_chain_10000_no_confidence_inflation",
+      "pass": true
+    },
+    {
+      "detail": {
+        "max_error": 0.0,
+        "rank_matches": 1000
+      },
+      "name": "independent_random_1000_exact",
+      "pass": true
+    },
+    {
+      "detail": {
+        "h7": 0.99
+      },
+      "name": "multiclass_32_copy_safe",
+      "pass": true
+    },
+    {
+      "detail": {
+        "posterior": {
+          "A": 0.6666666666666666,
+          "B": 0.33333333333333337
+        },
+        "roots": 1001
+      },
+      "name": "partial_overlap_1000_finite",
+      "pass": true
+    },
+    {
+      "detail": {},
+      "name": "graph_capacity_fail_closed",
+      "pass": true
+    },
+    {
+      "detail": {},
+      "name": "item_root_capacity_fail_closed",
+      "pass": true
+    },
+    {
+      "detail": {
+        "rejected": 3,
+        "total": 3
+      },
+      "name": "malformed_lineage_snapshots_rejected",
+      "pass": true
+    },
+    {
+      "detail": {
+        "roots": 16
+      },
+      "name": "belief_root_capacity_fail_closed",
+      "pass": true
+    },
+    {
+      "detail": {},
+      "name": "evidence_id_idempotent_but_conflicts_rejected",
+      "pass": true
+    },
+    {
+      "detail": {
+        "max_error": 0.0,
+        "raw_evidence_count": 1000,
+        "roots": 100
+      },
+      "name": "100_roots_x10_equivalent_to_100_independent",
+      "pass": true
+    }
+  ],
+  "passed": 10,
+  "total": 10
+}

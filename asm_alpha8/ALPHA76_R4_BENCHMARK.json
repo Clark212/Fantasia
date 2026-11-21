@@ -1,0 +1,332 @@
+{
+  "benchmark": "ASM alpha.7.6 Experimental R4 false-dependency and covariance hardening",
+  "covariance_design_effect": {
+    "cases": [
+      {
+        "covariance_neff": 1.8181818181818181,
+        "k": 2,
+        "r3_abs_error": 0.16201620162016206,
+        "r3_rho2": 1.9801980198019802,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.8181818181818181,
+        "rho": 0.1
+      },
+      {
+        "covariance_neff": 1.6,
+        "k": 2,
+        "r3_abs_error": 0.2823529411764705,
+        "r3_rho2": 1.8823529411764706,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.6,
+        "rho": 0.25
+      },
+      {
+        "covariance_neff": 1.3333333333333333,
+        "k": 2,
+        "r3_abs_error": 0.26666666666666683,
+        "r3_rho2": 1.6,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.3333333333333333,
+        "rho": 0.5
+      },
+      {
+        "covariance_neff": 1.1428571428571428,
+        "k": 2,
+        "r3_abs_error": 0.13714285714285723,
+        "r3_rho2": 1.28,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.1428571428571428,
+        "rho": 0.75
+      },
+      {
+        "covariance_neff": 1.0,
+        "k": 2,
+        "r3_abs_error": 0.0,
+        "r3_rho2": 1.0,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.0,
+        "rho": 1.0
+      },
+      {
+        "covariance_neff": 3.0769230769230766,
+        "k": 4,
+        "r3_abs_error": 0.8065720687079914,
+        "r3_rho2": 3.883495145631068,
+        "r4_abs_error": 0.0,
+        "r4_rho": 3.0769230769230766,
+        "rho": 0.1
+      },
+      {
+        "covariance_neff": 2.2857142857142856,
+        "k": 4,
+        "r3_abs_error": 1.0827067669172932,
+        "r3_rho2": 3.3684210526315788,
+        "r4_abs_error": 0.0,
+        "r4_rho": 2.2857142857142856,
+        "rho": 0.25
+      },
+      {
+        "covariance_neff": 1.6,
+        "k": 4,
+        "r3_abs_error": 0.6857142857142855,
+        "r3_rho2": 2.2857142857142856,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.6,
+        "rho": 0.5
+      },
+      {
+        "covariance_neff": 1.2307692307692308,
+        "k": 4,
+        "r3_abs_error": 0.25760286225402496,
+        "r3_rho2": 1.4883720930232558,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.2307692307692308,
+        "rho": 0.75
+      },
+      {
+        "covariance_neff": 1.0,
+        "k": 4,
+        "r3_abs_error": 0.0,
+        "r3_rho2": 1.0,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.0,
+        "rho": 1.0
+      },
+      {
+        "covariance_neff": 4.705882352941176,
+        "k": 8,
+        "r3_abs_error": 2.770753161077516,
+        "r3_rho2": 7.4766355140186915,
+        "r4_abs_error": 0.0,
+        "r4_rho": 4.705882352941176,
+        "rho": 0.1
+      },
+      {
+        "covariance_neff": 2.909090909090909,
+        "k": 8,
+        "r3_abs_error": 2.6561264822134385,
+        "r3_rho2": 5.565217391304348,
+        "r4_abs_error": 0.0,
+        "r4_rho": 2.909090909090909,
+        "rho": 0.25
+      },
+      {
+        "covariance_neff": 1.7777777777777777,
+        "k": 8,
+        "r3_abs_error": 1.1313131313131315,
+        "r3_rho2": 2.909090909090909,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.7777777777777777,
+        "rho": 0.5
+      },
+      {
+        "covariance_neff": 1.28,
+        "k": 8,
+        "r3_abs_error": 0.340253164556962,
+        "r3_rho2": 1.620253164556962,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.28,
+        "rho": 0.75
+      },
+      {
+        "covariance_neff": 1.0,
+        "k": 8,
+        "r3_abs_error": 0.0,
+        "r3_rho2": 1.0,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.0,
+        "rho": 1.0
+      },
+      {
+        "covariance_neff": 6.4,
+        "k": 16,
+        "r3_abs_error": 7.513043478260871,
+        "r3_rho2": 13.913043478260871,
+        "r4_abs_error": 0.0,
+        "r4_rho": 6.4,
+        "rho": 0.1
+      },
+      {
+        "covariance_neff": 3.3684210526315788,
+        "k": 16,
+        "r3_abs_error": 4.889643463497453,
+        "r3_rho2": 8.258064516129032,
+        "r4_abs_error": 0.0,
+        "r4_rho": 3.3684210526315788,
+        "rho": 0.25
+      },
+      {
+        "covariance_neff": 1.8823529411764706,
+        "k": 16,
+        "r3_abs_error": 1.4860681114551082,
+        "r3_rho2": 3.3684210526315788,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.8823529411764706,
+        "rho": 0.5
+      },
+      {
+        "covariance_neff": 1.3061224489795917,
+        "k": 16,
+        "r3_abs_error": 0.3892417894310043,
+        "r3_rho2": 1.695364238410596,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.3061224489795917,
+        "rho": 0.75
+      },
+      {
+        "covariance_neff": 1.0,
+        "k": 16,
+        "r3_abs_error": 0.0,
+        "r3_rho2": 1.0,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.0,
+        "rho": 1.0
+      },
+      {
+        "covariance_neff": 7.8048780487804885,
+        "k": 32,
+        "r3_abs_error": 16.622602867250045,
+        "r3_rho2": 24.427480916030532,
+        "r4_abs_error": 0.0,
+        "r4_rho": 7.8048780487804885,
+        "rho": 0.1
+      },
+      {
+        "covariance_neff": 3.657142857142857,
+        "k": 32,
+        "r3_abs_error": 7.236474164133739,
+        "r3_rho2": 10.893617021276595,
+        "r4_abs_error": 0.0,
+        "r4_rho": 3.657142857142857,
+        "rho": 0.25
+      },
+      {
+        "covariance_neff": 1.9393939393939394,
+        "k": 32,
+        "r3_abs_error": 1.7177489177489176,
+        "r3_rho2": 3.657142857142857,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.9393939393939394,
+        "rho": 0.5
+      },
+      {
+        "covariance_neff": 1.3195876288659794,
+        "k": 32,
+        "r3_abs_error": 0.41600559147300364,
+        "r3_rho2": 1.735593220338983,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.3195876288659794,
+        "rho": 0.75
+      },
+      {
+        "covariance_neff": 1.0,
+        "k": 32,
+        "r3_abs_error": 0.0,
+        "r3_rho2": 1.0,
+        "r4_abs_error": 0.0,
+        "r4_rho": 1.0,
+        "rho": 1.0
+      }
+    ],
+    "max_abs_error_r3": 16.622602867250045,
+    "mean_abs_error_r3": 2.0340019589044376,
+    "mean_abs_error_r4": 0.0
+  },
+  "false_belief_recovery": {
+    "cases": [
+      {
+        "after_status": "routed",
+        "before_status": "abstain",
+        "before_support": 2.395689224770396,
+        "pair": "s15\ts23",
+        "recovered_at_trials": 7,
+        "route_history_mutations": 0,
+        "seed": 73
+      },
+      {
+        "after_status": "routed",
+        "before_status": "abstain",
+        "before_support": 2.3373250112541704,
+        "pair": "s1\ts8",
+        "recovered_at_trials": 21,
+        "route_history_mutations": 0,
+        "seed": 139
+      },
+      {
+        "after_status": "routed",
+        "before_status": "abstain",
+        "before_support": 2.407779171894605,
+        "pair": "s10\ts30",
+        "recovered_at_trials": 6,
+        "route_history_mutations": 0,
+        "seed": 159
+      },
+      {
+        "after_status": "routed",
+        "before_status": "abstain",
+        "before_support": 2.3367002479346843,
+        "pair": "s21\ts6",
+        "recovered_at_trials": 46,
+        "route_history_mutations": 0,
+        "seed": 164
+      }
+    ],
+    "max_recovery_trials": 46,
+    "mean_recovery_trials": 20,
+    "recovered": 4,
+    "total": 4
+  },
+  "performance": {
+    "route_ms_median": 0.576153,
+    "route_ms_p95": 0.692974
+  },
+  "scale_false_discovery": {
+    "16": {
+      "accepted_any": 1,
+      "accepted_any_rate": 0.0033333333333333335,
+      "accepted_pairs": 1,
+      "base_any": 1,
+      "base_any_rate": 0.0033333333333333335,
+      "base_pairs": 1,
+      "runs": 300,
+      "suppressed_pairs": 0
+    },
+    "32": {
+      "accepted_any": 4,
+      "accepted_any_rate": 0.02,
+      "accepted_pairs": 4,
+      "base_any": 13,
+      "base_any_rate": 0.065,
+      "base_pairs": 13,
+      "runs": 200,
+      "suppressed_pairs": 9
+    },
+    "64": {
+      "accepted_any": 0,
+      "accepted_any_rate": 0.0,
+      "accepted_pairs": 0,
+      "base_any": 11,
+      "base_any_rate": 0.1375,
+      "base_pairs": 11,
+      "runs": 80,
+      "suppressed_pairs": 11
+    }
+  },
+  "true_dependency_sensitivity": {
+    "0.5": {
+      "base_active": 20,
+      "fdr_accepted": 18,
+      "runs": 24
+    },
+    "0.75": {
+      "base_active": 24,
+      "fdr_accepted": 24,
+      "runs": 24
+    },
+    "1.0": {
+      "base_active": 24,
+      "fdr_accepted": 24,
+      "runs": 24
+    }
+  }
+}

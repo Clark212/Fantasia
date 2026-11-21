@@ -1,0 +1,69 @@
+{
+  "version": "alpha8-coding-dev13",
+  "status": "experimental-not-promoted (DEV11, DEV12 also not promoted)",
+  "parent": "alpha8-dev12 (verified 11/11 against its manifest)",
+  "note": "rebuilt from the DEV12 zip after a workspace reset; all tests and benchmarks re-run",
+  "tests": {
+    "new_dev13": 37,
+    "alpha8_passed_fresh_full_run": 404,
+    "mutants_caught": "19/19",
+    "v01": "72 passed",
+    "v02_v04": "identical failures to earlier baseline (PyTorch absent)",
+    "pytest": "9.1.1"
+  },
+  "calibration": {
+    "faults": 32,
+    "subjects": "toolz 12, cachetools 12, ASM understanding 8",
+    "realistic_suite": {
+      "plausible_wrong": "0/36",
+      "workflow_accepted_correct": "28/28",
+      "verification_available": "34/36"
+    },
+    "weak_suite": {
+      "plausible_wrong": "4/33 (all labelled low)",
+      "workflow_accepted_wrong": "2/20 (both labelled low)"
+    }
+  },
+  "decoys": {
+    "constructed": 744,
+    "kept": 158,
+    "confirmed_wrong": 11,
+    "wrong_flagged": "9/11",
+    "p_wrong_given_label": {
+      "high": "2/77",
+      "medium": "4/61",
+      "low": "5/17"
+    },
+    "alternatives_disagree": "6/11 wrong, 0/144 correct"
+  },
+  "known_overfits": {
+    "1": "detected (low); competing patch = true fix",
+    "2": "behaviourally equivalent on 120 inputs; reclassified"
+  },
+  "sha256": {
+    "asm/coding/verification.py": "f85a6e952e2be5971f1603de805e53d73a7304b85a734c9a3d64c6569e46323e",
+    "asm/coding/faultloc.py": "0a1bd4546c9d910361aead4df1c6e6d6caf94f8f6474d6278fc93e39453f3c3d",
+    "asm/coding/sandbox.py": "096014f1c60bf8b7272fd73f34bd9a8ae50100794a986cb96f8a0ad8769fb7bc",
+    "asm/coding/__init__.py": "5d7639304ec27e414dfc735bb4f72ca196d31bd31ad03b76d8a61f01e3bd9125",
+    "tests/test_alpha8_coding_dev13.py": "2e34632cfe8386ffb71481633a25e8725a9c9cbea7a1cb66549fc7fd10c3e1cc",
+    "tests/test_alpha8_coding_dev12.py": "163e7b43e8e4f22a6b920b8008c0addc506826f5194ea781a1ff85e40d1772b3",
+    "benchmarks/dev13_subjects.py": "438e8cb75360a6d12dc126affddcac7cf3785c1ce66174e2d08fea7fe615e883",
+    "benchmarks/dev13_oracle.py": "7d584effc1ee92a223f90f98cf0c579121cec742cd6e1a94accc7ec39ac5ce38",
+    "benchmarks/dev13_calibration.py": "ca0aa344ef3ffb75f6cc44f773f84a0ef17dd40f499ee3de514dc27a76810dd4",
+    "benchmarks/dev13_decoys.py": "2466d3a790ca18b4805dc17fb975207f31ffcdab554d57ee62502415e9ac022d",
+    "benchmarks/dev13_aggregate_calibration.py": "14d54e31500535880146f4de19807946fc146b90132246fbda7bb9918b6f8247",
+    "benchmarks/dev13_aggregate_decoys.py": "16b2374265287be65ff91f91223265dcfacb7c8da6b72a17a258b0aff6e8cea9",
+    "benchmarks/dev13_stats.py": "496f2b2d27ec617b20e89fe3fe642c4cbbf350a3fcf145f19632d38f57b688f8",
+    "benchmarks/dev13_recheck_overfits.py": "1a731870efe4ab56e659918ad4b85e6b4374c1d2efe1565ce708bf262bdf4378",
+    "ALPHA8_CODING_DEV13_IMPLEMENTATION.md": "7fa0a69e360977faeafa4b520b7f32f1931d8967b39ec79bf673c58668f59338",
+    "benchmarks/results/dev13/cal_cachetools.jsonl": "2231ca460beba9b721344514eb2e979055846b63830cbae8d05eda2d41e4bc30",
+    "benchmarks/results/dev13/cal_toolz.jsonl": "a917fce2854adbe7358650e1cf5c04cceb473fbb0027a3e5929c21eefe8ee19d",
+    "benchmarks/results/dev13/cal_understanding.jsonl": "a0cb2822b09c4ea53171213f1bb4cc28ccbd1bfbf080292b790fc75e48389e96",
+    "benchmarks/results/dev13/calibration_summary.txt": "89c9bfc33fa8ed8190ff8f887063d5bd109c4131404b3eb751ca82751f4b11b6",
+    "benchmarks/results/dev13/dec_cachetools.jsonl": "4a4059b13e99e071bd221d6ea4c2e13b049ac502fd5da421b28369cf70574185",
+    "benchmarks/results/dev13/dec_toolz.jsonl": "47e31ad02a5ad7dae70a4db99982e990992053c803e098d05700458dfd192087",
+    "benchmarks/results/dev13/dec_understanding.jsonl": "8cac704690233dd1cd538614b8c9db8138cf04688a67981d8862f7301f62048a",
+    "benchmarks/results/dev13/decoys_summary.txt": "43121cdf8e226c2507ff9d89a40f67255351c654e4c9b03ce54a640e4c6c1b0c",
+    "benchmarks/results/dev13/independent_repo_sdists.sha256": "51871df500ba9d9751c6e67a842a3e62fda96c62408461a9c1cb0f00e1da0f3f"
+  }
+}

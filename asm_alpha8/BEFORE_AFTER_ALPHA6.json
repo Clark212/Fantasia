@@ -1,0 +1,319 @@
+{
+  "version": "0.4.0-alpha.6",
+  "protocol": {
+    "episodes": 6000,
+    "clues_per_episode": 9,
+    "tail_window": 1500,
+    "seed": 4060
+  },
+  "comparisons": {
+    "matched70": {
+      "supplied_reliability": 0.7,
+      "learned_final_reliability": 0.6996852085030739,
+      "before_fixed_tail": {
+        "accuracy": 0.902,
+        "mean_confidence": 0.9034268163974313,
+        "calibration_gap": 0.001426816397431252,
+        "brier": 0.07301939316448691,
+        "wrong_confidence": 0.7553058798220088
+      },
+      "after_adaptive_tail": {
+        "accuracy": 0.902,
+        "mean_confidence": 0.9031084633250976,
+        "calibration_gap": 0.0011084633250976195,
+        "brier": 0.0730165854312486,
+        "wrong_confidence": 0.7548197547742354
+      },
+      "reliability_trace": [
+        {
+          "episode": 1,
+          "reliability": 0.7538461538461539
+        },
+        {
+          "episode": 100,
+          "reliability": 0.7044247787610619
+        },
+        {
+          "episode": 1000,
+          "reliability": 0.6994446912483341
+        },
+        {
+          "episode": 3000,
+          "reliability": 0.7003703155088135
+        },
+        {
+          "episode": 3100,
+          "reliability": 0.700358371559633
+        },
+        {
+          "episode": 6000,
+          "reliability": 0.6996852085030739
+        }
+      ]
+    },
+    "true70_model90": {
+      "supplied_reliability": 0.9,
+      "learned_final_reliability": 0.6995704021924302,
+      "before_fixed_tail": {
+        "accuracy": 0.8913333333333333,
+        "mean_confidence": 0.9751232056956004,
+        "calibration_gap": 0.08378987236226709,
+        "brier": 0.09399594488648827,
+        "wrong_confidence": 0.9212364540965351
+      },
+      "after_adaptive_tail": {
+        "accuracy": 0.8913333333333333,
+        "mean_confidence": 0.9008214376397456,
+        "calibration_gap": 0.009488104306412337,
+        "brier": 0.07828043565255885,
+        "wrong_confidence": 0.7515177836931798
+      },
+      "reliability_trace": [
+        {
+          "episode": 1,
+          "reliability": 0.8153846153846154
+        },
+        {
+          "episode": 100,
+          "reliability": 0.7241150442477876
+        },
+        {
+          "episode": 1000,
+          "reliability": 0.6998667258996002
+        },
+        {
+          "episode": 3000,
+          "reliability": 0.6973263220263665
+        },
+        {
+          "episode": 3100,
+          "reliability": 0.6976275802752293
+        },
+        {
+          "episode": 6000,
+          "reliability": 0.6995704021924302
+        }
+      ]
+    },
+    "true90_model70": {
+      "supplied_reliability": 0.7,
+      "learned_final_reliability": 0.9002814606325458,
+      "before_fixed_tail": {
+        "accuracy": 0.9986666666666667,
+        "mean_confidence": 0.9902122209237341,
+        "calibration_gap": 0.008454445742932637,
+        "brier": 0.0020812132473035996,
+        "wrong_confidence": 0.8135135135135134
+      },
+      "after_adaptive_tail": {
+        "accuracy": 0.9986666666666667,
+        "mean_confidence": 0.998822071030787,
+        "calibration_gap": 0.0001554043641203151,
+        "brier": 0.0013113239902581642,
+        "wrong_confidence": 0.9496129856850266
+      },
+      "reliability_trace": [
+        {
+          "episode": 1,
+          "reliability": 0.8307692307692308
+        },
+        {
+          "episode": 100,
+          "reliability": 0.9123893805309734
+        },
+        {
+          "episode": 1000,
+          "reliability": 0.903243003109729
+        },
+        {
+          "episode": 3000,
+          "reliability": 0.9003777218189898
+        },
+        {
+          "episode": 3100,
+          "reliability": 0.9001863532110091
+        },
+        {
+          "episode": 6000,
+          "reliability": 0.9002814606325458
+        }
+      ]
+    },
+    "antiinformative20_model90": {
+      "supplied_reliability": 0.9,
+      "learned_final_reliability": 0.19962595363306423,
+      "before_fixed_tail": {
+        "accuracy": 0.018666666666666668,
+        "mean_confidence": 0.9918294104190576,
+        "calibration_gap": 0.9731627437523909,
+        "brier": 0.96859678683534,
+        "wrong_confidence": 0.9931062172156723
+      },
+      "after_adaptive_tail": {
+        "accuracy": 0.9813333333333333,
+        "mean_confidence": 0.9812185022877711,
+        "calibration_gap": 0.00011483104556220258,
+        "brier": 0.01615450772382738,
+        "wrong_confidence": 0.8467045500189487
+      },
+      "reliability_trace": [
+        {
+          "episode": 1,
+          "reliability": 0.3538461538461538
+        },
+        {
+          "episode": 100,
+          "reliability": 0.20420353982300884
+        },
+        {
+          "episode": 1000,
+          "reliability": 0.1957574411372723
+        },
+        {
+          "episode": 3000,
+          "reliability": 0.20021478299511186
+        },
+        {
+          "episode": 3100,
+          "reliability": 0.20020785550458717
+        },
+        {
+          "episode": 6000,
+          "reliability": 0.19962595363306423
+        }
+      ]
+    },
+    "drift90_to60_model90": {
+      "supplied_reliability": 0.9,
+      "learned_final_reliability": 0.7489185986223242,
+      "before_fixed_tail": {
+        "accuracy": 0.728,
+        "mean_confidence": 0.957616104847918,
+        "calibration_gap": 0.22961610484791806,
+        "brier": 0.24211105323677873,
+        "wrong_confidence": 0.9373476228925895
+      },
+      "after_adaptive_tail": {
+        "accuracy": 0.728,
+        "mean_confidence": 0.8951949085492018,
+        "calibration_gap": 0.16719490854920183,
+        "brier": 0.21280277220996213,
+        "wrong_confidence": 0.8502535714412087
+      },
+      "reliability_trace": [
+        {
+          "episode": 1,
+          "reliability": 0.9692307692307692
+        },
+        {
+          "episode": 100,
+          "reliability": 0.9088495575221239
+        },
+        {
+          "episode": 1000,
+          "reliability": 0.8995557529986673
+        },
+        {
+          "episode": 3000,
+          "reliability": 0.8979262331506443
+        },
+        {
+          "episode": 3100,
+          "reliability": 0.8888546444954127
+        },
+        {
+          "episode": 6000,
+          "reliability": 0.7489185986223242
+        }
+      ]
+    },
+    "flip90_to10_model90": {
+      "supplied_reliability": 0.9,
+      "learned_final_reliability": 0.49993704170061476,
+      "before_fixed_tail": {
+        "accuracy": 0.0,
+        "mean_confidence": 0.9993998359487606,
+        "calibration_gap": 0.9993998359487606,
+        "brier": 0.9988530928498209,
+        "wrong_confidence": 0.9993998359487606
+      },
+      "after_adaptive_tail": {
+        "accuracy": 0.0,
+        "mean_confidence": 0.7974597231130037,
+        "calibration_gap": 0.7974597231130037,
+        "brier": 0.6583396790486052,
+        "wrong_confidence": 0.7974597231130037
+      },
+      "reliability_trace": [
+        {
+          "episode": 1,
+          "reliability": 0.8153846153846154
+        },
+        {
+          "episode": 100,
+          "reliability": 0.904424778761062
+        },
+        {
+          "episode": 1000,
+          "reliability": 0.8995557529986673
+        },
+        {
+          "episode": 3000,
+          "reliability": 0.9003703155088134
+        },
+        {
+          "episode": 3100,
+          "reliability": 0.8746272935779816
+        },
+        {
+          "episode": 6000,
+          "reliability": 0.49993704170061476
+        }
+      ]
+    },
+    "correlated70_model70": {
+      "supplied_reliability": 0.7,
+      "learned_final_reliability": 0.7034997407599438,
+      "before_fixed_tail": {
+        "accuracy": 0.7133333333333334,
+        "mean_confidence": 0.9995124747079072,
+        "calibration_gap": 0.2861791413745738,
+        "brier": 0.2863873898467772,
+        "wrong_confidence": 0.9995124747079072
+      },
+      "after_adaptive_tail": {
+        "accuracy": 0.7133333333333334,
+        "mean_confidence": 0.9995440061809479,
+        "calibration_gap": 0.2862106728476145,
+        "brier": 0.2864060106871133,
+        "wrong_confidence": 0.9995450042232628
+      },
+      "reliability_trace": [
+        {
+          "episode": 1,
+          "reliability": 0.21538461538461537
+        },
+        {
+          "episode": 100,
+          "reliability": 0.7099557522123894
+        },
+        {
+          "episode": 1000,
+          "reliability": 0.6910039982230121
+        },
+        {
+          "episode": 3000,
+          "reliability": 0.7026662716634572
+        },
+        {
+          "episode": 3100,
+          "reliability": 0.7003225344036696
+        },
+        {
+          "episode": 6000,
+          "reliability": 0.7034997407599438
+        }
+      ]
+    }
+  }
+}

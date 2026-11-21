@@ -1,0 +1,61 @@
+{
+  "baseline": "ASM v0.4.0-alpha.7.2 exact artifact",
+  "sha256": "6e8fbe1dce3c8af332e3b5be3693aa664418c76d2c667d4a87450230734236de",
+  "three_input_affine": {
+    "last_auto": {
+      "automatic": true,
+      "boundary_seq": 0,
+      "fit_evidence_ids": [
+        "e1",
+        "e2",
+        "e3"
+      ],
+      "mode": "induction",
+      "reason": "built-in induction supports unary integers; other programs may be proposed",
+      "status": "unsupported"
+    },
+    "prediction": {
+      "reason": "no_validated_active_procedure",
+      "status": "abstained"
+    },
+    "versions": []
+  },
+  "two_input_affine": {
+    "last_auto": {
+      "automatic": true,
+      "boundary_seq": 0,
+      "fit_evidence_ids": [
+        "e0",
+        "e1",
+        "e2"
+      ],
+      "mode": "induction",
+      "reason": "built-in induction supports unary integers; other programs may be proposed",
+      "status": "unsupported"
+    },
+    "prediction": {
+      "reason": "no_validated_active_procedure",
+      "status": "abstained"
+    },
+    "versions": []
+  },
+  "two_input_product": {
+    "last_auto": {
+      "automatic": true,
+      "boundary_seq": 0,
+      "fit_evidence_ids": [
+        "e0",
+        "e1",
+        "e2"
+      ],
+      "mode": "induction",
+      "reason": "built-in induction supports unary integers; other programs may be proposed",
+      "status": "unsupported"
+    },
+    "prediction": {
+      "reason": "no_validated_active_procedure",
+      "status": "abstained"
+    },
+    "versions": []
+  }
+}

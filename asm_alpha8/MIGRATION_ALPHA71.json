@@ -1,0 +1,11 @@
+{
+  "exact_correlation_preserved": true,
+  "pass": true,
+  "raw_correlation_after": 1.0,
+  "raw_correlation_before": 1.0,
+  "regimes": [],
+  "temporal_pair_views": 0,
+  "temporal_self_views": 0,
+  "trials_after": 300,
+  "trials_before": 300
+}

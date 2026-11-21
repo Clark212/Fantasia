@@ -1,0 +1,64 @@
+{
+  "boundary_attack": {
+    "alpha77": {
+      "context": "left",
+      "status": "routed",
+      "support": {
+        "left": 9.761904761904761,
+        "right": 0.9761904761904762
+      }
+    },
+    "alpha78": {
+      "context": null,
+      "status": "abstain",
+      "support": {
+        "left": 5.089627091678806,
+        "right": 0.9761904761904762
+      }
+    }
+  },
+  "independent_100": {
+    "activation_rate": 0.0,
+    "activations": 0,
+    "alpha77_mae_to_theory": 7.76470588235294,
+    "alpha78_mae_to_theory": 7.76470588235294,
+    "mean_alpha77_support": 12.0,
+    "mean_alpha78_support": 12.0,
+    "seeds": 40,
+    "trials": 100
+  },
+  "independent_192": {
+    "activation_rate": 0.0,
+    "activations": 0,
+    "alpha77_mae_to_theory": 7.76470588235294,
+    "alpha78_mae_to_theory": 7.76470588235294,
+    "mean_alpha77_support": 12.0,
+    "mean_alpha78_support": 12.0,
+    "seeds": 40,
+    "trials": 192
+  },
+  "independent_64": {
+    "activation_rate": 0.0,
+    "activations": 0,
+    "alpha77_mae_to_theory": 7.7155758324992165,
+    "alpha78_mae_to_theory": 7.7155758324992165,
+    "mean_alpha77_support": 11.950869950146275,
+    "mean_alpha78_support": 11.950869950146275,
+    "seeds": 40,
+    "trials": 64
+  },
+  "performance": {
+    "alpha77_ms": 0.058356000000000005,
+    "alpha78_ms": 0.092052
+  },
+  "shared_192": {
+    "activation_rate": 1.0,
+    "activations": 24,
+    "alpha77_mae_to_theory": 6.56296653555129,
+    "alpha78_mae_to_theory": 0.360200021748952,
+    "mean_alpha77_support": 10.79826065319835,
+    "mean_alpha78_support": 4.575896321947956,
+    "seeds": 24,
+    "trials": 192
+  }
+}

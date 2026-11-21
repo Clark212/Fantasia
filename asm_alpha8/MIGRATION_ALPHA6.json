@@ -1,0 +1,12 @@
+{
+  "source": "asm_v030a12_trained.db opened through alpha.6 with alpha.5.2 snapshot fallback",
+  "episodic_events": 897,
+  "semantic_vectors": 897,
+  "semantic_event_records": 897,
+  "world_current_states": 24,
+  "world_state_history": 50,
+  "transition_mechanisms": 0,
+  "transition_experiences": 0,
+  "adaptive_sources_after_migration": 0,
+  "note": "Alpha.6 does not fabricate historical source-reliability labels from old data."
+}
