@@ -403,6 +403,12 @@ class Procedure:
 
     def apply(self, source: str, span: tuple) -> list:
         """Rewritten programs, one per match inside lines span=(first, last). [] if nothing matches."""
+        return [prog for prog, _ in self.apply_detailed(source, span)]
+
+    def apply_detailed(self, source: str, span: tuple, fill=None) -> list:
+        """[(program, info)]. DEV18: `fill(binding, node, tree)` may return [(rhs_term, info), ...] to instantiate the
+        replacement per match (open procedures whose content holes are filled from the problem); default: the rule's
+        own replacement with the match's binding."""
         try:
             tree = ast.parse(source)
         except SyntaxError:
@@ -413,6 +419,11 @@ class Procedure:
         out, seen = [], set()
 
         in_fstring = {id(x) for n in ast.walk(tree) if isinstance(n, ast.JoinedStr) for x in ast.walk(n)}
+
+        def rhs_terms(binding, node):
+            if fill is None:
+                return [(instantiate(self.rhs, binding), {})]
+            return fill(binding, node, tree)
 
         def inside(n):  # within the function's lines, and not part of an f-string (its positions are not reliable)
             return hasattr(n, "lineno") and lo <= n.lineno and n.end_lineno <= hi and id(n) not in in_fstring
@@ -435,18 +446,23 @@ class Procedure:
                         if rep is None:  # keep a raw literal raw when the result is still representable that way
                             q = text[1]
                             rep = ("r" + q + new_val + q) if q not in new_val and not new_val.endswith("\\") else repr(new_val)
-                        out.append((src[:a] + rep.encode() + src[b:]).decode())
+                        out.append(((src[:a] + rep.encode() + src[b:]).decode(), {}))
             return self._valid(out, seen)
         if self.kind == "expr":
             for n in ast.walk(tree):
                 if not isinstance(n, ast.expr) or not inside(n):
                     continue
                 binding: dict = {}
-                if match(self.lhs, to_term(n), binding):
-                    new = from_term(instantiate(self.rhs, binding))
-                    intended = _substituted_dump(tree, n, new)
+                if not match(self.lhs, to_term(n), binding):
+                    continue
+                for rhs_term, info in rhs_terms(binding, n):
+                    try:
+                        new = from_term(rhs_term)
+                        intended = _substituted_dump(tree, n, new)
+                        plain = ast.unparse(new)
+                    except Exception:  # a filled value that does not make a valid tree (e.g. a non-identifier name)
+                        continue
                     a, b = starts[n.lineno - 1] + n.col_offset, starts[n.end_lineno - 1] + n.end_col_offset
-                    plain = ast.unparse(new)
                     # DEV17 bug fix (more_itertools run_length.decode): a node's text span is not always a valid place
                     # for any expression (a generator expression that is a call's only argument borrows the call's
                     # parentheses). Every rewrite is checked against the intended tree; parenthesized as a fallback.
@@ -454,7 +470,7 @@ class Procedure:
                         cand = (src[:a] + text.encode() + src[b:]).decode()
                         try:
                             if ast.dump(ast.parse(cand)) == intended:
-                                out.append(cand)
+                                out.append((cand, info))
                                 break
                         except SyntaxError:
                             continue
@@ -480,32 +496,36 @@ class Procedure:
                     start_line = min([first.lineno] + [d.lineno for d in getattr(first, "decorator_list", [])])
                     if lines[first.lineno - 1][:first.col_offset].strip():
                         continue
-                    new_stmts = from_term(instantiate(self.rhs, binding))
-                    mod = ast.Module(body=new_stmts, type_ignores=[])
-                    ast.fix_missing_locations(mod)
-                    body = ast.unparse(mod) + "\n"
-                    # DEV17 bug fix (found by the self-reproduction diagnostic on semver `match`): an `elif` branch is an
-                    # If node inside its parent's orelse whose source starts with `elif`; writing it back as `if` would
-                    # move it out of the chain and change the program
-                    if fname == "orelse" and isinstance(n, ast.If) and lines[first.lineno - 1][first.col_offset:].startswith("elif"):
-                        if len(new_stmts) != 1 or not isinstance(new_stmts[0], ast.If):
+                    for rhs_term, info in rhs_terms(binding, window):
+                        try:
+                            new_stmts = from_term(rhs_term)
+                            mod = ast.Module(body=new_stmts, type_ignores=[])
+                            ast.fix_missing_locations(mod)
+                            body = ast.unparse(mod) + "\n"
+                        except Exception:
                             continue
-                        body = "el" + body
-                    text = _indent_code(body, indent)
-                    out.append("".join(lines[:start_line - 1]) + text + "".join(lines[last.end_lineno:]))
+                        # DEV17 bug fix (found by the self-reproduction diagnostic on semver `match`): an `elif` branch is
+                        # an If node inside its parent's orelse whose source starts with `elif`; writing it back as `if`
+                        # would move it out of the chain and change the program
+                        if fname == "orelse" and isinstance(n, ast.If) and lines[first.lineno - 1][first.col_offset:].startswith("elif"):
+                            if len(new_stmts) != 1 or not isinstance(new_stmts[0], ast.If):
+                                continue
+                            body = "el" + body
+                        text = _indent_code(body, indent)
+                        out.append(("".join(lines[:start_line - 1]) + text + "".join(lines[last.end_lineno:]), info))
         return self._valid(out, seen)
 
     @staticmethod
     def _valid(cands: list, seen: set) -> list:
         res = []
-        for c in cands:
+        for c, info in cands:
             try:
                 norm = ast.unparse(ast.parse(c))
             except (SyntaxError, ValueError):
                 continue
             if norm not in seen:
                 seen.add(norm)
-                res.append(c)
+                res.append((c, info))
         return res
 
 

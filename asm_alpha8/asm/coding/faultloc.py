@@ -862,6 +862,22 @@ class Dossier:
         return "\n".join(L)
 
 
+def _problem_context(work: Path, spectrum, module_source: str):
+    """DEV18: content for learned shapes from THIS problem: the failing tests' literals, quoted text and exception names
+    in their failure messages, and the module's own constants and names."""
+    from .content import ProblemContext
+    files, names = {}, set()
+    for t in spectrum.failing:
+        path = t.split("::", 1)[0]
+        names.add(t.split("::")[-1].split("[", 1)[0])
+        if path not in files:
+            try:
+                files[path] = (work / path).read_text(encoding="utf-8")
+            except (OSError, UnicodeDecodeError):
+                pass
+    return ProblemContext.build(module_source, list(files.values()), names, list(spectrum.failures.values()))
+
+
 def _ranking_context(spectrum, sus, rank: int, phase: int) -> dict:
     from .repair_ops import _exception_names
     texts = list(spectrum.failures.values())
@@ -887,10 +903,11 @@ class RepairWorkflow:
                  time_budget_seconds: float = 180.0, confirm_runs: int = 1, ledger: FailureLedger | None = None,
                  semantic_check: bool = True, counterexamples: bool = True, explore_alternatives: bool = True,
                  max_extra_candidates: int = 30, competing_max_suspects: int = 8, competing_time_seconds: float = 75.0,
-                 extended_ops: bool = True, ranker=None, knowledge=None):
+                 extended_ops: bool = True, ranker=None, knowledge=None, shapes=None):
         self.counterexamples = counterexamples
         self.ranker = ranker  # DEV16 learned candidate ordering (asm.coding.learned.CandidateRanker); None = DEV15 order
         self.knowledge = knowledge  # DEV17 learned procedures (asm.coding.knowledge.KnowledgeBase): phase 3; None = off
+        self.shapes = shapes  # DEV18 learned shapes, content from the problem (asm.coding.shapes.ShapeLibrary); None = off
         self.extended_ops = extended_ops  # DEV15 repair families (repair_ops); False reproduces the DEV14 repair space
         self.explore_alternatives, self.max_extra_candidates = explore_alternatives, max_extra_candidates
         self.competing_max_suspects, self.competing_time = competing_max_suspects, competing_time_seconds
@@ -992,8 +1009,8 @@ class RepairWorkflow:
                 # the per-suspect candidate cap on a fresh-subject smoke run (parse.date_convert), so DEV15 lost a
                 # repair DEV14 makes.
                 phases = [1, 2] if self.extended_ops else [1]
-                if self.knowledge is not None:
-                    phases.append(3)  # DEV17: procedures ASM learned itself, only when no built-in operation worked
+                if self.knowledge is not None or self.shapes is not None:
+                    phases.append(3)  # DEV17/18: procedures ASM learned itself, only when no built-in operation worked
                 for phase in phases:
                     extended_phase = phase >= 2
                     if accepted:
@@ -1004,7 +1021,10 @@ class RepairWorkflow:
                         source = (work / sus.path).read_text(encoding="utf-8")
                         if phase == 3:
                             span = next(((a, b) for q, a, b in ranges_by_file[sus.path] if q == sus.qname), (sus.line, sus.end_line))
-                            cands = self.knowledge.candidates_for(source, sus.path, span)
+                            cands = self.knowledge.candidates_for(source, sus.path, span) if self.knowledge is not None else []
+                            if self.shapes is not None:  # DEV18: learned shapes, content filled from this problem
+                                pctx = _problem_context(work, spectrum, source)
+                                cands += self.shapes.candidates_for(source, sus.path, span, pctx, limit=max(0, 80 - len(cands)))
                         else:
                             cands = generate_candidates(source, sus.path, sus, ranges_by_file[sus.path], loc.line_scores,
                                                         extended=extended_phase, failure_texts=list(spectrum.failures.values()))
@@ -1137,7 +1157,8 @@ class RepairWorkflow:
                               "why_accepted": why, "confirmed": best.confirmed, "diff_lines": best.diff_lines,
                               "behavioural_verdict": verdict, "behavioural_note": verdict_note,
                               "edit_family": family_of(best.reason),
-                              "learned_procedure": getattr(cand, "meta", {}).get("procedure")})
+                              "learned_procedure": getattr(cand, "meta", {}).get("procedure"),
+                              "learned_shape": getattr(cand, "meta", {}).get("shape")})
                 steps[-1]["competing_patches"] = competing
                 steps[-1]["alternatives_passing"] = alternatives[:8]
                 steps[-1]["tied_with"] = tied[:8]
