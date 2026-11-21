@@ -14,6 +14,9 @@ questions are asked, each isolating one part of the system:
                          with the pre-registered caps and K = 80, reproduce the fix?
   C  shape transfer      Does any shape learned from the 91 history fixes reproduce the fix when given oracle content
                          (no caps)? This is the fraction of fixes whose SHAPE is known.
+  D  S18 ceiling         The real S18 (history shapes, the pre-registered content operators and their own filler lists)
+                         with the BUDGET caps lifted (per match, per shape, K): is the fix produced at all, and at
+                         which position? The gap to S18 within K is what ranking and budget cost.
 
 Nothing here changes the pre-registered evaluation; it only explains it. Results are labelled exploratory.
 The history library is learned exactly as dev18_evaluate.py learns it (all 91 fixes, in file order).
@@ -184,6 +187,17 @@ def check_c(library, shapes, before, target):
     return hits
 
 
+def check_d(library, before, target, ctx):
+    saved = SH.PER_MATCH, SH.PER_SHAPE
+    SH.PER_MATCH = SH.PER_SHAPE = 10 ** 9
+    try:
+        out = library.candidates_for(before, "m.py", (1, before.count("\n") + 1), ctx, limit=10 ** 9, as_candidates=False)
+    finally:
+        SH.PER_MATCH, SH.PER_SHAPE = saved
+    pos = next((i for i, (p, _) in enumerate(out) if norm(p) == target), None)
+    return pos, len(out), (out[pos][1]["ops"] if pos is not None else None)
+
+
 def main():
     hist_path, fresh_path, work, out = sys.argv[1:5]
     parts = next((a.split("=", 1)[1] for a in sys.argv[5:] if a.startswith("--parts=")), "ABC")
@@ -208,7 +222,16 @@ def main():
             row["status"] = status
             row["own_shapes"] = [{"level": s.level, "kind": s.kind, "holes": s.holes, "values": {k: repr(v)[:80] for k, v in hv.items()},
                                   "describe": s.describe()[:120]} for s, hv in shapes]
-            if shapes:
+            if "D" in parts and name != "history" and status != "no_single_region":
+                signal.alarm(BUDGET_S)
+                try:
+                    row["D_position"], row["D_candidates"], row["D_ops"] = check_d(library, before, target,
+                                                                                   C.ProblemContext.from_dict(p["context"]))
+                except Timeout:
+                    row["D_timeout"] = True
+                finally:
+                    signal.alarm(0)
+            if shapes and parts.strip("D"):
                 signal.alarm(BUDGET_S)
                 try:
                     if "A" in parts:
@@ -224,7 +247,7 @@ def main():
                     signal.alarm(0)
             row["seconds"] = round(time.time() - t0, 2)
             w.append(row)
-            print(json.dumps({k: row.get(k) for k in ("set", "id", "status", "A", "B_own_within_k", "seconds")}), flush=True)
+            print(json.dumps({k: row.get(k) for k in ("set", "id", "status", "A", "B_own_within_k", "D_position", "seconds")}), flush=True)
     print(json.dumps({"head": w.head}))
 
 

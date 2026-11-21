@@ -1,0 +1,24 @@
+== fresh
+   133  covered
+    49  str: no test literals in context
+    35  name: not in scope, module names or common builtins
+    28  name: common builtin, cut by the top-10 limit
+    23  str: not in the problem's context
+    20  attr: in module attributes but cut by the top-10 limit
+    19  attr: not in module attributes or test identifiers
+    17  name: module-level, cut by the top-10 limit
+     8  name: in scope but cut by the top-10 limit
+     8  str: in module strings, dissimilar or cut
+     4  num: not old+-1, a test number or 0/1/-1/2
+     4  location not found
+     2  str: in test literals but dissimilar to old (similarity < 0.6)
+     1  exc: other
+== bugsinpy
+    15  covered
+    14  str: not in the problem's context
+     3  name: common builtin, cut by the top-10 limit
+     2  name: module-level, cut by the top-10 limit
+     2  name: not in scope, module names or common builtins
+     2  num: not old+-1, a test number or 0/1/-1/2
+     2  attr: not in module attributes or test identifiers
+     1  attr: in module attributes but cut by the top-10 limit
