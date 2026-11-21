@@ -1,0 +1,20 @@
+{"id": "pluggy@e108fa449056:PluginManager.load_setuptools_entrypoints", "B_own_within_k": null, "D_position": null, "D_candidates": 20936, "s": 42.9}
+{"id": "pluggy@aac593436a65:_HookCaller.set_specification", "B_own_within_k": null, "D_position": null, "D_candidates": 8443, "s": 9.4}
+{"id": "pluggy@672a98b4fce8:_HookCaller._add_hookimpl", "B_own_within_k": 8, "D_position": 93, "D_candidates": 20192, "s": 30.7}
+{"id": "wcwidth@3a9f471acc93:WcCombinedCharacterGenerator.__init__", "B_own_within_k": 36, "D_position": 7278, "D_candidates": 15226, "s": 22.6}
+{"id": "xmltodict@cc54376200e7:_parse_args", "B_own_within_k": null, "D_position": null, "D_candidates": 13749, "s": 21.8}
+{"id": "xmltodict@7432c51effb6:parse", "B_own_within_k": null, "D_position": null, "D_candidates": 19207, "s": 39.7}
+{"id": "cerberus@9f7cc6c2d01d:Validator.__validate_logical", "B_own_within_k": null, "D_position": 2633, "D_candidates": 31260, "s": 71.9}
+{"id": "cerberus@abb433989602:Validator.__validate_dependencies_mapping", "B_own_within_k": null, "D_position": null, "D_candidates": 18698, "s": 30.8}
+{"id": "cerberus@de390138a865:Validator._validate", "B_own_within_k": null, "D_position": null, "D_candidates": 75330, "s": 406.8}
+{"id": "cerberus@5357062a53d9:Validator._validate", "B_own_within_k": 9, "D_position": 48, "D_candidates": 64293, "s": 264.2}
+{"id": "cerberus@c4e802e2fe8b:Validator._validate_schema", "B_own_within_k": null, "D_position": null, "D_candidates": 30045, "s": 57.1}
+{"id": "schema@d81871b8644e:Schema.validate", "B_own_within_k": 40, "D_position": null, "D_candidates": null, "s": 300.5}
+{"id": "schema@a600fb465bdf:Regex.__init__", "B_own_within_k": null, "D_position": null, "D_candidates": 13504, "s": 18.7}
+{"id": "schema@5d420ab39017:Schema.validate", "B_own_within_k": null, "D_position": null, "D_candidates": null, "s": 300.6}
+{"id": "schema@afae9214941d:Schema.validate", "B_own_within_k": 40, "D_position": 366, "D_candidates": 125917, "s": 882.5}
+{"id": "schema@7d35c56d4f9c:Schema.validate", "B_own_within_k": 25, "D_position": 1805, "D_candidates": 114161, "s": 704.1}
+{"id": "jmespath@23ed645b4b38:_is_actual_number", "B_own_within_k": null, "D_position": null, "D_candidates": 4552, "s": 3.3}
+{"id": "parsimonious@2a8de9aaee8a:NodeVisitor.generic_visit", "B_own_within_k": null, "D_position": null, "D_candidates": 1916, "s": 1.4}
+{"id": "parsimonious@545806c7d25a:NodeVisitor.generic_visit", "B_own_within_k": null, "D_position": null, "D_candidates": 1886, "s": 1.3}
+DIAG2DONE

@@ -1,0 +1,5 @@
+{"L91": {"problems": 103, "builtin_any": 3, "p17_any": 1, "p17_within_k": 1, "s18": 2, "d18": 2, "new_by_d19": 1}}
+{"L563": {"problems": 103, "builtin_any": 3, "p17_any": 3, "p17_within_k": 2, "s18": 2, "d18": 2, "new_by_d19": 0}}
+{"LALL": {"problems": 103, "builtin_any": 3, "p17_any": 5, "p17_within_k": 2, "s18": 2, "d18": 2, "new_by_d19": 0}}
+{"G19-1": "not passed", "cycle": {"online_reproduced": 2, "static_reproduced": 2}}
+EVALDONE

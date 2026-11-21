@@ -1,0 +1,16 @@
+== fresh, shape known at LALL
+     7  covered
+     3  name: not in scope, module names or common builtins
+     3  str: no test literals in context
+     2  name: common builtin, cut by the top-10 limit
+     2  str: not in the problem's context
+     1  attr: not in module attributes or test identifiers
+     1  attr: in module attributes but cut by the top-10 limit
+     1  name: in scope but cut by the top-10 limit
+    attr: not in module attributes or test identifiers [('pluggy@e108fa449056:PluginManager.load_setuptools_entrypoints', "'has_plugin'"), ('pluggy@e108fa449056:PluginManager.load_setuptools_entrypoints', "'has_plugin'")]
+    name: not in scope, module names or common builtins [('pluggy@aac593436a65:_HookCaller.set_specification', "'ValueError'"), ('pluggy@aac593436a65:_HookCaller.set_specification', "'ValueError'"), ('xmltodict@7432c51effb6:parse', "'AttributeError'"), ('jmespath@23ed645b4b38:_is_actual_number', "'Number'")]
+    str: no test literals in context [('xmltodict@cc54376200e7:_parse_args', "'Directory to save (and reuse) package'"), ('cerberus@c4e802e2fe8b:Validator._validate_schema', "'dict or list'"), ('cerberus@c4e802e2fe8b:Validator._validate_schema', "'dict or list'"), ('parsimonious@545806c7d25a:NodeVisitor.generic_visit', '\'No visitor method was defined for "%s".\''), ('parsimonious@545806c7d25a:NodeVisitor.generic_visit', '\'No visitor method was defined for "%s".\'')]
+    name: common builtin, cut by the top-10 limit [('cerberus@abb433989602:Validator.__validate_dependencies_mapping', "'bool'"), ('schema@a600fb465bdf:Regex.__init__', "'int'")]
+    name: in scope but cut by the top-10 limit [('cerberus@de390138a865:Validator._validate', "'self'")]
+    attr: in module attributes but cut by the top-10 limit [('cerberus@de390138a865:Validator._validate', "'__class__'"), ('cerberus@de390138a865:Validator._validate', "'__class__'")]
+    str: not in the problem's context [('schema@5d420ab39017:Schema.validate', '"Key \'%s\' error:"'), ('schema@5d420ab39017:Schema.validate', '"Key \'%s\' error:"'), ('parsimonious@2a8de9aaee8a:NodeVisitor.generic_visit', "'No visitor method was defined for this expression"), ('parsimonious@2a8de9aaee8a:NodeVisitor.generic_visit', "'No visitor method was defined for this expression")]
