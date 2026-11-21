@@ -1,13 +1,13 @@
 # ASM Roadmap
 
-**Current: v0.4, alpha 8 (latest step DEV18). 0.4.9 (Stage 4 closure) is not promoted.**
+**Current: v0.4, alpha 8 (latest step DEV19). 0.4.9 (Stage 4 closure) is not promoted.**
 
 ## How versions are named
 - **Version (0.N)**: the roadmap stage being built.
 - **Alpha N**: a development series within a stage (alpha 7.x and alpha 8 are the work toward 0.4).
 - **DEV N**: one pre-registered development step inside an alpha.
 - **Promotion**: a version counts as reached only when it passes a pre-registered gate on fresh data. Every alpha 8
-  step so far (DEV1–DEV18) is experimental and not promoted.
+  step so far (DEV1–DEV19) is experimental and not promoted.
 
 ## Foundation era — 0.0.x
 Establish the foundation of ASM.
@@ -42,9 +42,10 @@ Probabilistic Futures · 0.4.4 Active Information Gathering · 0.4.5 Belief-Stat
 This incorporates the planning and simulation work from the existing alpha development rather than throwing it away.
 
 **Open before 0.4.9 can be promoted:** a pre-registered check that the Stage 4 components work together. Related, from
-Stage 3: generalization to unseen data (0.3.5) is not yet shown. The alpha 8 coding track (DEV15–DEV18) is the current
-measurement: learned fix patterns reproduce 2 of 472 fresh real fixes that nothing else in ASM reproduces (DEV18 gate
-G18-1 needed 10), limited mainly by how few fix shapes 91 training examples teach.
+Stage 3: generalization to unseen data (0.3.5) is not yet shown. The alpha 8 coding track (DEV15–DEV19) is the current
+measurement. Learned fix patterns reproduce 2 of 472 fresh real fixes that nothing else in ASM reproduces (DEV18; its
+gate needed 10). With 12.6× the training fixes, that number is 0 of 103 (DEV19). More data alone does not close the gap.
+The limit is how learned fixes generalize: most fix shapes are seen once.
 
 ## Stage 5 — Causal intelligence — 0.5.x
 Move beyond recognizing correlations. Learn cause and effect.
