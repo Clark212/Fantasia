@@ -124,6 +124,71 @@ class ShapeTests(unittest.TestCase):
         self.assertEqual(lib.shapes[sid].status, "retired")
 
 
+class SerializationTests(unittest.TestCase):
+    """DEV18 amendment A1: bugs found by the DEV18 self-check in saving and loading learned knowledge."""
+
+    def round_trip(self, obj, cls):
+        with tempfile.TemporaryDirectory() as td:
+            p = Path(td) / "k.json"
+            obj.save(p)
+            return cls.load(p)
+
+    def test_a_shape_with_eleven_or_more_variables_survives_save_and_load(self):
+        args = ", ".join(f"'{c}'" for c in "abcdefghijk")
+        before = f"def f(call):\n    call({args})\n    return 1\n"
+        after = f"def f(call):\n    try:\n        call({args})\n    except ValueError:\n        pass\n    return 1\n"
+        lib = ShapeLibrary()
+        lib.learn([(before, after, "w11")], "test")
+        self.assertTrue(any(len(s.var_types) >= 11 for s in lib.shapes.values()))
+        back = self.round_trip(lib, ShapeLibrary)  # used to raise: "failed its integrity check"
+        self.assertEqual(sorted(back.shapes), sorted(lib.shapes))
+        self.assertEqual(back.summary(), lib.summary())
+        src = "def h(fn):\n    fn('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11')\n    return 0\n"
+        ctx = ProblemContext(exceptions=["KeyError"])
+        mine = lib.candidates_for(src, "m.py", (1, 3), ctx, as_candidates=False)
+        self.assertTrue(mine)
+        self.assertEqual(back.candidates_for(src, "m.py", (1, 3), ctx, as_candidates=False), mine)
+
+    def test_bytes_and_ellipsis_constants_survive_save_and_load(self):
+        bytes_fix = ("def eol(x):\n    return x == b'\\n'\n", "def eol(x):\n    return x == b'\\r\\n'\n", "b1")
+        dots_fix = ("def stub(x):\n    ...\n", "def stub(x):\n    return None\n", "e1")
+        kb = KnowledgeBase()
+        kb.learn([bytes_fix, dots_fix], "test")
+        back = self.round_trip(kb, KnowledgeBase)  # Ellipsis used to make saving fail; bytes came back as ints
+        for before, after, _ in (bytes_fix, dots_fix):
+            progs = [p for _, ps in back.retrieve(before, (1, before.count("\n") + 1)) for p in ps]
+            self.assertIn(norm(after), [norm(p) for p in progs])
+        lib = ShapeLibrary()
+        lib.learn([bytes_fix, dots_fix], "test")
+        lback = self.round_trip(lib, ShapeLibrary)  # bytes used to make saving fail
+        self.assertEqual(sorted(lback.shapes), sorted(lib.shapes))
+        for before, _, _ in (bytes_fix, dots_fix):
+            span = (1, before.count("\n") + 1)
+            self.assertEqual(lback.candidates_for(before, "m.py", span, ProblemContext(), as_candidates=False),
+                             lib.candidates_for(before, "m.py", span, ProblemContext(), as_candidates=False))
+
+    def test_a_whole_f_string_can_be_rewritten_but_not_its_parts(self):
+        fix = ("def lead(d):\n    d = f'{d.strip()} '\n    return d\n",
+               "def lead(d):\n    d = d and d.strip() + ' '\n    return d\n", "f1")
+        kb = KnowledgeBase()
+        kb.learn([fix], "test")
+        progs = [p for _, ps in kb.retrieve(fix[0], (1, 3)) for p in ps]
+        self.assertIn(norm(fix[1]), [norm(p) for p in progs])  # the f-string node itself used to be skipped
+        lib = ShapeLibrary()
+        lib.learn([fix], "test")
+        out = lib.candidates_for(fix[0], "m.py", (1, 3), ProblemContext(), as_candidates=False)
+        self.assertIn(norm(fix[1]), [norm(p) for p, _ in out])
+        # the documented limit stays: the parts of an f-string are not rewritten in place
+        kb2 = KnowledgeBase()
+        kb2.learn([("def h():\n    return 'ab'\n", "def h():\n    return 'ac'\n", "s1")], "test")
+        inner = "def g(y):\n    return f'ab{y}'\n"
+        self.assertEqual([p for _, ps in kb2.retrieve(inner, (1, 2)) for p in ps], [])
+
+    def test_knowledge_saved_by_dev17_still_loads_with_its_seal(self):
+        kb = KnowledgeBase.load(ROOT / "benchmarks" / "results" / "dev17" / "knowledge_history.json")
+        self.assertGreater(len(kb.entries), 0)
+
+
 class WorkflowTests(unittest.TestCase):
     FILES = {"m.py": "def push_command(script):\n    return script.replace('push', 'push --force')\n",
              "tests/test_m.py": "from m import push_command\n"

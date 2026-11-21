@@ -24,7 +24,7 @@ import json
 from pathlib import Path
 
 from . import content as C
-from .induction import Procedure, extract_edits, is_var, term_key
+from .induction import Procedure, extract_edits, is_var, term_from_json, term_key, term_to_json
 
 MAX_HOLES = 2
 PER_MATCH = 24
@@ -111,14 +111,16 @@ class Shape:
         return p + "  holes=" + ",".join(f"{k}:{v}" for k, v in sorted(self.holes.items()))
 
     def to_dict(self) -> dict:
-        return {"kind": self.kind, "lhs": self.lhs, "rhs": self.rhs, "holes": self.holes, "level": self.level,
-                "var_types": self.var_types,
+        # DEV18 bug fix (found by the DEV18 self-check): var_types is keyed by int; JSON turns the keys into strings,
+        # whose sorted order differs from the ints' once there are 11 or more ("10" < "2"), so a library with such a
+        # shape failed its own seal when loaded. Keys are written as strings; terms through term_to_json.
+        return {"kind": self.kind, "lhs": term_to_json(self.lhs), "rhs": term_to_json(self.rhs), "holes": self.holes,
+                "level": self.level, "var_types": {str(k): v for k, v in sorted(self.var_types.items())},
                 "support": self.support, "sources": self.sources, "field": self.field, "status": self.status}
 
     @classmethod
     def from_dict(cls, d) -> "Shape":
-        tup = lambda x: tuple(tup(i) for i in x) if isinstance(x, list) else x  # noqa: E731
-        s = cls(d["kind"], tup(d["lhs"]), tup(d["rhs"]), d["holes"], d["level"], d.get("var_types"))
+        s = cls(d["kind"], term_from_json(d["lhs"]), term_from_json(d["rhs"]), d["holes"], d["level"], d.get("var_types"))
         s.support, s.sources, s.field, s.status = list(d["support"]), list(d["sources"]), dict(d["field"]), d["status"]
         return s
 
@@ -292,7 +294,7 @@ class ShapeLibrary:
                 "examples_seen": sorted(self.examples_seen)}
 
     def save(self, path) -> str:
-        body = self.body()
+        body = json.loads(json.dumps(self.body()))  # sealed exactly as `load` will see it
         canon = json.dumps(body, sort_keys=True, separators=(",", ":"))
         seal = hashlib.sha256(canon.encode()).hexdigest()
         Path(path).write_text(json.dumps({"body": body, "sha256": seal}, sort_keys=True, separators=(",", ":")) + "\n")

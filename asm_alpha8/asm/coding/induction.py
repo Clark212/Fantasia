@@ -90,6 +90,43 @@ def term_key(t) -> str:
     return hashlib.sha256(json.dumps(t, default=repr).encode()).hexdigest()[:16]
 
 
+def _const_to_json(v):
+    if isinstance(v, bytes):
+        return {"$const": "bytes", "v": v.hex()}
+    if isinstance(v, complex):
+        return {"$const": "complex", "v": [v.real, v.imag]}
+    if v is Ellipsis:
+        return {"$const": "ellipsis"}
+    return v
+
+
+def term_to_json(t):
+    """A term as JSON-safe nested lists. DEV18 bug fix (found by the DEV18 self-check): constants JSON cannot hold
+    (bytes, complex, Ellipsis) are written as tagged objects, so a saved procedure or shape loads back unchanged (bytes
+    used to come back as a tuple of ints, and complex/Ellipsis made saving fail). Terms without such constants serialize
+    exactly as before, so existing sealed files keep their seals."""
+    if isinstance(t, tuple):
+        if len(t) == 2 and t[0] == "=":
+            return ["=", list(t[1]) if isinstance(t[1], tuple) else _const_to_json(t[1])]
+        return [term_to_json(x) for x in t]
+    return t
+
+
+def term_from_json(x):
+    """Inverse of `term_to_json` (lists back to tuples, tagged constants back to their values)."""
+    if isinstance(x, list):
+        return tuple(term_from_json(i) for i in x)
+    if isinstance(x, dict) and "$const" in x:
+        kind = x["$const"]
+        if kind == "bytes":
+            return bytes.fromhex(x["v"])
+        if kind == "complex":
+            return complex(*x["v"])
+        if kind == "ellipsis":
+            return Ellipsis
+    return x
+
+
 # ------------------------------------------------------------------------------------------------- edits
 @dataclass
 class Edit:
@@ -393,13 +430,11 @@ class Procedure:
         return f"{self.kind}: {show(self.lhs)} -> {show(self.rhs)}"[:160]
 
     def to_dict(self) -> dict:
-        return {"kind": self.kind, "lhs": self.lhs, "rhs": self.rhs, "level": self.level}
+        return {"kind": self.kind, "lhs": term_to_json(self.lhs), "rhs": term_to_json(self.rhs), "level": self.level}
 
     @classmethod
     def from_dict(cls, d) -> "Procedure":
-        def tup(x):
-            return tuple(tup(i) for i in x) if isinstance(x, list) else x
-        return cls(d["kind"], tup(d["lhs"]), tup(d["rhs"]), d["level"])
+        return cls(d["kind"], term_from_json(d["lhs"]), term_from_json(d["rhs"]), d["level"])
 
     def apply(self, source: str, span: tuple) -> list:
         """Rewritten programs, one per match inside lines span=(first, last). [] if nothing matches."""
@@ -418,7 +453,9 @@ class Procedure:
         starts = _offsets(src)
         out, seen = [], set()
 
-        in_fstring = {id(x) for n in ast.walk(tree) if isinstance(n, ast.JoinedStr) for x in ast.walk(n)}
+        # DEV18 bug fix (found by the DEV18 self-check on boltons human_readable_list): only the nodes INSIDE an f-string
+        # are excluded; the f-string node itself has a reliable position and may be rewritten as a whole
+        in_fstring = {id(x) for n in ast.walk(tree) if isinstance(n, ast.JoinedStr) for x in ast.walk(n) if x is not n}
 
         def rhs_terms(binding, node):
             if fill is None:
