@@ -28,8 +28,12 @@ so a library learned from them (the learning cycle, Q3 after it) would have hit 
 because their source positions are not reliable; the documented rule. The exclusion set also contained the f-string
 node itself, whose position is reliable, so a learned edit whose pattern is an f-string (boltons
 `human_readable_list`: `f'{delimiter.strip()} '` -> `delimiter and delimiter.strip() + ' '`) never applied, even to
-its own fix. Effect: none of the 104 procedures and 64 shapes learned from the history has an f-string pattern, so the
-static results (Q1, Q2) cannot change; the learning cycle (Q4) can, through that one fresh fix.
+its own fix. Effect: the fix only makes a top-level f-string eligible as the ROOT of an expression match, which only an
+expression pattern rooted at an f-string or at a bare variable can match. None of the 48 expression procedures and
+37 expression shapes learned from the history has such a root (wording corrected after the runs: 4 statement
+patterns contain an f-string inside them, and statement matching is unchanged), so the static results (Q1, Q2)
+cannot change; the learning cycle (Q4) can, through that one fresh fix. Confirmed: all 531 scored rows of run 2
+equal run 1's.
 Fix: only nodes strictly inside an f-string are skipped.
 
 **Not changed (limits, reported as such).** Edits inside an f-string (a literal part or a `{...}` field; 4 fresh
