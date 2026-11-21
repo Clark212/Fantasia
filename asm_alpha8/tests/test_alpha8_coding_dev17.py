@@ -66,6 +66,32 @@ class InductionTests(unittest.TestCase):
         doc = 'def h():\n    """a+b"""\n    return 1\n'
         self.assertEqual(p.apply(doc, (1, 3)), [])  # docstrings are never edited
 
+    def test_rewritten_window_keeps_multiline_strings_and_elif_chains(self):
+        # regressions found by the DEV17 self-reproduction diagnostic (toolz interpose, semver match)
+        before = 'def f(seq):\n    """Doc\n\n    more\n    """\n    x = g(seq)\n    next(x)\n    return x\n'
+        after = ('def f(seq):\n    """Doc\n\n    more\n    """\n    x = g(seq)\n    try:\n        next(x)\n'
+                 '    except StopIteration:\n        return iter([])\n    return x\n')
+        outs = [o for p, _ in induce([(before, after, "i")]) for o in p.apply(before, (1, 8))]
+        self.assertIn(norm(after), [norm(o) for o in outs])
+        self.assertTrue(all('"""Doc\n\n    more\n    """' in o for o in outs))
+        b2 = "def m(p, e):\n    if p == 'x':\n        v = 1\n    elif p[0] in ('<', '>'):\n        v = 2\n    else:\n        v = 3\n    return v\n"
+        a2 = b2.replace("elif p[0] in", "elif p and p[0] in")
+        outs = [o for p, _ in induce([(b2, a2, "j")]) for o in p.apply(b2, (1, 8))]
+        self.assertIn(norm(a2), [norm(o) for o in outs])
+        self.assertTrue(all(norm(o) is not None for o in outs))
+
+    def test_decorated_definitions_and_borrowed_parentheses(self):
+        # regressions: semver Version.parse (decorator duplicated), more_itertools run_length.decode (lost parentheses)
+        b1 = "class C:\n    @classmethod\n    def p(cls, v):\n        return v\n"
+        a1 = "class C:\n    @classmethod\n    def p(cls, v: int) -> int:\n        return v\n"
+        outs = [o for p, _ in induce([(b1, a1, "k")]) for o in p.apply(b1, (2, 4))]
+        self.assertIn(norm(a1), [norm(o) for o in outs])
+        self.assertTrue(all(o.count("@classmethod") == 1 for o in outs))
+        b2 = "def decode(it):\n    return chain.from_iterable(repeat(k, n) for k, n in it)\n"
+        a2 = "def decode(it):\n    return chain.from_iterable(starmap(repeat, it))\n"
+        outs = [o for p, _ in induce([(b2, a2, "l")]) for o in p.apply(b2, (1, 2))]
+        self.assertIn(norm(a2), [norm(o) for o in outs])
+
     def test_procedure_round_trip(self):
         for p, _ in induce(POP + REGEX):
             q = Procedure.from_dict(json.loads(json.dumps(p.to_dict())))

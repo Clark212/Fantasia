@@ -444,11 +444,20 @@ class Procedure:
                 binding: dict = {}
                 if match(self.lhs, to_term(n), binding):
                     new = from_term(instantiate(self.rhs, binding))
-                    text = ast.unparse(new)
-                    if isinstance(new, _NEEDS_PARENS):
-                        text = f"({text})"
+                    intended = _substituted_dump(tree, n, new)
                     a, b = starts[n.lineno - 1] + n.col_offset, starts[n.end_lineno - 1] + n.end_col_offset
-                    out.append((src[:a] + text.encode() + src[b:]).decode())
+                    plain = ast.unparse(new)
+                    # DEV17 bug fix (more_itertools run_length.decode): a node's text span is not always a valid place
+                    # for any expression (a generator expression that is a call's only argument borrows the call's
+                    # parentheses). Every rewrite is checked against the intended tree; parenthesized as a fallback.
+                    for text in ([f"({plain})", plain] if isinstance(new, _NEEDS_PARENS) else [plain, f"({plain})"]):
+                        cand = (src[:a] + text.encode() + src[b:]).decode()
+                        try:
+                            if ast.dump(ast.parse(cand)) == intended:
+                                out.append(cand)
+                                break
+                        except SyntaxError:
+                            continue
             return self._valid(out, seen)
         # statement windows
         width = len(self.lhs[1])
@@ -467,13 +476,23 @@ class Procedure:
                         continue
                     first, last = window[0], window[-1]
                     indent = lines[first.lineno - 1][:first.col_offset]
+                    # DEV17 bug fix (semver Version.parse): a decorated definition's text starts at its first decorator
+                    start_line = min([first.lineno] + [d.lineno for d in getattr(first, "decorator_list", [])])
                     if lines[first.lineno - 1][:first.col_offset].strip():
                         continue
                     new_stmts = from_term(instantiate(self.rhs, binding))
                     mod = ast.Module(body=new_stmts, type_ignores=[])
                     ast.fix_missing_locations(mod)
-                    text = "".join(indent + ln + "\n" for ln in ast.unparse(mod).splitlines())
-                    out.append("".join(lines[:first.lineno - 1]) + text + "".join(lines[last.end_lineno:]))
+                    body = ast.unparse(mod) + "\n"
+                    # DEV17 bug fix (found by the self-reproduction diagnostic on semver `match`): an `elif` branch is an
+                    # If node inside its parent's orelse whose source starts with `elif`; writing it back as `if` would
+                    # move it out of the chain and change the program
+                    if fname == "orelse" and isinstance(n, ast.If) and lines[first.lineno - 1][first.col_offset:].startswith("elif"):
+                        if len(new_stmts) != 1 or not isinstance(new_stmts[0], ast.If):
+                            continue
+                        body = "el" + body
+                    text = _indent_code(body, indent)
+                    out.append("".join(lines[:start_line - 1]) + text + "".join(lines[last.end_lineno:]))
         return self._valid(out, seen)
 
     @staticmethod
@@ -491,6 +510,35 @@ class Procedure:
 
 
 _PRIMITIVE_FIELDS = {"id", "attr", "arg", "name", "module", "asname", "value_str"}
+
+
+def _substituted_dump(tree, target, new) -> str:
+    """ast.dump of `tree` with the node object `target` replaced by `new` (the program a rewrite must produce)."""
+    import copy
+
+    class Sub(ast.NodeTransformer):
+        def visit(self, node):
+            if node is target:
+                return copy.deepcopy(new)
+            return self.generic_visit(node)
+    return ast.dump(Sub().visit(copy.deepcopy(tree, {id(target): target})))
+
+
+def _indent_code(text: str, indent: str) -> str:
+    """Indent every line of generated code EXCEPT lines that begin inside a multi-line string literal (their leading
+    whitespace is string content). DEV17 bug fix, found on toolz `interpose`: indenting a rewritten docstring's lines
+    changed the docstring."""
+    import io
+    import tokenize
+    inside = set()
+    try:
+        for tok in tokenize.generate_tokens(io.StringIO(text).readline):
+            if tok.type == tokenize.STRING and tok.end[0] > tok.start[0]:
+                inside.update(range(tok.start[0] + 1, tok.end[0] + 1))
+    except (tokenize.TokenError, IndentationError, SyntaxError):
+        pass
+    return "".join(ln if (i in inside or not ln.strip()) else indent + ln
+                   for i, ln in enumerate(text.splitlines(keepends=True), 1))
 
 
 def _show_vars(t, primitive: bool = False):
