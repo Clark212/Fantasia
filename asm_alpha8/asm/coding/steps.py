@@ -14,8 +14,8 @@ its own is generic and recurs in other projects. DEV20 learns every minimal chan
                 never offered, because the name operator does not list exceptions).
   candidates    SINGLE: one step at one place (ranked as DEV18 shapes, a place whose context the step was seen in
                 first); MULTI-SITE: the same filled step at every place with the same match (rename every occurrence);
-                PAIR: two steps learned together in one fix, at two places in the same statement. Ranking keys are
-                computed first and programs are built lazily in rank order, so a limited search builds about `limit`
+                PAIR: two steps learned together in at least 2 fixes, at two places of the function (closer places
+                first). Ranking keys are computed first and programs are built lazily in rank order, so a limited search builds about `limit`
                 programs, not every candidate.
 No language model is involved; the tests and the contract still decide acceptance in the workflow.
 """
@@ -38,7 +38,8 @@ from .induction import (_EXPR_HEADS, _NEEDS_PARENS, _STMT_HEADS, Edit, Procedure
 PER_MATCH = SH.PER_MATCH        # fillings per match (as DEV18)
 PER_STEP = SH.PER_SHAPE         # single-site candidates per step (as DEV18 per shape)
 LIMIT = SH.LIMIT
-PAIR_FILLINGS = 3               # best fillings per site combined in a pair
+PAIR_FILLINGS = 3               # best fillings per site combined in a pair (places anywhere in the function, the
+                                # closer first: same statement, then one statement inside the other, then elsewhere)
 PAIR_MIN_SUPPORT = 2            # a pair is used once it was learned from 2 different fixes
 QUOTA = {"single": 50, "multi": 15, "pair": 15}   # share of the budget per candidate kind; unused share is passed on
 EXCEPTION_HOLES = True          # a name introduced as a raised exception is an `exc` hole (False: DEV18 typing, ablation)
@@ -304,9 +305,14 @@ class _Text:
 
 
 def _sites(tree, span):
-    """[(node, "Parent.field", statement)] for the expression nodes inside the function's lines (not inside f-strings)."""
+    """[(node, "Parent.field", statement)] for the expression nodes inside the function's lines; not inside f-strings
+    (their positions are not reliable) and not docstrings or other bare string statements (steps do not learn changes to
+    those, so rewriting them only spends the budget)."""
     lo, hi = span
     in_fstring = {id(x) for n in ast.walk(tree) if isinstance(n, ast.JoinedStr) for x in ast.walk(n) if x is not n}
+    bare = {id(n.value) for n in ast.walk(tree) if isinstance(n, ast.Expr) and isinstance(n.value, ast.Constant)
+            and isinstance(n.value.value, str)}
+    in_fstring |= bare
     out = []
 
     def walk(node, stmt):
@@ -321,10 +327,6 @@ def _sites(tree, span):
                 walk(child, st)
     walk(tree, None)
     return out
-
-
-def _contains(a, b) -> bool:
-    return any(x is b for x in ast.walk(a))
 
 
 # --------------------------------------------------------------------------------------------------------- library
@@ -455,7 +457,19 @@ class StepLibrary:
                     opr = max(SH.OP_RANK.get(o, 6) for o in info.get("ops", ["structural"]))
                     props["single"].append(((opr, info.get("rank", 0), 0, rank, k), prog,
                                             {"step": st.id, "ops": info.get("ops"), "kind": "single"}))
-        # pairs learned from at least PAIR_MIN_SUPPORT fixes, at two places in the same statement
+        # pairs learned from at least PAIR_MIN_SUPPORT fixes, at two places of the function (DEV20 development: of
+        # 60 two-change expression fixes, 24 change one statement, 14 a statement and one inside it, 22 two statements)
+        inner, below = {}, {}
+
+        def stmts_in(st):
+            if id(st) not in inner:
+                inner[id(st)] = {id(x) for x in ast.walk(st) if isinstance(x, ast.stmt)}
+            return inner[id(st)]
+
+        def nodes_in(n):
+            if id(n) not in below:
+                below[id(n)] = {id(x) for x in ast.walk(n)}
+            return below[id(n)]
         for key, eids in self.pairs.items():
             if len(eids) < PAIR_MIN_SUPPORT:
                 continue
@@ -464,13 +478,16 @@ class StepLibrary:
                 continue
             prank = min(rank_of.get(a, 10 ** 6), rank_of.get(b, 10 ** 6))
             for (i, oa, ja, na), (k, ob, jb, nb) in itertools.product(best[a], best[b]):
-                if i == k or (a == b and i > k) or sites[i][2] is not sites[k][2]:
+                if i == k or (a == b and i > k):
                     continue
                 n1, n2 = sites[i][0], sites[k][0]
-                if _contains(n1, n2) or _contains(n2, n1):
-                    continue
+                if id(n2) in nodes_in(n1) or id(n1) in nodes_in(n2):
+                    continue  # one place inside the other
+                s1, s2 = sites[i][2], sites[k][2]
+                near = 0 if s1 is s2 else (1 if s1 is not None and s2 is not None and
+                                           (id(s2) in stmts_in(s1) or id(s1) in stmts_in(s2)) else 2)
                 opr = max(SH.OP_RANK.get(o, 6) for o in oa + ob)
-                props["pair"].append(((opr, ja + jb, -len(eids), prank), [(n1, na), (n2, nb)],
+                props["pair"].append(((near, opr, ja + jb, -len(eids), prank), [(n1, na), (n2, nb)],
                                       {"step": f"{a}+{b}", "ops": oa + ob, "kind": "pair"}))
         for k in props:
             props[k].sort(key=lambda x: x[0])

@@ -79,6 +79,26 @@ class CandidateTests(unittest.TestCase):
         self.assertIsNotNone(i)
         self.assertEqual(cands[i][1]["kind"], "pair")
 
+    def test_a_pair_can_join_two_statements_and_closer_places_come_first(self):
+        two = [("def g(d, k):\n    v = d.get(k)\n    return v or None\n", "def g(d, k):\n    v = d.pop(k)\n    return v or {}\n", "q1"),
+               ("def h(m, j):\n    w = m.get(j)\n    return w or None\n", "def h(m, j):\n    w = m.pop(j)\n    return w or {}\n", "q2")]
+        lib = StepLibrary()
+        lib.learn(two, "train")
+        src = "def look(t, n):\n    r = t.get(n)\n    return r or None\n"
+        want = "def look(t, n):\n    r = t.pop(n)\n    return r or {}\n"
+        cands = lib.candidates_for(src, "m.py", (1, 3), ProblemContext(attributes=["pop"]), as_candidates=False)
+        i = position(cands, want)
+        self.assertIsNotNone(i)
+        self.assertEqual(cands[i][1]["kind"], "pair")
+
+    def test_docstrings_are_not_rewritten(self):
+        lib = StepLibrary()
+        lib.learn([("def f():\n    return 'a'\n", "def f():\n    return 'b'\n", "s1")], "train")
+        src = 'def g():\n    """Doc."""\n    return \'x\'\n'
+        cands = lib.candidates_for(src, "m.py", (1, 3), ProblemContext(test_strings=["xx", "Doc!"]), as_candidates=False)
+        self.assertIn("def g():\n    \"\"\"Doc.\"\"\"\n    return 'xx'\n", [p for p, _ in cands])
+        self.assertTrue(all('"""Doc."""' in p for p, _ in cands))
+
     def test_a_pair_seen_once_is_not_used(self):
         lib = StepLibrary()
         lib.learn([PAIR1], "train")

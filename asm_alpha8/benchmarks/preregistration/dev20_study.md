@@ -9,8 +9,10 @@ DEV20 tests the alternative DEV19 recommended: learn each minimal change of a fi
 (`asm/coding/steps.py`, as in this commit), and build candidates from steps:
 - SINGLE: one step at one place;
 - MULTI-SITE: the same filled step at every place with the same match (a consistent rename);
-- PAIR: two steps learned together in at least 2 fixes, at two places in the same statement;
+- PAIR: two steps learned together in at least 2 fixes, at two places of the function, closer places first (same
+  statement, then one statement inside the other, then elsewhere);
 - a name introduced as the exception of a `raise` is an exception hole (DEV19: such names were never offered).
+- steps are not applied to docstrings or other bare string statements (they learn no changes to those).
 
 Ranking and budget: each kind's best up to its share of K = 80 (single 50, multi-site 15, pair 15), unused shares
 passed on. Content operators and caps are DEV18's. Nothing else in ASM changes; B, P17 and S18 are as in DEV19.
