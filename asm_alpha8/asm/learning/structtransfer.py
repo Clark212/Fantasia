@@ -91,7 +91,9 @@ def run_attempt(arm: str, target_c: int, fit_seed: int, seed: int, cortex_option
     truth = lambda x: x * x + target_c
     queries = [x for x in range(10) if x not in fit and fit[0] <= x]
     donors = donors_for(arm, target_c, fit_seed, seed)
-    cortex = ProcedureCortex(":memory:", trust_provider=TRUST, **dict(cortex_options or {}))  # DEFAULT unless options given (DEV21)
+    # DEFAULT configuration unless options are given. DEV4 ran with family_sharing='listing', the default then; since
+    # DEV21 the default is 'round_robin', so DEV4's published numbers need cortex_options={'family_sharing': 'listing'}.
+    cortex = ProcedureCortex(":memory:", trust_provider=TRUST, **dict(cortex_options or {}))
     try:
         active_donors = _install(cortex, donors)
         fit_labels = [truth(x) for x in fit]

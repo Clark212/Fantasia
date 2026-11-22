@@ -187,3 +187,11 @@ steps, the same rule is not established.
 - Each of these is a change made after seeing DEV21 data, so it needs its own pre-registration and new held-out data.
 
 Consciousness-related architecture: not touched.
+
+## After the report: the owner's decision
+The project owner approved making `family_sharing='round_robin'` the cortex's default. The change also rewrote the
+family-proposal block of `induce` more concisely (one ordered stream per family, chained for `'listing'` or interleaved
+for `'round_robin'`, cut at the budget). It is behaviour-identical: re-running both lab runs on the new code reproduces
+every committed attempt record exactly (3,888 in Part A, 1,008 in development). `asm.__version__` is unchanged
+(nothing is promoted). DEV4's published numbers are reproduced with `cortex_options={'family_sharing': 'listing'}`.
+

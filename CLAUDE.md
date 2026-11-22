@@ -11,8 +11,8 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
   alpha 8 (side tracks), not milestones; none is promoted. The alpha.8.1–8.9 plan and its evidence: `ROADMAP.md`, Stage 4.
 - Latest: **DEV21** (sharing a candidate budget between learned sources; alpha.8.4). G21-A **passed** on held-out
   structures: `ProcedureCortex(family_sharing='round_robin')` removes DEV4's interference between learned families.
-  It is opt-in; making it the default is the owner's decision. Part B (the same rule and an exception-site guard for
-  learned steps, on 197 fresh fixes) did not pass.
+  It is the default since the owner approved it after DEV21; `family_sharing='listing'` reproduces DEV4 and DEV21's
+  controls. Part B (the same rule and an exception-site guard for learned steps, on 197 fresh fixes) did not pass.
 - Records: reports `asm_alpha8/ALPHA8_CODING_DEV*_IMPLEMENTATION.md`; pre-registrations and amendments
   `asm_alpha8/benchmarks/preregistration/`; raw results `asm_alpha8/benchmarks/results/devN/` (hash-chained JSONL; never
   edit); progress page `README.md` from `progress/`.
@@ -20,9 +20,11 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
   `tests/` directory has 57 more failures in v0.2–v0.4 modules that need PyTorch, which is not installed (checked at
   DEV21: identical without DEV21's changes), and `test_v030a7.py`, `test_v030a9.py`, `test_v030a10.py` cannot import.
 - Open work:
-  - Owner decision: make `family_sharing='round_robin'` the cortex default (DEV21 report).
-  - Recommended next (DEV21 report): structural transfer beyond one-input integer targets. `ProcedureCortex.induce`
+  - Next, chosen by the owner: DEV22, structural transfer beyond one-input integer targets. `ProcedureCortex.induce`
     consults learned families only when the target has one integer input.
+  - Owner question: is alpha 8 milestone 0.4.8 or 0.4.9? The release notes say alpha 7.8 delivered "Latent Dependency
+    Structure & Higher-Order Epistemic Routing" (the roadmap's 0.4.7 and 0.4.8), which points to 0.4.9. The progress
+    page uses 0.4.8, as the owner first said, until this is settled.
   - DEV16's study needs generated pairs from the owner's PC (`asm_alpha8/tools/generate_pairs.py`, instructions in
     `asm_alpha8/tools/README_DEV16_DATA.md`).
   - The repair workflow on real bugs with fault localization (DEV20 report) on DEV15's 83 BugsInPy bugs
@@ -46,5 +48,8 @@ current at the end of every DEV, in the same commit as the DEV's report:
 5. Commit `progress/progress.json`, `progress/*.svg`, `README.md` and `CLAUDE.md`.
 
 ## Ground rules from the project owner
+- Before each task, list your assumptions; if something is unclear, stop and ask.
+- Keep code short and clear: if 200 lines could be 50, rewrite them. This applies to new code and to code a task
+  touches, with behaviour kept identical and verified; it is not a rewrite pass over existing code.
 - ASM itself is not a language model and uses no transformers. Open-source LLMs may only be a source of data fed to ASM.
 - Each DEV is pre-registered before its fresh data exists; results are reported in full, including unfavourable ones.

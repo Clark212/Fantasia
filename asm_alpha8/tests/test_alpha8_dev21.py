@@ -27,13 +27,14 @@ class FamilySharingTests(unittest.TestCase):
     def attempt(self, arm, c, mode=None):
         return T.run_attempt(arm, c, 0, SEED, None if mode is None else {"family_sharing": mode})
 
-    def test_the_default_is_listing_and_keeps_dev4_interference(self):
+    def test_round_robin_is_the_default_and_listing_keeps_dev4_interference(self):
         cortex = ProcedureCortex(":memory:", trust_provider=T.TRUST)
         try:
-            self.assertEqual(cortex.family_sharing, "listing")
+            self.assertEqual(cortex.family_sharing, "round_robin")  # the owner-approved default since DEV21
         finally:
             cortex.close()
-        r = self.attempt("mixed", 3)  # default configuration, as DEV4 ran it
+        self.assertTrue(self.attempt("mixed", 3)["success"])            # default configuration
+        r = self.attempt("mixed", 3, "listing")                          # DEV4 as run
         self.assertEqual(r["status"], "unresolved")
         self.assertFalse(r["success"])
 

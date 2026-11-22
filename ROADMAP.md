@@ -53,7 +53,7 @@ fixes still need a step or a value ASM has not learned.
 
 Alpha 8 (0.4.8) is not promoted: its target, M4 (verified cross-task structural transfer), is not met (the plan below).
 DEV21 passed its first held-out transfer gate: sharing the candidate budget round-robin removes an interference between
-learned families (opt-in; making it the default is the owner's decision). The same rule did not significantly change
+learned families (now the default, by the owner's decision). The same rule did not significantly change
 learned edit steps on fresh fixes. Learned families are consulted only for one-input integer targets.
 
 ### Release governance and the alpha 8 plan
@@ -68,7 +68,7 @@ learned edit steps on fresh fixes. Learned families are consulted only for one-i
 | alpha.8.1 Structural Anti-Unification | `asm/coding/induction.py` (DEV17): real fixes generalized into executable procedures | demonstrated: held-out fixes reproduced in 2 other projects; transfer gate G17-1 not passed (0 of 59 real bugs) |
 | alpha.8.2 Compositional Procedure Reuse | `asm/coding/steps.py` (DEV20): steps combined at several places and in pairs; round-robin step sharing (DEV21, opt-in) | G20-1 not passed: the compositions cost more than they gained; DEV21 G21-B not passed (2 gained, 0 lost on 197 fresh fixes) |
 | alpha.8.3 Uncertain Analogy Mapping | `asm/structural.py` (relation schemas, structural analogies) and `asm/expansion.py`, from earlier releases | no alpha 8 report evaluates it |
-| alpha.8.4 Negative Transfer Protection | DEV4 structural-transfer experiment (`asm/learning/structtransfer.py`); procedure retire/supersede (DEV17); `ProcedureCortex(family_sharing='round_robin')` (DEV21, opt-in) | DEV4: unrelated donors added to relevant ones took success from 1.00 to 0.00 (interference). DEV21: round-robin family sharing removes it on three held-out structures, no wrong answer, cost ratio 1.06 (G21-A passed). One mechanism, a noise-free lab, opt-in: the target is not yet validated |
+| alpha.8.4 Negative Transfer Protection | DEV4 structural-transfer experiment (`asm/learning/structtransfer.py`); procedure retire/supersede (DEV17); `ProcedureCortex(family_sharing='round_robin')` (DEV21; the default since the owner's approval) | DEV4: unrelated donors added to relevant ones took success from 1.00 to 0.00 (interference). DEV21: round-robin family sharing removes it on three held-out structures, no wrong answer, cost ratio 1.06 (G21-A passed). One mechanism in a noise-free lab: the target is not yet validated |
 | alpha.8.5 Held-Out Transfer Benchmarking | pre-registered fresh-project harnesses (DEV18–DEV21: 472, 103, 483, 197 unseen fixes); DEV4 Part B and DEV21 Part A (held-out structures, toy) | the benchmarks exist; no M4-level gate has passed |
 | alpha.8.6 Persistent Transfer Memory | sealed knowledge, shape and step libraries (DEV17–DEV20) | implemented; not validated as transfer memory |
 | alpha.8.7 Adversarial Generalization Hardening | none identified | not started |
