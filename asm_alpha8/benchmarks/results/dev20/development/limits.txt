@@ -1,0 +1,34 @@
+ALL 1254 FIXES by composition:
+  712  single
+  369  a step with > 2 new values
+   48  pair: two single expression steps
+   24  pair: with a statement step
+   21  3 steps
+   16  multi: expression step (partial: the fix changed only some matching places)
+   15  multi: expression step
+   10  single [f-string]
+    7  4 steps
+    7  multi: statement step
+    7  pair: with a multi-site element
+    6  5+ steps
+    4  pair: two single expression steps [f-string]
+    3  3 steps [f-string]
+    3  multi: expression step (partial: the fix changed only some matching places) [f-string]
+    1  no steps
+    1  pair: one rename split by Load/Store
+
+STEP-COVERED (every step also occurs in another project): 304
+  245  single   e.g. ['toolz@c696ac6f3c29:merge_with', 'toolz@01e4313cb9a2:nth', 'toolz@dd87e4f20f6e:topk']
+   12  multi: expression step (partial: the fix changed only some matching places)   e.g. ['parse@38d21c01587b:Parser._handle_field', 'parse@3f0bf88f80f8:Parser._generate_result', 'packaging@45d15309ac4a:_mac_binary_formats']
+    9  pair: two single expression steps | learned together in >= 2 fixes of other projects   e.g. ['parse@421c19919fbc:Parser._handle_field', 'more_itertools@cf186b5de479:product_index', 'more_itertools@449dee231ef2:derangements']
+    9  single [f-string]   e.g. ['attrs@01413df3db8e:_MinLengthValidator.__call__', 'packaging@6da1c50d1354:Requirement._iter_parts', 'packaging@08fe31273e4e:release']
+    7  3 steps   e.g. ['click@7b53e1541eef:_translate_ch_to_exc', 'packaging@37b023285c27:_emscripten_platforms', 'arrow@2bc0c7d731bc:ArrowFactory.get']
+    7  pair: two single expression steps | NOT learned together in 2 fixes of other projects   e.g. ['packaging@abf000549c2e:_Validator._process_description_content_type', 'packaging@16f558722612:Specifier._compare_greater_than', 'arrow@02445de13eb1:DateTimeParser._parse_token']
+    4  4 steps   e.g. ['click@535559adbd7d:Parameter.consume_value', 'attrs@2e7b7506966f:_attrs_to_script', 'jsonschema@80472b89f932:Validator.validate_dependencies']
+    3  multi: expression step (partial: the fix changed only some matching places) [f-string]   e.g. ['packaging@a716c52b5f3c:_Validator._process_dynamic', 'humanize@11e62eeedb89:naturalsize', 'isort@c358425c2432:check_imports']
+    3  pair: with a multi-site element | learned together in >= 2 fixes of other projects   e.g. ['click@8af7ec14f3d9:resolve_ctx', 'pyparsing@72a28067b050:ParseResults.deepcopy', 'isort@26819c0b2dda:sort_file']
+    1  3 steps [f-string]   e.g. ['click@05b795c917f4:style']
+    1  multi: expression step   e.g. ['marshmallow@22784765f2d1:get_func_args']
+    1  pair: one rename split by Load/Store | learned together in >= 2 fixes of other projects   e.g. ['isort@39f727f16f81:SortImports._parse']
+    1  pair: two single expression steps [f-string] | NOT learned together in 2 fixes of other projects   e.g. ['pluggy@fc6395ca27d5:create_branch']
+    1  pair: with a multi-site element | NOT learned together in 2 fixes of other projects   e.g. ['sqlparse@02819f620e59:Lexer.get_default_instance']

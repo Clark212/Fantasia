@@ -1,0 +1,53 @@
+{
+ "test": "dev18/fresh.jsonl",
+ "knowledge": [
+  "dev17/history.jsonl"
+ ],
+ "test_fixes": 472,
+ "library": {
+  "steps": 61,
+  "by_status": {
+   "active": 5,
+   "candidate": 56
+  },
+  "examples": 91,
+  "pairs": 26,
+  "pairs_usable": 1,
+  "multi_site_steps": 3,
+  "string_edits": 7
+ },
+ "classes": {
+  "a step never learned": 251,
+  "a step with > 2 new values": 143,
+  "ELIGIBLE single": 67,
+  "a pair not learned together in 2 fixes": 4,
+  "3+ steps": 3,
+  "ELIGIBLE multi-site": 3,
+  "no steps": 1
+ },
+ "eligible_by_outcome": {
+  "active | single | not produced: a value not offered": 50,
+  "seen once | single | not produced: a value not offered": 5,
+  "active | single | not produced: the place is not a site (inside an f-string or a bare string)": 3,
+  "active | single | not produced: every value offered": 3,
+  "active | single | produced, ranked beyond 80": 2,
+  "active | single | reproduced within 80": 1,
+  "seen once | single | reproduced within 80": 1,
+  "active | multi-site | produced, ranked beyond 80": 1,
+  "active | multi-site | not produced (multi-site / pair: content not checked)": 1,
+  "seen once | multi-site | not produced (multi-site / pair: content not checked)": 1,
+  "seen once | single | not produced: every value offered": 1,
+  "seen once | single | produced, ranked beyond 80": 1
+ },
+ "holes_not_offered_by_type": {
+  "str": 39,
+  "name": 16,
+  "attr": 1
+ },
+ "unlimited_positions_beyond_80": [
+  74,
+  109,
+  319,
+  494
+ ]
+}

@@ -1,0 +1,117 @@
+parse@52bf0b3862c6:Parser._handle_field	single: reproduced once the per-step caps are lifted
+parse@421c19919fbc:Parser._handle_field	pair: reproduced once the per-step caps are lifted
+parse@3f0bf88f80f8:Parser._generate_result	multi: the fix changed only some of the places with the same match
+more_itertools@080fb1397fc0:seekable.relative_seek	pair: involves a statement step (pairs join expression steps only)
+more_itertools@6ea811ad929f:totient	pair: involves a statement step (pairs join expression steps only)
+click@8af7ec14f3d9:resolve_ctx	pair: an element is a multi-site step (a pair joins two single places)
+click@579262766b1e:make_default_short_help	pair: involves a statement step (pairs join expression steps only)
+click@8ca33a9fba18:Argument.consume_value	pair: an element is a multi-site step (a pair joins two single places)
+attrs@01413df3db8e:_MinLengthValidator.__call__	single: inside an f-string
+packaging@553582d9162c:_Validator._process_description_content_type	single: inside an f-string
+packaging@cb2975ebb291:Pylock._from_dict	single: reproduced once the per-step caps are lifted
+packaging@6da1c50d1354:Requirement._iter_parts	single: inside an f-string
+packaging@a716c52b5f3c:_Validator._process_dynamic	multi: inside an f-string
+packaging@08fe31273e4e:release	single: inside an f-string
+humanize@08cf2c3026cf:fractional	pair: inside an f-string
+humanize@11e62eeedb89:naturalsize	multi: inside an f-string
+tabulate@2d9b1dc70756:_align_column	single: reproduced once the per-step caps are lifted
+tabulate@281c0e639c5f:_normalize_tabular_data	single: reproduced once the per-step caps are lifted
+marshmallow@252090c7c707:Schema._deserialize	single: reproduced once the per-step caps are lifted
+marshmallow@fd79660afac3:Schema.from_dict	pair: involves a statement step (pairs join expression steps only)
+marshmallow@cf808fc8de9e:BaseSchema._invoke_field_validators	multi: the fix changed only some of the places with the same match
+marshmallow@1f899e9a8400:register	pair: involves a statement step (pairs join expression steps only)
+marshmallow@b1b1458a5ecd:Unmarshaller.deserialize	single: reproduced once the per-step caps are lifted
+marshmallow@6e51dc082f12:BaseSchema._invoke_field_validators	multi: the fix changed only some of the places with the same match
+dateutil@af20fd4240a2:_ymd.could_be_day	pair: involves a statement step (pairs join expression steps only)
+dateutil@0b773a582f56:parser._parse	single: reproduced once the per-step caps are lifted
+dateutil@32707253179c:parser._parse	pair: involves a statement step (pairs join expression steps only)
+dateutil@4885cf738032:rrule.__init__	pair: involves a statement step (pairs join expression steps only)
+dateutil@7fc1cfa34ce2:parser.parse	single: reproduced once the per-step caps are lifted
+pyparsing@e6a60404fe6a:nested_expr	multi: the fix changed only some of the places with the same match
+pyparsing@7f6571e395f1:Regex._generateDefaultName	pair: inside an f-string
+pyparsing@72a28067b050:ParseResults.deepcopy	pair: an element is a multi-site step (a pair joins two single places)
+pyparsing@21ba705f7786:ParserElement.run_tests	multi: the fix changed only some of the places with the same match
+pyparsing@5fb6e0d597f8:QuotedString.__init__	single: reproduced once the per-step caps are lifted
+pyparsing@498a0e3f77a9:ParseResults.dump	single: a whole else/elif/finally block deleted (the statement splice cannot remove its header)
+pyparsing@5f705055e1b6:And.__init__	multi: the fix changed only some of the places with the same match
+jsonschema@faabedcfd9f0:_uniq	multi: the fix changed only some of the places with the same match
+pathspec@3228f14ca503:GitIgnoreSpecPattern.__normalize_segments	pair: involves a statement step (pairs join expression steps only)
+pathspec@54acb0804468:_HyperscanGiR2BaseBackend._init_db	single: reproduced once the per-step caps are lifted
+pathspec@82a4e52ecbc4:_iter_tree_next	multi: a statement step at several places (multi-site applies to expression steps)
+tomlkit@bd31dbd8e276:dumps	pair: inside an f-string
+tomlkit@990e325d72b9:Integer._new	pair: involves a statement step (pairs join expression steps only)
+tomlkit@bf01a25e26e5:Float._new	pair: involves a statement step (pairs join expression steps only)
+tomlkit@b49a3e4ae4f6:Parser._parse_table	single: a whole else/elif/finally block deleted (the statement splice cannot remove its header)
+tomlkit@953fd3be54b9:Container.append	pair: involves a statement step (pairs join expression steps only)
+tomlkit@0400059e2084:item	pair: involves a statement step (pairs join expression steps only)
+tomlkit@bebbc57aaff7:StringType.is_literal	multi: the fix changed only some of the places with the same match
+sqlparse@02819f620e59:Lexer.get_default_instance	pair: an element is a multi-site step (a pair joins two single places)
+sqlparse@403de6fc648a:group_functions	multi: the fix changed only some of the places with the same match
+sqlparse@42fb1d05b601:extract_definitions	pair: involves a statement step (pairs join expression steps only)
+isort@25d96f4ec43f:Config.__init__	single: inside an f-string
+isort@d6e3056579a0:sort_stream	pair: involves a statement step (pairs join expression steps only)
+isort@26819c0b2dda:sort_file	pair: an element is a multi-site step (a pair joins two single places)
+isort@013fb7f73dc3:_build_arg_parser	single: reproduced once the per-step caps are lifted
+isort@2c16b7cb49e3:_build_arg_parser	single: reproduced once the per-step caps are lifted
+isort@0ccefec5a394:UnsupportedSettings.__init__	single: inside an f-string
+isort@008d0a6e9042:line	pair: involves a statement step (pairs join expression steps only)
+isort@fab05f271b19:FileSkipComment.__init__	single: inside an f-string
+isort@94ae8995739a:main	single: reproduced once the per-step caps are lifted
+isort@23f5fd69ef8e:_build_arg_parser	single: reproduced once the per-step caps are lifted
+isort@80cc94e3de50:_build_arg_parser	single: reproduced once the per-step caps are lifted
+isort@c8cb55f1c11c:file_contents	single: reproduced once the per-step caps are lifted
+isort@d4defa927f63:_build_arg_parser	single: inside an f-string
+isort@9baef903c529:_build_arg_parser	pair: caps lifted, timed out (large function)
+isort@cf44d6720f27:sorted_imports	single: reproduced once the per-step caps are lifted
+isort@e6c117cc6238:_build_arg_parser	single: reproduced once the per-step caps are lifted
+isort@5c0ea8fba3ec:Config.__init__	single: inside an f-string
+isort@b668b554fbd8:_sort_imports	single: reproduced once the per-step caps are lifted
+isort@0b26361d5d8f:_build_arg_parser	single: reproduced once the per-step caps are lifted
+isort@189fd97209fb:_build_arg_parser	single: reproduced once the per-step caps are lifted
+isort@5811f3edf74c:_build_arg_parser	single: reproduced once the per-step caps are lifted
+isort@94c3d6b5097d:sorted_imports	single: reproduced once the per-step caps are lifted
+isort@546ff329d4a7:format_profile	single: inside an f-string
+isort@74c800a4cac8:sorted_imports	pair: an element is a multi-site step (a pair joins two single places)
+isort@c358425c2432:check_imports	multi: inside an f-string
+isort@173287f22231:RequirementsFinder._get_files_from_dir_cached	multi: the fix changed only some of the places with the same match
+isort@bf2fd27841bb:SortImports._parse	pair: involves a statement step (pairs join expression steps only)
+isort@b923ea29a395:create_parser	single: reproduced once the per-step caps are lifted
+isort@e7ac914a870a:SortImports._add_formatted_imports	pair: reproduced once the per-step caps are lifted
+isort@7a56eef1d8c5:create_parser	single: reproduced once the per-step caps are lifted
+isort@789435882db5:create_parser	single: reproduced once the per-step caps are lifted
+isort@ef1bd7f60df4:SortImports.__init__	pair: involves a statement step (pairs join expression steps only)
+isort@0b133dcc2000:SortImports._parse	single: reproduced once the per-step caps are lifted
+isort@6ff0927ff358:SortImports._parse	single: reproduced once the per-step caps are lifted
+isort@bd16d8c8dc1d:SortImports.__init__	single: reproduced once the per-step caps are lifted
+isort@2350ff103ed2:SortImports._parse	pair: involves a statement step (pairs join expression steps only)
+isort@40fdbbe51c40:main	single: reproduced once the per-step caps are lifted
+isort@7fc780ca2541:SortImports.__init__	pair: involves a statement step (pairs join expression steps only)
+isort@d361ffdd05e3:main	single: reproduced once the per-step caps are lifted
+isort@acd4776e6bcb:SortImports.__init__	pair: involves a statement step (pairs join expression steps only)
+isort@a4451280f7ec:SortImports.__init__	single: reproduced once the per-step caps are lifted
+isort@39f727f16f81:SortImports._parse	pair: an element is a multi-site step (a pair joins two single places)
+isort@3505efbe4b03:SortImports._add_formatted_imports	multi: the fix changed only some of the places with the same match
+pluggy@fc6395ca27d5:create_branch	pair: inside an f-string
+xmltodict@f0322e578184:_DictSAXHandler.startElement	pair: involves a statement step (pairs join expression steps only)
+slugify@a1543fe0ae01:slugify	multi: the fix changed only some of the places with the same match
+cerberus@f66d8bd4880d:Validator._validate	multi: the fix changed only some of the places with the same match
+cerberus@de390138a865:Validator._validate	single: reproduced once the per-step caps are lifted
+cerberus@5357062a53d9:Validator._validate	single: reproduced once the per-step caps are lifted
+schema@d81871b8644e:Schema.validate	single: reproduced once the per-step caps are lifted
+schema@afae9214941d:Schema.validate	single: reproduced once the per-step caps are lifted
+schema@2af1f4e08b1a:Schema.validate	pair: involves a statement step (pairs join expression steps only)
+jmespath@bdda80ec1618:Parser._parse_multi_select_list	pair: involves a statement step (pairs join expression steps only)
+
+103 self-check failures:
+  36  single: reproduced once the per-step caps are lifted
+  24  pair: involves a statement step (pairs join expression steps only)
+  13  multi: the fix changed only some of the places with the same match
+  10  single: inside an f-string
+   7  pair: an element is a multi-site step (a pair joins two single places)
+   4  pair: inside an f-string
+   3  multi: inside an f-string
+   2  pair: reproduced once the per-step caps are lifted
+   2  single: a whole else/elif/finally block deleted (the statement splice cannot remove its header)
+   1  multi: a statement step at several places (multi-site applies to expression steps)
+   1  pair: caps lifted, timed out (large function)
+UNEXPLAINED: []

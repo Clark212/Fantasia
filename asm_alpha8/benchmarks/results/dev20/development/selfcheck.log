@@ -1,0 +1,166 @@
+NOT reproduced: parse@52bf0b3862c6:Parser._handle_field single [1]
+NOT reproduced: parse@421c19919fbc:Parser._handle_field pair [1, 1]
+NOT reproduced: parse@3f0bf88f80f8:Parser._generate_result multi [2]
+NOT reproduced: more_itertools@080fb1397fc0:seekable.relative_seek pair [1, 1]
+NOT reproduced: more_itertools@6ea811ad929f:totient pair [1, 1]
+NOT reproduced: click@8af7ec14f3d9:resolve_ctx pair [2, 2]
+NOT reproduced: click@579262766b1e:make_default_short_help pair [1, 1]
+NOT reproduced: click@8ca33a9fba18:Argument.consume_value pair [2, 1]
+NOT reproduced: attrs@01413df3db8e:_MinLengthValidator.__call__ single [1]
+NOT reproduced: packaging@553582d9162c:_Validator._process_description_content_type single [1]
+NOT reproduced: packaging@cb2975ebb291:Pylock._from_dict single [1]
+NOT reproduced: packaging@6da1c50d1354:Requirement._iter_parts single [1]
+NOT reproduced: packaging@a716c52b5f3c:_Validator._process_dynamic multi [2]
+NOT reproduced: packaging@08fe31273e4e:release single [1]
+<unknown>:37: SyntaxWarning: invalid escape sequence '\#'
+<unknown>:37: SyntaxWarning: invalid escape sequence '\#'
+<unknown>:37: SyntaxWarning: invalid escape sequence '\#'
+<unknown>:37: SyntaxWarning: invalid escape sequence '\#'
+<unknown>:17: SyntaxWarning: invalid escape sequence '\D'
+<unknown>:17: SyntaxWarning: invalid escape sequence '\D'
+<unknown>:17: SyntaxWarning: invalid escape sequence '\D'
+<unknown>:17: SyntaxWarning: invalid escape sequence '\D'
+<unknown>:17: SyntaxWarning: invalid escape sequence '\D'
+<unknown>:17: SyntaxWarning: invalid escape sequence '\D'
+<unknown>:17: SyntaxWarning: invalid escape sequence '\D'
+<unknown>:17: SyntaxWarning: invalid escape sequence '\D'
+<unknown>:17: SyntaxWarning: invalid escape sequence '\D'
+NOT reproduced: humanize@08cf2c3026cf:fractional pair [1, 1]
+NOT reproduced: humanize@11e62eeedb89:naturalsize multi [2]
+<unknown>:270: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:270: SyntaxWarning: invalid escape sequence '\e'
+NOT reproduced: tabulate@2d9b1dc70756:_align_column single [1]
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+<unknown>:230: SyntaxWarning: invalid escape sequence '\e'
+NOT reproduced: tabulate@281c0e639c5f:_normalize_tabular_data single [1]
+<unknown>:4: SyntaxWarning: invalid escape sequence '\h'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\h'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\h'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\h'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\h'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\h'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\h'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\h'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\h'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\h'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\h'
+<unknown>:4: SyntaxWarning: invalid escape sequence '\h'
+NOT reproduced: marshmallow@252090c7c707:Schema._deserialize single [1]
+NOT reproduced: marshmallow@fd79660afac3:Schema.from_dict pair [1, 1]
+NOT reproduced: marshmallow@cf808fc8de9e:BaseSchema._invoke_field_validators multi [2]
+NOT reproduced: marshmallow@1f899e9a8400:register pair [1, 1]
+NOT reproduced: marshmallow@b1b1458a5ecd:Unmarshaller.deserialize single [1]
+NOT reproduced: marshmallow@6e51dc082f12:BaseSchema._invoke_field_validators multi [2]
+NOT reproduced: dateutil@af20fd4240a2:_ymd.could_be_day pair [1, 1]
+NOT reproduced: dateutil@0b773a582f56:parser._parse single [1]
+NOT reproduced: dateutil@32707253179c:parser._parse pair [1, 1]
+NOT reproduced: dateutil@4885cf738032:rrule.__init__ pair [1, 1]
+NOT reproduced: dateutil@7fc1cfa34ce2:parser.parse single [1]
+NOT reproduced: pyparsing@e6a60404fe6a:nested_expr multi [2]
+NOT reproduced: pyparsing@7f6571e395f1:Regex._generateDefaultName pair [1, 1]
+NOT reproduced: pyparsing@72a28067b050:ParseResults.deepcopy pair [3, 1]
+NOT reproduced: pyparsing@21ba705f7786:ParserElement.run_tests multi [2]
+NOT reproduced: pyparsing@5fb6e0d597f8:QuotedString.__init__ single [1]
+<unknown>:12: SyntaxWarning: invalid escape sequence '\p'
+<unknown>:12: SyntaxWarning: invalid escape sequence '\p'
+<unknown>:12: SyntaxWarning: invalid escape sequence '\p'
+<unknown>:12: SyntaxWarning: invalid escape sequence '\p'
+<unknown>:10: SyntaxWarning: invalid escape sequence '\p'
+<unknown>:10: SyntaxWarning: invalid escape sequence '\p'
+NOT reproduced: pyparsing@498a0e3f77a9:ParseResults.dump single [1]
+NOT reproduced: pyparsing@5f705055e1b6:And.__init__ multi [2]
+NOT reproduced: jsonschema@faabedcfd9f0:_uniq multi [2]
+NOT reproduced: pathspec@3228f14ca503:GitIgnoreSpecPattern.__normalize_segments pair [1, 1]
+NOT reproduced: pathspec@54acb0804468:_HyperscanGiR2BaseBackend._init_db single [1]
+NOT reproduced: pathspec@82a4e52ecbc4:_iter_tree_next multi [2]
+NOT reproduced: tomlkit@bd31dbd8e276:dumps pair [1, 1]
+NOT reproduced: tomlkit@990e325d72b9:Integer._new pair [1, 1]
+NOT reproduced: tomlkit@bf01a25e26e5:Float._new pair [1, 1]
+NOT reproduced: tomlkit@b49a3e4ae4f6:Parser._parse_table single [1]
+NOT reproduced: tomlkit@953fd3be54b9:Container.append pair [1, 1]
+NOT reproduced: tomlkit@0400059e2084:item pair [1, 1]
+NOT reproduced: tomlkit@bebbc57aaff7:StringType.is_literal multi [2]
+NOT reproduced: sqlparse@02819f620e59:Lexer.get_default_instance pair [3, 1]
+NOT reproduced: sqlparse@403de6fc648a:group_functions multi [2]
+NOT reproduced: sqlparse@42fb1d05b601:extract_definitions pair [1, 1]
+NOT reproduced: isort@25d96f4ec43f:Config.__init__ single [1]
+NOT reproduced: isort@d6e3056579a0:sort_stream pair [1, 1]
+NOT reproduced: isort@26819c0b2dda:sort_file pair [1, 2]
+NOT reproduced: isort@013fb7f73dc3:_build_arg_parser single [1]
+NOT reproduced: isort@2c16b7cb49e3:_build_arg_parser single [1]
+NOT reproduced: isort@0ccefec5a394:UnsupportedSettings.__init__ single [1]
+NOT reproduced: isort@008d0a6e9042:line pair [1, 1]
+NOT reproduced: isort@fab05f271b19:FileSkipComment.__init__ single [1]
+NOT reproduced: isort@94ae8995739a:main single [1]
+NOT reproduced: isort@23f5fd69ef8e:_build_arg_parser single [1]
+NOT reproduced: isort@80cc94e3de50:_build_arg_parser single [1]
+NOT reproduced: isort@c8cb55f1c11c:file_contents single [1]
+NOT reproduced: isort@d4defa927f63:_build_arg_parser single [1]
+NOT reproduced: isort@9baef903c529:_build_arg_parser pair [1, 1]
+NOT reproduced: isort@cf44d6720f27:sorted_imports single [1]
+NOT reproduced: isort@e6c117cc6238:_build_arg_parser single [1]
+NOT reproduced: isort@5c0ea8fba3ec:Config.__init__ single [1]
+NOT reproduced: isort@b668b554fbd8:_sort_imports single [1]
+NOT reproduced: isort@0b26361d5d8f:_build_arg_parser single [1]
+NOT reproduced: isort@189fd97209fb:_build_arg_parser single [1]
+NOT reproduced: isort@5811f3edf74c:_build_arg_parser single [1]
+NOT reproduced: isort@94c3d6b5097d:sorted_imports single [1]
+NOT reproduced: isort@546ff329d4a7:format_profile single [1]
+NOT reproduced: isort@74c800a4cac8:sorted_imports pair [2, 1]
+NOT reproduced: isort@c358425c2432:check_imports multi [2]
+NOT reproduced: isort@173287f22231:RequirementsFinder._get_files_from_dir_cached multi [2]
+NOT reproduced: isort@bf2fd27841bb:SortImports._parse pair [1, 1]
+NOT reproduced: isort@b923ea29a395:create_parser single [1]
+NOT reproduced: isort@e7ac914a870a:SortImports._add_formatted_imports pair [1, 1]
+NOT reproduced: isort@7a56eef1d8c5:create_parser single [1]
+NOT reproduced: isort@789435882db5:create_parser single [1]
+NOT reproduced: isort@ef1bd7f60df4:SortImports.__init__ pair [1, 1]
+NOT reproduced: isort@0b133dcc2000:SortImports._parse single [1]
+NOT reproduced: isort@6ff0927ff358:SortImports._parse single [1]
+NOT reproduced: isort@bd16d8c8dc1d:SortImports.__init__ single [1]
+NOT reproduced: isort@2350ff103ed2:SortImports._parse pair [1, 1]
+NOT reproduced: isort@40fdbbe51c40:main single [1]
+NOT reproduced: isort@7fc780ca2541:SortImports.__init__ pair [1, 1]
+NOT reproduced: isort@d361ffdd05e3:main single [1]
+NOT reproduced: isort@acd4776e6bcb:SortImports.__init__ pair [1, 1]
+NOT reproduced: isort@a4451280f7ec:SortImports.__init__ single [1]
+NOT reproduced: isort@39f727f16f81:SortImports._parse pair [1, 4]
+NOT reproduced: isort@3505efbe4b03:SortImports._add_formatted_imports multi [3]
+NOT reproduced: pluggy@fc6395ca27d5:create_branch pair [1, 1]
+NOT reproduced: xmltodict@f0322e578184:_DictSAXHandler.startElement pair [1, 1]
+NOT reproduced: slugify@a1543fe0ae01:slugify multi [2]
+NOT reproduced: cerberus@f66d8bd4880d:Validator._validate multi [2]
+NOT reproduced: cerberus@de390138a865:Validator._validate single [1]
+NOT reproduced: cerberus@5357062a53d9:Validator._validate single [1]
+NOT reproduced: schema@d81871b8644e:Schema.validate single [1]
+NOT reproduced: schema@afae9214941d:Schema.validate single [1]
+NOT reproduced: schema@2af1f4e08b1a:Schema.validate pair [1, 1]
+NOT reproduced: jmespath@bdda80ec1618:Parser._parse_multi_select_list pair [1, 1]
+{
+ "3+ steps (not composed)": 37,
+ "a step with > 2 new values": 369,
+ "multi: NOT reproduced": 17,
+ "multi: reproduced": 24,
+ "no steps": 1,
+ "pair: NOT reproduced": 38,
+ "pair: reproduced": 45,
+ "pair: reproduced apart from a docstring change": 1,
+ "single: NOT reproduced": 48,
+ "single: reproduced": 663,
+ "single: reproduced apart from a docstring change": 11
+}
+SCDONE

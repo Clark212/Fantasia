@@ -1,6 +1,7 @@
 """DEV20 tests: learned edit steps that combine (asm.coding.steps), in isolation and in the repair workflow."""
 import ast
 import json
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -171,6 +172,25 @@ class WorkflowTests(unittest.TestCase):
             self.assertEqual(st["edit_family"], "learned")
             self.assertIn(st["learned_step"], lib.steps)
             self.assertIn("v * size", (root / "m.py").read_text() + st["diff"])
+
+
+class HarnessTests(unittest.TestCase):
+    """The DEV20 diagnostic scripts stop a slow fix with an alarm. DEV18's harness Timeout is an Exception, which ASM's
+    own `except Exception` handlers (e.g. a text build that fails) swallowed, so the limit was silently lost."""
+
+    def test_the_diagnostic_timeout_is_not_swallowed_by_asm_exception_handlers(self):
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "benchmarks"))
+        import dev20_gap
+        import dev20_selfcheck_classify
+
+        def asm_like_handler(exc):
+            try:
+                raise exc()
+            except Exception:  # what steps._Text.build does when a build fails
+                return "swallowed"
+        for mod in (dev20_gap, dev20_selfcheck_classify):
+            with self.assertRaises(mod.Timeout):
+                asm_like_handler(mod.Timeout)
 
 
 if __name__ == "__main__":

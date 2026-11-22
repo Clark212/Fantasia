@@ -1,0 +1,48 @@
+{
+ "test": "dev19/fresh.jsonl",
+ "knowledge": [
+  "dev17/history.jsonl",
+  "dev18/fresh.jsonl",
+  "dev19/train.jsonl"
+ ],
+ "test_fixes": 103,
+ "library": {
+  "steps": 683,
+  "by_status": {
+   "active": 57,
+   "candidate": 626
+  },
+  "examples": 1151,
+  "pairs": 271,
+  "pairs_usable": 13,
+  "multi_site_steps": 39,
+  "string_edits": 88
+ },
+ "classes": {
+  "a step never learned": 51,
+  "a step with > 2 new values": 27,
+  "ELIGIBLE single": 21,
+  "ELIGIBLE multi-site": 3,
+  "a pair not learned together in 2 fixes": 1
+ },
+ "eligible_by_outcome": {
+  "active | single | not produced: a value not offered": 12,
+  "active | single | not produced: every value offered": 2,
+  "seen once | single | timeout (90 s)": 2,
+  "active | single | timeout (90 s)": 2,
+  "seen once | single | reproduced within 80": 1,
+  "active | single | produced, ranked beyond 80": 1,
+  "active | multi-site | not produced (multi-site / pair: content not checked)": 1,
+  "seen once | multi-site | reproduced within 80": 1,
+  "seen once | single | not produced: every value offered": 1,
+  "active | multi-site | timeout (90 s)": 1
+ },
+ "holes_not_offered_by_type": {
+  "attr": 2,
+  "name": 7,
+  "str": 6
+ },
+ "unlimited_positions_beyond_80": [
+  83
+ ]
+}
