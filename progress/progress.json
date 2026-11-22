@@ -1,0 +1,86 @@
+{
+  "about": "Data for progress/make_progress.py. After every DEV: add its entry to `devs`, update `roadmap` if a milestone was promoted, then run `python3 progress/make_progress.py`.",
+  "roadmap": {
+    "current": "v0.4 · alpha 8",
+    "reached_through": "0.3.9",
+    "reached_rule": "milestones before the current stage, as the roadmap's version numbering counts them (ASM is at v0.4), except those listed as open",
+    "open": {
+      "0.3.5": "generalization to unseen data is not yet shown (ROADMAP.md)"
+    },
+    "in_progress_stage": "0.4",
+    "in_progress_note": "built as alpha work (alpha 7.x and alpha 8); none promoted",
+    "next": "0.4.9",
+    "promoted_in_progress": []
+  },
+  "devs": [
+    {
+      "dev": "DEV15",
+      "date": "2026-11-20",
+      "title": "Repair beyond single sites",
+      "gate": "G1: wrong patches accepted on fresh faults stay within the bound",
+      "kind": "passed",
+      "result": "passed: 0 of 18 accepted patches wrong; real bugs: 4 of 83 repaired correctly",
+      "promoted": false,
+      "why_not_promoted": "fixed in advance: the real-bug corpus has 83 bugs, below the bar of 100",
+      "report": "asm_alpha8/ALPHA8_CODING_DEV15_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV16",
+      "date": "2026-11-20",
+      "title": "A learning engine and a data pipeline",
+      "gate": "pre-registered study; needs generated data from the user's PC",
+      "kind": "not_run",
+      "result": "not run yet",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV16_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV17",
+      "date": "2026-11-21",
+      "title": "ASM learns its own repair procedures",
+      "gate": "G17-1: real bugs only a learned procedure fixes",
+      "kind": "at_least",
+      "needed": 1,
+      "value_reached": 0,
+      "of": 59,
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV17_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV18",
+      "date": "2026-11-21",
+      "title": "Learned fix shapes, content from the problem",
+      "gate": "G18-1: fresh fixes only learned shapes reproduce",
+      "kind": "at_least",
+      "needed": 10,
+      "value_reached": 2,
+      "of": 472,
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV18_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV19",
+      "date": "2026-11-21",
+      "title": "More training data, same system",
+      "gate": "G19-1: fresh fixes only learned knowledge reproduces",
+      "kind": "at_least",
+      "needed": 10,
+      "value_reached": 0,
+      "of": 103,
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV19_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV20",
+      "date": "2026-11-22",
+      "title": "Learned edit steps that combine",
+      "gate": "G20-1: fresh fixes only learned steps reproduce",
+      "kind": "at_least",
+      "needed": 10,
+      "value_reached": 1,
+      "of": 483,
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV20_IMPLEMENTATION.md"
+    }
+  ]
+}
