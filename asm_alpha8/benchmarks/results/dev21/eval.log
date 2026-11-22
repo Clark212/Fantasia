@@ -1,0 +1,239 @@
+{"learned": {"steps": 991, "by_status": {"active": 86, "candidate": 905}, "examples": 1737, "pairs": 439, "pairs_usable": 26, "multi_site_steps": 61, "string_edits": 136}, "seconds": 121}
+{"id": "six@0004c7e4e2fd:_LazyDescr.__get__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 6.4}
+{"id": "six@447be42582ea:MovedModule.__getattr__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 8.3}
+{"id": "six@8c84f8409bbf:MovedModule.__getattr__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 7.7}
+{"id": "six@9c211fdd21b3:with_metaclass", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 2.6}
+{"id": "colorama@788106f7c4d0:StreamWrapper.closed", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 3.3}
+{"id": "colorama@a4edc5a4cf24:WinTerm.reset_all", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 2.9}
+{"id": "colorama@27a3833f8e5e:reset_all", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 1.7}
+{"id": "colorama@44dc8af9bc81:AnsiToWin32.__init__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 15.1}
+{"id": "colorama@a15e4222f3dc:AnsiToWin32.__init__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 14.1}
+{"id": "colorama@83364bf1dc2b:AnsiCodes.__init__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 5.2}
+{"id": "colorama@9a6487826245:colorama_text", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 3.0}
+{"id": "colorama@e5be3c5043cb:init", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 11.0}
+{"id": "colorama@5630a3a6314a:AnsiToWin32.reset_all", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 4.9}
+{"id": "colorama@961428e6c1c3:AnsiToWin32.__init__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 12.1}
+{"id": "colorama@8491843364cb:WinTerm.cursor_adjust", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 6.3}
+{"id": "colorama@a3e0eae3b04f:AnsiToWin32.call_win32", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 19.6}
+{"id": "colorama@0171000364fa:WinTerm.erase_data", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 12.7}
+{"id": "colorama@77d89b67f90a:AnsiToWin32.call_win32", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 20.2}
+{"id": "colorama@d560b45b3b3b:AnsiToWin32.__init__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 12.5}
+{"id": "colorama@f0e98097ece1:AnsiToWin32.get_win32_calls", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 33.4}
+{"id": "colorama@8d5b88746ced:AnsiToWin32.reset_all", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 4.3}
+{"id": "prettytable@037ef44525ef:PrettyTable._get_formatted_latex_string", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 59.6}
+{"id": "prettytable@cf5f8fda23d9:PrettyTable._stringify_row", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 133.8}
+{"id": "prettytable@935207ecfa8b:from_db_cursor", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 8.2}
+{"id": "prettytable@2d2a04ace2cb:PrettyTable.add_rows", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 7.1}
+{"id": "prettytable@be8d6f2510b8:PrettyTable.add_rows", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 7.2}
+{"id": "prettytable@b3de36f62f65:PrettyTable.add_rows", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 6.3}
+{"id": "prettytable@a18f480bd02e:PrettyTable.get_string", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 86.3}
+{"id": "prettytable@1deb0c593ca2:PrettyTable.add_autoindex", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 9.1}
+{"id": "prettytable@fd24cf6b4dbd:PrettyTable._compute_widths", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 105.3}
+{"id": "prettytable@cd8f2b881c6c:PrettyTable._compute_widths", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 93.7}
+{"id": "prettytable@8cee2e01d0b9:PrettyTable._stringify_hrule", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 41.9}
+{"id": "prettytable@0a9f524e03dd:PrettyTable._compute_widths", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 91.2}
+{"id": "prettytable@3646520a025b:PrettyTable._compute_widths", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 71.1}
+{"id": "prettytable@f7c1f43cedba:PrettyTable._stringify_row", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 112.7}
+{"id": "prettytable@c0896b1a5fde:PrettyTable.__init__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 102.7}
+{"id": "prettytable@e1d1d5e46da9:PrettyTable.field_names", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 21.2}
+{"id": "prettytable@1625328f65fb:PrettyTable._set_random_style", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 11.9}
+{"id": "prettytable@de425a615fd5:_char_block_width", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 7.8}
+{"id": "prettytable@6b53aa1e7a3f:PrettyTable.__init__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 53.6}
+{"id": "prettytable@d0bb4ed529d9:from_csv", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 11.5}
+{"id": "simplejson@bded822467d9:py_scanstring", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 57.7}
+{"id": "simplejson@7f6c62499a21:OrderedDict.popitem", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 5.6}
+{"id": "sortedcontainers@be06d8d1b2d6:SortedSet.__reduce__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 2.6}
+{"id": "sortedcontainers@501d4a91def6:SortedList.__setitem__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 118.0}
+{"id": "sortedcontainers@c04ff6531794:SortedList.__new__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 5.3}
+{"id": "sortedcontainers@b3cae1040a51:SortedList._check", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 113.9}
+{"id": "sortedcontainers@a0dfdd88ac62:SortedDict.fromkeys", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 3.1}
+{"id": "sortedcontainers@1c6a43a5f3d8:SortedSet.__setitem__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 9.6}
+{"id": "pyrsistent@07d60a5eceee:_update_structure", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 13.1}
+{"id": "pyrsistent@0be88dd2f6ce:PMap._Evolver.remove", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 9.9}
+{"id": "pyrsistent@3d55567a038b:freeze", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 17.9}
+{"id": "pyrsistent@0898ff7ac62c:PMap._Evolver.set", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 19.8}
+{"id": "pyrsistent@885796fb8b9a:PSet.remove", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 3.9}
+{"id": "pyrsistent@08f948dc4ef8:thaw", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 15.4}
+{"id": "pyrsistent@a7e8b93df67b:_sequence_field", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 8.1}
+{"id": "pyrsistent@b314759af62d:_types_to_names", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 2.4}
+{"id": "pyrsistent@327d10da9a8c:PDeque.__getitem__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 18.8}
+{"id": "pyrsistent@cb06e138e62b:CheckedPVector.Evolver.extend", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 2.9}
+{"id": "pyrsistent@5e7704f64782:_update_structure", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 7.9}
+{"id": "pyrsistent@21f7c81267f7:InvariantException.__init__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 5.3}
+{"id": "pyrsistent@74edf0b6664b:PythonPVector.Evolver.__delitem__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 6.1}
+{"id": "pyrsistent@ba4ff39cef8d:PythonPVector.Evolver.delete", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 3.0}
+{"id": "pyrsistent@adcc882c3bfe:PBag.__and__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 9.6}
+{"id": "pyrsistent@2bfc9c45ddf0:PClass.set", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 8.0}
+{"id": "pyrsistent@c57aff20272f:_get", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 4.4}
+{"id": "pyrsistent@a30e865bb3fa:optional", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 2.2}
+{"id": "pyrsistent@76fd904330a0:PRecord.__repr__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 5.2}
+{"id": "pyrsistent@a196a4fb0a49:PMap.__getattr__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 2.8}
+{"id": "pyrsistent@57f957e94c6e:PVector.mset", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 10.0}
+{"id": "funcy@6cfcd4eec238:get_argnames", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 4.0}
+{"id": "funcy@7cfb9465fe75:empty", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 3.8}
+{"id": "funcy@e61bbc38c3fc:cut_suffix", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 3.5}
+{"id": "funcy@848dd6dd2b13:_cut_iter", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 13.1}
+{"id": "funcy@19e9617383cd:join", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 26.3}
+{"id": "funcy@f9e341726e2f:get_spec", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 56.0}
+{"id": "funcy@d891999dbcfa:get_spec", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 91.0}
+{"id": "funcy@aa2361a6ef0e:del_in", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 9.5}
+{"id": "funcy@e5090591930f:get_spec", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 73.7}
+{"id": "funcy@c245b042616a:_factory", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 11.4}
+{"id": "funcy@77e4c5ee4f25:iffy", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 5.8}
+{"id": "funcy@ff699f1a3e0b:get_spec", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 50.9}
+{"id": "funcy@4fa23f4321d4:get_spec", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 51.7}
+{"id": "funcy@387ba2fad33f:_factory", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 10.4}
+{"id": "funcy@4a5e9df9d65c:empty", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 2.2}
+{"id": "funcy@7729f8da2257:ipartition_by", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 4.4}
+{"id": "funcy@aa5c165709de:retry", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 7.6}
+{"id": "funcy@54ed07a6a52a:iflatten", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 4.7}
+{"id": "funcy@dc380fe02d6b:smart_repr", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 7.7}
+{"id": "funcy@3d1c762f925d:join_with", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 10.6}
+{"id": "funcy@6b92d03fcfb8:_icut", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 7.0}
+{"id": "funcy@d5391d6ebcb3:last", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 4.5}
+{"id": "funcy@6d290f960c85:make_call", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 7.6}
+{"id": "funcy@021d8f27e2a6:iffy", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 4.4}
+{"id": "funcy@0d3118393702:interpose", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 3.0}
+{"id": "cattrs@304e37001983:namedtuple_dict_structure_factory", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 17.8}
+{"id": "cattrs@2ec13dd485b5:Converter.gen_structure_attrs_fromdict", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 22.3}
+{"id": "cattrs@30fb43e1924f:Converter.gen_unstructure_attrs_fromdict", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 19.1}
+{"id": "cattrs@11e28f4330cd:adapted_fields", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 22.3}
+{"id": "cattrs@a8d3e4438bb7:Converter.copy", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 35.0}
+{"id": "cattrs@64cb825c9761:make_dict_unstructure_fn", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 253.3}
+{"id": "cattrs@066ace99f027:BaseConverter._find_type_alias_structure_hook", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 10.0}
+{"id": "cattrs@385067e2a053:BaseConverter._find_type_alias_structure_hook", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 8.1}
+{"id": "cattrs@5b1fa6a6d0dc:make_mapping_unstructure_fn", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 34.6}
+{"id": "cattrs@acf92d2b790b:Converter.gen_structure_annotated", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 3.3}
+{"id": "cattrs@17f46807cd25:BaseConverter._structure_final_factory", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 6.4}
+{"id": "cattrs@adc2018218a9:_include_subclasses_with_union_strategy", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 63.5}
+{"id": "cattrs@25255df924a5:make_dict_structure_fn", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 729.9}
+{"id": "cattrs@ec67fbfffe75:make_converter", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 4.9}
+{"id": "cattrs@7f720bae4419:make_iterable_unstructure_fn", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 17.4}
+{"id": "cattrs@ab8bfc400ad4:make_iterable_unstructure_fn", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 18.6}
+{"id": "cattrs@ceb0dbd166c2:make_dict_structure_fn", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 176.2}
+{"id": "cattrs@c607654f302f:Converter._structure_literal", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 4.2}
+{"id": "cattrs@dc38160b5f28:make_mapping_structure_fn", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 54.2}
+{"id": "cattrs@298646fb8838:make_mapping_structure_fn", "control": false, "round_robin": true, "guard": false, "both": true, "seconds": 52.7}
+{"id": "cattrs@170c83203100:make_iterable_unstructure_fn", "control": false, "round_robin": true, "guard": false, "both": true, "seconds": 14.5}
+{"id": "cattrs@74afe1524f41:make_dict_unstructure_fn", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 39.0}
+{"id": "cattrs@d48562527909:make_dict_unstructure_fn", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 103.0}
+{"id": "parso@1e397f747265:clear_inactive_cache", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 11.4}
+{"id": "parso@d13000a74ce6:load_grammar", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 21.1}
+{"id": "parso@70ec8eecd172:generate_grammar", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 20.5}
+{"id": "parso@88874a5a9fb6:_create_token_collection", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 159.4}
+{"id": "parso@73796f309df9:_InvalidSyntaxRule.is_issue", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 6.6}
+{"id": "parso@2cd0d6c9fc36:Parser._recovery_tokenize", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 7.7}
+{"id": "parso@0234a70e9519:_CheckAssignmentRule._check_assignment", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 88.0}
+{"id": "parso@e496b07b6342:_TrailingImportComma.is_issue", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 2.2}
+{"id": "parso@0a5b5f3346de:_create_token_collection", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 158.6}
+{"id": "parso@ad57a5180026:_find_fstring_string", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 29.4}
+{"id": "parso@a9b61149eb76:ClassOrFunc.get_decorators", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 5.6}
+{"id": "parso@18cbeb1a3d2c:_ArglistRule.is_issue", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 31.2}
+{"id": "parso@6c65aea47df2:_NodesTree._copy_nodes", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 78.9}
+{"id": "parso@ce8b531175b0:_NodesTree._copy_nodes", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 83.5}
+{"id": "parso@0bd17bee2c07:_NodesTree._copy_nodes", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 71.6}
+{"id": "parso@f3015efb2df6:_NodesTree._copy_nodes", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 66.9}
+{"id": "parso@52d01685baf0:_NodesTree._copy_nodes", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 68.1}
+{"id": "parso@e591b929ebc5:_NodesTreeNode.get_last_line", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 12.6}
+{"id": "parso@01dba7f8ce5a:DiffParser._diff_tokenize", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 49.7}
+{"id": "parso@610a820799b6:DiffParser._diff_tokenize", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 49.8}
+{"id": "parso@edbceba4f875:_is_flow_node", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 3.3}
+{"id": "parso@65a0748f4f5f:_is_flow_node", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 3.6}
+{"id": "parso@c442cf98be5e:_assert_valid_graph", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 36.6}
+{"id": "parso@6eba40b4c5d8:_ends_with_newline", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 4.7}
+{"id": "parso@428bde0573a4:_NodesTree.copy_nodes", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 6.3}
+{"id": "parso@a8ec75feddcf:_NodesTree._copy_nodes", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 63.9}
+{"id": "parso@96ae6a078bd8:_NodesTree._copy_nodes", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 54.0}
+{"id": "parso@64cf24d9da87:_get_debug_error_message", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 8.1}
+{"id": "parso@750b8af37bc7:_NodesTreeNode.get_last_line", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 11.6}
+{"id": "parso@52e3db4834aa:_NodesStack._update_tos", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 8.5}
+{"id": "parso@29b62325410d:BaseParser.error_recovery", "control": true, "round_robin": true, "guard": true, "both": true, "seconds": 5.7}
+{"id": "parso@e05d7fd59f30:tokenize_lines", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 564.5}
+{"id": "parso@c2eacdb81cfd:_NodesStack._copy_nodes", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 53.6}
+{"id": "parso@f4912f6c17e3:PythonToken.__repr__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 2.6}
+{"id": "parso@d3fa7e1cad2a:tokenize_lines", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 551.7}
+{"id": "parso@e689f3dce631:Grammar.parse", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 4.5}
+{"id": "parso@89932c368dc2:save_module", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 8.6}
+{"id": "parso@3a506b44ac45:Name.get_definition", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 17.9}
+{"id": "parso@09b05422a687:_ContinueChecks.is_issue", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 9.3}
+{"id": "parso@0cf5a36652c9:ErrorFinder.visit_node", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 785.5}
+{"id": "parso@1b235e16e14f:ErrorFinder.visit_leaf", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 212.9}
+{"id": "parso@186160b9ffff:ErrorFinder.visit_node", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 406.0}
+{"id": "parso@87ce5fa9a4a6:ErrorFinder.visit_node", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 360.2}
+{"id": "parso@d6f5fcf43972:ErrorFinder.visit_node", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 330.8}
+{"id": "parso@00bc1a5b945e:ErrorFinder.visit_node", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 182.7}
+{"id": "parso@915b00dab796:ErrorFinder.visit_node", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 76.0}
+{"id": "parso@944fe5a896bc:ErrorFinder.visit_node", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 12.0}
+{"id": "parso@1d0e982d897c:_defined_names", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 13.2}
+{"id": "parso@b618c99b08b3:_create_token_collection", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 81.2}
+{"id": "parso@65203d197a0c:PEP8Normalizer._visit_part", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 236.6}
+{"id": "parso@5b5e4a061620:tokenize_lines", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 215.9}
+{"id": "parso@ee1184e7c4c3:PEP8Normalizer._visit_part", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 234.5}
+{"id": "parso@0846ad633752:PEP8Normalizer._old_normalize", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 215.6}
+{"id": "parso@280f3edf6d40:PEP8Normalizer._analyse_non_prefix", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 75.7}
+{"id": "parso@14026d4c3eab:PEP8Normalizer.visit_node", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 110.6}
+{"id": "parso@31fd7c335f32:PEP8Normalizer._check_spacing", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 91.1}
+{"id": "parso@6bf52e8fe081:PEP8Normalizer.visit_node", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 55.9}
+{"id": "parso@3e9579375633:PEP8Normalizer.visit_node", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 35.5}
+{"id": "parso@89501e6fa59f:Grammar._parse", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 48.1}
+{"id": "parso@5fab42916305:Grammar._parse", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 44.6}
+{"id": "parso@88f8e172d5db:_get_hashed_path", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 5.1}
+{"id": "asttokens@a36475ec9738:MarkTokens.handle_def", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 7.3}
+{"id": "asttokens@026c0c69deda:ASTText._get_text_positions_tokenless", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 29.7}
+{"id": "asttokens@548a88d41b03:last_stmt", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 6.3}
+{"id": "asttokens@17fb607f8de7:is_empty_astroid_slice", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 4.0}
+{"id": "asttokens@8f3071eb68bc:MarkTokens.visit_joinedstr", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 13.9}
+{"id": "asttokens@9cba0ad04c41:MarkTokens.visit_joinedstr", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 10.8}
+{"id": "asttokens@6a1aa27465f0:ASTTokens._get_text_positions_unmarked", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 27.8}
+{"id": "asttokens@a9086d840f6f:patched_generate_tokens", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 19.6}
+{"id": "asttokens@81305d48329f:ASTTokens._generate_tokens", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 8.5}
+{"id": "asttokens@339c149078ba:NodeMethods.get", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 6.0}
+{"id": "asttokens@72feeaab5895:MarkTokens._visit_after_children", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 21.7}
+{"id": "asttokens@e0afa320f142:iter_children_ast", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 6.4}
+{"id": "asttokens@46885eec8585:MarkTokens.visit_call", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 5.8}
+{"id": "asttokens@79530bf7694e:MarkTokens.visit_call", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 2.9}
+{"id": "asttokens@36ce328792ae:ASTTokens.__init__", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 10.7}
+{"id": "asttokens@f2930a0859e8:LineNumbers.from_utf8_col", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 13.0}
+{"id": "asttokens@ff2757a4f160:MarkTokens._expand_to_matching_pairs", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 18.6}
+{"id": "asttokens@47d25df65be9:replace", "control": false, "round_robin": false, "guard": false, "both": false, "seconds": 6.1}
+{
+ "problems": 197,
+ "builtin_any": 6,
+ "builtin_within_k": 4,
+ "p17_any": 6,
+ "p17_within_k": 1,
+ "s18": 1,
+ "control": 1,
+ "round_robin": 3,
+ "guard": 1,
+ "both": 3,
+ "control_new": 1,
+ "round_robin_new": 1,
+ "guard_new": 1,
+ "both_new": 1,
+ "gates": {
+  "G21-B": {
+   "arm": "round_robin",
+   "arm_only": [
+    "cattrs@298646fb8838:make_mapping_structure_fn",
+    "cattrs@170c83203100:make_iterable_unstructure_fn"
+   ],
+   "control_only": [],
+   "net": 2,
+   "p": 0.25,
+   "holm_rejects_null": false,
+   "verdict": "not passed"
+  },
+  "G21-C": {
+   "arm": "guard",
+   "arm_only": [],
+   "control_only": [],
+   "net": 0,
+   "p": 1.0,
+   "holm_rejects_null": false,
+   "verdict": "not passed"
+  }
+ },
+ "seconds": 2732
+}
+EVALDONE
