@@ -517,9 +517,10 @@ class ProcedureCortex:
 
     EXTRAPOLATION_GUARDS=('off','abstain','discount')
     FAMILY_SHARING=('listing','round_robin')
+    FAMILY_SCOPES=('one_input','any_int')
 
     def __init__(self,db_path,*,trust_provider,dependency_provider=None,extrapolation_guard='abstain',extrapolation_confidence_cap=.5,
-                 family_sharing='round_robin'):
+                 family_sharing='round_robin',family_scope='one_input'):
         # Honesty guard (DEFAULT 'abstain' since DEV3.3; 'off' restores the pre-DEV3.2 behaviour). 'abstain': refuse queries whose integer
         # inputs lie outside the range of the evidence behind the active procedure. 'discount': still answer, but cap confidence at the cap.
         if extrapolation_guard not in self.EXTRAPOLATION_GUARDS:raise ValueError('invalid extrapolation guard')
@@ -530,7 +531,10 @@ class ProcedureCortex:
         # instantiation before any family proposes another. 'listing' (the default before): families in listing order,
         # each until the budget is spent, so a two-parameter family can use all of it (DEV4's T3b interference).
         if family_sharing not in self.FAMILY_SHARING:raise ValueError('invalid family sharing')
-        self.family_sharing=family_sharing
+        # DEV22 (experimental, opt-in): which integer targets learned families propose for. 'one_input' (default,
+        # unchanged): only targets with one integer input. 'any_int': also targets with 2-4 integer inputs.
+        if family_scope not in self.FAMILY_SCOPES:raise ValueError('invalid family scope')
+        self.family_sharing=family_sharing;self.family_scope=family_scope
         self.db=sqlite3.connect(str(db_path))
         self.db.execute('PRAGMA journal_mode=WAL')
         self.trust_provider=trust_provider
@@ -749,6 +753,16 @@ class ProcedureCortex:
         names=['version','program','provenance','created_seq','state','support','contradictions','dependencies']
         rows=self.db.execute('SELECT '+','.join(names)+' FROM procedure_versions WHERE mechanism=? AND context=? ORDER BY version',(mechanism,context))
         return [{k:(json.loads(v) if k in ('program','dependencies') else v) for k,v in zip(names,r)} for r in rows]
+
+    def _family_candidates(self,input_types,budget):
+        """At most `budget` instantiations (parameters -8..8) of the learned families with this input schema: 'listing'
+        takes the families one after another (DEV4's interference), 'round_robin' one instantiation from each in turn."""
+        streams=[[(f,v) for v in itertools.product(range(-8,9),repeat=f['parameters'])]
+                 for f in self.families() if f['inputs']==input_types]
+        order=(itertools.chain.from_iterable(streams) if self.family_sharing=='listing' else
+               (x for turn in itertools.zip_longest(*streams) for x in turn if x is not None))
+        for family,values in itertools.islice(order,budget):
+            yield Program(dict(input_types),substitute(family['template'],{f'${i}':v for i,v in enumerate(values)})),'family:'+family['id']
 
     def families(self):
         rows=self.db.execute("SELECT mechanism,context,version,program FROM procedure_versions WHERE state='active' ORDER BY mechanism,context,version LIMIT 32").fetchall()
@@ -1250,15 +1264,7 @@ class ProcedureCortex:
                 yield Program({'x':'int'},'x'),'grammar'
                 yield Program({'x':'int'},('mul','x','x')),'grammar'
                 family_budget=min(64,max(0,budget-291))
-                if use_families and family_budget:
-                    # each family's instantiations in order: 'listing' takes the families one after another (DEV4's
-                    # interference), 'round_robin' one instantiation from each in turn (DEV21); at most family_budget
-                    streams=[[(f,v) for v in itertools.product(range(-8,9),repeat=f['parameters'])]
-                             for f in self.families() if f['inputs']=={'x':'int'}]
-                    order=(itertools.chain.from_iterable(streams) if self.family_sharing=='listing' else
-                           (x for turn in itertools.zip_longest(*streams) for x in turn if x is not None))
-                    for family,values in itertools.islice(order,family_budget):
-                        yield Program({'x':'int'},substitute(family['template'],{f'${i}':v for i,v in enumerate(values)})),'family:'+family['id']
+                if use_families and family_budget:yield from self._family_candidates({'x':'int'},family_budget)
                 for a in range(-8,9):
                     for b in range(-8,9):yield Program({'x':'int'},('add',('mul',a,'x'),b)),'grammar'
             seen=set();evaluations=0;count=0
@@ -1297,6 +1303,20 @@ class ProcedureCortex:
             return {'status':'unsupported','reason':'built-in synthesis supports bool/int outputs over 1-4 typed inputs'}
         all_int=all(t=='int' for t in input_types.values())
         names=tuple(sorted(k for k,v in input_types.items() if v=='int'))
+        fam_count=fam_evals=0
+        if all_int and len(input_types)>=2 and use_families and self.family_scope=='any_int':
+            # DEV22: learned families with this input schema first (as for one-input targets), inside the same
+            # budget; three fit points almost always admit an exact integer affine fit, which would pre-empt them
+            for program,origin in self._family_candidates(input_types,min(64,budget)):
+                fam_count+=1
+                try:
+                    for e in examples:
+                        fam_evals+=1
+                        if program.run(e['inputs'])!=e['expected']:break
+                    else:
+                        result=self.propose(mechanism,program,context=context,provenance='asm_induction:'+origin,training_ids=selected_ids)
+                        result.update(candidate_count=fam_count,evaluator_calls=fam_evals,origin=origin);return result
+                except (ValueError,OverflowError):pass
         if all_int and len(input_types)>=2:
             affine=self._solve_affine(examples,names)
             if affine is not None:
@@ -1304,12 +1324,15 @@ class ProcedureCortex:
                 program=Program(input_types,self._affine_expression(names,coeffs,bias))
                 if all(program.run(e['inputs'])==e['expected'] for e in examples):
                     result=self.propose(mechanism,program,context=context,provenance='asm_induction:multi_affine',training_ids=selected_ids)
-                    result.update(candidate_count=1,evaluator_calls=len(examples),origin='multi_affine');return result
+                    result.update(candidate_count=1+fam_count,evaluator_calls=len(examples)+fam_evals,origin='multi_affine');return result
 
         # Test a small conditional gate pool before general composition. The
         # remaining budget stays available to alpha.7.3's integer composer.
         conditional_budget=min(budget,128 if all_int else budget)
         conditional=self._conditional_integer_search(examples,input_types,budget=conditional_budget,collect=True)
+        if fam_count:  # DEV22: the family proposals' cost is part of this search's cost
+            conditional['candidate_count']=conditional.get('candidate_count',0)+fam_count
+            conditional['evaluator_calls']=conditional.get('evaluator_calls',0)+fam_evals
         conditional_programs=conditional.get('hypotheses',[])
         if conditional_programs:
             q=self._query_from_programs(conditional_programs,examples,input_types)
