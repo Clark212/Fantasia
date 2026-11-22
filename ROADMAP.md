@@ -1,12 +1,12 @@
 # ASM Roadmap
 
-**Current: v0.4.0-alpha.7.9 (promoted). In development: alpha 8 = 0.4.8, not promoted; its DEV steps are experiments
+**Current: v0.4.0-alpha.7.9 (promoted). In development: alpha 8 = 0.4.9, not promoted; its DEV steps are experiments
 (latest DEV21).**
 
 ## How versions are named
 - **Version (0.N)**: the roadmap stage being built.
 - **Alpha N**: a development series within a stage. The last promoted release is v0.4.0-alpha.7.9; alpha 8 is the
-  series for milestone 0.4.8 (project owner).
+  series for milestone 0.4.9, the Stage 4 closure; alpha 7.8 delivered 0.4.7 and 0.4.8 (project owner).
 - **DEV N**: one pre-registered development step inside an alpha: an experiment (a side track), not a milestone.
 - **Promotion**: a version counts as reached only when it passes a pre-registered gate on fresh data. Every alpha 8
   step so far (DEV1–DEV21) is experimental and not promoted.
@@ -51,14 +51,14 @@ Smaller learned edit steps that combine give 1 of 483 (DEV20). Steps recur more 
 are generic: without knowing where the bug is, the right place competes with every other place in the function. Most
 fixes still need a step or a value ASM has not learned.
 
-Alpha 8 (0.4.8) is not promoted: its target, M4 (verified cross-task structural transfer), is not met (the plan below).
+Alpha 8 (0.4.9) is not promoted: its target, M4 (verified cross-task structural transfer), is not met (the plan below).
 DEV21 passed its first held-out transfer gate: sharing the candidate budget round-robin removes an interference between
 learned families (now the default, by the owner's decision). The same rule did not significantly change
 learned edit steps on fresh fixes. Learned families are consulted only for one-input integer targets.
 
 ### Release governance and the alpha 8 plan
 - Official frozen baseline: **v0.4.0-alpha.7.9** (`asm.__version__`), milestone **M3 — Adaptive Research AI**.
-- In development: **v0.4.0-alpha.8 (milestone 0.4.8) — Structural Transfer & Analogical Procedure Generalization**,
+- In development: **v0.4.0-alpha.8 (milestone 0.4.9) — Structural Transfer & Analogical Procedure Generalization**,
   toward **M4 — Generalizing Research AI** (verified cross-task structural transfer).
 - The alpha 8 sequence below lists targets, not completed milestones; none is promoted. The table shows what exists for
   each so far, keeping implemented, demonstrated and validated apart.

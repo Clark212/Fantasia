@@ -6,8 +6,9 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
 ## Current state (for a fresh session; update at the end of every DEV)
 - Code: `asm_alpha8/` (Python package `asm`). `asm.__version__` is `0.4.0-alpha.7.9`, the official frozen baseline
   (its archive: `asm_alpha8/baseline/ASM_v0.4.0-alpha.7.9.zip`); milestone **M3 — Adaptive Research AI**.
-- Versioning (project owner): the last promoted release is **v0.4.0-alpha.7.9**; **alpha 8 = roadmap milestone 0.4.8**,
-  not promoted (Structural Transfer & Analogical Procedure Generalization, toward M4). DEV steps are experiments inside
+- Versioning (project owner): the last promoted release is **v0.4.0-alpha.7.9**; **alpha 8 = roadmap milestone 0.4.9**,
+  not promoted (Structural Transfer & Analogical Procedure Generalization, toward M4); alpha 7.8 delivered 0.4.7 and
+  0.4.8 ("Latent Dependency Structure & Higher-Order Epistemic Routing"). DEV steps are experiments inside
   alpha 8 (side tracks), not milestones; none is promoted. The alpha.8.1–8.9 plan and its evidence: `ROADMAP.md`, Stage 4.
 - Latest: **DEV21** (sharing a candidate budget between learned sources; alpha.8.4). G21-A **passed** on held-out
   structures: `ProcedureCortex(family_sharing='round_robin')` removes DEV4's interference between learned families.
@@ -22,9 +23,6 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
 - Open work:
   - Next, chosen by the owner: DEV22, structural transfer beyond one-input integer targets. `ProcedureCortex.induce`
     consults learned families only when the target has one integer input.
-  - Owner question: is alpha 8 milestone 0.4.8 or 0.4.9? The release notes say alpha 7.8 delivered "Latent Dependency
-    Structure & Higher-Order Epistemic Routing" (the roadmap's 0.4.7 and 0.4.8), which points to 0.4.9. The progress
-    page uses 0.4.8, as the owner first said, until this is settled.
   - DEV16's study needs generated pairs from the owner's PC (`asm_alpha8/tools/generate_pairs.py`, instructions in
     `asm_alpha8/tools/README_DEV16_DATA.md`).
   - The repair workflow on real bugs with fault localization (DEV20 report) on DEV15's 83 BugsInPy bugs

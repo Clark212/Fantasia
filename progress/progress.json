@@ -2,16 +2,16 @@
   "about": "Data for progress/make_progress.py. After every DEV: add its entry to `devs`, update `roadmap` if a milestone was promoted, then run `python3 progress/make_progress.py`.",
   "roadmap": {
     "current": "v0.4.0-alpha.7.9 (promoted)",
-    "reached_through": "0.4.7",
-    "reached_rule": "up to the last promoted release, v0.4.0-alpha.7.9, which precedes alpha 8 = 0.4.8 (project owner); except those listed as open",
+    "reached_through": "0.4.8",
+    "reached_rule": "up to the last promoted release, v0.4.0-alpha.7.9 (alpha 7.8 delivered 0.4.7 and 0.4.8); alpha 8 = 0.4.9 (project owner); except those listed as open",
     "open": {
       "0.3.5": "generalization to unseen data is not yet shown (ROADMAP.md)"
     },
     "in_progress": [
-      "0.4.8"
+      "0.4.9"
     ],
     "in_progress_note": "not promoted; the DEV steps are its experiments",
-    "next": "0.4.8",
+    "next": "0.4.9",
     "next_label": "= alpha 8",
     "promoted_in_progress": []
   },
