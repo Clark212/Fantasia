@@ -156,6 +156,16 @@ class GateLogicTests(unittest.TestCase):
         v = self.E.gate_verdicts(rows(4, 0))
         self.assertEqual(v["G21-B"]["verdict"], "not passed")   # net 4 but p = 1/16 > 0.025 (Holm, first of two)
 
+    def test_shuffled_labels_with_a_repeated_value(self):
+        """Amendment A1: shift's three fit labels can repeat (x = 0 and x = -c both give 0); DEV4's derangement raised."""
+        import random
+        with self.assertRaises(RuntimeError):
+            T.derange([0, 0, 5], random.Random(1))
+        out = self.T.shuffled([0, 0, 5], random.Random(1))
+        self.assertEqual(sorted(out), [0, 0, 5])
+        self.assertEqual(sum(a != b for a, b in zip(out, [0, 0, 5])), 2)  # as many positions as possible change
+        self.assertEqual(self.T.shuffled([4, 9, 16], random.Random(7)), T.derange([4, 9, 16], random.Random(7)))  # unchanged
+
     def test_wilson_interval(self):
         self.assertEqual(self.T.wilson(48, 48), (0.926, 1.0))
         self.assertEqual(self.T.wilson(0, 48), (0.0, 0.074))

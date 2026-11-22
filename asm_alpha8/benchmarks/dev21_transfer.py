@@ -9,6 +9,7 @@ Arms: none, one_relevant, relevant, unrelated, relevant_shuffled, mixed (relevan
 (+ a fourth family, stress), the two mixed arms with the relevant donors' names sorting first and last.
 Usage: python benchmarks/dev21_transfer.py <out.jsonl> [--development]   (--development: DEV4's structure, seed and donors)
 """
+import itertools
 import json
 import math
 import random
@@ -61,6 +62,19 @@ def donors(structure, arm, order, c, fit_seed, seed, unrelated=UNRELATED, fourth
             "mixed4": relevant + list(unrelated) + list(fourth)}[arm]
 
 
+def shuffled(values, rng):
+    """DEV4's derangement of labels (no position keeps its value). Amendment A1: when a value fills more than half of the
+    positions no derangement exists (shift's three fit labels repeat for some negative constants, e.g. x = 0 and x = -c
+    both give 0), and DEV4's `derange` raised. Then: a permutation that changes as many positions as possible, chosen
+    by `rng` (the label vector still differs from the truth)."""
+    if max(values.count(v) for v in values) * 2 <= len(values):
+        return T.derange(values, rng)
+    perms = {tuple(values[i] for i in p) for p in itertools.permutations(range(len(values)))}
+    changed = lambda p: sum(a != b for a, b in zip(p, values))  # noqa: E731
+    most = max(changed(p) for p in perms)
+    return list(rng.choice(sorted(p for p in perms if changed(p) == most)))
+
+
 def attempt(structure, arm, order, c, fit_seed, seed, mode, unrelated=UNRELATED):
     rng = random.Random(f"{seed}:attempt:{structure}:{c}:{fit_seed}")
     fit = sorted(rng.sample(range(10), 3))
@@ -73,8 +87,8 @@ def attempt(structure, arm, order, c, fit_seed, seed, mode, unrelated=UNRELATED)
         fit_labels = [truth(x) for x in fit]
         val_labels = [truth(x) for x in T.VALIDATION_XS]
         if arm == "relevant_shuffled":
-            fit_labels = T.derange(fit_labels, random.Random(f"{seed}:shuffle:{structure}:{c}:{fit_seed}"))
-            val_labels = T.derange(val_labels, random.Random(f"{seed}:shuffle-val:{structure}:{c}:{fit_seed}"))
+            fit_labels = shuffled(fit_labels, random.Random(f"{seed}:shuffle:{structure}:{c}:{fit_seed}"))
+            val_labels = shuffled(val_labels, random.Random(f"{seed}:shuffle-val:{structure}:{c}:{fit_seed}"))
         for x, y in zip(fit, fit_labels):
             cortex.observe("target", {"x": x}, y, evidence_id=f"t-fit-{x}", source_id="oracle")
         r = cortex.induce("target", use_families=True)
@@ -166,6 +180,7 @@ def main():
     w = ChainedWriter(out, {"run": "dev21_transfer" + (" development (DEV4 structure, seed, donors)" if dev else ""),
                             "provenance": environment_provenance(), "asm_coding_sha256": code_hash(),
                             "asm_procedure_cortex_sha256": file_sha256(ROOT / "asm" / "procedure_cortex.py"),
+                            "harness_sha256": file_sha256(Path(__file__)),
                             "seed": seed, "fit_seeds": FIT_SEEDS, "structures": structures, "gate": GATE,
                             "preregistration_sha256": file_sha256(PREREG) if PREREG.exists() else None})
     t0, recs = time.time(), []
