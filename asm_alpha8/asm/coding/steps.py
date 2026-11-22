@@ -42,6 +42,13 @@ PAIR_FILLINGS = 3               # best fillings per site combined in a pair (pla
                                 # closer first: same statement, then one statement inside the other, then elsewhere)
 PAIR_MIN_SUPPORT = 2            # a pair is used once it was learned from 2 different fixes
 QUOTA = {"single": 50, "multi": 15, "pair": 15}   # share of the budget per candidate kind; unused share is passed on
+EXCEPTION_SITES = ("any", "raise")  # DEV21 (experimental, opt-in): where an expression step with an exception hole may
+                                    # apply. "any" (default, unchanged); "raise": only the exception of a `raise` (or the
+                                    # callee of that exception), the role the hole was learned in (DEV20: such a step
+                                    # applied everywhere filled most of the single share).
+SHARING = ("key", "round_robin")  # DEV21 (experimental, opt-in): order within a kind. "key" (default, unchanged): every
+                                  # candidate by its ranking key, so one generic step can fill most of a share (DEV20).
+                                  # "round_robin": each step proposes its next candidate before any step proposes another.
 EXCEPTION_HOLES = True          # a name introduced as a raised exception is an `exc` hole (False: DEV18 typing, ablation)
 
 
@@ -304,6 +311,16 @@ class _Text:
         return None
 
 
+def _round_robin(proposals: list) -> list:
+    """Proposals (sorted by key) reordered so that every source (step, or pair of steps) gives its next proposal
+    before any source gives another; sources take turns in the order of their best proposal."""
+    groups: dict = {}
+    for p in proposals:
+        groups.setdefault(p[2]["step"], []).append(p)
+    queues = list(groups.values())
+    return [q[r] for r in range(max((len(q) for q in queues), default=0)) for q in queues if r < len(q)]
+
+
 def _sites(tree, span):
     """[(node, "Parent.field", statement)] for the expression nodes inside the function's lines; not inside f-strings
     (their positions are not reliable) and not docstrings or other bare string statements (steps do not learn changes to
@@ -393,8 +410,10 @@ class StepLibrary:
         return [({cid: v for cid, v, _ in combo}, [op for _, _, op in combo], j)
                 for j, combo in enumerate(itertools.islice(itertools.product(*options), PER_MATCH))]
 
-    def proposals(self, source: str, span: tuple, ctx: C.ProblemContext) -> tuple:
+    def proposals(self, source: str, span: tuple, ctx: C.ProblemContext, exception_sites: str = "any") -> tuple:
         """(text, {kind: [(key, edits, info)]}) for every candidate, unbuilt: `edits` is [(node, new_node)]."""
+        if exception_sites not in EXCEPTION_SITES:
+            raise ValueError(f"invalid exception_sites {exception_sites!r}")
         try:
             tree = ast.parse(source)
         except SyntaxError:
@@ -409,10 +428,20 @@ class StepLibrary:
         rank_of = {s.id: r for r, s in enumerate(live)}
         props = {"single": [], "multi": [], "pair": []}
         best = {}  # step id -> [(site index, values, ops, j, new_node)] for pairs
+        raise_ids = set()
+        if exception_sites == "raise":
+            for r in ast.walk(tree):
+                if isinstance(r, ast.Raise) and r.exc is not None:
+                    raise_ids.add(id(r.exc))
+                    if isinstance(r.exc, ast.Call):
+                        raise_ids.add(id(r.exc.func))
         for rank, st in enumerate(live):
             if st.kind == "expr":
+                only_raise = exception_sites == "raise" and "exc" in st.holes.values()
                 groups = defaultdict(list)
                 for i, t in enumerate(terms):
+                    if only_raise and id(sites[i][0]) not in raise_ids:
+                        continue
                     b: dict = {}
                     if match(st.lhs, t, b):
                         groups[json.dumps(term_to_json(tuple(sorted(b.items()))), default=repr)].append((i, b))
@@ -494,14 +523,20 @@ class StepLibrary:
         return text, props
 
     def candidates_for(self, source: str, path: str, span: tuple, ctx: C.ProblemContext, limit: int = LIMIT,
-                       as_candidates: bool = True, quota: dict | None = None) -> list:
+                       as_candidates: bool = True, quota: dict | None = None, sharing: str = "key",
+                       exception_sites: str = "any") -> list:
         """At most `limit` ranked candidates: each kind's best up to its share of the budget (QUOTA, scaled to
-        `limit`), then whatever share a kind could not use goes to the others in rank order."""
+        `limit`), then whatever share a kind could not use goes to the others in rank order. `sharing` orders the
+        candidates within a kind (SHARING); `exception_sites` limits where exception holes apply (EXCEPTION_SITES)."""
+        if sharing not in SHARING:
+            raise ValueError(f"invalid sharing {sharing!r}")
         if limit <= 0:
             return []
-        text, props = self.proposals(source, span, ctx)
+        text, props = self.proposals(source, span, ctx, exception_sites)
         if text is None:
             return []
+        if sharing == "round_robin":
+            props = {k: _round_robin(v) for k, v in props.items()}
         quota = quota or QUOTA
         total = sum(quota.values())
         share = {k: (limit * v) // total for k, v in quota.items()}

@@ -516,13 +516,21 @@ class ProcedureCortex:
     TRUST_FLOOR=.8
 
     EXTRAPOLATION_GUARDS=('off','abstain','discount')
+    FAMILY_SHARING=('listing','round_robin')
 
-    def __init__(self,db_path,*,trust_provider,dependency_provider=None,extrapolation_guard='abstain',extrapolation_confidence_cap=.5):
+    def __init__(self,db_path,*,trust_provider,dependency_provider=None,extrapolation_guard='abstain',extrapolation_confidence_cap=.5,
+                 family_sharing='listing'):
         # Honesty guard (DEFAULT 'abstain' since DEV3.3; 'off' restores the pre-DEV3.2 behaviour). 'abstain': refuse queries whose integer
         # inputs lie outside the range of the evidence behind the active procedure. 'discount': still answer, but cap confidence at the cap.
         if extrapolation_guard not in self.EXTRAPOLATION_GUARDS:raise ValueError('invalid extrapolation guard')
         if type(extrapolation_confidence_cap) not in (int,float) or not 0<extrapolation_confidence_cap<=1:raise ValueError('invalid extrapolation confidence cap')
         self.extrapolation_guard=extrapolation_guard;self.extrapolation_confidence_cap=float(extrapolation_confidence_cap)
+        # DEV21 (experimental, opt-in): how `induce` shares its family budget (at most 64 candidates) between learned
+        # families. 'listing' (default, unchanged): families in listing order, each until the budget is spent, so a
+        # two-parameter family (17x17 instantiations) can use all of it (DEV4's T3b interference). 'round_robin': every
+        # family proposes its next instantiation before any family proposes another; same budget, same per-family order.
+        if family_sharing not in self.FAMILY_SHARING:raise ValueError('invalid family sharing')
+        self.family_sharing=family_sharing
         self.db=sqlite3.connect(str(db_path))
         self.db.execute('PRAGMA journal_mode=WAL')
         self.trust_provider=trust_provider
@@ -1243,7 +1251,22 @@ class ProcedureCortex:
                 yield Program({'x':'int'},('mul','x','x')),'grammar'
                 family_budget=min(64,max(0,budget-291))
                 proposed=0
-                if use_families and family_budget:
+                if use_families and family_budget and self.family_sharing=='round_robin':
+                    def instantiations(family):
+                        for values in itertools.product(range(-8,9),repeat=family['parameters']):
+                            yield family,values
+                    streams=[instantiations(f) for f in self.families() if f['inputs']=={'x':'int'}]
+                    while streams and proposed<family_budget:
+                        live=[]
+                        for stream in streams:
+                            if proposed>=family_budget:break
+                            item=next(stream,None)
+                            if item is None:continue
+                            family,values=item
+                            proposed+=1;live.append(stream)
+                            yield Program({'x':'int'},substitute(family['template'],{f'${i}':v for i,v in enumerate(values)})),'family:'+family['id']
+                        streams=live
+                elif use_families and family_budget:
                     for family in self.families():
                         if family['inputs']!={'x':'int'}:continue
                         for values in itertools.product(range(-8,9),repeat=family['parameters']):

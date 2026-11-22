@@ -84,14 +84,14 @@ def _install(cortex, donors) -> int:
     return active
 
 
-def run_attempt(arm: str, target_c: int, fit_seed: int, seed: int) -> dict[str, Any]:
+def run_attempt(arm: str, target_c: int, fit_seed: int, seed: int, cortex_options: Mapping[str, Any] | None = None) -> dict[str, Any]:
     from ..procedure_cortex import ProcedureCortex
     rng = random.Random(f"{seed}:attempt:{target_c}:{fit_seed}")
     fit = sorted(rng.sample(range(10), 3))
     truth = lambda x: x * x + target_c
     queries = [x for x in range(10) if x not in fit and fit[0] <= x]
     donors = donors_for(arm, target_c, fit_seed, seed)
-    cortex = ProcedureCortex(":memory:", trust_provider=TRUST)         # DEFAULT configuration
+    cortex = ProcedureCortex(":memory:", trust_provider=TRUST, **dict(cortex_options or {}))  # DEFAULT unless options given (DEV21)
     try:
         active_donors = _install(cortex, donors)
         fit_labels = [truth(x) for x in fit]
@@ -123,11 +123,11 @@ def run_attempt(arm: str, target_c: int, fit_seed: int, seed: int) -> dict[str, 
 
 
 def run_transfer(*, seed: int, fit_seeds: int, arms: Sequence[str] = ARMS, in_range: Sequence[int] = IN_RANGE,
-                 out_of_range: Sequence[int] = OUT_OF_RANGE) -> dict[str, Any]:
+                 out_of_range: Sequence[int] = OUT_OF_RANGE, cortex_options: Mapping[str, Any] | None = None) -> dict[str, Any]:
     res: dict[str, Any] = {"seed": seed, "fit_seeds": fit_seeds, "attempts": [], "summary": {}}
     for group, constants in (("in_range", in_range), ("out_of_range", out_of_range)):
         for arm in arms:
-            recs = [run_attempt(arm, c, s, seed) for c in constants for s in range(fit_seeds)]
+            recs = [run_attempt(arm, c, s, seed, cortex_options) for c in constants for s in range(fit_seeds)]
             res["attempts"].extend({**r, "group": group} for r in recs)
             n = len(recs)
             queries = sum(r.get("queries", 0) for r in recs)

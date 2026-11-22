@@ -1,0 +1,1941 @@
+........................................................................ [  7%]
+........................................................................ [ 14%]
+........................................................................ [ 21%]
+.................................................s..s................... [ 28%]
+........................................................................ [ 35%]
+........................................................................ [ 42%]
+.......................s................................................ [ 49%]
+................................................................ [ 55%]
+........................................................................ [ 62%]
+........................................................................ [ 69%]
+......................FFF..F.F.......FF...............F..F..F..F.F.F.... [ 77%]
+....................................FFFF.FFFFFF..FFFF.FFsFFF.FFFF.FFFFFF [ 84%]
+.FFFF.FFFFF................FF...FFF..F....................................................................................... [ 96%]
+.....................................                                    [100%]
+=================================== FAILURES ===================================
+_____ TestASM020Alpha2.test_default_recurrent_reader_loads_frozen_weights ______
+
+self = <tests.test_v020a2.TestASM020Alpha2 testMethod=test_default_recurrent_reader_loads_frozen_weights>
+
+    def test_default_recurrent_reader_loads_frozen_weights(self):
+        asm = self.make_engine()
+        status = asm.language_core_status()
+        self.assertEqual(status["backend"], "recurrent-reader")
+>       self.assertTrue(status["ready"])
+E       AssertionError: False is not true
+
+tests/test_v020a2.py:25: AssertionError
+____ TestASM020Alpha2.test_high_confidence_neural_intent_updates_self_model ____
+
+self = <tests.test_v020a2.TestASM020Alpha2 testMethod=test_high_confidence_neural_intent_updates_self_model>
+
+    def test_high_confidence_neural_intent_updates_self_model(self):
+        asm = self.make_engine()
+        before = asm.capability("reasoning")["attempts"]
+        result = asm.process("I tried analogy and it failed", training=True)
+        after = asm.capability("reasoning")["attempts"]
+        self.assertEqual(after, before + 1)
+>       self.assertEqual(result["language_core"]["metadata"]["intent"], "self_outcome")
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'intent'
+
+tests/test_v020a2.py:45: KeyError
+_________ TestASM020Alpha2.test_neural_embedding_enters_seismic_graph __________
+
+self = <tests.test_v020a2.TestASM020Alpha2 testMethod=test_neural_embedding_enters_seismic_graph>
+
+    def test_neural_embedding_enters_seismic_graph(self):
+        asm = self.make_engine()
+        asm.process("I tried simulation and it worked", training=True)
+>       self.assertTrue(any(k.startswith("LCORE:EMB:") for k in asm.field.nodes))
+E       AssertionError: False is not true
+
+tests/test_v020a2.py:63: AssertionError
+_ TestASM020Alpha2.test_rwkv7_adapter_execution_path_matches_public_runtime_contract _
+
+self = <tests.test_v020a2.TestASM020Alpha2 testMethod=test_rwkv7_adapter_execution_path_matches_public_runtime_contract>
+
+    def test_rwkv7_adapter_execution_path_matches_public_runtime_contract(self):
+        import importlib.util
+        import sys
+        import types
+        from unittest.mock import patch
+>       import torch
+E       ModuleNotFoundError: No module named 'torch'
+
+tests/test_v020a2.py:95: ModuleNotFoundError
+_ TestASM020Alpha2.test_uncertain_neural_read_defers_to_native_without_double_write _
+
+self = <tests.test_v020a2.TestASM020Alpha2 testMethod=test_uncertain_neural_read_defers_to_native_without_double_write>
+
+    def test_uncertain_neural_read_defers_to_native_without_double_write(self):
+        asm = self.make_engine()
+        text = "Alice suspects Bob thinks the key is hidden"
+        result = asm.process(text, training=True)
+        state = asm.nested_belief(["Alice", "Bob"], "key is hidden")
+        self.assertTrue(state["truth"])
+        self.assertEqual(state["observations"], 1)
+        # Current frozen reader is intentionally uncertain on this harder case.
+>       self.assertLess(result["language_core"]["metadata"]["intent_confidence"], 0.80)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'intent_confidence'
+
+tests/test_v020a2.py:57: KeyError
+_ TestASM020Alpha3.test_social_greeting_is_transient_and_not_graph_persistent __
+
+self = <tests.test_v020a3.TestASM020Alpha3 testMethod=test_social_greeting_is_transient_and_not_graph_persistent>
+
+    def test_social_greeting_is_transient_and_not_graph_persistent(self):
+        asm=self.make_engine()
+        before_events=asm.memory.count_events()
+        before_nodes=len(asm.field.nodes)
+        r=asm.process("hi")
+        self.assertFalse(r["consolidation"]["persist"])
+>       self.assertEqual(r["consolidation"]["reason"],"high_confidence_social")
+E       AssertionError: 'short_unstructured' != 'high_confidence_social'
+E       - short_unstructured
+E       + high_confidence_social
+
+tests/test_v020a3.py:27: AssertionError
+_____ TestASM020Alpha3.test_social_probe_and_semantic_index_report_health ______
+
+self = <tests.test_v020a3.TestASM020Alpha3 testMethod=test_social_probe_and_semantic_index_report_health>
+
+    def test_social_probe_and_semantic_index_report_health(self):
+        asm=self.make_engine()
+        status=asm.language_core_status()
+>       self.assertTrue(status["social_probe"]["ready"])
+E       AssertionError: False is not true
+
+tests/test_v020a3.py:90: AssertionError
+___________ TestLearnedWriter.test_ablation_changes_observable_reply ___________
+
+self = <tests.test_v020a5.TestLearnedWriter testMethod=test_ablation_changes_observable_reply>
+
+    def test_ablation_changes_observable_reply(self):
+        e = self.engine()
+        learned = e.chat("hello")["reply"]
+        e.writer = None
+        hybrid = e.chat("hello")["reply"]
+>       self.assertNotEqual(learned, hybrid)
+E       AssertionError: 'Hey. What would you like to talk about?' == 'Hey. What would you like to talk about?'
+
+tests/test_v020a5.py:89: AssertionError
+___________ TestLearnedWriter.test_database_restart_preserves_facts ____________
+
+self = <tests.test_v020a5.TestLearnedWriter testMethod=test_database_restart_preserves_facts>
+
+    def test_database_restart_preserves_facts(self):
+        with tempfile.TemporaryDirectory() as td:
+            path = Path(td) / "restart.db"
+            e = ASMEngine(path)
+            e.chat("Vanya believes the violet lock is sealed")
+            e.close()
+            e = ASMEngine(path)
+            try:
+                r = e.chat("what does Vanya believe about the violet lock?")
+                self.assertIn("sealed", r["reply"])
+>               self.assertFalse(r["conversation"]["writer"]["fallback"])
+E               AssertionError: True is not false
+
+tests/test_v020a5.py:121: AssertionError
+________ TestLearnedWriter.test_learned_writer_is_the_normal_chat_path _________
+
+self = <tests.test_v020a5.TestLearnedWriter testMethod=test_learned_writer_is_the_normal_chat_path>
+
+    def test_learned_writer_is_the_normal_chat_path(self):
+        e = self.engine()
+        for text in ["hi", "how are you", "who are you", "thanks", "bye",
+                     "im angry at u", "I'm happy", "zxwq", "Where is the silver canoe?",
+                     "The blue controller was repaired yesterday", "what did i just say?"]:
+            r = e.chat(text)
+>           self.assertEqual(r["conversation"]["writer"]["backend"], "recurrent-writer", r)
+E           AssertionError: 'hybrid-fallback' != 'recurrent-writer'
+E           - hybrid-fallback
+E           + recurrent-writer
+E            : {'event_id': None, 'magnitude': 1.0, 'surprise': 1.0, 'predictive_error': 0.0, 'workspace': [('STEM:hi', 0.2021808616841408), ('WORD:hi', 0.19514392780136675), ('SELFSTATE:CONFIDENCE', 0.11968168454410218)], 'predicted_next': [], 'recalled': [], 'relation_discovery': {'source': 'abstain', 'relation_ids': [], 'confidence': 0.0, 'margin': 0.0, 'observations': [], 'feedback': []}, 'perception': {'source': 'abstain', 'confidence': 0.0, 'margin': 0.0, 'learned_after_observation': False, 'post_observation_signature': []}, 'structure': {'signature': ['STATE'], 'supported': False, 'warnings': ['unrecognized relation'], 'cues': [], 'relations': [{'left': 'hi', 'kind': 'STATE', 'right': 'unknown', 'confidence': 0.0, 'negated': False, 'key': 'STATE'}]}, 'latent_concepts': [], 'formed_concept': None, 'semantic_event': {'primary': {'event_type': 'other', 'epistemic': 'unknown', 'confidence': 0.0, 'source': 'semantic-cortex', 'agents': [], 'proposition': None, 'payload': {}, 'evidence': [], 'persistent_eligible': False}, 'alternatives': [], 'conflicts': [], 'abstained': False, 'reason': 'no_semantic_event'}, 'semantic_event_memory_update': None, 'world_model_update': None, 'mind_event': None, 'nested_belief_event': None, 'self_state': {'curiosity': 0.0, 'frustration_like': 0.0, 'confidence': 0.5, 'urgency': 0.0}, 'self_language_outcome': None, 'consolidation': {'persist': False, 'mode': 'transient', 'reason': 'short_unstructured', 'social_probability': 0.0, 'structured': False}, 'language_core': {'backend': 'fallback', 'tokens': ['hi'], 'proposals': [], 'elapsed_ms': 0.0930619999053306, 'metadata': {'embedding_kind': 'hashed-placeholder', 'failover_from': 'recurrent-reader', 'failover_error': "RuntimeError: ModuleNotFoundError: No module named 'torch'"}, 'embedding_dims': 96, 'accepted': [], 'rejected': []}, 'attention': {'event_id': 1, 'epicenter': 'STEM:hi', 'previous_epicenter': None, 'shifted': False, 'targets': [{'concept': 'STEM:hi', 'score': 1.0}, {'concept': 'WORD:hi', 'score': 0.8936989413003174}, {'concept': 'SELFSTATE:CONFIDENCE', 'score': 0.5103048089065891}]}, 'drive_event': None, 'appraisal_features': [], 'explicit_emotion': None, 'appraisal_emotion_learning': None, 'emotion_inference': [], 'appraisal_inference': [], 'learned_rule': None, 'decision': {'type': 'TRANSIENT', 'confidence': 0.8, 'utterance': 'Input processed transiently; long-term learning skipped.'}, 'stats': {'events': 1, 'episodic_events': 0, 'semantic_memory_vectors': 0, 'semantic_event_records': 0, 'semantic_event_links': 0, 'world_model': {'current_states': 0, 'state_history': 0, 'nodes': 0, 'edges': 0, 'transitions': 0, 'dependencies': 0}, 'transition_mechanisms': {'enabled': False, 'mechanisms': 0, 'experiences': 0, 'retention': {'anchors': 0, 'covered_outcomes': 0, 'anchor_limit_per_mechanism': 96, 'anchor_batch_limit': 6}, 'consolidation': {'enabled': True, 'table_size_per_hash': 1024, 'hashes': 3, 'min_support': 4, 'layout_version': 3, 'max_displacements': 24, 'fixed_bytes': 0, 'used_cells': 0}, 'abstraction': {'enabled': True, 'min_support': 8, 'min_precision': 0.95, 'min_diversity': 4, 'max_dropped_features': 2, 'sparse_enabled': True, 'pending_enabled': True, 'sparse_max_retained_features': 2, 'candidates_per_observation': 48, 'candidate_limit_per_mechanism': 2048, 'pending_candidates': 0, 'exception_limit_per_mechanism': 512, 'candidates': 0, 'promoted': 0, 'exceptions': 0}, 'scheduler': {'max_calls': 1, 'medium_calls': 3, 'min_relevance': 0.45, 'high_confidence': 0.74, 'low_confidence': 0.46, 'min_margin': 0.08, 'recovery_uncertainty': 0.72, 'calibration_min_support': 4, 'calls': 0, 'dense_equivalent_calls': 0, 'observed_call_reduction': 0.0, 'fallbacks': 0, 'confidence_fallbacks': 0, 'recoveries': 0, 'high_confidence_routes': 0, 'competitive_routes': 0, 'feedback_updates': 0, 'recent_routes': 0, 'applicability_features': 0, 'routing_evidence_features': 0, 'negative_evidence': 0, 'calibration_samples': 0}, 'input_dim': 128, 'hidden_dim': 64, 'max_outcomes': 32, 'initial_outcome_capacity': 32, 'outcome_capacity_limit': 4096, 'outcome_growth_factor': 2.0, 'detail': []}, 'evidence_lineage': {'evidence_nodes': 0, 'independent_roots': 0, 'derived_or_copied_nodes': 0, 'max_nodes': 65536, 'max_roots_per_item': 256}, 'concept_nodes': 0, 'association_edges': 0, 'prediction_edges': 0, 'predictive_coding_edges': 0, 'rule_edges': 0, 'structural_schemas': 0, 'structural_abstractions': 0, 'structural_examples': 0, 'latent_candidates': 0, 'latent_concepts': 0, 'belief_holders': 0, 'belief_propositions': 0, 'emotion_labels': 0, 'emotion_agent_states': 0, 'appraisal_holders': 0, 'appraisal_drives': 0, 'appraisal_emotion_labels': 0, 'nested_belief_paths': 0, 'nested_belief_propositions': 0, 'self_beliefs': 0, 'self_capabilities': 0, 'self_strategies': 0, 'attention_targets': 3, 'perception_examples': 0.0, 'perception_connector_phrases': 0, 'perception_inferred_phrases': 0, 'discovered_relations': 0, 'promoted_discovered_relations': 0, 'dormant_discovered_relations': 0, 'relation_discovery_episodes': 0, 'relation_merges': 0, 'relation_splits': 0, 'evidence_dependency': {'sources': 0, 'pairs': 0, 'trials': 0, 'active_self_dependencies': 0, 'active_cross_dependencies': 0, 'temporal_self_views': 0, 'temporal_pair_views': 0, 'dependency_regimes': 0, 'last_temporal_index': None, 'version': 0}, 'language_core_backend': 'recurrent-reader', 'language_core_embedding_dims': 0, 'active_nodes': 3, 'semantic_terms': 0, 'goals': 0}, 'conversation': {'reply': 'Hey. What would you like to talk about?', 'act': {'label': 'greeting', 'confidence': 0.99, 'source': 'conversation-router', 'probabilities': {}}, 'history_length': 1, 'grounded': False, 'packet': {'user_intent': 'greeting', 'slots': {}, 'evidence': [], 'uncertainty': 0.0, 'self_state': {}, 'style': 'full', 'answer_constraints': ['Copy supplied slots exactly; quoted reports are not world facts.', 'Do not add beliefs, memories, goals, outcomes or certainty.']}, 'writer': {'text': 'Hey. What would you like to talk about?', 'backend': 'hybrid-fallback', 'learned_generation': False, 'fallback': True, 'confidence': 0.0, 'fallback_reason': "RuntimeError: ModuleNotFoundError: No module named 'torch'", 'elapsed_ms': 0.00750700019125361}}, 'reply': 'Hey. What would you like to talk about?'}
+
+tests/test_v020a5.py:26: AssertionError
+______ TestLearnedWriter.test_new_fact_can_be_learned_with_frozen_writer _______
+
+self = <tests.test_v020a5.TestLearnedWriter testMethod=test_new_fact_can_be_learned_with_frozen_writer>
+
+    def test_new_fact_can_be_learned_with_frozen_writer(self):
+        e = self.engine()
+>       before = {k: v.clone() for k, v in e.writer.model.state_dict().items()}
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'NoneType' object has no attribute 'state_dict'
+
+tests/test_v020a5.py:31: AttributeError
+_____________ TestLearnedWriter.test_opaque_content_is_copied_once _____________
+
+self = <tests.test_v020a5.TestLearnedWriter testMethod=test_opaque_content_is_copied_once>
+
+    def test_opaque_content_is_copied_once(self):
+        writer = RecurrentWriter()
+        content = 'new names: Velora 917; <claim> <confidence> 日本語'
+        r = writer.generate(CognitivePacket("memory_report", {"claim": content}))
+>       self.assertFalse(r["fallback"])
+E       AssertionError: True is not false
+
+tests/test_v020a5.py:71: AssertionError
+________ TestLearnedWriter.test_style_condition_changes_learned_tokens _________
+
+self = <tests.test_v020a5.TestLearnedWriter testMethod=test_style_condition_changes_learned_tokens>
+
+    def test_style_condition_changes_learned_tokens(self):
+        writer = RecurrentWriter()
+        a = writer.generate(CognitivePacket("identity", style="brief"))
+        b = writer.generate(CognitivePacket("identity", style="full"))
+>       self.assertFalse(a["fallback"] or b["fallback"])
+E       AssertionError: True is not false
+
+tests/test_v020a5.py:95: AssertionError
+___ Alpha11MechanismAbstractionTests.test_diverse_contradictions_demote_rule ___
+
+self = <tests.test_v030a11.Alpha11MechanismAbstractionTests testMethod=test_diverse_contradictions_demote_rule>
+
+    def test_diverse_contradictions_demote_rule(self):
+>       m=self.build()
+          ^^^^^^^^^^^^
+
+tests/test_v030a11.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_v030a11.py:13: in build
+    m=LocalRecurrentTransitionMechanism('a11_unit',**opts);m.replay_limit=24;m.replay_batch_limit=4
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f81272db8c0>
+mechanism_type = 'a11_unit', input_dim = 128, hidden_dim = 12, max_outcomes = 16
+learning_rate = 0.012, train_steps = 1, seed = 41, retention_anchor_limit = 32
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 128
+outcome_growth_factor = 2.0, consolidation_table_size = 1024
+consolidation_hashes = 3, consolidation_min_support = 4
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 4
+abstraction_min_precision = 0.95, abstraction_min_diversity = 3
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 256
+abstraction_exception_limit = 32
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+_ Alpha11MechanismAbstractionTests.test_random_contradictions_do_not_promote_rule _
+
+self = <tests.test_v030a11.Alpha11MechanismAbstractionTests testMethod=test_random_contradictions_do_not_promote_rule>
+
+    def test_random_contradictions_do_not_promote_rule(self):
+>       m=self.build(abstraction_min_support=6)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_v030a11.py:27: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_v030a11.py:13: in build
+    m=LocalRecurrentTransitionMechanism('a11_unit',**opts);m.replay_limit=24;m.replay_batch_limit=4
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f812756dd10>
+mechanism_type = 'a11_unit', input_dim = 128, hidden_dim = 12, max_outcomes = 16
+learning_rate = 0.012, train_steps = 1, seed = 41, retention_anchor_limit = 32
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 128
+outcome_growth_factor = 2.0, consolidation_table_size = 1024
+consolidation_hashes = 3, consolidation_min_support = 4
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 6
+abstraction_min_precision = 0.95, abstraction_min_diversity = 3
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 256
+abstraction_exception_limit = 32
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+_ Alpha11MechanismAbstractionTests.test_rare_exception_overrides_but_does_not_destroy_rule _
+
+self = <tests.test_v030a11.Alpha11MechanismAbstractionTests testMethod=test_rare_exception_overrides_but_does_not_destroy_rule>
+
+    def test_rare_exception_overrides_but_does_not_destroy_rule(self):
+>       m=self.build()
+          ^^^^^^^^^^^^
+
+tests/test_v030a11.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_v030a11.py:13: in build
+    m=LocalRecurrentTransitionMechanism('a11_unit',**opts);m.replay_limit=24;m.replay_batch_limit=4
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f812756dbd0>
+mechanism_type = 'a11_unit', input_dim = 128, hidden_dim = 12, max_outcomes = 16
+learning_rate = 0.012, train_steps = 1, seed = 41, retention_anchor_limit = 32
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 128
+outcome_growth_factor = 2.0, consolidation_table_size = 1024
+consolidation_hashes = 3, consolidation_min_support = 4
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 4
+abstraction_min_precision = 0.95, abstraction_min_diversity = 3
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 256
+abstraction_exception_limit = 32
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+_ Alpha11MechanismAbstractionTests.test_serialization_preserves_rules_and_exceptions _
+
+self = <tests.test_v030a11.Alpha11MechanismAbstractionTests testMethod=test_serialization_preserves_rules_and_exceptions>
+
+    def test_serialization_preserves_rules_and_exceptions(self):
+>       m=self.build()
+          ^^^^^^^^^^^^
+
+tests/test_v030a11.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_v030a11.py:13: in build
+    m=LocalRecurrentTransitionMechanism('a11_unit',**opts);m.replay_limit=24;m.replay_batch_limit=4
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f8127198640>
+mechanism_type = 'a11_unit', input_dim = 128, hidden_dim = 12, max_outcomes = 16
+learning_rate = 0.012, train_steps = 1, seed = 41, retention_anchor_limit = 32
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 128
+outcome_growth_factor = 2.0, consolidation_table_size = 1024
+consolidation_hashes = 3, consolidation_min_support = 4
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 4
+abstraction_min_precision = 0.95, abstraction_min_diversity = 3
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 256
+abstraction_exception_limit = 32
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+_ Alpha11MechanismAbstractionTests.test_visible_nuisance_features_can_be_abstracted _
+
+self = <tests.test_v030a11.Alpha11MechanismAbstractionTests testMethod=test_visible_nuisance_features_can_be_abstracted>
+
+    def test_visible_nuisance_features_can_be_abstracted(self):
+>       m=self.build()
+          ^^^^^^^^^^^^
+
+tests/test_v030a11.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_v030a11.py:13: in build
+    m=LocalRecurrentTransitionMechanism('a11_unit',**opts);m.replay_limit=24;m.replay_batch_limit=4
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f812719ba80>
+mechanism_type = 'a11_unit', input_dim = 128, hidden_dim = 12, max_outcomes = 16
+learning_rate = 0.012, train_steps = 1, seed = 41, retention_anchor_limit = 32
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 128
+outcome_growth_factor = 2.0, consolidation_table_size = 1024
+consolidation_hashes = 3, consolidation_min_support = 4
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 4
+abstraction_min_precision = 0.95, abstraction_min_diversity = 3
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 256
+abstraction_exception_limit = 32
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+_ Alpha12RobustAbstractionTests.test_drop_only_ablation_cannot_reach_five_nuisance_rule _
+
+self = <tests.test_v030a12.Alpha12RobustAbstractionTests testMethod=test_drop_only_ablation_cannot_reach_five_nuisance_rule>
+
+    def test_drop_only_ablation_cannot_reach_five_nuisance_rule(self):
+>       m=self.build(abstraction_sparse_enabled=False)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_v030a12.py:31: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_v030a12.py:15: in build
+    m=LocalRecurrentTransitionMechanism('a12_unit',**opts);m.replay_limit=24;m.replay_batch_limit=3
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f812737c170>
+mechanism_type = 'a12_unit', input_dim = 128, hidden_dim = 10, max_outcomes = 16
+learning_rate = 0.012, train_steps = 1, seed = 1212, retention_anchor_limit = 24
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 128
+outcome_growth_factor = 2.0, consolidation_table_size = 1024
+consolidation_hashes = 3, consolidation_min_support = 4
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 5
+abstraction_min_precision = 0.95, abstraction_min_diversity = 3
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = False
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 256
+abstraction_exception_limit = 32
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+_ Alpha12RobustAbstractionTests.test_random_outcomes_do_not_promote_sparse_rule _
+
+self = <tests.test_v030a12.Alpha12RobustAbstractionTests testMethod=test_random_outcomes_do_not_promote_sparse_rule>
+
+    def test_random_outcomes_do_not_promote_sparse_rule(self):
+>       m=self.build(abstraction_min_support=6)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_v030a12.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_v030a12.py:15: in build
+    m=LocalRecurrentTransitionMechanism('a12_unit',**opts);m.replay_limit=24;m.replay_batch_limit=3
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f81262c7df0>
+mechanism_type = 'a12_unit', input_dim = 128, hidden_dim = 10, max_outcomes = 16
+learning_rate = 0.012, train_steps = 1, seed = 1212, retention_anchor_limit = 24
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 128
+outcome_growth_factor = 2.0, consolidation_table_size = 1024
+consolidation_hashes = 3, consolidation_min_support = 4
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 6
+abstraction_min_precision = 0.95, abstraction_min_diversity = 3
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 256
+abstraction_exception_limit = 32
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+_ Alpha12RobustAbstractionTests.test_serialization_preserves_sparse_projection_settings_and_rule _
+
+self = <tests.test_v030a12.Alpha12RobustAbstractionTests testMethod=test_serialization_preserves_sparse_projection_settings_and_rule>
+
+    def test_serialization_preserves_sparse_projection_settings_and_rule(self):
+>       m=self.build()
+          ^^^^^^^^^^^^
+
+tests/test_v030a12.py:49: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_v030a12.py:15: in build
+    m=LocalRecurrentTransitionMechanism('a12_unit',**opts);m.replay_limit=24;m.replay_batch_limit=3
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f81270a0490>
+mechanism_type = 'a12_unit', input_dim = 128, hidden_dim = 10, max_outcomes = 16
+learning_rate = 0.012, train_steps = 1, seed = 1212, retention_anchor_limit = 24
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 128
+outcome_growth_factor = 2.0, consolidation_table_size = 1024
+consolidation_hashes = 3, consolidation_min_support = 4
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 5
+abstraction_min_precision = 0.95, abstraction_min_diversity = 3
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 256
+abstraction_exception_limit = 32
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+_____ Alpha12RobustAbstractionTests.test_sparse_candidate_work_is_bounded ______
+
+self = <tests.test_v030a12.Alpha12RobustAbstractionTests testMethod=test_sparse_candidate_work_is_bounded>
+
+    def test_sparse_candidate_work_is_bounded(self):
+>       m=self.build(abstraction_candidates_per_observation=24)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_v030a12.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_v030a12.py:15: in build
+    m=LocalRecurrentTransitionMechanism('a12_unit',**opts);m.replay_limit=24;m.replay_batch_limit=3
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f81262ef650>
+mechanism_type = 'a12_unit', input_dim = 128, hidden_dim = 10, max_outcomes = 16
+learning_rate = 0.012, train_steps = 1, seed = 1212, retention_anchor_limit = 24
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 128
+outcome_growth_factor = 2.0, consolidation_table_size = 1024
+consolidation_hashes = 3, consolidation_min_support = 4
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 5
+abstraction_min_precision = 0.95, abstraction_min_diversity = 3
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 24, abstraction_max_candidates = 256
+abstraction_exception_limit = 32
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+_ Alpha12RobustAbstractionTests.test_sparse_projection_reaches_rule_hidden_by_many_nuisance_features _
+
+self = <tests.test_v030a12.Alpha12RobustAbstractionTests testMethod=test_sparse_projection_reaches_rule_hidden_by_many_nuisance_features>
+
+    def test_sparse_projection_reaches_rule_hidden_by_many_nuisance_features(self):
+>       m=self.build()
+          ^^^^^^^^^^^^
+
+tests/test_v030a12.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_v030a12.py:15: in build
+    m=LocalRecurrentTransitionMechanism('a12_unit',**opts);m.replay_limit=24;m.replay_batch_limit=3
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f81262eed50>
+mechanism_type = 'a12_unit', input_dim = 128, hidden_dim = 10, max_outcomes = 16
+learning_rate = 0.012, train_steps = 1, seed = 1212, retention_anchor_limit = 24
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 128
+outcome_growth_factor = 2.0, consolidation_table_size = 1024
+consolidation_hashes = 3, consolidation_min_support = 4
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 5
+abstraction_min_precision = 0.95, abstraction_min_diversity = 3
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 256
+abstraction_exception_limit = 32
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+_ TransitionMechanismTests.test_exception_learning_does_not_erase_general_rule _
+
+self = <tests.test_v030a2.TransitionMechanismTests testMethod=test_exception_learning_does_not_erase_general_rule>
+
+    def test_exception_learning_does_not_erase_general_rule(self):
+        self.train_base()
+        jammed = {'mode': 'closed', 'jammed': True}
+        for _ in range(12):
+            self.bank.observe(
+                'door_state', entity_id='door_j', state=jammed, action='open',
+                after_state={'mode': 'closed', 'jammed': True},
+            )
+        ordinary = self.bank.predict(
+            'door_state', entity_id='door_new', state={'mode': 'closed'}, action='open'
+        )
+>       self.assertEqual(ordinary['predicted_state'], {'mode': 'open'})
+E       AssertionError: None != {'mode': 'open'}
+
+tests/test_v030a2.py:96: AssertionError
+_______ TransitionMechanismTests.test_learned_mechanism_survives_reload ________
+
+self = <tests.test_v030a2.TransitionMechanismTests testMethod=test_learned_mechanism_survives_reload>
+
+    def test_learned_mechanism_survives_reload(self):
+        self.train_base(epochs=5)
+        self.bank.close()
+        self.bank = TransitionMechanismBank(
+            self.path, hidden_dim=32, train_steps=5, learning_rate=0.012, seed=7
+        )
+        out = self.bank.predict(
+            'door_state', entity_id='door_new', state={'mode': 'locked'}, action='unlock'
+        )
+>       self.assertEqual(out['predicted_state'], {'mode': 'closed'})
+E       AssertionError: None != {'mode': 'closed'}
+
+tests/test_v030a2.py:107: AssertionError
+____ TransitionMechanismTests.test_shared_weights_transfer_to_unseen_entity ____
+
+self = <tests.test_v030a2.TransitionMechanismTests testMethod=test_shared_weights_transfer_to_unseen_entity>
+
+    def test_shared_weights_transfer_to_unseen_entity(self):
+        self.train_base()
+        correct = 0
+        for state, action, after in BASE:
+            out = self.bank.predict(
+                'door_state', entity_id='door_d', state=state, action=action
+            )
+            correct += out['predicted_state'] == after
+>       self.assertEqual(correct, len(BASE))
+E       AssertionError: 0 != 5
+
+tests/test_v030a2.py:64: AssertionError
+_ TransitionMechanismTests.test_surprise_raises_uncertainty_then_adaptation_reduces_it _
+
+self = <tests.test_v030a2.TransitionMechanismTests testMethod=test_surprise_raises_uncertainty_then_adaptation_reduces_it>
+
+    def test_surprise_raises_uncertainty_then_adaptation_reduces_it(self):
+        self.train_base()
+        state = {'mode': 'closed', 'jammed': True}
+        before = self.bank.predict('door_state', entity_id='door_j', state=state, action='open')
+        first = self.bank.observe(
+            'door_state', entity_id='door_j', state=state, action='open',
+            after_state={'mode': 'closed', 'jammed': True},
+        )
+>       shocked = first['after_training_prediction']
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'after_training_prediction'
+
+tests/test_v030a2.py:74: KeyError
+_ EngineTransitionIntegrationTests.test_engine_exposes_learning_and_prediction_api _
+
+self = <tests.test_v030a2.EngineTransitionIntegrationTests testMethod=test_engine_exposes_learning_and_prediction_api>
+
+    def test_engine_exposes_learning_and_prediction_api(self):
+        learned = self.engine.learn_world_transition(
+            'switch_state', entity_id='switch_a', state={'on': False},
+            action='toggle', after_state={'on': True},
+        )
+>       self.assertTrue(learned['learned'])
+E       AssertionError: False is not true
+
+tests/test_v030a2.py:135: AssertionError
+_____ EngineTransitionIntegrationTests.test_status_reports_transition_bank _____
+
+self = <tests.test_v030a2.EngineTransitionIntegrationTests testMethod=test_status_reports_transition_bank>
+
+    def test_status_reports_transition_bank(self):
+        self.engine.learn_world_transition(
+            'switch_state', entity_id='switch_a', state={'on': False},
+            action='toggle', after_state={'on': True},
+        )
+        status = self.engine.language_core_status()
+        self.assertIn('transition_mechanisms', status)
+>       self.assertGreaterEqual(status['transition_mechanisms']['mechanisms'], 1)
+E       AssertionError: 0 not greater than or equal to 1
+
+tests/test_v030a2.py:148: AssertionError
+_______ Alpha3MechanismTests.test_balanced_replay_keeps_older_structures _______
+
+self = <tests.test_v030a3.Alpha3MechanismTests testMethod=test_balanced_replay_keeps_older_structures>
+
+    def test_balanced_replay_keeps_older_structures(self):
+        # Learn one sample from three schemas, then flood a fourth schema.
+        for s,a,o in (DOOR[:1]+SWITCH[:1]+CONTAINER[:1]):
+            self.bank.observe('generic_transition',entity_id='seed',state=s,action=a,after_state=o)
+>       mech=self.bank._get('generic_transition',create=False); mech.replay_limit=16
+                                                                ^^^^^^^^^^^^^^^^^
+E       AttributeError: 'NoneType' object has no attribute 'replay_limit' and no __dict__ for setting new attributes
+
+tests/test_v030a3.py:77: AttributeError
+_________ Alpha3MechanismTests.test_context_trace_persists_and_resets __________
+
+self = <tests.test_v030a3.Alpha3MechanismTests testMethod=test_context_trace_persists_and_resets>
+
+    def test_context_trace_persists_and_resets(self):
+        self.bank.observe('generic_transition',entity_id='x',state=HISTORY_STATE,action='prime_left',after_state=HISTORY_STATE)
+        mech=self.bank._get('generic_transition',create=False)
+>       self.assertTrue(mech.context_trace.get('x'))
+                        ^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'NoneType' object has no attribute 'context_trace'
+
+tests/test_v030a3.py:88: AttributeError
+_ Alpha3MechanismTests.test_shared_mechanism_multidomain_retention_and_history _
+
+self = <tests.test_v030a3.Alpha3MechanismTests testMethod=test_shared_mechanism_multidomain_retention_and_history>
+
+    def test_shared_mechanism_multidomain_retention_and_history(self):
+        self.train_static(DOOR,'door'); self.train_static(SWITCH,'switch'); self.train_static(CONTAINER,'container')
+        self.train_history()
+>       self.assertEqual(self.eval_static(DOOR,'door_new'),5)
+E       AssertionError: 0 != 5
+
+tests/test_v030a3.py:63: AssertionError
+___________ Alpha4SchedulerTests.test_applicability_survives_reload ____________
+
+self = <tests.test_v030a4.Alpha4SchedulerTests testMethod=test_applicability_survives_reload>
+
+    def test_applicability_survives_reload(self):
+        door,_=self.seed('door','door_dyn','open')
+        self.seed('switch','switch_dyn','toggle')
+        self.bank.close()
+        self.bank=TransitionMechanismBank(self.path,hidden_dim=16,train_steps=2,learning_rate=.012,seed=17)
+        route=self.bank.route(state=door,action='open',mode='seismic')
+>       self.assertEqual(route['selected'][0]['mechanism_type'],'door_dyn')
+                         ^^^^^^^^^^^^^^^^^^^^
+E       IndexError: list index out of range
+
+tests/test_v030a4.py:65: IndexError
+__ Alpha4SchedulerTests.test_learned_applicability_selects_matching_mechanism __
+
+self = <tests.test_v030a4.Alpha4SchedulerTests testMethod=test_learned_applicability_selects_matching_mechanism>
+
+    def test_learned_applicability_selects_matching_mechanism(self):
+        door,_=self.seed('door','door_dyn','open')
+        self.seed('switch','switch_dyn','toggle')
+        route=self.bank.route(state=door,action='open',mode='seismic')
+>       self.assertEqual(route['selected'][0]['mechanism_type'],'door_dyn')
+                         ^^^^^^^^^^^^^^^^^^^^
+E       IndexError: list index out of range
+
+tests/test_v030a4.py:38: IndexError
+___________ Alpha4SchedulerTests.test_low_relevance_falls_back_dense ___________
+
+self = <tests.test_v030a4.Alpha4SchedulerTests testMethod=test_low_relevance_falls_back_dense>
+
+    def test_low_relevance_falls_back_dense(self):
+        self.seed('door','door_dyn','open'); self.seed('switch','switch_dyn','toggle')
+        routed=self.bank.predict_routed(entity_id='u',state={'kind':'unknown','value':9},action='zap',mode='seismic')
+>       self.assertTrue(routed['fallback'])
+E       AssertionError: False is not true
+
+tests/test_v030a4.py:45: AssertionError
+___________ Alpha4SchedulerTests.test_seismic_reduces_calls_vs_dense ___________
+
+self = <tests.test_v030a4.Alpha4SchedulerTests testMethod=test_seismic_reduces_calls_vs_dense>
+
+    def test_seismic_reduces_calls_vs_dense(self):
+        door,_=self.seed('door','door_dyn','open')
+        self.seed('switch','switch_dyn','toggle'); self.seed('container','container_dyn','insert')
+        dense=self.bank.predict_routed(entity_id='d',state=door,action='open',mode='dense')
+        seismic=self.bank.predict_routed(entity_id='s',state=door,action='open',mode='seismic')
+>       self.assertEqual(dense['calls'],3)
+E       AssertionError: 0 != 3
+
+tests/test_v030a4.py:54: AssertionError
+_ Alpha5CompetitiveRoutingTests.test_ambiguous_input_widens_instead_of_faking_confidence _
+
+self = <tests.test_v030a5.Alpha5CompetitiveRoutingTests testMethod=test_ambiguous_input_widens_instead_of_faking_confidence>
+
+    def test_ambiguous_input_widens_instead_of_faking_confidence(self):
+        base = {'kind': 'valve', 'open': False}
+        for mechanism in ('a_valve', 'b_valve'):
+            after = {'kind': 'valve', 'open': True, 'route': mechanism}
+            for i in range(3):
+                self.bank.observe(mechanism, entity_id=f'{mechanism}_{i}', state=base, action='open', after_state=after)
+        route = self.bank.route(state=base, action='open', mode='seismic')
+>       self.assertEqual(route['reason'], 'seismic_competitive_topk')
+E       AssertionError: 'no_mechanisms' != 'seismic_competitive_topk'
+E       - no_mechanisms
+E       + seismic_competitive_topk
+
+tests/test_v030a5.py:73: AssertionError
+____ Alpha5CompetitiveRoutingTests.test_confident_competition_selects_top1 _____
+
+self = <tests.test_v030a5.Alpha5CompetitiveRoutingTests testMethod=test_confident_competition_selects_top1>
+
+    def test_confident_competition_selects_top1(self):
+        normal, _ = self.seed_variant('normal_valve', 'normal')
+        self.seed_variant('safety_valve', 'safety')
+        route = self.bank.route(state=normal, action='open', mode='seismic')
+>       self.assertEqual(route['reason'], 'seismic_confident_topk')
+E       AssertionError: 'no_mechanisms' != 'seismic_confident_topk'
+E       - no_mechanisms
+E       + seismic_confident_topk
+
+tests/test_v030a5.py:60: AssertionError
+_ Alpha5CompetitiveRoutingTests.test_empirical_confidence_calibration_activates_after_feedback _
+
+self = <tests.test_v030a5.Alpha5CompetitiveRoutingTests testMethod=test_empirical_confidence_calibration_activates_after_feedback>
+
+    def test_empirical_confidence_calibration_activates_after_feedback(self):
+        state, after = self.seed_variant('door_like', 'main', repeats=3)
+        # Repeated correct routed observations populate one confidence bucket.
+        for i in range(5):
+            entity = f'cal_{i}'
+            self.bank.predict_routed(entity_id=entity, state=state, action='open', mode='seismic', recover=False)
+            self.bank.observe('door_like', entity_id=entity, state=state, action='open', after_state=after)
+        route = self.bank.route(state=state, action='open', mode='seismic')
+>       self.assertEqual(route['calibration_source'], 'empirical')
+E       AssertionError: 'heuristic' != 'empirical'
+E       - heuristic
+E       + empirical
+
+tests/test_v030a5.py:113: AssertionError
+________ Alpha5CompetitiveRoutingTests.test_ood_still_falls_back_dense _________
+
+self = <tests.test_v030a5.Alpha5CompetitiveRoutingTests testMethod=test_ood_still_falls_back_dense>
+
+    def test_ood_still_falls_back_dense(self):
+        state, _ = self.seed_variant('known_a', 'a')
+        self.seed_variant('known_b', 'b')
+        routed = self.bank.predict_routed(
+            entity_id='ood', state={'kind': 'alien_device', 'phase': 7}, action='pulse', mode='seismic'
+        )
+>       self.assertTrue(routed['fallback'])
+E       AssertionError: False is not true
+
+tests/test_v030a5.py:141: AssertionError
+_ Alpha5CompetitiveRoutingTests.test_prediction_error_teaches_negative_applicability _
+
+self = <tests.test_v030a5.Alpha5CompetitiveRoutingTests testMethod=test_prediction_error_teaches_negative_applicability>
+
+    def test_prediction_error_teaches_negative_applicability(self):
+        base = {'kind': 'valve', 'open': False}
+        for mechanism in ('normal', 'safety'):
+            after = {'kind': 'valve', 'open': True, 'route': mechanism}
+            for i in range(3):
+                self.bank.observe(mechanism, entity_id=f'{mechanism}_{i}', state=base, action='open', after_state=after)
+    
+        query = {'kind': 'valve', 'open': False, 'pressure_safe': False}
+        before = self.bank.route(state=query, action='open', mode='seismic')
+>       normal_before = next(x['relevance'] for x in before['candidates'] if x['mechanism_type'] == 'normal')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       StopIteration
+
+tests/test_v030a5.py:86: StopIteration
+_ Alpha5CompetitiveRoutingTests.test_routing_evidence_and_calibration_persist __
+
+self = <tests.test_v030a5.Alpha5CompetitiveRoutingTests testMethod=test_routing_evidence_and_calibration_persist>
+
+    def test_routing_evidence_and_calibration_persist(self):
+        state, after = self.seed_variant('persist_mech', 'p', repeats=3)
+        for i in range(4):
+            entity = f'pcal_{i}'
+            self.bank.predict_routed(entity_id=entity, state=state, action='open', mode='seismic', recover=False)
+            self.bank.observe('persist_mech', entity_id=entity, state=state, action='open', after_state=after)
+        self.bank.close()
+        self.bank = TransitionMechanismBank(
+            self.path, hidden_dim=8, train_steps=1, learning_rate=.012, seed=17,
+            scheduler_calibration_min_support=4,
+        )
+        route = self.bank.route(state=state, action='open', mode='seismic')
+        stats = self.bank.stats()['scheduler']
+>       self.assertEqual(route['selected'][0]['mechanism_type'], 'persist_mech')
+                         ^^^^^^^^^^^^^^^^^^^^
+E       IndexError: list index out of range
+
+tests/test_v030a5.py:130: IndexError
+_ Alpha6ContinualRetentionTests.test_alpha5_blob_without_anchors_backfills_from_replay _
+
+self = <tests.test_v030a6.Alpha6ContinualRetentionTests testMethod=test_alpha5_blob_without_anchors_backfills_from_replay>
+
+    def test_alpha5_blob_without_anchors_backfills_from_replay(self):
+        self.teach(range(4), reps=2)
+        mech=self.bank._get('shared', create=False)
+>       payload=mech.export_blob()
+                ^^^^^^^^^^^^^^^^
+E       AttributeError: 'NoneType' object has no attribute 'export_blob'
+
+tests/test_v030a6.py:68: AttributeError
+_______ Alpha6ContinualRetentionTests.test_retention_anchors_are_bounded _______
+
+self = <tests.test_v030a6.Alpha6ContinualRetentionTests testMethod=test_retention_anchors_are_bounded>
+
+    def test_retention_anchors_are_bounded(self):
+        # Reuse one outcome while varying visible inputs, so the anchor table can
+        # hit its cap without exceeding max_outcomes.
+        out={'kind':'machine','phase':1,'result':'same'}
+        for i in range(110):
+            self.bank.observe('shared', entity_id=f'b{i}', state={'kind':'machine','mode':i}, action='advance', after_state=out)
+>       d=self.bank.stats()['detail'][0]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       IndexError: list index out of range
+
+tests/test_v030a6.py:52: IndexError
+_ Alpha6ContinualRetentionTests.test_retention_anchors_created_per_visible_outcome _
+
+self = <tests.test_v030a6.Alpha6ContinualRetentionTests testMethod=test_retention_anchors_created_per_visible_outcome>
+
+    def test_retention_anchors_created_per_visible_outcome(self):
+        self.teach(range(6), reps=2)
+>       d=self.bank.stats()['detail'][0]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       IndexError: list index out of range
+
+tests/test_v030a6.py:42: IndexError
+_____ Alpha6ContinualRetentionTests.test_retention_anchors_persist_restart _____
+
+self = <tests.test_v030a6.Alpha6ContinualRetentionTests testMethod=test_retention_anchors_persist_restart>
+
+    def test_retention_anchors_persist_restart(self):
+        self.teach(range(5), reps=2)
+>       before=self.bank.stats()['detail'][0]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       IndexError: list index out of range
+
+tests/test_v030a6.py:58: IndexError
+_____ Alpha8ConsolidationTests.test_ambiguous_visible_mapping_is_excluded ______
+
+self = <tests.test_v030a8.Alpha8ConsolidationTests testMethod=test_ambiguous_visible_mapping_is_excluded>
+
+    def test_ambiguous_visible_mapping_is_excluded(self):
+>       m=self.build()
+          ^^^^^^^^^^^^
+
+tests/test_v030a8.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_v030a8.py:14: in build
+    m = LocalRecurrentTransitionMechanism(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f81270fda90>
+mechanism_type = 'a8_unit', input_dim = 128, hidden_dim = 24, max_outcomes = 8
+learning_rate = 0.01, train_steps = 1, seed = 17, retention_anchor_limit = 8
+retention_anchor_batch_limit = 2, outcome_capacity_limit = 32
+outcome_growth_factor = 2.0, consolidation_table_size = 128
+consolidation_hashes = 3, consolidation_min_support = 2
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 8
+abstraction_min_precision = 0.95, abstraction_min_diversity = 4
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 2048
+abstraction_exception_limit = 512
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+________ Alpha8ConsolidationTests.test_bank_wires_consolidation_config _________
+
+self = <tests.test_v030a8.Alpha8ConsolidationTests testMethod=test_bank_wires_consolidation_config>
+
+    def test_bank_wires_consolidation_config(self):
+        with tempfile.TemporaryDirectory() as td:
+            b=TransitionMechanismBank(Path(td)/'x.db', consolidation_table_size=256, consolidation_hashes=2, consolidation_min_support=3)
+>           m=b._new('x')
+              ^^^^^^^^^^^
+
+tests/test_v030a8.py:77: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+asm/transition_mechanism.py:2346: in _new
+    return LocalRecurrentTransitionMechanism(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f81270fd220>
+mechanism_type = 'x', input_dim = 128, hidden_dim = 64, max_outcomes = 32
+learning_rate = 0.012, train_steps = 6, seed = 17, retention_anchor_limit = 96
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 4096
+outcome_growth_factor = 2.0, consolidation_table_size = 256
+consolidation_hashes = 2, consolidation_min_support = 3
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 8
+abstraction_min_precision = 0.95, abstraction_min_diversity = 4
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 2048
+abstraction_exception_limit = 512
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+______ Alpha8ConsolidationTests.test_consolidation_survives_serialization ______
+
+self = <tests.test_v030a8.Alpha8ConsolidationTests testMethod=test_consolidation_survives_serialization>
+
+    def test_consolidation_survives_serialization(self):
+>       m=self.build()
+          ^^^^^^^^^^^^
+
+tests/test_v030a8.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_v030a8.py:14: in build
+    m = LocalRecurrentTransitionMechanism(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f8126328050>
+mechanism_type = 'a8_unit', input_dim = 128, hidden_dim = 24, max_outcomes = 8
+learning_rate = 0.01, train_steps = 1, seed = 17, retention_anchor_limit = 8
+retention_anchor_batch_limit = 2, outcome_capacity_limit = 32
+outcome_growth_factor = 2.0, consolidation_table_size = 128
+consolidation_hashes = 3, consolidation_min_support = 2
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 8
+abstraction_min_precision = 0.95, abstraction_min_diversity = 4
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 2048
+abstraction_exception_limit = 512
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+____ Alpha8ConsolidationTests.test_fixed_memory_does_not_grow_with_mappings ____
+
+self = <tests.test_v030a8.Alpha8ConsolidationTests testMethod=test_fixed_memory_does_not_grow_with_mappings>
+
+    def test_fixed_memory_does_not_grow_with_mappings(self):
+>       m = self.build()
+            ^^^^^^^^^^^^
+
+tests/test_v030a8.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_v030a8.py:14: in build
+    m = LocalRecurrentTransitionMechanism(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f812632ac10>
+mechanism_type = 'a8_unit', input_dim = 128, hidden_dim = 24, max_outcomes = 8
+learning_rate = 0.01, train_steps = 1, seed = 17, retention_anchor_limit = 8
+retention_anchor_batch_limit = 2, outcome_capacity_limit = 32
+outcome_growth_factor = 2.0, consolidation_table_size = 128
+consolidation_hashes = 3, consolidation_min_support = 2
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 8
+abstraction_min_precision = 0.95, abstraction_min_diversity = 4
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 2048
+abstraction_exception_limit = 512
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+_ Alpha8ConsolidationTests.test_stable_mapping_is_retrieved_from_consolidation _
+
+self = <tests.test_v030a8.Alpha8ConsolidationTests testMethod=test_stable_mapping_is_retrieved_from_consolidation>
+
+    def test_stable_mapping_is_retrieved_from_consolidation(self):
+>       m=self.build()
+          ^^^^^^^^^^^^
+
+tests/test_v030a8.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_v030a8.py:14: in build
+    m = LocalRecurrentTransitionMechanism(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f8126d45300>
+mechanism_type = 'a8_unit', input_dim = 128, hidden_dim = 24, max_outcomes = 8
+learning_rate = 0.01, train_steps = 1, seed = 17, retention_anchor_limit = 8
+retention_anchor_batch_limit = 2, outcome_capacity_limit = 32
+outcome_growth_factor = 2.0, consolidation_table_size = 128
+consolidation_hashes = 3, consolidation_min_support = 2
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 8
+abstraction_min_precision = 0.95, abstraction_min_diversity = 4
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 2048
+abstraction_exception_limit = 512
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+_ PlanningAlpha2Tests.test_simulated_context_advances_without_mutating_real_context _
+
+self = <tests.test_v040a2.PlanningAlpha2Tests testMethod=test_simulated_context_advances_without_mutating_real_context>
+
+    def test_simulated_context_advances_without_mutating_real_context(self):
+>       m=LocalRecurrentTransitionMechanism('v040a2_ctx',hidden_dim=8,train_steps=1,max_outcomes=8,
+                                             outcome_capacity_limit=32,seed=91)
+
+tests/test_v040a2.py:122: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f81273c5d90>
+mechanism_type = 'v040a2_ctx', input_dim = 128, hidden_dim = 8, max_outcomes = 8
+learning_rate = 0.012, train_steps = 1, seed = 91, retention_anchor_limit = 96
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 32
+outcome_growth_factor = 2.0, consolidation_table_size = 1024
+consolidation_hashes = 3, consolidation_min_support = 4
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 8
+abstraction_min_precision = 0.95, abstraction_min_diversity = 4
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 2048
+abstraction_exception_limit = 512
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+_ PlanningAlpha2Tests.test_simulated_prediction_does_not_touch_diagnostic_counters _
+
+self = <tests.test_v040a2.PlanningAlpha2Tests testMethod=test_simulated_prediction_does_not_touch_diagnostic_counters>
+
+    def test_simulated_prediction_does_not_touch_diagnostic_counters(self):
+>       m=LocalRecurrentTransitionMechanism(
+            'v040a2_pure', hidden_dim=8, train_steps=1, max_outcomes=8,
+            outcome_capacity_limit=32, seed=77,
+            abstraction_min_support=2, abstraction_min_precision=.9,
+            abstraction_min_diversity=2,
+        )
+
+tests/test_v040a2.py:102: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f81273c77d0>
+mechanism_type = 'v040a2_pure', input_dim = 128, hidden_dim = 8
+max_outcomes = 8, learning_rate = 0.012, train_steps = 1, seed = 77
+retention_anchor_limit = 96, retention_anchor_batch_limit = 6
+outcome_capacity_limit = 32, outcome_growth_factor = 2.0
+consolidation_table_size = 1024, consolidation_hashes = 3
+consolidation_min_support = 4, consolidation_max_displacements = 24
+consolidation_enabled = True, abstraction_enabled = True
+abstraction_min_support = 2, abstraction_min_precision = 0.9
+abstraction_min_diversity = 2, abstraction_max_dropped_features = 2
+abstraction_sparse_enabled = True, abstraction_pending_enabled = True
+abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 2048
+abstraction_exception_limit = 512
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+________________ PlanningAlpha3Tests.test_distribution_persists ________________
+
+self = <tests.test_v040a3.PlanningAlpha3Tests testMethod=test_distribution_persists>
+
+    def test_distribution_persists(self):
+>       m = LocalRecurrentTransitionMechanism('a3-persist', hidden_dim=8, train_steps=1,
+                                               max_outcomes=8, outcome_capacity_limit=32, seed=32)
+
+tests/test_v040a3.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f8127180890>
+mechanism_type = 'a3-persist', input_dim = 128, hidden_dim = 8, max_outcomes = 8
+learning_rate = 0.012, train_steps = 1, seed = 32, retention_anchor_limit = 96
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 32
+outcome_growth_factor = 2.0, consolidation_table_size = 1024
+consolidation_hashes = 3, consolidation_min_support = 4
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 8
+abstraction_min_precision = 0.95, abstraction_min_diversity = 4
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 2048
+abstraction_exception_limit = 512
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+________ PlanningAlpha3Tests.test_distribution_prediction_is_read_only _________
+
+self = <tests.test_v040a3.PlanningAlpha3Tests testMethod=test_distribution_prediction_is_read_only>
+
+    def test_distribution_prediction_is_read_only(self):
+>       m = LocalRecurrentTransitionMechanism('a3-pure', hidden_dim=8, train_steps=1,
+                                               max_outcomes=8, outcome_capacity_limit=32, seed=41)
+
+tests/test_v040a3.py:133: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f81271814f0>
+mechanism_type = 'a3-pure', input_dim = 128, hidden_dim = 8, max_outcomes = 8
+learning_rate = 0.012, train_steps = 1, seed = 41, retention_anchor_limit = 96
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 32
+outcome_growth_factor = 2.0, consolidation_table_size = 1024
+consolidation_hashes = 3, consolidation_min_support = 4
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 8
+abstraction_min_precision = 0.95, abstraction_min_diversity = 4
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 2048
+abstraction_exception_limit = 512
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+__ PlanningAlpha3Tests.test_empirical_distribution_exposes_80_20_and_unknown ___
+
+self = <tests.test_v040a3.PlanningAlpha3Tests testMethod=test_empirical_distribution_exposes_80_20_and_unknown>
+
+    def test_empirical_distribution_exposes_80_20_and_unknown(self):
+>       m = LocalRecurrentTransitionMechanism('a3-dist', hidden_dim=8, train_steps=1,
+                                               max_outcomes=8, outcome_capacity_limit=32, seed=31)
+
+tests/test_v040a3.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f8126d29e50>
+mechanism_type = 'a3-dist', input_dim = 128, hidden_dim = 8, max_outcomes = 8
+learning_rate = 0.012, train_steps = 1, seed = 31, retention_anchor_limit = 96
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 32
+outcome_growth_factor = 2.0, consolidation_table_size = 1024
+consolidation_hashes = 3, consolidation_min_support = 4
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 8
+abstraction_min_precision = 0.95, abstraction_min_diversity = 4
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 2048
+abstraction_exception_limit = 512
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+___ PlanningAlpha3Tests.test_uncalibrated_neural_fallback_keeps_unknown_mass ___
+
+self = <tests.test_v040a3.PlanningAlpha3Tests testMethod=test_uncalibrated_neural_fallback_keeps_unknown_mass>
+
+    def test_uncalibrated_neural_fallback_keeps_unknown_mass(self):
+>       m = LocalRecurrentTransitionMechanism('a3-unknown', hidden_dim=8, train_steps=1,
+                                               max_outcomes=8, outcome_capacity_limit=32, seed=39)
+
+tests/test_v040a3.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <asm.transition_mechanism.LocalRecurrentTransitionMechanism object at 0x7f81260c25d0>
+mechanism_type = 'a3-unknown', input_dim = 128, hidden_dim = 8, max_outcomes = 8
+learning_rate = 0.012, train_steps = 1, seed = 39, retention_anchor_limit = 96
+retention_anchor_batch_limit = 6, outcome_capacity_limit = 32
+outcome_growth_factor = 2.0, consolidation_table_size = 1024
+consolidation_hashes = 3, consolidation_min_support = 4
+consolidation_max_displacements = 24, consolidation_enabled = True
+abstraction_enabled = True, abstraction_min_support = 8
+abstraction_min_precision = 0.95, abstraction_min_diversity = 4
+abstraction_max_dropped_features = 2, abstraction_sparse_enabled = True
+abstraction_pending_enabled = True, abstraction_sparse_max_retained_features = 2
+abstraction_candidates_per_observation = 48, abstraction_max_candidates = 2048
+abstraction_exception_limit = 512
+
+    def __init__(
+        self,
+        mechanism_type: str,
+        *,
+        input_dim: int = 128,
+        hidden_dim: int = 64,
+        max_outcomes: int = 32,
+        learning_rate: float = 0.012,
+        train_steps: int = 6,
+        seed: int = 17,
+        retention_anchor_limit: int = 96,
+        retention_anchor_batch_limit: int = 6,
+        outcome_capacity_limit: int = 4096,
+        outcome_growth_factor: float = 2.0,
+        consolidation_table_size: int = 1024,
+        consolidation_hashes: int = 3,
+        consolidation_min_support: int = 4,
+        consolidation_max_displacements: int = 24,
+        consolidation_enabled: bool = True,
+        abstraction_enabled: bool = True,
+        abstraction_min_support: int = 8,
+        abstraction_min_precision: float = 0.95,
+        abstraction_min_diversity: int = 4,
+        abstraction_max_dropped_features: int = 2,
+        abstraction_sparse_enabled: bool = True,
+        abstraction_pending_enabled: bool = True,
+        abstraction_sparse_max_retained_features: int = 2,
+        abstraction_candidates_per_observation: int = 48,
+        abstraction_max_candidates: int = 2048,
+        abstraction_exception_limit: int = 512,
+    ):
+        if torch is None:
+>           raise RuntimeError("PyTorch is required for recurrent transition mechanisms")
+E           RuntimeError: PyTorch is required for recurrent transition mechanisms
+
+asm/transition_mechanism.py:100: RuntimeError
+=============================== warnings summary ===============================
+tests/test_alpha8_coding_dev8_hardening.py::TimeBudgetTests::test_process_generator_timeout_kills_the_generator
+tests/test_alpha8_coding_dev8_hardening.py::TimeBudgetTests::test_process_generator_works_end_to_end_and_propagates_errors
+tests/test_alpha8_coding_dev8_hardening.py::TimeBudgetTests::test_process_generator_works_end_to_end_and_propagates_errors
+  /usr/local/lib/python3.13/multiprocessing/popen_fork.py:73: DeprecationWarning: This process (pid=1095) is multi-threaded, use of fork() may lead to deadlocks in the child.
+    self.pid = os.fork()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_v020a2.py::TestASM020Alpha2::test_default_recurrent_reader_loads_frozen_weights
+FAILED tests/test_v020a2.py::TestASM020Alpha2::test_high_confidence_neural_intent_updates_self_model
+FAILED tests/test_v020a2.py::TestASM020Alpha2::test_neural_embedding_enters_seismic_graph
+FAILED tests/test_v020a2.py::TestASM020Alpha2::test_rwkv7_adapter_execution_path_matches_public_runtime_contract
+FAILED tests/test_v020a2.py::TestASM020Alpha2::test_uncertain_neural_read_defers_to_native_without_double_write
+FAILED tests/test_v020a3.py::TestASM020Alpha3::test_social_greeting_is_transient_and_not_graph_persistent
+FAILED tests/test_v020a3.py::TestASM020Alpha3::test_social_probe_and_semantic_index_report_health
+FAILED tests/test_v020a5.py::TestLearnedWriter::test_ablation_changes_observable_reply
+FAILED tests/test_v020a5.py::TestLearnedWriter::test_database_restart_preserves_facts
+FAILED tests/test_v020a5.py::TestLearnedWriter::test_learned_writer_is_the_normal_chat_path
+FAILED tests/test_v020a5.py::TestLearnedWriter::test_new_fact_can_be_learned_with_frozen_writer
+FAILED tests/test_v020a5.py::TestLearnedWriter::test_opaque_content_is_copied_once
+FAILED tests/test_v020a5.py::TestLearnedWriter::test_style_condition_changes_learned_tokens
+FAILED tests/test_v030a11.py::Alpha11MechanismAbstractionTests::test_diverse_contradictions_demote_rule
+FAILED tests/test_v030a11.py::Alpha11MechanismAbstractionTests::test_random_contradictions_do_not_promote_rule
+FAILED tests/test_v030a11.py::Alpha11MechanismAbstractionTests::test_rare_exception_overrides_but_does_not_destroy_rule
+FAILED tests/test_v030a11.py::Alpha11MechanismAbstractionTests::test_serialization_preserves_rules_and_exceptions
+FAILED tests/test_v030a11.py::Alpha11MechanismAbstractionTests::test_visible_nuisance_features_can_be_abstracted
+FAILED tests/test_v030a12.py::Alpha12RobustAbstractionTests::test_drop_only_ablation_cannot_reach_five_nuisance_rule
+FAILED tests/test_v030a12.py::Alpha12RobustAbstractionTests::test_random_outcomes_do_not_promote_sparse_rule
+FAILED tests/test_v030a12.py::Alpha12RobustAbstractionTests::test_serialization_preserves_sparse_projection_settings_and_rule
+FAILED tests/test_v030a12.py::Alpha12RobustAbstractionTests::test_sparse_candidate_work_is_bounded
+FAILED tests/test_v030a12.py::Alpha12RobustAbstractionTests::test_sparse_projection_reaches_rule_hidden_by_many_nuisance_features
+FAILED tests/test_v030a2.py::TransitionMechanismTests::test_exception_learning_does_not_erase_general_rule
+FAILED tests/test_v030a2.py::TransitionMechanismTests::test_learned_mechanism_survives_reload
+FAILED tests/test_v030a2.py::TransitionMechanismTests::test_shared_weights_transfer_to_unseen_entity
+FAILED tests/test_v030a2.py::TransitionMechanismTests::test_surprise_raises_uncertainty_then_adaptation_reduces_it
+FAILED tests/test_v030a2.py::EngineTransitionIntegrationTests::test_engine_exposes_learning_and_prediction_api
+FAILED tests/test_v030a2.py::EngineTransitionIntegrationTests::test_status_reports_transition_bank
+FAILED tests/test_v030a3.py::Alpha3MechanismTests::test_balanced_replay_keeps_older_structures
+FAILED tests/test_v030a3.py::Alpha3MechanismTests::test_context_trace_persists_and_resets
+FAILED tests/test_v030a3.py::Alpha3MechanismTests::test_shared_mechanism_multidomain_retention_and_history
+FAILED tests/test_v030a4.py::Alpha4SchedulerTests::test_applicability_survives_reload
+FAILED tests/test_v030a4.py::Alpha4SchedulerTests::test_learned_applicability_selects_matching_mechanism
+FAILED tests/test_v030a4.py::Alpha4SchedulerTests::test_low_relevance_falls_back_dense
+FAILED tests/test_v030a4.py::Alpha4SchedulerTests::test_seismic_reduces_calls_vs_dense
+FAILED tests/test_v030a5.py::Alpha5CompetitiveRoutingTests::test_ambiguous_input_widens_instead_of_faking_confidence
+FAILED tests/test_v030a5.py::Alpha5CompetitiveRoutingTests::test_confident_competition_selects_top1
+FAILED tests/test_v030a5.py::Alpha5CompetitiveRoutingTests::test_empirical_confidence_calibration_activates_after_feedback
+FAILED tests/test_v030a5.py::Alpha5CompetitiveRoutingTests::test_ood_still_falls_back_dense
+FAILED tests/test_v030a5.py::Alpha5CompetitiveRoutingTests::test_prediction_error_teaches_negative_applicability
+FAILED tests/test_v030a5.py::Alpha5CompetitiveRoutingTests::test_routing_evidence_and_calibration_persist
+FAILED tests/test_v030a6.py::Alpha6ContinualRetentionTests::test_alpha5_blob_without_anchors_backfills_from_replay
+FAILED tests/test_v030a6.py::Alpha6ContinualRetentionTests::test_retention_anchors_are_bounded
+FAILED tests/test_v030a6.py::Alpha6ContinualRetentionTests::test_retention_anchors_created_per_visible_outcome
+FAILED tests/test_v030a6.py::Alpha6ContinualRetentionTests::test_retention_anchors_persist_restart
+FAILED tests/test_v030a8.py::Alpha8ConsolidationTests::test_ambiguous_visible_mapping_is_excluded
+FAILED tests/test_v030a8.py::Alpha8ConsolidationTests::test_bank_wires_consolidation_config
+FAILED tests/test_v030a8.py::Alpha8ConsolidationTests::test_consolidation_survives_serialization
+FAILED tests/test_v030a8.py::Alpha8ConsolidationTests::test_fixed_memory_does_not_grow_with_mappings
+FAILED tests/test_v030a8.py::Alpha8ConsolidationTests::test_stable_mapping_is_retrieved_from_consolidation
+FAILED tests/test_v040a2.py::PlanningAlpha2Tests::test_simulated_context_advances_without_mutating_real_context
+FAILED tests/test_v040a2.py::PlanningAlpha2Tests::test_simulated_prediction_does_not_touch_diagnostic_counters
+FAILED tests/test_v040a3.py::PlanningAlpha3Tests::test_distribution_persists
+FAILED tests/test_v040a3.py::PlanningAlpha3Tests::test_distribution_prediction_is_read_only
+FAILED tests/test_v040a3.py::PlanningAlpha3Tests::test_empirical_distribution_exposes_80_20_and_unknown
+FAILED tests/test_v040a3.py::PlanningAlpha3Tests::test_uncalibrated_neural_fallback_keeps_unknown_mass
+57 failed, 957 passed, 4 skipped, 3 warnings, 99 subtests passed in 794.23s (0:13:14)
+TESTSDONE
