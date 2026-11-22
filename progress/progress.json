@@ -21,7 +21,7 @@
     "validated": 0,
     "details": "ROADMAP.md#release-governance-and-the-alpha-8-plan",
     "note": "update `validated` only when a pre-registered gate for that target passes",
-    "evidence_note": "DEV21 and DEV22 each passed a held-out gate in a noise-free lab"
+    "evidence_note": "DEV21, DEV22 and DEV23 each passed a held-out gate in a noise-free lab"
   },
   "devs": [
     {
@@ -112,6 +112,16 @@
       "result": "passed: relevant donors 0.229 → 0.993 on 3 new two-input structures (110 vs 0 paired), no wrong answer, no loss on affine targets",
       "promoted": false,
       "report": "asm_alpha8/ALPHA8_CODING_DEV22_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV23",
+      "date": "2026-11-22",
+      "title": "Learned families over other input names",
+      "gate": "G23-A: families transfer across input names, either role order, held out",
+      "kind": "passed",
+      "result": "passed: donors over other names 0.021 → 0.990 on 3 new two-input structures (279 vs 0 paired), both role orders, no wrong answer, no loss on exact-name or affine targets",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV23_IMPLEMENTATION.md"
     }
   ]
 }

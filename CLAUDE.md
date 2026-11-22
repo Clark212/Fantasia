@@ -10,20 +10,22 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
   not promoted (Structural Transfer & Analogical Procedure Generalization, toward M4); alpha 7.8 delivered 0.4.7 and
   0.4.8 ("Latent Dependency Structure & Higher-Order Epistemic Routing"). DEV steps are experiments inside
   alpha 8 (side tracks), not milestones; none is promoted. The alpha.8.1–8.9 plan and its evidence: `ROADMAP.md`, Stage 4.
-- Latest: **DEV22** (learned families for two-input targets; alpha.8.2/8.5). G22-A **passed** on held-out two-input
-  structures: `ProcedureCortex(family_scope='any_int')` (opt-in; making it the default is the owner's decision) lets
-  families propose for integer targets with 2–4 inputs, before the affine solve. DEV21 before it: round-robin family
-  sharing (`family_sharing='round_robin'`, the default since the owner approved it) removed DEV4's interference.
+- Latest: **DEV23** (learned families over other input names; alpha.8.3/8.5). G23-A **passed** on held-out two-input
+  structures: `ProcedureCortex(family_mapping='rename')` (opt-in; making it the default is the owner's decision) lets a
+  family apply to a target whose inputs differ only by name, under every type-preserving mapping (both role orders).
+  DEV22 before it: `family_scope='any_int'` (opt-in) lets families propose for integer targets with 2–4 inputs.
+  DEV21: round-robin family sharing (`family_sharing='round_robin'`, the default since the owner approved it).
 - Records: reports `asm_alpha8/ALPHA8_CODING_DEV*_IMPLEMENTATION.md`; pre-registrations and amendments
   `asm_alpha8/benchmarks/preregistration/`; raw results `asm_alpha8/benchmarks/results/devN/` (hash-chained JSONL; never
   edit); progress page `README.md` from `progress/`.
-- Tests: `cd asm_alpha8 && python3 -m pytest -q tests/test_alpha8_*.py` (567 passed, 3 skipped at DEV22). The whole
+- Tests: `cd asm_alpha8 && python3 -m pytest -q tests/test_alpha8_*.py` (575 passed, 3 skipped at DEV23). The whole
   `tests/` directory has 57 more failures in v0.2–v0.4 modules that need PyTorch, which is not installed (checked at
-  DEV21: identical without DEV21's changes), and `test_v030a7.py`, `test_v030a9.py`, `test_v030a10.py` cannot import.
+  DEV23: the same 57 test IDs as on the DEV22 commit), and `test_v030a7.py`, `test_v030a9.py`, `test_v030a10.py` cannot import.
 - Open work:
-  - Owner decision: make `family_scope='any_int'` the default (DEV22 report).
-  - Recommended next (DEV22 report): DEV23, alpha.8.3: let a family learned over one set of input names apply to a
-    target over another (families need identical input names today; the composer already remaps whole donors).
+  - Owner decisions: make `family_scope='any_int'` (DEV22) and `family_mapping='rename'` (DEV23) the defaults.
+  - Recommended next (DEV23 report): DEV24, alpha.8.7 then 8.4: the same family transfer with wrong labels at a
+    pre-registered rate and three-input targets (six mappings per family). Smaller follow-up: when several family
+    mappings fit, ask for a disambiguating example instead of proposing the first (all 7 DEV23 failures).
   - DEV16's study needs generated pairs from the owner's PC (`asm_alpha8/tools/generate_pairs.py`, instructions in
     `asm_alpha8/tools/README_DEV16_DATA.md`).
   - The repair workflow on real bugs with fault localization (DEV20 report) on DEV15's 83 BugsInPy bugs
