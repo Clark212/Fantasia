@@ -183,7 +183,10 @@ def readme_section(data):
              f"- In progress: Stage {int(rm['in_progress_stage'][2:])} ({count['in_progress']} milestones), "
              f"{rm['in_progress_note']}. Next: **{rm['next']} {nxt}**.",
              *[f"- Open: {mid}, {why}." for mid, why in rm["open"].items()],
-             f"- Not started: {count['not_started']} (Stages 5–9 and v1.0.0).", "",
+             f"- Not started: {count['not_started']} (Stages 5–9 and v1.0.0).",
+             *([f"- Alpha 8 plan toward {data['alpha8_plan']['target']}: {data['alpha8_plan']['validated']} of "
+                f"{data['alpha8_plan']['targets']} targets validated; what exists for each: "
+                f"[ROADMAP.md]({data['alpha8_plan']['details']})."] if "alpha8_plan" in data else []), "",
              f"![Each DEV and its pre-registered gate](progress/{DEV_SVG.name})", "",
              "| DEV | date | pre-registered gate | result | promoted |", "|---|---|---|---|---|"]
     for d in reversed(data["devs"]):

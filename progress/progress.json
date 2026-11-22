@@ -12,6 +12,13 @@
     "next": "0.4.9",
     "promoted_in_progress": []
   },
+  "alpha8_plan": {
+    "target": "M4 — Generalizing Research AI",
+    "targets": 9,
+    "validated": 0,
+    "details": "ROADMAP.md#release-governance-and-the-alpha-8-plan",
+    "note": "update `validated` only when a pre-registered gate for that target passes"
+  },
   "devs": [
     {
       "dev": "DEV15",

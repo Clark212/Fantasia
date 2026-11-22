@@ -14,6 +14,7 @@
 - In progress: Stage 4 (10 milestones), built as alpha work (alpha 7.x and alpha 8); none promoted. Next: **0.4.9 Planning and Simulation Stage Closure**.
 - Open: 0.3.5, generalization to unseen data is not yet shown (ROADMAP.md).
 - Not started: 51 (Stages 5–9 and v1.0.0).
+- Alpha 8 plan toward M4 — Generalizing Research AI: 0 of 9 targets validated; what exists for each: [ROADMAP.md](ROADMAP.md#release-governance-and-the-alpha-8-plan).
 
 ![Each DEV and its pre-registered gate](progress/dev_history.svg)
 
