@@ -1,15 +1,18 @@
 {
   "about": "Data for progress/make_progress.py. After every DEV: add its entry to `devs`, update `roadmap` if a milestone was promoted, then run `python3 progress/make_progress.py`.",
   "roadmap": {
-    "current": "v0.4 · alpha 8",
-    "reached_through": "0.3.9",
-    "reached_rule": "milestones before the current stage, as the roadmap's version numbering counts them (ASM is at v0.4), except those listed as open",
+    "current": "v0.4.0-alpha.7.9 (promoted)",
+    "reached_through": "0.4.7",
+    "reached_rule": "up to the last promoted release, v0.4.0-alpha.7.9, which precedes alpha 8 = 0.4.8 (project owner); except those listed as open",
     "open": {
       "0.3.5": "generalization to unseen data is not yet shown (ROADMAP.md)"
     },
-    "in_progress_stage": "0.4",
-    "in_progress_note": "built as alpha work (alpha 7.x and alpha 8); none promoted",
-    "next": "0.4.9",
+    "in_progress": [
+      "0.4.8"
+    ],
+    "in_progress_note": "not promoted; the DEV steps are its experiments",
+    "next": "0.4.8",
+    "next_label": "= alpha 8",
     "promoted_in_progress": []
   },
   "alpha8_plan": {
@@ -17,7 +20,8 @@
     "targets": 9,
     "validated": 0,
     "details": "ROADMAP.md#release-governance-and-the-alpha-8-plan",
-    "note": "update `validated` only when a pre-registered gate for that target passes"
+    "note": "update `validated` only when a pre-registered gate for that target passes",
+    "evidence_note": "alpha.8.4: one mechanism passed a held-out gate in DEV21, opt-in"
   },
   "devs": [
     {
@@ -88,6 +92,16 @@
       "of": 483,
       "promoted": false,
       "report": "asm_alpha8/ALPHA8_CODING_DEV20_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV21",
+      "date": "2026-11-22",
+      "title": "Sharing a candidate budget between learned sources",
+      "gate": "G21-A: no interference between learned families, held out",
+      "kind": "passed",
+      "result": "passed: relevant + unrelated donors 0.000 → 1.000 on 3 new structures (144 paired attempts, no wrong answer); Part B on learned steps not passed (2 gained, 0 lost)",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV21_IMPLEMENTATION.md"
     }
   ]
 }

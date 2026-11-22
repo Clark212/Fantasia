@@ -1,13 +1,15 @@
 # ASM Roadmap
 
-**Current: v0.4, alpha 8 (latest step DEV20). 0.4.9 (Stage 4 closure) is not promoted.**
+**Current: v0.4.0-alpha.7.9 (promoted). In development: alpha 8 = 0.4.8, not promoted; its DEV steps are experiments
+(latest DEV21).**
 
 ## How versions are named
 - **Version (0.N)**: the roadmap stage being built.
-- **Alpha N**: a development series within a stage (alpha 7.x and alpha 8 are the work toward 0.4).
-- **DEV N**: one pre-registered development step inside an alpha.
+- **Alpha N**: a development series within a stage. The last promoted release is v0.4.0-alpha.7.9; alpha 8 is the
+  series for milestone 0.4.8 (project owner).
+- **DEV N**: one pre-registered development step inside an alpha: an experiment (a side track), not a milestone.
 - **Promotion**: a version counts as reached only when it passes a pre-registered gate on fresh data. Every alpha 8
-  step so far (DEV1–DEV20) is experimental and not promoted.
+  step so far (DEV1–DEV21) is experimental and not promoted.
 
 ## Foundation era — 0.0.x
 Establish the foundation of ASM.
@@ -49,20 +51,25 @@ Smaller learned edit steps that combine give 1 of 483 (DEV20). Steps recur more 
 are generic: without knowing where the bug is, the right place competes with every other place in the function. Most
 fixes still need a step or a value ASM has not learned.
 
+Alpha 8 (0.4.8) is not promoted: its target, M4 (verified cross-task structural transfer), is not met (the plan below).
+DEV21 passed its first held-out transfer gate: sharing the candidate budget round-robin removes an interference between
+learned families (opt-in; making it the default is the owner's decision). The same rule did not significantly change
+learned edit steps on fresh fixes. Learned families are consulted only for one-input integer targets.
+
 ### Release governance and the alpha 8 plan
 - Official frozen baseline: **v0.4.0-alpha.7.9** (`asm.__version__`), milestone **M3 — Adaptive Research AI**.
-- In development: **v0.4.0-alpha.8 — Structural Transfer & Analogical Procedure Generalization**, toward
-  **M4 — Generalizing Research AI** (verified cross-task structural transfer).
+- In development: **v0.4.0-alpha.8 (milestone 0.4.8) — Structural Transfer & Analogical Procedure Generalization**,
+  toward **M4 — Generalizing Research AI** (verified cross-task structural transfer).
 - The alpha 8 sequence below lists targets, not completed milestones; none is promoted. The table shows what exists for
   each so far, keeping implemented, demonstrated and validated apart.
 
 | target | closest existing work | evidence so far |
 |---|---|---|
 | alpha.8.1 Structural Anti-Unification | `asm/coding/induction.py` (DEV17): real fixes generalized into executable procedures | demonstrated: held-out fixes reproduced in 2 other projects; transfer gate G17-1 not passed (0 of 59 real bugs) |
-| alpha.8.2 Compositional Procedure Reuse | `asm/coding/steps.py` (DEV20): steps combined at several places and in pairs | G20-1 not passed; on fresh projects the compositions cost more than they gained |
+| alpha.8.2 Compositional Procedure Reuse | `asm/coding/steps.py` (DEV20): steps combined at several places and in pairs; round-robin step sharing (DEV21, opt-in) | G20-1 not passed: the compositions cost more than they gained; DEV21 G21-B not passed (2 gained, 0 lost on 197 fresh fixes) |
 | alpha.8.3 Uncertain Analogy Mapping | `asm/structural.py` (relation schemas, structural analogies) and `asm/expansion.py`, from earlier releases | no alpha 8 report evaluates it |
-| alpha.8.4 Negative Transfer Protection | DEV4 structural-transfer experiment (`asm/learning/structtransfer.py`); procedure retire/supersede (DEV17) | DEV4: unrelated donors alone cause no negative transfer (passed), but added to relevant donors they take success from 1.00 to 0.00 (interference: failed) |
-| alpha.8.5 Held-Out Transfer Benchmarking | pre-registered fresh-project harnesses (DEV18–DEV20: 472, 103, 483 unseen fixes); DEV4 Part B (toy) | the benchmarks exist; no M4-level gate has passed |
+| alpha.8.4 Negative Transfer Protection | DEV4 structural-transfer experiment (`asm/learning/structtransfer.py`); procedure retire/supersede (DEV17); `ProcedureCortex(family_sharing='round_robin')` (DEV21, opt-in) | DEV4: unrelated donors added to relevant ones took success from 1.00 to 0.00 (interference). DEV21: round-robin family sharing removes it on three held-out structures, no wrong answer, cost ratio 1.06 (G21-A passed). One mechanism, a noise-free lab, opt-in: the target is not yet validated |
+| alpha.8.5 Held-Out Transfer Benchmarking | pre-registered fresh-project harnesses (DEV18–DEV21: 472, 103, 483, 197 unseen fixes); DEV4 Part B and DEV21 Part A (held-out structures, toy) | the benchmarks exist; no M4-level gate has passed |
 | alpha.8.6 Persistent Transfer Memory | sealed knowledge, shape and step libraries (DEV17–DEV20) | implemented; not validated as transfer memory |
 | alpha.8.7 Adversarial Generalization Hardening | none identified | not started |
 | alpha.8.8 Transfer Scaling & Efficiency | DEV19 (12.6× training data); lazy candidate building (DEV20) | more data added no reproduced fix (DEV19) |
