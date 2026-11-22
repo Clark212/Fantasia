@@ -21,7 +21,7 @@
     "validated": 0,
     "details": "ROADMAP.md#release-governance-and-the-alpha-8-plan",
     "note": "update `validated` only when a pre-registered gate for that target passes",
-    "evidence_note": "alpha.8.4: one mechanism passed a held-out gate in DEV21, now the default"
+    "evidence_note": "DEV21 and DEV22 each passed a held-out gate in a noise-free lab"
   },
   "devs": [
     {
@@ -102,6 +102,16 @@
       "result": "passed: relevant + unrelated donors 0.000 → 1.000 on 3 new structures (144 paired attempts, no wrong answer); Part B on learned steps not passed (2 gained, 0 lost)",
       "promoted": false,
       "report": "asm_alpha8/ALPHA8_CODING_DEV21_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV22",
+      "date": "2026-11-22",
+      "title": "Learned families for two-input targets",
+      "gate": "G22-A: families transfer to held-out two-input tasks",
+      "kind": "passed",
+      "result": "passed: relevant donors 0.229 → 0.993 on 3 new two-input structures (110 vs 0 paired), no wrong answer, no loss on affine targets",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV22_IMPLEMENTATION.md"
     }
   ]
 }

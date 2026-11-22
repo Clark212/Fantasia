@@ -10,19 +10,20 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
   not promoted (Structural Transfer & Analogical Procedure Generalization, toward M4); alpha 7.8 delivered 0.4.7 and
   0.4.8 ("Latent Dependency Structure & Higher-Order Epistemic Routing"). DEV steps are experiments inside
   alpha 8 (side tracks), not milestones; none is promoted. The alpha.8.1–8.9 plan and its evidence: `ROADMAP.md`, Stage 4.
-- Latest: **DEV21** (sharing a candidate budget between learned sources; alpha.8.4). G21-A **passed** on held-out
-  structures: `ProcedureCortex(family_sharing='round_robin')` removes DEV4's interference between learned families.
-  It is the default since the owner approved it after DEV21; `family_sharing='listing'` reproduces DEV4 and DEV21's
-  controls. Part B (the same rule and an exception-site guard for learned steps, on 197 fresh fixes) did not pass.
+- Latest: **DEV22** (learned families for two-input targets; alpha.8.2/8.5). G22-A **passed** on held-out two-input
+  structures: `ProcedureCortex(family_scope='any_int')` (opt-in; making it the default is the owner's decision) lets
+  families propose for integer targets with 2–4 inputs, before the affine solve. DEV21 before it: round-robin family
+  sharing (`family_sharing='round_robin'`, the default since the owner approved it) removed DEV4's interference.
 - Records: reports `asm_alpha8/ALPHA8_CODING_DEV*_IMPLEMENTATION.md`; pre-registrations and amendments
   `asm_alpha8/benchmarks/preregistration/`; raw results `asm_alpha8/benchmarks/results/devN/` (hash-chained JSONL; never
   edit); progress page `README.md` from `progress/`.
-- Tests: `cd asm_alpha8 && python3 -m pytest -q tests/test_alpha8_*.py` (562 passed, 3 skipped at DEV21). The whole
+- Tests: `cd asm_alpha8 && python3 -m pytest -q tests/test_alpha8_*.py` (567 passed, 3 skipped at DEV22). The whole
   `tests/` directory has 57 more failures in v0.2–v0.4 modules that need PyTorch, which is not installed (checked at
   DEV21: identical without DEV21's changes), and `test_v030a7.py`, `test_v030a9.py`, `test_v030a10.py` cannot import.
 - Open work:
-  - Next, chosen by the owner: DEV22, structural transfer beyond one-input integer targets. `ProcedureCortex.induce`
-    consults learned families only when the target has one integer input.
+  - Owner decision: make `family_scope='any_int'` the default (DEV22 report).
+  - Recommended next (DEV22 report): DEV23, alpha.8.3: let a family learned over one set of input names apply to a
+    target over another (families need identical input names today; the composer already remaps whole donors).
   - DEV16's study needs generated pairs from the owner's PC (`asm_alpha8/tools/generate_pairs.py`, instructions in
     `asm_alpha8/tools/README_DEV16_DATA.md`).
   - The repair workflow on real bugs with fault localization (DEV20 report) on DEV15's 83 BugsInPy bugs
