@@ -1,0 +1,28 @@
+======== markdown@1aedcafa01ac:CodeHiliteExtension.extendMarkdown
+  S20    default      hit within 80: None | rank among singles: None | first 80 by kind {'single': 50, 'multi': 15, 'pair': 15}
+  S20    single-only  hit within 80: 62 | rank among singles: 62 | first 80 by kind {'single': 80}
+  noexc  default      hit within 80: 38 | rank among singles: 38 | first 80 by kind {'single': 50, 'multi': 15, 'pair': 15}
+  noexc  single-only  hit within 80: 38 | rank among singles: 38 | first 80 by kind {'single': 80}
+   step expr Assign.value holes {} | in S20 lib: True active
+   S20 single candidates from steps with an exc hole: 24
+======== mistune@e17c751a1f09:DirectiveToc.__init__
+  S20    default      hit within 80: None | rank among singles: None | first 80 by kind {'single': 59, 'multi': 15, 'pair': 6}
+  S20    single-only  hit within 80: 59 | rank among singles: 59 | first 80 by kind {'single': 80}
+  noexc  default      hit within 80: None | rank among singles: None | first 80 by kind {'single': 59, 'multi': 15, 'pair': 6}
+  noexc  single-only  hit within 80: 59 | rank among singles: 59 | first 80 by kind {'single': 80}
+   step expr Assign.value holes {'c0': 'name'} | in S20 lib: True active
+   S20 single candidates from steps with an exc hole: 0
+======== babel@f8cae8e2a163:ExtractMessages.finalize_options
+  S20    default      hit within 80: None | rank among singles: None | first 80 by kind {'single': 50, 'multi': 15, 'pair': 15}
+  S20    single-only  hit within 80: 70 | rank among singles: 70 | first 80 by kind {'single': 80}
+  noexc  default      hit within 80: 30 | rank among singles: 30 | first 80 by kind {'single': 50, 'multi': 15, 'pair': 15}
+  noexc  single-only  hit within 80: 30 | rank among singles: 30 | first 80 by kind {'single': 80}
+   step expr Call.args holes {} | in S20 lib: True active
+   S20 single candidates from steps with an exc hole: 46
+======== babel@47072d2c9639:PluralRule.__init__
+  S20    default      hit within 80: None | rank among singles: None | first 80 by kind {'single': 50, 'multi': 15, 'pair': 15}
+  S20    single-only  hit within 80: 56 | rank among singles: 56 | first 80 by kind {'single': 80}
+  noexc  default      hit within 80: 16 | rank among singles: 16 | first 80 by kind {'single': 50, 'multi': 15, 'pair': 15}
+  noexc  single-only  hit within 80: 16 | rank among singles: 16 | first 80 by kind {'single': 80}
+   step expr Call.args holes {} | in S20 lib: True active
+   S20 single candidates from steps with an exc hole: 40

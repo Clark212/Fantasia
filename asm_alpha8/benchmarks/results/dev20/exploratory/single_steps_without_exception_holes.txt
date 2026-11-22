@@ -1,0 +1,19 @@
+{
+ "problems": 483,
+ "single_steps_without_exception_holes": 7,
+ "new": [
+  "babel@47072d2c9639:PluralRule.__init__"
+ ],
+ "s20": 4,
+ "s20_single_only": 7,
+ "s20_without_exception_holes": 7,
+ "reproduced": [
+  "lark@7398ba0087f3:Template.search",
+  "deepdiff@85766fb4ab2f:Delta.__init__",
+  "markdown@dbd6676ca554:HeaderIdTreeprocessor.run",
+  "markdown@1aedcafa01ac:CodeHiliteExtension.extendMarkdown",
+  "mistune@e17c751a1f09:DirectiveToc.__init__",
+  "babel@f8cae8e2a163:ExtractMessages.finalize_options",
+  "babel@47072d2c9639:PluralRule.__init__"
+ ]
+}
