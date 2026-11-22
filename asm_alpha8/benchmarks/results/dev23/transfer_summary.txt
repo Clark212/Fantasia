@@ -1,0 +1,80 @@
+{
+ "G23-A": "passed",
+ "checks": {
+  "C1_gain_over_control": true,
+  "C2_no_role_order_penalty": true,
+  "C3_transfer_gain": true,
+  "C4_no_interference": true,
+  "C5_no_false_transfer": true,
+  "C6_safe": true,
+  "C7_no_regression": true,
+  "C8_unrelated_cost": true
+ },
+ "paired_relevant": {
+  "rename_only": 279,
+  "exact_only": 0,
+  "exact_one_sided_p": 1.0295115178936058e-84
+ },
+ "per_structure": {
+  "x2y_plus": {
+   "exact": 0.0,
+   "rename": 0.9688
+  },
+  "shift_ym1": {
+   "exact": 0.0,
+   "rename": 1.0
+  },
+  "x_minus_cyy": {
+   "exact": 0.0625,
+   "rename": 1.0
+  }
+ }
+}
+exact|none                       0.021 (0.007, 0.059) calls  1186.3 wrong 0 n 144
+exact|one_relevant               0.021 (0.007, 0.059) calls  1186.3 wrong 0 n 144
+exact|relevant_aligned           0.021 (0.007, 0.059) calls  1186.3 wrong 0 n 144
+exact|relevant_swapped           0.021 (0.007, 0.059) calls  1186.3 wrong 0 n 144
+exact|unrelated                  0.021 (0.007, 0.059) calls  1186.3 wrong 0 n 144
+exact|relevant_shuffled          0.000 (0.0, 0.026) calls  1493.4 wrong 0 n 144
+exact|mixed_aligned              0.021 (0.007, 0.059) calls  1186.3 wrong 0 n 144
+exact|mixed_swapped              0.021 (0.007, 0.059) calls  1186.3 wrong 0 n 144
+exact|exact_names                1.000 (0.974, 1.0) calls    11.7 wrong 0 n 144
+exact|relevant                   0.021 (0.01, 0.045) calls  1186.3 wrong 0 n 288
+exact|regression_none            1.000 (0.926, 1.0) calls     3.0 wrong 0 n 48
+exact|regression_unrelated       1.000 (0.926, 1.0) calls     3.0 wrong 0 n 48
+rename|none                      0.021 (0.007, 0.059) calls  1186.3 wrong 0 n 144
+rename|one_relevant              0.021 (0.007, 0.059) calls  1186.3 wrong 0 n 144
+rename|relevant_aligned          1.000 (0.974, 1.0) calls    20.1 wrong 0 n 144
+rename|relevant_swapped          0.979 (0.941, 0.993) calls    21.3 wrong 0 n 144
+rename|unrelated                 0.021 (0.007, 0.059) calls  1088.8 wrong 0 n 144
+rename|relevant_shuffled         0.000 (0.0, 0.026) calls  1418.9 wrong 0 n 144
+rename|mixed_aligned             0.993 (0.962, 0.999) calls    56.1 wrong 0 n 144
+rename|mixed_swapped             0.979 (0.941, 0.993) calls    57.3 wrong 0 n 144
+rename|exact_names               1.000 (0.974, 1.0) calls    11.7 wrong 0 n 144
+rename|relevant                  0.990 (0.97, 0.996) calls    20.7 wrong 0 n 288
+rename|regression_none           1.000 (0.926, 1.0) calls     3.0 wrong 0 n 48
+rename|regression_unrelated      1.000 (0.926, 1.0) calls    72.7 wrong 0 n 48
+exact|none|out_of_range          0.000 (0.0, 0.051) calls  1323.1 wrong 0 n 72
+exact|one_relevant|out_of_range  0.000 (0.0, 0.051) calls  1323.1 wrong 0 n 72
+exact|relevant_aligned|out_of_range 0.000 (0.0, 0.051) calls  1323.1 wrong 0 n 72
+exact|relevant_swapped|out_of_range 0.000 (0.0, 0.051) calls  1323.1 wrong 0 n 72
+exact|unrelated|out_of_range     0.000 (0.0, 0.051) calls  1323.1 wrong 0 n 72
+exact|relevant_shuffled|out_of_range 0.000 (0.0, 0.051) calls  1514.7 wrong 0 n 72
+exact|mixed_aligned|out_of_range 0.000 (0.0, 0.051) calls  1323.1 wrong 0 n 72
+exact|mixed_swapped|out_of_range 0.000 (0.0, 0.051) calls  1323.1 wrong 0 n 72
+exact|exact_names|out_of_range   0.083 (0.039, 0.17) calls  1223.0 wrong 0 n 72
+exact|relevant|out_of_range      0.000 (0.0, 0.026) calls  1323.1 wrong 0 n 144
+exact|regression_none|out_of_range 0.958 (0.798, 0.993) calls    66.9 wrong 0 n 24
+exact|regression_unrelated|out_of_range 0.958 (0.798, 0.993) calls    66.9 wrong 0 n 24
+rename|none|out_of_range         0.000 (0.0, 0.051) calls  1323.1 wrong 0 n 72
+rename|one_relevant|out_of_range 0.000 (0.0, 0.051) calls  1323.1 wrong 0 n 72
+rename|relevant_aligned|out_of_range 0.000 (0.0, 0.051) calls  1271.4 wrong 0 n 72
+rename|relevant_swapped|out_of_range 0.000 (0.0, 0.051) calls  1271.4 wrong 0 n 72
+rename|unrelated|out_of_range    0.000 (0.0, 0.051) calls  1216.7 wrong 0 n 72
+rename|relevant_shuffled|out_of_range 0.000 (0.0, 0.051) calls  1448.6 wrong 0 n 72
+rename|mixed_aligned|out_of_range 0.000 (0.0, 0.051) calls  1165.0 wrong 0 n 72
+rename|mixed_swapped|out_of_range 0.000 (0.0, 0.051) calls  1165.0 wrong 0 n 72
+rename|exact_names|out_of_range  0.083 (0.039, 0.17) calls  1223.0 wrong 0 n 72
+rename|relevant|out_of_range     0.000 (0.0, 0.026) calls  1271.4 wrong 0 n 144
+rename|regression_none|out_of_range 0.958 (0.798, 0.993) calls    66.9 wrong 0 n 24
+rename|regression_unrelated|out_of_range 0.958 (0.798, 0.993) calls   127.6 wrong 0 n 24
