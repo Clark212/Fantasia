@@ -518,9 +518,10 @@ class ProcedureCortex:
     EXTRAPOLATION_GUARDS=('off','abstain','discount')
     FAMILY_SHARING=('listing','round_robin')
     FAMILY_SCOPES=('one_input','any_int')
+    FAMILY_MAPPINGS=('exact','rename')
 
     def __init__(self,db_path,*,trust_provider,dependency_provider=None,extrapolation_guard='abstain',extrapolation_confidence_cap=.5,
-                 family_sharing='round_robin',family_scope='one_input'):
+                 family_sharing='round_robin',family_scope='one_input',family_mapping='exact'):
         # Honesty guard (DEFAULT 'abstain' since DEV3.3; 'off' restores the pre-DEV3.2 behaviour). 'abstain': refuse queries whose integer
         # inputs lie outside the range of the evidence behind the active procedure. 'discount': still answer, but cap confidence at the cap.
         if extrapolation_guard not in self.EXTRAPOLATION_GUARDS:raise ValueError('invalid extrapolation guard')
@@ -534,7 +535,10 @@ class ProcedureCortex:
         # DEV22 (experimental, opt-in): which integer targets learned families propose for. 'one_input' (default,
         # unchanged): only targets with one integer input. 'any_int': also targets with 2-4 integer inputs.
         if family_scope not in self.FAMILY_SCOPES:raise ValueError('invalid family scope')
-        self.family_sharing=family_sharing;self.family_scope=family_scope
+        # DEV23 (experimental, opt-in): 'exact' (default, unchanged): a family applies only to targets with its own input
+        # names. 'rename': also to targets whose inputs differ only by name, under every renaming (_renamings).
+        if family_mapping not in self.FAMILY_MAPPINGS:raise ValueError('invalid family mapping')
+        self.family_sharing=family_sharing;self.family_scope=family_scope;self.family_mapping=family_mapping
         self.db=sqlite3.connect(str(db_path))
         self.db.execute('PRAGMA journal_mode=WAL')
         self.trust_provider=trust_provider
@@ -754,15 +758,34 @@ class ProcedureCortex:
         rows=self.db.execute('SELECT '+','.join(names)+' FROM procedure_versions WHERE mechanism=? AND context=? ORDER BY version',(mechanism,context))
         return [{k:(json.loads(v) if k in ('program','dependencies') else v) for k,v in zip(names,r)} for r in rows]
 
-    def _family_candidates(self,input_types,budget):
-        """At most `budget` instantiations (parameters -8..8) of the learned families with this input schema: 'listing'
-        takes the families one after another (DEV4's interference), 'round_robin' one instantiation from each in turn."""
-        streams=[[(f,v) for v in itertools.product(range(-8,9),repeat=f['parameters'])]
-                 for f in self.families() if f['inputs']==input_types]
+    def _renamings(self,src,dst):
+        """Renamings {family input: target input} under which a family applies: the identity when the inputs are equal;
+        with family_mapping='rename', every type-preserving bijection otherwise, positional (sorted) order first."""
+        if src==dst:return [{}]
+        if self.family_mapping!='rename' or len(src)!=len(dst):return []
+        maps=(dict(zip(sorted(src),p)) for p in itertools.permutations(sorted(dst)))
+        return [m for m in maps if all(src[k]==dst[v] for k,v in m.items())]
+
+    def _family_candidates(self,input_types,budget,ceiling=0):
+        """At most `budget` instantiations (parameters -8..8) of the learned families that apply to this schema: 'listing'
+        takes the sources one after another (DEV4's interference), 'round_robin' one instantiation from each in turn. With
+        family_mapping='rename' each family and renaming is a source, and the budget grows to 17 proposals (one parameter
+        range) per source, up to `ceiling`."""
+        streams=[[(f,m,v) for v in itertools.product(range(-8,9),repeat=f['parameters'])]
+                 for f in self.families() for m in self._renamings(f['inputs'],input_types)]
+        if self.family_mapping=='rename':budget=max(budget,min(ceiling,17*len(streams)))
         order=(itertools.chain.from_iterable(streams) if self.family_sharing=='listing' else
                (x for turn in itertools.zip_longest(*streams) for x in turn if x is not None))
-        for family,values in itertools.islice(order,budget):
-            yield Program(dict(input_types),substitute(family['template'],{f'${i}':v for i,v in enumerate(values)})),'family:'+family['id']
+        for f,m,values in itertools.islice(order,budget):
+            tag='@'+','.join(f'{k}={v}' for k,v in sorted(m.items())) if m else ''
+            tree=self._rename_inputs(f['template'],m) if m else f['template']
+            yield Program(dict(input_types),substitute(tree,{f'${i}':v for i,v in enumerate(values)})),'family:'+f['id']+tag
+
+    @staticmethod
+    def _rename_inputs(tree,m):
+        """Rename input leaves only: an input may share an operator's name (e.g. 'min'), which substitute would rename."""
+        if isinstance(tree,tuple):return (tree[0],*(ProcedureCortex._rename_inputs(x,m) for x in tree[1:]))
+        return m.get(tree,tree) if isinstance(tree,str) else tree
 
     def families(self):
         rows=self.db.execute("SELECT mechanism,context,version,program FROM procedure_versions WHERE state='active' ORDER BY mechanism,context,version LIMIT 32").fetchall()
@@ -1264,7 +1287,7 @@ class ProcedureCortex:
                 yield Program({'x':'int'},'x'),'grammar'
                 yield Program({'x':'int'},('mul','x','x')),'grammar'
                 family_budget=min(64,max(0,budget-291))
-                if use_families and family_budget:yield from self._family_candidates({'x':'int'},family_budget)
+                if use_families and family_budget:yield from self._family_candidates({'x':'int'},family_budget,max(0,budget-291))
                 for a in range(-8,9):
                     for b in range(-8,9):yield Program({'x':'int'},('add',('mul',a,'x'),b)),'grammar'
             seen=set();evaluations=0;count=0
@@ -1307,7 +1330,7 @@ class ProcedureCortex:
         if all_int and len(input_types)>=2 and use_families and self.family_scope=='any_int':
             # DEV22: learned families with this input schema first (as for one-input targets), inside the same
             # budget; three fit points almost always admit an exact integer affine fit, which would pre-empt them
-            for program,origin in self._family_candidates(input_types,min(64,budget)):
+            for program,origin in self._family_candidates(input_types,min(64,budget),budget//2):
                 fam_count+=1
                 try:
                     for e in examples:
