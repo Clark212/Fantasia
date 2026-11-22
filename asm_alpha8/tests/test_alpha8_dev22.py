@@ -46,5 +46,18 @@ class FamilyScopeTests(unittest.TestCase):
             self.assertEqual(a, b)
 
 
+    def test_queries_for_a_fit_near_the_top_corner(self):
+        """Amendment A1: the held-out run stopped when the region from the fit's lowest coordinates to 9 had < 6 pairs."""
+        import random
+        fit = [(7, 9), (8, 8), (9, 9)]
+        q = D.queries_for(fit, random.Random(1))
+        self.assertEqual(len(q), 6)
+        self.assertFalse(set(q) & (set(fit) | set(D.VALIDATION)))
+        self.assertTrue(all(7 <= x <= 17 and 8 <= y <= 17 for x, y in q))  # inside the evidence range
+        typical = [(1, 2), (4, 0), (6, 5)]                                   # a typical fit draws exactly as before
+        old = random.Random(3).sample(sorted({(x, y) for x in range(1, 10) for y in range(0, 10)} - set(typical)), 6)
+        self.assertEqual(D.queries_for(typical, random.Random(3)), old)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -64,11 +64,21 @@ def install(cortex, donors):
     return sum(v["state"] == "active" for name, _, _ in donors for v in cortex.versions(name))
 
 
+def queries_for(fit, rng, n=6):
+    """n query pairs from the fit's lowest coordinates up to 9, not fit pairs. Amendment A1: when that region has fewer
+    than n (a fit near the grid's top corner), it extends to 17, the validation pairs' range (still inside the evidence
+    range), minus the validation pairs; every other attempt draws exactly as before."""
+    lo = (min(x for x, _ in fit), min(y for _, y in fit))
+    pool = sorted({(x, y) for x in range(lo[0], 10) for y in range(lo[1], 10)} - set(fit))
+    if len(pool) < n:
+        pool = sorted({(x, y) for x in range(lo[0], 18) for y in range(lo[1], 18)} - set(fit) - set(VALIDATION))
+    return rng.sample(pool, n)
+
+
 def attempt(structures, structure, arm, c, fit_seed, seed, mode, unrelated=UNRELATED):
     rng = random.Random(f"{seed}:attempt:{structure}:{c}:{fit_seed}")
     fit = sorted(rng.sample([(x, y) for x in range(10) for y in range(10)], 3))
-    lo = (min(x for x, _ in fit), min(y for _, y in fit))
-    queries = rng.sample(sorted({(x, y) for x in range(lo[0], 10) for y in range(lo[1], 10)} - set(fit)), 6)
+    queries = queries_for(fit, rng)
     truth = structures[structure](c)[1]
     c1, c2 = T.donor_constants(c, fit_seed, seed)
     relevant = [(f"z_rel_{structure}_{'m' if k < 0 else 'p'}{abs(k)}", *structures[structure](k)) for k in (c1, c2)]
