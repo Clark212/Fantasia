@@ -1,0 +1,15 @@
+{"repo": "six", "head": "c8e394065cd5", "commits": 504, "fix_message": 107, "examples": 4, "with_test_context": 1}
+{"repo": "colorama", "head": "841634ed2a0d", "commits": 293, "fix_message": 73, "examples": 17, "with_test_context": 3}
+{"repo": "prettytable", "head": "49c0ecbd0c9e", "commits": 659, "fix_message": 123, "examples": 20, "with_test_context": 11}
+{"repo": "simplejson", "head": "d88746d03b0a", "commits": 604, "fix_message": 140, "examples": 2, "with_test_context": 1}
+{"repo": "sortedcontainers", "head": "3ac358631f58", "commits": 632, "fix_message": 91, "examples": 6, "with_test_context": 5}
+{"repo": "pyrsistent", "head": "0c0b7aec8cd2", "commits": 639, "fix_message": 133, "examples": 21, "with_test_context": 14}
+{"repo": "funcy", "head": "a876c7e1cf11", "commits": 1062, "fix_message": 142, "examples": 25, "with_test_context": 16}
+fatal: could not read Username for 'https://github.com': terminal prompts disabled
+{"repo": "jsonpatch", "error": "CalledProcessError(128, ['git', 'clone', '-q', '--filter=blob:none', 'https://github.com/stefankoegel/python-json-patch', '/tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratc"}
+{"repo": "box", "head": "e6d83100b320", "commits": 59, "fix_message": 1, "examples": 0, "with_test_context": 0}
+{"repo": "cattrs", "head": "e9239b708220", "commits": 980, "fix_message": 205, "examples": 23, "with_test_context": 16}
+{"repo": "parso", "head": "ba2e257fb082", "commits": 1103, "fix_message": 295, "examples": 61, "with_test_context": 39}
+{"repo": "asttokens", "head": "0c0aa5c2044d", "commits": 363, "fix_message": 88, "examples": 18, "with_test_context": 10}
+{"head": "ef7d7978437443f4a48940a40c851bb6f00bc0053fd90db0fe3b13bcdb46936c"}
+MINEDONE
