@@ -1,0 +1,14 @@
+{
+ "fixes": 1254,
+ "projects": 32,
+ "steps_covered": 304,
+ "shapes_covered": 240,
+ "several_different_changes": 192,
+ "different_changes_steps_covered": 34,
+ "different_changes_shapes_covered": 0,
+ "same_change_at_several_places": 50,
+ "same_change_steps_covered": 16,
+ "of_these_shapes_covered_multisite": 0,
+ "no_steps": 1,
+ "a_step_over_2_values": 369
+}

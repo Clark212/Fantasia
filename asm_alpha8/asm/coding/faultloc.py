@@ -903,11 +903,12 @@ class RepairWorkflow:
                  time_budget_seconds: float = 180.0, confirm_runs: int = 1, ledger: FailureLedger | None = None,
                  semantic_check: bool = True, counterexamples: bool = True, explore_alternatives: bool = True,
                  max_extra_candidates: int = 30, competing_max_suspects: int = 8, competing_time_seconds: float = 75.0,
-                 extended_ops: bool = True, ranker=None, knowledge=None, shapes=None):
+                 extended_ops: bool = True, ranker=None, knowledge=None, shapes=None, steps=None):
         self.counterexamples = counterexamples
         self.ranker = ranker  # DEV16 learned candidate ordering (asm.coding.learned.CandidateRanker); None = DEV15 order
         self.knowledge = knowledge  # DEV17 learned procedures (asm.coding.knowledge.KnowledgeBase): phase 3; None = off
         self.shapes = shapes  # DEV18 learned shapes, content from the problem (asm.coding.shapes.ShapeLibrary); None = off
+        self.steps = steps  # DEV20 learned edit steps that combine (asm.coding.steps.StepLibrary); None = off
         self.extended_ops = extended_ops  # DEV15 repair families (repair_ops); False reproduces the DEV14 repair space
         self.explore_alternatives, self.max_extra_candidates = explore_alternatives, max_extra_candidates
         self.competing_max_suspects, self.competing_time = competing_max_suspects, competing_time_seconds
@@ -1009,7 +1010,7 @@ class RepairWorkflow:
                 # the per-suspect candidate cap on a fresh-subject smoke run (parse.date_convert), so DEV15 lost a
                 # repair DEV14 makes.
                 phases = [1, 2] if self.extended_ops else [1]
-                if self.knowledge is not None or self.shapes is not None:
+                if self.knowledge is not None or self.shapes is not None or self.steps is not None:
                     phases.append(3)  # DEV17/18: procedures ASM learned itself, only when no built-in operation worked
                 for phase in phases:
                     extended_phase = phase >= 2
@@ -1021,10 +1022,19 @@ class RepairWorkflow:
                         source = (work / sus.path).read_text(encoding="utf-8")
                         if phase == 3:
                             span = next(((a, b) for q, a, b in ranges_by_file[sus.path] if q == sus.qname), (sus.line, sus.end_line))
-                            cands = self.knowledge.candidates_for(source, sus.path, span) if self.knowledge is not None else []
+                            # DEV20: with steps, each learned layer keeps a share of the 80 (procedures alone filled
+                            # the budget on most DEV19 problems): procedures <= 30, shapes <= 20, steps the rest
+                            k_lim, s_lim = (30, 20) if self.steps is not None else (None, 80)
+                            cands = (self.knowledge.candidates_for(source, sus.path, span, **({"limit": k_lim} if k_lim else {}))
+                                     if self.knowledge is not None else [])
+                            pctx = None
                             if self.shapes is not None:  # DEV18: learned shapes, content filled from this problem
                                 pctx = _problem_context(work, spectrum, source)
-                                cands += self.shapes.candidates_for(source, sus.path, span, pctx, limit=max(0, 80 - len(cands)))
+                                cands += self.shapes.candidates_for(source, sus.path, span, pctx,
+                                                                    limit=max(0, min(s_lim, 80 - len(cands))))
+                            if self.steps is not None:  # DEV20: learned steps, single, multi-site and paired
+                                pctx = pctx or _problem_context(work, spectrum, source)
+                                cands += self.steps.candidates_for(source, sus.path, span, pctx, limit=max(0, 80 - len(cands)))
                         else:
                             cands = generate_candidates(source, sus.path, sus, ranges_by_file[sus.path], loc.line_scores,
                                                         extended=extended_phase, failure_texts=list(spectrum.failures.values()))
@@ -1158,7 +1168,8 @@ class RepairWorkflow:
                               "behavioural_verdict": verdict, "behavioural_note": verdict_note,
                               "edit_family": family_of(best.reason),
                               "learned_procedure": getattr(cand, "meta", {}).get("procedure"),
-                              "learned_shape": getattr(cand, "meta", {}).get("shape")})
+                              "learned_shape": getattr(cand, "meta", {}).get("shape"),
+                              "learned_step": getattr(cand, "meta", {}).get("step")})
                 steps[-1]["competing_patches"] = competing
                 steps[-1]["alternatives_passing"] = alternatives[:8]
                 steps[-1]["tied_with"] = tied[:8]
