@@ -503,7 +503,7 @@ import itertools
 import json
 import sqlite3
 from .evidence_lineage import bounded_id
-from .procedure_program import Program,anti_unify,substitute,choose_experiment
+from .procedure_program import Program,anti_unify,substitute,choose_experiment,freeze
 
 
 def pack(value):return json.dumps(value,sort_keys=True,separators=(',',':'))
@@ -521,10 +521,11 @@ class ProcedureCortex:
     FAMILY_MAPPINGS=('exact','rename')
     FAMILY_PARAMETERS=('enumerate','solve')
     FAMILY_AMBIGUITY=('first','ask')
+    FAMILY_MEMORY=('window','index')
 
     def __init__(self,db_path,*,trust_provider,dependency_provider=None,extrapolation_guard='abstain',extrapolation_confidence_cap=.5,
                  family_sharing='round_robin',family_scope='any_int',family_mapping='rename',family_parameters='enumerate',
-                 family_ambiguity='first'):
+                 family_ambiguity='first',family_memory='window'):
         # Honesty guard (DEFAULT 'abstain' since DEV3.3; 'off' restores the pre-DEV3.2 behaviour). 'abstain': refuse queries whose integer
         # inputs lie outside the range of the evidence behind the active procedure. 'discount': still answer, but cap confidence at the cap.
         if extrapolation_guard not in self.EXTRAPOLATION_GUARDS:raise ValueError('invalid extrapolation guard')
@@ -550,8 +551,11 @@ class ProcedureCortex:
         # 'ask': on a 2-4-input target, when two or more solved candidates fit and disagree somewhere, induce returns
         # needs_information with the input that separates them best (_disagreement_query) instead of guessing.
         if family_ambiguity not in self.FAMILY_AMBIGUITY:raise ValueError('invalid family ambiguity')
+        # DEV27 (experimental, opt-in): 'window' (default, unchanged): families of the first 32 active versions (by name),
+        # at most 16. 'index': every family, from an index kept in the database (_indexed_families).
+        if family_memory not in self.FAMILY_MEMORY:raise ValueError('invalid family memory')
         self.family_sharing=family_sharing;self.family_scope=family_scope;self.family_mapping=family_mapping
-        self.family_parameters=family_parameters;self.family_ambiguity=family_ambiguity
+        self.family_parameters=family_parameters;self.family_ambiguity=family_ambiguity;self.family_memory=family_memory
         self.db=sqlite3.connect(str(db_path))
         self.db.execute('PRAGMA journal_mode=WAL')
         self.trust_provider=trust_provider
@@ -576,6 +580,8 @@ class ProcedureCortex:
           matched INTEGER NOT NULL, PRIMARY KEY(mechanism,context,version,root));
         CREATE TABLE IF NOT EXISTS procedure_families(
           id TEXT PRIMARY KEY, inputs TEXT NOT NULL, template TEXT NOT NULL, parents TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS procedure_family_index(
+          mechanism TEXT NOT NULL, context TEXT NOT NULL, version INTEGER NOT NULL, PRIMARY KEY(mechanism,context,version));
         CREATE TABLE IF NOT EXISTS procedure_audit(
           seq INTEGER PRIMARY KEY, mechanism TEXT NOT NULL, context TEXT NOT NULL,
           version INTEGER NOT NULL, event TEXT NOT NULL, evidence_id TEXT);
@@ -857,6 +863,7 @@ class ProcedureCortex:
         return m.get(tree,tree) if isinstance(tree,str) else tree
 
     def families(self):
+        if self.family_memory=='index':return self._indexed_families()
         rows=self.db.execute("SELECT mechanism,context,version,program FROM procedure_versions WHERE state='active' ORDER BY mechanism,context,version LIMIT 32").fetchall()
         families={}
         for a,b in itertools.combinations(rows,2):
@@ -874,6 +881,36 @@ class ProcedureCortex:
                 self.db.execute('INSERT OR IGNORE INTO procedure_families VALUES(?,?,?,?)',
                     (family['id'],pack(family['inputs']),pack(family['template']),pack(family['parents'])))
         return result
+
+    def _indexed_families(self):
+        """DEV27 (family_memory='index'): families from an index kept in the database, instead of the first 32 active
+        versions. Each active version not yet indexed is anti-unified once with every active version that has the same
+        inputs (as families() does), and each family found is stored with its parents. Every distinct template whose
+        parents are both active is returned, ordered by its parents, with no cap of 16. The index survives reopening."""
+        rows=self.db.execute("SELECT mechanism,context,version,program FROM procedure_versions WHERE state='active' ORDER BY mechanism,context,version").fetchall()
+        active={tuple(r[:3]):self._program(r[3]) for r in rows}
+        indexed={tuple(r) for r in self.db.execute('SELECT mechanism,context,version FROM procedure_family_index')}
+        seen=[k for k in active if k in indexed]
+        with self.db:
+            for k in (k for k in active if k not in indexed):
+                for j in seen:
+                    a,b=sorted((j,k));pa,pb=active[a],active[b]
+                    result=anti_unify(pa.expression,pb.expression) if pa.inputs==pb.inputs else None
+                    if result:
+                        family={'inputs':dict(pa.inputs),'template':result[0],'parameters':result[1],'parents':[a,b]}
+                        self.db.execute('INSERT OR IGNORE INTO procedure_families VALUES(?,?,?,?)',(hashlib.sha256(pack(family).encode()).hexdigest()[:24],
+                                        pack(family['inputs']),pack(family['template']),pack(family['parents'])))
+                seen.append(k)
+                self.db.execute('INSERT OR IGNORE INTO procedure_family_index VALUES(?,?,?)',k)
+        holes=lambda t:set().union(*map(holes,t)) if isinstance(t,tuple) else {t} if isinstance(t,str) and t[:1]=='$' else set()
+        found={}
+        for fid,inputs,template,parents in self.db.execute('SELECT id,inputs,template,parents FROM procedure_families'):
+            parents=[tuple(p) for p in json.loads(parents)]
+            if all(p in active for p in parents):
+                tree=freeze(json.loads(template));key=(inputs,pack(tree))
+                if key not in found or parents<found[key]['parents']:
+                    found[key]={'inputs':json.loads(inputs),'template':tree,'parameters':len(holes(tree)),'parents':parents,'id':fid}
+        return sorted(found.values(),key=lambda f:f['parents'])
 
     @staticmethod
     def _affine_expression(input_names, coefficients, bias):

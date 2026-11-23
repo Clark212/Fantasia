@@ -38,6 +38,7 @@ def main():
     counts = lambda r: {k: v for k, v in r.items() if k not in ("candidates", "evaluator_calls")}  # noqa: E731
     for harness, flags, committed in RUNS:
         out = scratch / committed.replace("/", "_")
+        out.unlink(missing_ok=True)  # a leftover run would be appended to, not replaced
         subprocess.run([sys.executable, __file__, "--run", options, harness, str(out), *flags], check=True, stdout=subprocess.DEVNULL)
         a, b = ([r for r in read_records(p)[1] if r.get("part") == "attempt"] for p in (out, ROOT / "benchmarks" / "results" / committed))
         assert len(a) == len(b), (committed, len(a), len(b))
