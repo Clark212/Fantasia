@@ -1,7 +1,7 @@
 # ASM Roadmap
 
 **Current: v0.4.0-alpha.7.9 (promoted). In development: alpha 8 = 0.4.9, not promoted; its DEV steps are experiments
-(latest DEV25).**
+(latest DEV26).**
 
 ## How versions are named
 - **Version (0.N)**: the roadmap stage being built.
@@ -9,7 +9,7 @@
   series for milestone 0.4.9, the Stage 4 closure; alpha 7.8 delivered 0.4.7 and 0.4.8 (project owner).
 - **DEV N**: one pre-registered development step inside an alpha: an experiment (a side track), not a milestone.
 - **Promotion**: a version counts as reached only when it passes a pre-registered gate on fresh data. Every alpha 8
-  step so far (DEV1–DEV25) is experimental and not promoted.
+  step so far (DEV1–DEV26) is experimental and not promoted.
 
 ## Foundation era — 0.0.x
 Establish the foundation of ASM.
@@ -62,7 +62,9 @@ DEV24 extends the transfer to three-input targets (six mappings per family; held
 orders) and measures wrong labels: each costs exactly its own attempt, with no wrong answer. When 18 sources share the
 family budget, 3 of 16 constants are out of reach. DEV25 solves a family's parameters from the fit examples instead of
 enumerating −8..8 (opt-in; held-out gate passed): constants beyond the grid and beyond the budget's reach transfer, at
-half the evaluator calls.
+half the evaluator calls. DEV26 asks for one more example when fitting candidates disagree instead of proposing the
+first (opt-in; held-out gate passed): ambiguous fits 0.817 → 0.991, and the order in which mappings are tried no longer
+matters.
 
 ### Release governance and the alpha 8 plan
 - Official frozen baseline: **v0.4.0-alpha.7.9** (`asm.__version__`), milestone **M3 — Adaptive Research AI**.
@@ -75,9 +77,9 @@ half the evaluator calls.
 |---|---|---|
 | alpha.8.1 Structural Anti-Unification | `asm/coding/induction.py` (DEV17): real fixes generalized into executable procedures | demonstrated: held-out fixes reproduced in 2 other projects; transfer gate G17-1 not passed (0 of 59 real bugs) |
 | alpha.8.2 Compositional Procedure Reuse | `asm/coding/steps.py` (DEV20): steps combined at several places and in pairs; round-robin step sharing (DEV21, opt-in) | G20-1 not passed: the compositions cost more than they gained; DEV21 G21-B not passed (2 gained, 0 lost on 197 fresh fixes) |
-| alpha.8.3 Uncertain Analogy Mapping | `ProcedureCortex(family_mapping='rename')` (DEV23; the default since the owner's approval): a learned family tried under every type-preserving mapping of its inputs onto the target's, the evidence deciding; `asm/structural.py` (relation schemas, structural analogies) and `asm/expansion.py`, from earlier releases | DEV23 G23-A passed: donors over other input names 0.021 → 0.990 on three held-out two-input structures, in both role orders, no wrong answer. One mechanism in a noise-free lab; when the fit points cannot tell mappings apart, the first is proposed (all 7 failures); same arity only. DEV24 G24-A passed: three inputs, six role orders, 0.000 → 0.979, no wrong answer |
+| alpha.8.3 Uncertain Analogy Mapping | `ProcedureCortex(family_mapping='rename')` (DEV23; the default since the owner's approval): a learned family tried under every type-preserving mapping of its inputs onto the target's, the evidence deciding; `asm/structural.py` (relation schemas, structural analogies) and `asm/expansion.py`, from earlier releases | DEV23 G23-A passed: donors over other input names 0.021 → 0.990 on three held-out two-input structures, in both role orders, no wrong answer. One mechanism in a noise-free lab; when the fit points cannot tell mappings apart, the first is proposed (all 7 failures); same arity only. DEV24 G24-A passed: three inputs, six role orders, 0.000 → 0.979, no wrong answer. DEV26 G26-A passed: asking for the input that separates fitting candidates (opt-in) takes ambiguous fits from 0.817 to 0.991 with role order irrelevant; it does not see candidates whose parameter is undetermined |
 | alpha.8.4 Negative Transfer Protection | DEV4 structural-transfer experiment (`asm/learning/structtransfer.py`); procedure retire/supersede (DEV17); `ProcedureCortex(family_sharing='round_robin')` (DEV21; the default since the owner's approval) | DEV4: unrelated donors added to relevant ones took success from 1.00 to 0.00 (interference). DEV21: round-robin family sharing removes it on three held-out structures, no wrong answer, cost ratio 1.06 (G21-A passed). One mechanism in a noise-free lab: the target is not yet validated |
-| alpha.8.5 Held-Out Transfer Benchmarking | pre-registered fresh-project harnesses (DEV18–DEV21: 472, 103, 483, 197 unseen fixes); held-out structure labs: DEV4 Part B, DEV21 Part A, DEV22 (two-input), DEV23 (other input names, two role orders), DEV24 (three inputs, wrong labels), DEV25 (constants beyond the grid) | DEV21–DEV25 lab gates passed (toy tasks; DEV24 also with wrong labels); no M4-level gate has passed |
+| alpha.8.5 Held-Out Transfer Benchmarking | pre-registered fresh-project harnesses (DEV18–DEV21: 472, 103, 483, 197 unseen fixes); held-out structure labs: DEV4 Part B, DEV21 Part A, DEV22 (two-input), DEV23 (other input names, two role orders), DEV24 (three inputs, wrong labels), DEV25 (constants beyond the grid), DEV26 (ambiguous fits, with questions) | DEV21–DEV26 lab gates passed (toy tasks; DEV24 also with wrong labels); no M4-level gate has passed |
 | alpha.8.6 Persistent Transfer Memory | sealed knowledge, shape and step libraries (DEV17–DEV20) | implemented; not validated as transfer memory |
 | alpha.8.7 Adversarial Generalization Hardening | DEV24 Part B: target and donor labels wrong at rate 0.10 (measured, no mechanism change) | G24-B passed: no wrong answer; each wrong label costs exactly its own attempt, because a hypothesis is suspended at its first contradiction. Tolerating noise would need a different contradiction policy (the owner's decision) |
 | alpha.8.8 Transfer Scaling & Efficiency | DEV19 (12.6× training data); lazy candidate building (DEV20); the per-source family budget (DEV23, measured at scale in DEV24); family parameters solved from the fit examples (DEV25, opt-in) | more data added no reproduced fix (DEV19); DEV24: 18 sources over 256 proposals reach 14 of 17 parameter values, losing 3 of 16 constants in mixed arms (fewer with four inputs). DEV25 G25-A passed: solving reaches them (0 → 1.000) and constants beyond −8..8 (0 → 0.982) at half the evaluator calls |

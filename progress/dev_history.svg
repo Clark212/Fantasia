@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="920" height="638" viewBox="0 0 920 638" role="img" aria-label="Each DEV step and how much of its pre-registered gate it reached">
-<rect x="0.5" y="0.5" width="919" height="637" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="684" viewBox="0 0 920 684" role="img" aria-label="Each DEV step and how much of its pre-registered gate it reached">
+<rect x="0.5" y="0.5" width="919" height="683" rx="8" fill="#ffffff" stroke="#d0d7de"/>
 <text x="20.0" y="34.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="600" fill="#1f2328" text-anchor="start">Each DEV and its pre-registered gate</text>
 <text x="20.0" y="56.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#59636e" text-anchor="start">The bar is the share of the gate's threshold reached; a gate passed fills it. A version moves only when a pre-registered gate passes.</text>
 <text x="470.0" y="76.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#59636e" text-anchor="middle">0</text>
@@ -73,6 +73,12 @@
 <rect x="470" y="561" width="260" height="14" rx="3" fill="#eaeef2"/>
 <rect x="470" y="561" width="260.0" height="14" rx="3" fill="#2da44e"/>
 <text x="744.0" y="572.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2da44e" text-anchor="start">gate passed</text>
-<line x1="730" y1="82" x2="730" y2="592" stroke="#1f2328" stroke-width="1" stroke-dasharray="3,3"/>
-<text x="20.0" y="620.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#59636e" text-anchor="start">Promoted: none. Version after the latest DEV: v0.4.0-alpha.7.9 (promoted).</text>
+<text x="20.0" y="611.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV26</text>
+<text x="82.0" y="611.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Asking which family candidate is right</text>
+<text x="82.0" y="628.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-23 · G26-A: one question recovers ambiguous fits, no…</text>
+<rect x="470" y="607" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="607" width="260.0" height="14" rx="3" fill="#2da44e"/>
+<text x="744.0" y="618.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2da44e" text-anchor="start">gate passed</text>
+<line x1="730" y1="82" x2="730" y2="638" stroke="#1f2328" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="20.0" y="666.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#59636e" text-anchor="start">Promoted: none. Version after the latest DEV: v0.4.0-alpha.7.9 (promoted).</text>
 </svg>

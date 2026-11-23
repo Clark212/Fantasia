@@ -21,7 +21,7 @@
     "validated": 0,
     "details": "ROADMAP.md#release-governance-and-the-alpha-8-plan",
     "note": "update `validated` only when a pre-registered gate for that target passes",
-    "evidence_note": "DEV21–DEV25 each passed held-out gates in a lab (DEV24 also with wrong labels); three family mechanisms are defaults"
+    "evidence_note": "DEV21–DEV26 each passed held-out gates in a lab (DEV24 also with wrong labels); three family mechanisms are defaults"
   },
   "devs": [
     {
@@ -142,6 +142,16 @@
       "result": "passed: beyond the −8..8 grid 0.000 → 0.982 (212 vs 0 paired), beyond the budget's reach 0.000 → 1.000 (54 vs 0), no loss, half the evaluator calls, no wrong answer",
       "promoted": false,
       "report": "asm_alpha8/ALPHA8_CODING_DEV25_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV26",
+      "date": "2026-11-23",
+      "title": "Asking which family candidate is right",
+      "gate": "G26-A: one question recovers ambiguous fits, no loss, held out",
+      "kind": "passed",
+      "result": "passed: degenerate fits 0.817 → 0.991 (150 vs 0 paired), standard fits 0.984 → 1.000, role order no longer matters, 0.03 questions per ordinary attempt, no wrong answer",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV26_IMPLEMENTATION.md"
     }
   ]
 }

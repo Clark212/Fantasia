@@ -10,12 +10,12 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
   not promoted (Structural Transfer & Analogical Procedure Generalization, toward M4); alpha 7.8 delivered 0.4.7 and
   0.4.8 ("Latent Dependency Structure & Higher-Order Epistemic Routing"). DEV steps are experiments inside
   alpha 8 (side tracks), not milestones; none is promoted. The alpha.8.1–8.9 plan and its evidence: `ROADMAP.md`, Stage 4.
-- Latest: **DEV25** (solving family parameters from the fit examples; alpha.8.8). G25-A **passed** on held-out
-  three-input structures: `ProcedureCortex(family_parameters='solve')` (opt-in; making it the default is the owner's
-  decision) reaches constants beyond −8..8 (0 → 0.982) and beyond the budget's reach (0 → 1.000) at half the evaluator
-  calls, with no loss and no wrong answer. Rules from development: two fit examples must check a solution (one-parameter
-  families with three fit points), and the solution must be identified (no neighbouring value fits). DEV24 before it:
-  three-input transfer in all six role orders; a wrong label costs exactly its own attempt.
+- Latest: **DEV26** (asking which family candidate is right; alpha.8.3). G26-A **passed** on held-out three-input
+  structures: `ProcedureCortex(family_ambiguity='ask')` (opt-in, with `family_parameters='solve'`; making them the
+  default is the owner's decision) returns `needs_information` with the separating input when two or more solved
+  candidates fit and disagree. Degenerate fits 0.817 → 0.991, standard 0.984 → 1.000, role order no longer matters,
+  no wrong answer. DEV25 before it: `family_parameters='solve'` reaches constants beyond −8..8 and beyond the budget's
+  reach at half the evaluator calls.
 - Owner-approved plan (2026-11-23), in order: DEV26 ask for a disambiguating example when fitting candidates disagree
   (alpha.8.3); DEV27 family memory past the 32 active versions `families()` reads, surviving restarts (alpha.8.6); DEV28
   noise-tolerant validation, opt-in, approved for testing only (alpha.8.7); DEV29 real-bug repair with fault
@@ -30,12 +30,12 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
 - Records: reports `asm_alpha8/ALPHA8_CODING_DEV*_IMPLEMENTATION.md`; pre-registrations and amendments
   `asm_alpha8/benchmarks/preregistration/`; raw results `asm_alpha8/benchmarks/results/devN/` (hash-chained JSONL; never
   edit); progress page `README.md` from `progress/`.
-- Tests: `cd asm_alpha8 && python3 -m pytest -q tests/test_alpha8_*.py` (588 passed, 3 skipped at DEV25). The whole
+- Tests: `cd asm_alpha8 && python3 -m pytest -q tests/test_alpha8_*.py` (593 passed, 3 skipped at DEV26). The whole
   `tests/` directory has 57 more failures in v0.2–v0.4 modules that need PyTorch, which is not installed (checked at
   DEV23: the same 57 test IDs as on the DEV22 commit), and `test_v030a7.py`, `test_v030a9.py`, `test_v030a10.py` cannot import.
 - Open work:
-  - Owner decision (DEV25 report): make `family_parameters='solve'` the default.
-  - Next: the owner-approved plan above, from DEV26.
+  - Owner decisions: make `family_parameters='solve'` (DEV25) and `family_ambiguity='ask'` (DEV26) the defaults.
+  - Next: the owner-approved plan above, from DEV27.
   - Recommended for the owner's ultra-code session (2026-11-23): the real-bug repair DEV below.
   - DEV16's study needs generated pairs from the owner's PC (`asm_alpha8/tools/generate_pairs.py`, instructions in
     `asm_alpha8/tools/README_DEV16_DATA.md`).
