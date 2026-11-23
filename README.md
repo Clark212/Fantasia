@@ -14,7 +14,7 @@
 - In development: 0.4.9 (not promoted; the DEV steps are its experiments). Next to promote: **0.4.9 = alpha 8**.
 - Open: 0.3.5, generalization to unseen data is not yet shown (ROADMAP.md).
 - Not started: 51 (everything after 0.4.9).
-- Alpha 8 plan toward M4 — Generalizing Research AI: 0 of 9 targets validated (DEV21, DEV22 and DEV23 each passed a held-out gate in a noise-free lab); what exists for each: [ROADMAP.md](ROADMAP.md#release-governance-and-the-alpha-8-plan).
+- Alpha 8 plan toward M4 — Generalizing Research AI: 0 of 9 targets validated (DEV21, DEV22 and DEV23 each passed a held-out gate in a noise-free lab; all three are now defaults); what exists for each: [ROADMAP.md](ROADMAP.md#release-governance-and-the-alpha-8-plan).
 
 ![Each DEV and its pre-registered gate](progress/dev_history.svg)
 

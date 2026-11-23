@@ -152,4 +152,24 @@ settle.
   example, through the cortex's existing information-query path, instead of proposing the first.
 - Each of these is a change made after seeing DEV23 data, so it needs its own pre-registration and held-out tasks.
 
+## After the report: the owner's decision
+The project owner approved making `family_scope='any_int'` (DEV22) and `family_mapping='rename'` (DEV23) the cortex's
+defaults (2026-11-23). `'one_input'` and `'exact'` remain available; `asm.__version__` is unchanged (nothing is
+promoted). `induce` and `auto_induce` use families by default, so the change reaches every caller, the engine's
+procedure cortex included. When learned families exist, an all-integer target with 2–4 inputs now tries their
+instantiations, under every renaming, before the exact affine solve, inside the same budget of 512.
+
+Measured on the new defaults (`benchmarks/results/dev23/development/default_flip_check.txt`):
+- **The committed lab harnesses, run unchanged:** DEV21's development lab (DEV4's structure), DEV22's two runs and
+  DEV23's two runs reproduce every attempt record. DEV21's held-out lab differs in 162 of 3,888 attempts. 18 gain
+  success and none lose (the four-family arm at c = 8, as in the development check above); the other 144 differ only
+  in candidate and evaluator counts. Its committed records reproduce with `benchmarks/dev23_lab_check.py exact`.
+- **Older release benchmarks** that build a default cortex (`benchmark_alpha79.py`, `benchmark_alpha77_covariance.py`,
+  `benchmark_v040a73_performance.py`), run from scratch copies so that no committed result file is overwritten: every
+  field except timings is unchanged. `benchmark_v040a72_performance.py` already stopped on the old defaults: its query
+  x = 50 is outside the evidence range, so the extrapolation guard (the default since DEV3.3) abstains.
+- **Tests:** the two default tests now expect `'any_int'` and `'rename'`, and `test_renamings_…` asks for `'exact'`
+  explicitly. Full `tests/` except the 3 torch-only modules: 971 passed, 4 skipped, 57 failed, the same 57 PyTorch
+  test IDs as on the DEV22 commit (`full_tests_family_defaults.log`).
+
 Consciousness-related architecture: not touched.

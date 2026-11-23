@@ -18,10 +18,10 @@ def run(structure, arm, c, fit_seed, mode):
 
 
 class FamilyScopeTests(unittest.TestCase):
-    def test_the_default_is_one_input_and_an_unknown_scope_is_refused(self):
+    def test_the_default_is_any_int_and_an_unknown_scope_is_refused(self):
         cortex = ProcedureCortex(":memory:", trust_provider=T.TRUST)
         try:
-            self.assertEqual(cortex.family_scope, "one_input")
+            self.assertEqual(cortex.family_scope, "any_int")  # the default since the owner's approval after G22-A
         finally:
             cortex.close()
         with self.assertRaises(ValueError):

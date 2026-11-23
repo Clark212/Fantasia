@@ -521,7 +521,7 @@ class ProcedureCortex:
     FAMILY_MAPPINGS=('exact','rename')
 
     def __init__(self,db_path,*,trust_provider,dependency_provider=None,extrapolation_guard='abstain',extrapolation_confidence_cap=.5,
-                 family_sharing='round_robin',family_scope='one_input',family_mapping='exact'):
+                 family_sharing='round_robin',family_scope='any_int',family_mapping='rename'):
         # Honesty guard (DEFAULT 'abstain' since DEV3.3; 'off' restores the pre-DEV3.2 behaviour). 'abstain': refuse queries whose integer
         # inputs lie outside the range of the evidence behind the active procedure. 'discount': still answer, but cap confidence at the cap.
         if extrapolation_guard not in self.EXTRAPOLATION_GUARDS:raise ValueError('invalid extrapolation guard')
@@ -532,11 +532,13 @@ class ProcedureCortex:
         # instantiation before any family proposes another. 'listing' (the default before): families in listing order,
         # each until the budget is spent, so a two-parameter family can use all of it (DEV4's T3b interference).
         if family_sharing not in self.FAMILY_SHARING:raise ValueError('invalid family sharing')
-        # DEV22 (experimental, opt-in): which integer targets learned families propose for. 'one_input' (default,
-        # unchanged): only targets with one integer input. 'any_int': also targets with 2-4 integer inputs.
+        # Which integer targets learned families propose for. 'any_int' (DEFAULT since the owner's approval after DEV22's
+        # G22-A): also targets with 2-4 integer inputs, before the affine solve. 'one_input' (the default before): only
+        # targets with one integer input.
         if family_scope not in self.FAMILY_SCOPES:raise ValueError('invalid family scope')
-        # DEV23 (experimental, opt-in): 'exact' (default, unchanged): a family applies only to targets with its own input
-        # names. 'rename': also to targets whose inputs differ only by name, under every renaming (_renamings).
+        # Which targets a family applies to. 'rename' (DEFAULT since the owner's approval after DEV23's G23-A): also targets
+        # whose inputs differ only by name, under every renaming (_renamings). 'exact' (the default before): only targets
+        # with the family's own input names. Earlier lab runs reproduce with family_scope='one_input', family_mapping='exact'.
         if family_mapping not in self.FAMILY_MAPPINGS:raise ValueError('invalid family mapping')
         self.family_sharing=family_sharing;self.family_scope=family_scope;self.family_mapping=family_mapping
         self.db=sqlite3.connect(str(db_path))

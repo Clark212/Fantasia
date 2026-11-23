@@ -55,9 +55,9 @@ Alpha 8 (0.4.9) is not promoted: its target, M4 (verified cross-task structural 
 DEV21 passed its first held-out transfer gate: sharing the candidate budget round-robin removes an interference between
 learned families (now the default, by the owner's decision). The same rule did not significantly change
 learned edit steps on fresh fixes. DEV22 extends learned families from one-input integer targets to targets with 2–4
-integer inputs (opt-in; held-out gate passed). DEV23 lets a family apply across input names, trying every mapping of its
-inputs onto the target's (opt-in; held-out gate passed in both role orders); equal names are still taken to mean equal
-roles, and when the evidence fits several mappings the first is proposed.
+integer inputs (held-out gate passed). DEV23 lets a family apply across input names, trying every mapping of its
+inputs onto the target's (held-out gate passed in both role orders); equal names are still taken to mean equal roles,
+and when the evidence fits several mappings the first is proposed. Both are now the default, by the owner's decision.
 
 ### Release governance and the alpha 8 plan
 - Official frozen baseline: **v0.4.0-alpha.7.9** (`asm.__version__`), milestone **M3 — Adaptive Research AI**.
@@ -70,7 +70,7 @@ roles, and when the evidence fits several mappings the first is proposed.
 |---|---|---|
 | alpha.8.1 Structural Anti-Unification | `asm/coding/induction.py` (DEV17): real fixes generalized into executable procedures | demonstrated: held-out fixes reproduced in 2 other projects; transfer gate G17-1 not passed (0 of 59 real bugs) |
 | alpha.8.2 Compositional Procedure Reuse | `asm/coding/steps.py` (DEV20): steps combined at several places and in pairs; round-robin step sharing (DEV21, opt-in) | G20-1 not passed: the compositions cost more than they gained; DEV21 G21-B not passed (2 gained, 0 lost on 197 fresh fixes) |
-| alpha.8.3 Uncertain Analogy Mapping | `ProcedureCortex(family_mapping='rename')` (DEV23, opt-in): a learned family tried under every type-preserving mapping of its inputs onto the target's, the evidence deciding; `asm/structural.py` (relation schemas, structural analogies) and `asm/expansion.py`, from earlier releases | DEV23 G23-A passed: donors over other input names 0.021 → 0.990 on three held-out two-input structures, in both role orders, no wrong answer. One mechanism in a noise-free lab; when the fit points cannot tell mappings apart, the first is proposed (all 7 failures); same arity only |
+| alpha.8.3 Uncertain Analogy Mapping | `ProcedureCortex(family_mapping='rename')` (DEV23; the default since the owner's approval): a learned family tried under every type-preserving mapping of its inputs onto the target's, the evidence deciding; `asm/structural.py` (relation schemas, structural analogies) and `asm/expansion.py`, from earlier releases | DEV23 G23-A passed: donors over other input names 0.021 → 0.990 on three held-out two-input structures, in both role orders, no wrong answer. One mechanism in a noise-free lab; when the fit points cannot tell mappings apart, the first is proposed (all 7 failures); same arity only |
 | alpha.8.4 Negative Transfer Protection | DEV4 structural-transfer experiment (`asm/learning/structtransfer.py`); procedure retire/supersede (DEV17); `ProcedureCortex(family_sharing='round_robin')` (DEV21; the default since the owner's approval) | DEV4: unrelated donors added to relevant ones took success from 1.00 to 0.00 (interference). DEV21: round-robin family sharing removes it on three held-out structures, no wrong answer, cost ratio 1.06 (G21-A passed). One mechanism in a noise-free lab: the target is not yet validated |
 | alpha.8.5 Held-Out Transfer Benchmarking | pre-registered fresh-project harnesses (DEV18–DEV21: 472, 103, 483, 197 unseen fixes); held-out structure labs: DEV4 Part B, DEV21 Part A, DEV22 (two-input), DEV23 (other input names, two role orders) | DEV21, DEV22 and DEV23 lab gates passed (noise-free toy tasks); no M4-level gate has passed |
 | alpha.8.6 Persistent Transfer Memory | sealed knowledge, shape and step libraries (DEV17–DEV20) | implemented; not validated as transfer memory |

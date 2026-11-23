@@ -25,17 +25,17 @@ def cortex(**options):
 
 
 class FamilyMappingTests(unittest.TestCase):
-    def test_the_default_is_exact_and_an_unknown_mapping_is_refused(self):
+    def test_the_default_is_rename_and_an_unknown_mapping_is_refused(self):
         c = cortex()
         try:
-            self.assertEqual(c.family_mapping, "exact")
+            self.assertEqual(c.family_mapping, "rename")  # the default since the owner's approval after G23-A
         finally:
             c.close()
         with self.assertRaises(ValueError):
             cortex(family_mapping="fuzzy")
 
     def test_renamings_keep_types_and_try_the_positional_order_first(self):
-        exact, rename = cortex(), cortex(family_mapping="rename")
+        exact, rename = cortex(family_mapping="exact"), cortex(family_mapping="rename")
         try:
             self.assertEqual((exact._renamings(XY, XY), exact._renamings(AB, XY)), ([{}], []))
             self.assertEqual(rename._renamings(XY, XY), [{}])  # equal names keep their roles

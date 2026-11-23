@@ -21,7 +21,7 @@
     "validated": 0,
     "details": "ROADMAP.md#release-governance-and-the-alpha-8-plan",
     "note": "update `validated` only when a pre-registered gate for that target passes",
-    "evidence_note": "DEV21, DEV22 and DEV23 each passed a held-out gate in a noise-free lab"
+    "evidence_note": "DEV21, DEV22 and DEV23 each passed a held-out gate in a noise-free lab; all three are now defaults"
   },
   "devs": [
     {

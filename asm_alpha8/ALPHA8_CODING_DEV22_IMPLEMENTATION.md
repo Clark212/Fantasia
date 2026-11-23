@@ -96,4 +96,10 @@ mapping between tasks.
   budget. Today's composer already remaps whole donor programs onto a new schema; families do not.
 - Each of these is a change made after seeing DEV22 data, so it needs its own pre-registration and held-out tasks.
 
+## After the report: the owner's decision
+The project owner approved making `family_scope='any_int'` the cortex's default (2026-11-23), together with DEV23's
+`family_mapping='rename'`; `'one_input'` remains available and nothing is promoted. DEV22's harness passes the scope
+explicitly, and both of its runs reproduce every attempt record on the new defaults. The other checks of the change are
+in the DEV23 report.
+
 Consciousness-related architecture: not touched.

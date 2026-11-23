@@ -11,10 +11,13 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
   0.4.8 ("Latent Dependency Structure & Higher-Order Epistemic Routing"). DEV steps are experiments inside
   alpha 8 (side tracks), not milestones; none is promoted. The alpha.8.1–8.9 plan and its evidence: `ROADMAP.md`, Stage 4.
 - Latest: **DEV23** (learned families over other input names; alpha.8.3/8.5). G23-A **passed** on held-out two-input
-  structures: `ProcedureCortex(family_mapping='rename')` (opt-in; making it the default is the owner's decision) lets a
-  family apply to a target whose inputs differ only by name, under every type-preserving mapping (both role orders).
-  DEV22 before it: `family_scope='any_int'` (opt-in) lets families propose for integer targets with 2–4 inputs.
-  DEV21: round-robin family sharing (`family_sharing='round_robin'`, the default since the owner approved it).
+  structures: `ProcedureCortex(family_mapping='rename')` lets a family apply to a target whose inputs differ only by
+  name, under every type-preserving mapping (both role orders). DEV22 before it: `family_scope='any_int'` lets families
+  propose for integer targets with 2–4 inputs. DEV21: round-robin family sharing (`family_sharing='round_robin'`). All
+  three are the cortex defaults by the owner's approval (`'rename'` and `'any_int'` since 2026-11-23).
+- Reproducing earlier runs: DEV4's published numbers need `cortex_options={'family_sharing': 'listing'}`; DEV21's
+  held-out lab records need `family_mapping='exact'` (`asm_alpha8/benchmarks/dev23_lab_check.py exact`); the other
+  committed lab runs reproduce as they are (`asm_alpha8/benchmarks/results/dev23/development/default_flip_check.txt`).
 - Records: reports `asm_alpha8/ALPHA8_CODING_DEV*_IMPLEMENTATION.md`; pre-registrations and amendments
   `asm_alpha8/benchmarks/preregistration/`; raw results `asm_alpha8/benchmarks/results/devN/` (hash-chained JSONL; never
   edit); progress page `README.md` from `progress/`.
@@ -22,7 +25,6 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
   `tests/` directory has 57 more failures in v0.2–v0.4 modules that need PyTorch, which is not installed (checked at
   DEV23: the same 57 test IDs as on the DEV22 commit), and `test_v030a7.py`, `test_v030a9.py`, `test_v030a10.py` cannot import.
 - Open work:
-  - Owner decisions: make `family_scope='any_int'` (DEV22) and `family_mapping='rename'` (DEV23) the defaults.
   - Recommended next (DEV23 report): DEV24, alpha.8.7 then 8.4: the same family transfer with wrong labels at a
     pre-registered rate and three-input targets (six mappings per family). Smaller follow-up: when several family
     mappings fit, ask for a disambiguating example instead of proposing the first (all 7 DEV23 failures).
