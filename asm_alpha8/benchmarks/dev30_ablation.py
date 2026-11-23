@@ -33,7 +33,7 @@ def main():
                         for config in ABLATIONS:
                             recs.append(D.attempt(D.HELD_OUT, structure, arm, c, s, D.SEED, config, memory_file, workdir, D.UNRELATED))
                             w.append({"part": "attempt", **recs[-1]})
-    stack = {(r["structure"], r["arm"], r["c"], r["fit_seed"]): r["success"] for r in read_records(battery)
+    stack = {(r["structure"], r["arm"], r["c"], r["fit_seed"]): r["success"] for r in read_records(battery)[1]
              if r.get("part") == "attempt" and r["config"] == "stack"}
     summary = {}
     for config in ABLATIONS:

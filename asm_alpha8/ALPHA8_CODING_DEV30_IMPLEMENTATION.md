@@ -168,24 +168,56 @@ in the manifest) before any held-out attempt. The run: 5,472 attempts in 290 s, 
 same held-out attempts, and compares each attempt with the stack's committed record. It shows what each mechanism
 contributes inside the whole; it is not a gate.
 
-**Pending.** It runs once DEV29's real-bug shards no longer share this 4-CPU machine. DEV29's repair workflow runs under
-a wall-clock budget, so extra load could change its outcomes. A first start was stopped after 6 minutes for that
-reason, and its partial output was deleted without being read.
+The run is `benchmarks/results/dev30/exploratory/ablation.jsonl`, 10,944 attempts, with a summary in
+`ablation_summary.txt`. A first start was stopped after 6 minutes because DEV29's real-bug shards shared the machine,
+and its partial output was deleted without being read. A second run's summary step failed on a bug in the script
+(fixed) and was run again.
+
+| configuration | relevant | far | ambiguous | memory | restart | noisy | combined | all transfer | stack's wins it loses / its wins |
+|---|---|---|---|---|---|---|---|---|---|
+| **the whole stack** | 1.000 (48 calls) | 1.000 | 0.976 | 1.000 | 1.000 | 0.573 | 0.639 | **0.889** | — |
+| without solving (enumerate) | 1.000 (77) | 0.000 | 0.955 | 0.306 | 0.312 | 0.573 | 0.000 | 0.484 | 758 / 0 |
+| without the index (window) | 1.000 (48) | 1.000 | 0.976 | 0.000 | 0.000 | 0.573 | 0.000 | 0.507 | 714 / 0 |
+| without tolerance (strict) | 1.000 (26) | 1.000 | **1.000** | 1.000 | 1.000 | 0.111 | 0.093 | 0.758 | 251 / 7 |
+| without asking (first) | 1.000 (48) | 1.000 | 0.958 | 0.955 | 0.962 | 0.573 | 0.616 | 0.871 | 34 / 0 |
+
+- **Every mechanism contributes; none is redundant.** No ablation gave a wrong answer or any success on the three
+  controls.
+- **Solving** is needed for far constants, and also in the memory conditions. There the background memory's families
+  share the budget, and enumeration, which counts up from −8, reaches only the first constants:
+  - −8..−5: 142 of 144;
+  - −4 and −3: half;
+  - −2..8: none.
+
+  This is DEV24's budget-reach limit.
+- **The index** is needed for memory and restart, as in DEV27.
+- **Asking** settles 34 attempts. Besides ambiguous fits, it settles cases where a background family also fits the 5
+  points.
+- **Tolerance:**
+  - its 251 wins are exactly the noisy and combined attempts with at most one wrong label per hypothesis (133 + 118, the
+    table above);
+  - its 7 losses are the degenerate fits;
+  - it costs 1.4–1.9× the evaluator calls on the clean conditions (relevant: 48 against 26).
+- **Without tolerance, the stack is the best configuration measured on clean data.** Solving, asking and the index with
+  the strict policy reach 1.000 on all five clean conditions. On relevant donors it uses 26 evaluator calls, against
+  the defaults' 43.
 
 ## Validation
 - **`tests/test_alpha8_dev30.py`, 3 tests:**
   - the two configurations set exactly the intended options;
   - donors agree with the structure in every role order, for both arities;
   - queries stay inside the evidence range and away from fit and validation points.
-- **Full `test_alpha8_*`:** pending, for the same reason (605 passed and 3 skipped at DEV28, plus DEV29's 2 and these 3).
+- **Full `test_alpha8_*`:** 611 passed, 3 skipped, 0 failed: DEV28's 605, plus these 3 and DEV29's 3. The run includes
+  DEV29's later one-line fix in `asm/coding/diagnostics.py`, which the battery does not use; the procedure cortex is
+  unchanged since DEV28.
 - **No `lab_check` re-run:** ASM's code is unchanged since DEV28, whose `lab_check` reproduced all 38,224 committed lab
   records on the defaults.
 
 ## Limitations
 - **A lab.** The structures are integer polynomials of degree ≤ 3 with one constant, under symmetric noise at one rate,
   with a synthetic memory. They are new structures, but of the kind DEV21–DEV28 used. Real data is DEV29's question.
-- **One stack.** All four options run together. The ablation shows each one's contribution only on these held-out
-  attempts, after the fact.
+- **One stack was gated.** The ablation shows each mechanism's contribution only on these held-out attempts, after the
+  fact. It is exploratory.
 - **Wrong labels:** one per hypothesis is tolerated, two are not (0 of 201 such attempts). At 5% noise that caps
   success near 0.57.
 - **Degenerate fits:** tolerance can discount the only informative point (7 of 288 ambiguous attempts, 2.4%). No wrong
@@ -199,10 +231,11 @@ DEV30 is the lab half of the M4 question: the transfer mechanisms of alpha 8 wor
 measured so far, with no wrong answer and no false transfer. M4 ("verified cross-task structural transfer") also needs
 real data, which DEV29 measures. Nothing is promoted.
 - **Owner's decisions:**
-  - whether to make `family_parameters='solve'`, `family_ambiguity='ask'` and `family_memory='index'` the defaults (the
-    ablation above shows what each adds);
-  - whether to use `contradiction_policy='tolerant'` anywhere: it gains under wrong labels and costs 7 of 288 on
-    degenerate fits;
+  - whether to make `family_parameters='solve'`, `family_ambiguity='ask'` and `family_memory='index'` the defaults. In
+    the ablation the three together, with the strict policy, reach 1.000 on every clean condition. On relevant donors
+    they use 0.6× the defaults' evaluator calls;
+  - whether to use `contradiction_policy='tolerant'` anywhere: it carries all of the gain under wrong labels, and it costs
+    7 of 288 degenerate fits and 1.4–1.9× the calls on clean conditions;
   - whether DEV29 and DEV30 together support promoting alpha.8.9 or 0.4.9.
 - **Possible next step:** tolerate a contradiction only when the contradicting point is not the only one that separates
   the fitting hypotheses. The point would then be asked about again rather than discounted. It needs its own
