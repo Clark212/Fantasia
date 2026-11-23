@@ -21,7 +21,7 @@
     "validated": 0,
     "details": "ROADMAP.md#release-governance-and-the-alpha-8-plan",
     "note": "update `validated` only when a pre-registered gate for that target passes",
-    "evidence_note": "DEV21, DEV22 and DEV23 each passed a held-out gate in a noise-free lab; all three are now defaults"
+    "evidence_note": "DEV21–DEV24 each passed held-out gates in a lab (DEV24 also with wrong labels); the three family mechanisms are defaults"
   },
   "devs": [
     {
@@ -122,6 +122,16 @@
       "result": "passed: donors over other names 0.021 → 0.990 on 3 new two-input structures (279 vs 0 paired), both role orders, no wrong answer, no loss on exact-name or affine targets",
       "promoted": false,
       "report": "asm_alpha8/ALPHA8_CODING_DEV23_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV24",
+      "date": "2026-11-23",
+      "title": "Three-input transfer across names, and wrong labels",
+      "gate": "G24-A/B: six role orders on three inputs; wrong labels cost only their own attempts",
+      "kind": "passed",
+      "result": "passed: donors over other names 0.000 → 0.979 on 3 new three-input structures, all six role orders (846 vs 0 paired); labels wrong at 0.10 cost exactly the corrupted attempts; no wrong answer",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV24_IMPLEMENTATION.md"
     }
   ]
 }
