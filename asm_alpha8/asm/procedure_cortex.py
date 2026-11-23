@@ -520,9 +520,11 @@ class ProcedureCortex:
     FAMILY_SCOPES=('one_input','any_int')
     FAMILY_MAPPINGS=('exact','rename')
     FAMILY_PARAMETERS=('enumerate','solve')
+    FAMILY_AMBIGUITY=('first','ask')
 
     def __init__(self,db_path,*,trust_provider,dependency_provider=None,extrapolation_guard='abstain',extrapolation_confidence_cap=.5,
-                 family_sharing='round_robin',family_scope='any_int',family_mapping='rename',family_parameters='enumerate'):
+                 family_sharing='round_robin',family_scope='any_int',family_mapping='rename',family_parameters='enumerate',
+                 family_ambiguity='first'):
         # Honesty guard (DEFAULT 'abstain' since DEV3.3; 'off' restores the pre-DEV3.2 behaviour). 'abstain': refuse queries whose integer
         # inputs lie outside the range of the evidence behind the active procedure. 'discount': still answer, but cap confidence at the cap.
         if extrapolation_guard not in self.EXTRAPOLATION_GUARDS:raise ValueError('invalid extrapolation guard')
@@ -544,8 +546,12 @@ class ProcedureCortex:
         # DEV25 (experimental, opt-in): 'enumerate' (default, unchanged): parameter values -8..8, shared round robin.
         # 'solve': each source first proposes the parameters solved exactly from the fit examples (_solve_parameters).
         if family_parameters not in self.FAMILY_PARAMETERS:raise ValueError('invalid family parameters')
+        # DEV26 (experimental, opt-in): 'first' (default, unchanged): the first family candidate that fits is proposed.
+        # 'ask': on a 2-4-input target, when two or more solved candidates fit and disagree somewhere, induce returns
+        # needs_information with the input that separates them best (_disagreement_query) instead of guessing.
+        if family_ambiguity not in self.FAMILY_AMBIGUITY:raise ValueError('invalid family ambiguity')
         self.family_sharing=family_sharing;self.family_scope=family_scope;self.family_mapping=family_mapping
-        self.family_parameters=family_parameters
+        self.family_parameters=family_parameters;self.family_ambiguity=family_ambiguity
         self.db=sqlite3.connect(str(db_path))
         self.db.execute('PRAGMA journal_mode=WAL')
         self.trust_provider=trust_provider
@@ -832,6 +838,17 @@ class ProcedureCortex:
                 near=[sol[:i]+(sol[i]+d,)+sol[i+1:] for i in range(n) for d in (-1,1)]
                 return None if any(fits(u) for u in near) else sol
         return None
+
+    def _disagreement_query(self,programs,examples,input_types):
+        """DEV26: the input, near the evidence and not yet observed (_query_pool), on which these fitting candidates
+        disagree most (choose_experiment), or None when they agree on every input of the pool. Unlike
+        _query_from_programs it keeps every candidate (no size preference): they are instances of learned families."""
+        if len(programs)<2:return None
+        observed={pack(e['inputs']) for e in examples}
+        pool=[row for row in self._query_pool(examples,input_types) if pack(row) not in observed]
+        q=choose_experiment(programs[:256],pool,strategy='disagreement') if pool else None
+        return None if q is None else {'status':'query_suggested','input':q['input'],'score':q['score'],
+                                       'distinct_predictions':q['distinct_predictions'],'hypotheses':len(programs),'read_only':True}
 
     @staticmethod
     def _rename_inputs(tree,m):
@@ -1383,17 +1400,28 @@ class ProcedureCortex:
         if all_int and len(input_types)>=2 and use_families and self.family_scope=='any_int':
             # DEV22: learned families with this input schema first (as for one-input targets), inside the same
             # budget; three fit points almost always admit an exact integer affine fit, which would pre-empt them
-            solve_cost=[0]
+            solve_cost=[0];fitting=[]
             for program,origin in self._family_candidates(input_types,min(64,budget),budget//2,examples,solve_cost):
+                solved=origin.endswith('#solved')
+                if fitting and not solved:break  # DEV26 'ask': every solved candidate has been checked
                 fam_count+=1
                 try:
                     for e in examples:
                         fam_evals+=1
                         if program.run(e['inputs'])!=e['expected']:break
                     else:
+                        if self.family_ambiguity=='ask' and solved:fitting.append((program,origin));continue
                         result=self.propose(mechanism,program,context=context,provenance='asm_induction:'+origin,training_ids=selected_ids)
                         result.update(candidate_count=fam_count,evaluator_calls=fam_evals+solve_cost[0],origin=origin);return result
                 except (ValueError,OverflowError):pass
+            if fitting:
+                q=self._disagreement_query([p for p,_ in fitting],examples,input_types)
+                if q is not None:
+                    return {'status':'needs_information','information_query':q,'candidate_count':fam_count,
+                            'evaluator_calls':fam_evals+solve_cost[0],'budget':budget,'origin':'family_ambiguity'}
+                program,origin=fitting[0]
+                result=self.propose(mechanism,program,context=context,provenance='asm_induction:'+origin,training_ids=selected_ids)
+                result.update(candidate_count=fam_count,evaluator_calls=fam_evals+solve_cost[0],origin=origin);return result
             fam_evals+=solve_cost[0]
         if all_int and len(input_types)>=2:
             affine=self._solve_affine(examples,names)
