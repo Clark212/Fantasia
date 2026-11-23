@@ -15,9 +15,11 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
   `contradiction_policy='tolerant'`), against today's defaults, under every lab condition at once, on six held-out
   structures: 0.324 → 0.889 over all transfer conditions, no false transfer, no wrong answer. Tolerance loses 7 of 288
   degenerate fits; the same stack with the strict policy wins them. DEV25–DEV28 before it, each opt-in and each gate
-  passed. **DEV29** (DEV20's learned libraries in the repair workflow's phase 3, on DEV15's 83 real bugs) is being
-  evaluated; its pre-registration is commit `5fe3650`. Pending for DEV30 once DEV29's shards are done: the exploratory
-  ablation (`asm_alpha8/benchmarks/dev30_ablation.py`) and the full test run.
+  passed. **DEV29** (DEV20's learned libraries in the repair workflow's phase 3, on DEV15's 83 real bugs; pre-registration
+  commit `5fe3650`) is being re-run in full. Its first run crashed on an ASM bug, fixed under rule R3, and is kept
+  unused in `asm_alpha8/benchmarks/results/dev29/discarded_run1/`. The bug: `FailureAnalyzer` failed on output that
+  begins with an exception name without a message. DEV29's workflow runs under a wall-clock budget: run nothing else on
+  the machine while its shards run.
 - Owner-approved plan (2026-11-23), in order: DEV26 ask for a disambiguating example when fitting candidates disagree
   (alpha.8.3); DEV27 family memory past the 32 active versions `families()` reads, surviving restarts (alpha.8.6); DEV28
   noise-tolerant validation, opt-in, approved for testing only (alpha.8.7); DEV29 real-bug repair with fault
@@ -38,7 +40,7 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
 - Open work:
   - Owner decisions: make `family_parameters='solve'` (DEV25), `family_ambiguity='ask'` (DEV26) and
     `family_memory='index'` (DEV27) the defaults; whether to use `contradiction_policy='tolerant'` anywhere (DEV28).
-  - Next: finish DEV29 (review every accepted patch, load check, report), then the DEV30 ablation.
+  - Next: finish DEV29 (the re-run, then a person's reading of every accepted patch, then the report).
   - Recommended for the owner's ultra-code session (2026-11-23): the real-bug repair DEV below.
   - DEV16's study needs generated pairs from the owner's PC (`asm_alpha8/tools/generate_pairs.py`, instructions in
     `asm_alpha8/tools/README_DEV16_DATA.md`).

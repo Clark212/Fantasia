@@ -30,6 +30,16 @@ class RealBugHarnessTests(unittest.TestCase):
             self.assertIn(d.status, {"resolved", "unresolved", "partial", "time_budget"})
             self.assertEqual((root / "m.py").read_text(), files["m.py"])  # the workflow never edits the original
 
+    def test_an_exception_name_without_a_message_is_analyzed(self):
+        # Found in DEV29's first run (tqdm-3, tqdm-4): the runner keeps the output's last 12,000 characters, and a tail
+        # starting inside 'AssertionError' begins with the line 'onError'. That matches as an exception without a message,
+        # whose None message crashed the whole evaluation.
+        from asm.coding.diagnostics import FailureAnalyzer
+        out = "onError\n____ test_x ____\n\n>       assert 1 == 2\nE       assert 1 == 2\n\ntests/test_m.py:2: AssertionError\n"
+        with tempfile.TemporaryDirectory() as td:
+            (evidence,) = FailureAnalyzer().analyze(out, td)
+        self.assertEqual((evidence.exception, evidence.message), ("onError", ""))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -60,7 +60,7 @@ class FailureAnalyzer:
                     continue
             exc_match = self.EXCEPTION.search(block) or self.EXCEPTION.search(output)
             exception = exc_match.group(1) if exc_match else None
-            message = (exc_match.group(2) if exc_match else summary).strip()
+            message = ((exc_match.group(2) or "") if exc_match else summary).strip()  # DEV29: a name with no message
             if likely:
                 reasons.append("Non-test traceback frames point to these repository files.")
             if exception:

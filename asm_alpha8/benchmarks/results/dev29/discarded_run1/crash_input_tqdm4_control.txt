@@ -1,0 +1,218 @@
+onError
+_____________________________ test_postfix_direct ______________________________
+
+    def test_postfix_direct():
+        """Test directly assigning non-str objects to postfix"""
+        with closing(StringIO()) as our_file:
+            with tqdm(total=10, file=our_file, miniters=1, mininterval=0,
+                      bar_format="{postfix[0][name]} {postfix[1]:>5.2f}",
+                      postfix=[dict(name="foo"), 42]) as t:
+                for i in range(10):
+                    if i % 2:
+                        t.postfix[0]["name"] = "abcdefghij"[i]
+                    else:
+                        t.postfix[1] = i
+                    t.update()
+            res = our_file.getvalue()
+>           assert "f  6.00" in res
+E           assert 'f  6.00' in "\r0it [00:00, ?it/s[{'name': 'foo'}, 42]]\r1it [00:00, 233016.89it/s[{'name': 'foo'}, 0]]\r2it [00:00, 125955.08it/s[...7it/s[{'name': 'h'}, 6]]\r9it [00:00, 137032.36it/s[{'name': 'h'}, 8]]\rj  8.00                                     \n"
+
+tqdm/tests/tests_tqdm.py:1552: AssertionError
+____________________________ test_file_redirection _____________________________
+
+    @with_setup(pretest, posttest)
+    def test_file_redirection():
+        """Test redirection of output"""
+        with closing(StringIO()) as our_file:
+            # Redirect stdout to tqdm.write()
+            with std_out_err_redirect_tqdm(tqdm_file=our_file):
+                for _ in trange(3):
+                    print("Such fun")
+            res = our_file.getvalue()
+            assert res.count("Such fun\n") == 3
+>           assert "0/3" in res
+E           AssertionError: assert '0/3' in '\r0it [00:00, ?it/s]\nSuch fun\nSuch fun\nSuch fun\n\r100%|##########| 3/3 [00:00<00:00, 26159.90it/s]\n'
+
+tqdm/tests/tests_tqdm.py:1595: AssertionError
+_____________________________ test_external_write ______________________________
+
+    @with_setup(pretest, posttest)
+    def test_external_write():
+        """Test external write mode"""
+        with closing(StringIO()) as our_file:
+            # Redirect stdout to tqdm.write()
+            for _ in trange(3, file=our_file):
+                del tqdm._lock  # classmethod should be able to recreate lock
+                with tqdm.external_write_mode(file=our_file):
+                    our_file.write("Such fun\n")
+            res = our_file.getvalue()
+            assert res.count("Such fun\n") == 3
+>           assert "0/3" in res
+E           AssertionError: assert '0/3' in '\r0it [00:00, ?it/s]\r                  \rSuch fun\n\r0it [00:00, ?it/s]\r                  \rSuch fun\n\r0it [00:00, ?it/s]\r                  \rSuch fun\n\r0it [00:00, ?it/s]\r100%|##########| 3/3 [00:00<00:00, 18613.78it/s]\n'
+
+tqdm/tests/tests_tqdm.py:1610: AssertionError
+_______________________________ test_unit_scale ________________________________
+
+    @with_setup(pretest, posttest)
+    def test_unit_scale():
+        """Test numeric `unit_scale`"""
+        with closing(StringIO()) as our_file:
+>           for _ in tqdm(_range(100), unit_scale=9, file=our_file):
+
+tqdm/tests/tests_tqdm.py:1618: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tqdm/_tqdm.py:927: in __init__
+    self.display()
+tqdm/_tqdm.py:1297: in display
+    self.sp(self.__repr__() if msg is None else msg)
+tqdm/_tqdm.py:966: in __repr__
+    return self.format_meter(**self.format_dict)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+n = 0, total = None, elapsed = 0, ncols = None, prefix = '', ascii = True
+unit = 'it', unit_scale = 9, rate = None, bar_format = None, postfix = None
+unit_divisor = 1000, extra_kwargs = {}
+
+    @staticmethod
+    def format_meter(n, total, elapsed, ncols=None, prefix='', ascii=False,
+                     unit='it', unit_scale=False, rate=None, bar_format=None,
+                     postfix=None, unit_divisor=1000, **extra_kwargs):
+        """
+        Return a string-based progress bar given some parameters
+    
+        Parameters
+        ----------
+        n  : int
+            Number of finished iterations.
+        total  : int
+            The expected total number of iterations. If meaningless (), only
+            basic progress statistics are displayed (no ETA).
+        elapsed  : float
+            Number of seconds passed since start.
+        ncols  : int, optional
+            The width of the entire output message. If specified,
+            dynamically resizes the progress meter to stay within this bound
+            [default: None]. The fallback meter width is 10 for the progress
+            bar + no limit for the iterations counter and statistics. If 0,
+            will not print any meter (only stats).
+        prefix  : str, optional
+            Prefix message (included in total width) [default: ''].
+            Use as {desc} in bar_format string.
+        ascii  : bool, optional
+            If not set, use unicode (smooth blocks) to fill the meter
+            [default: False]. The fallback is to use ASCII characters
+            (1-9 #).
+        unit  : str, optional
+            The iteration unit [default: 'it'].
+        unit_scale  : bool or int or float, optional
+            If 1 or True, the number of iterations will be printed with an
+            appropriate SI metric prefix (k = 10^3, M = 10^6, etc.)
+            [default: False]. If any other non-zero number, will scale
+            `total` and `n`.
+        rate  : float, optional
+            Manual override for iteration rate.
+            If [default: None], uses n/elapsed.
+        bar_format  : str, optional
+            Specify a custom bar string formatting. May impact performance.
+            [default: '{l_bar}{bar}{r_bar}'], where
+            l_bar='{desc}: {percentage:3.0f}%|' and
+            r_bar='| {n_fmt}/{total_fmt} [{elapsed}<{remaining}, '
+              '{rate_fmt}{postfix}]'
+            Possible vars: l_bar, bar, r_bar, n, n_fmt, total, total_fmt,
+              percentage, rate, rate_fmt, rate_noinv, rate_noinv_fmt,
+              rate_inv, rate_inv_fmt, elapsed, elapsed_s,
+              remaining, remaining_s, desc, postfix, unit.
+            Note that a trailing ": " is automatically removed after {desc}
+            if the latter is empty.
+        postfix  : *, optional
+            Similar to `prefix`, but placed at the end
+            (e.g. for additional stats).
+            Note: postfix is usually a string (not a dict) for this method,
+            and will if possible be set to postfix = ', ' + postfix.
+            However other types are supported (#382).
+        unit_divisor  : float, optional
+            [default: 1000], ignored unless `unit_scale` is True.
+    
+        Returns
+        -------
+        out  : Formatted meter and stats, ready to display.
+        """
+    
+        # sanity check: total
+        if total and n < total:
+            total = None
+    
+        # apply custom scale if necessary
+        if unit_scale and unit_scale not in (True, 1):
+>           total *= unit_scale
+E           TypeError: unsupported operand type(s) for *=: 'NoneType' and 'int'
+
+tqdm/_tqdm.py:323: TypeError
+=============================== warnings summary ===============================
+/tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/bugsinpy/venvs/380b6867634ac11c/lib/python3.8/site-packages/nose/config.py:142
+  /tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/bugsinpy/venvs/380b6867634ac11c/lib/python3.8/site-packages/nose/config.py:142: DeprecationWarning: invalid escape sequence \.
+    """nose configuration.
+
+/tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/bugsinpy/venvs/380b6867634ac11c/lib/python3.8/site-packages/nose/importer.py:12
+  /tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/bugsinpy/venvs/380b6867634ac11c/lib/python3.8/site-packages/nose/importer.py:12: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+    from imp import find_module, load_module, acquire_lock, release_lock
+
+-- Docs: https://docs.pytest.org/en/latest/warnings.html
+------------- generated xml file: /tmp/asm_run_uc7zxwrq/junit.xml --------------
+=========================== short test summary info ============================
+FAILED tqdm/tests/tests_tqdm.py::test_format_meter - AssertionError: assert '...
+FAILED tqdm/tests/tests_tqdm.py::test_ansi_escape_codes - AssertionError: ass...
+FAILED tqdm/tests/tests_tqdm.py::test_si_format - AssertionError: assert '9.0...
+FAILED tqdm/tests/tests_tqdm.py::test_file_output - AssertionError: assert '0...
+FAILED tqdm/tests/tests_tqdm.py::test_min_interval - AssertionError: assert '...
+FAILED tqdm/tests/tests_tqdm.py::test_max_interval - AssertionError: assert '...
+FAILED tqdm/tests/tests_tqdm.py::test_dynamic_min_iters - AssertionError: ass...
+FAILED tqdm/tests/tests_tqdm.py::test_smoothed_dynamic_min_iters - AssertionE...
+FAILED tqdm/tests/tests_tqdm.py::test_smoothed_dynamic_min_iters_with_min_interval
+FAILED tqdm/tests/tests_tqdm.py::test_nototal - TypeError: unsupported operan...
+FAILED tqdm/tests/tests_tqdm.py::test_ascii - AssertionError: assert '7%|6' i...
+FAILED tqdm/tests/tests_tqdm.py::test_update - AssertionError: assert '| 3/4 ...
+FAILED tqdm/tests/tests_tqdm.py::test_bar_format - AssertionError: assert '\r...
+FAILED tqdm/tests/tests_tqdm.py::test_position - AssertionError: Got => Expected
+FAILED tqdm/tests/tests_tqdm.py::test_repr - AssertionError: assert '0it [00:...
+FAILED tqdm/tests/tests_tqdm.py::test_clear - AssertionError: assert ['pos0 b...
+FAILED tqdm/tests/tests_tqdm.py::test_refresh - AssertionError: assert ['pos0...
+FAILED tqdm/tests/tests_tqdm.py::test_write - AssertionError: assert '\rpos0 ...
+FAILED tqdm/tests/tests_tqdm.py::test_postfix_direct - assert 'f  6.00' in "\...
+FAILED tqdm/tests/tests_tqdm.py::test_file_redirection - AssertionError: asse...
+FAILED tqdm/tests/tests_tqdm.py::test_external_write - AssertionError: assert...
+FAILED tqdm/tests/tests_tqdm.py::test_unit_scale - TypeError: unsupported ope...
+ERROR tqdm/tests/tests_tqdm.py::test_nototal - OSError: 1 `tqdm` instances st...
+ERROR tqdm/tests/tests_tqdm.py::test_unit_scale - OSError: 1 `tqdm` instances...
+SKIPPED [1] /tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/bugsinpy/venvs/380b6867634ac11c/lib/python3.8/site-packages/_pytest/unittest.py:258: <Skipped instance>
+PASSED tqdm/tests/tests_tqdm.py::test_format_interval
+PASSED tqdm/tests/tests_tqdm.py::test_format_num
+PASSED tqdm/tests/tests_tqdm.py::test_all_defaults
+PASSED tqdm/tests/tests_tqdm.py::test_iterate_over_csv_rows
+PASSED tqdm/tests/tests_tqdm.py::test_leave_option
+PASSED tqdm/tests/tests_tqdm.py::test_trange
+PASSED tqdm/tests/tests_tqdm.py::test_min_iters
+PASSED tqdm/tests/tests_tqdm.py::test_big_min_interval
+PASSED tqdm/tests/tests_tqdm.py::test_rlock_creation
+PASSED tqdm/tests/tests_tqdm.py::test_disable
+PASSED tqdm/tests/tests_tqdm.py::test_infinite_total
+PASSED tqdm/tests/tests_tqdm.py::test_unit
+PASSED tqdm/tests/tests_tqdm.py::test_close
+PASSED tqdm/tests/tests_tqdm.py::test_smoothing
+PASSED tqdm/tests/tests_tqdm.py::test_deprecated_nested
+PASSED tqdm/tests/tests_tqdm.py::test_custom_format
+PASSED tqdm/tests/tests_tqdm.py::test_unpause
+PASSED tqdm/tests/tests_tqdm.py::test_set_description
+PASSED tqdm/tests/tests_tqdm.py::test_deprecated_gui
+PASSED tqdm/tests/tests_tqdm.py::test_cmp
+PASSED tqdm/tests/tests_tqdm.py::test_clear_disabled
+PASSED tqdm/tests/tests_tqdm.py::test_disabled_refresh
+PASSED tqdm/tests/tests_tqdm.py::test_autodisable_disable
+PASSED tqdm/tests/tests_tqdm.py::test_autodisable_enable
+PASSED tqdm/tests/tests_tqdm.py::test_deprecation_exception
+PASSED tqdm/tests/tests_tqdm.py::test_postfix
+PASSED tqdm/tests/tests_tqdm.py::test_threading
+PASSED tqdm/tests/tests_tqdm.py::test_bool
+PASSED tqdm/tests/tests_tqdm.py::test_auto
+22 failed, 29 passed, 1 skipped, 2 warnings, 2 errors in 1.25s
+
