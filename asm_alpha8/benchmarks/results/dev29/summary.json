@@ -1,0 +1,37 @@
+{
+ "bugs": 83,
+ "control_resolved": 9,
+ "learned_resolved": 10,
+ "learned_only_resolved": [
+  [
+   "thefuck",
+   19
+  ]
+ ],
+ "control_only_resolved": [],
+ "oracle_class": {
+  "control": {
+   "('thefuck', 9)": "restored",
+   "('thefuck', 15)": "wrong_generated",
+   "('thefuck', 21)": "wrong",
+   "('thefuck', 22)": "unknown",
+   "('tqdm', 6)": "unknown",
+   "('tqdm', 8)": "equivalent",
+   "('youtube-dl', 11)": "equivalent",
+   "('youtube-dl', 28)": "restored",
+   "('youtube-dl', 29)": "equivalent"
+  },
+  "learned": {
+   "('thefuck', 9)": "restored",
+   "('thefuck', 15)": "wrong_generated",
+   "('thefuck', 19)": "restored",
+   "('thefuck', 21)": "wrong",
+   "('thefuck', 22)": "unknown",
+   "('tqdm', 6)": "unknown",
+   "('tqdm', 8)": "wrong",
+   "('youtube-dl', 11)": "equivalent",
+   "('youtube-dl', 28)": "restored",
+   "('youtube-dl', 29)": "equivalent"
+  }
+ }
+}

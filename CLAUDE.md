@@ -10,21 +10,23 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
   not promoted (Structural Transfer & Analogical Procedure Generalization, toward M4); alpha 7.8 delivered 0.4.7 and
   0.4.8 ("Latent Dependency Structure & Higher-Order Epistemic Routing"). DEV steps are experiments inside
   alpha 8 (side tracks), not milestones; none is promoted. The alpha.8.1–8.9 plan and its evidence: `ROADMAP.md`, Stage 4.
-- Latest: **DEV30** (an M4-candidate battery of the whole transfer stack; alpha.8.9 candidate, lab only). G30-A **passed**:
-  the four opt-in mechanisms together (`family_parameters='solve'`, `family_ambiguity='ask'`, `family_memory='index'`,
-  `contradiction_policy='tolerant'`), against today's defaults, under every lab condition at once, on six held-out
-  structures: 0.324 → 0.889 over all transfer conditions, no false transfer, no wrong answer. Tolerance loses 7 of 288
-  degenerate fits; the same stack with the strict policy wins them. DEV25–DEV28 before it, each opt-in and each gate
-  passed. **DEV29** (DEV20's learned libraries in the repair workflow's phase 3, on DEV15's 83 real bugs; pre-registration
-  commit `5fe3650`) is being re-run in full. Its first run crashed on an ASM bug, fixed under rule R3, and is kept
-  unused in `asm_alpha8/benchmarks/results/dev29/discarded_run1/`. The bug: `FailureAnalyzer` failed on output that
-  begins with an exception name without a message. DEV29's workflow runs under a wall-clock budget: run nothing else on
-  the machine while its shards run.
-- Owner-approved plan (2026-11-23), in order: DEV26 ask for a disambiguating example when fitting candidates disagree
-  (alpha.8.3); DEV27 family memory past the 32 active versions `families()` reads, surviving restarts (alpha.8.6); DEV28
-  noise-tolerant validation, opt-in, approved for testing only (alpha.8.7); DEV29 real-bug repair with fault
-  localization on DEV15's BugsInPy bugs (Python 3.8: `/root/.local/bin/python3.8` via uv; GitHub reachable); DEV30 an
-  M4-candidate battery of the whole transfer stack (alpha.8.9 candidate). Nothing is promoted without the owner.
+- Latest: the owner-approved plan of 2026-11-23 (DEV25–DEV30) is done; nothing is promoted.
+  - **DEV30** (an M4-candidate battery of the whole transfer stack; alpha.8.9 candidate, lab only): G30-A **passed**.
+    The four opt-in mechanisms together (`family_parameters='solve'`, `family_ambiguity='ask'`, `family_memory='index'`,
+    `contradiction_policy='tolerant'`) against today's defaults, under every lab condition at once, on six held-out
+    structures: 0.324 → 0.889 over all transfer conditions, no false transfer, no wrong answer. Tolerance loses 7 of 288
+    degenerate fits. In the exploratory ablation, solve + ask + index with the strict policy reach 1.000 on every clean
+    condition.
+  - **DEV29** (DEV20's learned libraries in the repair workflow's phase 3, on DEV15's 83 real bugs): G29-A **not
+    passed**. 1 bug was repaired correctly only with learned knowledge (thefuck-19, identical to the developer's fix);
+    2 were needed. There was no loss and no extra wrong patch. Phase 3 is reached in 37 bugs and runs out of time in
+    30. On youtube-dl, building learned candidates outlasts the budget, which is checked only between candidates.
+  - **The DEV29 bug.** The first run crashed on an ASM bug (`FailureAnalyzer` and output that begins with an exception
+    name without a message). It was fixed under rule R3, and the run is kept unused in
+    `asm_alpha8/benchmarks/results/dev29/discarded_run1/`. Workflow runs have a wall-clock budget: run nothing else on
+    the machine while real-bug shards run.
+  - DEV25–DEV28, each opt-in and each gate passed: `family_parameters='solve'`, `family_ambiguity='ask'`,
+    `family_memory='index'`, `contradiction_policy='tolerant'` (approved for testing only).
 - The cortex defaults, all by the owner's approval: `family_sharing='round_robin'` (DEV21), `family_scope='any_int'`
   (DEV22) and `family_mapping='rename'` (DEV23; the last two since 2026-11-23).
 - Reproducing earlier runs: DEV4's published numbers need `cortex_options={'family_sharing': 'listing'}`; DEV21's
@@ -34,18 +36,21 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
 - Records: reports `asm_alpha8/ALPHA8_CODING_DEV*_IMPLEMENTATION.md`; pre-registrations and amendments
   `asm_alpha8/benchmarks/preregistration/`; raw results `asm_alpha8/benchmarks/results/devN/` (hash-chained JSONL; never
   edit); progress page `README.md` from `progress/`.
-- Tests: `cd asm_alpha8 && python3 -m pytest -q tests/test_alpha8_*.py` (605 passed, 3 skipped at DEV28). The whole
+- Tests: `cd asm_alpha8 && python3 -m pytest -q tests/test_alpha8_*.py` (611 passed, 3 skipped at DEV30). The whole
   `tests/` directory has 57 more failures in v0.2–v0.4 modules that need PyTorch, which is not installed (checked at
   DEV23: the same 57 test IDs as on the DEV22 commit), and `test_v030a7.py`, `test_v030a9.py`, `test_v030a10.py` cannot import.
 - Open work:
-  - Owner decisions: make `family_parameters='solve'` (DEV25), `family_ambiguity='ask'` (DEV26) and
-    `family_memory='index'` (DEV27) the defaults; whether to use `contradiction_policy='tolerant'` anywhere (DEV28).
-  - Next: finish DEV29 (the re-run, then a person's reading of every accepted patch, then the report).
-  - Recommended for the owner's ultra-code session (2026-11-23): the real-bug repair DEV below.
+  - Owner decisions:
+    - make `family_parameters='solve'`, `family_ambiguity='ask'` and `family_memory='index'` the defaults (DEV25–DEV27;
+      see DEV30's ablation);
+    - whether to use `contradiction_policy='tolerant'` anywhere (DEV28, DEV30);
+    - whether DEV29 and DEV30 support any promotion. M4 also needs real data, where DEV29 fell short.
+  - Recommended next DEV: on fresh real bugs, bound learned candidate building per suspect and give phase 3 its own time
+    budget (DEV29 report).
   - DEV16's study needs generated pairs from the owner's PC (`asm_alpha8/tools/generate_pairs.py`, instructions in
     `asm_alpha8/tools/README_DEV16_DATA.md`).
-  - The repair workflow on real bugs with fault localization (DEV20 report) on DEV15's 83 BugsInPy bugs
-    (`asm_alpha8/benchmarks/dev14_realbugs.py` builds their environments; Python 3.8 is needed).
+  - Real-bug environments: `asm_alpha8/benchmarks/dev14_realbugs.py` builds them (Python 3.8:
+    `/root/.local/bin/python3.8` via uv); `asm_alpha8/benchmarks/dev29_realbugs.py` evaluates both arms.
 - Untrusted code and data: clone downloaded repositories into their own new directory, run Python with `-I` when it
   reads them, and run their tests only through ASM's sandboxed `SafeTestRunner`.
 

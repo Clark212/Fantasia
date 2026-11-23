@@ -27,8 +27,9 @@ makes this moot; it runs with nothing else on the machine.
 On the 34 completed bugs:
 - **the control matched DEV15's status on every bug;**
 - **the learned arm repaired one bug the control did not:** thefuck-19, a patch identical to the developer's;
-- **phase 3 was reached in 26 bugs.** There the learned arm hit the time budget 18 times, ended unresolved 7 times and
-  resolved once.
+- **phase 3 was reached in 24 bugs.** There the learned arm hit the time budget 18 times, ended unresolved 5 times and
+  resolved once. A first count said 26, wrongly including 2 bugs where no phase ran (`benchmarks/dev29_analysis.py`
+  now separates them).
 
 Nothing was changed because of these results. The only change before the re-run is the fix above.
 

@@ -14,13 +14,14 @@
 - In development: 0.4.9 (not promoted; the DEV steps are its experiments). Next to promote: **0.4.9 = alpha 8**.
 - Open: 0.3.5, generalization to unseen data is not yet shown (ROADMAP.md).
 - Not started: 51 (everything after 0.4.9).
-- Alpha 8 plan toward M4 — Generalizing Research AI: 0 of 9 targets validated (DEV21–DEV28 each passed held-out gates in a lab (DEV24 and DEV28 also with wrong labels), and DEV30 all of them together; three family mechanisms are defaults); what exists for each: [ROADMAP.md](ROADMAP.md#release-governance-and-the-alpha-8-plan).
+- Alpha 8 plan toward M4 — Generalizing Research AI: 0 of 9 targets validated (DEV21–DEV28 each passed held-out gates in a lab (DEV24 and DEV28 also with wrong labels), and DEV30 all of them together; on real bugs, learned knowledge repaired 1 of the 2 needed (DEV29); three family mechanisms are defaults); what exists for each: [ROADMAP.md](ROADMAP.md#release-governance-and-the-alpha-8-plan).
 
 ![Each DEV and its pre-registered gate](progress/dev_history.svg)
 
 | DEV | date | pre-registered gate | result | promoted |
 |---|---|---|---|---|
 | [DEV30](asm_alpha8/ALPHA8_CODING_DEV30_IMPLEMENTATION.md) An M4-candidate battery of the whole transfer stack | 2026-11-23 | G30-A: the four opt-in transfer mechanisms together, under every lab condition at once, held out | passed: all transfer conditions 0.324 → 0.889 (1,064 vs 7 paired); far constants, 60 background procedures and restart 0 → 1.000; wrong labels 0.111 → 0.573; ambiguous fits 0.997 → 0.976; no false transfer, no wrong answer | no |
+| [DEV29](asm_alpha8/ALPHA8_CODING_DEV29_IMPLEMENTATION.md) Learned repair knowledge on real bugs, where fault localization points | 2026-11-23 | G29-A: real bugs repaired correctly only with learned knowledge (person-read), with no loss and no extra wrong patch | 1 of 2 needed · not passed (of 83) | no |
 | [DEV28](asm_alpha8/ALPHA8_CODING_DEV28_IMPLEMENTATION.md) Tolerating one contradicting label | 2026-11-23 | G28-A: transfer under wrong labels rises, no wrong answer, held out | passed: wrong labels at 0.05 0.102 → 0.579, at 0.10 0.009 → 0.181 (168 vs 0 paired), clean 0.999 → 0.986, no false transfer, no wrong answer | no |
 | [DEV27](asm_alpha8/ALPHA8_CODING_DEV27_IMPLEMENTATION.md) A family memory past 32 procedures that survives restarts | 2026-11-23 | G27-A: transfer with 48 and 120 background procedures and after a restart, held out | passed: relevant donors 0.000 → 1.000 with 48 and 120 background procedures (288 vs 0 paired each), unchanged after reopening, no false transfer, no wrong answer | no |
 | [DEV26](asm_alpha8/ALPHA8_CODING_DEV26_IMPLEMENTATION.md) Asking which family candidate is right | 2026-11-23 | G26-A: one question recovers ambiguous fits, no loss, held out | passed: degenerate fits 0.817 → 0.991 (150 vs 0 paired), standard fits 0.984 → 1.000, role order no longer matters, 0.03 questions per ordinary attempt, no wrong answer | no |

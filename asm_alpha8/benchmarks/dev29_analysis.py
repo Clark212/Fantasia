@@ -1,6 +1,7 @@
 """DEV29 analysis of the evaluation records: the pre-registration's reported-not-gated items.
-The two arms are identical through phases 1 and 2. When the control ends 'unresolved' (both phases exhausted inside the
-budget) the learned arm reaches phase 3. Its extra rejected candidates are phase 3's; the records do not mark phases.
+The two arms are identical through phases 1 and 2. When the control tried candidates and ends 'unresolved' (both phases
+exhausted inside the budget), the learned arm reaches phase 3, and its extra candidates are phase 3's. The records do not
+mark phases. A control that tried nothing never entered a phase: the workflow found no suspect with a positive score.
 Usage: python benchmarks/dev29_analysis.py <dir with dev29_evaluate_*of*.jsonl> [<DEV15 results dir>]
 """
 import collections
@@ -28,12 +29,18 @@ def main():
            "best_rank": dict(collections.Counter(str(v["control"].get("best_rank")) for v in pairs.values())),
            "control_vs_dev15": dict(collections.Counter(f"{old[k]['status']} -> {v['control']['status']}" for k, v in pairs.items() if k in old))}
     tried = lambda r: sum((r.get("rejected_by_reason") or {}).values()) + (r["status"] == "resolved")  # noqa: E731
-    reached = {k: tried(v["learned"]) - tried(v["control"]) for k, v in pairs.items() if v["control"]["status"] == "unresolved"}
-    out["phase3"] = {"reached (control unresolved)": len(reached),
+    reached = {k: tried(v["learned"]) - tried(v["control"]) for k, v in pairs.items()
+               if v["control"]["status"] == "unresolved" and tried(v["control"]) > 0}
+    some = sorted(n for n in reached.values() if n > 0)
+    out["phase3"] = {"reached (control tried candidates, unresolved)": len(reached),
                      "learned outcome there": dict(collections.Counter(pairs[k]["learned"]["status"] for k in reached)),
-                     "phase-3 candidates tried, median": sorted(reached.values())[len(reached) // 2] if reached else None,
-                     "phase-3 candidates tried, range": [min(reached.values()), max(reached.values())] if reached else None,
-                     "not reached: control status": dict(collections.Counter(v["control"]["status"] for k, v in pairs.items() if k not in reached))}
+                     "no phase-3 candidate tested": dict(collections.Counter(k[0] for k, n in reached.items() if n <= 0)),
+                     "phase-3 candidates tested where any: n, median, range": [len(some), some[len(some) // 2], some[0], some[-1]] if some else None,
+                     "seconds left for phase 3, median": sorted(150 - pairs[k]["control"]["repair_seconds"] for k in reached)[len(reached) // 2] if reached else None,
+                     "not reached: control status": dict(collections.Counter(
+                         ("no phase ran" if v["control"]["status"] == "unresolved" else v["control"]["status"]) for k, v in pairs.items() if k not in reached))}
+    over = [v["learned"]["repair_seconds"] for v in pairs.values() if v["learned"].get("repair_seconds", 0) > 150]
+    out["learned runs past the 150 s budget"] = {"n": len(over), "max_seconds": max(over) if over else None}
     out["accepted"] = [{"bug": f"{k[0]}-{k[1]}", "mode": m, "status": v[m]["status"], "family": (v[m].get("families") or [None])[0],
                         "desc": v[m].get("desc"), "oracle_class": v[m].get("oracle_class"),
                         "same_patch_as_dev15": v[m].get("asm_diff") == old.get(k, {}).get("asm_diff"),
