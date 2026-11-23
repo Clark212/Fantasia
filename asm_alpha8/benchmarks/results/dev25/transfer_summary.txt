@@ -1,0 +1,180 @@
+{
+ "G25-A": "passed",
+ "checks": {
+  "C1_reach": true,
+  "C2_range": true,
+  "C3_no_loss": true,
+  "C4_fallback": true,
+  "C5_no_false_transfer": true,
+  "C6_safe": true,
+  "C7_cost": true
+ },
+ "paired_beyond_reach": {
+  "solve_only": 54,
+  "enumerate_only": 0,
+  "exact_one_sided_p": 5.551115123125783e-17
+ },
+ "paired_beyond_grid": {
+  "solve_only": 212,
+  "enumerate_only": 0,
+  "exact_one_sided_p": 1.5192908393215678e-64
+ },
+ "per_structure": {
+  "x_plus_y_shift": {
+   "enumerate": 0.5714,
+   "solve": 1.0
+  },
+  "x_y_minus_zz": {
+   "enumerate": 0.5714,
+   "solve": 0.994
+  },
+  "sum_shift_times_z": {
+   "enumerate": 0.5714,
+   "solve": 0.9821
+  }
+ }
+}
+enumerate|none|in_range                      0.000 (0.0, 0.026) calls  1526.1 wrong 0 n 144
+enumerate|none|within_reach                  0.000 (0.0, 0.032) calls  1523.9 wrong 0 n 117
+enumerate|none|beyond_reach                  0.000 (0.0, 0.125) calls  1536.0 wrong 0 n 27
+enumerate|none|out_of_range                  0.000 (0.0, 0.051) calls  1536.0 wrong 0 n 72
+enumerate|none|far                           0.000 (0.0, 0.096) calls  1536.0 wrong 0 n 36
+enumerate|none|beyond_grid                   0.000 (0.0, 0.034) calls  1536.0 wrong 0 n 108
+enumerate|unrelated|in_range                 0.000 (0.0, 0.026) calls  1126.0 wrong 0 n 144
+enumerate|unrelated|within_reach             0.000 (0.0, 0.032) calls  1124.9 wrong 0 n 117
+enumerate|unrelated|beyond_reach             0.000 (0.0, 0.125) calls  1130.6 wrong 0 n 27
+enumerate|unrelated|out_of_range             0.000 (0.0, 0.051) calls  1114.8 wrong 0 n 72
+enumerate|unrelated|far                      0.000 (0.0, 0.096) calls  1130.4 wrong 0 n 36
+enumerate|unrelated|beyond_grid              0.000 (0.0, 0.034) calls  1120.0 wrong 0 n 108
+enumerate|relevant_r0|in_range               1.000 (0.974, 1.0) calls    52.9 wrong 0 n 144
+enumerate|relevant_r0|within_reach           1.000 (0.968, 1.0) calls    42.9 wrong 0 n 117
+enumerate|relevant_r0|beyond_reach           1.000 (0.875, 1.0) calls    96.4 wrong 0 n 27
+enumerate|relevant_r0|out_of_range           0.000 (0.0, 0.051) calls  1334.9 wrong 0 n 72
+enumerate|relevant_r0|far                    0.000 (0.0, 0.096) calls  1301.4 wrong 0 n 36
+enumerate|relevant_r0|beyond_grid            0.000 (0.0, 0.034) calls  1323.7 wrong 0 n 108
+enumerate|relevant_r5|in_range               1.000 (0.974, 1.0) calls    58.3 wrong 0 n 144
+enumerate|relevant_r5|within_reach           1.000 (0.968, 1.0) calls    48.3 wrong 0 n 117
+enumerate|relevant_r5|beyond_reach           1.000 (0.875, 1.0) calls   101.8 wrong 0 n 27
+enumerate|relevant_r5|out_of_range           0.000 (0.0, 0.051) calls  1334.9 wrong 0 n 72
+enumerate|relevant_r5|far                    0.000 (0.0, 0.096) calls  1301.4 wrong 0 n 36
+enumerate|relevant_r5|beyond_grid            0.000 (0.0, 0.034) calls  1323.7 wrong 0 n 108
+enumerate|relevant_shuffled|in_range         0.000 (0.0, 0.026) calls  1333.4 wrong 0 n 144
+enumerate|relevant_shuffled|within_reach     0.000 (0.0, 0.032) calls  1333.6 wrong 0 n 117
+enumerate|relevant_shuffled|beyond_reach     0.000 (0.0, 0.125) calls  1332.7 wrong 0 n 27
+enumerate|relevant_shuffled|out_of_range     0.000 (0.0, 0.051) calls  1332.5 wrong 0 n 72
+enumerate|relevant_shuffled|far              0.000 (0.0, 0.096) calls  1332.7 wrong 0 n 36
+enumerate|relevant_shuffled|beyond_grid      0.000 (0.0, 0.034) calls  1332.5 wrong 0 n 108
+enumerate|mixed_r0|in_range                  0.812 (0.741, 0.868) calls   300.6 wrong 0 n 144
+enumerate|mixed_r0|within_reach              1.000 (0.968, 1.0) calls   132.5 wrong 0 n 117
+enumerate|mixed_r0|beyond_reach              0.000 (0.0, 0.125) calls  1029.1 wrong 0 n 27
+enumerate|mixed_r0|out_of_range              0.000 (0.0, 0.051) calls  1014.8 wrong 0 n 72
+enumerate|mixed_r0|far                       0.000 (0.0, 0.096) calls  1004.1 wrong 0 n 36
+enumerate|mixed_r0|beyond_grid               0.000 (0.0, 0.034) calls  1011.3 wrong 0 n 108
+enumerate|mixed_r5|in_range                  0.812 (0.741, 0.868) calls   305.0 wrong 0 n 144
+enumerate|mixed_r5|within_reach              1.000 (0.968, 1.0) calls   137.9 wrong 0 n 117
+enumerate|mixed_r5|beyond_reach              0.000 (0.0, 0.125) calls  1029.1 wrong 0 n 27
+enumerate|mixed_r5|out_of_range              0.000 (0.0, 0.051) calls  1014.8 wrong 0 n 72
+enumerate|mixed_r5|far                       0.000 (0.0, 0.096) calls  1004.2 wrong 0 n 36
+enumerate|mixed_r5|beyond_grid               0.000 (0.0, 0.034) calls  1011.3 wrong 0 n 108
+solve|none|in_range                          0.000 (0.0, 0.026) calls  1526.1 wrong 0 n 144
+solve|none|within_reach                      0.000 (0.0, 0.032) calls  1523.9 wrong 0 n 117
+solve|none|beyond_reach                      0.000 (0.0, 0.125) calls  1536.0 wrong 0 n 27
+solve|none|out_of_range                      0.000 (0.0, 0.051) calls  1536.0 wrong 0 n 72
+solve|none|far                               0.000 (0.0, 0.096) calls  1536.0 wrong 0 n 36
+solve|none|beyond_grid                       0.000 (0.0, 0.034) calls  1536.0 wrong 0 n 108
+solve|unrelated|in_range                     0.000 (0.0, 0.026) calls  1149.7 wrong 0 n 144
+solve|unrelated|within_reach                 0.000 (0.0, 0.032) calls  1148.6 wrong 0 n 117
+solve|unrelated|beyond_reach                 0.000 (0.0, 0.125) calls  1154.1 wrong 0 n 27
+solve|unrelated|out_of_range                 0.000 (0.0, 0.051) calls  1138.9 wrong 0 n 72
+solve|unrelated|far                          0.000 (0.0, 0.096) calls  1153.8 wrong 0 n 36
+solve|unrelated|beyond_grid                  0.000 (0.0, 0.034) calls  1143.9 wrong 0 n 108
+solve|relevant_r0|in_range                   1.000 (0.974, 1.0) calls    24.1 wrong 0 n 144
+solve|relevant_r0|within_reach               1.000 (0.968, 1.0) calls    24.1 wrong 0 n 117
+solve|relevant_r0|beyond_reach               1.000 (0.875, 1.0) calls    24.0 wrong 0 n 27
+solve|relevant_r0|out_of_range               1.000 (0.949, 1.0) calls    24.6 wrong 0 n 72
+solve|relevant_r0|far                        1.000 (0.904, 1.0) calls    25.7 wrong 0 n 36
+solve|relevant_r0|beyond_grid                1.000 (0.966, 1.0) calls    24.9 wrong 0 n 108
+solve|relevant_r5|in_range                   1.000 (0.974, 1.0) calls    28.3 wrong 0 n 144
+solve|relevant_r5|within_reach               1.000 (0.968, 1.0) calls    28.3 wrong 0 n 117
+solve|relevant_r5|beyond_reach               1.000 (0.875, 1.0) calls    28.3 wrong 0 n 27
+solve|relevant_r5|out_of_range               0.958 (0.885, 0.986) calls    29.2 wrong 0 n 72
+solve|relevant_r5|far                        0.972 (0.858, 0.995) calls    30.3 wrong 0 n 36
+solve|relevant_r5|beyond_grid                0.963 (0.909, 0.986) calls    29.6 wrong 0 n 108
+solve|relevant_shuffled|in_range             0.000 (0.0, 0.026) calls  1350.8 wrong 0 n 144
+solve|relevant_shuffled|within_reach         0.000 (0.0, 0.032) calls  1351.1 wrong 0 n 117
+solve|relevant_shuffled|beyond_reach         0.000 (0.0, 0.125) calls  1349.6 wrong 0 n 27
+solve|relevant_shuffled|out_of_range         0.000 (0.0, 0.051) calls  1349.6 wrong 0 n 72
+solve|relevant_shuffled|far                  0.000 (0.0, 0.096) calls  1350.0 wrong 0 n 36
+solve|relevant_shuffled|beyond_grid          0.000 (0.0, 0.034) calls  1349.7 wrong 0 n 108
+solve|mixed_r0|in_range                      1.000 (0.974, 1.0) calls    63.6 wrong 0 n 144
+solve|mixed_r0|within_reach                  1.000 (0.968, 1.0) calls    63.6 wrong 0 n 117
+solve|mixed_r0|beyond_reach                  1.000 (0.875, 1.0) calls    63.4 wrong 0 n 27
+solve|mixed_r0|out_of_range                  1.000 (0.949, 1.0) calls    62.7 wrong 0 n 72
+solve|mixed_r0|far                           1.000 (0.904, 1.0) calls    63.9 wrong 0 n 36
+solve|mixed_r0|beyond_grid                   1.000 (0.966, 1.0) calls    63.1 wrong 0 n 108
+solve|mixed_r5|in_range                      1.000 (0.974, 1.0) calls    67.8 wrong 0 n 144
+solve|mixed_r5|within_reach                  1.000 (0.968, 1.0) calls    67.8 wrong 0 n 117
+solve|mixed_r5|beyond_reach                  1.000 (0.875, 1.0) calls    67.8 wrong 0 n 27
+solve|mixed_r5|out_of_range                  0.958 (0.885, 0.986) calls    67.3 wrong 0 n 72
+solve|mixed_r5|far                           0.972 (0.858, 0.995) calls    68.5 wrong 0 n 36
+solve|mixed_r5|beyond_grid                   0.963 (0.909, 0.986) calls    67.7 wrong 0 n 108
+enumerate|relevant|in_range                  1.000 (0.987, 1.0) calls    55.6 wrong 0 n 288
+enumerate|relevant|within_reach              1.000 (0.984, 1.0) calls    45.6 wrong 0 n 234
+enumerate|relevant|beyond_reach              1.000 (0.934, 1.0) calls    99.1 wrong 0 n 54
+enumerate|relevant|out_of_range              0.000 (0.0, 0.026) calls  1334.9 wrong 0 n 144
+enumerate|relevant|far                       0.000 (0.0, 0.051) calls  1301.4 wrong 0 n 72
+enumerate|relevant|beyond_grid               0.000 (0.0, 0.017) calls  1323.7 wrong 0 n 216
+solve|relevant|in_range                      1.000 (0.987, 1.0) calls    26.2 wrong 0 n 288
+solve|relevant|within_reach                  1.000 (0.984, 1.0) calls    26.2 wrong 0 n 234
+solve|relevant|beyond_reach                  1.000 (0.934, 1.0) calls    26.1 wrong 0 n 54
+solve|relevant|out_of_range                  0.979 (0.941, 0.993) calls    26.9 wrong 0 n 144
+solve|relevant|far                           0.986 (0.925, 0.998) calls    28.0 wrong 0 n 72
+solve|relevant|beyond_grid                   0.982 (0.953, 0.993) calls    27.2 wrong 0 n 216
+enumerate|mixed|in_range                     0.812 (0.763, 0.853) calls   302.8 wrong 0 n 288
+enumerate|mixed|within_reach                 1.000 (0.984, 1.0) calls   135.2 wrong 0 n 234
+enumerate|mixed|beyond_reach                 0.000 (0.0, 0.066) calls  1029.1 wrong 0 n 54
+enumerate|mixed|out_of_range                 0.000 (0.0, 0.026) calls  1014.8 wrong 0 n 144
+enumerate|mixed|far                          0.000 (0.0, 0.051) calls  1004.1 wrong 0 n 72
+enumerate|mixed|beyond_grid                  0.000 (0.0, 0.017) calls  1011.3 wrong 0 n 216
+solve|mixed|in_range                         1.000 (0.987, 1.0) calls    65.7 wrong 0 n 288
+solve|mixed|within_reach                     1.000 (0.984, 1.0) calls    65.7 wrong 0 n 234
+solve|mixed|beyond_reach                     1.000 (0.934, 1.0) calls    65.6 wrong 0 n 54
+solve|mixed|out_of_range                     0.979 (0.941, 0.993) calls    65.0 wrong 0 n 144
+solve|mixed|far                              0.986 (0.925, 0.998) calls    66.2 wrong 0 n 72
+solve|mixed|beyond_grid                      0.982 (0.953, 0.993) calls    65.4 wrong 0 n 216
+enumerate|nonaffine_none|in_range            0.000 (0.0, 0.074) calls  1536.0 wrong 0 n 48
+enumerate|nonaffine_none|within_reach        0.000 (0.0, 0.09) calls  1536.0 wrong 0 n 39
+enumerate|nonaffine_none|beyond_reach        0.000 (0.0, 0.299) calls  1536.0 wrong 0 n 9
+enumerate|nonaffine_none|out_of_range        0.000 (0.0, 0.138) calls  1536.0 wrong 0 n 24
+enumerate|nonaffine_none|far                 0.000 (0.0, 0.243) calls  1536.0 wrong 0 n 12
+enumerate|nonaffine_none|beyond_grid         0.000 (0.0, 0.096) calls  1536.0 wrong 0 n 36
+enumerate|nonaffine_relevant_r0|in_range     1.000 (0.926, 1.0) calls    51.8 wrong 0 n 48
+enumerate|nonaffine_relevant_r0|within_reach 1.000 (0.91, 1.0) calls    42.3 wrong 0 n 39
+enumerate|nonaffine_relevant_r0|beyond_reach 1.000 (0.701, 1.0) calls    93.2 wrong 0 n 9
+enumerate|nonaffine_relevant_r0|out_of_range 0.000 (0.0, 0.138) calls  1333.5 wrong 0 n 24
+enumerate|nonaffine_relevant_r0|far          0.000 (0.0, 0.243) calls  1332.0 wrong 0 n 12
+enumerate|nonaffine_relevant_r0|beyond_grid  0.000 (0.0, 0.096) calls  1333.0 wrong 0 n 36
+enumerate|nonaffine_mixed_r0|in_range        0.812 (0.681, 0.898) calls   299.3 wrong 0 n 48
+enumerate|nonaffine_mixed_r0|within_reach    1.000 (0.91, 1.0) calls   132.1 wrong 0 n 39
+enumerate|nonaffine_mixed_r0|beyond_reach    0.000 (0.0, 0.299) calls  1024.2 wrong 0 n 9
+enumerate|nonaffine_mixed_r0|out_of_range    0.000 (0.0, 0.138) calls  1025.8 wrong 0 n 24
+enumerate|nonaffine_mixed_r0|far             0.000 (0.0, 0.243) calls  1024.0 wrong 0 n 12
+enumerate|nonaffine_mixed_r0|beyond_grid     0.000 (0.0, 0.096) calls  1025.2 wrong 0 n 36
+solve|nonaffine_none|in_range                0.000 (0.0, 0.074) calls  1536.0 wrong 0 n 48
+solve|nonaffine_none|within_reach            0.000 (0.0, 0.09) calls  1536.0 wrong 0 n 39
+solve|nonaffine_none|beyond_reach            0.000 (0.0, 0.299) calls  1536.0 wrong 0 n 9
+solve|nonaffine_none|out_of_range            0.000 (0.0, 0.138) calls  1536.0 wrong 0 n 24
+solve|nonaffine_none|far                     0.000 (0.0, 0.243) calls  1536.0 wrong 0 n 12
+solve|nonaffine_none|beyond_grid             0.000 (0.0, 0.096) calls  1536.0 wrong 0 n 36
+solve|nonaffine_relevant_r0|in_range         1.000 (0.926, 1.0) calls    66.2 wrong 0 n 48
+solve|nonaffine_relevant_r0|within_reach     1.000 (0.91, 1.0) calls    56.0 wrong 0 n 39
+solve|nonaffine_relevant_r0|beyond_reach     1.000 (0.701, 1.0) calls   110.6 wrong 0 n 9
+solve|nonaffine_relevant_r0|out_of_range     0.000 (0.0, 0.138) calls  1346.3 wrong 0 n 24
+solve|nonaffine_relevant_r0|far              0.000 (0.0, 0.243) calls  1344.0 wrong 0 n 12
+solve|nonaffine_relevant_r0|beyond_grid      0.000 (0.0, 0.096) calls  1345.6 wrong 0 n 36
+solve|nonaffine_mixed_r0|in_range            0.812 (0.681, 0.898) calls   344.2 wrong 0 n 48
+solve|nonaffine_mixed_r0|within_reach        1.000 (0.91, 1.0) calls   175.4 wrong 0 n 39
+solve|nonaffine_mixed_r0|beyond_reach        0.000 (0.0, 0.299) calls  1075.4 wrong 0 n 9
+solve|nonaffine_mixed_r0|out_of_range        0.000 (0.0, 0.138) calls  1077.3 wrong 0 n 24
+solve|nonaffine_mixed_r0|far                 0.000 (0.0, 0.243) calls  1073.9 wrong 0 n 12
+solve|nonaffine_mixed_r0|beyond_grid         0.000 (0.0, 0.096) calls  1076.2 wrong 0 n 36
