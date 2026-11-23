@@ -519,9 +519,10 @@ class ProcedureCortex:
     FAMILY_SHARING=('listing','round_robin')
     FAMILY_SCOPES=('one_input','any_int')
     FAMILY_MAPPINGS=('exact','rename')
+    FAMILY_PARAMETERS=('enumerate','solve')
 
     def __init__(self,db_path,*,trust_provider,dependency_provider=None,extrapolation_guard='abstain',extrapolation_confidence_cap=.5,
-                 family_sharing='round_robin',family_scope='any_int',family_mapping='rename'):
+                 family_sharing='round_robin',family_scope='any_int',family_mapping='rename',family_parameters='enumerate'):
         # Honesty guard (DEFAULT 'abstain' since DEV3.3; 'off' restores the pre-DEV3.2 behaviour). 'abstain': refuse queries whose integer
         # inputs lie outside the range of the evidence behind the active procedure. 'discount': still answer, but cap confidence at the cap.
         if extrapolation_guard not in self.EXTRAPOLATION_GUARDS:raise ValueError('invalid extrapolation guard')
@@ -540,7 +541,11 @@ class ProcedureCortex:
         # whose inputs differ only by name, under every renaming (_renamings). 'exact' (the default before): only targets
         # with the family's own input names. Earlier lab runs reproduce with family_scope='one_input', family_mapping='exact'.
         if family_mapping not in self.FAMILY_MAPPINGS:raise ValueError('invalid family mapping')
+        # DEV25 (experimental, opt-in): 'enumerate' (default, unchanged): parameter values -8..8, shared round robin.
+        # 'solve': each source first proposes the parameters solved exactly from the fit examples (_solve_parameters).
+        if family_parameters not in self.FAMILY_PARAMETERS:raise ValueError('invalid family parameters')
         self.family_sharing=family_sharing;self.family_scope=family_scope;self.family_mapping=family_mapping
+        self.family_parameters=family_parameters
         self.db=sqlite3.connect(str(db_path))
         self.db.execute('PRAGMA journal_mode=WAL')
         self.trust_provider=trust_provider
@@ -768,20 +773,65 @@ class ProcedureCortex:
         maps=(dict(zip(sorted(src),p)) for p in itertools.permutations(sorted(dst)))
         return [m for m in maps if all(src[k]==dst[v] for k,v in m.items())]
 
-    def _family_candidates(self,input_types,budget,ceiling=0):
+    def _family_candidates(self,input_types,budget,ceiling=0,examples=(),cost=None):
         """At most `budget` instantiations (parameters -8..8) of the learned families that apply to this schema: 'listing'
         takes the sources one after another (DEV4's interference), 'round_robin' one instantiation from each in turn. With
         family_mapping='rename' each family and renaming is a source, and the budget grows to 17 proposals (one parameter
-        range) per source, up to `ceiling`."""
-        streams=[[(f,m,v) for v in itertools.product(range(-8,9),repeat=f['parameters'])]
-                 for f in self.families() for m in self._renamings(f['inputs'],input_types)]
+        range) per source, up to `ceiling`. With family_parameters='solve' and fit examples, every source first proposes
+        its solved parameters (in source order, tagged '#solved'; the solving evaluations are added to cost[0]), as extra
+        proposals up to `ceiling`, so that the enumeration after them keeps its reach."""
+        sources=[(f,m) for f in self.families() for m in self._renamings(f['inputs'],input_types)]
+        solved={}
+        if self.family_parameters=='solve' and examples:
+            for i,(f,m) in enumerate(sources):
+                v=self._solve_parameters(f,m,input_types,examples,cost)
+                if v is not None:solved[i]=v
+        streams=[[(f,m,v,'') for v in itertools.product(range(-8,9),repeat=f['parameters']) if v!=solved.get(i)]
+                 for i,(f,m) in enumerate(sources)]
         if self.family_mapping=='rename':budget=max(budget,min(ceiling,17*len(streams)))
+        budget=max(budget,min(ceiling,budget+len(solved)))
         order=(itertools.chain.from_iterable(streams) if self.family_sharing=='listing' else
                (x for turn in itertools.zip_longest(*streams) for x in turn if x is not None))
-        for f,m,values in itertools.islice(order,budget):
-            tag='@'+','.join(f'{k}={v}' for k,v in sorted(m.items())) if m else ''
+        order=itertools.chain(((*sources[i],v,'#solved') for i,v in solved.items()),order)
+        for f,m,values,how in itertools.islice(order,budget):
+            tag=('@'+','.join(f'{k}={v}' for k,v in sorted(m.items())) if m else '')+how
             tree=self._rename_inputs(f['template'],m) if m else f['template']
             yield Program(dict(input_types),substitute(tree,{f'${i}':v for i,v in enumerate(values)})),'family:'+f['id']+tag
+
+    def _solve_parameters(self,family,m,input_types,examples,cost):
+        """The integer parameters for which the family's template (under renaming m), read as affine in them, gives the
+        fit examples' values: an exact solve from the first examples that determine them, else None (not integral, beyond
+        the literal bound, undetermined or not evaluable). Each template evaluation adds 1 to cost[0]. The caller still
+        checks the result on every fit example, so a template that is not affine costs only these evaluations. Two rules from
+        DEV25's development: at least two fit examples must remain to check a solution (with three, one-parameter families
+        only; a two-parameter family solved from two of three points overfits), and the fit examples must identify it (no
+        neighbouring value fits them too: a piecewise template such as max(x + c, 2y) can fit a range of values)."""
+        from fractions import Fraction
+        n=family['parameters']
+        if len(examples)-n<2:return None
+        tree=self._rename_inputs(family['template'],m) if m else family['template']
+        def value(u,e):
+            cost[0]+=1
+            return Program(dict(input_types),substitute(tree,{f'${i}':v for i,v in enumerate(u)})).run(e['inputs'])
+        def fits(u):
+            try:return all(value(u,e)==e['expected'] for e in examples)
+            except (ValueError,OverflowError):return False
+        rows=[]
+        for e in examples:
+            try:row=[value(u,e) for u in [(0,)*n]+[tuple(int(i==j) for j in range(n)) for i in range(n)]]
+            except (ValueError,OverflowError):return None
+            a,b=[Fraction(x-row[0]) for x in row[1:]],Fraction(e['expected']-row[0])
+            rows.append((a,b));sol=None
+            if n==1:sol=(b/a[0],) if a[0] else None
+            for c,d in (rows[:-1] if n==2 else ()):
+                det=c[0]*a[1]-c[1]*a[0]
+                if det:sol=((d*a[1]-c[1]*b)/det,(c[0]*b-d*a[0])/det);break
+            if sol is not None:
+                if not all(v.denominator==1 and abs(v)<=10**6 for v in sol):return None
+                sol=tuple(int(v) for v in sol)
+                near=[sol[:i]+(sol[i]+d,)+sol[i+1:] for i in range(n) for d in (-1,1)]
+                return None if any(fits(u) for u in near) else sol
+        return None
 
     @staticmethod
     def _rename_inputs(tree,m):
@@ -1285,11 +1335,12 @@ class ProcedureCortex:
 
         # Preserve alpha.7.2 unary integer grammar exactly for backward compatibility.
         if input_types=={'x':'int'} and expected_type=='int':
+            solve_cost=[0]
             def candidates():
                 yield Program({'x':'int'},'x'),'grammar'
                 yield Program({'x':'int'},('mul','x','x')),'grammar'
                 family_budget=min(64,max(0,budget-291))
-                if use_families and family_budget:yield from self._family_candidates({'x':'int'},family_budget,max(0,budget-291))
+                if use_families and family_budget:yield from self._family_candidates({'x':'int'},family_budget,max(0,budget-291),examples,solve_cost)
                 for a in range(-8,9):
                     for b in range(-8,9):yield Program({'x':'int'},('add',('mul',a,'x'),b)),'grammar'
             seen=set();evaluations=0;count=0
@@ -1302,12 +1353,12 @@ class ProcedureCortex:
                     if program.run(e['inputs'])!=e['expected']:valid=False;break
                 if valid:
                     result=self.propose(mechanism,program,context=context,provenance='asm_induction:'+origin,training_ids=selected_ids)
-                    result.update(candidate_count=count,evaluator_calls=evaluations,origin=origin);return result
+                    result.update(candidate_count=count,evaluator_calls=evaluations+solve_cost[0],origin=origin);return result
                 if count>=budget:break
             remaining=max(1,budget-count)
             conditional=self._conditional_integer_search(examples,input_types,budget=remaining,collect=True)
             total=count+conditional.get('candidate_count',0)
-            total_evals=evaluations+conditional.get('evaluator_calls',0)
+            total_evals=evaluations+solve_cost[0]+conditional.get('evaluator_calls',0)
             programs=conditional.get('hypotheses',[])
             if programs:
                 q=self._query_from_programs(programs,examples,input_types)
@@ -1332,7 +1383,8 @@ class ProcedureCortex:
         if all_int and len(input_types)>=2 and use_families and self.family_scope=='any_int':
             # DEV22: learned families with this input schema first (as for one-input targets), inside the same
             # budget; three fit points almost always admit an exact integer affine fit, which would pre-empt them
-            for program,origin in self._family_candidates(input_types,min(64,budget),budget//2):
+            solve_cost=[0]
+            for program,origin in self._family_candidates(input_types,min(64,budget),budget//2,examples,solve_cost):
                 fam_count+=1
                 try:
                     for e in examples:
@@ -1340,8 +1392,9 @@ class ProcedureCortex:
                         if program.run(e['inputs'])!=e['expected']:break
                     else:
                         result=self.propose(mechanism,program,context=context,provenance='asm_induction:'+origin,training_ids=selected_ids)
-                        result.update(candidate_count=fam_count,evaluator_calls=fam_evals,origin=origin);return result
+                        result.update(candidate_count=fam_count,evaluator_calls=fam_evals+solve_cost[0],origin=origin);return result
                 except (ValueError,OverflowError):pass
+            fam_evals+=solve_cost[0]
         if all_int and len(input_types)>=2:
             affine=self._solve_affine(examples,names)
             if affine is not None:
