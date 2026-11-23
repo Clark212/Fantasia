@@ -522,10 +522,12 @@ class ProcedureCortex:
     FAMILY_PARAMETERS=('enumerate','solve')
     FAMILY_AMBIGUITY=('first','ask')
     FAMILY_MEMORY=('window','index')
+    CONTRADICTION_POLICIES=('strict','tolerant')
+    TOLERATED_AGREEMENT=4
 
     def __init__(self,db_path,*,trust_provider,dependency_provider=None,extrapolation_guard='abstain',extrapolation_confidence_cap=.5,
                  family_sharing='round_robin',family_scope='any_int',family_mapping='rename',family_parameters='enumerate',
-                 family_ambiguity='first',family_memory='window'):
+                 family_ambiguity='first',family_memory='window',contradiction_policy='strict'):
         # Honesty guard (DEFAULT 'abstain' since DEV3.3; 'off' restores the pre-DEV3.2 behaviour). 'abstain': refuse queries whose integer
         # inputs lie outside the range of the evidence behind the active procedure. 'discount': still answer, but cap confidence at the cap.
         if extrapolation_guard not in self.EXTRAPOLATION_GUARDS:raise ValueError('invalid extrapolation guard')
@@ -554,8 +556,14 @@ class ProcedureCortex:
         # DEV27 (experimental, opt-in): 'window' (default, unchanged): families of the first 32 active versions (by name),
         # at most 16. 'index': every family, from an index kept in the database (_indexed_families).
         if family_memory not in self.FAMILY_MEMORY:raise ValueError('invalid family memory')
+        # DEV28 (experimental, opt-in; the owner approved testing it): 'strict' (default, unchanged): one contradicting
+        # label rejects or suspends a hypothesis. 'tolerant': a hypothesis survives one contradicting label in total (fit
+        # and validation together) beside at least TOLERATED_AGREEMENT agreeing labels (_tolerates), in propose, observe,
+        # the 2-4-input family step of induce, and its parameter solving (_solve_tolerant).
+        if contradiction_policy not in self.CONTRADICTION_POLICIES:raise ValueError('invalid contradiction policy')
         self.family_sharing=family_sharing;self.family_scope=family_scope;self.family_mapping=family_mapping
         self.family_parameters=family_parameters;self.family_ambiguity=family_ambiguity;self.family_memory=family_memory
+        self.contradiction_policy=contradiction_policy
         self.db=sqlite3.connect(str(db_path))
         self.db.execute('PRAGMA journal_mode=WAL')
         self.trust_provider=trust_provider
@@ -650,11 +658,11 @@ class ProcedureCortex:
             if old!=row:raise ValueError('conflicting procedure evidence ID')
             return {'status':'duplicate'}
         if (mechanism,context) not in self._scopes and len(self._scopes)>=self.MAX_MECHANISMS:raise RuntimeError('procedure mechanism capacity reached')
-        versions=self.db.execute("SELECT version,program,state,dependencies,created_seq FROM procedure_versions WHERE mechanism=? AND context=? AND state IN ('proposed','active','suspicious') ORDER BY version",(mechanism,context)).fetchall()
+        versions=self.db.execute("SELECT version,program,state,dependencies,created_seq,contradictions FROM procedure_versions WHERE mechanism=? AND context=? AND state IN ('proposed','active','suspicious') ORDER BY version",(mechanism,context)).fetchall()
         with self.db:
             seq=self.db.execute('SELECT COALESCE(MAX(seq),0)+1 FROM procedure_evidence').fetchone()[0]
             self.db.execute('INSERT INTO procedure_evidence VALUES(?,?,?,?,?,?,?,?,?)',(evidence_id,*row,seq))
-            for version,data,state,deps,_ in versions:
+            for version,data,state,deps,_,contradicted in versions:
                 p=self._program(data)
                 try:pred=p.run(values);matched=type(pred)==type(expected) and pred==expected
                 except ValueError:matched=False
@@ -668,7 +676,10 @@ class ProcedureCortex:
                 dependencies[source_id]=trust['version']
                 self.db.execute('INSERT INTO procedure_support VALUES(?,?,?,?,?,?,?)',(mechanism,context,version,evidence_id,root_id,'validation',int(matched)))
                 self.db.execute('UPDATE procedure_versions SET support=support+?,contradictions=contradictions+?,dependencies=? WHERE mechanism=? AND context=? AND version=?',(int(matched),int(not matched),pack(dependencies),mechanism,context,version))
-                if not matched:
+                # DEV28 'tolerant': one contradiction in total is kept (propose already required TOLERATED_AGREEMENT agreeing labels)
+                if not matched and state!='suspicious' and self._tolerates(contradicted+1,self.TOLERATED_AGREEMENT):
+                    self._event(mechanism,context,version,'tolerated_contradiction',evidence_id)
+                elif not matched:
                     next_state='suspicious' if state=='active' else 'suspended'
                     event=('active_prediction_mismatch' if state=='active' else
                            'proposal_prediction_mismatch' if state=='proposed' else 'prediction_mismatch')
@@ -706,19 +717,23 @@ class ProcedureCortex:
             wanted=set(training_ids);examples=[x for x in examples if x['id'] in wanted]
             if {x['id'] for x in examples}!=wanted:raise ValueError('unknown/out-of-window training ID')
         if len({e['root'] for e in examples})<3:raise ValueError('at least three independent fit observations required')
-        dependencies={}
+        dependencies={};fits={}
         for e in examples:
             pred=program.run(e['inputs'])
-            if type(pred)!=type(e['expected']) or pred!=e['expected']:return {'status':'rejected','reason':'training_contradiction'}
+            fits[e['id']]=type(pred)==type(e['expected']) and pred==e['expected']
+            if not fits[e['id']] and not self._tolerates(len(fits)-sum(fits.values()),len(examples)-1):
+                return {'status':'rejected','reason':'training_contradiction'}
             current=self._trust(e['source'])
             if current['version']!=e['source_version']:return {'status':'rejected','reason':'stale_training_source'}
             dependencies[e['source']]=e['source_version']
         if len(dependencies)>8:raise ValueError('dependency capacity exceeded')
+        bad=len(fits)-sum(fits.values())
+        if not self._tolerates(bad,len(fits)-bad):return {'status':'rejected','reason':'training_contradiction'}
         version=self.db.execute('SELECT COALESCE(MAX(version),0)+1 FROM procedure_versions WHERE mechanism=? AND context=?',(mechanism,context)).fetchone()[0]
         if version>self.MAX_VERSIONS:raise RuntimeError('procedure version capacity reached; history retained')
         with self.db:
-            self.db.execute('INSERT INTO procedure_versions(mechanism,context,version,program,provenance,created_seq,state,dependencies) VALUES(?,?,?,?,?,?,?,?)',(mechanism,context,version,pack(program.as_dict()),provenance,max(e['seq'] for e in examples),'proposed',pack(dependencies)))
-            for e in examples:self.db.execute('INSERT OR IGNORE INTO procedure_support VALUES(?,?,?,?,?,?,?)',(mechanism,context,version,e['id'],e['root'],'fit',1))
+            self.db.execute('INSERT INTO procedure_versions(mechanism,context,version,program,provenance,created_seq,state,dependencies,contradictions) VALUES(?,?,?,?,?,?,?,?,?)',(mechanism,context,version,pack(program.as_dict()),provenance,max(e['seq'] for e in examples),'proposed',pack(dependencies),bad))
+            for e in examples:self.db.execute('INSERT OR IGNORE INTO procedure_support VALUES(?,?,?,?,?,?,?)',(mechanism,context,version,e['id'],e['root'],'fit',int(fits[e['id']])))
             self._event(mechanism,context,version,'proposed')
         return {'status':'proposed','version':version,'program':program.as_dict()}
 
@@ -796,7 +811,7 @@ class ProcedureCortex:
         solved={}
         if self.family_parameters=='solve' and examples:
             for i,(f,m) in enumerate(sources):
-                v=self._solve_parameters(f,m,input_types,examples,cost)
+                v=(self._solve_tolerant if self.contradiction_policy=='tolerant' else self._solve_parameters)(f,m,input_types,examples,cost)
                 if v is not None:solved[i]=v
         streams=[[(f,m,v,'') for v in itertools.product(range(-8,9),repeat=f['parameters']) if v!=solved.get(i)]
                  for i,(f,m) in enumerate(sources)]
@@ -844,6 +859,46 @@ class ProcedureCortex:
                 near=[sol[:i]+(sol[i]+d,)+sol[i+1:] for i in range(n) for d in (-1,1)]
                 return None if any(fits(u) for u in near) else sol
         return None
+
+    def _tolerates(self,mismatches,agreeing):
+        """Whether a hypothesis may stand with `mismatches` contradicting labels beside `agreeing` ones: never with
+        'strict'; with 'tolerant' (DEV28), one, beside at least TOLERATED_AGREEMENT agreeing labels."""
+        return mismatches==0 or (self.contradiction_policy=='tolerant' and mismatches==1 and agreeing>=self.TOLERATED_AGREEMENT)
+
+    def _solve_tolerant(self,family,m,input_types,examples,cost):
+        """DEV28 'tolerant' version of _solve_parameters. Each example (one parameter) or pair of examples (two) votes for
+        the solution it determines, in order, until one has as many votes as n+1 consistent examples give it (2 or 3), so
+        one wrong label cannot decide it; three determining examples without agreement give None. The solution must agree
+        with all examples but at most one (_tolerates) and be identified (no neighbouring value agrees as often)."""
+        from fractions import Fraction
+        from collections import Counter
+        n=family['parameters']
+        if len(examples)-n<2:return None
+        tree=self._rename_inputs(family['template'],m) if m else family['template']
+        def value(u,e):
+            cost[0]+=1
+            return Program(dict(input_types),substitute(tree,{f'${i}':v for i,v in enumerate(u)})).run(e['inputs'])
+        def agree(u):
+            try:return sum(value(u,e)==e['expected'] for e in examples)
+            except (ValueError,OverflowError):return -1
+        rows,votes,best=[],Counter(),None
+        for e in examples:
+            try:row=[value(u,e) for u in [(0,)*n]+[tuple(int(i==j) for j in range(n)) for i in range(n)]]
+            except (ValueError,OverflowError):return None
+            a,b=[Fraction(x-row[0]) for x in row[1:]],Fraction(e['expected']-row[0])
+            if n==1 and a[0]:votes[(b/a[0],)]+=1
+            for c,d in (rows if n==2 else ()):
+                det=c[0]*a[1]-c[1]*a[0]
+                if det:votes[((d*a[1]-c[1]*b)/det,(c[0]*b-d*a[0])/det)]+=1
+            rows.append((a,b))
+            top=votes.most_common(1)
+            if top and top[0][1]>=n+1:best=top[0][0];break
+            if sum(1 for r,_ in rows if any(r))>=n+2 and (not top or top[0][1]<2):return None
+        if best is None or not all(v.denominator==1 and abs(v)<=10**6 for v in best):return None
+        best=tuple(int(v) for v in best);k=agree(best)
+        if not self._tolerates(len(examples)-k,k):return None
+        near=[best[:i]+(best[i]+d,)+best[i+1:] for i in range(n) for d in (-1,1)]
+        return None if any(agree(u)>=k for u in near) else best
 
     def _disagreement_query(self,programs,examples,input_types):
         """DEV26: the input, near the evidence and not yet observed (_query_pool), on which these fitting candidates
@@ -1443,9 +1498,12 @@ class ProcedureCortex:
                 if fitting and not solved:break  # DEV26 'ask': every solved candidate has been checked
                 fam_count+=1
                 try:
+                    bad=0
                     for e in examples:
                         fam_evals+=1
-                        if program.run(e['inputs'])!=e['expected']:break
+                        if program.run(e['inputs'])!=e['expected']:
+                            bad+=1
+                            if not self._tolerates(bad,len(examples)-bad):break
                     else:
                         if self.family_ambiguity=='ask' and solved:fitting.append((program,origin));continue
                         result=self.propose(mechanism,program,context=context,provenance='asm_induction:'+origin,training_ids=selected_ids)
