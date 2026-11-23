@@ -21,7 +21,7 @@
     "validated": 0,
     "details": "ROADMAP.md#release-governance-and-the-alpha-8-plan",
     "note": "update `validated` only when a pre-registered gate for that target passes",
-    "evidence_note": "DEV21–DEV24 each passed held-out gates in a lab (DEV24 also with wrong labels); the three family mechanisms are defaults"
+    "evidence_note": "DEV21–DEV25 each passed held-out gates in a lab (DEV24 also with wrong labels); three family mechanisms are defaults"
   },
   "devs": [
     {
@@ -132,6 +132,16 @@
       "result": "passed: donors over other names 0.000 → 0.979 on 3 new three-input structures, all six role orders (846 vs 0 paired); labels wrong at 0.10 cost exactly the corrupted attempts; no wrong answer",
       "promoted": false,
       "report": "asm_alpha8/ALPHA8_CODING_DEV24_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV25",
+      "date": "2026-11-23",
+      "title": "Solving family parameters from the fit examples",
+      "gate": "G25-A: constants beyond the grid and the budget's reach, no loss, held out",
+      "kind": "passed",
+      "result": "passed: beyond the −8..8 grid 0.000 → 0.982 (212 vs 0 paired), beyond the budget's reach 0.000 → 1.000 (54 vs 0), no loss, half the evaluator calls, no wrong answer",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV25_IMPLEMENTATION.md"
     }
   ]
 }
