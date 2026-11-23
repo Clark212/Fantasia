@@ -10,11 +10,14 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
   not promoted (Structural Transfer & Analogical Procedure Generalization, toward M4); alpha 7.8 delivered 0.4.7 and
   0.4.8 ("Latent Dependency Structure & Higher-Order Epistemic Routing"). DEV steps are experiments inside
   alpha 8 (side tracks), not milestones; none is promoted. The alpha.8.1–8.9 plan and its evidence: `ROADMAP.md`, Stage 4.
-- Latest: **DEV28** (tolerating one contradicting label; alpha.8.7). G28-A **passed**:
-  `ProcedureCortex(contradiction_policy='tolerant')` (opt-in, approved by the owner for testing only; the default stays
-  'strict') lets a hypothesis survive one contradicting label beside 4 agreeing ones. At 5% wrong labels transfer goes
-  0.102 → 0.579, at 10% 0.009 → 0.181, with no wrong answer; clean 0.999 → 0.986. DEV25–DEV27 before it, all opt-in:
-  `family_parameters='solve'`, `family_ambiguity='ask'`, `family_memory='index'`.
+- Latest: **DEV30** (an M4-candidate battery of the whole transfer stack; alpha.8.9 candidate, lab only). G30-A **passed**:
+  the four opt-in mechanisms together (`family_parameters='solve'`, `family_ambiguity='ask'`, `family_memory='index'`,
+  `contradiction_policy='tolerant'`), against today's defaults, under every lab condition at once, on six held-out
+  structures: 0.324 → 0.889 over all transfer conditions, no false transfer, no wrong answer. Tolerance loses 7 of 288
+  degenerate fits; the same stack with the strict policy wins them. DEV25–DEV28 before it, each opt-in and each gate
+  passed. **DEV29** (DEV20's learned libraries in the repair workflow's phase 3, on DEV15's 83 real bugs) is being
+  evaluated; its pre-registration is commit `5fe3650`. Pending for DEV30 once DEV29's shards are done: the exploratory
+  ablation (`asm_alpha8/benchmarks/dev30_ablation.py`) and the full test run.
 - Owner-approved plan (2026-11-23), in order: DEV26 ask for a disambiguating example when fitting candidates disagree
   (alpha.8.3); DEV27 family memory past the 32 active versions `families()` reads, surviving restarts (alpha.8.6); DEV28
   noise-tolerant validation, opt-in, approved for testing only (alpha.8.7); DEV29 real-bug repair with fault
@@ -35,7 +38,7 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
 - Open work:
   - Owner decisions: make `family_parameters='solve'` (DEV25), `family_ambiguity='ask'` (DEV26) and
     `family_memory='index'` (DEV27) the defaults; whether to use `contradiction_policy='tolerant'` anywhere (DEV28).
-  - Next: the owner-approved plan above, from DEV29.
+  - Next: finish DEV29 (review every accepted patch, load check, report), then the DEV30 ablation.
   - Recommended for the owner's ultra-code session (2026-11-23): the real-bug repair DEV below.
   - DEV16's study needs generated pairs from the owner's PC (`asm_alpha8/tools/generate_pairs.py`, instructions in
     `asm_alpha8/tools/README_DEV16_DATA.md`).

@@ -21,7 +21,7 @@
     "validated": 0,
     "details": "ROADMAP.md#release-governance-and-the-alpha-8-plan",
     "note": "update `validated` only when a pre-registered gate for that target passes",
-    "evidence_note": "DEV21–DEV28 each passed held-out gates in a lab (DEV24 and DEV28 also with wrong labels); three family mechanisms are defaults"
+    "evidence_note": "DEV21–DEV28 each passed held-out gates in a lab (DEV24 and DEV28 also with wrong labels), and DEV30 all of them together; three family mechanisms are defaults"
   },
   "devs": [
     {
@@ -172,6 +172,16 @@
       "result": "passed: wrong labels at 0.05 0.102 → 0.579, at 0.10 0.009 → 0.181 (168 vs 0 paired), clean 0.999 → 0.986, no false transfer, no wrong answer",
       "promoted": false,
       "report": "asm_alpha8/ALPHA8_CODING_DEV28_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV30",
+      "date": "2026-11-23",
+      "title": "An M4-candidate battery of the whole transfer stack",
+      "gate": "G30-A: the four opt-in transfer mechanisms together, under every lab condition at once, held out",
+      "kind": "passed",
+      "result": "passed: all transfer conditions 0.324 → 0.889 (1,064 vs 7 paired); far constants, 60 background procedures and restart 0 → 1.000; wrong labels 0.111 → 0.573; ambiguous fits 0.997 → 0.976; no false transfer, no wrong answer",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV30_IMPLEMENTATION.md"
     }
   ]
 }
