@@ -21,7 +21,7 @@
     "validated": 0,
     "details": "ROADMAP.md#release-governance-and-the-alpha-8-plan",
     "note": "update `validated` only when a pre-registered gate for that target passes",
-    "evidence_note": "DEV21–DEV27 each passed held-out gates in a lab (DEV24 also with wrong labels); three family mechanisms are defaults"
+    "evidence_note": "DEV21–DEV28 each passed held-out gates in a lab (DEV24 and DEV28 also with wrong labels); three family mechanisms are defaults"
   },
   "devs": [
     {
@@ -162,6 +162,16 @@
       "result": "passed: relevant donors 0.000 → 1.000 with 48 and 120 background procedures (288 vs 0 paired each), unchanged after reopening, no false transfer, no wrong answer",
       "promoted": false,
       "report": "asm_alpha8/ALPHA8_CODING_DEV27_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV28",
+      "date": "2026-11-23",
+      "title": "Tolerating one contradicting label",
+      "gate": "G28-A: transfer under wrong labels rises, no wrong answer, held out",
+      "kind": "passed",
+      "result": "passed: wrong labels at 0.05 0.102 → 0.579, at 0.10 0.009 → 0.181 (168 vs 0 paired), clean 0.999 → 0.986, no false transfer, no wrong answer",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV28_IMPLEMENTATION.md"
     }
   ]
 }

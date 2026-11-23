@@ -10,11 +10,11 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
   not promoted (Structural Transfer & Analogical Procedure Generalization, toward M4); alpha 7.8 delivered 0.4.7 and
   0.4.8 ("Latent Dependency Structure & Higher-Order Epistemic Routing"). DEV steps are experiments inside
   alpha 8 (side tracks), not milestones; none is promoted. The alpha.8.1–8.9 plan and its evidence: `ROADMAP.md`, Stage 4.
-- Latest: **DEV27** (a family memory past 32 procedures that survives restarts; alpha.8.6). G27-A **passed**:
-  `ProcedureCortex(family_memory='index')` (opt-in; default is the owner's decision) keeps a family index in the database
-  instead of reading the first 32 active versions; with 48 and 120 background procedures transfer goes 0.000 → 1.000,
-  unchanged after reopening, at 2–28% of the search it replaces. DEV26 before it: `family_ambiguity='ask'` asks for
-  the input that separates fitting candidates; DEV25: `family_parameters='solve'`. All three are opt-in.
+- Latest: **DEV28** (tolerating one contradicting label; alpha.8.7). G28-A **passed**:
+  `ProcedureCortex(contradiction_policy='tolerant')` (opt-in, approved by the owner for testing only; the default stays
+  'strict') lets a hypothesis survive one contradicting label beside 4 agreeing ones. At 5% wrong labels transfer goes
+  0.102 → 0.579, at 10% 0.009 → 0.181, with no wrong answer; clean 0.999 → 0.986. DEV25–DEV27 before it, all opt-in:
+  `family_parameters='solve'`, `family_ambiguity='ask'`, `family_memory='index'`.
 - Owner-approved plan (2026-11-23), in order: DEV26 ask for a disambiguating example when fitting candidates disagree
   (alpha.8.3); DEV27 family memory past the 32 active versions `families()` reads, surviving restarts (alpha.8.6); DEV28
   noise-tolerant validation, opt-in, approved for testing only (alpha.8.7); DEV29 real-bug repair with fault
@@ -29,13 +29,13 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
 - Records: reports `asm_alpha8/ALPHA8_CODING_DEV*_IMPLEMENTATION.md`; pre-registrations and amendments
   `asm_alpha8/benchmarks/preregistration/`; raw results `asm_alpha8/benchmarks/results/devN/` (hash-chained JSONL; never
   edit); progress page `README.md` from `progress/`.
-- Tests: `cd asm_alpha8 && python3 -m pytest -q tests/test_alpha8_*.py` (599 passed, 3 skipped at DEV27). The whole
+- Tests: `cd asm_alpha8 && python3 -m pytest -q tests/test_alpha8_*.py` (605 passed, 3 skipped at DEV28). The whole
   `tests/` directory has 57 more failures in v0.2–v0.4 modules that need PyTorch, which is not installed (checked at
   DEV23: the same 57 test IDs as on the DEV22 commit), and `test_v030a7.py`, `test_v030a9.py`, `test_v030a10.py` cannot import.
 - Open work:
   - Owner decisions: make `family_parameters='solve'` (DEV25), `family_ambiguity='ask'` (DEV26) and
-    `family_memory='index'` (DEV27) the defaults.
-  - Next: the owner-approved plan above, from DEV28.
+    `family_memory='index'` (DEV27) the defaults; whether to use `contradiction_policy='tolerant'` anywhere (DEV28).
+  - Next: the owner-approved plan above, from DEV29.
   - Recommended for the owner's ultra-code session (2026-11-23): the real-bug repair DEV below.
   - DEV16's study needs generated pairs from the owner's PC (`asm_alpha8/tools/generate_pairs.py`, instructions in
     `asm_alpha8/tools/README_DEV16_DATA.md`).
