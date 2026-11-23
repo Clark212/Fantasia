@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="920" height="214" viewBox="0 0 920 214" role="img" aria-label="ASM progress to v1.0.0: 47 of 100 roadmap milestones reached">
 <rect x="0.5" y="0.5" width="919" height="213" rx="8" fill="#ffffff" stroke="#d0d7de"/>
 <text x="20.0" y="34.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="600" fill="#1f2328" text-anchor="start">ASM — progress to v1.0.0</text>
-<text x="20.0" y="58.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#59636e" text-anchor="start">v0.4.0-alpha.7.9 (promoted) · latest step DEV26 · 47 of 100 roadmap milestones reached (47%)</text>
+<text x="20.0" y="58.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#59636e" text-anchor="start">v0.4.0-alpha.7.9 (promoted) · latest step DEV27 · 47 of 100 roadmap milestones reached (47%)</text>
 <text x="20.0" y="77.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#59636e" text-anchor="start">In development: 0.4.9 (not promoted; the DEV steps are its experiments) · next to promote: 0.4.9 = alpha 8</text>
 <rect x="20.00" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.0.1 Initial Seismic Engine: reached</title></rect>
 <rect x="28.22" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.0.2 Event and Impulse Processing: reached</title></rect>

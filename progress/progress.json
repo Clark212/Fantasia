@@ -21,7 +21,7 @@
     "validated": 0,
     "details": "ROADMAP.md#release-governance-and-the-alpha-8-plan",
     "note": "update `validated` only when a pre-registered gate for that target passes",
-    "evidence_note": "DEV21–DEV26 each passed held-out gates in a lab (DEV24 also with wrong labels); three family mechanisms are defaults"
+    "evidence_note": "DEV21–DEV27 each passed held-out gates in a lab (DEV24 also with wrong labels); three family mechanisms are defaults"
   },
   "devs": [
     {
@@ -152,6 +152,16 @@
       "result": "passed: degenerate fits 0.817 → 0.991 (150 vs 0 paired), standard fits 0.984 → 1.000, role order no longer matters, 0.03 questions per ordinary attempt, no wrong answer",
       "promoted": false,
       "report": "asm_alpha8/ALPHA8_CODING_DEV26_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV27",
+      "date": "2026-11-23",
+      "title": "A family memory past 32 procedures that survives restarts",
+      "gate": "G27-A: transfer with 48 and 120 background procedures and after a restart, held out",
+      "kind": "passed",
+      "result": "passed: relevant donors 0.000 → 1.000 with 48 and 120 background procedures (288 vs 0 paired each), unchanged after reopening, no false transfer, no wrong answer",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV27_IMPLEMENTATION.md"
     }
   ]
 }
