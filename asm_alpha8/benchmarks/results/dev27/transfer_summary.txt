@@ -1,0 +1,84 @@
+{
+ "G27-A": "passed",
+ "checks": {
+  "C1_scale": true,
+  "C2_small_memory_unchanged": true,
+  "C3_restart": true,
+  "C4_no_false_transfer": true,
+  "C5_safe": true,
+  "C6_cheaper_than_search": true
+ },
+ "paired_relevant": {
+  "memory_0": {
+   "index_only": 0,
+   "window_only": 0,
+   "exact_one_sided_p": 1.0
+  },
+  "memory_48": {
+   "index_only": 288,
+   "window_only": 0,
+   "exact_one_sided_p": 2.010764683385949e-87
+  },
+  "memory_120": {
+   "index_only": 288,
+   "window_only": 0,
+   "exact_one_sided_p": 2.010764683385949e-87
+  }
+ },
+ "per_structure": {
+  "z_shift_y_plus_x": {
+   "window|0": 1.0,
+   "window|48": 0.0,
+   "window|120": 0.0,
+   "index|0": 1.0,
+   "index|48": 1.0,
+   "index|120": 1.0
+  },
+  "xy_minus_z_shift": {
+   "window|0": 0.9792,
+   "window|48": 0.0,
+   "window|120": 0.0,
+   "index|0": 0.9792,
+   "index|48": 1.0,
+   "index|120": 1.0
+  },
+  "weighted_sum_times_z": {
+   "window|0": 1.0,
+   "window|48": 0.0,
+   "window|120": 0.0,
+   "index|0": 1.0,
+   "index|48": 1.0,
+   "index|120": 1.0
+  }
+ }
+}
+window|none|0              0.000 (0.0, 0.026) calls  1500.9 families   0.0 wrong 0 n 144
+window|none|48             0.000 (0.0, 0.026) calls  1121.4 families  15.0 wrong 0 n 144
+window|none|120            0.000 (0.0, 0.026) calls  1121.4 families  15.0 wrong 0 n 144
+window|relevant_r0|0       0.993 (0.962, 0.999) calls    32.8 families   1.0 wrong 0 n 144
+window|relevant_r0|48      0.000 (0.0, 0.026) calls  1121.4 families  15.0 wrong 0 n 144
+window|relevant_r0|120     0.000 (0.0, 0.026) calls  1121.4 families  15.0 wrong 0 n 144
+window|relevant_r5|0       0.993 (0.962, 0.999) calls    32.8 families   1.0 wrong 0 n 144
+window|relevant_r5|48      0.000 (0.0, 0.026) calls  1121.4 families  15.0 wrong 0 n 144
+window|relevant_r5|120     0.000 (0.0, 0.026) calls  1121.4 families  15.0 wrong 0 n 144
+window|restart_r0|0        0.993 (0.962, 0.999) calls    32.8 families   1.0 wrong 0 n 144
+window|restart_r0|48       0.000 (0.0, 0.026) calls  1121.4 families  15.0 wrong 0 n 144
+window|restart_r0|120      0.000 (0.0, 0.026) calls  1121.4 families  15.0 wrong 0 n 144
+index|none|0               0.000 (0.0, 0.026) calls  1500.9 families   0.0 wrong 0 n 144
+index|none|48              0.000 (0.0, 0.026) calls  1141.6 families  22.0 wrong 0 n 144
+index|none|120             0.000 (0.0, 0.026) calls  1229.7 families  47.0 wrong 0 n 144
+index|relevant_r0|0        0.993 (0.962, 0.999) calls    32.8 families   1.0 wrong 0 n 144
+index|relevant_r0|48       1.000 (0.974, 1.0) calls   218.5 families  23.0 wrong 0 n 144
+index|relevant_r0|120      1.000 (0.974, 1.0) calls   344.8 families  48.0 wrong 0 n 144
+index|relevant_r5|0        0.993 (0.962, 0.999) calls    32.8 families   1.0 wrong 0 n 144
+index|relevant_r5|48       1.000 (0.974, 1.0) calls   218.5 families  23.0 wrong 0 n 144
+index|relevant_r5|120      1.000 (0.974, 1.0) calls   344.8 families  48.0 wrong 0 n 144
+index|restart_r0|0         0.993 (0.962, 0.999) calls    32.8 families   1.0 wrong 0 n 144
+index|restart_r0|48        1.000 (0.974, 1.0) calls   218.5 families  23.0 wrong 0 n 144
+index|restart_r0|120       1.000 (0.974, 1.0) calls   344.8 families  48.0 wrong 0 n 144
+window|relevant|0          0.993 (0.975, 0.998) calls    32.8 families   1.0 wrong 0 n 288
+window|relevant|48         0.000 (0.0, 0.013) calls  1121.4 families  15.0 wrong 0 n 288
+window|relevant|120        0.000 (0.0, 0.013) calls  1121.4 families  15.0 wrong 0 n 288
+index|relevant|0           0.993 (0.975, 0.998) calls    32.8 families   1.0 wrong 0 n 288
+index|relevant|48          1.000 (0.987, 1.0) calls   218.5 families  23.0 wrong 0 n 288
+index|relevant|120         1.000 (0.987, 1.0) calls   344.8 families  48.0 wrong 0 n 288
