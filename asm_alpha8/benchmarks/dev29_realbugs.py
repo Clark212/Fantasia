@@ -71,6 +71,9 @@ def repair(work, r, mode, budget, libs, **options):
     d = RepairWorkflow(runner, time_budget_seconds=budget, extended_ops=True, **learned, **options).run(base / "buggy", suite)
     rec.update(status=d.status, repair_seconds=round(time.monotonic() - t1, 1), notes=[str(x)[:300] for x in d.notes[:6]],
                rejected_by_reason=d.reasons)
+    dropped = [r["why"] for r in d.rejected if r.get("status") == "test_copy"]  # DEV32: what the guard dropped (if on)
+    if dropped:
+        rec["test_copy_dropped"] = dropped[:20]
     if d.steps:
         st = d.steps[0]
         rec.update(suspect=st["suspect"], desc=st["description"], label=st["confidence"], n_steps=len(d.steps),
