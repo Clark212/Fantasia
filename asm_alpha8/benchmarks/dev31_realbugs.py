@@ -8,7 +8,7 @@ Arms (DEV29's per-bug evaluation, dev29_realbugs.repair; paired, one after the o
                 (RepairWorkflow(phase3_seconds=150)); its candidate building stops when that clock runs out
   control_long  the control with the learned arm's total time, 300 s: run on every bug the learned arm resolves and the
                 control does not, so that a learned-only repair cannot come from the extra time alone
-Usage: python benchmarks/dev31_realbugs.py evaluate <work_dir> [--shard=i/N] [--arms=control,learned]
+Usage: python benchmarks/dev31_realbugs.py evaluate <work_dir> [--shard=i/N] [--arms=control,learned] [--resume]
        python benchmarks/dev31_realbugs.py time_control <work_dir>
        python benchmarks/dev31_realbugs.py summary <work_dir>
 """
@@ -59,7 +59,11 @@ def main():
     valid = [r for r in read_records(work / "validate.jsonl")[1] if r.get("status") == "valid"]
     if stage == "evaluate":
         (i, n), arms = (int(x) for x in arg("shard", "0/1").split("/")), tuple(arg("arms", "control,learned").split(","))
-        run(work, work / f"dev31_{'_'.join(arms)}_{i}of{n}.jsonl", [r for k, r in enumerate(valid) if k % n == i], arms)
+        name, bugs = f"dev31_{'_'.join(arms)}_{i}of{n}.jsonl", [r for k, r in enumerate(valid) if k % n == i]
+        if "--resume" in sys.argv:  # the bugs a stopped run did not finish in every arm, all arms again, in new files
+            done = {k for k, v in records(work, f"dev31_{'_'.join(arms)}_*of*.jsonl").items() if set(arms) <= set(v)}
+            name, bugs = f"dev31_{'_'.join(arms)}_resume_{i}of{n}.jsonl", [r for r in valid if (r["project"], r["bug"]) not in done][i::n]
+        run(work, work / name, bugs, arms)
     elif stage == "time_control":
         by = records(work, "dev31_control_learned_*of*.jsonl")
         wins = [r for r in valid if by.get((r["project"], r["bug"]), {}).get("learned", {}).get("status") == "resolved"
