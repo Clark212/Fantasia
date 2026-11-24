@@ -29,10 +29,10 @@ PROBES = {
 }
 
 
-def main():
-    work = Path(sys.argv[1])
+def run(work: Path, probes: dict):
+    """Each probe on the fixed and the patched tree; one JSON line per probe (DEV31 reuses this with its own probes)."""
     venv = {(r["project"], r["bug"]): r["venv"] for r in read_records(work / "validate.jsonl")[1] if r.get("status") == "valid"}
-    for (project, bug), code in PROBES.items():
+    for (project, bug), code in probes.items():
         out = {"bug": f"{project}-{bug}", "probe": code}
         for tree in ("fixed", "patched"):
             script = "import sys, warnings\nwarnings.simplefilter('ignore')\nsys.path.insert(0, sys.argv[1])\n" + code + "\n"
@@ -44,4 +44,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    run(Path(sys.argv[1]), PROBES)
