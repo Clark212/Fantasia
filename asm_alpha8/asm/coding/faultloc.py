@@ -904,7 +904,7 @@ class RepairWorkflow:
                  semantic_check: bool = True, counterexamples: bool = True, explore_alternatives: bool = True,
                  max_extra_candidates: int = 30, competing_max_suspects: int = 8, competing_time_seconds: float = 75.0,
                  extended_ops: bool = True, ranker=None, knowledge=None, shapes=None, steps=None,
-                 phase3_seconds: float | None = None):
+                 phase3_seconds: float | None = None, test_copy_guard: bool = False):
         self.counterexamples = counterexamples
         self.ranker = ranker  # DEV16 learned candidate ordering (asm.coding.learned.CandidateRanker); None = DEV15 order
         self.knowledge = knowledge  # DEV17 learned procedures (asm.coding.knowledge.KnowledgeBase): phase 3; None = off
@@ -913,6 +913,8 @@ class RepairWorkflow:
         # DEV31: phase 3 gets this many seconds of its own once it starts (None: whatever phases 1-2 left), and its
         # candidate building stops when that clock runs out
         self.phase3_seconds = phase3_seconds
+        # DEV32: phase-3 candidates that would write the failing tests' data into the code are dropped, untested
+        self.test_copy_guard = test_copy_guard
         self.extended_ops = extended_ops  # DEV15 repair families (repair_ops); False reproduces the DEV14 repair space
         self.explore_alternatives, self.max_extra_candidates = explore_alternatives, max_extra_candidates
         self.competing_max_suspects, self.competing_time = competing_max_suspects, competing_time_seconds
@@ -1029,8 +1031,13 @@ class RepairWorkflow:
                         source = (work / sus.path).read_text(encoding="utf-8")
                         if phase == 3:
                             span = next(((a, b) for q, a, b in ranges_by_file[sus.path] if q == sus.qname), (sus.line, sus.end_line))
-                            cands = self._learned_candidates(work, spectrum, source, sus.path, span,
-                                                             None if self.phase3_seconds is None else end - 5)
+                            cands, copied = self._learned_candidates(work, spectrum, source, sus.path, span,
+                                                                     None if self.phase3_seconds is None else end - 5)
+                            if copied:
+                                reasons["test_copy"] += len(copied)
+                                rejected.append({"suspect": sus.qname, "description": f"{len(copied)} learned candidates",
+                                                 "status": "test_copy", "why": "would write the failing tests' data into the code: "
+                                                 + ", ".join(sorted({repr(s) for x in copied for s in x})[:3]), "iteration": it})
                         else:
                             cands = generate_candidates(source, sus.path, sus, ranges_by_file[sus.path], loc.line_scores,
                                                         extended=extended_phase, failure_texts=list(spectrum.failures.values()))
@@ -1252,20 +1259,27 @@ class RepairWorkflow:
         dossier.seal()
         return dossier
 
-    def _learned_candidates(self, work: Path, spectrum, source: str, path: str, span: tuple, deadline=None) -> list:
-        """Phase 3: candidates from what ASM learned. DEV20: with steps, each learned layer keeps a share of the 80
-        (procedures alone filled the budget on most DEV19 problems): procedures <= 30, shapes <= 20, steps the rest.
-        DEV18: shapes and steps take their content from this problem. DEV31: each library stops at `deadline`."""
+    def _learned_candidates(self, work: Path, spectrum, source: str, path: str, span: tuple, deadline=None) -> tuple:
+        """Phase 3: (candidates from what ASM learned, the copied strings of each one the guard dropped). DEV20: with
+        steps, each learned layer keeps a share of the 80 (procedures alone filled the budget on most DEV19 problems):
+        procedures <= 30, shapes <= 20, steps the rest. DEV18: shapes and steps take their content from this problem.
+        DEV31: each library stops at `deadline`. DEV32: with test_copy_guard, candidates that write a failing test's data
+        into the code (content.copied_test_strings) are dropped before testing."""
         k_lim, s_lim = (30, 20) if self.steps is not None else (None, 80)
         bound = {} if deadline is None else {"deadline": deadline}
         cands = (self.knowledge.candidates_for(source, path, span, **({"limit": k_lim} if k_lim else {}), **bound)
                  if self.knowledge is not None else [])
-        pctx = _problem_context(work, spectrum, source) if self.shapes is not None or self.steps is not None else None
+        pctx = (_problem_context(work, spectrum, source)
+                if self.shapes is not None or self.steps is not None or self.test_copy_guard else None)
         if self.shapes is not None:
             cands += self.shapes.candidates_for(source, path, span, pctx, limit=max(0, min(s_lim, 80 - len(cands))), **bound)
         if self.steps is not None:
             cands += self.steps.candidates_for(source, path, span, pctx, limit=max(0, 80 - len(cands)), **bound)
-        return cands
+        if not self.test_copy_guard:
+            return cands, []
+        from .content import copied_test_strings
+        copied = [copied_test_strings(source, c.replacement, pctx) for c in cands]
+        return [c for c, s in zip(cands, copied) if not s], [s for s in copied if s]
 
     def _quick_pass(self, work: Path, cand: Candidate, targets, baseline_outcome: dict):
         """Does this single candidate satisfy the tests with no vanished/skipped tests? Returns its proposal or None."""

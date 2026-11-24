@@ -18,7 +18,8 @@ String operators (`string_fillers(old, ctx, vocab)`):
            its learned neighbouring characters)
   TEST     a test literal similar to `old` (difflib ratio >= 0.6) replaces it
   MODULE   another constant of the same module similar to `old` replaces it
-No language model is involved; nothing here decides acceptance (the tests do).
+No language model is involved; nothing here decides acceptance (the tests do). DEV32: `copied_test_strings` finds a
+patch that hard-codes the failing tests' data, for the repair workflow's opt-in test_copy_guard.
 """
 from __future__ import annotations
 
@@ -308,3 +309,47 @@ def scope_names(function_source: str) -> list:
         if isinstance(n, ast.Name) and isinstance(n.ctx, ast.Store):
             names.append(n.id)
     return _uniq(names)
+
+
+MESSAGE_CALLS = {"warn", "warning", "error", "info", "debug", "critical", "exception", "log", "fail"}
+_NAME_LIKE = re.compile(r"^-*[A-Za-z_][A-Za-z0-9_-]*$")  # names, keys, options, encodings: `zero`, `--force`, `utf-8`
+
+
+@functools.lru_cache(maxsize=8)
+def _module_strings(source: str) -> frozenset:
+    try:
+        return frozenset(n.value for n in ast.walk(ast.parse(source)) if isinstance(n, ast.Constant) and isinstance(n.value, str))
+    except SyntaxError:
+        return frozenset()
+
+
+def _message_nodes(tree) -> set:
+    """ids of the nodes inside error and warning messages: what a `raise` raises, and the arguments of calls to exception
+    or warning classes and to warn/log/fail functions."""
+    out = set()
+    for n in ast.walk(tree):
+        if isinstance(n, ast.Raise) and n.exc is not None:
+            out |= {id(x) for x in ast.walk(n.exc)}
+        elif isinstance(n, ast.Call):
+            f = n.func
+            name = f.attr if isinstance(f, ast.Attribute) else getattr(f, "id", "")
+            if name in MESSAGE_CALLS or name.endswith(("Error", "Exception", "Warning")):
+                out |= {id(x) for a in n.args + [k.value for k in n.keywords] for x in ast.walk(a)}
+    return out
+
+
+def copied_test_strings(original: str, patched: str, ctx: ProblemContext) -> list:
+    """DEV32 guard: the strings a patch writes into the code that are whole literals of the failing tests (or quoted in
+    their failure messages) and not already in the module: the test's data hard-coded as the answer (DEV31: `return None`
+    became `return 'rtmp://foo.de'`). Allowed: name-like strings (keys, keywords, options, encodings) and error or
+    warning messages, which correct fixes copy from their tests."""
+    tests = {t for t in ctx.test_strings if not _NAME_LIKE.match(t)} - _module_strings(original)
+    if not tests:
+        return []
+    try:
+        tree = ast.parse(patched)
+    except SyntaxError:
+        return []
+    skip = _message_nodes(tree)
+    return sorted({n.value for n in ast.walk(tree) if isinstance(n, ast.Constant) and isinstance(n.value, str)
+                   and n.value in tests and id(n) not in skip})

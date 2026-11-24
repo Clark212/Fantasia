@@ -1,0 +1,60 @@
+{"run": "dev15", "bug": "thefuck-4", "mode": "dev15", "status": "partial", "desc": "try_except: wrap in `try/except ValueError: pass` at line 25", "copied": []}
+{"run": "dev15", "bug": "thefuck-9", "mode": "dev15", "status": "resolved", "desc": "try_except: wrap in `try/except IndexError: pass` at line 27", "copied": []}
+{"run": "dev15", "bug": "thefuck-15", "mode": "dev15", "status": "resolved", "desc": "compare: 'in' -> 'not in' at line 9", "copied": []}
+{"run": "dev15", "bug": "thefuck-21", "mode": "dev15", "status": "resolved", "desc": "try_except: wrap in `try/except IndexError: pass` at line 8", "copied": []}
+{"run": "dev15", "bug": "thefuck-22", "mode": "dev15", "status": "resolved", "desc": "guard_stmt: wrap in `if commands:` at line 85", "copied": []}
+{"run": "dev15", "bug": "tqdm-6", "mode": "dev15", "status": "resolved", "desc": "negate: 'hasattr(self.iterable, \"__len__\")' -> 'not (hasattr(self.iterable, \"__len__\"))' at line 855", "copied": []}
+{"run": "dev15", "bug": "tqdm-8", "mode": "dev15", "status": "resolved", "desc": "name: 'r_bar' -> 'r_bar_user' at line 225", "copied": []}
+{"run": "dev15", "bug": "youtube-dl-11", "mode": "dev15", "status": "resolved", "desc": "try_except: wrap in `try/except TypeError: pass` at line 3524", "copied": []}
+{"run": "dev15", "bug": "youtube-dl-28", "mode": "dev15", "status": "resolved", "desc": "try_except: wrap in `try/except ValueError: pass` at line 399", "copied": []}
+{"run": "dev15", "bug": "youtube-dl-29", "mode": "dev15", "status": "resolved", "desc": "guard_stmt: wrap in `if upload_date:` at line 914", "copied": []}
+{"run": "dev29", "bug": "thefuck-9", "mode": "control", "status": "resolved", "desc": "try_except: wrap in `try/except IndexError: pass` at line 27", "copied": []}
+{"run": "dev29", "bug": "thefuck-9", "mode": "learned", "status": "resolved", "desc": "try_except: wrap in `try/except IndexError: pass` at line 27", "copied": []}
+{"run": "dev29", "bug": "thefuck-15", "mode": "control", "status": "resolved", "desc": "compare: 'in' -> 'not in' at line 9", "copied": []}
+{"run": "dev29", "bug": "thefuck-15", "mode": "learned", "status": "resolved", "desc": "compare: 'in' -> 'not in' at line 9", "copied": []}
+{"run": "dev29", "bug": "thefuck-21", "mode": "control", "status": "resolved", "desc": "try_except: wrap in `try/except IndexError: pass` at line 8", "copied": []}
+{"run": "dev29", "bug": "thefuck-21", "mode": "learned", "status": "resolved", "desc": "try_except: wrap in `try/except IndexError: pass` at line 8", "copied": []}
+{"run": "dev29", "bug": "youtube-dl-29", "mode": "control", "status": "resolved", "desc": "guard_stmt: wrap in `if upload_date:` at line 914", "copied": []}
+{"run": "dev29", "bug": "youtube-dl-29", "mode": "learned", "status": "resolved", "desc": "guard_stmt: wrap in `if upload_date:` at line 914", "copied": []}
+{"run": "dev29", "bug": "thefuck-4", "mode": "control", "status": "partial", "desc": "try_except: wrap in `try/except ValueError: pass` at line 25", "copied": []}
+{"run": "dev29", "bug": "thefuck-4", "mode": "learned", "status": "partial", "desc": "try_except: wrap in `try/except ValueError: pass` at line 25", "copied": []}
+{"run": "dev29", "bug": "thefuck-19", "mode": "learned", "status": "resolved", "desc": "learned: shape sd5f9d9b1e52ef42f via extend", "copied": []}
+{"run": "dev29", "bug": "thefuck-22", "mode": "control", "status": "resolved", "desc": "guard_stmt: wrap in `if commands:` at line 85", "copied": []}
+{"run": "dev29", "bug": "thefuck-22", "mode": "learned", "status": "resolved", "desc": "guard_stmt: wrap in `if commands:` at line 85", "copied": []}
+{"run": "dev29", "bug": "tqdm-2", "mode": "control", "status": "partial", "desc": "guard_return: if s is None: return None at line 303", "copied": []}
+{"run": "dev29", "bug": "tqdm-2", "mode": "learned", "status": "partial", "desc": "guard_return: if s is None: return None at line 303", "copied": []}
+{"run": "dev29", "bug": "tqdm-8", "mode": "control", "status": "resolved", "desc": "name: 'r_bar' -> 'r_bar_user' at line 225", "copied": []}
+{"run": "dev29", "bug": "tqdm-8", "mode": "learned", "status": "resolved", "desc": "name: 'r_bar' -> 'r_bar_user' at line 225", "copied": []}
+{"run": "dev29", "bug": "youtube-dl-11", "mode": "control", "status": "resolved", "desc": "try_except: wrap in `try/except TypeError: pass` at line 3524", "copied": []}
+{"run": "dev29", "bug": "youtube-dl-11", "mode": "learned", "status": "resolved", "desc": "try_except: wrap in `try/except TypeError: pass` at line 3524", "copied": []}
+{"run": "dev29", "bug": "tqdm-6", "mode": "control", "status": "resolved", "desc": "negate: 'hasattr(self.iterable, \"__len__\")' -> 'not (hasattr(self.iterable, \"__len__\"))' at line 855", "copied": []}
+{"run": "dev29", "bug": "tqdm-6", "mode": "learned", "status": "resolved", "desc": "negate: 'hasattr(self.iterable, \"__len__\")' -> 'not (hasattr(self.iterable, \"__len__\"))' at line 855", "copied": []}
+{"run": "dev29", "bug": "youtube-dl-28", "mode": "control", "status": "resolved", "desc": "try_except: wrap in `try/except ValueError: pass` at line 399", "copied": []}
+{"run": "dev29", "bug": "youtube-dl-28", "mode": "learned", "status": "resolved", "desc": "try_except: wrap in `try/except ValueError: pass` at line 399", "copied": []}
+{"run": "dev31_development", "bug": "thefuck-9", "mode": "learned", "status": "resolved", "desc": "try_except: wrap in `try/except IndexError: pass` at line 27", "copied": []}
+{"run": "dev31_development", "bug": "thefuck-15", "mode": "learned", "status": "resolved", "desc": "compare: 'in' -> 'not in' at line 9", "copied": []}
+{"run": "dev31_development", "bug": "thefuck-21", "mode": "learned", "status": "resolved", "desc": "try_except: wrap in `try/except IndexError: pass` at line 8", "copied": []}
+{"run": "dev31_development", "bug": "youtube-dl-13", "mode": "learned", "status": "resolved", "desc": "learned: shape s591385f62a4ee08c via test", "copied": ["rtmp://foo.de"]}
+{"run": "dev31_development", "bug": "youtube-dl-29", "mode": "learned", "status": "resolved", "desc": "guard_stmt: wrap in `if upload_date:` at line 914", "copied": []}
+{"run": "dev31_development", "bug": "youtube-dl-41", "mode": "learned", "status": "resolved", "desc": "learned: shape s591385f62a4ee08c via test", "copied": ["19681210"]}
+{"run": "dev31_development", "bug": "thefuck-4", "mode": "learned", "status": "partial", "desc": "try_except: wrap in `try/except ValueError: pass` at line 25", "copied": []}
+{"run": "dev31_development", "bug": "thefuck-19", "mode": "learned", "status": "resolved", "desc": "learned: shape sd5f9d9b1e52ef42f via extend", "copied": []}
+{"run": "dev31_development", "bug": "thefuck-22", "mode": "learned", "status": "resolved", "desc": "guard_stmt: wrap in `if commands:` at line 85", "copied": []}
+{"run": "dev31_development", "bug": "tqdm-8", "mode": "learned", "status": "resolved", "desc": "name: 'r_bar' -> 'r_bar_user' at line 225", "copied": []}
+{"run": "dev31_development", "bug": "youtube-dl-11", "mode": "learned", "status": "resolved", "desc": "try_except: wrap in `try/except TypeError: pass` at line 3524", "copied": []}
+{"run": "dev31_development", "bug": "tqdm-6", "mode": "learned", "status": "resolved", "desc": "negate: 'hasattr(self.iterable, \"__len__\")' -> 'not (hasattr(self.iterable, \"__len__\"))' at line 855", "copied": []}
+{"run": "dev31_development", "bug": "youtube-dl-28", "mode": "learned", "status": "resolved", "desc": "try_except: wrap in `try/except ValueError: pass` at line 399", "copied": []}
+{"run": "dev31", "bug": "fastapi-3", "mode": "control", "status": "partial", "desc": "negate: 'errors' -> 'not (errors)' at line 80", "copied": []}
+{"run": "dev31", "bug": "fastapi-3", "mode": "learned", "status": "partial", "desc": "negate: 'errors' -> 'not (errors)' at line 80", "copied": []}
+{"run": "dev31", "bug": "fastapi-4", "mode": "control", "status": "resolved", "desc": "compare: 'in' -> 'not in' at line 172", "copied": []}
+{"run": "dev31", "bug": "fastapi-4", "mode": "learned", "status": "resolved", "desc": "compare: 'in' -> 'not in' at line 172", "copied": []}
+{"run": "dev31", "bug": "scrapy-9", "mode": "control", "status": "resolved", "desc": "try_except: wrap in `try/except AttributeError: pass` at line 57", "copied": []}
+{"run": "dev31", "bug": "scrapy-9", "mode": "learned", "status": "resolved", "desc": "try_except: wrap in `try/except AttributeError: pass` at line 57", "copied": []}
+{"run": "dev31", "bug": "scrapy-27", "mode": "control", "status": "partial", "desc": "bool: 'or' -> 'and' at line 16", "copied": []}
+{"run": "dev31", "bug": "scrapy-27", "mode": "learned", "status": "partial", "desc": "bool: 'or' -> 'and' at line 16", "copied": []}
+{"run": "dev31", "bug": "tornado-14", "mode": "control", "status": "partial", "desc": "compare: 'is' -> 'is not' at line 252", "copied": []}
+{"run": "dev31", "bug": "tornado-14", "mode": "learned", "status": "partial", "desc": "compare: 'is' -> 'is not' at line 252", "copied": []}
+{"run": "dev31", "bug": "scrapy-6", "mode": "control", "status": "partial", "desc": "negate: 'os.path.isabs(uri)' -> 'not (os.path.isabs(uri))' at line 265", "copied": []}
+{"run": "dev31", "bug": "scrapy-6", "mode": "learned", "status": "partial", "desc": "negate: 'os.path.isabs(uri)' -> 'not (os.path.isabs(uri))' at line 265", "copied": []}
+{"run": "dev31", "bug": "scrapy-32", "mode": "learned", "status": "partial", "desc": "learned: step t6705b0c4a3cb245f (single) via problem", "copied": []}
+{"accepted_patches": 59, "flagged": ["dev31_development youtube-dl-13 learned", "dev31_development youtube-dl-41 learned"]}
