@@ -1,0 +1,9 @@
+{"project": "scrapy", "bug": 30, "mode": "control", "best_rank": null, "status": "unresolved", "families": null, "oracle_class": null, "repair_seconds": 126.9}
+{"project": "scrapy", "bug": 30, "mode": "learned", "best_rank": null, "status": "time_budget", "families": null, "oracle_class": null, "repair_seconds": 283.6}
+{"project": "scrapy", "bug": 35, "mode": "control", "best_rank": 1, "status": "time_budget", "families": null, "oracle_class": null, "repair_seconds": 147.8}
+{"project": "scrapy", "bug": 35, "mode": "learned", "best_rank": 1, "status": "time_budget", "families": null, "oracle_class": null, "repair_seconds": 296.0}
+{"project": "scrapy", "bug": 39, "mode": "control", "best_rank": 1, "status": "time_budget", "families": null, "oracle_class": null, "repair_seconds": 148.5}
+{"project": "scrapy", "bug": 39, "mode": "learned", "best_rank": 1, "status": "time_budget", "families": null, "oracle_class": null, "repair_seconds": 296.6}
+{"project": "sanic", "bug": 5, "mode": "control", "best_rank": null, "status": "time_budget", "families": null, "oracle_class": null, "repair_seconds": 148.2}
+{"project": "sanic", "bug": 5, "mode": "learned", "best_rank": null, "status": "time_budget", "families": null, "oracle_class": null, "repair_seconds": 296.2}
+SHARDDONE

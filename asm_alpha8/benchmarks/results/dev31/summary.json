@@ -1,0 +1,37 @@
+{
+ "bugs": 75,
+ "control_resolved": [
+  [
+   "fastapi",
+   4
+  ],
+  [
+   "scrapy",
+   9
+  ]
+ ],
+ "learned_resolved": [
+  [
+   "fastapi",
+   4
+  ],
+  [
+   "scrapy",
+   9
+  ]
+ ],
+ "control_long_resolved": [],
+ "learned_only": [],
+ "control_only": [],
+ "oracle_class": {
+  "control": {
+   "fastapi-4": "unknown",
+   "scrapy-9": "unknown"
+  },
+  "learned": {
+   "fastapi-4": "unknown",
+   "scrapy-9": "unknown"
+  },
+  "control_long": {}
+ }
+}

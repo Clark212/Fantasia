@@ -1,0 +1,7 @@
+{"project": "scrapy", "bug": 32, "mode": "control", "best_rank": 3, "status": "time_budget", "families": null, "oracle_class": null, "repair_seconds": 148.3}
+{"project": "scrapy", "bug": 32, "mode": "learned", "best_rank": 3, "status": "partial", "families": ["learned"], "oracle_class": null, "repair_seconds": 294.3}
+{"project": "scrapy", "bug": 37, "mode": "control", "best_rank": 1, "status": "time_budget", "families": null, "oracle_class": null, "repair_seconds": 148.2}
+{"project": "scrapy", "bug": 37, "mode": "learned", "best_rank": 1, "status": "time_budget", "families": null, "oracle_class": null, "repair_seconds": 296.5}
+{"project": "scrapy", "bug": 40, "mode": "control", "best_rank": 2, "status": "time_budget", "families": null, "oracle_class": null, "repair_seconds": 148.6}
+{"project": "scrapy", "bug": 40, "mode": "learned", "best_rank": 2, "status": "time_budget", "families": null, "oracle_class": null, "repair_seconds": 296.4}
+SHARDDONE

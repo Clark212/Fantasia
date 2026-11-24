@@ -1,0 +1,140 @@
+{
+ "bugs": 75,
+ "status": {
+  "control": {
+   "no_spectrum": 14,
+   "unresolved": 18,
+   "time_budget": 37,
+   "partial": 4,
+   "resolved": 2
+  },
+  "learned": {
+   "no_spectrum": 14,
+   "unresolved": 14,
+   "time_budget": 40,
+   "partial": 5,
+   "resolved": 2
+  }
+ },
+ "status_pairs": {
+  "no_spectrum -> no_spectrum": 14,
+  "unresolved -> unresolved": 13,
+  "time_budget -> time_budget": 35,
+  "partial -> partial": 4,
+  "time_budget -> unresolved": 1,
+  "resolved -> resolved": 2,
+  "unresolved -> time_budget": 5,
+  "time_budget -> partial": 1
+ },
+ "no_spectrum_reasons": {
+  "the traced test run timed out, so coverage is missing or partial": 14
+ },
+ "best_rank": {
+  "None": 30,
+  "6": 2,
+  "177": 1,
+  "1": 27,
+  "2": 6,
+  "4": 1,
+  "13": 1,
+  "18": 1,
+  "9": 1,
+  "8": 1,
+  "3": 4
+ },
+ "phase3": {
+  "reached": 44,
+  "by_project": {
+   "tornado": 5,
+   "fastapi": 8,
+   "scrapy": 29,
+   "sanic": 2
+  },
+  "candidates_tested_median": 89.0,
+  "none_tested": 0,
+  "learned_outcome": {
+   "time_budget": 40,
+   "unresolved": 3,
+   "partial": 1
+  }
+ },
+ "learned_seconds": {
+  "median": 296.2,
+  "max": 298.2,
+  "over_300": 0,
+  "over_360": 0
+ },
+ "resolved": {
+  "control": [
+   "fastapi-4",
+   "scrapy-9"
+  ],
+  "learned": [
+   "fastapi-4",
+   "scrapy-9"
+  ],
+  "control_long": []
+ },
+ "learned_only": [],
+ "control_only": [],
+ "projects": {
+  "black": {
+   "control": {
+    "no_spectrum": 14,
+    "unresolved": 5
+   },
+   "learned": {
+    "no_spectrum": 14,
+    "unresolved": 5
+   }
+  },
+  "fastapi": {
+   "control": {
+    "partial": 1,
+    "time_budget": 8,
+    "unresolved": 5,
+    "resolved": 1
+   },
+   "learned": {
+    "partial": 1,
+    "time_budget": 7,
+    "unresolved": 6,
+    "resolved": 1
+   }
+  },
+  "sanic": {
+   "control": {
+    "time_budget": 2
+   },
+   "learned": {
+    "time_budget": 2
+   }
+  },
+  "scrapy": {
+   "control": {
+    "time_budget": 24,
+    "unresolved": 6,
+    "resolved": 1,
+    "partial": 2
+   },
+   "learned": {
+    "time_budget": 27,
+    "unresolved": 2,
+    "resolved": 1,
+    "partial": 3
+   }
+  },
+  "tornado": {
+   "control": {
+    "time_budget": 3,
+    "unresolved": 2,
+    "partial": 1
+   },
+   "learned": {
+    "time_budget": 4,
+    "unresolved": 1,
+    "partial": 1
+   }
+  }
+ }
+}
