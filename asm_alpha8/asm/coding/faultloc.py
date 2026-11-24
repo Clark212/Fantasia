@@ -903,12 +903,16 @@ class RepairWorkflow:
                  time_budget_seconds: float = 180.0, confirm_runs: int = 1, ledger: FailureLedger | None = None,
                  semantic_check: bool = True, counterexamples: bool = True, explore_alternatives: bool = True,
                  max_extra_candidates: int = 30, competing_max_suspects: int = 8, competing_time_seconds: float = 75.0,
-                 extended_ops: bool = True, ranker=None, knowledge=None, shapes=None, steps=None):
+                 extended_ops: bool = True, ranker=None, knowledge=None, shapes=None, steps=None,
+                 phase3_seconds: float | None = None):
         self.counterexamples = counterexamples
         self.ranker = ranker  # DEV16 learned candidate ordering (asm.coding.learned.CandidateRanker); None = DEV15 order
         self.knowledge = knowledge  # DEV17 learned procedures (asm.coding.knowledge.KnowledgeBase): phase 3; None = off
         self.shapes = shapes  # DEV18 learned shapes, content from the problem (asm.coding.shapes.ShapeLibrary); None = off
         self.steps = steps  # DEV20 learned edit steps that combine (asm.coding.steps.StepLibrary); None = off
+        # DEV31: phase 3 gets this many seconds of its own once it starts (None: whatever phases 1-2 left), and its
+        # candidate building stops when that clock runs out
+        self.phase3_seconds = phase3_seconds
         self.extended_ops = extended_ops  # DEV15 repair families (repair_ops); False reproduces the DEV14 repair space
         self.explore_alternatives, self.max_extra_candidates = explore_alternatives, max_extra_candidates
         self.competing_max_suspects, self.competing_time = competing_max_suspects, competing_time_seconds
@@ -930,7 +934,8 @@ class RepairWorkflow:
         base = Path(root).resolve(strict=True)
         started = time.monotonic()
         fingerprint = tree_fingerprint(base)
-        remaining = lambda: self.time_budget - (time.monotonic() - started)  # noqa: E731
+        end, phase3_clock = started + self.time_budget, False
+        remaining = lambda: end - time.monotonic()  # noqa: E731
         iterations, steps, rejected, notes, proposals, caveats, step_candidates = [], [], [], [], [], [], []
         sensitive: set = set()
         reasons: dict = defaultdict(int)
@@ -1016,25 +1021,16 @@ class RepairWorkflow:
                     extended_phase = phase >= 2
                     if accepted:
                         break
+                    if phase == 3 and self.phase3_seconds is not None and not phase3_clock:
+                        end, phase3_clock = time.monotonic() + self.phase3_seconds, True
                     for rank, sus in enumerate([s for s in loc.suspects if s.score > 0][: self.max_suspects], 1):
                         if remaining() < 5:
                             break
                         source = (work / sus.path).read_text(encoding="utf-8")
                         if phase == 3:
                             span = next(((a, b) for q, a, b in ranges_by_file[sus.path] if q == sus.qname), (sus.line, sus.end_line))
-                            # DEV20: with steps, each learned layer keeps a share of the 80 (procedures alone filled
-                            # the budget on most DEV19 problems): procedures <= 30, shapes <= 20, steps the rest
-                            k_lim, s_lim = (30, 20) if self.steps is not None else (None, 80)
-                            cands = (self.knowledge.candidates_for(source, sus.path, span, **({"limit": k_lim} if k_lim else {}))
-                                     if self.knowledge is not None else [])
-                            pctx = None
-                            if self.shapes is not None:  # DEV18: learned shapes, content filled from this problem
-                                pctx = _problem_context(work, spectrum, source)
-                                cands += self.shapes.candidates_for(source, sus.path, span, pctx,
-                                                                    limit=max(0, min(s_lim, 80 - len(cands))))
-                            if self.steps is not None:  # DEV20: learned steps, single, multi-site and paired
-                                pctx = pctx or _problem_context(work, spectrum, source)
-                                cands += self.steps.candidates_for(source, sus.path, span, pctx, limit=max(0, 80 - len(cands)))
+                            cands = self._learned_candidates(work, spectrum, source, sus.path, span,
+                                                             None if self.phase3_seconds is None else end - 5)
                         else:
                             cands = generate_candidates(source, sus.path, sus, ranges_by_file[sus.path], loc.line_scores,
                                                         extended=extended_phase, failure_texts=list(spectrum.failures.values()))
@@ -1255,6 +1251,21 @@ class RepairWorkflow:
                                 for p in proposals]
         dossier.seal()
         return dossier
+
+    def _learned_candidates(self, work: Path, spectrum, source: str, path: str, span: tuple, deadline=None) -> list:
+        """Phase 3: candidates from what ASM learned. DEV20: with steps, each learned layer keeps a share of the 80
+        (procedures alone filled the budget on most DEV19 problems): procedures <= 30, shapes <= 20, steps the rest.
+        DEV18: shapes and steps take their content from this problem. DEV31: each library stops at `deadline`."""
+        k_lim, s_lim = (30, 20) if self.steps is not None else (None, 80)
+        bound = {} if deadline is None else {"deadline": deadline}
+        cands = (self.knowledge.candidates_for(source, path, span, **({"limit": k_lim} if k_lim else {}), **bound)
+                 if self.knowledge is not None else [])
+        pctx = _problem_context(work, spectrum, source) if self.shapes is not None or self.steps is not None else None
+        if self.shapes is not None:
+            cands += self.shapes.candidates_for(source, path, span, pctx, limit=max(0, min(s_lim, 80 - len(cands))), **bound)
+        if self.steps is not None:
+            cands += self.steps.candidates_for(source, path, span, pctx, limit=max(0, 80 - len(cands)), **bound)
+        return cands
 
     def _quick_pass(self, work: Path, cand: Candidate, targets, baseline_outcome: dict):
         """Does this single candidate satisfy the tests with no vanished/skipped tests? Returns its proposal or None."""

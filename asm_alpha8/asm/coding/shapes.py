@@ -21,6 +21,7 @@ import ast
 import hashlib
 import itertools
 import json
+import time
 from pathlib import Path
 
 from . import content as C
@@ -216,7 +217,7 @@ class ShapeLibrary:
         return C.name_fillers(olds_str[0] if olds_str else None, scope, ctx)
 
     def candidates_for(self, source: str, path: str, span: tuple, ctx: C.ProblemContext, limit: int = LIMIT,
-                       as_candidates: bool = True) -> list:
+                       as_candidates: bool = True, deadline: float | None = None) -> list:
         """Ranked repair candidates (research.Candidate, or (program, info) when as_candidates=False), at most `limit`.
         DEV19 A2 bug fix: with limit 0 (a caller's budget already full) one candidate was returned, so 81 were tried."""
         if limit <= 0:
@@ -228,6 +229,9 @@ class ShapeLibrary:
         live.sort(key=lambda s: (s.status != "active", -len(set(s.support)), s.level, s.id))
         pool = []
         for rank, sh in enumerate(live):
+            if deadline is not None and time.monotonic() > deadline:  # DEV31: stop building, keep what is held
+                break
+
             def fill(binding, node, tree, sh=sh):
                 for var, tname in sh.var_types.items():  # the matched values must have the learned types
                     b = binding.get(var)

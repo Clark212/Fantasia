@@ -37,8 +37,8 @@ def libraries():
             "steps": StepLibrary.load(LIBRARIES / "steps_dev20.json")}
 
 
-def repair(work, r, mode, budget, libs):
-    """DEV15's per-bug evaluation (dev15_realbugs.stage_evaluate) for one mode."""
+def repair(work, r, mode, budget, libs, **options):
+    """DEV15's per-bug evaluation (dev15_realbugs.stage_evaluate) for one mode; `options` go to the workflow (DEV31)."""
     from asm.coding.faultloc import FaultLocalizer, RepairWorkflow, ast_normal, collect_spectrum, reconcile_spectrum
     from asm.coding.patches import apply_proposal
     from asm.coding.sandbox import interpreter
@@ -68,7 +68,7 @@ def repair(work, r, mode, budget, libs):
     rec.update(suspects=len(loc.suspects), best_rank=min(ranks) if ranks else None, localize_seconds=round(time.monotonic() - t0, 1))
     t1 = time.monotonic()
     learned = libs if mode == "learned" else {}
-    d = RepairWorkflow(runner, time_budget_seconds=budget, extended_ops=True, **learned).run(base / "buggy", suite)
+    d = RepairWorkflow(runner, time_budget_seconds=budget, extended_ops=True, **learned, **options).run(base / "buggy", suite)
     rec.update(status=d.status, repair_seconds=round(time.monotonic() - t1, 1), notes=[str(x)[:300] for x in d.notes[:6]],
                rejected_by_reason=d.reasons)
     if d.steps:

@@ -133,7 +133,8 @@ class KnowledgeBase:
         return self.summary()
 
     # ------------------------------------------------------------------ search + apply
-    def retrieve(self, source: str, span: tuple, include_candidates: bool = True, max_programs: int | None = None) -> list:
+    def retrieve(self, source: str, span: tuple, include_candidates: bool = True, max_programs: int | None = None,
+                 deadline: float | None = None) -> list:
         """[(entry, programs)] in trust order. DEV18 A2 (performance; same results): with `max_programs`, stops once that
         many programs are held; the result is then exactly the first `max_programs` programs of the full retrieval."""
         order = sorted((e for e in self.entries.values() if e.status == "active" or
@@ -142,8 +143,8 @@ class KnowledgeBase:
                                       -(e.precision() or 0.0), -len(e.support), e.id))
         out, held = [], 0
         for ent in order:
-            if max_programs is not None and held >= max_programs:
-                break
+            if (max_programs is not None and held >= max_programs) or (deadline is not None and time.monotonic() > deadline):
+                break  # DEV31: a deadline (time.monotonic()) ends retrieval with what is held
             left = None if max_programs is None else max_programs - held
             progs = [p for p, _ in ent.procedure.apply_detailed(source, span, max_results=left)]
             if progs:
@@ -151,14 +152,14 @@ class KnowledgeBase:
                 held += len(progs)
         return out
 
-    def candidates_for(self, source: str, path: str, span: tuple, limit: int = MAX_CANDIDATES) -> list:
+    def candidates_for(self, source: str, path: str, span: tuple, limit: int = MAX_CANDIDATES, deadline: float | None = None) -> list:
         """At most `limit` candidates (DEV19 A2: the same limit-0 defect as ShapeLibrary.candidates_for; no caller
         passed 0 here)."""
         from .research import Candidate
         if limit <= 0:
             return []
         cands = []
-        for ent, progs in self.retrieve(source, span):
+        for ent, progs in self.retrieve(source, span, max_programs=limit, deadline=deadline):  # DEV31: the same first `limit`, sooner
             for k, prog in enumerate(progs):
                 c = Candidate(path, prog, f"learned: {ent.id} [{ent.status}] {ent.procedure.describe()}"[:200])
                 c.meta = {"kind": f"learned_{ent.procedure.kind}", "family": "learned", "line": span[0],

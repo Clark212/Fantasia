@@ -26,14 +26,15 @@ import copy
 import hashlib
 import itertools
 import json
+import time
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 
 from . import content as C
 from . import shapes as SH
-from .induction import (_EXPR_HEADS, _NEEDS_PARENS, _STMT_HEADS, Edit, Procedure, _offsets, _string_edit, from_term,
-                        is_var, match, term_from_json, term_key, term_to_json, to_term)
+from .induction import (_EXPR_HEADS, _NEEDS_PARENS, _STMT_HEADS, Edit, Procedure, _chunk, _keyed, _offsets, _parsed,
+                        _string_edit, from_term, is_var, match, term_from_json, term_key, term_to_json, to_term)
 
 PER_MATCH = SH.PER_MATCH        # fillings per match (as DEV18)
 PER_STEP = SH.PER_SHAPE         # single-site candidates per step (as DEV18 per shape)
@@ -266,6 +267,18 @@ def _sub_dump(tree, subs: dict) -> str:
     return ast.dump(Sub().visit(copy.deepcopy(tree, memo)))
 
 
+def _common_chunk(source: str, nodes: list):
+    """The innermost chunk (induction._chunk) that holds every node."""
+    def chain(n):
+        out = [_chunk(source, n)]
+        while not isinstance(out[-1][2], ast.Module):
+            out.append(_chunk(source, out[-1][2]))
+        return out
+    chains = [chain(n) for n in nodes]
+    others = [{id(c[2]) for c in ch} for ch in chains[1:]]
+    return next(c for c in chains[0] if all(id(c[2]) in ids for ids in others))
+
+
 class _Text:
     """One parsed function: byte offsets for splicing replacements into its exact text."""
 
@@ -287,27 +300,25 @@ class _Text:
         spans = sorted(((*self.span(n), n, new) for n, new in edits), key=lambda x: x[0])
         if any(spans[k][1] > spans[k + 1][0] for k in range(len(spans) - 1)):
             return None  # overlapping places
+        chunk = _common_chunk(self.source, [n for n, _ in edits])  # DEV31: checked on the chunk (_chunk)
         try:
-            intended = _sub_dump(self.tree, {id(n): new for n, new in edits})
+            intended = _sub_dump(chunk[2], {id(n): new for n, new in edits})
             texts = []
             for a, b, n, new in spans:
                 plain = ast.unparse(new)
                 texts.append([f"({plain})", plain] if isinstance(new, _NEEDS_PARENS) else [plain, f"({plain})"])
         except Exception:
             return None
+        ca, cb = self.starts[chunk[0] - 1], self.starts[chunk[1]]
         for choice in itertools.islice(itertools.product(*texts), 8):
-            out, last = [], 0
+            out, last = [], ca
             for (a, b, _, _), t in zip(spans, choice):
                 out.append(self.src[last:a])
                 out.append(t.encode())
                 last = b
-            out.append(self.src[last:])
-            cand = b"".join(out).decode()
-            try:
-                if ast.dump(ast.parse(cand)) == intended:
-                    return cand
-            except SyntaxError:
-                continue
+            out.append(self.src[last:cb])
+            if _keyed(b"".join(out).decode(), chunk, intended)[0]:
+                return (self.src[:ca] + b"".join(out) + self.src[cb:]).decode()
         return None
 
 
@@ -410,12 +421,13 @@ class StepLibrary:
         return [({cid: v for cid, v, _ in combo}, [op for _, _, op in combo], j)
                 for j, combo in enumerate(itertools.islice(itertools.product(*options), PER_MATCH))]
 
-    def proposals(self, source: str, span: tuple, ctx: C.ProblemContext, exception_sites: str = "any") -> tuple:
+    def proposals(self, source: str, span: tuple, ctx: C.ProblemContext, exception_sites: str = "any",
+                  deadline: float | None = None) -> tuple:
         """(text, {kind: [(key, edits, info)]}) for every candidate, unbuilt: `edits` is [(node, new_node)]."""
         if exception_sites not in EXCEPTION_SITES:
             raise ValueError(f"invalid exception_sites {exception_sites!r}")
         try:
-            tree = ast.parse(source)
+            tree = _parsed(source)[0]  # DEV31: the parse every learned library shares (never mutated)
         except SyntaxError:
             return None, {}
         text = _Text(source, tree)
@@ -436,6 +448,8 @@ class StepLibrary:
                     if isinstance(r.exc, ast.Call):
                         raise_ids.add(id(r.exc.func))
         for rank, st in enumerate(live):
+            if deadline is not None and time.monotonic() > deadline:  # DEV31: stop building, keep what is held
+                break
             if st.kind == "expr":
                 only_raise = exception_sites == "raise" and "exc" in st.holes.values()
                 groups = defaultdict(list)
@@ -524,7 +538,7 @@ class StepLibrary:
 
     def candidates_for(self, source: str, path: str, span: tuple, ctx: C.ProblemContext, limit: int = LIMIT,
                        as_candidates: bool = True, quota: dict | None = None, sharing: str = "key",
-                       exception_sites: str = "any") -> list:
+                       exception_sites: str = "any", deadline: float | None = None) -> list:
         """At most `limit` ranked candidates: each kind's best up to its share of the budget (QUOTA, scaled to
         `limit`), then whatever share a kind could not use goes to the others in rank order. `sharing` orders the
         candidates within a kind (SHARING); `exception_sites` limits where exception holes apply (EXCEPTION_SITES)."""
@@ -532,7 +546,7 @@ class StepLibrary:
             raise ValueError(f"invalid sharing {sharing!r}")
         if limit <= 0:
             return []
-        text, props = self.proposals(source, span, ctx, exception_sites)
+        text, props = self.proposals(source, span, ctx, exception_sites, deadline)
         if text is None:
             return []
         if sharing == "round_robin":

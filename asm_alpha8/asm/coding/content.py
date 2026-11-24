@@ -25,6 +25,7 @@ from __future__ import annotations
 import ast
 import builtins
 import difflib
+import functools
 import re
 from dataclasses import dataclass, field
 
@@ -210,25 +211,39 @@ def string_fillers(old: str, ctx: ProblemContext, vocab: StringVocabulary | None
                 for k in range(len(old) + 1):
                     if (not left or (k > 0 and old[k - 1] == left)) and (not right or (k < len(old) and old[k] == right)):
                         add(old[:k] + nseg + old[k:], "vocab")
-    sims = sorted(((difflib.SequenceMatcher(None, old, t, autojunk=False).ratio(), t) for t in ctx.test_strings
-                   if t != old and len(t) <= 3 * len(old) + 10), key=lambda x: (-x[0], x[1]))
-    for r, t in sims:
-        if r >= SIMILARITY:
-            add(t, "test")
-    sims = sorted(((difflib.SequenceMatcher(None, old, t, autojunk=False).ratio(), t) for t in ctx.module_strings
-                   if t != old and len(t) <= 3 * len(old) + 10), key=lambda x: (-x[0], x[1]))
-    for r, t in sims:
-        if r >= SIMILARITY:
-            add(t, "module")
+    for t in _similar_strings(old, tuple(ctx.test_strings)):
+        add(t, "test")
+    for t in _similar_strings(old, tuple(ctx.module_strings)):
+        add(t, "module")
     order = {"extend": 0, "test": 1, "vocab": 2, "module": 3}
     out.sort(key=lambda x: order[x[1]])  # stable within an operator
     return out[:limit]
 
 
+@functools.lru_cache(maxsize=4096)
+def _similar_strings(old: str, strings: tuple) -> list:
+    """The strings at least SIMILARITY like `old` (and at most 3x+10 as long), most similar first. DEV31 (performance;
+    same results): difflib's real_quick_ratio and quick_ratio bound ratio from above, so strings they rule out could
+    never reach SIMILARITY (as in difflib.get_close_matches)."""
+    sims = []
+    for t in strings:
+        if t != old and len(t) <= 3 * len(old) + 10:
+            m = difflib.SequenceMatcher(None, old, t, autojunk=False)
+            if m.real_quick_ratio() >= SIMILARITY and m.quick_ratio() >= SIMILARITY and m.ratio() >= SIMILARITY:
+                sims.append((m.ratio(), t))
+    return [t for _, t in sorted(sims, key=lambda x: (-x[0], x[1]))]
+
+
 def _similar_first(names: list, old) -> list:
     if not isinstance(old, str):
         return names
-    return sorted(names, key=lambda n: (-difflib.SequenceMatcher(None, n, old, autojunk=False).ratio(), n))
+    return _similar_sorted(tuple(names), old)
+
+
+@functools.lru_cache(maxsize=4096)
+def _similar_sorted(names: tuple, old: str) -> tuple:
+    """DEV31 (performance; same results): every hole of every learned step re-sorted the module's names."""
+    return tuple(sorted(names, key=lambda n: (-difflib.SequenceMatcher(None, n, old, autojunk=False).ratio(), n)))
 
 
 def name_fillers(old, scope: list, ctx: ProblemContext, limit: int = 10) -> list:

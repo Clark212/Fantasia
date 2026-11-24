@@ -42,6 +42,12 @@ def info(path: Path) -> dict:
     return out
 
 
+def requirement_lines(path: Path) -> list:
+    """A bug's requirements.txt; in black, fastapi, luigi, sanic and scrapy they are UTF-16 with a byte-order mark."""
+    data = path.read_bytes()
+    return data.decode("utf-16" if data[:2] in (b"\xff\xfe", b"\xfe\xff") else "utf-8").splitlines()
+
+
 def git(args, cwd, timeout=600):
     return subprocess.run(["git", *args], cwd=cwd, capture_output=True, text=True, timeout=timeout)
 
@@ -93,7 +99,7 @@ def stage_prepare(work: Path, projects: list):
             rec["clone"] = "cached"
         names = set()
         for req in sorted(pdir.glob("bugs/*/requirements.txt")):
-            for line in req.read_text().splitlines():
+            for line in requirement_lines(req):
                 line = line.strip()
                 if not line or line.startswith(("-e", "#", "git+")):
                     continue
@@ -136,7 +142,7 @@ def stage_envs(work: Path, projects: list, limit: int, python: str):
     for p in projects:
         for bug in bug_dirs(work, p, limit):
             reqf = bug / "requirements.txt"
-            reqs = [l.strip() for l in (reqf.read_text().splitlines() if reqf.exists() else [])
+            reqs = [l.strip() for l in (requirement_lines(reqf) if reqf.exists() else [])
                     if l.strip() and not l.startswith(("#", "-e", "git+"))]
             reqs += setup_pip_names(bug)
             reqs = [r for r in reqs if re.split(r"[=<>!~;\[ ]", r, maxsplit=1)[0].lower() != p.lower()]

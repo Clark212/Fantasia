@@ -29,6 +29,7 @@ from __future__ import annotations
 
 import ast
 import difflib
+import functools
 import hashlib
 import json
 from dataclasses import dataclass, field
@@ -402,6 +403,88 @@ def _offsets(src: bytes) -> list:
     return starts
 
 
+@functools.lru_cache(maxsize=4)
+def _parsed(source: str):
+    """DEV31 (performance; same results): one parse of a module, shared by every procedure (each re-parsed and re-walked
+    the whole module, minutes per suspect on youtube-dl's 3,643-line utils.py). Nothing mutates the tree."""
+    tree = ast.parse(source)
+    nodes = tuple(ast.walk(tree))
+    src = source.encode("utf-8")
+    parents = {id(c): n for n in nodes for c in ast.iter_child_nodes(n)}
+    try:
+        whole = ast.unparse(tree)
+    except ValueError:  # then no candidate normalizes: chunks are not used (_chunk)
+        whole = None
+    return tree, nodes, src, _offsets(src), source.splitlines(keepends=True), parents, {None: whole}
+
+
+def _chunk_body(text: str) -> list:
+    """The statements of whole source lines parsed alone; indented lines are parsed inside `if 1:`."""
+    return ast.parse("if 1:\n" + text).body[0].body if text[:1] in " \t" else ast.parse(text).body
+
+
+def _chunk(source: str, node):
+    """(first line, last line, statement, its normalized text): the innermost statement holding `node` whose lines hold
+    nothing else, found by parsing those lines alone; the whole module when there is none. DEV31 (performance; same
+    results): a rewrite inside it then parses to the intended program iff its chunk parses to the intended statement
+    (the rest of the file tokenizes unchanged), and two rewrites give the same normalized program iff their chunk keys
+    (_keyed) are equal. Each statement is tried once."""
+    tree, _, src, starts, _, parents, memo = _parsed(source)
+    s = node
+    while memo[None] is not None and s is not tree:
+        s = parents[id(s)]
+        if isinstance(s, ast.stmt):
+            if id(s) not in memo:
+                lo = min([s.lineno] + [d.lineno for d in getattr(s, "decorator_list", [])])
+                try:
+                    body = _chunk_body(src[starts[lo - 1]:starts[s.end_lineno]].decode())
+                    memo[id(s)] = (lo, s.end_lineno, s, ast.unparse(s)) if len(body) == 1 and ast.dump(body[0]) == ast.dump(s) else None
+                except (SyntaxError, ValueError):
+                    memo[id(s)] = None
+            if memo[id(s)]:
+                return memo[id(s)]
+    return 1, len(starts) - 1, tree, memo[None]  # byte lines: str.splitlines also splits at form feeds
+
+
+def _keyed(piece: str, chunk, intended=None):
+    """(parsed as intended, de-duplication key) for a rewrite whose changed chunk text is `piece`: the key is None when the
+    rewrite cannot be normalized, `noop` when it normalizes to the unchanged program."""
+    lo, _, stmt, original = chunk
+    try:
+        got = ast.parse(piece) if isinstance(stmt, ast.Module) else _chunk_body(piece)
+        got = got if isinstance(stmt, ast.Module) else (got[0] if len(got) == 1 else None)
+    except SyntaxError:
+        return False, None
+    if got is None or (intended is not None and ast.dump(got) != intended):
+        return False, None
+    try:
+        norm = ast.unparse(got)
+    except ValueError:
+        return True, None
+    return True, ("noop" if norm == original else (lo, norm))
+
+
+@functools.lru_cache(maxsize=8)
+def _in_span(source: str, lo: int, hi: int):
+    """In ast.walk order: the expressions a procedure may rewrite within lines lo..hi, the string constants among them
+    that are not docstrings, the statement blocks holding any such statement, and the `inside` test itself."""
+    _, nodes, *_ = _parsed(source)
+    # DEV18 bug fix (found by the DEV18 self-check on boltons human_readable_list): only the nodes INSIDE an f-string
+    # are excluded; the f-string node itself has a reliable position and may be rewritten as a whole
+    in_fstring = {id(x) for n in nodes if isinstance(n, ast.JoinedStr) for x in ast.walk(n) if x is not n}
+    docstrings = {id(n.body[0].value) for n in nodes
+                  if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef, ast.Module)) and n.body
+                  and isinstance(n.body[0], ast.Expr) and isinstance(getattr(n.body[0], "value", None), ast.Constant)}
+
+    def inside(n):  # within the function's lines, and not part of an f-string (its positions are not reliable)
+        return hasattr(n, "lineno") and lo <= n.lineno and n.end_lineno <= hi and id(n) not in in_fstring
+    exprs = tuple(n for n in nodes if isinstance(n, ast.expr) and inside(n))
+    strings = tuple(n for n in exprs if isinstance(n, ast.Constant) and isinstance(n.value, str) and id(n) not in docstrings)
+    blocks = tuple((n, f, b) for n in nodes for f in ("body", "orelse", "finalbody") for b in [getattr(n, f, None)]
+                   if isinstance(b, list) and b and isinstance(b[0], ast.stmt) and any(inside(x) for x in b))
+    return exprs, strings, blocks, inside
+
+
 @dataclass
 class Procedure:
     """An executable, learned rewrite. `apply` never changes text outside the matched region."""
@@ -453,34 +536,21 @@ class Procedure:
 
     def _apply_detailed(self, source, span, fill, out) -> list:
         try:
-            tree = ast.parse(source)
+            tree, _, src, starts, lines, *_ = _parsed(source)
         except SyntaxError:
             return []
-        lo, hi = span
-        src = source.encode("utf-8")
-        starts = _offsets(src)
-
-        # DEV18 bug fix (found by the DEV18 self-check on boltons human_readable_list): only the nodes INSIDE an f-string
-        # are excluded; the f-string node itself has a reliable position and may be rewritten as a whole
-        in_fstring = {id(x) for n in ast.walk(tree) if isinstance(n, ast.JoinedStr) for x in ast.walk(n) if x is not n}
+        exprs, strings, blocks, inside = _in_span(source, *span)
 
         def rhs_terms(binding, node):
             if fill is None:
                 return [(instantiate(self.rhs, binding), {})]
             return fill(binding, node, tree)
 
-        def inside(n):  # within the function's lines, and not part of an f-string (its positions are not reliable)
-            return hasattr(n, "lineno") and lo <= n.lineno and n.end_lineno <= hi and id(n) not in in_fstring
-
         if self.kind == "string":
             old, left, right = self.lhs[1]
             needle = left + old + right
-            docstrings = {id(n.body[0].value) for n in ast.walk(tree)
-                          if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef, ast.Module)) and n.body
-                          and isinstance(n.body[0], ast.Expr) and isinstance(getattr(n.body[0], "value", None), ast.Constant)}
-            for n in ast.walk(tree):
-                if isinstance(n, ast.Constant) and isinstance(n.value, str) and inside(n) and id(n) not in docstrings \
-                        and needle in n.value:
+            for n in strings:
+                if needle in n.value:
                     k = n.value.index(needle) + len(left)
                     new_val = n.value[:k] + self.rhs[1] + n.value[k + len(old):]
                     a, b = starts[n.lineno - 1] + n.col_offset, starts[n.end_lineno - 1] + n.end_col_offset
@@ -490,19 +560,22 @@ class Procedure:
                         if rep is None:  # keep a raw literal raw when the result is still representable that way
                             q = text[1]
                             rep = ("r" + q + new_val + q) if q not in new_val and not new_val.endswith("\\") else repr(new_val)
-                        out.append(((src[:a] + rep.encode() + src[b:]).decode(), {}))
+                        chunk = _chunk(source, n)
+                        _, key = _keyed((src[starts[chunk[0] - 1]:a] + rep.encode() + src[b:starts[chunk[1]]]).decode(), chunk)
+                        if key is not None:
+                            out.append(((src[:a] + rep.encode() + src[b:]).decode(), {}), key)
             return out.results
         if self.kind == "expr":
-            for n in ast.walk(tree):
-                if not isinstance(n, ast.expr) or not inside(n):
-                    continue
+            for n in exprs:
                 binding: dict = {}
                 if not match(self.lhs, to_term(n), binding):
                     continue
+                chunk = _chunk(source, n)
+                ca, cb = starts[chunk[0] - 1], starts[chunk[1]]
                 for rhs_term, info in rhs_terms(binding, n):
                     try:
                         new = from_term(rhs_term)
-                        intended = _substituted_dump(tree, n, new)
+                        intended = _substituted_dump(chunk[2], n, new)
                         plain = ast.unparse(new)
                     except Exception:  # a filled value that does not make a valid tree (e.g. a non-identifier name)
                         continue
@@ -511,52 +584,45 @@ class Procedure:
                     # for any expression (a generator expression that is a call's only argument borrows the call's
                     # parentheses). Every rewrite is checked against the intended tree; parenthesized as a fallback.
                     for text in ([f"({plain})", plain] if isinstance(new, _NEEDS_PARENS) else [plain, f"({plain})"]):
-                        cand = (src[:a] + text.encode() + src[b:]).decode()
-                        try:
-                            if ast.dump(ast.parse(cand)) == intended:
-                                out.append((cand, info))
-                                break
-                        except SyntaxError:
-                            continue
+                        ok, key = _keyed((src[ca:a] + text.encode() + src[b:cb]).decode(), chunk, intended)
+                        if ok:
+                            if key is not None:
+                                out.append(((src[:a] + text.encode() + src[b:]).decode(), info), key)
+                            break
             return out.results
         # statement windows
         width = len(self.lhs[1])
-        lines = source.splitlines(keepends=True)
-        for n in ast.walk(tree):
-            for fname in ("body", "orelse", "finalbody"):
-                block = getattr(n, fname, None)
-                if not isinstance(block, list) or not block or not isinstance(block[0], ast.stmt):
+        for n, fname, block in blocks:
+            for i in range(len(block) - width + 1):
+                window = block[i:i + width]
+                if not all(inside(s) for s in window):
                     continue
-                for i in range(len(block) - width + 1):
-                    window = block[i:i + width]
-                    if not all(inside(s) for s in window):
+                binding = {}
+                if not match(self.lhs, ("[]", tuple(to_term(s) for s in window)), binding):
+                    continue
+                first, last = window[0], window[-1]
+                indent = lines[first.lineno - 1][:first.col_offset]
+                # DEV17 bug fix (semver Version.parse): a decorated definition's text starts at its first decorator
+                start_line = min([first.lineno] + [d.lineno for d in getattr(first, "decorator_list", [])])
+                if lines[first.lineno - 1][:first.col_offset].strip():
+                    continue
+                for rhs_term, info in rhs_terms(binding, window):
+                    try:
+                        new_stmts = from_term(rhs_term)
+                        mod = ast.Module(body=new_stmts, type_ignores=[])
+                        ast.fix_missing_locations(mod)
+                        body = ast.unparse(mod) + "\n"
+                    except Exception:
                         continue
-                    binding = {}
-                    if not match(self.lhs, ("[]", tuple(to_term(s) for s in window)), binding):
-                        continue
-                    first, last = window[0], window[-1]
-                    indent = lines[first.lineno - 1][:first.col_offset]
-                    # DEV17 bug fix (semver Version.parse): a decorated definition's text starts at its first decorator
-                    start_line = min([first.lineno] + [d.lineno for d in getattr(first, "decorator_list", [])])
-                    if lines[first.lineno - 1][:first.col_offset].strip():
-                        continue
-                    for rhs_term, info in rhs_terms(binding, window):
-                        try:
-                            new_stmts = from_term(rhs_term)
-                            mod = ast.Module(body=new_stmts, type_ignores=[])
-                            ast.fix_missing_locations(mod)
-                            body = ast.unparse(mod) + "\n"
-                        except Exception:
+                    # DEV17 bug fix (found by the self-reproduction diagnostic on semver `match`): an `elif` branch is
+                    # an If node inside its parent's orelse whose source starts with `elif`; writing it back as `if`
+                    # would move it out of the chain and change the program
+                    if fname == "orelse" and isinstance(n, ast.If) and lines[first.lineno - 1][first.col_offset:].startswith("elif"):
+                        if len(new_stmts) != 1 or not isinstance(new_stmts[0], ast.If):
                             continue
-                        # DEV17 bug fix (found by the self-reproduction diagnostic on semver `match`): an `elif` branch is
-                        # an If node inside its parent's orelse whose source starts with `elif`; writing it back as `if`
-                        # would move it out of the chain and change the program
-                        if fname == "orelse" and isinstance(n, ast.If) and lines[first.lineno - 1][first.col_offset:].startswith("elif"):
-                            if len(new_stmts) != 1 or not isinstance(new_stmts[0], ast.If):
-                                continue
-                            body = "el" + body
-                        text = _indent_code(body, indent)
-                        out.append(("".join(lines[:start_line - 1]) + text + "".join(lines[last.end_lineno:]), info))
+                        body = "el" + body
+                    text = _indent_code(body, indent)
+                    out.append(("".join(lines[:start_line - 1]) + text + "".join(lines[last.end_lineno:]), info))
         return out.results
 
     @staticmethod
@@ -585,14 +651,16 @@ class _Collector:
     def __init__(self, limit=None):
         self.limit, self.results, self.seen = limit, [], set()
 
-    def append(self, item):
+    def append(self, item, norm=None):
+        """`norm`: the item's de-duplication key when the caller has validated it (DEV31, chunk keys)."""
         if self.limit is not None and len(self.results) >= self.limit:
             raise _Enough(self.results)
         c, info = item
-        try:
-            norm = ast.unparse(ast.parse(c))
-        except (SyntaxError, ValueError):
-            return
+        if norm is None:
+            try:
+                norm = ast.unparse(ast.parse(c))
+            except (SyntaxError, ValueError):
+                return
         if norm not in self.seen:
             self.seen.add(norm)
             self.results.append((c, info))
