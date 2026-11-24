@@ -96,6 +96,21 @@ each of 44 bugs. Time was not the limit; the knowledge is.
 | alpha.8.8 Transfer Scaling & Efficiency | DEV19 (12.6× training data); lazy candidate building (DEV20); the per-source family budget (DEV23, measured at scale in DEV24); family parameters solved from the fit examples (DEV25, opt-in); phase 3 on its own clock with exact faster candidate building (DEV31: one parse per module, chunk-level checks; identical candidates, 33× faster on 55 real functions) | more data added no reproduced fix (DEV19); DEV24: 18 sources over 256 proposals reach 14 of 17 parameter values, losing 3 of 16 constants in mixed arms (fewer with four inputs). DEV25 G25-A passed: solving reaches them (0 → 1.000) and constants beyond −8..8 (0 → 0.982) at half the evaluator calls. DEV31: learned candidate building for one youtube-dl suspect 623 s → 3.8 s, the same candidates; phase 3 tested candidates in every fresh bug it ran on, and no learned run passed 300 s (DEV29: up to 809 s) |
 | alpha.8.9 M4 Stage-Closure Candidate | `benchmarks/dev30_battery.py` (DEV30): the four opt-in mechanisms of DEV25–DEV28 together, against today's defaults, under every lab condition at once | DEV30 G30-A passed (lab, six held-out structures): all transfer conditions 0.324 → 0.889, every condition at its bar, no false transfer, no wrong answer; tolerance loses 7 of 288 degenerate fits. The real-data half is DEV29. Not promoted: that is the owner's decision |
 
+### The DEV8–DEV40 capability map (project owner, 2026-11-24)
+The owner gave a list of 33 development steps in six phases, ending at **DEV40 — full architecture evaluation and stage
+closure**. Its numbering differs from what the repository did from DEV16 on, and DEV numbers name reports,
+pre-registrations and hash-chained results, so **the repository's DEV numbers stay as they are**. The list is the
+long-range map:
+- **DEV8–DEV31** are done, with the topics the reports record (DEV15 multi-file bug repair; DEV16–DEV24 learning and
+  transfer; DEV25–DEV31 transfer mechanisms and real-bug tests).
+- **DEV32** (test-copy guard on fresh real bugs) is the first step toward the owner's Phase 5.
+- **DEV33–DEV40** take the list's topics in order, each as a pre-registered experiment: experimental design, causal
+  reasoning and discovery, meta-learning, cognitive-architecture integration, unified memory and knowledge, integrated
+  planning and reasoning, generalized engineering intelligence, and DEV40's full evaluation.
+- **M4 first:** the real-data gate (learned knowledge repairing real bugs the workflow without it does not) is still open
+  and comes before closure. A DEV that fails its gate is repeated or redesigned, so DEV40 is a target, not a date.
+- **Versions:** v0.4.x to v1.0.0 follow the stages below; a version is promoted only when its gates pass.
+
 ## Stage 5 — Causal intelligence — 0.5.x
 Move beyond recognizing correlations. Learn cause and effect.
 0.5.0 Causal Reasoning Foundation · 0.5.1 Causal Relationship Discovery · 0.5.2 Counterfactual Reasoning · 0.5.3
