@@ -97,18 +97,21 @@ each of 44 bugs. Time was not the limit; the knowledge is.
 | alpha.8.9 M4 Stage-Closure Candidate | `benchmarks/dev30_battery.py` (DEV30): the four opt-in mechanisms of DEV25–DEV28 together, against today's defaults, under every lab condition at once | DEV30 G30-A passed (lab, six held-out structures): all transfer conditions 0.324 → 0.889, every condition at its bar, no false transfer, no wrong answer; tolerance loses 7 of 288 degenerate fits. The real-data half is DEV29. Not promoted: that is the owner's decision |
 
 ### The DEV8–DEV40 capability map (project owner, 2026-11-24)
-The owner gave a list of 33 development steps in six phases, ending at **DEV40 — full architecture evaluation and stage
-closure**. Its numbering differs from what the repository did from DEV16 on, and DEV numbers name reports,
+The owner gave a list of 33 development steps in six phases, ending at DEV40 (full architecture evaluation and stage
+closure), merged into a final **DEV36**. Its numbering differs from what the repository did from DEV16 on, and DEV numbers name reports,
 pre-registrations and hash-chained results, so **the repository's DEV numbers stay as they are**. The list is the
 long-range map:
 - **DEV8–DEV31** are done, with the topics the reports record (DEV15 multi-file bug repair; DEV16–DEV24 learning and
   transfer; DEV25–DEV31 transfer mechanisms and real-bug tests).
 - **DEV32** (test-copy guard on fresh real bugs) is the first step toward the owner's Phase 5.
-- **DEV33–DEV40** take the list's topics in order, each as a pre-registered experiment: experimental design, causal
-  reasoning and discovery, meta-learning, cognitive-architecture integration, unified memory and knowledge, integrated
-  planning and reasoning, generalized engineering intelligence, and DEV40's full evaluation.
+- **DEV33–DEV36** take the list's topics merged into four pre-registered experiments (owner, 2026-11-24: merged, so the
+  final DEV is **DEV36**, not DEV40):
+  - DEV33: experimental design with causal reasoning and discovery (list DEV33–DEV34);
+  - DEV34: meta-learning and cognitive adaptation (list DEV35);
+  - DEV35: cognitive-architecture integration with unified memory, knowledge, planning and reasoning (list DEV36–DEV38);
+  - DEV36: generalized engineering intelligence, with the full architecture evaluation and stage closure (list DEV39–DEV40).
 - **M4 first:** the real-data gate (learned knowledge repairing real bugs the workflow without it does not) is still open
-  and comes before closure. A DEV that fails its gate is repeated or redesigned, so DEV40 is a target, not a date.
+  and comes before closure. A DEV that fails its gate is repeated or redesigned, so DEV36 is a target, not a date.
 - **Versions:** v0.4.x to v1.0.0 follow the stages below; a version is promoted only when its gates pass.
 
 ## Stage 5 — Causal intelligence — 0.5.x
