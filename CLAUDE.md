@@ -10,19 +10,27 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
   not promoted (Structural Transfer & Analogical Procedure Generalization, toward M4); alpha 7.8 delivered 0.4.7 and
   0.4.8 ("Latent Dependency Structure & Higher-Order Epistemic Routing"). DEV steps are experiments inside
   alpha 8 (side tracks), not milestones; none is promoted. The alpha.8.1–8.9 plan and its evidence: `ROADMAP.md`, Stage 4.
-- Latest: **DEV31** (phase 3 on its own clock, on fresh real bugs; alpha.8.8 and alpha.8.1/8.2 on real data). G31-A
-  **not passed**.
-  - **The change:** `RepairWorkflow(phase3_seconds=150)`, opt-in, gives learned knowledge 150 s of its own after phases
-    1-2. Exact speedups build learned candidates up to 160x faster with identical candidates (55 real functions, 4,400
-    candidates).
-  - **The result:** on 75 fresh BugsInPy bugs (scrapy 33, black 19, fastapi 15, tornado 6, sanic 2; luigi and ansible
-    gave none), learned knowledge repaired 0 bugs the workflow without it does not; 2 were needed. Phase 3 tested a
-    median of 89 candidates in each of 44 bugs and accepted nothing. Time was not the limit.
-  - **Development** (DEV15's bugs): learned shapes wrote a failing test's expected value into the code (2 wrong
-    patches); there is no guard yet.
-  - **black:** DEV15's tracer times out on its test suite, so 14 of its 19 bugs have no spectrum.
-  - **Running real-bug shards:** they must be detached (`setsid`); a launcher stopped at its time limit takes its
-    children with it (`evaluate --resume` finishes a stopped run).
+- Latest: **DEV32** (a guard against test-copied patches, on 143 freshly mined real bugs; alpha.8.4 and alpha.8.1/8.2
+  on real data). G32-A and G32-B **not passed**.
+  - **The change:** `RepairWorkflow(test_copy_guard=True)`, opt-in, drops phase-3 candidates that write a whole failing-test
+    string into the code (`asm.coding.content.copied_test_strings`; name-like strings and error/log messages allowed).
+    The miner `asm_alpha8/benchmarks/dev32_mine_bugs.py` builds BugsInPy-format bugs from any project's history
+    (Python 3.11 environments).
+  - **The result:** 143 valid bugs from 16 projects (sqlglot, astroid, rich, loguru, soupsieve, ...).
+    - **Learned knowledge** repaired 2 correctly that the control did not, even at 300 s (astroid-4, identical to the
+      developer's fix; sqlglot-14, equivalent). That is the count G31-A needed, a first on fresh bugs.
+    - **It also added 2 wrong patches** (autoflake-2, marko-4), one over the limit, so G32-B is not passed.
+    - **The guard** stopped DEV31's two test-copied patches on seen bugs. On the fresh bugs no accepted patch copied a
+      test string, so it stopped nothing (G32-A not passed). It flags 1 of 143 developer fixes.
+    - **The control's own patches** are 8 of 10 wrong: the bugs' tests are weak acceptance checks.
+  - **Running real-bug shards:**
+    - They must be detached (`setsid`).
+    - **Keep a background task running the whole time:** with none, the idle session's container is reclaimed and the
+      shards die (three restarts in DEV32).
+    - `evaluate --resume` finishes a stopped run.
+- **DEV31** (G31-A not passed): `RepairWorkflow(phase3_seconds=150)`, opt-in, gives learned knowledge 150 s of its own;
+  exact speedups build learned candidates up to 160x faster. On 75 fresh BugsInPy bugs it repaired none the control
+  does not (Phase 3 tested a median of 89 candidates in 44 bugs). black: the tracer times out on 14 of its 19 bugs.
 - The owner-approved plan of 2026-11-23 (DEV25–DEV30) is done; nothing is promoted.
   - **DEV30** (an M4-candidate battery of the whole transfer stack; alpha.8.9 candidate, lab only): G30-A **passed**.
     The four opt-in mechanisms together (`family_parameters='solve'`, `family_ambiguity='ask'`, `family_memory='index'`,
@@ -49,7 +57,7 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
 - Records: reports `asm_alpha8/ALPHA8_CODING_DEV*_IMPLEMENTATION.md`; pre-registrations and amendments
   `asm_alpha8/benchmarks/preregistration/`; raw results `asm_alpha8/benchmarks/results/devN/` (hash-chained JSONL; never
   edit); progress page `README.md` from `progress/`.
-- Tests: `cd asm_alpha8 && python3 -m pytest -q tests/test_alpha8_*.py` (617 passed, 3 skipped at DEV31). The whole
+- Tests: `cd asm_alpha8 && python3 -m pytest -q tests/test_alpha8_*.py` (627 passed, 3 skipped at DEV32). The whole
   `tests/` directory has 57 more failures in v0.2–v0.4 modules that need PyTorch, which is not installed (checked at
   DEV23: the same 57 test IDs as on the DEV22 commit), and `test_v030a7.py`, `test_v030a9.py`, `test_v030a10.py` cannot import.
 - Open work:
@@ -57,14 +65,20 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
     - make `family_parameters='solve'`, `family_ambiguity='ask'` and `family_memory='index'` the defaults (DEV25–DEV27;
       see DEV30's ablation);
     - whether to use `contradiction_policy='tolerant'` anywhere (DEV28, DEV30);
-    - whether DEV29 and DEV30 support any promotion. M4 also needs real data, where DEV29 fell short.
-  - Recommended next DEVs (DEV31 report): a guard against copying a failing test's expected value into the code; learned
-    knowledge from the fresh projects' own histories; localization that scales to large test suites (black).
-  - Owner decision: whether to keep `phase3_seconds` (opt-in) at all; the speedups are exact and free when it is off.
+    - whether DEV29 and DEV30 support any promotion. M4 also needs real data, where DEV29, DEV31 and DEV32 fell short;
+    - whether to keep `phase3_seconds` and `test_copy_guard` (both opt-in, free when off);
+    - whether DEV32's 2 learned-only correct repairs change the M4 picture (its gate failed on safety).
+  - Recommended next DEVs (DEV32 report): a stronger acceptance check for every arm (more of the project's own tests than
+    the bug's, probes for value changes); localization that scales to large test suites (18 fresh bugs and black time
+    out); learned knowledge from the fresh projects' own histories.
+  - Roadmap: the owner's DEV8–DEV40 list is a long-range map in `ROADMAP.md`, merged so the final DEV is DEV36 (DEV33
+    experimental design and causal reasoning; DEV34 meta-learning; DEV35 integration; DEV36 closure). The repository's
+    DEV numbers stay as they are.
   - DEV16's study needs generated pairs from the owner's PC (`asm_alpha8/tools/generate_pairs.py`, instructions in
     `asm_alpha8/tools/README_DEV16_DATA.md`).
   - Real-bug environments: `asm_alpha8/benchmarks/dev14_realbugs.py` builds them (Python 3.8:
-    `/root/.local/bin/python3.8` via uv); `asm_alpha8/benchmarks/dev29_realbugs.py` evaluates both arms.
+    `/root/.local/bin/python3.8` via uv; DEV32's with `--python=/usr/bin/python3.11`);
+    `asm_alpha8/benchmarks/dev32_realbugs.py` evaluates the arms.
 - Untrusted code and data: clone downloaded repositories into their own new directory, run Python with `-I` when it
   reads them, and run their tests only through ASM's sandboxed `SafeTestRunner`.
 

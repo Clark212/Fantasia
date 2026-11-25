@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="920" height="914" viewBox="0 0 920 914" role="img" aria-label="Each DEV step and how much of its pre-registered gate it reached">
-<rect x="0.5" y="0.5" width="919" height="913" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="960" viewBox="0 0 920 960" role="img" aria-label="Each DEV step and how much of its pre-registered gate it reached">
+<rect x="0.5" y="0.5" width="919" height="959" rx="8" fill="#ffffff" stroke="#d0d7de"/>
 <text x="20.0" y="34.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="600" fill="#1f2328" text-anchor="start">Each DEV and its pre-registered gate</text>
 <text x="20.0" y="56.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#59636e" text-anchor="start">The bar is the share of the gate's threshold reached; a gate passed fills it. A version moves only when a pre-registered gate passes.</text>
 <text x="470.0" y="76.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#59636e" text-anchor="middle">0</text>
@@ -111,6 +111,12 @@
 <text x="82.0" y="858.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-24 · G31-A: fresh real bugs repaired correctly only…</text>
 <rect x="470" y="837" width="260" height="14" rx="3" fill="#eaeef2"/>
 <text x="744.0" y="848.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#cf222e" text-anchor="start">0 of 2 needed · not passed</text>
-<line x1="730" y1="82" x2="730" y2="868" stroke="#1f2328" stroke-width="1" stroke-dasharray="3,3"/>
-<text x="20.0" y="896.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#59636e" text-anchor="start">Promoted: none. Version after the latest DEV: v0.4.0-alpha.7.9 (promoted).</text>
+<text x="20.0" y="887.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV32</text>
+<text x="82.0" y="887.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">A guard against test-copied patches, on freshly mined real bugs</text>
+<text x="82.0" y="904.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-25 · G32-B: fresh real bugs repaired correctly only…</text>
+<rect x="470" y="883" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="883" width="260.0" height="14" rx="3" fill="#cf222e"/>
+<text x="744.0" y="894.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#cf222e" text-anchor="start">2 of 2 needed · not passed (2 extra wrong patches)</text>
+<line x1="730" y1="82" x2="730" y2="914" stroke="#1f2328" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="20.0" y="942.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#59636e" text-anchor="start">Promoted: none. Version after the latest DEV: v0.4.0-alpha.7.9 (promoted).</text>
 </svg>

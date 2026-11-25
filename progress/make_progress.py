@@ -128,8 +128,9 @@ def dev_outcome(d):
     if d["kind"] == "not_run":
         return 0.0, "#afb8c1", "not run"
     v, n = d["value_reached"], d["needed"]
-    ok = v >= n
-    return min(v / n, 1.0), (COLOR["reached"] if ok else "#cf222e"), f"{v} of {n} needed · {'passed' if ok else 'not passed'}"
+    ok = d.get("passed", v >= n)  # `passed: false` with `why`: the count was reached but another criterion of the gate failed
+    why = f" ({d['why']})" if not ok and d.get("why") else ""
+    return min(v / n, 1.0), (COLOR["reached"] if ok else "#cf222e"), f"{v} of {n} needed · {'passed' if ok else 'not passed'}{why}"
 
 
 def dev_svg(data):

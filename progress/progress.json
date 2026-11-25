@@ -21,7 +21,7 @@
     "validated": 0,
     "details": "ROADMAP.md#release-governance-and-the-alpha-8-plan",
     "note": "update `validated` only when a pre-registered gate for that target passes",
-    "evidence_note": "DEV21–DEV28 each passed held-out gates in a lab (DEV24 and DEV28 also with wrong labels), and DEV30 all of them together; on real bugs, learned knowledge repaired 1 of the 2 needed (DEV29) and 0 on 75 fresh bugs once given its own time (DEV31); three family mechanisms are defaults"
+    "evidence_note": "DEV21–DEV28 each passed held-out gates in a lab (DEV24 and DEV28 also with wrong labels), and DEV30 all of them together; on real bugs, learned knowledge repaired 1 of the 2 needed (DEV29), 0 on 75 fresh bugs once given its own time (DEV31), and 2 of 143 fresh bugs with 2 extra wrong patches (DEV32); three family mechanisms are defaults"
   },
   "devs": [
     {
@@ -206,6 +206,20 @@
       "of": 75,
       "promoted": false,
       "report": "asm_alpha8/ALPHA8_CODING_DEV31_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV32",
+      "date": "2026-11-25",
+      "title": "A guard against test-copied patches, on freshly mined real bugs",
+      "gate": "G32-B: fresh real bugs repaired correctly only with learned knowledge, with at most 1 extra wrong patch (G32-A, the guard, not passed either)",
+      "kind": "at_least",
+      "needed": 2,
+      "value_reached": 2,
+      "of": 143,
+      "passed": false,
+      "why": "2 extra wrong patches",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV32_IMPLEMENTATION.md"
     }
   ]
 }
