@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="6cfdf779f5f4bcf3da97e6c8c97ade9ed55773aa"
+fixed_commit_id="7883b2936bbe2574d704c515fb2f63246b8f58da"
+test_file="tests/test_es_gt.py"

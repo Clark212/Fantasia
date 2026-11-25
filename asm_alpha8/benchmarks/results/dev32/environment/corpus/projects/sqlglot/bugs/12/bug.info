@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="3dfcebcb8699c95fa1fce00f1c9c61282f0fd2a2"
+fixed_commit_id="6123426b0103a48f32b6827ecbd80d4b989ff1bb"
+test_file="tests/dialects/test_snowflake.py"

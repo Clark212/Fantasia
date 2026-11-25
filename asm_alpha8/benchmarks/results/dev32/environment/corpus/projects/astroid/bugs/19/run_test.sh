@@ -1,0 +1,1 @@
+pytest tests/brain/test_brain.py::TypingBrain::test_namedtuple_class_form_assignment_targets

@@ -1,0 +1,1 @@
+pytest tests/brain/test_typing.py::TestTypingAlias::test_infer_typing_alias tests/brain/test_typing.py::TestTypingAlias::test_infer_typing_alias_incorrect_number_of_arguments

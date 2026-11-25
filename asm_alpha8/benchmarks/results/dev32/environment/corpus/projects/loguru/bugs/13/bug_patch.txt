@@ -1,0 +1,13 @@
+diff --git a/loguru/_string_parsers.py b/loguru/_string_parsers.py
+index 9f9af8b..1124b89 100644
+--- a/loguru/_string_parsers.py
++++ b/loguru/_string_parsers.py
+@@ -297,7 +297,7 @@ def parse_time(time: str) -> datetime.time:
+         "%H:%M:%S",
+         "%H:%M:%S.%f",
+         "%I %p",
+-        "%I:%M %S",
++        "%I:%M %p",
+         "%I:%M:%S %p",
+         "%I:%M:%S.%f %p",
+     ]

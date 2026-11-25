@@ -1,0 +1,1 @@
+pytest tests/test_builder.py::test_parse_module_with_invalid_type_comments_does_not_crash tests/test_nodes.py::test_type_comments_invalid_function_comments

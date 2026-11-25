@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="b0201099041de3335e7930d0306dda6bae4e2d03"
+fixed_commit_id="d00740675d0cc02442c6f3f3356c55a6ee4b9f6f"
+test_file="tests/jsonpickle_test.py"

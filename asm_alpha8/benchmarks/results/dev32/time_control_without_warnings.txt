@@ -1,0 +1,4 @@
+{"project": "sqlglot", "bug": 14, "mode": "control_long", "best_rank": 1, "status": "time_budget", "families": null, "repair_seconds": 308.3, "test_copy": null}
+{"project": "astroid", "bug": 4, "mode": "control_long", "best_rank": 1, "status": "unresolved", "families": null, "repair_seconds": 121.2, "test_copy": null}
+{"project": "marko", "bug": 4, "mode": "control_long", "best_rank": 2, "status": "time_budget", "families": null, "repair_seconds": 298.0, "test_copy": null}
+{"project": "autoflake", "bug": 2, "mode": "control_long", "best_rank": 1, "status": "time_budget", "families": null, "repair_seconds": 298.0, "test_copy": null}

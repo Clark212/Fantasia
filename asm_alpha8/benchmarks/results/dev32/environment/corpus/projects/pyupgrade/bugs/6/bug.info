@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="44e8a53fed5f7a8a43765180f9515349050739ce"
+fixed_commit_id="2cec1daa7f3b7916de403677d6d647a52855d35a"
+test_file="tests/features/argparse_suggest_on_error_test.py"

@@ -1,0 +1,1 @@
+pytest yapftests/reformatter_pep8_test.py::TestsForSpacesAroundSubscriptColon::testWithSpaceInsideBrackets

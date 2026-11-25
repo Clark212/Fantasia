@@ -1,0 +1,1 @@
+pytest tests/test_ansimarkup_extended.py::test_8bit_colors tests/test_ansimarkup_extended.py::test_hex_colors tests/test_ansimarkup_extended.py::test_hex_short_code_equals_long_code

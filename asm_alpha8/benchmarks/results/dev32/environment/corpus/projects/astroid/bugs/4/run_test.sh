@@ -1,0 +1,1 @@
+pytest tests/test_object_model.py::ExceptionModelTest::test_unicodedecodeerror

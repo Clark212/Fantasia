@@ -1,0 +1,1 @@
+pytest tests/test_inflections.py::test_inflect_rejects_nonliteral_numbers tests/test_inflections.py::test_inflect_signed_numbers

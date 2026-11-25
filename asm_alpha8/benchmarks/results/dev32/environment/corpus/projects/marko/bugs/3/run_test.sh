@@ -1,0 +1,1 @@
+pytest tests/test_basic.py::TestBasic::test_non_lf_line_terminators_no_infinite_loop

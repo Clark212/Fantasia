@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="454fcfc92c66556f9538d420b5bd3ba95b1f57b7"
+fixed_commit_id="31930ddc842d9e1cd224327d5f6c22eff4a87f82"
+test_file="tests/test_cells.py"

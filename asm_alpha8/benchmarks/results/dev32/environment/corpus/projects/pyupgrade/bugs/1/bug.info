@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="f8932f0b87fa3688b219f7389bcf91537ae8a4d6"
+fixed_commit_id="524e94f4c2b35665f8cc47f86f241f88a4cd2251"
+test_file="tests/features/import_replaces_test.py"

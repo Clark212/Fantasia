@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="7d6e1e5e38b95bcd52ce6d1f18f9475d0a2c8769"
+fixed_commit_id="1c7db2e04c72458e87176cda3cd91de9f5ba739b"
+test_file="tests/test_selector_csstranslator.py"

@@ -1,0 +1,14 @@
+diff --git a/third_party/yapf_third_party/_ylib2to3/fixer_base.py b/third_party/yapf_third_party/_ylib2to3/fixer_base.py
+index 5214c02..92fd0f6 100644
+--- a/third_party/yapf_third_party/_ylib2to3/fixer_base.py
++++ b/third_party/yapf_third_party/_ylib2to3/fixer_base.py
+@@ -169,7 +169,8 @@ class BaseFix(object):
+ class ConditionalFix(BaseFix):
+   """ Base class for fixers which not execute if an import is found. """
+ 
+-  # This is the name of the import which, if found, will cause the test to be skipped
++  # This is the name of the import which, if found, will cause the test to be
++  # skipped.
+   skip_on = None
+ 
+   def start_tree(self, *args):

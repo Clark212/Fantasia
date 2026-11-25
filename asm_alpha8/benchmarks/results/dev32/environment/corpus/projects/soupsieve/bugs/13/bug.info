@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="e688706fc6a2a8c62a27cfdcd3df00d03a3ceaa6"
+fixed_commit_id="b4f750c3a5fa1e1ff868cb7830c2b6445f275967"
+test_file="tests/test_extra/test_attribute.py"

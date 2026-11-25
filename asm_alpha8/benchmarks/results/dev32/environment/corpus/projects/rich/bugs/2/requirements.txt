@@ -1,0 +1,10 @@
+attrs==22.2.0
+iniconfig==2.0.0
+markdown-it-py==2.1.0
+mdurl==0.1.2
+packaging==23.0
+pluggy==1.0.0
+pygments==2.14.0
+pytest==7.2.1
+setuptools==67.3.2
+typing-extensions==4.5.0

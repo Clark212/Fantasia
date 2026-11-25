@@ -1,0 +1,1 @@
+pytest tests/test_url.py::TestCanonicalizeUrl::test_remove_fragments_ipv6_host

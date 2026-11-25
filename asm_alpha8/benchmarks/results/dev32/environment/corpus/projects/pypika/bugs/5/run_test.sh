@@ -1,0 +1,1 @@
+pytest pypika/tests/dialects/test_postgresql.py::UpdateTests::test_postgresquery pypika/tests/test_inserts.py::InsertIntoTests::test_insert_null pypika/tests/test_inserts.py::PostgresInsertIntoReturningTests::test_insert_returning_null pypika/tests/test_selects.py::AliasTests::test_null_value_with_alias

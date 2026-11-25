@@ -1,0 +1,13 @@
+diff --git a/pyupgrade/_plugins/argparse_suggest_on_error.py b/pyupgrade/_plugins/argparse_suggest_on_error.py
+index 8c186e3..1b9b8b3 100644
+--- a/pyupgrade/_plugins/argparse_suggest_on_error.py
++++ b/pyupgrade/_plugins/argparse_suggest_on_error.py
+@@ -27,7 +27,7 @@ def visit_Call(
+                 node.func,
+                 state.from_imports,
+                 ('argparse',),
+-                'ArgumentParser',
++                ('ArgumentParser',),
+             ) and
+             node.keywords
+     ):

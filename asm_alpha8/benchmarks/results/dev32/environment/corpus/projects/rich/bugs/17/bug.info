@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="fe55a131c2780fa856464ad04d7d6dc8a1079b72"
+fixed_commit_id="1c5e03eb32020011f5b13174e186c588d09d749c"
+test_file="tests/test_columns.py;tests/test_table.py"

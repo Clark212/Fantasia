@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="b3fa15979866947adbb600ae9b1d24e048997dad"
+fixed_commit_id="9f169ab17a8ada0a53e2d88c035196db673e37c4"
+test_file="tests/dialects/test_redshift.py"

@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="a61ea875545997641089caf87b9f1cf623d059fe"
+fixed_commit_id="5dd175d859217c93050030cf2504584b979f91c9"
+test_file="tests/features/format_literals_test.py"

@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="4d1e0fb49a6b21f5b4ffe4ea15c5e7c8200ab0ff"
+fixed_commit_id="367b25ae935f235f00688635b55ab25d8f2f93d3"
+test_file="tests/brain/test_multiprocessing.py"

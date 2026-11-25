@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="32bbc02d50805c35ba4c9ecb784be027485f5410"
+fixed_commit_id="73afab551bbf98033b29a88b9e420e8351888f5e"
+test_file="tests/test_object_model.py"

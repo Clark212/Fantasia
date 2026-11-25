@@ -1,0 +1,1 @@
+pytest tests/test_ansimarkup_basic.py::test_invalid_color tests/test_ansimarkup_extended.py::test_invalid_8bit tests/test_ansimarkup_extended.py::test_invalid_color tests/test_ansimarkup_extended.py::test_invalid_hex tests/test_ansimarkup_extended.py::test_invalid_rgb tests/test_levels.py::test_add_level_unknown_color

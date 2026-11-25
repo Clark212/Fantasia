@@ -1,0 +1,12 @@
+diff --git a/inflect/__init__.py b/inflect/__init__.py
+index 3eef486..1c3494a 100644
+--- a/inflect/__init__.py
++++ b/inflect/__init__.py
+@@ -2028,6 +2028,7 @@ PRESENT_PARTICIPLE_REPLACEMENTS = (
+     (re.compile(r"^(are|were)$"), r"be"),
+     (re.compile(r"^(had)$"), r"hav"),
+     (re.compile(r"^(hoe)$"), r"\g<1>"),
++    (re.compile(r"^(be)$"), r"\g<1>"),
+     (re.compile(r"([^e])e$"), r"\g<1>"),
+     (re.compile(r"er$"), r"er"),
+     (re.compile(r"([^aeiou][aeiouy]([bdgmnprst]))$"), r"\g<1>\g<2>"),

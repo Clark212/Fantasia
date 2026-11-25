@@ -1,0 +1,12 @@
+diff --git a/rich/pretty.py b/rich/pretty.py
+index 83c6c1e..f257b15 100644
+--- a/rich/pretty.py
++++ b/rich/pretty.py
+@@ -793,6 +793,7 @@ def traverse(
+                     close_brace=")",
+                     children=children,
+                     last=root,
++                    empty=f"{obj.__class__.__name__}()",
+                 )
+ 
+                 for last, field in loop_last(

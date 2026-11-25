@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="915d949b3fd2f12ce1dfc831cffc4cc6ba8def06"
+fixed_commit_id="352cd49e2312b0d90cdb7e6fabbbe97e59d6157f"
+test_file="tests/test_inflections.py;tests/test_pwd.py"

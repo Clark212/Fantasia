@@ -1,0 +1,9 @@
+cssselect==1.2.0
+iniconfig==2.0.0
+jmespath==1.0.1
+lxml==4.9.2
+packaging==23.1
+pluggy==1.0.0
+pytest==7.3.2
+setuptools==67.8.0
+w3lib==2.1.1

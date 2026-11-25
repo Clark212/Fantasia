@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="4aa189a472639e7af442c8d794514ec3ab116995"
+fixed_commit_id="184557f70dd6b606e76fb2592bd096e4667450eb"
+test_file="tests/dialects/test_oracle.py"

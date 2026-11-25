@@ -1,5 +1,6 @@
 """DEV32 review probes: a distinguishing input on the developer's fixed tree and on ASM's patched tree of a fresh real bug,
-in the bug's own Python 3.11 virtualenv and inside ASM's sandbox (dev29_probes.run). Every accepted patch has one.
+in the bug's own Python 3.11 virtualenv and inside ASM's sandbox (dev29_probes.run). Every accepted patch has one; SECOND holds
+the follow-up probes for the patches the first one did not tell apart.
 Usage: python benchmarks/dev32_probes.py <work_dir>
 """
 import sys
@@ -41,5 +42,21 @@ PROBES = {
                        " t(lambda: type(sv.compile(sv.compile('div'))).__name__))"),
 }
 
+SECOND = {
+    ("inflect", 7): ("import inflect\nfrom inflect import Words\np = inflect.engine()\n" + TRY +
+                     "print([t(p._handle_long_compounds, Words(w), n) for w in ['pair of scissors', 'men beyond hills', 'mother of god'] for n in (1, 2)],"
+                     " [p.plural_noun(w) for w in ['pair of scissors', 'man beyond hills']], [p.singular_noun(w) for w in ['pairs of scissors', 'men beyond hills']])"),
+    ("soupsieve", 2): ("import soupsieve as sv\n" + TRY +
+                       "print([t(lambda s: type(sv.compile(s)).__name__, s) for s in ['p:nth-child', 'p:is', 'p:not', 'p:contains', ':nth-of-type', ':foo', 'p:lang']])"),
+    ("rich", 11): ("import hashlib, itertools\nfrom rich.segment import Segment\n"  # every split of every 1-6 character mix of narrow and wide
+                   "ws = [''.join(c) for n in range(1, 7) for c in itertools.product('a\\u3042', repeat=n)]\n"
+                   "out = [[s.text for s in Segment(w).split_cells(i)] for w in ws for i in range(14)]\n"
+                   "print(len(out), hashlib.sha256(repr(out).encode()).hexdigest()[:16])"),
+    ("markdownify", 4): ("from markdownify import MarkdownConverter\n" + TRY +
+                         "class C(MarkdownConverter):\n    def convert_b(self, el, text):\n        return '!' + text\n"
+                         "print(t(lambda: C().convert('<b>x</b>')), t(lambda: C().convert('<hn>y</hn>')))"),
+}
+
 if __name__ == "__main__":
     dev29_probes.run(Path(sys.argv[1]), PROBES)
+    dev29_probes.run(Path(sys.argv[1]), SECOND)

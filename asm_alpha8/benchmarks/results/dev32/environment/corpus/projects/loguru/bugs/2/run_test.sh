@@ -1,0 +1,1 @@
+pytest tests/test_add_option_enqueue.py::test_not_caught_exception_queue_get_then_complete tests/test_add_option_enqueue.py::test_not_caught_exception_sink_write_then_complete

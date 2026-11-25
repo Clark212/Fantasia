@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="262a247d2d99a47a520cdb2d46adb90df88b4326"
+fixed_commit_id="6ff33a37545376fe1423403f522bd807995766b3"
+test_file="tests/test_pwd.py"

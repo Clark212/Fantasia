@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="6f29e27a913a707854cad662b4e0edeb476d8896"
+fixed_commit_id="d4ec3410461043952163fd9196000a76b897c97d"
+test_file="tests/pandas_test.py"

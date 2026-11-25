@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="e49dfa53cffc1116e25d58d727ff4eea34fafb64"
+fixed_commit_id="2465fca6ca2e52b59845371d3d230367d5b45725"
+test_file="tests/test_filesink_rotation.py"

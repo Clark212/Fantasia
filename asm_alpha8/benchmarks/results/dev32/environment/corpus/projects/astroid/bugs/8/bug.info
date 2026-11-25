@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="a8439ff4f822cde57151f083d987a7b7ed593fbf"
+fixed_commit_id="ca0230d876914290712b4478acc863ae974f3b2d"
+test_file="tests/brain/test_typing.py"

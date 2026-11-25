@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="85c6837431a2eebdc9809f80b7adc529525ea73c"
+fixed_commit_id="86609e82ab66d7acbeff9db60322c378b9ebea76"
+test_file="tests/features/exceptions_test.py"

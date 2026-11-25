@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="65df79c8e37cc4c4ea4060745238182eeac71321"
+fixed_commit_id="6f29e27a913a707854cad662b4e0edeb476d8896"
+test_file="tests/numpy_test.py"

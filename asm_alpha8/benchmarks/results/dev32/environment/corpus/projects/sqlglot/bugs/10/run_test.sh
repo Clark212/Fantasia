@@ -1,0 +1,1 @@
+pytest tests/dialects/test_doris.py::TestDoris::test_doris

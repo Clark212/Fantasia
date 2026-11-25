@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="0be05cb0e14355dc61577173c79f4a337bf63286"
+fixed_commit_id="516534d3373d9072ee14109f6ef7d737be2625f2"
+test_file="tests/dialects/test_mysql.py"

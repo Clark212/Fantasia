@@ -1,0 +1,1 @@
+pytest tests/test_inference.py::test_fstring_large_width_no_memory_error

@@ -1,0 +1,33 @@
+diff --git a/marko/ext/gfm/renderer.py b/marko/ext/gfm/renderer.py
+index 8c2c38e..d05143c 100644
+--- a/marko/ext/gfm/renderer.py
++++ b/marko/ext/gfm/renderer.py
+@@ -71,10 +71,10 @@ class GFMRendererMixin:
+     def render_table(self, element):
+         lines = []
+         head, *body = element.children
+-        lines.append(self.render(head))
+-        lines.append(f"| {' | '.join(element.delimiters)} |\n")
++        lines.append(self._prefix + self.render(head))
++        lines.append(self._prefix + f"| {' | '.join(element.delimiters)} |\n")
+         for row in body:
+-            lines.append(self.render(row))
++            lines.append(self._prefix + self.render(row))
+         return "".join(lines)
+ 
+     @render_dispatch(HTMLRenderer)
+diff --git a/marko/md_renderer.py b/marko/md_renderer.py
+index 69919d7..8074f58 100644
+--- a/marko/md_renderer.py
++++ b/marko/md_renderer.py
+@@ -117,9 +117,8 @@ class MarkdownRenderer(Renderer):
+         return self.render_heading(cast("block.Heading", element))
+ 
+     def render_blank_line(self, element: block.BlankLine) -> str:
+-        result = self._prefix + "\n"
+         self._prefix = self._second_prefix
+-        return result
++        return "\n"
+ 
+     def render_link_ref_def(self, element: block.LinkRefDef) -> str:
+         link_text = element.dest

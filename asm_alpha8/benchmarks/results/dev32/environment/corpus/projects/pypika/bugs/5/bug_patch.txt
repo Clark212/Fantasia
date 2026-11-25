@@ -1,0 +1,28 @@
+diff --git a/pypika/queries.py b/pypika/queries.py
+index 9fa0b20..8fef009 100644
+--- a/pypika/queries.py
++++ b/pypika/queries.py
+@@ -1110,7 +1110,9 @@ class QueryBuilder(Selectable, Term):
+     @builder
+     def set(self, field: Union[Field, str], value: Any) -> None:
+         field = Field(field) if not isinstance(field, Field) else field
+-        self._updates.append((field, self._wrapper_cls(value)))
++        if not isinstance(value, Term):
++            value = self.wrap_constant(value, wrapper_cls=self._wrapper_cls)
++        self._updates.append((field, value))
+ 
+     def __add__(self, other: "QueryBuilder") -> _SetOperation:
+         return self.union(other)
+diff --git a/pypika/terms.py b/pypika/terms.py
+index 941c624..ece5e5c 100644
+--- a/pypika/terms.py
++++ b/pypika/terms.py
+@@ -586,7 +586,7 @@ class LiteralValue(Term):
+ 
+ class NullValue(LiteralValue):
+     def __init__(self, alias: Optional[str] = None) -> None:
+-        super().__init__("NULL", alias)
++        super().__init__("null", alias)
+ 
+ 
+ class SystemTimeValue(LiteralValue):

@@ -1,0 +1,13 @@
+diff --git a/markdownify/__init__.py b/markdownify/__init__.py
+index 151a222..a60400c 100644
+--- a/markdownify/__init__.py
++++ b/markdownify/__init__.py
+@@ -265,7 +265,7 @@ class MarkdownConverter(object):
+             return text
+ 
+         style = self.options['heading_style'].lower()
+-        text = text.rstrip()
++        text = text.strip()
+         if style == UNDERLINED and n <= 2:
+             line = '=' if n == 1 else '-'
+             return self.underline(text, line)

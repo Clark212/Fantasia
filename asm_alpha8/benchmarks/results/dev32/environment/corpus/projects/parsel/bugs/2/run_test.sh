@@ -1,0 +1,1 @@
+pytest tests/test_selector_csstranslator.py::TestTranslatorBase::test_attr_function

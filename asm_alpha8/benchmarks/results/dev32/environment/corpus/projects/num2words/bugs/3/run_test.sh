@@ -1,0 +1,1 @@
+pytest tests/test_ar.py::Num2WordsARTest::test_cardinal tests/test_ar.py::Num2WordsARTest::test_currency_parm tests/test_ar.py::Num2WordsARTest::test_default_currency tests/test_ar.py::Num2WordsARTest::test_ordinal

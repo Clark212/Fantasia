@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="e34793226fc0ab80142d23cef2078ab0035a6104"
+fixed_commit_id="88e65f1f51c1e88e9e06a8f0b855200122578b28"
+test_file="tests/test_ext.py"

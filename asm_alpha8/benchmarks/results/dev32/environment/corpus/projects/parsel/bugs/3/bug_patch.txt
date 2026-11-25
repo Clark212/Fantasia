@@ -1,0 +1,23 @@
+diff --git a/parsel/selector.py b/parsel/selector.py
+index 0539257..7d6ae03 100644
+--- a/parsel/selector.py
++++ b/parsel/selector.py
+@@ -410,13 +410,11 @@ def _is_json_document(data: Any) -> bool:
+     return isinstance(data, (dict, list))
+ 
+ 
+-def _load_json_or_none(text: str) -> Any:
+-    if isinstance(text, (str, bytes, bytearray)):
+-        try:
+-            return json.loads(text)
+-        except ValueError:
+-            return None
+-    return None
++def _load_json_or_none(text: str | None) -> Any:
++    try:
++        return json.loads(text)  # type: ignore[arg-type]
++    except (TypeError, ValueError):
++        return None
+ 
+ 
+ class Selector:

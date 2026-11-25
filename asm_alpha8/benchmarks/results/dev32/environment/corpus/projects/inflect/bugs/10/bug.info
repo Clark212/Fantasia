@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="262a247d2d99a47a520cdb2d46adb90df88b4326"
+fixed_commit_id="7ab5b830a86a031fa116bd34783a3911ae9d0b64"
+test_file="tests/test_inflections.py"

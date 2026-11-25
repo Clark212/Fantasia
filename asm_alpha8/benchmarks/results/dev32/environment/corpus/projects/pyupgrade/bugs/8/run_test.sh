@@ -1,0 +1,1 @@
+pytest tests/features/identity_equality_test.py::test_fix_is_compare_to_literal

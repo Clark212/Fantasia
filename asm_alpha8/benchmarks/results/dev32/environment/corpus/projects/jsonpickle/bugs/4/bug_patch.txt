@@ -1,0 +1,60 @@
+diff --git a/jsonpickle/pickler.py b/jsonpickle/pickler.py
+index 723e185..0239a7b 100644
+--- a/jsonpickle/pickler.py
++++ b/jsonpickle/pickler.py
+@@ -660,16 +660,16 @@ class Pickler:
+ 
+             elif reduce_val:
+                 # at this point, reduce_val should be some kind of iterable
+-                # pad out to len 5
++                # pad out to len 6, for pickle protocol 5 support
+                 rv_as_list = list(reduce_val)
+-                insufficiency = 5 - len(rv_as_list)
++                insufficiency = 6 - len(rv_as_list)
+                 if insufficiency:
+                     rv_as_list += [None] * insufficiency
+ 
+                 if getattr(rv_as_list[0], "__name__", "") == "__newobj__":
+                     rv_as_list[0] = tags.NEWOBJ
+ 
+-                f, args, state, listitems, dictitems = rv_as_list
++                f, args, state, listitems, dictitems = rv_as_list[:5]
+ 
+                 # check that getstate/setstate is sane
+                 if not (
+diff --git a/jsonpickle/unpickler.py b/jsonpickle/unpickler.py
+index d72bf0e..70b6ce7 100644
+--- a/jsonpickle/unpickler.py
++++ b/jsonpickle/unpickler.py
+@@ -521,9 +521,9 @@ class Unpickler:
+             proxy.reset(result)
+             self._swapref(proxy, result)
+             return result
+-        if len(reduce_val) < 5:
+-            reduce_val.extend([None] * (5 - len(reduce_val)))
+-        f, args, state, listitems, dictitems = reduce_val
++        if len(reduce_val) < 6:
++            reduce_val.extend([None] * (6 - len(reduce_val)))
++        f, args, state, listitems, dictitems, state_setter = reduce_val
+ 
+         if f == tags.NEWOBJ or getattr(f, "__name__", "") == "__newobj__":
+             # mandated special case
+@@ -544,7 +544,7 @@ class Unpickler:
+                 # __init__ since the state dict will set all attributes immediately afterwards
+                 stage1 = f.__new__(f, *args)
+ 
+-        if state:
++        if state and state_setter is None:
+             try:
+                 stage1.__setstate__(state)
+             except AttributeError:
+@@ -568,6 +568,9 @@ class Unpickler:
+                         if slots_state:
+                             for k, v in slots_state.items():
+                                 setattr(stage1, k, v)
++        elif state:
++            # pickle protocol 5's state_setter takes priority over __setstate__
++            state_setter(stage1, state)
+ 
+         if listitems:
+             # should be lists if not None

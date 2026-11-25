@@ -1,0 +1,1 @@
+pytest tests/brain/test_builtin.py::TestStringNodes::test_string_format_in_dataclass_pylint8109

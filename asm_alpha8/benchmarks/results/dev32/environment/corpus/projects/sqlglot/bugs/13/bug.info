@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="93eba239199f1d49a1f5b7909f300be736700d07"
+fixed_commit_id="2e7409ef0274d9ceeb0e5e94be2361fe327a6a89"
+test_file="tests/dialects/test_postgres.py"

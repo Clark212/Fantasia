@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="c1672aee444d4fa8c76a7be37b0746ce769d2631"
+fixed_commit_id="2ec33384de85d0906b4b40a59f1a3650846150cb"
+test_file="tests/test_tables.py"

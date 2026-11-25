@@ -1,0 +1,256 @@
+{
+ "bugs": 143,
+ "arms": [
+  "control",
+  "learned",
+  "guarded"
+ ],
+ "status": {
+  "control": {
+   "time_budget": 91,
+   "unresolved": 19,
+   "no_spectrum": 19,
+   "resolved": 10,
+   "partial": 4
+  },
+  "learned": {
+   "time_budget": 99,
+   "no_spectrum": 19,
+   "unresolved": 6,
+   "resolved": 14,
+   "partial": 5
+  },
+  "guarded": {
+   "time_budget": 103,
+   "no_spectrum": 19,
+   "resolved": 14,
+   "partial": 5,
+   "unresolved": 2
+  }
+ },
+ "no_spectrum_reasons": {
+  "the traced test run timed out, so coverage is missing or partial": 18,
+  "no failing tests in the suite": 1
+ },
+ "resolved": {
+  "control": [
+   "astroid-1",
+   "inflect-2",
+   "inflect-7",
+   "inflect-9",
+   "jsonpickle-3",
+   "markdownify-4",
+   "rich-11",
+   "rich-15",
+   "soupsieve-2",
+   "soupsieve-4"
+  ],
+  "learned": [
+   "astroid-1",
+   "astroid-4",
+   "autoflake-2",
+   "inflect-2",
+   "inflect-7",
+   "inflect-9",
+   "jsonpickle-3",
+   "markdownify-4",
+   "marko-4",
+   "rich-11",
+   "rich-15",
+   "soupsieve-2",
+   "soupsieve-4",
+   "sqlglot-14"
+  ],
+  "guarded": [
+   "astroid-1",
+   "astroid-4",
+   "autoflake-2",
+   "inflect-2",
+   "inflect-7",
+   "inflect-9",
+   "jsonpickle-3",
+   "markdownify-4",
+   "marko-4",
+   "rich-11",
+   "rich-15",
+   "soupsieve-2",
+   "soupsieve-4",
+   "sqlglot-14"
+  ]
+ },
+ "not_by_control": {
+  "learned": [
+   "astroid-4",
+   "autoflake-2",
+   "marko-4",
+   "sqlglot-14"
+  ],
+  "guarded": [
+   "astroid-4",
+   "autoflake-2",
+   "marko-4",
+   "sqlglot-14"
+  ]
+ },
+ "control_only": [],
+ "flagged_accepted": {
+  "control": {},
+  "learned": {},
+  "guarded": {}
+ },
+ "diffs_not_applying": {
+  "control": [],
+  "learned": [],
+  "guarded": []
+ },
+ "seconds": {
+  "control": {
+   "median": 148.0,
+   "max": 219.5,
+   "over_300": 0,
+   "over_360": 0
+  },
+  "learned": {
+   "median": 296.0,
+   "max": 345.1,
+   "over_300": 2,
+   "over_360": 0
+  },
+  "guarded": {
+   "median": 296.0,
+   "max": 361.3,
+   "over_300": 5,
+   "over_360": 1
+  }
+ },
+ "tried_median": {
+  "control": 59,
+  "learned": 158,
+  "guarded": 155
+ },
+ "phase3": {
+  "guarded": {
+   "reached": 110,
+   "candidates_tested_median": 104.0,
+   "none_tested": 0,
+   "outcome": {
+    "time_budget": 103,
+    "partial": 1,
+    "resolved": 4,
+    "unresolved": 2
+   }
+  },
+  "learned": {
+   "reached": 110,
+   "candidates_tested_median": 107.0,
+   "none_tested": 0,
+   "outcome": {
+    "time_budget": 99,
+    "unresolved": 6,
+    "partial": 1,
+    "resolved": 4
+   }
+  }
+ },
+ "guard_dropped": {
+  "bugs": 79,
+  "candidates": 1030,
+  "by_bug": {
+   "sqlglot-1": 4,
+   "sqlglot-2": 7,
+   "sqlglot-10": 18,
+   "sqlglot-19": 26,
+   "pyupgrade-6": 1,
+   "rich-18": 18,
+   "loguru-4": 5,
+   "loguru-11": 4,
+   "inflect-4": 14,
+   "loguru-16": 4,
+   "num2words-7": 4,
+   "jsonpickle-2": 12,
+   "jsonpickle-8": 4,
+   "markdownify-3": 8,
+   "marko-2": 12,
+   "soupsieve-7": 19,
+   "soupsieve-13": 38,
+   "parsel-1": 2,
+   "pypika-2": 6,
+   "pypika-5": 27,
+   "autoflake-2": 10,
+   "w3lib-5": 13,
+   "w3lib-9": 4,
+   "sqlglot-8": 2,
+   "sqlglot-11": 1,
+   "sqlglot-20": 33,
+   "pyupgrade-3": 17,
+   "pyupgrade-7": 1,
+   "rich-5": 31,
+   "rich-8": 31,
+   "rich-13": 20,
+   "rich-16": 25,
+   "rich-20": 21,
+   "loguru-5": 12,
+   "loguru-9": 18,
+   "loguru-12": 4,
+   "loguru-15": 4,
+   "inflect-6": 11,
+   "num2words-3": 1,
+   "num2words-8": 4,
+   "markdownify-1": 1,
+   "soupsieve-1": 9,
+   "soupsieve-5": 30,
+   "soupsieve-8": 24,
+   "soupsieve-11": 9,
+   "soupsieve-14": 19,
+   "parsel-4": 8,
+   "pypika-3": 4,
+   "sqlglot-15": 31,
+   "sqlglot-18": 41,
+   "pyupgrade-5": 2,
+   "pyupgrade-8": 6,
+   "astroid-17": 10,
+   "rich-3": 12,
+   "rich-6": 12,
+   "rich-9": 21,
+   "rich-14": 39,
+   "rich-17": 32,
+   "loguru-1": 5,
+   "loguru-6": 47,
+   "loguru-10": 4,
+   "loguru-13": 2,
+   "inflect-3": 4,
+   "num2words-1": 15,
+   "num2words-4": 4,
+   "jsonpickle-1": 8,
+   "jsonpickle-4": 16,
+   "markdownify-2": 3,
+   "marko-5": 11,
+   "soupsieve-9": 28,
+   "soupsieve-12": 5,
+   "soupsieve-15": 6,
+   "pypika-1": 1,
+   "pypika-4": 2,
+   "pypika-7": 8,
+   "autoflake-4": 6,
+   "w3lib-4": 26,
+   "w3lib-7": 12,
+   "w3lib-11": 11
+  }
+ },
+ "time_control": {
+  "autoflake-2": "time_budget",
+  "sqlglot-14": "time_budget",
+  "marko-4": "time_budget",
+  "astroid-4": "unresolved"
+ },
+ "developer_fixes": {
+  "valid_bugs": 143,
+  "checked": 143,
+  "flagged": {
+   "loguru-10": [
+    "#"
+   ]
+  },
+  "not_applying": []
+ }
+}

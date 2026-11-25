@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="46c3d526905780be88d227f46e19f24f2593fbbe"
+fixed_commit_id="98a37188adf22444e2c66062152e11fba5647a52"
+test_file="tests/features/typing_pep563_test.py"

@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="5b14ae38820cc6b1f1179482aa0894b313ea727d"
+fixed_commit_id="cf3271ae497b932ca6631be7bd031d483a28f391"
+test_file="tests/dialects/test_doris.py"

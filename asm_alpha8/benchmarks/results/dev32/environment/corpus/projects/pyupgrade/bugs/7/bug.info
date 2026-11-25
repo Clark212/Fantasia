@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="6996275da420e6bd081bad0ded16d016390a26ee"
+fixed_commit_id="e8b4f9208e1a04211bc3fa933d01577073f85110"
+test_file="tests/features/itertools_chain_test.py"

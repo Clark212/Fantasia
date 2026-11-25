@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="0ba607dc080c9f102b5ae5346bcdb70d6e9c969d"
+fixed_commit_id="a3b27a3aba6dddc480467d479c12d7dc5756b5ca"
+test_file="tests/test_console.py"

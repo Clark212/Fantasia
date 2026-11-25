@@ -1,0 +1,1 @@
+pytest tests/test_table.py::test_columns_highlight_added_by_add_row

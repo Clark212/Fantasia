@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="5dc30b7abf81d132dd01c342f2431be450dfa23d"
+fixed_commit_id="dc9c0ddd6dedd478b006a6cdc06aa39a959b8041"
+test_file="tests/test_transpile.py"

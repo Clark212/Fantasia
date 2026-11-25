@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="8052eff4c1ba86793a6f38ee890a898e902bc1ea"
+fixed_commit_id="5672e7d0ad610d70c5e549939b049303edefda19"
+test_file="tests/test_datetime.py"

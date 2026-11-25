@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="571d512236bbd662392a56e16cd5f9de770907f6"
+fixed_commit_id="8fb04fb3428d592ba785dfc75bff19cf29d6d198"
+test_file="tests/dialects/test_sqlite.py"

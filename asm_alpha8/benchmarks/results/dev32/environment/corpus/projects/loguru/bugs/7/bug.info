@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="aa6fdd883d75ada646ce42ff7d8c29595ef1f252"
+fixed_commit_id="91e3646e8c0f1384d375bce49a5fb313dad5f7d6"
+test_file="tests/test_threading.py"

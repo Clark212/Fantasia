@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="826d47708a3577deb7d3494e84c7b09fe4ad5bd3"
+fixed_commit_id="5a93a9f9e7e8d1cbcbfc93783e86572b6c678152"
+test_file="tests/test_inference.py"

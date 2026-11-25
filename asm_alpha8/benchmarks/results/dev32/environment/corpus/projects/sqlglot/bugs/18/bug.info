@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="ce7f6e39dbbbaa61ff01a307226ff867a3a9efb6"
+fixed_commit_id="caa920da583f57913311798aff2561821ea8ca01"
+test_file="tests/dialects/test_starrocks.py"

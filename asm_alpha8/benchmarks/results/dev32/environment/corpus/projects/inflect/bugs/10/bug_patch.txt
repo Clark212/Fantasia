@@ -1,0 +1,13 @@
+diff --git a/inflect/__init__.py b/inflect/__init__.py
+index 3eef486..d1f839d 100644
+--- a/inflect/__init__.py
++++ b/inflect/__init__.py
+@@ -2266,6 +2266,8 @@ class engine:
+         """
+         if isinstance(obj, ast.Constant):
+             return obj.value
++        elif isinstance(obj, ast.UnaryOp) and isinstance(obj.op, (ast.UAdd, ast.USub)):
++            return ast.literal_eval(obj)
+         elif isinstance(obj, ast.List):
+             return [self._get_value_from_ast(e) for e in obj.elts]
+         elif isinstance(obj, ast.Tuple):

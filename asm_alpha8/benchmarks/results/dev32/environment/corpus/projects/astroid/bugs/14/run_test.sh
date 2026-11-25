@@ -1,0 +1,1 @@
+pytest tests/test_scoped_nodes.py::ClassNodeTest::test_slots_annotation_only_without_value

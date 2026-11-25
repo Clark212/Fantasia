@@ -1,0 +1,1 @@
+pytest tests/test_threading.py::test_safe_removing_all_while_logging tests/test_threading.py::test_safe_slow_removing_all_while_logging

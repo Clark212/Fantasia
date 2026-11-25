@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="b6f2f7aa5b27f612f391cd28212aff51ad0d42d1"
+fixed_commit_id="6055e2d8ef98e5487949b9c6e5d0dfce6a5b9e28"
+test_file="tests/test_pretty.py"

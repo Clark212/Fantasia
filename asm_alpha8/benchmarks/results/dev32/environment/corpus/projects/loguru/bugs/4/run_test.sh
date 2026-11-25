@@ -1,0 +1,1 @@
+pytest tests/test_filesink_rotation.py::test_dont_rotate_earlier_when_utc_is_one_day_before tests/test_filesink_rotation.py::test_dont_rotate_later_when_utc_is_one_day_after tests/test_filesink_rotation.py::test_rotation_at_midnight_with_date_in_filename

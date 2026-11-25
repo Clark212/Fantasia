@@ -1,0 +1,1 @@
+pytest tests/test_inference.py::InferenceTest::test_infer_call_result_with_metaclass

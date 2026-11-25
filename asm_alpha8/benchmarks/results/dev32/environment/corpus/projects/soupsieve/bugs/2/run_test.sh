@@ -1,0 +1,1 @@
+pytest tests/test_level1/test_pseudo_class.py::TestPseudoClass::test_pseudo_class_not_implemented tests/test_level1/test_pseudo_class.py::TestPseudoClass::test_unrecognized_pseudo

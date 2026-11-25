@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="1b130593464ce0b62dc2c6e3be853e4d5aa1634a"
+fixed_commit_id="a1bd24d6bf1a5926293421247a85ae050e597404"
+test_file="yapftests/reformatter_buganizer_test.py;yapftests/reformatter_pep8_test.py;yapftests/reformatter_python3_test.py"

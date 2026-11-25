@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="0b359c096b471363ff4c8a6a2eaa7bcc599847be"
+fixed_commit_id="dd5728ec54121372800b27fb061a850eb6fadcdb"
+test_file="tests/test_conversions.py"

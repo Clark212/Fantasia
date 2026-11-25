@@ -1,0 +1,22 @@
+diff --git a/astroid/brain/brain_multiprocessing.py b/astroid/brain/brain_multiprocessing.py
+index a553160c..9c5fefb5 100644
+--- a/astroid/brain/brain_multiprocessing.py
++++ b/astroid/brain/brain_multiprocessing.py
+@@ -8,6 +8,7 @@ from astroid.builder import parse
+ from astroid.exceptions import InferenceError
+ from astroid.manager import AstroidManager
+ from astroid.nodes.scoped_nodes import FunctionDef
++from astroid.util import UninferableBase
+ 
+ 
+ def _multiprocessing_transform():
+@@ -30,6 +31,9 @@ def _multiprocessing_transform():
+     except (InferenceError, StopIteration):
+         return module
+ 
++    if isinstance(context, UninferableBase) or isinstance(base, UninferableBase):
++        return module
++
+     for node in (context, base):
+         for key, value in node.locals.items():
+             if key.startswith("_"):
