@@ -2,7 +2,7 @@
 tell DEV32's accepted patches apart? For every bug resolved in DEV32 and every valid bug's developer fix, the suite runs
 on the buggy, the patched and the fixed tree; a test that passes on buggy and fails on patched is a regression. A test
 module that cannot be imported (an optional dependency) does not stop the run.
-Usage: python benchmarks/dev33_development.py <dev32_work_dir> <out.jsonl> [--fixes]
+Usage: python benchmarks/dev33_development.py <dev32_work_dir> <out.jsonl> [--fixes] [--shard=i/N]
        (--fixes: every valid bug's buggy and fixed tree only, the check's cost to real fixes)
 """
 import json
@@ -36,7 +36,8 @@ def main():
     resolved = sorted(k for k, v in by.items() if any(v[m]["status"] == "resolved" for m in v))
     trees = ("buggy", "fixed") if "--fixes" in sys.argv else ("buggy", "patched", "fixed")
     with out.open("w") as fh:
-        for k in (sorted(venv) if "--fixes" in sys.argv else resolved):
+        i, n = (int(x) for x in next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--shard=")), "0/1").split("/"))
+        for k in (sorted(venv) if "--fixes" in sys.argv else resolved)[i::n]:
             base = work / "bugs" / k[0] / str(k[1])
             runner = SafeTestRunner(timeout_seconds=600, python=str(work / "venvs" / venv[k] / "bin" / "python"))
             suite = project_suite(base / "buggy")

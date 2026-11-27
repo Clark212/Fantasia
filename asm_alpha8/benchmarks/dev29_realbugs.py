@@ -68,6 +68,9 @@ def repair(work, r, mode, budget, libs, **options):
     rec.update(suspects=len(loc.suspects), best_rank=min(ranks) if ranks else None, localize_seconds=round(time.monotonic() - t0, 1))
     t1 = time.monotonic()
     learned = libs if mode == "learned" else {}
+    options = {k: v(base / "buggy") if callable(v) else v for k, v in options.items()}  # DEV33: per-bug options (the suite)
+    if options.get("regression_suite"):
+        rec["regression_suite"] = options["regression_suite"]
     d = RepairWorkflow(runner, time_budget_seconds=budget, extended_ops=True, **learned, **options).run(base / "buggy", suite)
     rec.update(status=d.status, repair_seconds=round(time.monotonic() - t1, 1), notes=[str(x)[:300] for x in d.notes[:6]],
                rejected_by_reason=d.reasons)
