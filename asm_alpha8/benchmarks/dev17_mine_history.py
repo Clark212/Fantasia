@@ -97,13 +97,22 @@ def mine(name: str, url: str, work: Path, w: ChainedWriter) -> dict:
     if not repo.exists():
         subprocess.run(["git", "clone", "-q", "--filter=blob:none", url, str(repo)], check=True, timeout=900)
     counts = {"commits": 0, "fix_message": 0, "examples": 0}
-    log = git(repo, "log", "--no-merges", "--format=%H%x00%ct%x00%s")
+    for rec in examples(repo, name, counts):
+        w.append(rec)
+        counts["examples"] += 1
+    return counts
+
+
+def examples(repo: Path, name: str, counts: dict | None = None, rev: str = "HEAD"):
+    """The fix examples among the commits reachable from `rev` (DEV34: a bug's buggy commit, so only its own past)."""
+    counts = {} if counts is None else counts
+    log = git(repo, "log", "--no-merges", "--format=%H%x00%ct%x00%s", rev)
     for line in log.splitlines():
         sha, ts, msg = line.split("\x00", 2)
-        counts["commits"] += 1
+        counts["commits"] = counts.get("commits", 0) + 1
         if not FIX_RE.search(msg):
             continue
-        counts["fix_message"] += 1
+        counts["fix_message"] = counts.get("fix_message", 0) + 1
         files = [f for f in git(repo, "diff-tree", "--no-commit-id", "--name-only", "-r", sha).split() if f.endswith(".py")]
         src_files = [f for f in files if not is_test_path(f)]
         if not src_files or len(src_files) > 2:
@@ -134,10 +143,8 @@ def mine(name: str, url: str, work: Path, w: ChainedWriter) -> dict:
         n_changed = max(sum(1 for l in diff if l.startswith("-")), sum(1 for l in diff if l.startswith("+")))
         if n_changed > MAX_CHANGED_LINES:
             continue
-        w.append({"id": f"{name}@{sha[:12]}:{q}", "repo": name, "commit": sha, "date": int(ts), "message": msg[:160],
-                  "path": f, "qualname": q, "before": b_src, "after": a_src, "changed_lines": n_changed})
-        counts["examples"] += 1
-    return counts
+        yield {"id": f"{name}@{sha[:12]}:{q}", "repo": name, "commit": sha, "date": int(ts), "message": msg[:160],
+               "path": f, "qualname": q, "before": b_src, "after": a_src, "changed_lines": n_changed}
 
 
 def main():
