@@ -23,7 +23,11 @@ PROBES = {  # (bug, arms whose patch is probed): code
     (("dataclasses-json", 4), ("control", "checked")): DC + (
         "@dataclass_json\n@dataclass\nclass P:\n    x: int\n"
         "@dataclass_json\n@dataclass\nclass A:\n    v: Tuple[int, ...]\n    f: Tuple[int, str]\n    p: List[P]\n"
-        "print(t(lambda: A.schema().load({'v': [1, 2, 3], 'f': [1, 'a'], 'p': [{'x': 1}]})), t(lambda: A.from_json('{\"v\": [1, 2], \"f\": [3, \"b\"], \"p\": []}')))"),
+        "@dataclass_json\n@dataclass\nclass B:\n    p: P\n    o: Optional[P] = None\n"
+        "s = t(A.schema)\nprint(s if isinstance(s, str) else sorted((k, type(f).__name__) for k, f in s.fields.items()),"
+        " t(lambda: A.schema().load({'v': ['x'], 'f': [1, 'a'], 'p': []})), t(lambda: A.schema().load({'v': [1, 2, 3], 'f': [1, 'a'], 'p': [{'x': 1}]})),"
+        " t(lambda: sorted((k, type(f).__name__) for k, f in B.schema().fields.items())), t(lambda: B.schema().load({'p': {'x': 1}, 'o': {'x': 2}})),"
+        " t(lambda: B.schema().dump(B(P(1)))))"),
     (("dataclasses-json", 5), ("control",)): DC + (
         "import enum\nclass F(enum.IntFlag):\n    A = 1\n    B = 2\n"
         "@dataclass_json\n@dataclass\nclass P:\n    x: int\n"

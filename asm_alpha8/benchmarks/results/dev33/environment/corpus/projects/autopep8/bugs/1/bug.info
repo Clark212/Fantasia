@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="8b75604bb7b9c9c9a76133f808adfefcbf586f2d"
+fixed_commit_id="6454d3949192902e2df13d8a260021dc1ff674ee"
+test_file="test/test_autopep8.py"

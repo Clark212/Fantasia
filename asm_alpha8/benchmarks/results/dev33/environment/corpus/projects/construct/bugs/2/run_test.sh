@@ -1,0 +1,1 @@
+pytest tests/test_core.py::test_nullterminated_longterm_issue_1046

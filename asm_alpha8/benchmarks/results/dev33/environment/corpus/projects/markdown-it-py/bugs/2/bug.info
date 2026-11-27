@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="c92ed7b02d090a900abfc1f683b919a9e37806f9"
+fixed_commit_id="1b7ef6563902ab22deb8d4f3a9ce519bc382d190"
+test_file="tests/test_fuzzer.py"

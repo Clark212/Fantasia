@@ -1,0 +1,13 @@
+diff --git a/mistletoe/contrib/jira_renderer.py b/mistletoe/contrib/jira_renderer.py
+index 7db0092..5d0ff29 100644
+--- a/mistletoe/contrib/jira_renderer.py
++++ b/mistletoe/contrib/jira_renderer.py
+@@ -191,7 +191,7 @@ class JiraRenderer(BaseRenderer):
+         else:
+             template = '|{inner}'
+ 
+-        inner = self.render_inner(token)
++        inner = self.render_inner(token).replace("|", "\\|")
+         if inner == '':
+             inner = ' '
+         return template.format(inner=inner)

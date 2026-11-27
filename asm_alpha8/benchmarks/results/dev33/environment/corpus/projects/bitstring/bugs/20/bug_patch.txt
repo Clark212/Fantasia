@@ -1,0 +1,13 @@
+diff --git a/bitstring/array_.py b/bitstring/array_.py
+index 12a3df9..25d1efe 100644
+--- a/bitstring/array_.py
++++ b/bitstring/array_.py
+@@ -499,7 +499,7 @@ class Array:
+         def is_nan(x: Any) -> bool:
+             try:
+                 return math.isnan(x)
+-            except TypeError:
++            except (TypeError, OverflowError):
+                 return False
+ 
+         if is_nan(value):

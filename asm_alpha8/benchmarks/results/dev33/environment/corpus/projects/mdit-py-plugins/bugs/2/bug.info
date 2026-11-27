@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="de7f783a309ec3a5a9c5a81cd5c89136ad93a57e"
+fixed_commit_id="bb67d1036a7c29ed77206348f78ca87db2a1285c"
+test_file="tests/test_amsmath.py"

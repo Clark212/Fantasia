@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="8a4d0d0e6ca1b5072c398ee0758274a6bd299507"
+fixed_commit_id="68eebb0cd726f1ffe8aa7c555890669f8538a74e"
+test_file="test/test_html_renderer.py"

@@ -21,7 +21,7 @@
     "validated": 0,
     "details": "ROADMAP.md#release-governance-and-the-alpha-8-plan",
     "note": "update `validated` only when a pre-registered gate for that target passes",
-    "evidence_note": "DEV21–DEV28 each passed held-out gates in a lab (DEV24 and DEV28 also with wrong labels), and DEV30 all of them together; on real bugs, learned knowledge repaired 1 of the 2 needed (DEV29), 0 on 75 fresh bugs once given its own time (DEV31), and 2 of 143 fresh bugs with 2 extra wrong patches (DEV32); three family mechanisms are defaults"
+    "evidence_note": "DEV21–DEV28 each passed held-out gates in a lab (DEV24 and DEV28 also with wrong labels), and DEV30 all of them together; on real bugs, learned knowledge repaired 1 of the 2 needed (DEV29), 0 on 75 fresh bugs once given its own time (DEV31), and 2 of 143 fresh bugs with 2 extra wrong patches (DEV32); the project's own tests as an acceptance check halved the wrong patches on 48 fresh bugs (DEV33 G33-A passed), with 1 learned-only repair; three family mechanisms are defaults"
   },
   "devs": [
     {
@@ -220,6 +220,16 @@
       "why": "2 extra wrong patches",
       "promoted": false,
       "report": "asm_alpha8/ALPHA8_CODING_DEV32_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV33",
+      "date": "2026-11-27",
+      "title": "The project's own test suite as an acceptance check, on fresh real bugs",
+      "gate": "G33-A: the check halves learned knowledge's wrong patches on fresh real bugs, keeps its correct repairs, costs ≤ 5% of real fixes",
+      "kind": "passed",
+      "result": "G33-A passed: wrong learned patches 4 → 2 on 48 fresh bugs, both correct repairs kept, 1 of 48 developer fixes rejected (2.1%); G33-B not passed: 1 learned-only correct repair of 2 needed, one run 478 s (limit 360)",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV33_IMPLEMENTATION.md"
     }
   ]
 }

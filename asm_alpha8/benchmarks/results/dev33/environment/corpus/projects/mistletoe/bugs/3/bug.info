@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="2190c8720b51cf4abe33a08cd2af5f612024e9c9"
+fixed_commit_id="8bc913d1965640c83ca26c5425df12441b5ade36"
+test_file="test/test_contrib/test_mathjax.py"

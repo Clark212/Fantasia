@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="c26c3b9e6379fd89cc8e5b6d5d5b75ac4370352f"
+fixed_commit_id="8512afc0a87053dbde52af0519c74198fa3bb873"
+test_file="tests/test_union.py"

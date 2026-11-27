@@ -1,0 +1,1 @@
+pytest tests/test_array.py::ArrayMethods::testDeleting tests/test_array.py::ArrayMethods::testFloat8Bug tests/test_array.py::ArrayMethods::testGetting tests/test_array.py::ArrayMethods::testSetting tests/test_array.py::ArrayOperations::testAdd tests/test_array.py::ArrayOperations::testInPlaceAdd tests/test_array.py::ArrayOperations::testInPlaceSub

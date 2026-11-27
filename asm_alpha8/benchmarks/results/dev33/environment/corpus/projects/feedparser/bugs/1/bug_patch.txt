@@ -1,0 +1,16 @@
+diff --git a/feedparser/encodings.py b/feedparser/encodings.py
+index 2f198f7..c699fe4 100644
+--- a/feedparser/encodings.py
++++ b/feedparser/encodings.py
+@@ -623,9 +623,9 @@ class PrefixFileWrapper:
+ 
+         if self.offset < len(self.prefix):
+             if size < 0:
+-                chunk = self.prefix
++                chunk = self.prefix[self.offset:]
+             else:
+-                chunk = self.prefix[self.offset : self.offset + size]
++                chunk = self.prefix[self.offset:self.offset + size]
+                 size -= len(chunk)
+             buffer += chunk
+             self.offset += len(chunk)

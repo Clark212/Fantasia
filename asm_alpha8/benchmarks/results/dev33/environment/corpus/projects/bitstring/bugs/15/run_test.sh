@@ -1,0 +1,1 @@
+pytest tests/test_mxfp.py::test_changing_to_auto_scaled_array

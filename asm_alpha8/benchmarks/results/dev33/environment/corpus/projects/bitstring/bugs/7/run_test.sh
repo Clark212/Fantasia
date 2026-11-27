@@ -1,0 +1,1 @@
+pytest tests/test_array.py::TestArrayMethods::test_equivalence tests/test_array.py::TestArrayMethods::test_extend_with_mixed_classes tests/test_array.py::TestComparisonOperators::test_array_equals tests/test_array.py::TestCreation::test_format_changes

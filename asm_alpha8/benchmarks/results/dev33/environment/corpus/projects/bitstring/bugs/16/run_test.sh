@@ -1,0 +1,1 @@
+pytest tests/test_bitstream.py::TestSplit2::test_native_endianness tests/test_bitstream.py::TestSplit2::test_struct_tokens1 tests/test_bitstream.py::TestSplit2::test_struct_tokens2 tests/test_bitstream.py::TestSplit2::test_struct_tokens3

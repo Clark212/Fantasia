@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="cf2cb2c5fd80d5bbc76d176cad26c546c571419c"
+fixed_commit_id="0f33c8aeb72c0d04c54e59b1270839be2a49aa67"
+test_file="tests/test_bits.py"

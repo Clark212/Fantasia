@@ -1,0 +1,38 @@
+diff --git a/dataclasses_json/core.py b/dataclasses_json/core.py
+index d34e51d..579f014 100644
+--- a/dataclasses_json/core.py
++++ b/dataclasses_json/core.py
+@@ -114,6 +114,11 @@ def _encode_overrides(kvs, overrides, encode_json=False):
+             letter_case = overrides[k].letter_case
+             original_key = k
+             k = letter_case(k) if letter_case is not None else k
++            if k in override_kvs:
++                raise ValueError(
++                    f"Multiple fields map to the same JSON "
++                    f"key after letter case encoding: {k}"
++                )
+ 
+             encoder = overrides[original_key].encoder
+             v = encoder(v) if encoder is not None else v
+diff --git a/dataclasses_json/stringcase.py b/dataclasses_json/stringcase.py
+index 511b59c..da0f546 100644
+--- a/dataclasses_json/stringcase.py
++++ b/dataclasses_json/stringcase.py
+@@ -75,7 +75,7 @@ def camelcase(string):
+     if not string:
+         return string
+     return (uplowcase(string[0], 'low')
+-            + re.sub(r"[\-_\.\s]([a-z])",
++            + re.sub(r"[\-_\.\s]([a-z0-9])",
+                      lambda matched: uplowcase(matched.group(1), 'up'),
+                      string[1:]))
+ 
+@@ -96,7 +96,7 @@ def snakecase(string):
+     if not string:
+         return string
+     return (uplowcase(string[0], 'low')
+-            + re.sub(r"[A-Z]",
++            + re.sub(r"[A-Z0-9]",
+                      lambda matched: '_' + uplowcase(matched.group(0), 'low'),
+                      string[1:]))
+ 

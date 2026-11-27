@@ -1,0 +1,1 @@
+pytest test/test_contrib/test_github_wiki.py::TestGithubWiki::test_malformed_input_is_rejected_quickly test/test_contrib/test_github_wiki.py::TestGithubWiki::test_parse_variant_spacing_and_pipes

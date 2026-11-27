@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="0bb2d43fe8f35761495fe59a3fbb8f3fd32913c3"
+fixed_commit_id="85ea2c130d259858f75361439e4bed595da70ec4"
+test_file="tests/test_bitarray.py;tests/test_bitstore.py;tests/test_bitstream.py"

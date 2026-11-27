@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="06f2a937e285345a15a846fe2114d8f549c9ea84"
+fixed_commit_id="0653065b9ee3fd88b7a2507ec0b61712c87f2417"
+test_file="test/test_markdown_renderer.py"
