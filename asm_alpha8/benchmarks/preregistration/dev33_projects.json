@@ -1,0 +1,18 @@
+{
+ "markdown-it-py": {"url": "https://github.com/executablebooks/markdown-it-py", "deps": ["mdurl", "linkify-it-py", "pytest-regressions", "pytest-datadir"]},
+ "mdit-py-plugins": {"url": "https://github.com/executablebooks/mdit-py-plugins", "deps": ["markdown-it-py", "mdurl", "pytest-regressions", "pytest-datadir"]},
+ "mistletoe": {"url": "https://github.com/miyuchina/mistletoe", "deps": ["pygments", "parameterized"]},
+ "uncertainties": {"url": "https://github.com/lmfit/uncertainties", "deps": []},
+ "bitstring": {"url": "https://github.com/scott-griffiths/bitstring", "deps": ["bitarray"]},
+ "ftfy": {"url": "https://github.com/rspeer/python-ftfy", "deps": ["wcwidth"]},
+ "add-trailing-comma": {"url": "https://github.com/asottile/add-trailing-comma", "deps": ["tokenize-rt"]},
+ "autopep8": {"url": "https://github.com/hhatto/autopep8", "deps": ["pycodestyle", "tomli"]},
+ "pycodestyle": {"url": "https://github.com/PyCQA/pycodestyle", "deps": []},
+ "freezegun": {"url": "https://github.com/spulec/freezegun", "deps": ["python-dateutil"]},
+ "feedparser": {"url": "https://github.com/kurtmckee/feedparser", "deps": ["sgmllib3k"]},
+ "reorder-python-imports": {"url": "https://github.com/asottile/reorder-python-imports", "deps": ["classify-imports"]},
+ "tokenize-rt": {"url": "https://github.com/asottile/tokenize-rt", "deps": []},
+ "idna": {"url": "https://github.com/kjd/idna", "deps": []},
+ "construct": {"url": "https://github.com/construct/construct", "deps": ["numpy", "arrow", "cloudpickle", "lz4"]},
+ "dataclasses-json": {"url": "https://github.com/lidatong/dataclasses-json", "deps": ["marshmallow", "typing-inspect", "hypothesis"]}
+}
