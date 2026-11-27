@@ -1,0 +1,1 @@
+astroid-1,astroid-4,autoflake-2,inflect-2,inflect-7,inflect-9,jsonpickle-3,markdownify-4,marko-4,rich-11,rich-15,soupsieve-2,soupsieve-4,sqlglot-14,soupsieve-1,loguru-9,soupsieve-12,loguru-17,w3lib-6,w3lib-10,marko-5,rich-3,soupsieve-15,rich-14,rich-13,loguru-11,soupsieve-10,rich-7,num2words-8,sqlglot-4
