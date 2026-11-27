@@ -3,7 +3,9 @@ developer's fix? For every valid bug, the project's fix examples (DEV17's criter
 commit are learned into DEV20's sealed libraries ("adapted"). Phase 3's candidates (RepairWorkflow._learned_candidates)
 for each function the developer changed are generated with DEV20's libraries alone and with the adapted ones; a bug is
 reproduced when a candidate equals the developer's fixed file (AST). No test runs except the bug's spectrum.
-Usage: python benchmarks/dev34_development.py <out.jsonl> <work_dir> [<work_dir> ...] [--shard=i/N]
+Usage: python benchmarks/dev34_development.py <out.jsonl> <work_dir> [<work_dir> ...] [--shard=i/N] [--ceiling]
+       (--ceiling, a diagnosis only: the bug's OWN fix is learned too, deliberately leaked, to see whether the learned
+        layers can reproduce a fix they were shown)
 """
 import json
 import subprocess
@@ -16,7 +18,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "benchmarks"))
 import dev14_realbugs as R14  # noqa: E402
 import dev29_realbugs as D29  # noqa: E402
-from dev17_mine_history import examples  # noqa: E402
+from dev17_mine_history import examples, fn_source, functions  # noqa: E402
 from asm.coding import SafeTestRunner  # noqa: E402
 from asm.coding.faultloc import RepairWorkflow, ast_normal, collect_spectrum  # noqa: E402
 from asm.coding.integrity import read_records  # noqa: E402
@@ -43,6 +45,22 @@ def adapted(own: list, project: str) -> dict:
     for name in ("knowledge", "shapes", "steps"):
         libs[name].learn(own, f"own:{project}")
     return libs
+
+
+def own_fix(buggy: Path, fixed: Path, truth: list) -> list:
+    """--ceiling: the developer's fix of each changed function as a (before, after, id) example."""
+    out = []
+    for q in truth:
+        for path in sorted({p for p in (buggy.rglob("*.py")) if p.relative_to(buggy).as_posix().replace("/", ".")[:-3] in q}):
+            rel = path.relative_to(buggy)
+            if not (fixed / rel).exists():
+                continue
+            b, a = path.read_text(encoding="utf-8"), (fixed / rel).read_text(encoding="utf-8")
+            inner = q[len(rel.as_posix().replace("/", ".")[:-3]) + 1:]
+            fb, fa = functions(b), functions(a)
+            if inner in fb and inner in fa:
+                out.append((fn_source(b, fb[inner][0]), fn_source(a, fa[inner][0]), f"leak:{q}"))
+    return out
 
 
 def reproduced(libs: dict, buggy: Path, fixed: Path, spectrum, truth: list) -> dict:
@@ -83,7 +101,7 @@ def main():
                 fh.write(json.dumps({**rec, "skipped": "no failing test traced" if truth else "no changed function"}) + "\n")
                 continue
             t0 = time.monotonic()
-            own = own_past(work, p, meta["buggy_commit_id"])
+            own = own_past(work, p, meta["buggy_commit_id"]) + (own_fix(base / "buggy", base / "fixed", truth) if "--ceiling" in sys.argv else [])
             libs = adapted(own, p)
             rec.update(own_examples=len(own), learn_seconds=round(time.monotonic() - t0, 1), truth=truth,
                        dev20=reproduced(D29.libraries(), base / "buggy", base / "fixed", spectrum, truth),
