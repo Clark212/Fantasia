@@ -3,9 +3,10 @@ developer's fix? For every valid bug, the project's fix examples (DEV17's criter
 commit are learned into DEV20's sealed libraries ("adapted"). Phase 3's candidates (RepairWorkflow._learned_candidates)
 for each function the developer changed are generated with DEV20's libraries alone and with the adapted ones; a bug is
 reproduced when a candidate equals the developer's fixed file (AST). No test runs except the bug's spectrum.
-Usage: python benchmarks/dev34_development.py <out.jsonl> <work_dir> [<work_dir> ...] [--shard=i/N] [--ceiling]
+Usage: python benchmarks/dev34_development.py <out.jsonl> <work_dir> [<work_dir> ...] [--shard=i/N] [--ceiling] [--unlimited]
        (--ceiling, a diagnosis only: the bug's OWN fix is learned too, deliberately leaked, to see whether the learned
-        layers can reproduce a fix they were shown)
+        layers can reproduce a fix they were shown; --unlimited: every learned candidate, not phase 3's 80 per
+        function, each library for at most 60 s per function)
 """
 import json
 import subprocess
@@ -70,7 +71,15 @@ def reproduced(libs: dict, buggy: Path, fixed: Path, spectrum, truth: list) -> d
         f = funcs.get(q)
         if f is None or not (fixed / f.path).exists():
             continue
-        cands, _ = wf._learned_candidates(buggy, spectrum, (buggy / f.path).read_text(encoding="utf-8"), f.path, (f.line, f.end_line))
+        source, span = (buggy / f.path).read_text(encoding="utf-8"), (f.line, f.end_line)
+        if "--unlimited" in sys.argv:
+            from asm.coding.faultloc import _problem_context
+            ctx = _problem_context(buggy, spectrum, source)
+            cands = (libs["knowledge"].candidates_for(source, f.path, span, limit=100000, deadline=time.monotonic() + 60)
+                     + libs["shapes"].candidates_for(source, f.path, span, ctx, limit=100000, deadline=time.monotonic() + 60)
+                     + libs["steps"].candidates_for(source, f.path, span, ctx, limit=100000, deadline=time.monotonic() + 60))
+        else:
+            cands, _ = wf._learned_candidates(buggy, spectrum, source, f.path, span)
         target = ast_normal((fixed / f.path).read_text(encoding="utf-8"))
         out["candidates"] += len(cands)
         hit = next((i for i, c in enumerate(cands) if ast_normal(c.replacement) == target), None)
