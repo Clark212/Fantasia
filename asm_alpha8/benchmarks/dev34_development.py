@@ -3,10 +3,11 @@ developer's fix? For every valid bug, the project's fix examples (DEV17's criter
 commit are learned into DEV20's sealed libraries ("adapted"). Phase 3's candidates (RepairWorkflow._learned_candidates)
 for each function the developer changed are generated with DEV20's libraries alone and with the adapted ones; a bug is
 reproduced when a candidate equals the developer's fixed file (AST). No test runs except the bug's spectrum.
-Usage: python benchmarks/dev34_development.py <out.jsonl> <work_dir> [<work_dir> ...] [--shard=i/N] [--ceiling] [--unlimited]
+Usage: python benchmarks/dev34_development.py <out.jsonl> <work_dir> [<work_dir> ...] [--shard=i/N] [--ceiling] [--unlimited] [--own-only]
        (--ceiling, a diagnosis only: the bug's OWN fix is learned too, deliberately leaked, to see whether the learned
         layers can reproduce a fix they were shown; --unlimited: every learned candidate, not phase 3's 80 per
-        function, each library for at most 60 s per function)
+        function, each library for at most 60 s per function; --own-only: the adapted arm's libraries hold only the
+        project's own past, so its candidates are the project-local ones alone, uncapped up to 2,000 per function)
 """
 import json
 import subprocess
@@ -42,10 +43,16 @@ def own_past(work: Path, project: str, rev: str) -> list:
 
 
 def adapted(own: list, project: str) -> dict:
-    libs = D29.libraries()
+    if "--own-only" in sys.argv:
+        from asm.coding.knowledge import KnowledgeBase
+        from asm.coding.shapes import ShapeLibrary
+        from asm.coding.steps import StepLibrary
+        libs = {"knowledge": KnowledgeBase(), "shapes": ShapeLibrary(), "steps": StepLibrary()}
+    else:
+        libs = D29.libraries()
     for name in ("knowledge", "shapes", "steps"):
         libs[name].learn(own, f"own:{project}")
-    return libs
+    return {**libs, "own_only": "--own-only" in sys.argv}
 
 
 def own_fix(buggy: Path, fixed: Path, truth: list) -> list:
@@ -65,14 +72,20 @@ def own_fix(buggy: Path, fixed: Path, truth: list) -> list:
 
 
 def reproduced(libs: dict, buggy: Path, fixed: Path, spectrum, truth: list) -> dict:
-    wf, funcs = RepairWorkflow(**libs), {f.qname: f for f in CodeUnderstanding().analyze(buggy).functions}
+    wf = RepairWorkflow(**{k: v for k, v in libs.items() if k != "own_only"})
+    funcs = {f.qname: f for f in CodeUnderstanding().analyze(buggy).functions}
     out = {"candidates": 0, "hit": None}
     for q in truth:
         f = funcs.get(q)
         if f is None or not (fixed / f.path).exists():
             continue
         source, span = (buggy / f.path).read_text(encoding="utf-8"), (f.line, f.end_line)
-        if "--unlimited" in sys.argv:
+        if "--own-only" in sys.argv and libs.get("own_only"):
+            from asm.coding.faultloc import _problem_context
+            ctx, lim = _problem_context(buggy, spectrum, source), dict(limit=2000, deadline=time.monotonic() + 30)
+            cands = (libs["knowledge"].candidates_for(source, f.path, span, **lim) + libs["shapes"].candidates_for(source, f.path, span, ctx, **lim)
+                     + libs["steps"].candidates_for(source, f.path, span, ctx, **lim))
+        elif "--unlimited" in sys.argv:
             from asm.coding.faultloc import _problem_context
             ctx = _problem_context(buggy, spectrum, source)
             cands = (libs["knowledge"].candidates_for(source, f.path, span, limit=100000, deadline=time.monotonic() + 60)
@@ -113,12 +126,12 @@ def main():
             own = own_past(work, p, meta["buggy_commit_id"]) + (own_fix(base / "buggy", base / "fixed", truth) if "--ceiling" in sys.argv else [])
             libs = adapted(own, p)
             rec.update(own_examples=len(own), learn_seconds=round(time.monotonic() - t0, 1), truth=truth,
-                       dev20=reproduced(D29.libraries(), base / "buggy", base / "fixed", spectrum, truth),
+                       dev20=None if "--own-only" in sys.argv else reproduced(D29.libraries(), base / "buggy", base / "fixed", spectrum, truth),
                        adapted=reproduced(libs, base / "buggy", base / "fixed", spectrum, truth))
             fh.write(json.dumps(rec) + "\n")
             fh.flush()
             print(json.dumps({k: rec[k] for k in ("bug", "own_examples", "learn_seconds")} | {
-                "dev20": rec["dev20"]["hit"] is not None, "adapted": rec["adapted"]["hit"] is not None}), flush=True)
+                "dev20": bool(rec["dev20"] and rec["dev20"]["hit"]), "adapted": rec["adapted"]["hit"] is not None}), flush=True)
 
 
 if __name__ == "__main__":
