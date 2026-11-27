@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="0daa2f98cf428464ba4563000c333f22b5db4598"
+fixed_commit_id="d53035aeaedf42f03161ba4f21c2e91c54b6d8e2"
+test_file="tests/test_providers/test_internet.py"

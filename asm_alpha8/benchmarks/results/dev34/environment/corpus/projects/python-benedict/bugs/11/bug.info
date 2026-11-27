@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="aa9aa7ff2f4267f23872b3a3efce01c6f5ddea2b"
+fixed_commit_id="7e31c62e3ff2e97c2165f548e417c0797f50e60b"
+test_file="tests/dicts/base/test_base_dict.py;tests/dicts/io/test_io_dict_json.py"

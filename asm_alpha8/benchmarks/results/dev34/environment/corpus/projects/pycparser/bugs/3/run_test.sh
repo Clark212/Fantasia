@@ -1,0 +1,1 @@
+pytest tests/test_c_parser.py::TestCParser_fundamentals::test_decl_inits

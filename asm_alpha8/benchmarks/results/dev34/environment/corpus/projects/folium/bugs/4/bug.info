@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="69e7adab02eabc24b3746a25950caae154d40d34"
+fixed_commit_id="51da98fc83fe469c62a857b71ab7c8f10d466416"
+test_file="tests/plugins/test_heat_map.py"

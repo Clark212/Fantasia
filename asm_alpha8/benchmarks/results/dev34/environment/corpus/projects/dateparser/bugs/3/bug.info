@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="02bd2e5dd4477b4f6db98c5e98149458eb3cc821"
+fixed_commit_id="f857dfcafbfab9b2b07c3bf236e5e55222797683"
+test_file="tests/test_search.py"

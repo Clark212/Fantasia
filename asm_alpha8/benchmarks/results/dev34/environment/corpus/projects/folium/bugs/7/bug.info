@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="b09e8ea8376fec62553a2c175bc3a57dceb77854"
+fixed_commit_id="6be271c81b611018dfd10b0cb0bf5616392c6637"
+test_file="tests/test_docstring_defaults.py"

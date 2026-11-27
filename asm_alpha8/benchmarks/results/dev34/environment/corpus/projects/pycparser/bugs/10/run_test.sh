@@ -1,0 +1,1 @@
+pytest tests/test_c_generator.py::TestCtoC::test_switch_separate_type_definitions tests/test_c_generator.py::TestCtoC::test_switch_shared_type_definitions tests/test_c_generator.py::TestCtoC::test_switch_shared_type_definitions_after_fallthrough

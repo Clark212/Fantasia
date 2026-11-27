@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="17aa34d5eea465cbf7a2603381d69211d1064eab"
+fixed_commit_id="43b6e5bd68fceee5158fb7555ee57a4214d8f36f"
+test_file="tests/test_html_formatter.py"

@@ -1,0 +1,28 @@
+diff --git a/dateparser/search/__init__.py b/dateparser/search/__init__.py
+index 6430a97..a1707b6 100644
+--- a/dateparser/search/__init__.py
++++ b/dateparser/search/__init__.py
+@@ -57,6 +57,8 @@ def search_dates(
+      ('on May 6th 2004', datetime.datetime(2004, 5, 6, 0, 0))]
+ 
+     """
++    text = _search_with_detection.preprocess_text(text, languages)
++
+     result = _search_with_detection.search_dates(
+         text=text,
+         languages=languages,
+diff --git a/dateparser/search/search.py b/dateparser/search/search.py
+index 9f00b02..751cb47 100644
+--- a/dateparser/search/search.py
++++ b/dateparser/search/search.py
+@@ -295,3 +295,10 @@ class DateSearchWithDetection:
+                 language_shortname, text, settings=settings
+             ),
+         }
++
++    def preprocess_text(self, text, languages):
++        """Preprocess text to handle language-specific quirks."""
++        if languages and "ru" in languages:
++            # Replace "с" (from) before numbers with a placeholder
++            text = re.sub(r"\bс\s+(?=\d)", "[FROM] ", text)
++        return text

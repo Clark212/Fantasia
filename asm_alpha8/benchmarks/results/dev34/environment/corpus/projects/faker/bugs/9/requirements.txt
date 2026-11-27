@@ -1,0 +1,10 @@
+freezegun==1.5.1
+iniconfig==2.0.0
+packaging==24.2
+pluggy==1.5.0
+pytest==8.3.5
+python-dateutil==2.9.0.post0
+setuptools==76.1.0
+six==1.17.0
+ukpostcodeparser==1.1.2
+validators==0.34.0

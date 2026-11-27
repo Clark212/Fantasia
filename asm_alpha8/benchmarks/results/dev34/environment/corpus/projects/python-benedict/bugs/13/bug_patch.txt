@@ -1,0 +1,32 @@
+diff --git a/benedict/core/remove.py b/benedict/core/remove.py
+index b034cfb..66fe337 100644
+--- a/benedict/core/remove.py
++++ b/benedict/core/remove.py
+@@ -26,7 +26,11 @@ def remove(
+ ) -> None:
+     if type_util.is_string(keys):
+         keys = [keys]
+-    keys_list: list[Any] = list(keys) + list(args)
++    try:
++        keys_iter = iter(keys)
++    except TypeError:
++        keys_iter = iter((keys,))
++    keys_list: list[Any] = list(keys_iter) + list(args)
+     if deep:
+         # Apply at top level first; for benedict instances this resolves keypaths.
+         for key in keys_list:
+diff --git a/benedict/dicts/__init__.py b/benedict/dicts/__init__.py
+index b4bc671..1d0665f 100644
+--- a/benedict/dicts/__init__.py
++++ b/benedict/dicts/__init__.py
+@@ -294,7 +294,9 @@ class benedict(KeyattrDict[_K, _V], KeypathDict[_V], IODict[_K, _V], ParseDict[_
+     def pop(self, key: _KPT, *args: Any) -> _V:  # type: ignore[override]
+         return cast("_V", self._cast(super().pop(key, *args)))
+ 
+-    def remove(self, keys: Iterable[_KPT], *args: Any, deep: bool = False) -> None:
++    def remove(
++        self, keys: _KPT | Iterable[_KPT], *args: Any, deep: bool = False
++    ) -> None:
+         """
+         Remove multiple keys from the current dict instance.
+         It is possible to pass a single key or more keys (as list or *args).

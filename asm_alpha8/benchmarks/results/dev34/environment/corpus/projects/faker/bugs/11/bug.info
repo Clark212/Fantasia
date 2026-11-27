@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="53314fc7d3fba03fed38bb1053a395fdfb50e35f"
+fixed_commit_id="01cb8d0f90fac0799f90e1295e8d4ab67c4fc070"
+test_file="tests/test_proxy.py"

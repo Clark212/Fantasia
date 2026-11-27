@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="33ec7ef98c215a565c4b44fcae58b1396034db61"
+fixed_commit_id="075712f2364edc877586f2a4eb2a5d66f8e9b2e4"
+test_file="tests/test_freshness_date_parser.py"

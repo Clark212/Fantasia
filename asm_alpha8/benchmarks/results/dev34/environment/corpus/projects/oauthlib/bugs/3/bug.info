@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="98728e1190526d2c465b62fcb5679298e6385b49"
+fixed_commit_id="8161dc7c831bf81c35a56248b50936045c1d4862"
+test_file="tests/oauth1/rfc5849/endpoints/test_access_token.py;tests/oauth2/rfc6749/clients/test_base.py;tests/oauth2/rfc6749/clients/test_web_application.py"

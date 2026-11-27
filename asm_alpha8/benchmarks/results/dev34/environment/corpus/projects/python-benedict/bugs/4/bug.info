@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="9120d483206f00f89c861c84aa873bbc7445e525"
+fixed_commit_id="f3bc063f035e782774bc6b63469265e031e1cde0"
+test_file="tests/dicts/parse/test_parse_dict.py"

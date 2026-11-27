@@ -1,0 +1,1 @@
+pytest tests/plugins/test_heat_map.py::test_heatmap_integer_numpy_no_weight tests/plugins/test_heat_map.py::test_heatmap_integer_numpy_weights

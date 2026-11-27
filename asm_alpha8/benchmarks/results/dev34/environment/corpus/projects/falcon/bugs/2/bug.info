@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="df74a0ab65b5e7445b5d7d0c69dd9ec4a3f79f48"
+fixed_commit_id="78237c399c69eee15ad4f9e809ca7969e7f587bf"
+test_file="tests/test_http_method_routing.py"

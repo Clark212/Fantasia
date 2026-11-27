@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="4f36045a2b5f68f1515413dedf3ecfa45f22ad92"
+fixed_commit_id="5a2b066d98a1178d21255748c388d2bef7b22bba"
+test_file="tests/plugins/test_heat_map_withtime.py"

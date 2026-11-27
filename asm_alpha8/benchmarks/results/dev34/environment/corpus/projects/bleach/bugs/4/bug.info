@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="11d8c9bbcba659af99d89785ae0d137ea36d1263"
+fixed_commit_id="c4a4eba4a31c43d71bbf4c64ae712d230b4fd001"
+test_file="tests/test_linkify.py"

@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="9d14b1595a2ba3ce694dd216038bf07905a5d438"
+fixed_commit_id="63a4e9c90638699712abf15ba06b14490762be89"
+test_file="tests/test_c_lexer.py"

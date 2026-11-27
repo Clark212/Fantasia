@@ -1,0 +1,7 @@
+dnspython==2.6.1
+idna==3.7
+iniconfig==2.0.0
+packaging==24.1
+pluggy==1.5.0
+pytest==8.2.2
+setuptools==70.1.0

@@ -1,0 +1,1 @@
+pytest tests/test_error_reporter.py::test_handler_reraises_serializer_raises

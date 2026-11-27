@@ -1,0 +1,1 @@
+pytest tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_signature tests/oauth2/rfc6749/clients/test_base.py::ClientTest::test_add_mac_token tests/oauth2/rfc6749/clients/test_web_application.py::WebApplicationClientTest::test_prepare_authorization_request

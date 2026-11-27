@@ -1,0 +1,28 @@
+diff --git a/benedict/dicts/base/base_dict.py b/benedict/dicts/base/base_dict.py
+index b1b00dc..031c346 100644
+--- a/benedict/dicts/base/base_dict.py
++++ b/benedict/dicts/base/base_dict.py
+@@ -58,6 +58,11 @@ class BaseDict(dict):
+             return self._dict[key]
+         return super().__getitem__(key)
+ 
++    def __ior__(self, other):
++        if self._pointer:
++            return self._dict.__ior__(other)
++        return super().__ior__(other)
++
+     def __iter__(self):
+         if self._pointer:
+             return iter(self._dict)
+@@ -68,6 +73,11 @@ class BaseDict(dict):
+             return len(self._dict)
+         return super().__len__()
+ 
++    def __or__(self, other):
++        if self._pointer:
++            return self._dict.__or__(other)
++        return super().__or__(other)
++
+     def __repr__(self):
+         if self._pointer:
+             return repr(self._dict)

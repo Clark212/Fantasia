@@ -1,0 +1,1 @@
+pytest tests/providers/test_python.py::test_pyobject_with_unknown_object_type

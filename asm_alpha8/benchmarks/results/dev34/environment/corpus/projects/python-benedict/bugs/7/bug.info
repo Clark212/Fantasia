@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="1383959816f35f874152a42f58c85f2828a86511"
+fixed_commit_id="a87b68908966de97d1324389fd9735fa1d6f57d6"
+test_file="tests/core/test_keylists.py"

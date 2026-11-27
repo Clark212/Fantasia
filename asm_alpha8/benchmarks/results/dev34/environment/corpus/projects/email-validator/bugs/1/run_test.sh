@@ -1,0 +1,1 @@
+pytest tests/test_syntax.py::test_email_invalid_character tests/test_syntax.py::test_email_invalid_character_smtputf8 tests/test_syntax.py::test_email_valid tests/test_syntax.py::test_email_valid_intl_local_part

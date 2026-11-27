@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="f3bc063f035e782774bc6b63469265e031e1cde0"
+fixed_commit_id="c7c934fae99af1f032d477c420bb727dd2b544e7"
+test_file="tests/core/test_keypaths.py"

@@ -57,11 +57,11 @@ def tree(work: Path, project: str, bug: int, arm: str, diff: str) -> Path:
     return dst
 
 
-def main():
+def main(probes=None, pattern="dev33_control_learned_checked_checked_learned_*of*.jsonl"):
     work = Path(sys.argv[1])
     venv = {(r["project"], r["bug"]): r["venv"] for r in read_records(work / "validate.jsonl")[1] if r.get("status") == "valid"}
-    by = records(work, "dev33_control_learned_checked_checked_learned_*of*.jsonl")
-    for ((project, bug), arms), code in PROBES.items():
+    by = records(work, pattern)
+    for ((project, bug), arms), code in (probes or PROBES).items():
         out = {"bug": f"{project}-{bug}", "probe": code}
         script = "import sys, warnings\nwarnings.simplefilter('ignore')\nsys.path.insert(0, sys.argv[1])\n" + code + "\n"
         trees = {"fixed": work / "bugs" / project / str(bug) / "fixed"}

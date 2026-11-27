@@ -1,0 +1,11 @@
+diff --git a/pygments/regexopt.py b/pygments/regexopt.py
+index 9010eb3f..48ddc387 100644
+--- a/pygments/regexopt.py
++++ b/pygments/regexopt.py
+@@ -98,5 +98,5 @@ def regex_opt(strings, prefix='', suffix=''):
+ 
+     *prefix* and *suffix* are pre- and appended to the final regex.
+     """
+-    strings = sorted(strings)
++    strings = sorted(set(strings))
+     return prefix + regex_opt_inner(strings, '(') + suffix

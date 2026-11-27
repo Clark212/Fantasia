@@ -1,0 +1,1 @@
+pytest tests/oauth2/rfc8628/endpoints/test_error_responses.py::ErrorResponseTest::test_duplicate_client_id tests/oauth2/rfc8628/endpoints/test_error_responses.py::ErrorResponseTest::test_duplicate_scope_parameter tests/oauth2/rfc8628/endpoints/test_error_responses.py::ErrorResponseTest::test_invalid_scope

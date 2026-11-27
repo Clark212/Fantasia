@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="ef2a0b94f95676ea6a7b77d2252b09f5797cb8ed"
+fixed_commit_id="9a1ecbd074801fcd3911266f3f4442181d10ab92"
+test_file="tests/test_multipart.py"

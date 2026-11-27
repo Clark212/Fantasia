@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="fa4570206dfeecb903dd0948d91bcdeaf07dfa0d"
+fixed_commit_id="9cf6654bf44bbd47a9187b9204a2c2503a7c97d3"
+test_file="tests/oauth2/rfc6749/grant_types/test_authorization_code.py"

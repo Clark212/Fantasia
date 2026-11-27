@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="e0d712898cfafa4d0a8cf4a6d687a64933df5df3"
+fixed_commit_id="3922b31056042e9a128aaeb93dcd0b6d48694b59"
+test_file="tests/selenium/test_multipoints_tooltip_selenium.py"

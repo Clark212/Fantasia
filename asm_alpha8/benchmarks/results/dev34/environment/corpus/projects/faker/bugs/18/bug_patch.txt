@@ -1,0 +1,12 @@
+diff --git a/faker/providers/bank/ru_RU/__init__.py b/faker/providers/bank/ru_RU/__init__.py
+index c5c6788a..884bde9c 100644
+--- a/faker/providers/bank/ru_RU/__init__.py
++++ b/faker/providers/bank/ru_RU/__init__.py
+@@ -11,6 +11,7 @@ class Provider(BankProvider):
+     - http://cbr.ru/credit/coreports/ko17012020.zip
+     """
+ 
++    bban_format = "##############???????????????"
+     country_code = "RU"
+ 
+     region_codes = (

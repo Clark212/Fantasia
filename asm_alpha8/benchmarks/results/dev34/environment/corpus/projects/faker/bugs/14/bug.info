@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="a7742345227f3e13d54fbe6025a32f6ccc9cdbdb"
+fixed_commit_id="41624e3ba9a7d8ae6bab2e3f09d319b772447545"
+test_file="tests/providers/test_ssn.py"
