@@ -904,7 +904,7 @@ class RepairWorkflow:
                  semantic_check: bool = True, counterexamples: bool = True, explore_alternatives: bool = True,
                  max_extra_candidates: int = 30, competing_max_suspects: int = 8, competing_time_seconds: float = 75.0,
                  extended_ops: bool = True, ranker=None, knowledge=None, shapes=None, steps=None,
-                 phase3_seconds: float | None = None, test_copy_guard: bool = False):
+                 phase3_seconds: float | None = None, test_copy_guard: bool = False, regression_suite: list | None = None):
         self.counterexamples = counterexamples
         self.ranker = ranker  # DEV16 learned candidate ordering (asm.coding.learned.CandidateRanker); None = DEV15 order
         self.knowledge = knowledge  # DEV17 learned procedures (asm.coding.knowledge.KnowledgeBase): phase 3; None = off
@@ -915,6 +915,9 @@ class RepairWorkflow:
         self.phase3_seconds = phase3_seconds
         # DEV32: phase-3 candidates that would write the failing tests' data into the code are dropped, untested
         self.test_copy_guard = test_copy_guard
+        # DEV33: tests beyond the targets (e.g. the project's whole suite) that a patch must not break: run once on the
+        # original copy, then on every patch that passes the targets; None = off (earlier behaviour)
+        self.regression_suite = regression_suite
         self.extended_ops = extended_ops  # DEV15 repair families (repair_ops); False reproduces the DEV14 repair space
         self.explore_alternatives, self.max_extra_candidates = explore_alternatives, max_extra_candidates
         self.competing_max_suspects, self.competing_time = competing_max_suspects, competing_time_seconds
@@ -948,6 +951,9 @@ class RepairWorkflow:
             work = Path(td) / "repo"
             copy_repo(base, work)
             ledger = self.ledger or FailureLedger(Path(td) / "ledger.jsonl")
+            wide = self._passing(work) if self.regression_suite else None  # DEV33: what the original copy passes
+            if wide is not None:
+                notes.append(f"regression suite: {len(wide)} tests pass on the original copy and must keep passing")
             if examples:
                 lines = ["# generated from human-supplied counterexample answers; exists only in the working copy"]
                 for i, ex in enumerate(examples):
@@ -1085,6 +1091,11 @@ class RepairWorkflow:
                                         == best.replacement_sha256)
                             prop = PatchProposalBuilder.from_replacement(work, cand.path, cand.replacement, cand.reason)
                             ok, detail, info = self._contract_check(work, prop, sus.qname)
+                            why_not = "rejected_semantic_contract"
+                            if ok and wide:  # DEV33: the patch must not break what the original copy passes
+                                broken = sorted(wide - self._passing(work, prop))
+                                ok, why_not = not broken, "rejected_regression_suite"
+                                detail = detail if ok else f"breaks {len(broken)} passing test(s) of the regression suite: {broken[:3]}"
                             if ok:
                                 same = passed if passed else [a for a in partial if set(a.fixed_tests) == set(best.fixed_tests)]
                                 alt_attempts = [a for a in same if a is not best and a.replacement_sha256 != best.replacement_sha256
@@ -1122,9 +1133,9 @@ class RepairWorkflow:
                                             alternatives.append(c.reason)
                                 accepted = (rank, sus, res, best, detail, info, prop, bool(passed), alternatives, alt_pairs)
                                 break
-                            reasons["rejected_semantic_contract"] += 1
+                            reasons[why_not] += 1
                             rejected.append({"suspect": sus.qname, "description": best.reason,
-                                             "status": "rejected_semantic_contract", "why": detail,
+                                             "status": why_not, "why": detail,
                                              "fixed": best.fixed_tests[:3], "regressions": [], "vanished": [], "iteration": it})
                             best.status, best.detail = "failed", detail  # remember it so the next search skips this candidate
                             ledger.append(task_id, best, tree_fingerprint(work))
@@ -1280,6 +1291,18 @@ class RepairWorkflow:
         from .content import copied_test_strings
         copied = [copied_test_strings(source, c.replacement, pctx) for c in cands]
         return [c for c, s in zip(cands, copied) if not s], [s for s in copied if s]
+
+    def _passing(self, work: Path, prop: PatchProposal | None = None) -> set:
+        """DEV33: the regression suite's passing tests on the working copy, with `prop` applied to a copy if given. A test
+        module that cannot be imported counts as an error of its own, not the end of the run."""
+        with tempfile.TemporaryDirectory(prefix="asm_dev33_wide_") as td:
+            tree = work
+            if prop is not None:
+                tree = Path(td) / "repo"
+                copy_repo(work, tree)
+                apply_proposal(tree, prop, backup=False)
+            run = self.runner.run_pytest(tree, self.regression_suite, extra_args=("--continue-on-collection-errors",))
+        return {t for t, s in run.outcome.items() if s == "passed"}
 
     def _quick_pass(self, work: Path, cand: Candidate, targets, baseline_outcome: dict):
         """Does this single candidate satisfy the tests with no vanished/skipped tests? Returns its proposal or None."""

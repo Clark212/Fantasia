@@ -1,6 +1,7 @@
 """DEV33 development (DEV32's 143 bugs, already seen): would a wider acceptance check, the project's whole test suite,
 tell DEV32's accepted patches apart? For every bug resolved in DEV32 and every valid bug's developer fix, the suite runs
-on the buggy, the patched and the fixed tree; a test that passes on buggy and fails on patched is a regression.
+on the buggy, the patched and the fixed tree; a test that passes on buggy and fails on patched is a regression. A test
+module that cannot be imported (an optional dependency) does not stop the run.
 Usage: python benchmarks/dev33_development.py <dev32_work_dir> <out.jsonl>
 """
 import json
@@ -23,7 +24,7 @@ def project_suite(tree: Path) -> list:
 
 
 def outcomes(runner, tree: Path, suite: list) -> dict:
-    r = runner.run_pytest(tree, suite)
+    r = runner.run_pytest(tree, suite, extra_args=("--continue-on-collection-errors",))  # a module that cannot import is one error, not the end
     return {"classification": r.classification, "seconds": round(r.duration_seconds, 1), "outcome": r.outcome}
 
 
