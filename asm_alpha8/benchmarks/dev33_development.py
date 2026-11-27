@@ -2,7 +2,8 @@
 tell DEV32's accepted patches apart? For every bug resolved in DEV32 and every valid bug's developer fix, the suite runs
 on the buggy, the patched and the fixed tree; a test that passes on buggy and fails on patched is a regression. A test
 module that cannot be imported (an optional dependency) does not stop the run.
-Usage: python benchmarks/dev33_development.py <dev32_work_dir> <out.jsonl>
+Usage: python benchmarks/dev33_development.py <dev32_work_dir> <out.jsonl> [--fixes]
+       (--fixes: every valid bug's buggy and fixed tree only, the check's cost to real fixes)
 """
 import json
 import sys
@@ -33,16 +34,17 @@ def main():
     venv = {(r["project"], r["bug"]): r["venv"] for r in read_records(work / "validate.jsonl")[1] if r.get("status") == "valid"}
     by = records(work, "dev32_control_learned_guarded_*of*.jsonl")
     resolved = sorted(k for k, v in by.items() if any(v[m]["status"] == "resolved" for m in v))
+    trees = ("buggy", "fixed") if "--fixes" in sys.argv else ("buggy", "patched", "fixed")
     with out.open("w") as fh:
-        for k in resolved:
+        for k in (sorted(venv) if "--fixes" in sys.argv else resolved):
             base = work / "bugs" / k[0] / str(k[1])
             runner = SafeTestRunner(timeout_seconds=600, python=str(work / "venvs" / venv[k] / "bin" / "python"))
             suite = project_suite(base / "buggy")
-            runs = {t: outcomes(runner, base / t, suite) for t in ("buggy", "patched", "fixed")}
+            runs = {t: outcomes(runner, base / t, suite) for t in trees}
             passed = {i for i, s in runs["buggy"]["outcome"].items() if s == "passed"}
             rec = {"bug": f"{k[0]}-{k[1]}", "suite": suite, **{f"{t}_run": {x: runs[t][x] for x in ("classification", "seconds")} for t in runs},
                    **{f"{t}_regressions": sorted(i for i in passed if runs[t]["outcome"].get(i, "missing") not in ("passed", "skipped", "xfailed"))
-                      for t in ("patched", "fixed")}}
+                      for t in trees[1:]}}
             fh.write(json.dumps(rec) + "\n")
             fh.flush()
             print(json.dumps({x: (v if not isinstance(v, list) else len(v)) for x, v in rec.items()}), flush=True)
