@@ -897,6 +897,15 @@ def _unified(path: str, old: str, new: str) -> str:
 INFORMATIONAL_FLAGS = frozenset({"tied_localization"})
 
 
+_ADDRESS = re.compile(r" at 0x[0-9a-fA-F]+")
+
+
+def _stable_id(test_id: str) -> str:
+    """DEV34: a test id without memory addresses (`<function <lambda> at 0x7f..>` in parametrized ids), so that the same
+    test has the same id in every run."""
+    return _ADDRESS.sub(" at 0x?", test_id)
+
+
 class RepairWorkflow:
     def __init__(self, runner: SafeTestRunner | None = None, localizer: FaultLocalizer | None = None,
                  max_suspects: int = 3, max_iterations: int = 3, candidates_per_round: int = 8, max_rounds: int = 10,
@@ -951,7 +960,7 @@ class RepairWorkflow:
             work = Path(td) / "repo"
             copy_repo(base, work)
             ledger = self.ledger or FailureLedger(Path(td) / "ledger.jsonl")
-            wide = self._passing(work) if self.regression_suite else None  # DEV33: what the original copy passes
+            wide = self._passing(work, None, remaining()) if self.regression_suite else None  # DEV33: what the original copy passes
             if wide is not None:
                 notes.append(f"regression suite: {len(wide)} tests pass on the original copy and must keep passing")
             if examples:
@@ -1093,7 +1102,7 @@ class RepairWorkflow:
                             ok, detail, info = self._contract_check(work, prop, sus.qname)
                             why_not = "rejected_semantic_contract"
                             if ok and wide:  # DEV33: the patch must not break what the original copy passes
-                                broken = sorted(wide - self._passing(work, prop))
+                                broken = sorted(wide - self._passing(work, prop, remaining()))
                                 ok, why_not = not broken, "rejected_regression_suite"
                                 detail = detail if ok else f"breaks {len(broken)} passing test(s) of the regression suite: {broken[:3]}"
                             if ok:
@@ -1292,17 +1301,19 @@ class RepairWorkflow:
         copied = [copied_test_strings(source, c.replacement, pctx) for c in cands]
         return [c for c, s in zip(cands, copied) if not s], [s for s in copied if s]
 
-    def _passing(self, work: Path, prop: PatchProposal | None = None) -> set:
+    def _passing(self, work: Path, prop: PatchProposal | None = None, seconds: float | None = None) -> set:
         """DEV33: the regression suite's passing tests on the working copy, with `prop` applied to a copy if given. A test
-        module that cannot be imported counts as an error of its own, not the end of the run."""
+        module that cannot be imported counts as an error of its own, not the end of the run. DEV34: the run gets at most
+        `seconds` (the workflow's remaining time), and test ids are normalised (`_stable_id`)."""
         with tempfile.TemporaryDirectory(prefix="asm_dev33_wide_") as td:
             tree = work
             if prop is not None:
                 tree = Path(td) / "repo"
                 copy_repo(work, tree)
                 apply_proposal(tree, prop, backup=False)
-            run = self.runner.run_pytest(tree, self.regression_suite, extra_args=("--continue-on-collection-errors",))
-        return {t for t, s in run.outcome.items() if s == "passed"}
+            run = self.runner.run_pytest(tree, self.regression_suite, timeout=None if seconds is None else max(5.0, seconds - 2),
+                                         extra_args=("--continue-on-collection-errors",))
+        return {_stable_id(t) for t, s in run.outcome.items() if s == "passed"}
 
     def _quick_pass(self, work: Path, cand: Candidate, targets, baseline_outcome: dict):
         """Does this single candidate satisfy the tests with no vanished/skipped tests? Returns its proposal or None."""
