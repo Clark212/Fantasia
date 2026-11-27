@@ -1,0 +1,63 @@
+{"bug": "sqlglot-3", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "sqlglot-6", "work": "dev32fresh", "own_examples": 251, "learn_seconds": 1.4, "truth": ["sqlglot.transforms.explode_to_unnest._explode_to_unnest"], "dev20": null, "adapted": {"candidates": 4597, "hit": null}}
+{"bug": "sqlglot-9", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "sqlglot-12", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "sqlglot-15", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "sqlglot-18", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "pyupgrade-1", "work": "dev32fresh", "own_examples": 27, "learn_seconds": 0.1, "truth": ["pyupgrade._plugins.imports.FromImport.parse", "pyupgrade._plugins.imports.FromImport.remove_parts"], "dev20": null, "adapted": {"candidates": 711, "hit": null}}
+{"bug": "pyupgrade-5", "work": "dev32fresh", "own_examples": 29, "learn_seconds": 0.2, "truth": ["pyupgrade._plugins.typing_pep563._dequote"], "dev20": null, "adapted": {"candidates": 220, "hit": null}}
+{"bug": "pyupgrade-8", "work": "dev32fresh", "own_examples": 30, "learn_seconds": 0.2, "truth": ["pyupgrade._plugins.identity_equality._is_literal"], "dev20": null, "adapted": {"candidates": 377, "hit": null}}
+{"bug": "astroid-4", "work": "dev32fresh", "own_examples": 237, "learn_seconds": 6.7, "truth": ["astroid.interpreter.objectmodel.UnicodeDecodeErrorInstanceModel.attr_object"], "dev20": null, "adapted": {"candidates": 433, "hit": null}}
+{"bug": "astroid-7", "work": "dev32fresh", "skipped": "no failing test traced"}
+{"bug": "astroid-10", "work": "dev32fresh", "skipped": "no failing test traced"}
+{"bug": "astroid-14", "work": "dev32fresh", "skipped": "no failing test traced"}
+{"bug": "astroid-17", "work": "dev32fresh", "own_examples": 288, "learn_seconds": 8.0, "truth": ["astroid.brain.brain_multiprocessing._multiprocessing_transform"], "dev20": null, "adapted": {"candidates": 2997, "hit": null}}
+{"bug": "astroid-20", "work": "dev32fresh", "skipped": "no failing test traced"}
+{"bug": "rich-3", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "rich-6", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "rich-9", "work": "dev32fresh", "own_examples": 104, "learn_seconds": 0.4, "truth": ["rich.pretty.traverse._traverse"], "dev20": null, "adapted": {"candidates": 4728, "hit": null}}
+{"bug": "rich-14", "work": "dev32fresh", "own_examples": 105, "learn_seconds": 0.6, "truth": ["rich.panel.Panel.__rich_console__"], "dev20": null, "adapted": {"candidates": 4179, "hit": null}}
+{"bug": "rich-17", "work": "dev32fresh", "own_examples": 109, "learn_seconds": 0.9, "truth": ["rich.table.Table.__rich_console__", "rich.table.Table._calculate_column_widths", "rich.table.Table._get_padding_width", "rich.table.Table._measure_column", "rich.table.Table._render"], "dev20": null, "adapted": {"candidates": 16423, "hit": null}}
+{"bug": "loguru-1", "work": "dev32fresh", "own_examples": 21, "learn_seconds": 0.3, "truth": ["loguru._handler.Handler.__init__", "loguru._handler.Handler._queued_writer", "loguru._handler.Handler.complete_queue", "loguru._logger.Logger.add"], "dev20": null, "adapted": {"candidates": 1439, "hit": null}}
+{"bug": "loguru-6", "work": "dev32fresh", "own_examples": 26, "learn_seconds": 0.2, "truth": ["loguru._handler.Handler.__init__", "loguru._logger.Logger.add"], "dev20": null, "adapted": {"candidates": 1154, "hit": null}}
+{"bug": "loguru-10", "work": "dev32fresh", "own_examples": 30, "learn_seconds": 0.4, "truth": ["loguru._colorizer.AnsiParser._get_ansicode"], "dev20": null, "adapted": {"candidates": 673, "hit": null}}
+{"bug": "loguru-13", "work": "dev32fresh", "own_examples": 34, "learn_seconds": 0.4, "truth": ["loguru._string_parsers.parse_time"], "dev20": null, "adapted": {"candidates": 601, "hit": null}}
+{"bug": "loguru-16", "work": "dev32fresh", "own_examples": 36, "learn_seconds": 0.5, "truth": ["loguru._datetime._compile_format"], "dev20": null, "adapted": {"candidates": 760, "hit": null}}
+{"bug": "inflect-3", "work": "dev32fresh", "own_examples": 21, "learn_seconds": 0.4, "truth": ["inflect.engine.get_count"], "dev20": null, "adapted": {"candidates": 288, "hit": null}}
+{"bug": "inflect-6", "work": "dev32fresh", "own_examples": 21, "learn_seconds": 0.4, "truth": ["inflect.engine.ordinal"], "dev20": null, "adapted": {"candidates": 281, "hit": null}}
+{"bug": "inflect-9", "work": "dev32fresh", "own_examples": 21, "learn_seconds": 0.4, "truth": ["inflect.engine._plnoun"], "dev20": null, "adapted": {"candidates": 608, "hit": null}}
+{"bug": "num2words-2", "work": "dev32fresh", "own_examples": 26, "learn_seconds": 0.1, "truth": ["num2words.lang_AR.Num2Word_AR.process_arabic_group"], "dev20": null, "adapted": {"candidates": 406, "hit": null}}
+{"bug": "num2words-7", "work": "dev32fresh", "own_examples": 27, "learn_seconds": 0.1, "truth": ["num2words.lang_RU.Num2Word_RU.__chunk_ordinal_join"], "dev20": null, "adapted": {"candidates": 90, "hit": null}}
+{"bug": "jsonpickle-2", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "jsonpickle-8", "work": "dev32fresh", "own_examples": 49, "learn_seconds": 0.2, "truth": ["jsonpickle.handlers.RegexHandler.flatten", "jsonpickle.handlers.RegexHandler.restore"], "dev20": null, "adapted": {"candidates": 562, "hit": null}}
+{"bug": "markdownify-3", "work": "dev32fresh", "own_examples": 10, "learn_seconds": 0.0, "truth": ["markdownify.MarkdownConverter.convert_li", "markdownify.MarkdownConverter.convert_list", "markdownify.MarkdownConverter.indent"], "dev20": null, "adapted": {"candidates": 737, "hit": null}}
+{"bug": "marko-2", "work": "dev32fresh", "own_examples": 17, "learn_seconds": 0.0, "truth": ["marko.ext.gfm.renderer.GFMRendererMixin.render_table", "marko.md_renderer.MarkdownRenderer.render_blank_line"], "dev20": null, "adapted": {"candidates": 618, "hit": null}}
+{"bug": "marko-6", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "soupsieve-4", "work": "dev32fresh", "own_examples": 10, "learn_seconds": 0.1, "truth": ["soupsieve.css_parser.CSSParser.selector_iter"], "dev20": null, "adapted": {"candidates": 8, "hit": null}}
+{"bug": "soupsieve-7", "work": "dev32fresh", "own_examples": 12, "learn_seconds": 0.1, "truth": ["soupsieve.css_match.Inputs.parse_value"], "dev20": null, "adapted": {"candidates": 102, "hit": null}}
+{"bug": "soupsieve-10", "work": "dev32fresh", "own_examples": 16, "learn_seconds": 0.1, "truth": ["soupsieve.css_match.CSSMatch.match_contains"], "dev20": null, "adapted": {"candidates": 109, "hit": null}}
+{"bug": "soupsieve-13", "work": "dev32fresh", "own_examples": 17, "learn_seconds": 0.2, "truth": ["soupsieve.css_parser.CSSParser.parse_attribute_selector"], "dev20": null, "adapted": {"candidates": 403, "hit": null}}
+{"bug": "parsel-1", "work": "dev32fresh", "own_examples": 18, "learn_seconds": 0.0, "truth": ["parsel.selector.Selector.__str__", "parsel.selector.Selector.get"], "dev20": null, "adapted": {"candidates": 334, "hit": null}}
+{"bug": "pypika-2", "work": "dev32fresh", "own_examples": 44, "learn_seconds": 0.1, "truth": ["pypika.terms.Term.isin", "pypika.terms.Term.notin"], "dev20": null, "adapted": {"candidates": 586, "hit": null}}
+{"bug": "pypika-5", "work": "dev32fresh", "own_examples": 46, "learn_seconds": 0.1, "truth": ["pypika.queries.QueryBuilder.set", "pypika.terms.NullValue.__init__"], "dev20": null, "adapted": {"candidates": 925, "hit": null}}
+{"bug": "pypika-8", "work": "dev32fresh", "own_examples": 47, "learn_seconds": 0.1, "truth": ["pypika.terms.BasicCriterion.get_sql"], "dev20": null, "adapted": {"candidates": 715, "hit": null}}
+{"bug": "autoflake-2", "work": "dev32fresh", "own_examples": 25, "learn_seconds": 0.1, "truth": ["autoflake.extract_package_name"], "dev20": null, "adapted": {"candidates": 296, "hit": null}}
+{"bug": "autoflake-5", "work": "dev32fresh", "own_examples": 26, "learn_seconds": 0.1, "truth": ["autoflake.duplicate_key_line_numbers", "autoflake.filter_code"], "dev20": null, "adapted": {"candidates": 1060, "hit": null}}
+{"bug": "w3lib-5", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "w3lib-9", "work": "dev32fresh", "own_examples": 15, "learn_seconds": 0.1, "truth": ["w3lib.url.url_query_cleaner"], "dev20": null, "adapted": {"candidates": 609, "hit": null}}
+{"bug": "markdown-it-py-1", "work": "dev33fresh", "own_examples": 14, "learn_seconds": 0.2, "truth": ["markdown_it.cli.parse.convert_file"], "dev20": null, "adapted": {"candidates": 90, "hit": null}}
+{"bug": "mdit-py-plugins-2", "work": "dev33fresh", "own_examples": 3, "learn_seconds": 0.0, "truth": ["mdit_py_plugins.amsmath.amsmath_plugin"], "dev20": null, "adapted": {"candidates": 62, "hit": null}}
+{"bug": "mistletoe-3", "work": "dev33fresh", "own_examples": 61, "learn_seconds": 0.1, "truth": ["mistletoe.contrib.mathjax.MathJaxRenderer.render_math"], "dev20": null, "adapted": {"candidates": 402, "hit": null}}
+{"bug": "mistletoe-6", "work": "dev33fresh", "own_examples": 64, "learn_seconds": 0.1, "truth": ["mistletoe.contrib.jira_renderer.JiraRenderer.render_link", "mistletoe.contrib.jira_renderer.escape_url"], "dev20": null, "adapted": {"candidates": 659, "hit": null}}
+{"bug": "mistletoe-9", "work": "dev33fresh", "own_examples": 67, "learn_seconds": 0.2, "truth": ["mistletoe.contrib.jira_renderer.JiraRenderer.render_table_cell"], "dev20": null, "adapted": {"candidates": 464, "hit": null}}
+{"bug": "mistletoe-12", "work": "dev33fresh", "own_examples": 68, "learn_seconds": 0.4, "truth": ["mistletoe.core_tokens.Delimiter.remove"], "dev20": null, "adapted": {"candidates": 501, "hit": null}}
+{"bug": "bitstring-3", "work": "dev33fresh", "own_examples": 29, "learn_seconds": 0.2, "truth": ["bitstring.bitstring_classes.Array.__getitem__"], "dev20": null, "adapted": {"candidates": 298, "hit": null}}
+{"bug": "bitstring-6", "work": "dev33fresh", "own_examples": 35, "learn_seconds": 0.1, "truth": ["bitstring.array_.Array.__init__", "bitstring.array_.Array.trailing_bits", "bitstring.dtypes.Dtype.__repr__", "bitstring.dtypes.DtypeDefinition.__init__"], "dev20": null, "adapted": {"candidates": 1547, "hit": null}}
+{"bug": "bitstring-9", "work": "dev33fresh", "own_examples": 35, "learn_seconds": 0.3, "truth": ["bitstring.mxfp.MXFPFormat.float_to_int"], "dev20": null, "adapted": {"candidates": 354, "hit": null}}
+{"bug": "bitstring-12", "work": "dev33fresh", "own_examples": 36, "learn_seconds": 0.2, "truth": ["bitstring.array_.Array.__init__", "bitstring.array_.Array._calculate_auto_scale"], "dev20": null, "adapted": {"candidates": 1005, "hit": null}}
+{"bug": "bitstring-16", "work": "dev33fresh", "skipped": "no changed function"}
+{"bug": "freezegun-1", "work": "dev33fresh", "skipped": "no changed function"}
+{"bug": "idna-2", "work": "dev33fresh", "own_examples": 14, "learn_seconds": 0.1, "truth": ["idna.core.decode"], "dev20": null, "adapted": {"candidates": 275, "hit": null}}
+{"bug": "dataclasses-json-1", "work": "dev33fresh", "own_examples": 14, "learn_seconds": 0.1, "truth": ["dataclasses_json.core._encode_json_type"], "dev20": null, "adapted": {"candidates": 124, "hit": null}}
+{"bug": "dataclasses-json-4", "work": "dev33fresh", "own_examples": 20, "learn_seconds": 0.1, "truth": ["dataclasses_json.mm.build_type.inner"], "dev20": null, "adapted": {"candidates": 336, "hit": null}}
+{"bug": "dataclasses-json-7", "work": "dev33fresh", "own_examples": 23, "learn_seconds": 0.1, "truth": ["dataclasses_json.undefined._CatchAllUndefinedParameters.handle_to_dict"], "dev20": null, "adapted": {"candidates": 207, "hit": null}}
