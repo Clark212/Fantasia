@@ -35,12 +35,17 @@ def main():
     by = records(work, "dev32_control_learned_guarded_*of*.jsonl")
     resolved = sorted(k for k, v in by.items() if any(v[m]["status"] == "resolved" for m in v))
     trees = ("buggy", "fixed") if "--fixes" in sys.argv else ("buggy", "patched", "fixed")
-    with out.open("w") as fh:
+    done = {json.loads(line)["bug"] for line in out.open()} if out.exists() else set()  # a stopped run goes on
+    with out.open("a") as fh:
         i, n = (int(x) for x in next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--shard=")), "0/1").split("/"))
         for k in (sorted(venv) if "--fixes" in sys.argv else resolved)[i::n]:
             base = work / "bugs" / k[0] / str(k[1])
             runner = SafeTestRunner(timeout_seconds=600, python=str(work / "venvs" / venv[k] / "bin" / "python"))
             suite = project_suite(base / "buggy")
+            if f"{k[0]}-{k[1]}" in done or not suite:  # no suite found: the check is off for this bug
+                if not suite and f"{k[0]}-{k[1]}" not in done:
+                    fh.write(json.dumps({"bug": f"{k[0]}-{k[1]}", "suite": [], "no_suite": True}) + "\n")
+                continue
             runs = {t: outcomes(runner, base / t, suite) for t in trees}
             passed = {i for i, s in runs["buggy"]["outcome"].items() if s == "passed"}
             rec = {"bug": f"{k[0]}-{k[1]}", "suite": suite, **{f"{t}_run": {x: runs[t][x] for x in ("classification", "seconds")} for t in runs},
