@@ -1,0 +1,18 @@
+{
+ "bleach": {"url": "https://github.com/mozilla/bleach", "deps": ["webencodings", "tinycss2"]},
+ "dateparser": {"url": "https://github.com/scrapinghub/dateparser", "deps": ["python-dateutil", "pytz", "regex", "tzlocal", "parameterized"]},
+ "faker": {"url": "https://github.com/joke2k/faker", "deps": ["python-dateutil", "freezegun", "validators", "ukpostcodeparser"]},
+ "falcon": {"url": "https://github.com/falconry/falcon", "deps": ["pyyaml", "msgpack"]},
+ "folium": {"url": "https://github.com/python-visualization/folium", "deps": ["branca", "jinja2", "numpy", "requests", "xyzservices", "pandas"]},
+ "furl": {"url": "https://github.com/gruns/furl", "deps": ["six", "orderedmultidict"]},
+ "mimesis": {"url": "https://github.com/lk-geimfari/mimesis", "deps": ["pytest-mock"]},
+ "oauthlib": {"url": "https://github.com/oauthlib/oauthlib", "deps": ["cryptography", "blinker", "pyjwt", "mock"]},
+ "parsedatetime": {"url": "https://github.com/bear/parsedatetime", "deps": []},
+ "peewee": {"url": "https://github.com/coleifer/peewee", "deps": []},
+ "pycparser": {"url": "https://github.com/eliben/pycparser", "deps": []},
+ "pygments": {"url": "https://github.com/pygments/pygments", "deps": []},
+ "python-benedict": {"url": "https://github.com/fabiocaccamo/python-benedict", "deps": ["python-slugify", "typing-extensions", "python-fsutil", "requests", "pyyaml", "toml", "xmltodict", "python-dateutil", "beautifulsoup4"]},
+ "email-validator": {"url": "https://github.com/JoshData/python-email-validator", "deps": ["dnspython", "idna"]},
+ "python-multipart": {"url": "https://github.com/Kludex/python-multipart", "deps": ["pyyaml"]},
+ "tzlocal": {"url": "https://github.com/regebro/tzlocal", "deps": ["tzdata"]}
+}
