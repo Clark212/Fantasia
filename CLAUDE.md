@@ -10,7 +10,15 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
   not promoted (Structural Transfer & Analogical Procedure Generalization, toward M4); alpha 7.8 delivered 0.4.7 and
   0.4.8 ("Latent Dependency Structure & Higher-Order Epistemic Routing"). DEV steps are experiments inside
   alpha 8 (side tracks), not milestones; none is promoted. The alpha.8.1–8.9 plan and its evidence: `ROADMAP.md`, Stage 4.
-- Latest: **DEV34** (project adaptation in development; the M4 real-data gate again with the fixed check, on 59 fresh
+- Latest: **DEV35** (causal repair by intervention, `asm/coding/causal.py`, opt-in; development only, no gate). While
+  the bug's tests run, ASM flips conditions, moves constants and swaps locals one site at a time (one pytest process,
+  5 s per test), and turns causes into edits. On 229 seen bugs: a cause in 41, 13 plausible edits, 1 equal to the
+  developer's fix (mistletoe-2, already repaired by the workflow); every other plausible edit is wrong. Not run fresh.
+  **The owner's instruction (2026-11-28): if the DEV route cannot pass M4's real-data gate, focus on the main roadmap.**
+  The next step there is the 0.4.9 closure check (`ROADMAP.md`, Stage 4: a pre-registered check that the Stage 4
+  components work together). Stage 4 tests (`tests/test_v040*.py`, `tests/test_alpha7*.py`): 221 pass, 6 fail for
+  want of PyTorch (`asm/transition_mechanism.py`).
+- **DEV34** (project adaptation in development; the M4 real-data gate again with the fixed check, on 59 fresh
   real bugs). G34-A **not passed**.
   - **The changes:** DEV33's check fixed. Its suite runs get at most the remaining time, and test ids are compared
     without memory addresses (`faultloc._stable_id`; `tests/test_alpha8_dev34.py`). `dev17_mine_history.examples(repo,
@@ -74,10 +82,8 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
     - whether to keep `phase3_seconds`, `test_copy_guard` and `regression_suite` (all opt-in, free when off), and
       whether `regression_suite` should become the default for real-bug repair (DEV33 G33-A);
     - whether G33-A counts as alpha.8.4 evidence on real data (`alpha8_plan.validated` was not changed).
-  - Recommended next DEV (DEV34 report): a different source of repair knowledge than recurring fix patterns, e.g.
-    causal reasoning over the failing test (what the code should compute, from the expected value and traced values),
-    developed first on the seen bugs whose fixes ASM can represent but never meets. Also: localization that scales to
-    large test suites.
+  - Next (owner, 2026-11-28): the main roadmap, starting with the 0.4.9 closure check. The DEV coding track has tried
+    learned knowledge (DEV29, DEV31-DEV34) and causal intervention (DEV35) on real bugs without passing M4's gate.
   - Roadmap: the owner's DEV8–DEV40 list is a long-range map in `ROADMAP.md`, merged so the final DEV is DEV36 (DEV33
     and DEV34 spent on the M4 real-data gate, DEV34 also on adaptation; DEV35 causal reasoning with integration; DEV36
     closure). The repository's DEV numbers stay as they are. The owner said "U pick" for DEV33 and "I trust you" for

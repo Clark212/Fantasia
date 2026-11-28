@@ -242,6 +242,16 @@
       "of": 59,
       "promoted": false,
       "report": "asm_alpha8/ALPHA8_CODING_DEV34_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV35",
+      "date": "2026-11-28",
+      "title": "Causal repair by intervention (development only)",
+      "gate": "none: stopped in development, not pre-registered",
+      "kind": "not_run",
+      "result": "not run: on 229 seen bugs, 13 plausible edits, 1 equal to the developer's fix (already repaired); the rest are wrong",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV35_IMPLEMENTATION.md"
     }
   ]
 }

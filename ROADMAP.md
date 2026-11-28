@@ -87,6 +87,9 @@ without it does not (G33-B not passed: 2 needed; one run overran the clock).
 DEV34 fixes the check's two defects and repeats the gate on 59 fresh bugs from 16 new projects (pre-registered gate
 not passed): learned knowledge repairs none the checked workflow without it does not. In development, learning a
 project's own earlier fixes added no reproduced fix on 149 seen bugs: what ASM learns rarely recurs in new bugs.
+DEV35 tries causal repair by intervention (flip a condition, move a constant, swap a variable while the tests run;
+development only): on 229 seen bugs it finds a cause in 41 and no correct repair the workflow does not already make,
+so it is not run on fresh data. By the owner's instruction, work turns to the main roadmap: the 0.4.9 closure check.
 
 ### Release governance and the alpha 8 plan
 - Official frozen baseline: **v0.4.0-alpha.7.9** (`asm.__version__`), milestone **M3 — Adaptive Research AI**.
@@ -112,8 +115,8 @@ The owner gave a list of 33 development steps in six phases, ending at DEV40 (fu
 closure), merged into a final **DEV36**. Its numbering differs from what the repository did from DEV16 on, and DEV
 numbers name reports, pre-registrations and hash-chained results, so **the repository's DEV numbers stay as they
 are**. The list is the long-range map:
-- **DEV8–DEV34** are done, with the topics the reports record (DEV15 multi-file bug repair; DEV16–DEV24 learning and
-  transfer; DEV25–DEV34 transfer mechanisms and real-bug tests; DEV32, the test-copy guard on fresh real bugs, is the
+- **DEV8–DEV35** are done, with the topics the reports record (DEV15 multi-file bug repair; DEV16–DEV24 learning and
+  transfer; DEV25–DEV35 transfer mechanisms and real-bug tests; DEV32, the test-copy guard on fresh real bugs, is the
   first step toward the owner's Phase 5).
 - **DEV33–DEV36** take the list's topics merged into four pre-registered experiments (owner, 2026-11-24: merged, so the
   final DEV is **DEV36**, not DEV40):
@@ -121,7 +124,10 @@ are**. The list is the long-range map:
     own test suite as an acceptance check;
   - DEV34 (done): meta-learning and cognitive adaptation, tried as project adaptation in development (no gain), and the
     M4 real-data gate repeated with the fixed check (not passed);
-  - DEV35: causal reasoning and discovery (list DEV33–DEV34), with cognitive-architecture integration (list DEV36–DEV38);
+  - DEV35 (done, development only): causal reasoning as interventions on the buggy program; no correct repair beyond
+    the workflow's, so no fresh run;
+  - next, by the owner's instruction (2026-11-28): the main roadmap, starting with the 0.4.9 closure check (the Stage
+    4 components working together), with cognitive-architecture integration (list DEV36–DEV38);
   - DEV36: generalized engineering intelligence, with the full architecture evaluation and stage closure (list DEV39–DEV40).
 - **M4 first:** the real-data gate (learned knowledge repairing real bugs the workflow without it does not) is still open
   and comes before closure. A DEV that fails its gate is repeated or redesigned, so DEV36 is a target, not a date.
