@@ -90,7 +90,7 @@ def main():
                 f = funcs.get(q)
                 if f is None:
                     continue
-                res = investigate(runner, buggy, f.path, (f.line, f.end_line), failing, sorted(passing)[:200])
+                res = investigate(runner, buggy, f.path, (f.line, f.end_line), failing, sorted(passing)[:200], files=suite)
                 fixed_src = (base / "fixed" / f.path).read_text(encoding="utf-8") if (base / "fixed" / f.path).exists() else None
                 fr = {"qname": q, "in_top3": q in top, "is_truth": q in truth, "sites": res["sites"], "tried": res["tried"],
                       "causes": len(res["causes"]), "note": res["note"][:300], "edits": []}

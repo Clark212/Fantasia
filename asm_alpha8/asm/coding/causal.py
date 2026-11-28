@@ -284,9 +284,11 @@ def edits(source: str, ss: list, causes: list, record: dict, failing: list) -> l
     return uniq
 
 
-def investigate(runner, root: Path, path: str, span: tuple, failing: list, passing: list, timeout: float = 120.0) -> dict:
+def investigate(runner, root: Path, path: str, span: tuple, failing: list, passing: list, timeout: float = 120.0,
+                files: list | None = None) -> dict:
     """Record, then intervene, on the function at `span` of `path` while the given tests run. Returns
-    {"edits": [(source, why)], "causes": [...], "tried": n, "sites": n, "note": str}."""
+    {"edits": [(source, why)], "causes": [...], "tried": n, "sites": n, "note": str}. `files`: the test files to run (pytest
+    node ids can be relative to another directory than the repository's, so they are not always paths)."""
     source = (root / path).read_text(encoding="utf-8")
     try:
         inst, ss = instrument(source, span)
@@ -307,10 +309,13 @@ def investigate(runner, root: Path, path: str, span: tuple, failing: list, passi
             out = td / "out.json"
             if out.exists():
                 out.unlink()
-            r = runner.run_pytest(repo, sorted({t.split("::", 1)[0] for t in failing + passing}), timeout=timeout,
-                                  extra_args=["-p", "asm_causal_plugin", "-p", "no:randomly"],
-                                  env_extra={"PYTHONPATH": str(plugin), "ASM_CAUSAL_SPEC": str(td / "spec.json"),
-                                             "ASM_CAUSAL_OUT": str(out)})
+            try:
+                r = runner.run_pytest(repo, files or sorted({t.split("::", 1)[0] for t in failing + passing}), timeout=timeout,
+                                      extra_args=["-p", "asm_causal_plugin", "-p", "no:randomly"],
+                                      env_extra={"PYTHONPATH": str(plugin), "ASM_CAUSAL_SPEC": str(td / "spec.json"),
+                                                 "ASM_CAUSAL_OUT": str(out)})
+            except (FileNotFoundError, ValueError) as exc:
+                return {"error": "targets", "tail": str(exc)}
             return json.loads(out.read_text()) if out.exists() else {"error": r.classification, "tail": (r.stdout + r.stderr)[-400:]}
 
         first = run([])
