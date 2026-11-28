@@ -63,7 +63,7 @@ Logs: `logs_baseline_79/`, `logs_current/`, `release_checks_*.log`.
 - **The baseline reproduces.** Its unit regression passes exactly, and every release-gate failure is explained:
   version pins, a temp file, a runner bug, or the owner-approved extrapolation guard.
 - **No Stage 4 planning capability was lost.**
-- **Not changed** (benchmark definitions, the owner's call): the version pins, the runner, and running the procedure
+- **Then changed with the owner's approval** (section 3): the version pins, the runner, and running the procedure
   benchmarks with the guard off inside the release gate.
 
 ## 3. The refreshed release gate (owner-approved 2026-11-28)
