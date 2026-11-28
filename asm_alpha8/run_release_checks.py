@@ -1,4 +1,5 @@
-"""Run ASM v0.4.0-alpha.7.7 release gates.
+"""Run ASM release gates (written for v0.4.0-alpha.7.7; updated 2026-11-28: version pins, the extrapolation guard for
+the procedure benchmarks, the final print).
 
 Default mode runs the current/fast regression surface. Use --full to additionally
 rerun the very heavy inherited alpha.8-alpha.10 long-stream stress gates.
@@ -11,6 +12,9 @@ ROOT=Path(__file__).resolve().parent
 RESULTS=ROOT/'results'; RESULTS.mkdir(exist_ok=True)
 env=dict(os.environ,OMP_NUM_THREADS='1',MKL_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1',PYTHONWARNINGS='ignore')
 
+# Alpha.7.2-7.4's procedure benchmarks apply a learned rule beyond its evidence; since DEV3.3 (owner-approved) the
+# cortex abstains there by default, so they run with the pre-DEV3.3 guard (2026-11-28, owner-approved).
+GUARD_OFF=['tools/with_cortex_options.py','extrapolation_guard=off']
 BASE_JOBS=[
  ('unit_legacy_a',['-m','unittest','tests/test_v01110.py','tests/test_v0114.py','tests/test_v0115.py','-q']),
  ('unit_legacy_b',['-m','unittest','tests/test_v0116.py','tests/test_v0117.py','tests/test_v0118.py','tests/test_v0119.py','-q']),
@@ -56,15 +60,15 @@ BASE_JOBS=[
  ('planning_alpha71',['benchmark_v040a71.py']),
  ('planning_alpha71_torture',['benchmark_v040a71_torture.py']),
  ('planning_alpha71_performance',['benchmark_v040a71_performance.py']),
- ('procedure_alpha72',['benchmark_v040a72.py']),
- ('procedure_alpha72_torture',['benchmark_v040a72_torture.py']),
- ('procedure_alpha72_performance',['benchmark_v040a72_performance.py']),
- ('procedure_alpha73',['benchmark_v040a73.py']),
- ('procedure_alpha73_torture',['benchmark_v040a73_torture.py']),
- ('procedure_alpha73_performance',['benchmark_v040a73_performance.py']),
- ('procedure_alpha74',['benchmark_v040a74.py']),
- ('procedure_alpha74_torture',['benchmark_v040a74_torture.py']),
- ('procedure_alpha74_performance',['benchmark_v040a74_performance.py']),
+ ('procedure_alpha72',[*GUARD_OFF,'benchmark_v040a72.py']),
+ ('procedure_alpha72_torture',[*GUARD_OFF,'benchmark_v040a72_torture.py']),
+ ('procedure_alpha72_performance',[*GUARD_OFF,'benchmark_v040a72_performance.py']),
+ ('procedure_alpha73',[*GUARD_OFF,'benchmark_v040a73.py']),
+ ('procedure_alpha73_torture',[*GUARD_OFF,'benchmark_v040a73_torture.py']),
+ ('procedure_alpha73_performance',[*GUARD_OFF,'benchmark_v040a73_performance.py']),
+ ('procedure_alpha74',[*GUARD_OFF,'benchmark_v040a74.py']),
+ ('procedure_alpha74_torture',[*GUARD_OFF,'benchmark_v040a74_torture.py']),
+ ('procedure_alpha74_performance',[*GUARD_OFF,'benchmark_v040a74_performance.py']),
  ('writer',['benchmark_v020a5.py']),
  ('smoke',['smoke_test.py']),
 ]
@@ -109,8 +113,9 @@ def main():
         jobs=BASE_JOBS
     rows=[run_job(n,args) for n,args in jobs]
     if a.full and not a.planning_only: rows.extend(run_job(n,args) for n,args in FULL_JOBS)
-    tr=trained_state_check(); rows.append(tr); print(json.dumps({'name':'trained_state','pass':tr['pass']},flush=True))
-    payload={'version':'0.4.0-alpha.7.7','full':a.full,'planning_only':a.planning_only,'unit_tests':sum(int(r.get('tests',0)) for r in rows),'checks':rows,'pass':all(r['pass'] for r in rows)}
+    tr=trained_state_check(); rows.append(tr); print(json.dumps({'name':'trained_state','pass':tr['pass']}),flush=True)
+    from asm import __version__
+    payload={'version':__version__,'full':a.full,'planning_only':a.planning_only,'unit_tests':sum(int(r.get('tests',0)) for r in rows),'checks':rows,'pass':all(r['pass'] for r in rows)}
     (RESULTS/'release_checks_v040a74.json').write_text(json.dumps(payload,indent=2),encoding='utf-8')
     raise SystemExit(0 if payload['pass'] else 1)
 

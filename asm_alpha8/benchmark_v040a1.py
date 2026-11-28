@@ -49,7 +49,7 @@ def main():
                        actions=['left','right'],goal=StateGoal({'position':3}),horizon=2)
 
     checks={
-        'version_is_v040a1_capability_preserved': __version__=='0.4.0-alpha.7',
+        'version_is_v040a1_capability_preserved': __version__.startswith('0.4.0-alpha.7'),
         'learned_mechanism_has_reusable_abstractions': before_stats['abstraction_promoted']>=8,
         'three_step_goal_reached': result['status']=='goal_reached',
         'correct_action_sequence': result['best']['actions']==['right','right','right'],

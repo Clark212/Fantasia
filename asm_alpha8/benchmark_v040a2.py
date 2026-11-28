@@ -154,7 +154,7 @@ def main():
         actions=('open','prime','wait'),goal=StateGoal({'door':'open'}),horizon=2,
     )
     checks={
-        'version_is_v040a2': __version__=='0.4.0-alpha.7',
+        'version_is_v040a2': __version__.startswith('0.4.0-alpha.7'),
         'learned_line_all_56_unseen_goals': line['solved']==56,
         'planning_does_not_add_observations': line['observations_before']==line['observations_after'],
         'planning_does_not_touch_abstraction_telemetry': (

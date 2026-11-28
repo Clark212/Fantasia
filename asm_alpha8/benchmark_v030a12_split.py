@@ -70,7 +70,7 @@ def finalize():
       'fresh_lockbox_150_of_150': lb['correct']==lb['total']==150,
       'fresh_lockbox_restart_150_of_150': lb['restart_correct']==lb['restart_total']==150,
       'sparse_projection_search_is_bounded': stats['abstraction_candidates_per_observation']<=48,
-      'version_is_alpha12': __version__=='0.4.0-alpha.7',
+      'version_is_alpha12': __version__.startswith('0.4.0-alpha.7'),
     }
     payload={'version':__version__,'benchmark':'ASM v0.3.0-alpha.12 Robust Abstraction Hardening',
       'structured':{'unseen':tr['unseen'],'new_key_shift':tr.get('new_key_shift'),'drop_only_baseline':base['unseen'],'promoted':stats['abstraction_promoted'],

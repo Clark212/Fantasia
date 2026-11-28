@@ -149,7 +149,7 @@ def main():
     before_mean = sum(x['before_goal_probability'] for x in learned)/len(learned)
     after_mean = sum(x['after_goal_probability'] for x in learned)/len(learned)
     checks = {
-        'version_is_v040a4': __version__ == '0.4.0-alpha.7',
+        'version_is_v040a4': __version__.startswith('0.4.0-alpha.7'),
         'alpha3_open_loop_learned_control_at_most_half': all(x['before_goal_probability'] <= .5 + 1e-9 for x in learned),
         'alpha4_learned_clue_world_is_near_certain': all(x['after_goal_probability'] >= .94 for x in learned),
         'alpha4_learned_uses_observation_conditioning': all(x['after_root_action']=='sense' and x['after_branch_actions']=={'clueA':'chooseA','clueB':'chooseB'} for x in learned),

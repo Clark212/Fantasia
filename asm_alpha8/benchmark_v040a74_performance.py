@@ -39,7 +39,10 @@ def prediction_rate():
   n=20000;t=time.perf_counter()
   for i in range(n):e.predict_procedure('p',{'flag':bool(i&1),'x':i%31})
   rate=n/(time.perf_counter()-t);e.close();return rate
-baseline=json.loads(Path('/tmp/perf73.json').read_text())
+# the alpha.7.4 author's machine kept alpha.7.3's numbers in /tmp/perf73.json; the release gate runs alpha.7.3's
+# performance job just before this one, in the same directory, which writes ALPHA73_PERFORMANCE.json (2026-11-28)
+_perf73=Path('/tmp/perf73.json')
+baseline=json.loads((_perf73 if _perf73.exists() else Path('ALPHA73_PERFORMANCE.json')).read_text())
 # comparable old paths measured using current code manually
 from benchmark_v040a73_performance import main as _unused  # keeps legacy perf module import-covered
 out={'version':__version__,'baseline_alpha73':baseline,'xor_induction':median_case(xor_induce),'xor_information_query':median_case(xor_query),'piecewise_induction':median_case(piece_induce),'conditional_prediction_per_s':prediction_rate()}

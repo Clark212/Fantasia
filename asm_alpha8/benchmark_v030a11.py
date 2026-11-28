@@ -156,7 +156,7 @@ def main():
       'entity_ids_not_used_as_rule_features': all('entity' not in k.lower() for k in learned.abstraction_stats),
       'exact_exception_store_bounded': learned.stats()['abstraction_exceptions']<=256,
       'ambiguous_visible_input_suppresses_abstraction': all(ambiguous.values()),
-      'version_is_current_release': __version__=='0.4.0-alpha.7',
+      'version_is_current_release': __version__.startswith('0.4.0-alpha.7'),
     }
     payload={
       'version':__version__, 'benchmark':'ASM v0.3.0-alpha.11 Validated Mechanism Abstraction',

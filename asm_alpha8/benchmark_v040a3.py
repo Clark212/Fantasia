@@ -91,7 +91,7 @@ def main():
     mean_brier=sum(x['expected_brier'] for x in calibration)/len(calibration)
     before_summary=baseline.get('summary',{})
     checks={
-        'version_is_v040a3':__version__=='0.4.0-alpha.7',
+        'version_is_v040a3':__version__.startswith('0.4.0-alpha.7'),
         'all_three_80_20_seeds_choose_safe':all(x['choice']==['safe','safe'] for x in learned),
         '80_20_distribution_is_seed_stable':all(abs(x['goal_probability']-.8)<1e-9 and abs(x['hazard_probability']-.2)<1e-9 for x in learned),
         'stochastic_planning_is_read_only':all(x['read_only'] for x in learned),
