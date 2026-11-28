@@ -16,12 +16,14 @@ same planner).
 Usage: python benchmarks/stage4_closure.py <out.jsonl> --worlds=a:b [--train=N] [--test=M]
 """
 import json
+import os
 import random
 import sys
 import tempfile
 import time
 from pathlib import Path
 
+os.environ.setdefault("OMP_NUM_THREADS", "1")  # one thread per process: parallel worlds otherwise thrash the CPUs
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from asm import ASMConfig, ASMEngine  # noqa: E402
@@ -153,22 +155,23 @@ def act(e: ASMEngine, w: dict, h: str, belief: DiscreteBeliefState, arm: str, rn
 def run_world(seed: int, n_train: int, n_test: int) -> dict:
     w, out = world(seed), {}
     for arm in ARMS:
-        rnd = random.Random(seed * 1000 + 7)  # the same training and test draws for every arm
+        rnd = random.Random(seed * 1000 + 7)  # the same training draws for every arm
         with tempfile.TemporaryDirectory() as td:
             e = ASMEngine(Path(td) / "w.db", config=ASMConfig(snapshot_every_events=10 ** 9))
             t0 = time.monotonic()
             train(e, w, n_train, rnd, arm)
             t1 = time.monotonic()
             res = []
-            for _ in range(n_test):
-                h = rnd.choice(H)
-                rep = reports(w, h, rnd)
-                res.append(act(e, w, h, prior(e, w, rep, arm), arm, rnd))
+            for i in range(n_test):  # every arm meets the same hidden causes, reports and probe readings
+                ep = random.Random(f"{seed}:{i}")
+                h = ep.choice(H)
+                res.append(act(e, w, h, prior(e, w, reports(w, h, ep), arm), arm, random.Random(f"{seed}:{i}:noise")))
             e.close(save_snapshot=False)
         n = len(res)
         out[arm] = {"goal": sum(r["outcome"] == "goal" for r in res) / n, "hazard": sum(r["outcome"] == "hazard" for r in res) / n,
                     "other": sum(r["outcome"] not in ("goal", "hazard") for r in res) / n,
-                    "probes": sum(r["probes"] for r in res) / n, "train_s": round(t1 - t0, 1), "test_s": round(time.monotonic() - t1, 1)}
+                    "probes": sum(r["probes"] for r in res) / n, "train_s": round(t1 - t0, 1), "test_s": round(time.monotonic() - t1, 1),
+                    "episodes": "".join(r["outcome"][0].upper() + str(min(r["probes"], 9)) for r in res)}  # e.g. G0 H1 D0 T6
     return {"world": w, "arms": out}
 
 
