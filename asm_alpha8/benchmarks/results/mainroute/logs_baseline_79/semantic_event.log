@@ -1,0 +1,492 @@
+{
+  "benchmark": "ASM v0.2.0-alpha.7 inherited Semantic Event Cortex regression",
+  "version": "0.4.0-alpha.7.9",
+  "summary": {
+    "passed": 17,
+    "total": 17,
+    "accuracy_pct": 100.0
+  },
+  "cases": [
+    {
+      "name": "expectation_anticipates",
+      "pass": true,
+      "details": {
+        "text": "Rhea anticipates that the east gate will unlock",
+        "event_type": "expectation",
+        "epistemic": "expected",
+        "reply": "Understood. Got it. I'll remember that Rhea expects east gate will unlock.",
+        "mind_event": null,
+        "drive_event": {
+          "type": "drive",
+          "holder": "rhea",
+          "kind": "expectation",
+          "proposition": "east gate unlock",
+          "desired_truth": true,
+          "priority": 0.55,
+          "event_id": 1,
+          "active": true,
+          "source": "mental_language"
+        }
+      }
+    },
+    {
+      "name": "expectation_predicts",
+      "pass": true,
+      "details": {
+        "text": "Cato predicts that the signal will return",
+        "event_type": "expectation",
+        "epistemic": "expected",
+        "reply": "Understood. Got it. I'll remember that Cato expects signal will return.",
+        "mind_event": null,
+        "drive_event": {
+          "type": "drive",
+          "holder": "cato",
+          "kind": "expectation",
+          "proposition": "signal return",
+          "desired_truth": true,
+          "priority": 0.55,
+          "event_id": 2,
+          "active": true
+        }
+      }
+    },
+    {
+      "name": "fear_afraid",
+      "pass": true,
+      "details": {
+        "text": "Tovin is afraid that the coolant leaks",
+        "event_type": "fear",
+        "epistemic": "feared",
+        "reply": "Understood. Got it. I'll remember that Tovin is concerned about coolant leaks.",
+        "mind_event": null,
+        "drive_event": {
+          "type": "drive",
+          "holder": "tovin",
+          "kind": "fear",
+          "proposition": "coolant leak",
+          "desired_truth": true,
+          "priority": 0.7,
+          "event_id": 3,
+          "active": true,
+          "source": "mental_language"
+        }
+      }
+    },
+    {
+      "name": "fear_worries",
+      "pass": true,
+      "details": {
+        "text": "Vela worries that the eastern seal breaks",
+        "event_type": "fear",
+        "epistemic": "feared",
+        "reply": "Understood. Got it. I'll remember that Vela is concerned about eastern seal breaks.",
+        "mind_event": null,
+        "drive_event": {
+          "type": "drive",
+          "holder": "vela",
+          "kind": "fear",
+          "proposition": "eastern seal break",
+          "desired_truth": true,
+          "priority": 0.7,
+          "event_id": 4,
+          "active": true
+        }
+      }
+    },
+    {
+      "name": "goal_wishes",
+      "pass": true,
+      "details": {
+        "text": "Nara wishes for the beacon to activate",
+        "event_type": "goal",
+        "epistemic": "desired",
+        "reply": "Understood. Got it. I'll remember that Nara wants beacon to activate.",
+        "mind_event": null,
+        "drive_event": {
+          "type": "drive",
+          "holder": "nara",
+          "kind": "goal",
+          "proposition": "beacon activate",
+          "desired_truth": true,
+          "priority": 0.7,
+          "event_id": 5,
+          "active": true,
+          "source": "recurrent-reader"
+        }
+      }
+    },
+    {
+      "name": "goal_hopes",
+      "pass": true,
+      "details": {
+        "text": "Pavo hopes that the rover arrives",
+        "event_type": "goal",
+        "epistemic": "desired",
+        "reply": "Understood. Got it. I'll remember that Pavo wants rover arrives.",
+        "mind_event": null,
+        "drive_event": {
+          "type": "drive",
+          "holder": "pavo",
+          "kind": "goal",
+          "proposition": "rover arriv",
+          "desired_truth": true,
+          "priority": 0.7,
+          "event_id": 6,
+          "active": true,
+          "source": "recurrent-reader"
+        }
+      }
+    },
+    {
+      "name": "belief_doubt",
+      "pass": true,
+      "details": {
+        "text": "Soren doubts that the route is safe",
+        "event_type": "belief",
+        "epistemic": "believed",
+        "reply": "Understood. Got it. I'll remember that Soren doubts that route is safe.",
+        "mind_event": {
+          "type": "belief",
+          "holder": "soren",
+          "proposition": "route safe",
+          "asserted_truth": false,
+          "state": {
+            "holder": "soren",
+            "proposition": "route safe",
+            "status": "believed_false",
+            "truth": false,
+            "confidence": 1.0,
+            "true_evidence": 0.0,
+            "false_evidence": 1.0,
+            "observations": 1,
+            "last_event": 7
+          },
+          "source": "mental_language",
+          "confidence": 0.72
+        },
+        "drive_event": null
+      }
+    },
+    {
+      "name": "belief_positive",
+      "pass": true,
+      "details": {
+        "text": "Elia reckons that the copper door is locked",
+        "event_type": "belief",
+        "epistemic": "believed",
+        "reply": "Understood. Got it. I'll remember that Elia believes that copper door is locked.",
+        "mind_event": {
+          "type": "belief",
+          "holder": "elia",
+          "proposition": "copper door lock",
+          "asserted_truth": true,
+          "state": {
+            "holder": "elia",
+            "proposition": "copper door lock",
+            "status": "believed_true",
+            "truth": true,
+            "confidence": 1.0,
+            "true_evidence": 1.0,
+            "false_evidence": 0.0,
+            "observations": 1,
+            "last_event": 8
+          },
+          "source": "mental_language",
+          "confidence": 0.86
+        },
+        "drive_event": null
+      }
+    },
+    {
+      "name": "nested_two",
+      "pass": true,
+      "details": {
+        "text": "Iria thinks Juno believes that the archive is sealed",
+        "event_type": "nested_belief",
+        "epistemic": "reported",
+        "reply": "Understood. Got it. I'll remember that Iria thinks Juno believes that the archive is sealed.",
+        "mind_event": null,
+        "drive_event": null
+      }
+    },
+    {
+      "name": "nested_three",
+      "pass": true,
+      "details": {
+        "text": "Aven believes Bira thinks Ceri believes that the lens is clean",
+        "event_type": "nested_belief",
+        "epistemic": "reported",
+        "reply": "Understood. Got it. I'll remember that Aven thinks Bira thinks Ceri believes that the lens is clean.",
+        "mind_event": null,
+        "drive_event": null
+      }
+    },
+    {
+      "name": "world_assertion",
+      "pass": true,
+      "details": {
+        "text": "Actually, the chamber is empty",
+        "event_type": "observation",
+        "epistemic": "asserted",
+        "reply": "Got it. I'll keep that in long-term memory.",
+        "mind_event": {
+          "type": "world",
+          "holder": "__world__",
+          "proposition": "chamber empty",
+          "asserted_truth": true,
+          "state": {
+            "holder": "__world__",
+            "proposition": "chamber empty",
+            "status": "believed_true",
+            "truth": true,
+            "confidence": 1.0,
+            "true_evidence": 1.0,
+            "false_evidence": 0.0,
+            "observations": 1,
+            "last_event": 11
+          }
+        },
+        "drive_event": null
+      }
+    },
+    {
+      "name": "self_outcome",
+      "pass": true,
+      "details": {
+        "text": "I tried decomposition and it failed",
+        "event_type": "self_outcome",
+        "epistemic": "asserted",
+        "reply": "Understood. I updated my self-model: decomposition failed.",
+        "mind_event": null,
+        "drive_event": null
+      }
+    },
+    {
+      "name": "hypothetical_abstention",
+      "pass": true,
+      "details": {
+        "reply": "I don't have enough reliable information to answer that yet.",
+        "semantic": {
+          "primary": {
+            "event_type": "belief",
+            "epistemic": "hypothetical",
+            "confidence": 0.86,
+            "source": "mental_language",
+            "agents": [
+              "mara"
+            ],
+            "proposition": {
+              "surface": "bridge might fail",
+              "canonical": "bridge might succeed",
+              "truth": false
+            },
+            "payload": {
+              "holder": "mara",
+              "proposition_text": "bridge might fail",
+              "polarity": true,
+              "confidence": 0.86,
+              "source": "mental_language"
+            },
+            "evidence": [
+              "native-mental-language"
+            ],
+            "persistent_eligible": false
+          },
+          "alternatives": [],
+          "conflicts": [],
+          "abstained": true,
+          "reason": "hypothetical_not_persisted"
+        },
+        "consolidation": {
+          "persist": false,
+          "mode": "transient",
+          "reason": "semantic_abstain",
+          "social_probability": 0.00033728513517417014,
+          "structured": false
+        }
+      }
+    },
+    {
+      "name": "belief_query_is_not_assertion",
+      "pass": true,
+      "details": {
+        "reply": "Here is the stored belief report: I don't have a stored belief for Lio yet.",
+        "semantic": {
+          "primary": {
+            "event_type": "question",
+            "epistemic": "queried",
+            "confidence": 0.99,
+            "source": "semantic-cortex",
+            "agents": [],
+            "proposition": null,
+            "payload": {},
+            "evidence": [
+              "question-guard"
+            ],
+            "persistent_eligible": false
+          },
+          "alternatives": [],
+          "conflicts": [],
+          "abstained": false,
+          "reason": "question"
+        },
+        "consolidation": {
+          "persist": false,
+          "mode": "transient",
+          "reason": "semantic_question",
+          "social_probability": 0.999667763710022,
+          "structured": false
+        }
+      }
+    },
+    {
+      "name": "expectation_no_belief_pollution",
+      "pass": true,
+      "details": {
+        "semantic": {
+          "primary": {
+            "event_type": "expectation",
+            "epistemic": "expected",
+            "confidence": 0.8508977737903594,
+            "source": "recurrent-reader",
+            "agents": [
+              "oren"
+            ],
+            "proposition": {
+              "surface": "bridge to open",
+              "canonical": "bridge open",
+              "truth": true
+            },
+            "payload": {
+              "holder": "oren",
+              "kind": "expectation",
+              "proposition_text": "bridge to open",
+              "priority": 0.55
+            },
+            "evidence": [
+              "language-proposal",
+              "native-mental-language",
+              "corroborated:mental_language"
+            ],
+            "persistent_eligible": true
+          },
+          "alternatives": [
+            {
+              "event_type": "belief",
+              "epistemic": "believed",
+              "confidence": 0.86,
+              "source": "mental_language",
+              "agents": [
+                "oren"
+              ],
+              "proposition": {
+                "surface": "bridge to open",
+                "canonical": "bridge open",
+                "truth": true
+              },
+              "payload": {
+                "holder": "oren",
+                "proposition_text": "bridge to open",
+                "polarity": true,
+                "confidence": 0.86,
+                "source": "mental_language"
+              },
+              "evidence": [
+                "native-mental-language"
+              ],
+              "persistent_eligible": true
+            }
+          ],
+          "conflicts": [
+            {
+              "blocked_type": "belief",
+              "kept_type": "expectation",
+              "reason": "same-agent-proposition-type-conflict"
+            }
+          ],
+          "abstained": false,
+          "reason": "typed_event"
+        },
+        "belief": {
+          "holder": "oren",
+          "proposition": "bridge open",
+          "status": "unknown",
+          "truth": null,
+          "confidence": 0.0,
+          "true_evidence": 0.0,
+          "false_evidence": 0.0,
+          "observations": 0,
+          "query_truth_form": true
+        }
+      }
+    },
+    {
+      "name": "surface_and_canonical_separated",
+      "pass": true,
+      "details": {
+        "proposition": {
+          "surface": "silver valve is closed",
+          "canonical": "silver valve clos",
+          "truth": true
+        }
+      }
+    },
+    {
+      "name": "hostile_confident_fear_to_belief_blocked",
+      "pass": true,
+      "details": {
+        "rejected": [
+          {
+            "kind": "belief",
+            "payload": {
+              "holder": "Kelan",
+              "proposition_text": "fence has collapsed",
+              "polarity": true
+            },
+            "confidence": 0.9991,
+            "source": "hostile-extractor",
+            "evidence": [],
+            "reason": "semantic_type_conflict"
+          }
+        ],
+        "semantic": {
+          "primary": {
+            "event_type": "fear",
+            "epistemic": "feared",
+            "confidence": 0.84,
+            "source": "mental_language",
+            "agents": [
+              "kelan"
+            ],
+            "proposition": {
+              "surface": "fence has collapsed",
+              "canonical": "fence collaps",
+              "truth": true
+            },
+            "payload": {
+              "holder": "kelan",
+              "kind": "fear",
+              "proposition_text": "fence has collapsed",
+              "priority": 0.7,
+              "confidence": 0.84,
+              "source": "mental_language"
+            },
+            "evidence": [
+              "native-mental-language"
+            ],
+            "persistent_eligible": true
+          },
+          "alternatives": [],
+          "conflicts": [],
+          "abstained": false,
+          "reason": "typed_event"
+        }
+      }
+    }
+  ],
+  "notes": [
+    "This is an architecture/regression benchmark, not a general-intelligence benchmark.",
+    "The hostile extractor case verifies pre-persistence type-conflict blocking.",
+    "No alpha.6 learned structured extractor is claimed; the rejected experiment remains rejected."
+  ]
+}

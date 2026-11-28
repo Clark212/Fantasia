@@ -1,0 +1,631 @@
+{
+  "after": {
+    "drift": {
+      "drift": {
+        "automatic": true,
+        "boundary_seq": 14,
+        "budget_exhausted": false,
+        "candidate_count": 292,
+        "evaluator_calls": 298,
+        "fit_evidence_ids": [
+          "drift-bfit-1",
+          "drift-bfit-2",
+          "drift-bfit-3",
+          "drift-bresolve-query-0",
+          "drift-bresolve-query-1"
+        ],
+        "mode": "induction",
+        "origin": "conditional",
+        "program": {
+          "expression": [
+            "if",
+            [
+              "lt",
+              "x",
+              0
+            ],
+            [
+              "add",
+              [
+                "sub",
+                0,
+                "x"
+              ],
+              5
+            ],
+            [
+              "add",
+              [
+                "mul",
+                3,
+                "x"
+              ],
+              -2
+            ]
+          ],
+          "inputs": {
+            "x": "int"
+          }
+        },
+        "status": "proposed",
+        "version": 2
+      },
+      "drift_prediction": {
+        "confidence": 0.9,
+        "contradictions": 0,
+        "extrapolating": false,
+        "status": "predicted",
+        "support": 8,
+        "value": 16,
+        "version": 2
+      },
+      "reversal": {
+        "automatic": true,
+        "boundary_seq": 28,
+        "fit_evidence_ids": [
+          "drift-cfit-0",
+          "drift-cfit-1",
+          "drift-cfit-2"
+        ],
+        "mode": "revalidation",
+        "program": {
+          "expression": [
+            "if",
+            [
+              "lt",
+              "x",
+              0
+            ],
+            [
+              "add",
+              [
+                "mul",
+                2,
+                "x"
+              ],
+              1
+            ],
+            [
+              "add",
+              [
+                "sub",
+                0,
+                "x"
+              ],
+              3
+            ]
+          ],
+          "inputs": {
+            "x": "int"
+          }
+        },
+        "status": "proposed",
+        "version": 3
+      },
+      "reversal_prediction": {
+        "confidence": 0.9,
+        "contradictions": 0,
+        "extrapolating": false,
+        "status": "predicted",
+        "support": 8,
+        "value": -3,
+        "version": 3
+      },
+      "versions": [
+        {
+          "contradictions": 2,
+          "created_seq": 5,
+          "dependencies": {
+            "oracle": 1
+          },
+          "program": {
+            "expression": [
+              "if",
+              [
+                "lt",
+                "x",
+                0
+              ],
+              [
+                "add",
+                [
+                  "mul",
+                  2,
+                  "x"
+                ],
+                1
+              ],
+              [
+                "add",
+                [
+                  "sub",
+                  0,
+                  "x"
+                ],
+                3
+              ]
+            ],
+            "inputs": {
+              "x": "int"
+            }
+          },
+          "provenance": "asm_induction:conditional",
+          "state": "suspended",
+          "support": 8,
+          "version": 1
+        },
+        {
+          "contradictions": 2,
+          "created_seq": 19,
+          "dependencies": {
+            "oracle": 1
+          },
+          "program": {
+            "expression": [
+              "if",
+              [
+                "lt",
+                "x",
+                0
+              ],
+              [
+                "add",
+                [
+                  "sub",
+                  0,
+                  "x"
+                ],
+                5
+              ],
+              [
+                "add",
+                [
+                  "mul",
+                  3,
+                  "x"
+                ],
+                -2
+              ]
+            ],
+            "inputs": {
+              "x": "int"
+            }
+          },
+          "provenance": "asm_induction:conditional",
+          "state": "suspended",
+          "support": 8,
+          "version": 2
+        },
+        {
+          "contradictions": 0,
+          "created_seq": 30,
+          "dependencies": {
+            "oracle": 1
+          },
+          "program": {
+            "expression": [
+              "if",
+              [
+                "lt",
+                "x",
+                0
+              ],
+              [
+                "add",
+                [
+                  "mul",
+                  2,
+                  "x"
+                ],
+                1
+              ],
+              [
+                "add",
+                [
+                  "sub",
+                  0,
+                  "x"
+                ],
+                3
+              ]
+            ],
+            "inputs": {
+              "x": "int"
+            }
+          },
+          "provenance": "asm_auto_revalidation:version1",
+          "state": "active",
+          "support": 8,
+          "version": 3
+        }
+      ]
+    },
+    "piecewise": {
+      "auto": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "budget_exhausted": false,
+        "candidate_count": 292,
+        "evaluator_calls": 303,
+        "fit_evidence_ids": [
+          "piece-fit-0",
+          "piece-fit-1",
+          "piece-fit-2",
+          "piece-fit-3",
+          "piece-resolve-query-0"
+        ],
+        "mode": "induction",
+        "origin": "conditional",
+        "program": {
+          "expression": [
+            "if",
+            [
+              "lt",
+              "x",
+              0
+            ],
+            [
+              "add",
+              [
+                "mul",
+                2,
+                "x"
+              ],
+              1
+            ],
+            [
+              "add",
+              [
+                "sub",
+                0,
+                "x"
+              ],
+              3
+            ]
+          ],
+          "inputs": {
+            "x": "int"
+          }
+        },
+        "status": "proposed",
+        "version": 1
+      },
+      "correct": 19,
+      "total": 61,
+      "version": {
+        "contradictions": 0,
+        "created_seq": 5,
+        "dependencies": {
+          "oracle": 1
+        },
+        "program": {
+          "expression": [
+            "if",
+            [
+              "lt",
+              "x",
+              0
+            ],
+            [
+              "add",
+              [
+                "mul",
+                2,
+                "x"
+              ],
+              1
+            ],
+            [
+              "add",
+              [
+                "sub",
+                0,
+                "x"
+              ],
+              3
+            ]
+          ],
+          "inputs": {
+            "x": "int"
+          }
+        },
+        "provenance": "asm_induction:conditional",
+        "state": "active",
+        "support": 8,
+        "version": 1
+      }
+    },
+    "predicate": {
+      "auto": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "budget_exhausted": true,
+        "candidate_count": 512,
+        "evaluator_calls": 2560,
+        "fit_evidence_ids": [
+          "neg-fit-0",
+          "neg-fit-1",
+          "neg-fit-2",
+          "neg-resolve-query-0",
+          "neg-resolve-query-1"
+        ],
+        "mode": "induction",
+        "origin": "boolean:predicate",
+        "program": {
+          "expression": [
+            "lt",
+            "x",
+            0
+          ],
+          "inputs": {
+            "x": "int"
+          }
+        },
+        "status": "proposed",
+        "version": 1
+      },
+      "predictions": {
+        "-9": true,
+        "-2": true,
+        "0": false,
+        "4": false,
+        "12": null
+      }
+    },
+    "read_only": {
+      "after": [
+        3,
+        0,
+        0,
+        0
+      ],
+      "before": [
+        3,
+        0,
+        0,
+        0
+      ],
+      "query": {
+        "boundary_seq": 0,
+        "candidate_count": 213,
+        "distinct_predictions": 2,
+        "evaluator_calls": 639,
+        "hypotheses": 13,
+        "input": {
+          "a": true,
+          "b": true
+        },
+        "prediction_groups": {
+          "false": 6,
+          "true": 7
+        },
+        "read_only": true,
+        "score": 0.9957274520849255,
+        "status": "query_suggested",
+        "total_fit_hypotheses": 15
+      }
+    },
+    "selector": {
+      "auto": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "budget_exhausted": false,
+        "candidate_count": 2,
+        "evaluator_calls": 8,
+        "fit_evidence_ids": [
+          "sel-fit-0",
+          "sel-fit-1",
+          "sel-fit-2",
+          "sel-fit-3"
+        ],
+        "mode": "induction",
+        "origin": "conditional",
+        "program": {
+          "expression": [
+            "if",
+            "flag",
+            [
+              "add",
+              "x",
+              1
+            ],
+            [
+              "add",
+              "x",
+              -1
+            ]
+          ],
+          "inputs": {
+            "flag": "bool",
+            "x": "int"
+          }
+        },
+        "status": "proposed",
+        "version": 1
+      },
+      "correct": 26,
+      "total": 50
+    },
+    "xor": {
+      "explicit_query": {
+        "boundary_seq": 0,
+        "candidate_count": 213,
+        "distinct_predictions": 2,
+        "evaluator_calls": 639,
+        "hypotheses": 13,
+        "input": {
+          "a": true,
+          "b": true
+        },
+        "prediction_groups": {
+          "false": 6,
+          "true": 7
+        },
+        "read_only": true,
+        "score": 0.9957274520849255,
+        "status": "query_suggested",
+        "total_fit_hypotheses": 15
+      },
+      "pre": {
+        "boundary_seq": 0,
+        "information_query": {
+          "candidate_count": 213,
+          "distinct_predictions": 2,
+          "evaluator_calls": 639,
+          "hypotheses": 13,
+          "input": {
+            "a": true,
+            "b": true
+          },
+          "prediction_groups": {
+            "false": 6,
+            "true": 7
+          },
+          "read_only": true,
+          "score": 0.9957274520849255,
+          "status": "query_suggested",
+          "total_fit_hypotheses": 15
+        },
+        "required": 4,
+        "status": "collecting",
+        "trusted_independent_roots": 3
+      },
+      "predictions": [
+        false,
+        true,
+        true,
+        false
+      ],
+      "proposal": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "budget_exhausted": false,
+        "candidate_count": 357,
+        "evaluator_calls": 1428,
+        "fit_evidence_ids": [
+          "xor-fit-0",
+          "xor-fit-1",
+          "xor-fit-2",
+          "xor-fit4-0"
+        ],
+        "mode": "induction",
+        "origin": "boolean:not_eq(bool_var,bool_var)",
+        "program": {
+          "expression": [
+            "not",
+            [
+              "eq",
+              "a",
+              "b"
+            ]
+          ],
+          "inputs": {
+            "a": "bool",
+            "b": "bool"
+          }
+        },
+        "status": "proposed",
+        "version": 1
+      },
+      "versions": [
+        {
+          "contradictions": 0,
+          "created_seq": 4,
+          "dependencies": {
+            "oracle": 1
+          },
+          "program": {
+            "expression": [
+              "not",
+              [
+                "eq",
+                "a",
+                "b"
+              ]
+            ],
+            "inputs": {
+              "a": "bool",
+              "b": "bool"
+            }
+          },
+          "provenance": "asm_induction:boolean:not_eq(bool_var,bool_var)",
+          "state": "active",
+          "support": 4,
+          "version": 1
+        }
+      ]
+    }
+  },
+  "before": {
+    "piecewise": {
+      "has_information_query": false,
+      "last_auto": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "budget": 512,
+        "candidate_count": 291,
+        "evaluator_calls": 308,
+        "fit_evidence_ids": [
+          "piece-1",
+          "piece-2",
+          "piece-3"
+        ],
+        "mode": "induction",
+        "status": "unresolved"
+      },
+      "versions": []
+    },
+    "selector": {
+      "has_information_query": false,
+      "last_auto": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "fit_evidence_ids": [
+          "sel-0",
+          "sel-1",
+          "sel-2",
+          "sel-3"
+        ],
+        "mode": "induction",
+        "reason": "built-in autonomous synthesis currently supports integer outputs over 1-4 integer inputs",
+        "status": "unsupported"
+      },
+      "versions": []
+    },
+    "sha256": "421527405b0e9f9d7eb87a291e76f988e81fd4c35d01be4107cc1a9ac2b033f9",
+    "version": "0.4.0-alpha.7.3",
+    "xor": {
+      "has_information_query": false,
+      "last_auto": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "fit_evidence_ids": [
+          "xor-0",
+          "xor-1",
+          "xor-2",
+          "xor-3"
+        ],
+        "mode": "induction",
+        "reason": "built-in autonomous synthesis currently supports integer outputs over 1-4 integer inputs",
+        "status": "unsupported"
+      },
+      "versions": []
+    }
+  },
+  "benchmark": "ASM v0.4.0-alpha.7.4 conditional procedures and active information gathering",
+  "checks": {
+    "baseline_is_exact_alpha73": true,
+    "baseline_lacks_alpha74_capabilities": true,
+    "conditional_drift_revision": true,
+    "conditional_reversal_revalidation": true,
+    "disagreement_query_picks_missing_xor_case": true,
+    "information_query_is_read_only": true,
+    "integer_predicate_learned": false,
+    "mixed_bool_integer_selector_generalizes": false,
+    "no_direct_query_authority": true,
+    "piecewise_affine_generalizes": false,
+    "xor_learned_and_validated": true
+  },
+  "passed": 8,
+  "total": 11
+}

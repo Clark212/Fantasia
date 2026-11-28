@@ -1,0 +1,50 @@
+{
+  "version": "0.4.0-alpha.7.9",
+  "summary": {
+    "passed": 12,
+    "total": 12,
+    "accuracy_pct": 100.0
+  },
+  "phase1": {
+    "group0": 32,
+    "capacity": 32
+  },
+  "phase2": {
+    "groups": [
+      32,
+      31
+    ],
+    "capacity": 64
+  },
+  "phase3": {
+    "groups": [
+      31,
+      30,
+      32
+    ],
+    "capacity": 128
+  },
+  "post_hammer": {
+    "groups": [
+      32,
+      31,
+      31
+    ]
+  },
+  "restart": {
+    "groups": [
+      32,
+      31,
+      31
+    ]
+  },
+  "capacity_history": [
+    32,
+    64,
+    128
+  ],
+  "known_outcomes": 96,
+  "anchors": 96,
+  "fixed_capacity_rejected_33rd": true
+}
+RESULT: /tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/baseline79/results/elastic_mechanism_capacity_benchmark.json

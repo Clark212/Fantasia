@@ -1,0 +1,34 @@
+{
+  "benchmark": "alpha.7.4 conditional/query torture",
+  "checks": {
+    "boolean_family_8_of_8": true,
+    "conditional_drift_reversal_20_of_20": true,
+    "duplicate_root_guard_applies_to_queries": true,
+    "information_query_100_calls_read_only": true,
+    "information_query_100_of_100_stable": true,
+    "random_boolean_noise_zero_final_active": true,
+    "random_piecewise_affine_32_of_32": false,
+    "random_thresholds_32_of_32": false
+  },
+  "details": {
+    "boolean_family": {
+      "and": true,
+      "imp": true,
+      "majority3": true,
+      "nand": true,
+      "nor": true,
+      "or": true,
+      "xnor": true,
+      "xor": true
+    },
+    "conditionals_passed": 0,
+    "drift_reversal_passed": 20,
+    "duplicate_guard": true,
+    "noise_final_active": 0,
+    "query_read_only": true,
+    "query_stable": true,
+    "thresholds_passed": 0
+  },
+  "passed": 6,
+  "total": 8
+}

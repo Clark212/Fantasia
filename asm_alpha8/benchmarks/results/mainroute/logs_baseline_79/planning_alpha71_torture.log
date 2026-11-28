@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "inference_order_invariant_and_read_only": true,
+    "malformed_and_capacity_fail_atomic": true,
+    "no_nan_inf": true,
+    "non_temporal_order_invariant_alpha7_semantics": true,
+    "partial_shifts_detected_both_directions": true,
+    "schema1_migration_no_fake_temporal_history": true,
+    "source_count_extremes_and_finite": true,
+    "stationary_cross_zero_false_splits_24": true,
+    "stationary_self_zero_false_splits_100": true
+  },
+  "passed": 9,
+  "summary": {
+    "false_cross": 0,
+    "false_self": 0,
+    "partial_cross_regimes": [
+      2,
+      2
+    ],
+    "partial_self_regimes": [
+      2,
+      2
+    ]
+  },
+  "total": 9
+}

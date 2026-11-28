@@ -1,0 +1,92 @@
+{
+  "copy_depth_torture": [
+    {
+      "depth": 1,
+      "posterior_A": 0.7,
+      "root_count": 1
+    },
+    {
+      "depth": 2,
+      "posterior_A": 0.7,
+      "root_count": 1
+    },
+    {
+      "depth": 3,
+      "posterior_A": 0.7,
+      "root_count": 1
+    },
+    {
+      "depth": 5,
+      "posterior_A": 0.7,
+      "root_count": 1
+    },
+    {
+      "depth": 9,
+      "posterior_A": 0.7,
+      "root_count": 1
+    },
+    {
+      "depth": 16,
+      "posterior_A": 0.7,
+      "root_count": 1
+    },
+    {
+      "depth": 32,
+      "posterior_A": 0.7,
+      "root_count": 1
+    },
+    {
+      "depth": 64,
+      "posterior_A": 0.7,
+      "root_count": 1
+    }
+  ],
+  "independent_9_after": {
+    "accuracy": 0.8977,
+    "calibration_gap_abs": 0.0029742014737637046,
+    "confidence_stddev": 0.11812158167013073,
+    "mean_confidence": 0.9006742014737638,
+    "trials": 20000
+  },
+  "independent_9_before": {
+    "accuracy": 0.8977,
+    "calibration_gap_abs": 0.0029742014737637046,
+    "confidence_stddev": 0.11812158167013073,
+    "mean_confidence": 0.9006742014737638,
+    "trials": 20000
+  },
+  "independent_equivalence": {
+    "decision_rank_matches": 1000,
+    "length": 20,
+    "max_probability_error": 0.0,
+    "sequences": 1000
+  },
+  "shared_9_after": {
+    "accuracy": 0.69895,
+    "calibration_gap_abs": 0.0010499999999999954,
+    "confidence_stddev": 0.0,
+    "mean_confidence": 0.7,
+    "trials": 20000
+  },
+  "shared_9_before": {
+    "accuracy": 0.69895,
+    "calibration_gap_abs": 0.3005624747079072,
+    "confidence_stddev": 0.0,
+    "mean_confidence": 0.9995124747079072,
+    "trials": 20000
+  },
+  "three_roots_x3_after": {
+    "accuracy": 0.7847,
+    "calibration_gap_abs": 0.0013583783783783776,
+    "confidence_stddev": 0.10943022749609271,
+    "mean_confidence": 0.7833416216216216,
+    "trials": 20000
+  },
+  "three_roots_x3_before": {
+    "accuracy": 0.7847,
+    "calibration_gap_abs": 0.1689364348706781,
+    "confidence_stddev": 0.034939007631591565,
+    "mean_confidence": 0.9536364348706781,
+    "trials": 20000
+  }
+}

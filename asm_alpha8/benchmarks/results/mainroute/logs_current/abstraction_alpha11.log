@@ -1,0 +1,132 @@
+{
+  "ambiguous_control": {
+    "abstraction_suppressed": true,
+    "exception_removed": true,
+    "signature_marked_ambiguous": true
+  },
+  "benchmark": "ASM v0.3.0-alpha.11 Validated Mechanism Abstraction",
+  "checks": {
+    "abstraction_candidate_memory_bounded": true,
+    "ambiguous_visible_input_suppresses_abstraction": true,
+    "at_least_16_validated_abstractions": true,
+    "diverse_contradictions_demote_rule": true,
+    "entity_ids_not_used_as_rule_features": true,
+    "exact_exception_store_bounded": true,
+    "fresh_seed_lockbox_90_of_90": true,
+    "late_exceptions_4_of_4": true,
+    "random_control_no_promoted_rules": true,
+    "random_control_unseen_at_or_below_20pct": true,
+    "restart_exceptions_4_of_4": true,
+    "restart_unseen_128_of_128": true,
+    "structured_beats_no_abstraction_by_40_points": true,
+    "structured_unseen_128_of_128": true,
+    "unseen_generalization_survives_exceptions": true,
+    "version_is_current_release": false
+  },
+  "fresh_lockbox": {
+    "accuracy": 1.0,
+    "correct": 90,
+    "promoted_after_change": 28,
+    "promoted_before_change": 15,
+    "systematic_contradiction_demoted_rule": true,
+    "total": 90
+  },
+  "passed": 15,
+  "random_control": {
+    "accuracy": 0.0625,
+    "correct": 8,
+    "promoted": 0,
+    "stats": {
+      "abstraction_candidate_evictions": 0,
+      "abstraction_candidates": 808,
+      "abstraction_candidates_per_observation": 48,
+      "abstraction_enabled": true,
+      "abstraction_exception_hits": 0,
+      "abstraction_exceptions": 0,
+      "abstraction_hits": 0,
+      "abstraction_misses": 895,
+      "abstraction_pending_candidates": 0,
+      "abstraction_pending_enabled": true,
+      "abstraction_pending_limit": 256,
+      "abstraction_pending_promotions": 0,
+      "abstraction_promoted": 0,
+      "abstraction_promotions": 0,
+      "abstraction_sparse_enabled": true,
+      "abstraction_sparse_max_retained_features": 2,
+      "capacity_expansions": 0,
+      "capacity_history": [
+        32
+      ],
+      "conditional_distribution_ambiguous": 0,
+      "conditional_distribution_inputs": 192,
+      "conditional_distribution_support": 192,
+      "consolidation_byte_budget": 43008,
+      "consolidation_bytes": 43008,
+      "consolidation_cells": 3584,
+      "consolidation_collisions": 0,
+      "consolidation_displacements": 0,
+      "consolidation_enabled": true,
+      "consolidation_hashes": 3,
+      "consolidation_hits": 0,
+      "consolidation_layout_version": 3,
+      "consolidation_load_factor": 0.05357142857142857,
+      "consolidation_max_displacements": 24,
+      "consolidation_misses": 0,
+      "consolidation_placement_failures": 0,
+      "consolidation_table_size": 1024,
+      "consolidation_used_cells": 192,
+      "context_trace_limit": 4,
+      "contexts": 192,
+      "ema_error": 0.9923322097557313,
+      "known_outcomes": 16,
+      "mechanism_type": "a11_random_control",
+      "observations": 192,
+      "outcome_capacity": 32,
+      "outcome_capacity_limit": 256,
+      "parameters": 7496,
+      "pre_learning_accuracy": 0.057291666666666664,
+      "replay_size": 64,
+      "retention_ambiguous_inputs": 0,
+      "retention_anchor_batch_limit": 4,
+      "retention_anchor_limit": 96,
+      "retention_anchor_outcomes": 16,
+      "retention_anchors": 96,
+      "surprised_contexts": 181,
+      "trace_fallback_entries": 0,
+      "trace_fallback_hits": 0,
+      "trace_fallback_support": 0,
+      "traced_contexts": 192
+    },
+    "total": 128
+  },
+  "structured": {
+    "candidates": 808,
+    "exception_accuracy": [
+      4,
+      4
+    ],
+    "no_abstraction": [
+      76,
+      128
+    ],
+    "promoted": 32,
+    "restart_exceptions": [
+      4,
+      4
+    ],
+    "restart_unseen": [
+      128,
+      128
+    ],
+    "unseen_after_exceptions": [
+      128,
+      128
+    ],
+    "unseen_before_exceptions": [
+      128,
+      128
+    ]
+  },
+  "total": 16,
+  "version": "0.4.0-alpha.7.9"
+}

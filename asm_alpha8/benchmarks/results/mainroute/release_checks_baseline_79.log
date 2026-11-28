@@ -1,0 +1,260 @@
+{"name": "unit_legacy_a", "returncode": 0, "pass": true, "elapsed_seconds": 11.706, "command": ["/usr/local/bin/python3", "-m", "unittest", "tests/test_v01110.py", "tests/test_v0114.py", "tests/test_v0115.py", "-q"], "tests": 37}
+{"name": "unit_legacy_b", "returncode": 0, "pass": true, "elapsed_seconds": 7.795, "command": ["/usr/local/bin/python3", "-m", "unittest", "tests/test_v0116.py", "tests/test_v0117.py", "tests/test_v0118.py", "tests/test_v0119.py", "-q"], "tests": 35}
+{"name": "unit_v02_a", "returncode": 0, "pass": true, "elapsed_seconds": 2.746, "command": ["/usr/local/bin/python3", "-m", "unittest", "tests/test_v020a1.py", "tests/test_v020a2.py", "tests/test_v020a3.py", "-q"], "tests": 29}
+{"name": "unit_v02_b", "returncode": 0, "pass": true, "elapsed_seconds": 4.654, "command": ["/usr/local/bin/python3", "-m", "unittest", "tests/test_v020a4.py", "tests/test_v020a5.py", "tests/test_v020a6.py", "tests/test_v020a7.py", "-q"], "tests": 55}
+{"name": "unit_v03_a", "returncode": 0, "pass": true, "elapsed_seconds": 14.008, "command": ["/usr/local/bin/python3", "-m", "unittest", "tests/test_v030a1.py", "tests/test_v030a2.py", "tests/test_v030a3.py", "tests/test_v030a4.py", "tests/test_v030a5.py", "-q"], "tests": 37}
+{"name": "unit_v03_b", "returncode": 0, "pass": true, "elapsed_seconds": 3.797, "command": ["/usr/local/bin/python3", "-m", "unittest", "tests/test_v030a6.py", "tests/test_v030a7.py", "tests/test_v030a8.py", "tests/test_v030a9.py", "tests/test_v030a10.py", "tests/test_v030a11.py", "tests/test_v030a12.py", "-q"], "tests": 40}
+{"name": "unit_v04_a", "returncode": 0, "pass": true, "elapsed_seconds": 4.044, "command": ["/usr/local/bin/python3", "-m", "unittest", "tests/test_v040a1.py", "tests/test_v040a2.py", "tests/test_v040a3.py", "tests/test_v040a4.py", "tests/test_v040a5.py", "tests/test_v040a51.py", "tests/test_v040a51_contract.py", "tests/test_v040a52.py", "tests/test_v040a6.py", "tests/test_v040a61.py", "tests/test_v040a62.py", "tests/test_v040a7.py", "tests/test_v040a71.py", "tests/test_v040a72.py", "tests/test_v040a73.py", "tests/test_v040a74.py", "tests/test_alpha71_astra_graft.py", "-q"], "tests": 160}
+{"name": "hard_regression", "returncode": 0, "pass": true, "elapsed_seconds": 6.974, "command": ["/usr/local/bin/python3", "hard_benchmark_v030a5_regression.py"]}
+{"name": "semantic_event", "returncode": 0, "pass": true, "elapsed_seconds": 1.264, "command": ["/usr/local/bin/python3", "benchmark_v020a6_regression.py"]}
+{"name": "semantic_memory", "returncode": 0, "pass": true, "elapsed_seconds": 14.506, "command": ["/usr/local/bin/python3", "benchmark_v020a7.py"]}
+{"name": "world_state", "returncode": 0, "pass": true, "elapsed_seconds": 6.821, "command": ["/usr/local/bin/python3", "benchmark_v030a1.py"]}
+{"name": "transition_alpha2", "returncode": 0, "pass": true, "elapsed_seconds": 8.346, "command": ["/usr/local/bin/python3", "benchmark_v030a2.py"]}
+{"name": "transition_alpha3", "returncode": 0, "pass": true, "elapsed_seconds": 16.376, "command": ["/usr/local/bin/python3", "benchmark_v030a3.py"]}
+{"name": "scheduler_alpha4", "returncode": 0, "pass": true, "elapsed_seconds": 6.745, "command": ["/usr/local/bin/python3", "benchmark_v030a4.py"]}
+{"name": "scheduler_alpha5", "returncode": 0, "pass": true, "elapsed_seconds": 3.389, "command": ["/usr/local/bin/python3", "benchmark_v030a5.py"]}
+{"name": "retention_alpha6", "returncode": 0, "pass": true, "elapsed_seconds": 21.637, "command": ["/usr/local/bin/python3", "benchmark_v030a6.py"]}
+{"name": "capacity_alpha7", "returncode": 0, "pass": true, "elapsed_seconds": 17.48, "command": ["/usr/local/bin/python3", "benchmark_v030a7.py"]}
+{"name": "abstraction_alpha11", "returncode": 1, "pass": false, "elapsed_seconds": 5.11, "command": ["/usr/local/bin/python3", "benchmark_v030a11.py", "--mode", "all"]}
+--- abstraction_alpha11 failure output (last 40 lines) ---
+      "retention_anchors": 96,
+      "surprised_contexts": 181,
+      "trace_fallback_entries": 0,
+      "trace_fallback_hits": 0,
+      "trace_fallback_support": 0,
+      "traced_contexts": 192
+    },
+    "total": 128
+  },
+  "structured": {
+    "candidates": 808,
+    "exception_accuracy": [
+      4,
+      4
+    ],
+    "no_abstraction": [
+      76,
+      128
+    ],
+    "promoted": 32,
+    "restart_exceptions": [
+      4,
+      4
+    ],
+    "restart_unseen": [
+      128,
+      128
+    ],
+    "unseen_after_exceptions": [
+      128,
+      128
+    ],
+    "unseen_before_exceptions": [
+      128,
+      128
+    ]
+  },
+  "total": 16,
+  "version": "0.4.0-alpha.7.9"
+}
+--- end abstraction_alpha11 failure output ---
+{"name": "alpha12_structured_train", "returncode": 0, "pass": true, "elapsed_seconds": 4.35, "command": ["/usr/local/bin/python3", "benchmark_v030a12_split.py", "--mode", "structured_train"]}
+{"name": "alpha12_structured_finish", "returncode": 0, "pass": true, "elapsed_seconds": 4.674, "command": ["/usr/local/bin/python3", "benchmark_v030a12_split.py", "--mode", "structured_finish"]}
+{"name": "alpha12_baseline", "returncode": 0, "pass": true, "elapsed_seconds": 8.078, "command": ["/usr/local/bin/python3", "benchmark_v030a12_split.py", "--mode", "baseline"]}
+{"name": "alpha12_controls", "returncode": 0, "pass": true, "elapsed_seconds": 4.191, "command": ["/usr/local/bin/python3", "benchmark_v030a12_split.py", "--mode", "controls"]}
+{"name": "alpha12_lockbox", "returncode": 0, "pass": true, "elapsed_seconds": 3.145, "command": ["/usr/local/bin/python3", "benchmark_v030a12_split.py", "--mode", "lockbox"]}
+{"name": "alpha12_finalize", "returncode": 1, "pass": false, "elapsed_seconds": 1.19, "command": ["/usr/local/bin/python3", "benchmark_v030a12_split.py", "--mode", "finalize"]}
+--- alpha12_finalize failure output (last 40 lines) ---
+    "correct": 5,
+    "promoted": 0,
+    "total": 256
+  },
+  "structured": {
+    "candidates": 2048,
+    "drop_only_baseline": [
+      111,
+      384
+    ],
+    "exceptions": [
+      16,
+      16
+    ],
+    "new_key_shift": [
+      384,
+      384
+    ],
+    "pending_candidates": 256,
+    "post_exception_unseen": [
+      256,
+      256
+    ],
+    "promoted": 64,
+    "restart_exceptions": [
+      16,
+      16
+    ],
+    "restart_unseen": [
+      256,
+      256
+    ],
+    "unseen": [
+      384,
+      384
+    ]
+  },
+  "total": 18,
+  "version": "0.4.0-alpha.7.9"
+}
+--- end alpha12_finalize failure output ---
+{"name": "planning_alpha1_preservation", "returncode": 1, "pass": false, "elapsed_seconds": 2.362, "command": ["/usr/local/bin/python3", "benchmark_v040a1.py"]}
+--- planning_alpha1_preservation failure output (last 40 lines) ---
+    "conditional_distribution_support": 96,
+    "consolidation_byte_budget": 43008,
+    "consolidation_bytes": 43008,
+    "consolidation_cells": 3584,
+    "consolidation_collisions": 0,
+    "consolidation_displacements": 0,
+    "consolidation_enabled": true,
+    "consolidation_hashes": 3,
+    "consolidation_hits": 0,
+    "consolidation_layout_version": 3,
+    "consolidation_load_factor": 0.026785714285714284,
+    "consolidation_max_displacements": 24,
+    "consolidation_misses": 0,
+    "consolidation_placement_failures": 0,
+    "consolidation_table_size": 1024,
+    "consolidation_used_cells": 96,
+    "context_trace_limit": 4,
+    "contexts": 96,
+    "ema_error": 0.20028404675359474,
+    "known_outcomes": 4,
+    "mechanism_type": "v040a1_movement",
+    "observations": 96,
+    "outcome_capacity": 8,
+    "outcome_capacity_limit": 64,
+    "parameters": 3832,
+    "pre_learning_accuracy": 0.5729166666666666,
+    "replay_size": 64,
+    "retention_ambiguous_inputs": 0,
+    "retention_anchor_batch_limit": 6,
+    "retention_anchor_limit": 96,
+    "retention_anchor_outcomes": 4,
+    "retention_anchors": 96,
+    "surprised_contexts": 41,
+    "trace_fallback_entries": 0,
+    "trace_fallback_hits": 0,
+    "trace_fallback_support": 0,
+    "traced_contexts": 96
+  },
+  "version": "0.4.0-alpha.7.9"
+}
+--- end planning_alpha1_preservation failure output ---
+{"name": "planning_alpha2", "returncode": 1, "pass": false, "elapsed_seconds": 4.182, "command": ["/usr/local/bin/python3", "benchmark_v040a2.py"]}
+--- planning_alpha2 failure output (last 40 lines) ---
+{
+  "version": "0.4.0-alpha.7.9",
+  "passed": 7,
+  "total": 8,
+  "learned_line": "56/56",
+  "maze_5x5": "1000/1000",
+  "maze_10x10": "250/250",
+  "maze_10x10_rescues": 7,
+  "maze_10x10_max_expansions_used": 296
+}
+--- end planning_alpha2 failure output ---
+{"name": "planning_alpha3", "returncode": 1, "pass": false, "elapsed_seconds": 3.4, "command": ["/usr/local/bin/python3", "benchmark_v040a3.py"]}
+--- planning_alpha3 failure output (last 40 lines) ---
+{
+  "version": "0.4.0-alpha.7.9",
+  "passed": 9,
+  "total": 10,
+  "before_safe_choices_80_20": null,
+  "after_safe_choices_80_20": 3,
+  "before_mean_abs_calibration_error": null,
+  "after_mean_abs_calibration_error": 0.0025000000000000022,
+  "before_mean_expected_brier": null,
+  "after_mean_expected_brier": 0.16690000000000002,
+  "cost_choice": [
+    "step",
+    "step"
+  ],
+  "chain_goal_probability": 0.81
+}
+--- end planning_alpha3 failure output ---
+{"name": "planning_alpha4", "returncode": 1, "pass": false, "elapsed_seconds": 2.921, "command": ["/usr/local/bin/python3", "benchmark_v040a4.py"]}
+--- planning_alpha4 failure output (last 40 lines) ---
+{
+  "version": "0.4.0-alpha.7.9",
+  "passed": 9,
+  "total": 10,
+  "before_mean_goal_probability": 0.0,
+  "after_mean_goal_probability": 0.9441384736428008,
+  "learned_before_successes": 0,
+  "learned_after_successes": 3,
+  "useless_information_choice": "go",
+  "three_way_goal_probability": 1.0,
+  "noisy_unknown_probability": 0.09999999999999998
+}
+--- end planning_alpha4 failure output ---
+{"name": "planning_alpha4_stress", "returncode": 0, "pass": true, "elapsed_seconds": 1.282, "command": ["/usr/local/bin/python3", "benchmark_v040a4_stress.py"]}
+{"name": "planning_alpha5", "returncode": 0, "pass": true, "elapsed_seconds": 1.086, "command": ["/usr/local/bin/python3", "benchmark_v040a5.py"]}
+{"name": "planning_alpha5_stress", "returncode": 0, "pass": true, "elapsed_seconds": 1.382, "command": ["/usr/local/bin/python3", "benchmark_v040a5_stress.py"]}
+{"name": "planning_alpha5_mega", "returncode": 0, "pass": true, "elapsed_seconds": 5.046, "command": ["/usr/local/bin/python3", "benchmark_v040a5_mega_stress.py"]}
+{"name": "planning_alpha5_extreme", "returncode": 0, "pass": true, "elapsed_seconds": 12.085, "command": ["/usr/local/bin/python3", "benchmark_v040a5_extreme_torture.py"]}
+{"name": "planning_alpha6", "returncode": 0, "pass": true, "elapsed_seconds": 9.303, "command": ["/usr/local/bin/python3", "benchmark_v040a6.py"]}
+{"name": "planning_alpha6_torture", "returncode": 0, "pass": true, "elapsed_seconds": 6.273, "command": ["/usr/local/bin/python3", "benchmark_v040a6_torture.py"]}
+{"name": "planning_alpha61_current", "returncode": 0, "pass": true, "elapsed_seconds": 1.375, "command": ["/usr/local/bin/python3", "benchmark_v040a61_current_gate.py"]}
+{"name": "planning_alpha61_stationary", "returncode": 0, "pass": true, "elapsed_seconds": 3.747, "command": ["/usr/local/bin/python3", "benchmark_v040a61_stationary_torture.py"]}
+{"name": "planning_alpha62", "returncode": 0, "pass": true, "elapsed_seconds": 12.588, "command": ["/usr/local/bin/python3", "benchmark_v040a62.py"]}
+{"name": "planning_alpha62_torture", "returncode": 0, "pass": true, "elapsed_seconds": 2.188, "command": ["/usr/local/bin/python3", "benchmark_v040a62_torture.py"]}
+{"name": "planning_alpha7", "returncode": 0, "pass": true, "elapsed_seconds": 9.018, "command": ["/usr/local/bin/python3", "benchmark_v040a7.py"]}
+{"name": "planning_alpha7_torture", "returncode": 0, "pass": true, "elapsed_seconds": 7.978, "command": ["/usr/local/bin/python3", "benchmark_v040a7_torture.py"]}
+{"name": "planning_alpha71", "returncode": 0, "pass": true, "elapsed_seconds": 5.597, "command": ["/usr/local/bin/python3", "benchmark_v040a71.py"]}
+{"name": "planning_alpha71_torture", "returncode": 0, "pass": true, "elapsed_seconds": 4.831, "command": ["/usr/local/bin/python3", "benchmark_v040a71_torture.py"]}
+{"name": "planning_alpha71_performance", "returncode": 0, "pass": true, "elapsed_seconds": 3.078, "command": ["/usr/local/bin/python3", "benchmark_v040a71_performance.py"]}
+{"name": "procedure_alpha72", "returncode": 0, "pass": true, "elapsed_seconds": 1.624, "command": ["/usr/local/bin/python3", "benchmark_v040a72.py"]}
+{"name": "procedure_alpha72_torture", "returncode": 0, "pass": true, "elapsed_seconds": 10.78, "command": ["/usr/local/bin/python3", "benchmark_v040a72_torture.py"]}
+{"name": "procedure_alpha72_performance", "returncode": 0, "pass": true, "elapsed_seconds": 2.89, "command": ["/usr/local/bin/python3", "benchmark_v040a72_performance.py"]}
+{"name": "procedure_alpha73", "returncode": 0, "pass": true, "elapsed_seconds": 1.915, "command": ["/usr/local/bin/python3", "benchmark_v040a73.py"]}
+{"name": "procedure_alpha73_torture", "returncode": 0, "pass": true, "elapsed_seconds": 30.186, "command": ["/usr/local/bin/python3", "benchmark_v040a73_torture.py"]}
+{"name": "procedure_alpha73_performance", "returncode": 0, "pass": true, "elapsed_seconds": 2.413, "command": ["/usr/local/bin/python3", "benchmark_v040a73_performance.py"]}
+{"name": "procedure_alpha74", "returncode": 0, "pass": true, "elapsed_seconds": 1.54, "command": ["/usr/local/bin/python3", "benchmark_v040a74.py"]}
+{"name": "procedure_alpha74_torture", "returncode": 0, "pass": true, "elapsed_seconds": 21.524, "command": ["/usr/local/bin/python3", "benchmark_v040a74_torture.py"]}
+{"name": "procedure_alpha74_performance", "returncode": 1, "pass": false, "elapsed_seconds": 1.16, "command": ["/usr/local/bin/python3", "benchmark_v040a74_performance.py"]}
+--- procedure_alpha74_performance failure output (last 40 lines) ---
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/baseline79/benchmark_v040a74_performance.py", line 42, in <module>
+    baseline=json.loads(Path('/tmp/perf73.json').read_text())
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/pathlib/_local.py", line 546, in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/pathlib/_abc.py", line 632, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/pathlib/_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/perf73.json'
+--- end procedure_alpha74_performance failure output ---
+{"name": "writer", "returncode": 0, "pass": true, "elapsed_seconds": 2.595, "command": ["/usr/local/bin/python3", "benchmark_v020a5.py"]}
+{"name": "smoke", "returncode": 0, "pass": true, "elapsed_seconds": 1.535, "command": ["/usr/local/bin/python3", "smoke_test.py"]}
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/baseline79/run_release_checks.py", line 117, in <module>
+    if __name__=='__main__': main()
+                             ~~~~^^
+  File "/tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/baseline79/run_release_checks.py", line 112, in main
+    tr=trained_state_check(); rows.append(tr); print(json.dumps({'name':'trained_state','pass':tr['pass']},flush=True))
+                                                     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/json/__init__.py", line 238, in dumps
+    return cls(
+           ~~~^
+        skipkeys=skipkeys, ensure_ascii=ensure_ascii,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        check_circular=check_circular, allow_nan=allow_nan, indent=indent,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        separators=separators, default=default, sort_keys=sort_keys,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **kw).encode(obj)
+        ^^^^^
+TypeError: JSONEncoder.__init__() got an unexpected keyword argument 'flush'

@@ -16,8 +16,19 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
   developer's fix (mistletoe-2, already repaired by the workflow); every other plausible edit is wrong. Not run fresh.
   **The owner's instruction (2026-11-28): if the DEV route cannot pass M4's real-data gate, focus on the main roadmap.**
   The next step there is the 0.4.9 closure check (`ROADMAP.md`, Stage 4: a pre-registered check that the Stage 4
-  components work together). Stage 4 tests (`tests/test_v040*.py`, `tests/test_alpha7*.py`): 221 pass, 6 fail for
-  want of PyTorch (`asm/transition_mechanism.py`).
+  components work together).
+- **Main route, step 1 done (2026-11-28): the frozen baseline reproduces**
+  (`asm_alpha8/benchmarks/results/mainroute/BASELINE_REPRODUCTION.md`).
+  - With CPU PyTorch installed (`pip install torch --index-url https://download.pytorch.org/whl/cpu`), the historical
+    tests pass exactly as alpha 7.9's release notes say: 470 passed, 1 skipped.
+  - Release gate (`run_release_checks.py`, run from a scratch copy, since it writes into `results/`): the frozen archive
+    passes 48 of 55 jobs, today's code 41.
+    - The 7 jobs failing in both are stale version pins (planning alpha 1-4, abstraction, alpha12), a temp file, and a
+      runner bug at the end.
+    - The 7 failing only today are the alpha 7.2-7.4 procedure benchmarks. Their cause is DEV3.3's owner-approved
+      `extrapolation_guard='abstain'`; they pass with it off (`asm_alpha8/tools/with_cortex_options.py
+      extrapolation_guard=off <script>`).
+  - No Stage 4 planning capability was lost.
 - **DEV34** (project adaptation in development; the M4 real-data gate again with the fixed check, on 59 fresh
   real bugs). G34-A **not passed**.
   - **The changes:** DEV33's check fixed. Its suite runs get at most the remaining time, and test ids are compared
@@ -62,16 +73,16 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
     `family_memory='index'`, `contradiction_policy='tolerant'` (approved for testing only).
 - The cortex defaults, all by the owner's approval: `family_sharing='round_robin'` (DEV21), `family_scope='any_int'`
   (DEV22) and `family_mapping='rename'` (DEV23; the last two since 2026-11-23).
-- Reproducing earlier runs: DEV4's published numbers need `cortex_options={'family_sharing': 'listing'}`; DEV21's
+- Reproducing earlier runs: the alpha 7.2-7.4 procedure benchmarks need `extrapolation_guard='off'` (see above); DEV4's published numbers need `cortex_options={'family_sharing': 'listing'}`; DEV21's
   held-out lab records need `family_mapping='exact'` (`asm_alpha8/benchmarks/dev23_lab_check.py exact`); the other
   committed lab runs reproduce as they are (`asm_alpha8/benchmarks/results/dev23/development/default_flip_check.txt`).
   `asm_alpha8/benchmarks/lab_check.py <dir> family_mapping=exact` re-runs all eight DEV21–DEV24 lab runs and compares.
 - Records: reports `asm_alpha8/ALPHA8_CODING_DEV*_IMPLEMENTATION.md`; pre-registrations and amendments
   `asm_alpha8/benchmarks/preregistration/`; raw results `asm_alpha8/benchmarks/results/devN/` (hash-chained JSONL; never
   edit); progress page `README.md` from `progress/`.
-- Tests: `cd asm_alpha8 && python3 -m pytest -q tests/test_alpha8_*.py` (634 passed, 3 skipped at DEV34). The whole
-  `tests/` directory has 57 more failures in v0.2–v0.4 modules that need PyTorch, which is not installed (checked at
-  DEV23: the same 57 test IDs as on the DEV22 commit), and `test_v030a7.py`, `test_v030a9.py`, `test_v030a10.py` cannot import.
+- Tests: `cd asm_alpha8 && python3 -m pytest -q tests/test_alpha8_*.py` (634 passed, 3 skipped at DEV34). The rest of
+  `tests/` needs PyTorch (not installed by default in a fresh container; CPU wheel from download.pytorch.org): with it,
+  470 passed, 1 skipped (2026-11-28); without it, 57 fail and three modules cannot import.
 - Open work:
   - Owner decisions:
     - make `family_parameters='solve'`, `family_ambiguity='ask'` and `family_memory='index'` the defaults (DEV25–DEV27;

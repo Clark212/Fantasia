@@ -1,0 +1,305 @@
+{
+  "benchmark": "ASM v0.4.0-alpha.5 mega hard feed",
+  "checks": {
+    "8way_eventually_recovers_oracle": true,
+    "anti_informative_sensors_match_oracle": true,
+    "belief_key_no_material_collision_in_100k": true,
+    "correlated_evidence_exposes_independence_assumption": true,
+    "hypothesis_bound_enforced": true,
+    "impossible_evidence_fails_closed": true,
+    "known_sensor_drift_matches_oracle": true,
+    "misspecification_detected_as_failure": true,
+    "neutral_sensor_no_fake_information_gain": true,
+    "posterior_50k_updates_logspace_match": true,
+    "regime_flip_exposes_stale_likelihood_model": true,
+    "skew_priors_variable_reliability_stable": true,
+    "topk_truncation_keeps_unknown_mass": false,
+    "up_to_32_hypotheses_exact_small_horizons": true
+  },
+  "interpretation": {
+    "deliberate_limitation_probes": [
+      "misspecification_detected_as_failure",
+      "correlated_evidence_exposes_independence_assumption",
+      "regime_flip_exposes_stale_likelihood_model"
+    ],
+    "robustness_checks_are_expected_true": [
+      "posterior_50k_updates_logspace_match",
+      "skew_priors_variable_reliability_stable",
+      "anti_informative_sensors_match_oracle",
+      "known_sensor_drift_matches_oracle",
+      "up_to_32_hypotheses_exact_small_horizons",
+      "8way_eventually_recovers_oracle",
+      "hypothesis_bound_enforced",
+      "neutral_sensor_no_fake_information_gain",
+      "topk_truncation_keeps_unknown_mass",
+      "belief_key_no_material_collision_in_100k",
+      "impossible_evidence_fails_closed"
+    ]
+  },
+  "passed": 13,
+  "results": {
+    "anti_informative_binary": [
+      {
+        "accuracy": 0.49,
+        "claimed": 0.514998,
+        "error": 1.1102230246251565e-16,
+        "expansions": 33,
+        "oracle": 0.5149980000000001,
+        "root": "sense"
+      },
+      {
+        "accuracy": 0.4,
+        "claimed": 0.6479999999999999,
+        "error": 1.1102230246251565e-16,
+        "expansions": 30,
+        "oracle": 0.648,
+        "root": "sense"
+      },
+      {
+        "accuracy": 0.25,
+        "claimed": 0.8437500000000002,
+        "error": 2.220446049250313e-16,
+        "expansions": 30,
+        "oracle": 0.84375,
+        "root": "sense"
+      },
+      {
+        "accuracy": 0.1,
+        "claimed": 0.9720000000000003,
+        "error": 3.3306690738754696e-16,
+        "expansions": 33,
+        "oracle": 0.972,
+        "root": "sense"
+      }
+    ],
+    "belief_key_100k": {
+      "keys": 100000,
+      "material_collisions_gt_1e-12": 0
+    },
+    "correlated_evidence_assumed_independent": {
+      "actual": 0.7,
+      "claimed": 0.8369199999999998,
+      "expansions": 63,
+      "overconfidence": 0.13691999999999982
+    },
+    "hypothesis_bound": {
+      "accept_32": true,
+      "reject_33": true
+    },
+    "hypothesis_scaling": [
+      {
+        "claimed": 0.86966784,
+        "clues": 4,
+        "error": 5.551115123125783e-16,
+        "expansions": 184,
+        "hypotheses": 3,
+        "merges": 245,
+        "nodes": 170,
+        "oracle": 0.8696678399999994,
+        "seconds": 0.014674901962280273,
+        "status": "belief_contingent_plan_found",
+        "unique_beliefs": 91
+      },
+      {
+        "claimed": 0.8510400000000001,
+        "clues": 3,
+        "error": 2.4424906541753444e-15,
+        "expansions": 516,
+        "hypotheses": 5,
+        "merges": 640,
+        "nodes": 651,
+        "oracle": 0.8510399999999977,
+        "seconds": 0.05462169647216797,
+        "status": "belief_contingent_plan_found",
+        "unique_beliefs": 501
+      },
+      {
+        "claimed": 0.8570880000000002,
+        "clues": 3,
+        "error": 5.10702591327572e-15,
+        "expansions": 1485,
+        "hypotheses": 8,
+        "merges": 2030,
+        "nodes": 1931,
+        "oracle": 0.8570880000000053,
+        "seconds": 0.18989157676696777,
+        "status": "belief_contingent_plan_found",
+        "unique_beliefs": 1547
+      },
+      {
+        "claimed": 0.7200000000000001,
+        "clues": 2,
+        "error": 2.6645352591003757e-15,
+        "expansions": 2601,
+        "hypotheses": 16,
+        "merges": 3880,
+        "nodes": 3465,
+        "oracle": 0.7199999999999974,
+        "seconds": 0.464169979095459,
+        "status": "belief_contingent_plan_found",
+        "unique_beliefs": 3161
+      },
+      {
+        "claimed": 0.7199999999999999,
+        "clues": 1,
+        "error": 0.0,
+        "expansions": 1089,
+        "hypotheses": 32,
+        "merges": 992,
+        "nodes": 2177,
+        "oracle": 0.7199999999999999,
+        "seconds": 0.30919432640075684,
+        "status": "belief_contingent_plan_found",
+        "unique_beliefs": 2113
+      }
+    ],
+    "impossible_evidence": {
+      "raises_value_error": true
+    },
+    "known_sensor_drift": [
+      {
+        "acc": [
+          0.9,
+          0.8,
+          0.7,
+          0.6
+        ],
+        "claimed": 0.9120000000000001,
+        "error": 2.220446049250313e-16,
+        "expansions": 93,
+        "merges": 114,
+        "oracle": 0.9119999999999999
+      },
+      {
+        "acc": [
+          0.9,
+          0.2,
+          0.9,
+          0.2
+        ],
+        "claimed": 0.9540000000000003,
+        "error": 3.3306690738754696e-16,
+        "expansions": 66,
+        "merges": 79,
+        "oracle": 0.954
+      },
+      {
+        "acc": [
+          0.55,
+          0.95,
+          0.55,
+          0.95
+        ],
+        "claimed": 0.95475,
+        "error": 2.220446049250313e-16,
+        "expansions": 66,
+        "merges": 79,
+        "oracle": 0.9547499999999998
+      },
+      {
+        "acc": [
+          0.8,
+          0.5,
+          0.2,
+          0.9
+        ],
+        "claimed": 0.928,
+        "error": 2.220446049250313e-16,
+        "expansions": 45,
+        "merges": 47,
+        "oracle": 0.9280000000000003
+      }
+    ],
+    "long_chain_50x1000": {
+      "max_abs_error": 6.5503158452884236e-15,
+      "mean_abs_error": 2.3547700907238056e-16
+    },
+    "misspecified_likelihood_90_assumed_70_true": {
+      "actual": 0.8369199999999997,
+      "claimed": 0.99144,
+      "expansions": 63,
+      "overconfidence": 0.15452000000000032
+    },
+    "neutral_sensor": {
+      "expansions": 18,
+      "goal": 0.5,
+      "merges": 6,
+      "root_action": "sense"
+    },
+    "search_budget_8way_3clue": [
+      {
+        "budget": 128,
+        "error_vs_oracle": 0.7865280000000052,
+        "expansions": 128,
+        "goal": 0.07056000000000003,
+        "nodes": 221,
+        "status": "budget_exhausted_partial_policy"
+      },
+      {
+        "budget": 256,
+        "error_vs_oracle": 0.7742880000000053,
+        "expansions": 256,
+        "goal": 0.08280000000000003,
+        "nodes": 386,
+        "status": "budget_exhausted_partial_policy"
+      },
+      {
+        "budget": 512,
+        "error_vs_oracle": 0.6733440000000053,
+        "expansions": 512,
+        "goal": 0.18374400000000005,
+        "nodes": 724,
+        "status": "budget_exhausted_partial_policy"
+      },
+      {
+        "budget": 1024,
+        "error_vs_oracle": 0.4553200000000052,
+        "expansions": 1024,
+        "goal": 0.40176800000000007,
+        "nodes": 1365,
+        "status": "budget_exhausted_partial_policy"
+      },
+      {
+        "budget": 2048,
+        "error_vs_oracle": 5.10702591327572e-15,
+        "expansions": 1485,
+        "goal": 0.8570880000000002,
+        "nodes": 1931,
+        "status": "belief_contingent_plan_found"
+      },
+      {
+        "budget": 4096,
+        "error_vs_oracle": 5.10702591327572e-15,
+        "expansions": 1485,
+        "goal": 0.8570880000000002,
+        "nodes": 1931,
+        "status": "belief_contingent_plan_found"
+      },
+      {
+        "budget": 8192,
+        "error_vs_oracle": 5.10702591327572e-15,
+        "expansions": 1485,
+        "goal": 0.8570880000000002,
+        "nodes": 1931,
+        "status": "belief_contingent_plan_found"
+      }
+    ],
+    "skew_prior_variable_sensor_200x50": {
+      "max_abs_error": 1.2212453270876722e-15
+    },
+    "stale_sensor_model_flip": {
+      "actual": 0.10400000000000001,
+      "calibration_gap": 0.7920000000000004,
+      "claimed": 0.8960000000000004
+    },
+    "topk_truncation_8_to_4": {
+      "expansions": 9,
+      "goal": 0.12500000000000003,
+      "nodes": 17,
+      "status": "belief_contingent_plan_found",
+      "unknown": 0.0
+    }
+  },
+  "runtime_seconds": 3.8858158588409424,
+  "total": 14
+}

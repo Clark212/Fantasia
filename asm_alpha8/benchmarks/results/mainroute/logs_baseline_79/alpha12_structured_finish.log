@@ -1,0 +1,81 @@
+{
+  "exceptions": [
+    16,
+    16
+  ],
+  "post_exception_unseen": [
+    256,
+    256
+  ],
+  "restart_exceptions": [
+    16,
+    16
+  ],
+  "restart_unseen": [
+    256,
+    256
+  ],
+  "stats": {
+    "abstraction_candidate_evictions": 892,
+    "abstraction_candidates": 2048,
+    "abstraction_candidates_per_observation": 48,
+    "abstraction_enabled": true,
+    "abstraction_exception_hits": 112,
+    "abstraction_exceptions": 16,
+    "abstraction_hits": 2032,
+    "abstraction_misses": 1919,
+    "abstraction_pending_candidates": 206,
+    "abstraction_pending_enabled": true,
+    "abstraction_pending_limit": 256,
+    "abstraction_pending_promotions": 892,
+    "abstraction_promoted": 64,
+    "abstraction_promotions": 64,
+    "abstraction_sparse_enabled": true,
+    "abstraction_sparse_max_retained_features": 2,
+    "capacity_expansions": 1,
+    "capacity_history": [
+      64,
+      128
+    ],
+    "conditional_distribution_ambiguous": 0,
+    "conditional_distribution_inputs": 656,
+    "conditional_distribution_support": 688,
+    "consolidation_byte_budget": 43008,
+    "consolidation_bytes": 43008,
+    "consolidation_cells": 3584,
+    "consolidation_collisions": 0,
+    "consolidation_displacements": 0,
+    "consolidation_enabled": true,
+    "consolidation_hashes": 3,
+    "consolidation_hits": 0,
+    "consolidation_layout_version": 3,
+    "consolidation_load_factor": 0.18303571428571427,
+    "consolidation_max_displacements": 24,
+    "consolidation_misses": 0,
+    "consolidation_placement_failures": 0,
+    "consolidation_table_size": 1024,
+    "consolidation_used_cells": 656,
+    "context_trace_limit": 4,
+    "contexts": 656,
+    "ema_error": 0.31367725133232804,
+    "known_outcomes": 80,
+    "mechanism_type": "a12_structured",
+    "observations": 688,
+    "outcome_capacity": 128,
+    "outcome_capacity_limit": 512,
+    "parameters": 5872,
+    "pre_learning_accuracy": 0.24273255813953487,
+    "replay_size": 64,
+    "retention_ambiguous_inputs": 0,
+    "retention_anchor_batch_limit": 4,
+    "retention_anchor_limit": 96,
+    "retention_anchor_outcomes": 80,
+    "retention_anchors": 96,
+    "surprised_contexts": 521,
+    "trace_fallback_entries": 16,
+    "trace_fallback_hits": 0,
+    "trace_fallback_support": 32,
+    "traced_contexts": 656
+  },
+  "version": "0.4.0-alpha.7.9"
+}

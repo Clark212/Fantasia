@@ -1,0 +1,9 @@
+episodes=6000 clues=9 tail=1500
+scenario                      learned | fixed acc fixed conf      gap | adapt acc adapt conf      gap
+matched70                       69.97 |     90.20      90.34     0.14 |     90.20      90.31     0.11
+true70_model90                  69.96 |     89.13      97.51     8.38 |     89.13      90.08     0.95
+true90_model70                  90.03 |     99.87      99.02     0.85 |     99.87      99.88     0.02
+antiinformative20_model90       19.96 |      1.87      99.18    97.32 |     98.13      98.12     0.01
+drift90_to60_model90            74.89 |     72.80      95.76    22.96 |     72.80      89.52    16.72
+flip90_to10_model90             49.99 |      0.00      99.94    99.94 |      0.00      79.75    79.75
+correlated70_model70            70.35 |     71.33      99.95    28.62 |     71.33      99.95    28.62

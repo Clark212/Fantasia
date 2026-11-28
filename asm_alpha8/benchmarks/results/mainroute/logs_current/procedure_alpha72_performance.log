@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/release_check/asm_alpha8/benchmark_v040a72_performance.py", line 47, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/release_check/asm_alpha8/benchmark_v040a72_performance.py", line 39, in main
+    manual=steady(False);auto=steady(True);md=discovery(False);ad=discovery(True)
+  File "/tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/release_check/asm_alpha8/benchmark_v040a72_performance.py", line 20, in steady
+    db=Path(d)/'p.db';c=make_active(db,auto)
+                        ~~~~~~~~~~~^^^^^^^^^
+  File "/tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/release_check/asm_alpha8/benchmark_v040a72_performance.py", line 13, in make_active
+    assert c.predict('f',{'x':50})['value']==103
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'value'

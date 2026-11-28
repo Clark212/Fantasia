@@ -1,0 +1,29 @@
+{
+  "active_prediction": {
+    "elapsed_s": 0.1132055460002448,
+    "n": 20000,
+    "predictions_per_s": 176669.78965815643
+  },
+  "affine": {
+    "median_candidates": 1.0,
+    "median_evaluator_calls": 4.0,
+    "median_s": 0.002531705499677628,
+    "p90_s": 0.0032825570006025373,
+    "reps": 40
+  },
+  "benchmark": "alpha.7.3 bounded synthesis performance",
+  "product": {
+    "median_candidates": 18.0,
+    "median_evaluator_calls": 72.0,
+    "median_s": 0.003447490500548156,
+    "p90_s": 0.003911363000042911,
+    "reps": 30
+  },
+  "x2_plus_y": {
+    "median_candidates": 71.0,
+    "median_evaluator_calls": 284.0,
+    "median_s": 0.005798769000193715,
+    "p90_s": 0.008307988000524347,
+    "reps": 30
+  }
+}
