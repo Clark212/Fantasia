@@ -1,0 +1,361 @@
+{
+  "benchmark": "ASM alpha.7.1 dependency regime torture",
+  "checks": {
+    "inference_order_invariant_and_read_only": true,
+    "malformed_and_capacity_fail_atomic": true,
+    "no_nan_inf": true,
+    "non_temporal_order_invariant_alpha7_semantics": true,
+    "partial_shifts_detected_both_directions": true,
+    "schema1_migration_no_fake_temporal_history": true,
+    "source_count_extremes_and_finite": true,
+    "stationary_cross_zero_false_splits_24": true,
+    "stationary_self_zero_false_splits_100": true
+  },
+  "passed": 9,
+  "rows": {
+    "fail_closed": [
+      "decreasing",
+      "nan",
+      "bool",
+      "string",
+      "source_capacity",
+      "pair_capacity"
+    ],
+    "inference_contract": {
+      "posterior_diff": 0.0,
+      "version_after": 120,
+      "version_before": 120
+    },
+    "migration": {
+      "regimes": 0,
+      "same_r": true,
+      "temporal_views": 0,
+      "trials": 300
+    },
+    "non_temporal_order": {
+      "r1": 0.4863443822070123,
+      "r2": 0.4863443822070123,
+      "regimes1": 0,
+      "regimes2": 0
+    },
+    "partial_cross_shifts": [
+      {
+        "regimes": [
+          {
+            "active_correlation": 0.31740310670407457,
+            "detected_index": 64.0,
+            "end_index": 860.0,
+            "label": "dependent",
+            "raw_correlation": 0.31740310670407457,
+            "start_index": 1.0,
+            "version": 1
+          },
+          {
+            "active_correlation": 0.7775379608916694,
+            "detected_index": 860.0,
+            "end_index": null,
+            "label": "dependent",
+            "raw_correlation": 0.7775379608916694,
+            "start_index": 765.0,
+            "version": 2
+          }
+        ],
+        "shift": [
+          0.25,
+          0.75
+        ],
+        "status": {
+          "active_correlation": 0.8034551511585691,
+          "cumulative_active_correlation": 0.4904411777118771,
+          "cumulative_raw_correlation": 0.4904411777118771,
+          "current_regime_version": 2,
+          "raw_correlation": 0.8034551511585691,
+          "recent_trials": 192,
+          "regime_count": 2,
+          "source_a": "s0",
+          "source_b": "s1",
+          "status": "dependent",
+          "trials": 1400,
+          "view": "recent"
+        }
+      },
+      {
+        "regimes": [
+          {
+            "active_correlation": 0.6848271334259595,
+            "detected_index": 64.0,
+            "end_index": 794.0,
+            "label": "dependent",
+            "raw_correlation": 0.6848271334259595,
+            "start_index": 1.0,
+            "version": 1
+          },
+          {
+            "active_correlation": 0.0,
+            "detected_index": 794.0,
+            "end_index": null,
+            "label": "independent_or_unproven",
+            "raw_correlation": 0.17990654205607462,
+            "start_index": 699.0,
+            "version": 2
+          }
+        ],
+        "shift": [
+          0.75,
+          0.25
+        ],
+        "status": {
+          "active_correlation": 0.0,
+          "cumulative_active_correlation": 0.4698125772934719,
+          "cumulative_raw_correlation": 0.4698125772934719,
+          "current_regime_version": 2,
+          "raw_correlation": 0.2428426032837557,
+          "recent_trials": 192,
+          "regime_count": 2,
+          "source_a": "s0",
+          "source_b": "s1",
+          "status": "independent_or_unproven",
+          "trials": 1400,
+          "view": "recent"
+        }
+      }
+    ],
+    "partial_self_shifts": [
+      {
+        "regimes": [
+          {
+            "active_correlation": 0.31810252344966394,
+            "detected_index": 64.0,
+            "end_index": 565.0,
+            "label": "dependent",
+            "raw_correlation": 0.31810252344966394,
+            "start_index": 1.0,
+            "version": 1
+          },
+          {
+            "active_correlation": 0.7675263180837384,
+            "detected_index": 565.0,
+            "end_index": null,
+            "label": "dependent",
+            "raw_correlation": 0.7675263180837384,
+            "start_index": 502.0,
+            "version": 2
+          }
+        ],
+        "shift": [
+          0.25,
+          0.75
+        ],
+        "status": {
+          "active_correlation": 0.75211094935254,
+          "cumulative_active_correlation": 0.5064365746698282,
+          "cumulative_raw_correlation": 0.5064365746698282,
+          "current_regime_version": 2,
+          "pair_samples": 72000,
+          "raw_correlation": 0.75211094935254,
+          "recent_trials": 192,
+          "redundancy_strength": 0.565670880135979,
+          "regime_count": 2,
+          "source_id": "s",
+          "status": "dependent",
+          "trials": 1000,
+          "view": "recent"
+        }
+      },
+      {
+        "regimes": [
+          {
+            "active_correlation": 0.7258196803130325,
+            "detected_index": 64.0,
+            "end_index": 562.0,
+            "label": "dependent",
+            "raw_correlation": 0.7258196803130325,
+            "start_index": 1.0,
+            "version": 1
+          },
+          {
+            "active_correlation": 0.25902173359800496,
+            "detected_index": 562.0,
+            "end_index": null,
+            "label": "dependent",
+            "raw_correlation": 0.25902173359800496,
+            "start_index": 499.0,
+            "version": 2
+          }
+        ],
+        "shift": [
+          0.75,
+          0.25
+        ],
+        "status": {
+          "active_correlation": 0.0,
+          "cumulative_active_correlation": 0.5242567188787446,
+          "cumulative_raw_correlation": 0.5242567188787446,
+          "current_regime_version": 2,
+          "pair_samples": 72000,
+          "raw_correlation": 0.2369212546505363,
+          "recent_trials": 192,
+          "redundancy_strength": 0.0,
+          "regime_count": 2,
+          "source_id": "s",
+          "status": "independent_or_unproven",
+          "trials": 1000,
+          "view": "recent"
+        }
+      }
+    ],
+    "partial_three_level_tracking": {
+      "cross_down": [
+        {
+          "active_correlation": 0.7503256133108528,
+          "raw_correlation": 0.7503256133108528,
+          "regime_count": 1,
+          "shared_fraction": 0.75
+        },
+        {
+          "active_correlation": 0.4003963600378152,
+          "raw_correlation": 0.4003963600378152,
+          "regime_count": 1,
+          "shared_fraction": 0.5
+        },
+        {
+          "active_correlation": 0.28979172501015066,
+          "raw_correlation": 0.28979172501015066,
+          "regime_count": 1,
+          "shared_fraction": 0.25
+        }
+      ],
+      "cross_up": [
+        {
+          "active_correlation": 0.40002768453475995,
+          "raw_correlation": 0.40002768453475995,
+          "regime_count": 1,
+          "shared_fraction": 0.25
+        },
+        {
+          "active_correlation": 0.49660854465066,
+          "raw_correlation": 0.49660854465066,
+          "regime_count": 1,
+          "shared_fraction": 0.5
+        },
+        {
+          "active_correlation": 0.7503450631382638,
+          "raw_correlation": 0.7503450631382638,
+          "regime_count": 1,
+          "shared_fraction": 0.75
+        }
+      ],
+      "self_down": [
+        {
+          "active_correlation": 0.80479735318445,
+          "raw_correlation": 0.80479735318445,
+          "regime_count": 1,
+          "shared_fraction": 0.75
+        },
+        {
+          "active_correlation": 0.5519674085850557,
+          "raw_correlation": 0.5519674085850557,
+          "regime_count": 2,
+          "shared_fraction": 0.5
+        },
+        {
+          "active_correlation": 0.0,
+          "raw_correlation": 0.2746648512777546,
+          "regime_count": 2,
+          "shared_fraction": 0.25
+        }
+      ],
+      "self_up": [
+        {
+          "active_correlation": 0.0,
+          "raw_correlation": 0.2617050317188783,
+          "regime_count": 1,
+          "shared_fraction": 0.25
+        },
+        {
+          "active_correlation": 0.5296141149055399,
+          "raw_correlation": 0.5296141149055399,
+          "regime_count": 1,
+          "shared_fraction": 0.5
+        },
+        {
+          "active_correlation": 0.7035445757250268,
+          "raw_correlation": 0.7035445757250268,
+          "regime_count": 2,
+          "shared_fraction": 0.75
+        }
+      ]
+    },
+    "source_extremes": [
+      {
+        "effective": 1.000000000001,
+        "kind": "common",
+        "n": 2
+      },
+      {
+        "effective": 2.0,
+        "kind": "independent",
+        "n": 2
+      },
+      {
+        "effective": 1.0000000000013334,
+        "kind": "common",
+        "n": 3
+      },
+      {
+        "effective": 3.0,
+        "kind": "independent",
+        "n": 3
+      },
+      {
+        "effective": 1.0000000000015001,
+        "kind": "common",
+        "n": 4
+      },
+      {
+        "effective": 4.0,
+        "kind": "independent",
+        "n": 4
+      },
+      {
+        "effective": 1.0000000000017502,
+        "kind": "common",
+        "n": 8
+      },
+      {
+        "effective": 8.0,
+        "kind": "independent",
+        "n": 8
+      },
+      {
+        "effective": 1.000000000001876,
+        "kind": "common",
+        "n": 16
+      },
+      {
+        "effective": 16.0,
+        "kind": "independent",
+        "n": 16
+      },
+      {
+        "effective": 1.00000000000193,
+        "kind": "common",
+        "n": 32
+      },
+      {
+        "effective": 32.0,
+        "kind": "independent",
+        "n": 32
+      }
+    ],
+    "stationary_cross": {
+      "false_splits": 0,
+      "runs": 24
+    },
+    "stationary_self": {
+      "false_splits": 0,
+      "runs": 100
+    }
+  },
+  "total": 9
+}

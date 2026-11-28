@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="89e20696809a7402f018ba9971de197ac41dd553"
+fixed_commit_id="58a76584007945f1bd4294fbd20cc56cf69311ab"
+test_file="tests/providers/test_currency.py"

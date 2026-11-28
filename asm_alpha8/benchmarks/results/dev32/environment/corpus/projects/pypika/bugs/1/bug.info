@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="ea9cc5b222dd9f056d072ceebce25f5980d4c2dd"
+fixed_commit_id="12a8f336e78382817fcddd3c0812da4fc8977bfc"
+test_file="pypika/tests/test_criterions.py"

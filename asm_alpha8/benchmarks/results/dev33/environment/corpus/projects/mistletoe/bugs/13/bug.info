@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="d23a054b2951ba93027230ef7b39c9403a635b4e"
+fixed_commit_id="5ce15a91449818bf58d75336294dc56b578b4abf"
+test_file="test/test_contrib/test_github_wiki.py"

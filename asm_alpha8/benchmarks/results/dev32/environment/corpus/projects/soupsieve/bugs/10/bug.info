@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="4510837031b6005f662a12f67ca54293bbdc24c2"
+fixed_commit_id="084e370ad3fbd1ad9fe0d86948aa4859a5577fc7"
+test_file="tests/test_extra/test_soup_contains_own.py"

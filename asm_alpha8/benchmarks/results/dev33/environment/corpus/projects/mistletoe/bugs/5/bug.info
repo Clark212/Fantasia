@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="0b7cdf733ca2b5b6d9131ab1601a37e404c12f55"
+fixed_commit_id="a40cd2fceb4c4f8193aa9b227e4906b01891439a"
+test_file="test/test_latex_renderer.py"

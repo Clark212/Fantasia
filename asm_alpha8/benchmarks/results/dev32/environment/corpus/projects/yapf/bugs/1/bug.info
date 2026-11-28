@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="baddb6b66cb443e185126476035edc23310a007c"
+fixed_commit_id="fb36a27c0b8f8388a16da378e9a4e48b8df28e46"
+test_file="yapftests/file_resources_test.py;yapftests/yapf_test.py"

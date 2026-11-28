@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="c36e48c6a6b6ef60c6dbf4e0572d23efcb545ab5"
+fixed_commit_id="5cb4922f285baddf9c9ee1612a67a0ef1d370efb"
+test_file="tests/dicts/io/test_io_dict_query_string.py"

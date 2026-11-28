@@ -1,0 +1,11 @@
+diff --git a/faker/providers/bank/da_DK/__init__.py b/faker/providers/bank/da_DK/__init__.py
+index 977b9161..82f0e5e4 100644
+--- a/faker/providers/bank/da_DK/__init__.py
++++ b/faker/providers/bank/da_DK/__init__.py
+@@ -4,5 +4,5 @@ from .. import Provider as BankProvider
+ class Provider(BankProvider):
+     """Implement bank provider for ``da_DK`` locale."""
+ 
+-    bban_format = "################"
++    bban_format = "##############"
+     country_code = "DK"

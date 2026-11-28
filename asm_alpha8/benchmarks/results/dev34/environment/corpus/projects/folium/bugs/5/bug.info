@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="28204e8538a3d4bc16c76dbeb0378aa96752c66a"
+fixed_commit_id="13305656bae66beda7eea3da90ebf2e190ada1bb"
+test_file="tests/test_map.py"

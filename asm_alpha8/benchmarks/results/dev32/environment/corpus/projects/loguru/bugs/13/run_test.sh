@@ -1,0 +1,1 @@
+pytest tests/test_filesink_rotation.py::test_time_rotation

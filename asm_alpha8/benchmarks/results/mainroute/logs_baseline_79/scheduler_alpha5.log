@@ -1,0 +1,47 @@
+{
+  "version": "0.4.0-alpha.7.9",
+  "summary": {
+    "passed": 11,
+    "total": 11,
+    "accuracy_pct": 100.0
+  },
+  "dense": {
+    "correct": 50,
+    "total": 50,
+    "mechanism_calls": 2500,
+    "median_ms": 7.1412795
+  },
+  "seismic": {
+    "correct": 50,
+    "total": 50,
+    "mechanism_calls": 50,
+    "call_reduction": 0.98,
+    "median_ms": 1.1020645
+  },
+  "topk_recall": 1.0,
+  "ambiguous_widen_fraction": 1.0,
+  "negative_feedback": {
+    "wrong_relevance_before": 0.6276276276276277,
+    "wrong_relevance_after": 0.4414414414414415,
+    "wrong_negative_support_after": 3,
+    "top_before": "normal",
+    "top_after": "safety",
+    "feedback": {
+      "top_correct": false,
+      "wrong_penalized": [
+        "normal"
+      ],
+      "raw_confidence": 0.47858920667294275
+    },
+    "prior_route_retained": true
+  },
+  "calibration": {
+    "source": "empirical",
+    "support": 5,
+    "confidence": 0.8928540576120406,
+    "persisted_source": "empirical",
+    "persisted_support": 5,
+    "samples": 6
+  }
+}
+RESULT: /tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/baseline79/results/competitive_seismic_routing_benchmark.json

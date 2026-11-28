@@ -1,0 +1,1 @@
+pytest tests/providers/test_ssn.py::TestPtBR::test_pt_BR_rg_uses_full_digit_range_and_repeats tests/providers/test_ssn.py::TestPtBR::test_pt_BR_ssn_allows_repeated_digits tests/providers/test_ssn.py::TestPtBR::test_pt_BR_ssn_checksum_stays_valid

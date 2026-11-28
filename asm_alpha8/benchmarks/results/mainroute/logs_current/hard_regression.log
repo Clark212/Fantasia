@@ -1,0 +1,90 @@
+{
+  "version": "0.4.0-alpha.7.9",
+  "elapsed_seconds": 6.14,
+  "summary": {
+    "passed": 39,
+    "total": 39,
+    "accuracy_pct": 100.0,
+    "categories": {
+      "relation_generalization": {
+        "passed": 2,
+        "total": 2,
+        "accuracy_pct": 100.0
+      },
+      "relation_robustness": {
+        "passed": 5,
+        "total": 5,
+        "accuracy_pct": 100.0
+      },
+      "relation_composition": {
+        "passed": 1,
+        "total": 1,
+        "accuracy_pct": 100.0
+      },
+      "relation_safety": {
+        "passed": 5,
+        "total": 5,
+        "accuracy_pct": 100.0
+      },
+      "continual_learning": {
+        "passed": 2,
+        "total": 2,
+        "accuracy_pct": 100.0
+      },
+      "theory_of_mind_controlled": {
+        "passed": 4,
+        "total": 4,
+        "accuracy_pct": 100.0
+      },
+      "theory_of_mind_free_language": {
+        "passed": 6,
+        "total": 6,
+        "accuracy_pct": 100.0
+      },
+      "emotion_controlled": {
+        "passed": 4,
+        "total": 4,
+        "accuracy_pct": 100.0
+      },
+      "emotion_free_language": {
+        "passed": 4,
+        "total": 4,
+        "accuracy_pct": 100.0
+      },
+      "self_model_api": {
+        "passed": 3,
+        "total": 3,
+        "accuracy_pct": 100.0
+      },
+      "self_model_language_integration": {
+        "passed": 1,
+        "total": 1,
+        "accuracy_pct": 100.0
+      },
+      "scaling_correctness": {
+        "passed": 2,
+        "total": 2,
+        "accuracy_pct": 100.0
+      }
+    }
+  },
+  "scaling": {
+    "small_relation_count": 12,
+    "large_relation_count": 48,
+    "median_inference_ms_small": 0.052475,
+    "median_inference_ms_large": 0.054349,
+    "latency_ratio_large_over_small": 1.036,
+    "large_stats": {
+      "relations": 48,
+      "promoted": 48,
+      "dormant": 0,
+      "episodes": 180,
+      "merges": 0,
+      "splits": 0,
+      "redirects": 0,
+      "capacity_rejections": 36,
+      "indexed_connectors": 48
+    }
+  }
+}
+RESULT: /tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/release_check/asm_alpha8/results/hard_regression_v030a5.json

@@ -1,0 +1,1 @@
+pytest tests/selenium/test_multipoints_tooltip_selenium.py::test_geojson_multipoint_tooltip

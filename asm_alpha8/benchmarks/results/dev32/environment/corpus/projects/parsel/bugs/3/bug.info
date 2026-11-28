@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="162b269d1526a391f1cc0217fddd5a8109744816"
+fixed_commit_id="27b256d324543617e09e355098744a918588333a"
+test_file="tests/test_selector_jmespath.py"

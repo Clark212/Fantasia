@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="465fb9ae12f7727d28785d087b64e6226da5714e"
+fixed_commit_id="dbe5c4c0730a4ed129320129e295c61c298f49dc"
+test_file="pypika/tests/test_internals.py"

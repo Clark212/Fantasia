@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="d80d125d5c20d0572a26d5d617dbad647beb9343"
+fixed_commit_id="74efb07c529e826c3aa12508b204b80b180eba1f"
+test_file="tests/providers/test_bank.py"

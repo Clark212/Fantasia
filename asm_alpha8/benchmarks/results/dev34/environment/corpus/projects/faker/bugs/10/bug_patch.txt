@@ -1,0 +1,13 @@
+diff --git a/faker/providers/address/pt_PT/__init__.py b/faker/providers/address/pt_PT/__init__.py
+index 8e559b33..23047fe1 100644
+--- a/faker/providers/address/pt_PT/__init__.py
++++ b/faker/providers/address/pt_PT/__init__.py
+@@ -27,7 +27,7 @@ class Provider(AddressProvider):
+ 
+     building_number_formats = ("S/N", "%", "%#", "%#", "%#", "%##")
+ 
+-    postcode_formats = ("####-###",)
++    postcode_formats = ("%###-###",)
+ 
+     cities = (
+         "Abrantes",

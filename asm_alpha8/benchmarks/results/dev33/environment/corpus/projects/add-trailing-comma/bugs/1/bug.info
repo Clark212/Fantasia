@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="47f9f984e8cc74a16353055a49dd12ff59da474b"
+fixed_commit_id="ed7b183a6218f14ff4b5368b35a412e2e210fe8b"
+test_file="tests/features/unhug_test.py"

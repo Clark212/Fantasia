@@ -1,0 +1,26 @@
+diff --git a/pygments/formatters/terminal256.py b/pygments/formatters/terminal256.py
+index cebef764..68011c45 100644
+--- a/pygments/formatters/terminal256.py
++++ b/pygments/formatters/terminal256.py
+@@ -16,7 +16,7 @@
+ 
+ # TODO:
+ #  - Options to map style's bold/underline/italic/border attributes
+-#    to some ANSI attrbutes (something like 'italic=underline')
++#    to some ANSI attributes (something like 'italic=underline')
+ #  - An option to output "style RGB to xterm RGB/index" conversion table
+ #  - An option to indicate that we are running in "reverse background"
+ #    xterm. This means that default colors are white-on-black, not
+diff --git a/scripts/utility.py b/scripts/utility.py
+index a657e6f2..a6b77dbe 100644
+--- a/scripts/utility.py
++++ b/scripts/utility.py
+@@ -12,7 +12,7 @@ import os.path
+ 
+ def unpack_output_file(path):
+     """
+-    Unpack an output file into objects contining the line number, the text,
++    Unpack an output file into objects containing the line number, the text,
+     and the token name. The output file can be either a ``.output`` file
+     containing a token stream, or a ``.txt`` with input and tokens.
+     """

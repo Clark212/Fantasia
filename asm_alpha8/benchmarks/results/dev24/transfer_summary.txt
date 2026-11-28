@@ -1,0 +1,85 @@
+{
+ "G24-A": "passed",
+ "checks_a": {
+  "C1_gain_over_control": true,
+  "C2_no_role_order_penalty": true,
+  "C3_transfer_gain": true,
+  "C4_no_interference_within_reach": true,
+  "C5_no_false_transfer": true,
+  "C6_safe": true,
+  "C7_no_regression": true,
+  "C8_unrelated_cost": true
+ },
+ "G24-B": "passed",
+ "checks_b": {
+  "B1_safe_under_noise": true,
+  "B2_success_at_least_predicted": true
+ },
+ "paired_relevant": {
+  "rename_only": 846,
+  "exact_only": 0,
+  "exact_one_sided_p": 2.131197353912215e-255
+ },
+ "noise_predicted": {
+  "exact|noise_target": 0.0,
+  "rename|noise_target": 0.3264,
+  "exact|noise_donors": 0.0,
+  "rename|noise_donors": 0.0764,
+  "exact|noise_both": 0.0,
+  "rename|noise_both": 0.0347
+ },
+ "per_structure": {
+  "shift_y_minus_z": {
+   "exact": 0.0,
+   "rename": 1.0
+  },
+  "xyy_z": {
+   "exact": 0.0,
+   "rename": 0.9896
+  },
+  "diff_times_shift": {
+   "exact": 0.0,
+   "rename": 0.9479
+  }
+ }
+}
+exact|none                         0.000 (0.0, 0.026) calls  1522.7 wrong 0 n 144
+exact|unrelated                    0.000 (0.0, 0.026) calls  1522.7 wrong 0 n 144
+exact|relevant_r0                  0.000 (0.0, 0.026) calls  1522.7 wrong 0 n 144
+exact|relevant_r1                  0.000 (0.0, 0.026) calls  1522.7 wrong 0 n 144
+exact|relevant_r2                  0.000 (0.0, 0.026) calls  1522.7 wrong 0 n 144
+exact|relevant_r3                  0.000 (0.0, 0.026) calls  1522.7 wrong 0 n 144
+exact|relevant_r4                  0.000 (0.0, 0.026) calls  1522.7 wrong 0 n 144
+exact|relevant_r5                  0.000 (0.0, 0.026) calls  1522.7 wrong 0 n 144
+exact|relevant_shuffled            0.000 (0.0, 0.026) calls  1536.0 wrong 0 n 144
+exact|mixed_r0                     0.000 (0.0, 0.026) calls  1522.7 wrong 0 n 144
+exact|mixed_r5                     0.000 (0.0, 0.026) calls  1522.7 wrong 0 n 144
+exact|exact_names                  1.000 (0.974, 1.0) calls    11.4 wrong 0 n 144
+exact|noise_target                 0.000 (0.0, 0.026) calls  1522.7 wrong 0 n 144
+exact|noise_donors                 0.000 (0.0, 0.026) calls  1522.7 wrong 0 n 144
+exact|noise_both                   0.000 (0.0, 0.026) calls  1522.7 wrong 0 n 144
+exact|relevant                     0.000 (0.0, 0.004) calls  1522.7 wrong 0 n 864
+rename|none                        0.000 (0.0, 0.026) calls  1522.7 wrong 0 n 144
+rename|unrelated                   0.000 (0.0, 0.026) calls  1119.1 wrong 0 n 144
+rename|relevant_r0                 0.986 (0.951, 0.996) calls    51.8 wrong 0 n 144
+rename|relevant_r1                 0.986 (0.951, 0.996) calls    52.9 wrong 0 n 144
+rename|relevant_r2                 0.972 (0.931, 0.989) calls    54.1 wrong 0 n 144
+rename|relevant_r3                 0.972 (0.931, 0.989) calls    55.2 wrong 0 n 144
+rename|relevant_r4                 0.986 (0.951, 0.996) calls    56.0 wrong 0 n 144
+rename|relevant_r5                 0.972 (0.931, 0.989) calls    57.3 wrong 0 n 144
+rename|relevant_shuffled           0.000 (0.0, 0.026) calls  1334.1 wrong 0 n 144
+rename|mixed_r0                    0.799 (0.726, 0.856) calls   292.4 wrong 0 n 144
+rename|mixed_r5                    0.792 (0.718, 0.85) calls   296.8 wrong 0 n 144
+rename|exact_names                 1.000 (0.974, 1.0) calls    11.4 wrong 0 n 144
+rename|noise_target                0.326 (0.255, 0.407) calls   444.2 wrong 0 n 144
+rename|noise_donors                0.076 (0.043, 0.132) calls  1409.5 wrong 0 n 144
+rename|noise_both                  0.035 (0.015, 0.079) calls  1436.4 wrong 0 n 144
+rename|relevant                    0.979 (0.967, 0.987) calls    54.5 wrong 0 n 864
+exact|relevant_r0|reach            0.000 (0.0, 0.032) calls  1519.7 wrong 0 n 117
+exact|relevant_r5|reach            0.000 (0.0, 0.032) calls  1519.7 wrong 0 n 117
+exact|mixed_r0|reach               0.000 (0.0, 0.032) calls  1519.7 wrong 0 n 117
+exact|mixed_r5|reach               0.000 (0.0, 0.032) calls  1519.7 wrong 0 n 117
+rename|relevant_r0|reach           0.983 (0.94, 0.995) calls    41.9 wrong 0 n 117
+rename|relevant_r5|reach           0.974 (0.927, 0.991) calls    47.3 wrong 0 n 117
+rename|mixed_r0|reach              0.983 (0.94, 0.995) calls   131.1 wrong 0 n 117
+rename|mixed_r5|reach              0.974 (0.927, 0.991) calls   136.5 wrong 0 n 117

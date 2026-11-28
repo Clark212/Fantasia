@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="c51738a41b340ddf8c9600c1cbca3fb5a0302f69"
+fixed_commit_id="0ec05b2748f30bfd876c893b138e4fb1e979b18d"
+test_file="test_autoflake.py"

@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="56a65daf1ba391cc85d1a32a8802cfd0c7b7b2ab"
+fixed_commit_id="ccbdd3c128af9a6e8f9018fb8db5991a28c72db0"
+test_file="tests/brain/test_builtin.py"

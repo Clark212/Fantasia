@@ -1,0 +1,1 @@
+pytest tests/test_regrtest.py::test_regression_infer_dict_literal_comparison_uninferable

@@ -1,0 +1,13 @@
+diff --git a/freezegun/api.py b/freezegun/api.py
+index 43b117e..10a1fbe 100644
+--- a/freezegun/api.py
++++ b/freezegun/api.py
+@@ -183,7 +183,7 @@ if _TIME_NS_PRESENT:
+     def fake_time_ns():
+         if _should_use_real_time():
+             return real_time_ns()
+-        return int(int(fake_time()) * 1e9)
++        return int(fake_time() * 1e9)
+ 
+ 
+ def fake_localtime(t=None):

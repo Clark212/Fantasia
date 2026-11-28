@@ -1,0 +1,1 @@
+pytest tests/test_factory.py::FactoryTestCase::test_print_provider_handles_non_utf_output

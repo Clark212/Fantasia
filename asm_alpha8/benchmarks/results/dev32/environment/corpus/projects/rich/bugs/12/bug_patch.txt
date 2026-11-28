@@ -1,0 +1,14 @@
+diff --git a/rich/console.py b/rich/console.py
+index 49cac1a..3ec9a8a 100644
+--- a/rich/console.py
++++ b/rich/console.py
+@@ -1005,7 +1005,8 @@ class Console:
+         width: Optional[int] = None
+         height: Optional[int] = None
+ 
+-        for file_descriptor in _STD_STREAMS_OUTPUT if WINDOWS else _STD_STREAMS:
++        streams = _STD_STREAMS_OUTPUT if WINDOWS else _STD_STREAMS
++        for file_descriptor in streams:
+             try:
+                 width, height = os.get_terminal_size(file_descriptor)
+             except (AttributeError, ValueError, OSError):  # Probably not a terminal

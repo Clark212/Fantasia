@@ -1,0 +1,145 @@
+{
+  "adversarial_correlated_majority": {
+    "16": {
+      "frequency_context": "left",
+      "frequency_status": "routed",
+      "full_context": null,
+      "full_status": "abstain",
+      "full_support": {
+        "left": 0.9761904761923064,
+        "right": 2.9285714285714284
+      }
+    },
+    "32": {
+      "frequency_context": "left",
+      "frequency_status": "routed",
+      "full_context": null,
+      "full_status": "abstain",
+      "full_support": {
+        "left": 0.9761904761923679,
+        "right": 2.9285714285714284
+      }
+    },
+    "8": {
+      "frequency_context": null,
+      "frequency_status": "abstain",
+      "full_context": null,
+      "full_status": "abstain",
+      "full_support": {
+        "left": 0.9761904761921849,
+        "right": 2.9285714285714284
+      }
+    }
+  },
+  "benchmark": "ASM alpha.7.6 Experimental R3 epistemic procedure routing",
+  "dependency_drift": {
+    "mean_after_correlation": 0.2312384379151376,
+    "mean_support_after": 3.776976782751802,
+    "mean_support_before": 2.928571428572405,
+    "routes_after": 8,
+    "routes_before": 0,
+    "trials": 8
+  },
+  "information_query_weighting": {
+    "frequency_gain": 0.4564355568004036,
+    "frequency_query": "a_bad",
+    "full_gain": 0.34377320717945914,
+    "full_query": "z_good",
+    "state_mutations": 0
+  },
+  "large_clique_locality": {
+    "duplicate_cluster_effective_support": 1.0000000000018752,
+    "duplicate_cluster_sources": 16,
+    "independent_weights": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "total_effective_support": 4.000000000001875
+  },
+  "partial_hidden_correlation": {
+    "0.0": {
+      "dependency_routes": 12,
+      "frequency_routes": 12,
+      "full_routes": 12,
+      "mean_active_correlation": 0.0,
+      "mean_full_support": 3.9047619047619047,
+      "reliability_routes": 12
+    },
+    "0.25": {
+      "dependency_routes": 12,
+      "frequency_routes": 12,
+      "full_routes": 12,
+      "mean_active_correlation": 0.03740106854532237,
+      "mean_full_support": 3.877483793913691,
+      "reliability_routes": 12
+    },
+    "0.5": {
+      "dependency_routes": 12,
+      "frequency_routes": 12,
+      "full_routes": 12,
+      "mean_active_correlation": 0.4715229270334766,
+      "mean_full_support": 3.5481385356482886,
+      "reliability_routes": 12
+    },
+    "0.75": {
+      "dependency_routes": 12,
+      "frequency_routes": 12,
+      "full_routes": 12,
+      "mean_active_correlation": 0.727203878551558,
+      "mean_full_support": 3.231321437665733,
+      "reliability_routes": 12
+    },
+    "1.0": {
+      "dependency_routes": 12,
+      "frequency_routes": 12,
+      "full_routes": 0,
+      "mean_active_correlation": 0.999999999999,
+      "mean_full_support": 2.928571428572405,
+      "reliability_routes": 12
+    }
+  },
+  "performance": {
+    "query_decision_ms_median": 0.2175185,
+    "route_latency_ms_median": 0.610508
+  },
+  "reliability_ablation": {
+    "frequency": {
+      "confidence": 0.8212290502793296,
+      "context": "left",
+      "status": "routed",
+      "support": {
+        "left": 6.0,
+        "right": 1.0
+      }
+    },
+    "full": {
+      "confidence": 0.7895655736990468,
+      "context": null,
+      "status": "abstain",
+      "support": {
+        "left": 4.823529411764706,
+        "right": 0.9901960784313726
+      }
+    },
+    "high_reliability": 0.9901960784313726,
+    "low_reliability": 0.803921568627451,
+    "reliability": {
+      "confidence": 0.7895655736990468,
+      "context": null,
+      "status": "abstain",
+      "support": {
+        "left": 4.823529411764706,
+        "right": 0.9901960784313726
+      }
+    }
+  },
+  "repeated_history": {
+    "local_dependency_support": 60.00000000002,
+    "local_full_support": 58.571428571448095,
+    "old_global_batch_effective_count": 7.272727272740495,
+    "raw_rows": 80,
+    "route_context": "left",
+    "route_status": "routed"
+  }
+}

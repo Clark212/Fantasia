@@ -1,0 +1,1 @@
+pytest tests/test_markdown.py::test_table_with_empty_cells

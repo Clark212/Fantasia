@@ -1,0 +1,15 @@
+diff --git a/mdit_py_plugins/dollarmath/index.py b/mdit_py_plugins/dollarmath/index.py
+index 9c531da..2663617 100644
+--- a/mdit_py_plugins/dollarmath/index.py
++++ b/mdit_py_plugins/dollarmath/index.py
+@@ -54,7 +54,9 @@ def dollarmath_plugin(
+     # would be good to allow "proper" math rendering,
+     # e.g. https://github.com/roniemartinez/latex2mathml
+ 
+-    _renderer = lambda content, _: escapeHtml(content) if renderer is None else renderer
++    _renderer = (
++        (lambda content, _: escapeHtml(content)) if renderer is None else renderer
++    )
+ 
+     if label_renderer is None:
+         _label_renderer = (

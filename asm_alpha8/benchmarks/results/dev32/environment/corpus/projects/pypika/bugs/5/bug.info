@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="43b5f8e1e9fb7b339325dc96d5e497e8b4cd6a80"
+fixed_commit_id="6da153e2721e1d1252558e6bb66f5109dc8d0ab5"
+test_file="pypika/tests/dialects/test_postgresql.py;pypika/tests/test_inserts.py;pypika/tests/test_selects.py"

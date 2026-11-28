@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="20d83b25577225a92833ac1d6d2dc9d4a220cc06"
+fixed_commit_id="78fee6a6def8c82b580b47c2e3e59062609515e4"
+test_file="tests/test_perllexer.py;tests/test_rtf_formatter.py"

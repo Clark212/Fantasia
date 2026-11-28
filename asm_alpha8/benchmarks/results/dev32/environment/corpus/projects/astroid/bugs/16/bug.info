@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="4af7bce078a422aa9fe3ab0a6dfbf2676fd07a9c"
+fixed_commit_id="d254bb9c6dfa1fc56ede24a610d1cb52055cd054"
+test_file="tests/test_raw_building.py"

@@ -1,0 +1,33 @@
+{
+ "setting": "dev20",
+ "problems": 483,
+ "library": {
+  "steps": 747,
+  "by_status": {
+   "active": 63,
+   "candidate": 684
+  },
+  "examples": 1254,
+  "pairs": 297,
+  "pairs_usable": 14,
+  "multi_site_steps": 44,
+  "string_edits": 93
+ },
+ "seconds": 421,
+ "key": 4,
+ "key_new": 1,
+ "round_robin_guard": 10,
+ "round_robin_guard_new": 5,
+ "round_robin_guard_gains_vs_key": [
+  "lark@c00f4448faae:LALR_CustomLexer.__init__",
+  "natsort@b4e002083658:load_locale",
+  "deepdiff@c5ce0ba7435a:DeepDiff.__diff",
+  "markdown@1aedcafa01ac:CodeHiliteExtension.extendMarkdown",
+  "pyjwt@171062d2d734:force_bytes",
+  "babel@47072d2c9639:PluralRule.__init__",
+  "babel@04090802f404:parse_unit_patterns"
+ ],
+ "round_robin_guard_losses_vs_key": [
+  "markdown@dbd6676ca554:HeaderIdTreeprocessor.run"
+ ]
+}

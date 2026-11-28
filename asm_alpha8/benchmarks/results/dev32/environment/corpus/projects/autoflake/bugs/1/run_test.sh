@@ -1,0 +1,1 @@
+pytest test_autoflake.py::UnitTests::test_is_literal_or_name_with_unhashable_types

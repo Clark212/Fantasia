@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="7d7657075c7a13094d11effb0cc60e52b2001f9b"
+fixed_commit_id="de0d230521ce42e80e8422db9ccf18a5a78ef380"
+test_file="tests/test_generic_dataclass.py"

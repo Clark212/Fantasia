@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="8483b427545a996c3b7e67dd7f095a9dba5c8df7"
+fixed_commit_id="f5f55f345078bf98928b69c4e87a605298fb387c"
+test_file="tests/test_encoding.py"

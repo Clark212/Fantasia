@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="3d509ce439618885f6117aec992d2a0f4a909cec"
+fixed_commit_id="0b28e13344ec839e26fc332a206a41ecdc6a17d8"
+test_file="tests/dialects/test_bigquery.py"

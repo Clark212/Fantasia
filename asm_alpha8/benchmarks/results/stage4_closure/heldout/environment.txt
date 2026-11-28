@@ -1,0 +1,4 @@
+2949c37ca41130332e2e675120d5faaa0f87c9d8
+Python 3.13.18
+torch 2.15.0+cpu asm 0.4.0-alpha.7.9
+4

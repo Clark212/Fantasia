@@ -1,0 +1,11 @@
+PASS copy_chain_10000_no_confidence_inflation {'posterior_A': 0.7, 'roots': 1}
+PASS independent_random_1000_exact {'max_error': 0.0, 'rank_matches': 1000}
+PASS multiclass_32_copy_safe {'h7': 0.99}
+PASS partial_overlap_1000_finite {'posterior': {'A': 0.6666666666666666, 'B': 0.33333333333333337}, 'roots': 1001}
+PASS graph_capacity_fail_closed {}
+PASS item_root_capacity_fail_closed {}
+PASS malformed_lineage_snapshots_rejected {'rejected': 3, 'total': 3}
+PASS belief_root_capacity_fail_closed {'roots': 16}
+PASS evidence_id_idempotent_but_conflicts_rejected {}
+PASS 100_roots_x10_equivalent_to_100_independent {'max_error': 0.0, 'raw_evidence_count': 1000, 'roots': 100}
+SUMMARY 10 / 10

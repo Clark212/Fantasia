@@ -1,0 +1,170 @@
+{
+  "independent": {
+    "dependency": {
+      "correlation_denominator": 4.0,
+      "effective_count": 4.0,
+      "raw_count": 4.0,
+      "scale": 1.0
+    },
+    "modes": {
+      "dependency": {
+        "confidence": 1.0,
+        "context": "left",
+        "exact_support": {
+          "left": 4.0
+        },
+        "reason": "unique_empirical_context_signature",
+        "status": "routed",
+        "support": {
+          "left": 4.0,
+          "right": 0.0
+        }
+      },
+      "frequency": {
+        "confidence": 1.0,
+        "context": "left",
+        "exact_support": {
+          "left": 4.0
+        },
+        "reason": "unique_empirical_context_signature",
+        "status": "routed",
+        "support": {
+          "left": 4.0,
+          "right": 0.0
+        }
+      },
+      "full": {
+        "confidence": 1.0,
+        "context": "left",
+        "exact_support": {
+          "left": 4.0
+        },
+        "reason": "unique_empirical_context_signature",
+        "status": "routed",
+        "support": {
+          "left": 4.0,
+          "right": 0.0
+        }
+      },
+      "reliability": {
+        "confidence": 1.0,
+        "context": "left",
+        "exact_support": {
+          "left": 4.0
+        },
+        "reason": "unique_empirical_context_signature",
+        "status": "routed",
+        "support": {
+          "left": 4.0,
+          "right": 0.0
+        }
+      }
+    }
+  },
+  "mixed_hidden_correlation": {
+    "dependency": {
+      "correlation_denominator": 5.999999999996,
+      "effective_count": 2.6666666666684447,
+      "raw_count": 4.0,
+      "scale": 0.6666666666671112
+    },
+    "modes": {
+      "dependency": {
+        "confidence": 0.8521126760564123,
+        "reason": "routing_uncertainty_not_resolved",
+        "status": "abstain",
+        "support": {
+          "left": 2.6666666666684447,
+          "right": 0.0
+        }
+      },
+      "frequency": {
+        "confidence": 1.0,
+        "context": "left",
+        "exact_support": {
+          "left": 4.0
+        },
+        "reason": "unique_empirical_context_signature",
+        "status": "routed",
+        "support": {
+          "left": 4.0,
+          "right": 0.0
+        }
+      },
+      "full": {
+        "confidence": 0.8521126760564123,
+        "reason": "routing_uncertainty_not_resolved",
+        "status": "abstain",
+        "support": {
+          "left": 2.6666666666684447,
+          "right": 0.0
+        }
+      },
+      "reliability": {
+        "confidence": 1.0,
+        "context": "left",
+        "exact_support": {
+          "left": 4.0
+        },
+        "reason": "unique_empirical_context_signature",
+        "status": "routed",
+        "support": {
+          "left": 4.0,
+          "right": 0.0
+        }
+      }
+    }
+  }
+}
+{
+  "0": {
+    "freq_routes": 8,
+    "full_routes": 8,
+    "max_eff": 4.0,
+    "mean_corr": 0.0,
+    "mean_eff": 4.0,
+    "mean_w_corr": 1.0,
+    "mean_w_ind": 1.0,
+    "min_eff": 4.0
+  },
+  "0.25": {
+    "freq_routes": 8,
+    "full_routes": 7,
+    "max_eff": 4.0,
+    "mean_corr": 0.0661202336551334,
+    "mean_eff": 3.938634841166308,
+    "mean_w_corr": 0.9693174205831541,
+    "mean_w_ind": 1.0,
+    "min_eff": 3.509078729330466
+  },
+  "0.5": {
+    "freq_routes": 8,
+    "full_routes": 2,
+    "max_eff": 4.0,
+    "mean_corr": 0.3613058080885907,
+    "mean_eff": 3.6874158572116555,
+    "mean_w_corr": 0.8437079286058277,
+    "mean_w_ind": 1.0,
+    "min_eff": 3.51356783919598
+  },
+  "0.75": {
+    "freq_routes": 8,
+    "full_routes": 0,
+    "max_eff": 3.234275983271388,
+    "mean_corr": 0.7329331318426684,
+    "mean_eff": 3.1529995731990583,
+    "mean_w_corr": 0.5764997865995292,
+    "mean_w_ind": 1.0,
+    "min_eff": 3.1127210492993784
+  },
+  "1": {
+    "freq_routes": 8,
+    "full_routes": 0,
+    "max_eff": 2.6666666666684447,
+    "mean_corr": 0.999999999999,
+    "mean_eff": 2.6666666666684447,
+    "mean_w_corr": 0.3333333333342223,
+    "mean_w_ind": 1.0,
+    "min_eff": 2.6666666666684447
+  }
+}

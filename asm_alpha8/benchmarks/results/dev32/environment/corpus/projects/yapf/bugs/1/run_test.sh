@@ -1,0 +1,1 @@
+pytest yapftests/file_resources_test.py::LineEndingTest::test_line_ending_empty yapftests/file_resources_test.py::LineEndingTest::test_line_ending_no_newline yapftests/file_resources_test.py::LineEndingTest::test_line_ending_tie yapftests/yapf_test.py::CommandLineTest::testInPlaceReformattingNoNewLine yapftests/yapf_test.py::CommandLineTest::testInPlaceReformattingWindowsNewLine

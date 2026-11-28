@@ -1,0 +1,23 @@
+diff --git a/falcon/responders.py b/falcon/responders.py
+index 14a7d48..b328dd3 100644
+--- a/falcon/responders.py
++++ b/falcon/responders.py
+@@ -99,14 +99,16 @@ def create_default_options(
+             req: AsgiRequest, resp: AsgiResponse, **kwargs: Any
+         ) -> None:
+             resp.status = HTTP_200
+-            resp.set_header('Allow', allowed)
++            if allowed:
++                resp.set_header('Allow', allowed)
+             resp.set_header('Content-Length', '0')
+ 
+         return options_responder_async
+ 
+     def options_responder(req: Request, resp: Response, **kwargs: Any) -> None:
+         resp.status = HTTP_200
+-        resp.set_header('Allow', allowed)
++        if allowed:
++            resp.set_header('Allow', allowed)
+         resp.set_header('Content-Length', '0')
+ 
+     return options_responder

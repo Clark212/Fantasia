@@ -1,0 +1,28 @@
+{
+  "version": "0.4.0-alpha.7.9",
+  "summary": {
+    "passed": 19,
+    "total": 19,
+    "accuracy_pct": 100.0
+  },
+  "scaling": {
+    "updates": 10000,
+    "expected_current_slots": 5000,
+    "stats": {
+      "current_states": 5000,
+      "state_history": 10000,
+      "nodes": 10252,
+      "edges": 20000,
+      "transitions": 10000,
+      "dependencies": 30000
+    },
+    "build_seconds": 5.549,
+    "query_cases": 200,
+    "filtered_query_correct": 200,
+    "filtered_query_accuracy_pct": 100.0,
+    "median_query_ms": 0.077584,
+    "p95_query_ms": 0.115676,
+    "db_bytes": 18505728
+  }
+}
+RESULT: /tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/baseline79/results/world_model_benchmark.json

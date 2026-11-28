@@ -1,0 +1,14 @@
+{"repo": "lark", "head": "9a4fb9c7458e", "commits": 1687, "fix_message": 556, "examples": 110, "with_test_context": 36}
+{"repo": "tenacity", "head": "aac059c90617", "commits": 528, "fix_message": 116, "examples": 17, "with_test_context": 11}
+{"repo": "python-dotenv", "head": "4fbc6ff07215", "commits": 445, "fix_message": 111, "examples": 13, "with_test_context": 12}
+{"repo": "natsort", "head": "e9a3a2a30758", "commits": 955, "fix_message": 150, "examples": 11, "with_test_context": 3}
+{"repo": "deepdiff", "head": "cc3ff3e838f8", "commits": 1224, "fix_message": 275, "examples": 46, "with_test_context": 31}
+{"repo": "voluptuous", "head": "92c6bafbfe1d", "commits": 397, "fix_message": 86, "examples": 15, "with_test_context": 7}
+{"repo": "markdown", "head": "5609061bd335", "commits": 1559, "fix_message": 470, "examples": 89, "with_test_context": 15}
+{"repo": "glom", "head": "fd70d3051a6a", "commits": 948, "fix_message": 138, "examples": 31, "with_test_context": 16}
+{"repo": "pyjwt", "head": "16231abfd1d8", "commits": 891, "fix_message": 178, "examples": 32, "with_test_context": 16}
+{"repo": "mistune", "head": "f7ec702edfc1", "commits": 821, "fix_message": 247, "examples": 52, "with_test_context": 12}
+{"repo": "bidict", "head": "353bf1e70c09", "commits": 898, "fix_message": 69, "examples": 3, "with_test_context": 1}
+{"repo": "babel", "head": "aeca9fa259ad", "commits": 1601, "fix_message": 360, "examples": 64, "with_test_context": 33}
+{"head": "7f67c1fa5111df50aaec34d564c3d0b26a983bb7fb5eb974bfbadb156d523745"}
+MINEDONE

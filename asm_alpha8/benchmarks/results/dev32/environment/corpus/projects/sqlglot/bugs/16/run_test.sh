@@ -1,0 +1,1 @@
+pytest tests/dialects/test_redshift.py::TestRedshift::test_identity

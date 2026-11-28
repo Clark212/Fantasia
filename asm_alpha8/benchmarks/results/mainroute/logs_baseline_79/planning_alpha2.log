@@ -1,0 +1,10 @@
+{
+  "version": "0.4.0-alpha.7.9",
+  "passed": 7,
+  "total": 8,
+  "learned_line": "56/56",
+  "maze_5x5": "1000/1000",
+  "maze_10x10": "250/250",
+  "maze_10x10_rescues": 7,
+  "maze_10x10_max_expansions_used": 296
+}

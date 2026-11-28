@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="bc01a2b0a62415a562430fe590a798c1042ab3f5"
+fixed_commit_id="a54317c7f8ec51a7fec8ce83df6b9f4852113253"
+test_file="tests/asgi/test_request_asgi.py"

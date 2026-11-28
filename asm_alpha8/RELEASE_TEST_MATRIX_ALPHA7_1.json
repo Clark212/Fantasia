@@ -1,0 +1,72 @@
+{
+  "version": "0.4.0-alpha.7.1",
+  "unit_test_batches": [
+    {
+      "name": "v0.4_review_procedure_alpha7_alpha71",
+      "executed": 129,
+      "passed": 129,
+      "skipped": 0
+    },
+    {
+      "name": "v0.3",
+      "executed": 77,
+      "passed": 76,
+      "skipped": 1,
+      "skip_reason": "inherited intentional skip: alpha.2 source unavailable"
+    },
+    {
+      "name": "v0.1_v0.2",
+      "executed": 156,
+      "passed": 156,
+      "skipped": 0
+    }
+  ],
+  "unit_total": {
+    "executed": 362,
+    "passed": 361,
+    "skipped": 1
+  },
+  "benchmarks": {
+    "alpha5": "13/13 PASS",
+    "alpha5_hard_feed": "6/6 PASS",
+    "alpha5_1_torture": "10/10 PASS",
+    "alpha5_extreme": "9/9 PASS",
+    "alpha6_torture": "12/12 PASS",
+    "alpha6_1_current_drift": "30/30 recovered; mean recovery 22.57 observations; mean tail accuracy 90.42%",
+    "alpha6_1_stationary": "0 false splits / 100 stationary runs",
+    "alpha6_2_torture": "10/10 PASS",
+    "alpha7": "7/7 PASS",
+    "alpha7_torture": "9/9 PASS",
+    "alpha7_1": "8/8 PASS",
+    "alpha7_1_torture": "9/9 PASS; includes 25/50/75 dynamic tracking, 0/100 stationary self false splits, 0/24 stationary cross false splits",
+    "alpha7_1_migration": "300/300 dependency trials preserved; exact correlation preserved; 0 fabricated temporal views/regimes",
+    "smoke": "PASS",
+    "alpha7_1_fail_closed": "decreasing/NaN/bool/string temporal index + source/pair capacity rejection atomic"
+  },
+  "performance": {
+    "one_source_1000_temporal_overhead_x": 1.9829638668730134,
+    "nine_source_1000_temporal_overhead_x": 7.732449288865621,
+    "nine_source_3000_temporal_seconds": 0.6274420620000001,
+    "nine_source_3000_trials_per_second": 4781.317960159323,
+    "o1_query_seconds_10000": 0.019190527999853657,
+    "reference_rescan_seconds_10000": 0.2778162780000457,
+    "reference_rescan_over_o1_x": 14.476739670850343
+  },
+  "not_counted": [
+    "one combined development stress command timed out; no result from that aggregate command was counted",
+    "benchmark_v040a61.py historical A/B comparison was not rerun because the supplied alpha.7 artifact does not include its required sibling alpha.6 source tree; benchmark_v040a61_current_gate.py and the stationary torture were rerun instead"
+  ],
+  "warnings": [
+    "inherited ResourceWarning messages for some SQLite connections appeared in unit tests; they did not produce test failures"
+  ],
+  "claim_boundary": "Controlled synthetic cognition/evidence-fusion tests only; no AGI or frontier-model comparison claim.",
+  "authoritative_base_sha256": "8465354b0261424123e7dc58b1a1d5cd15997f22d7402fb9d69658247511b6f6",
+  "final_critical_recertification": {
+    "py_compile_core": "PASS",
+    "tests.test_v040a71": "11/11 PASS",
+    "smoke": "PASS",
+    "benchmark_v040a71": "8/8 PASS",
+    "benchmark_v040a71_torture": "9/9 PASS",
+    "log": "FINAL_RECERTIFICATION_ALPHA71.log"
+  }
+}

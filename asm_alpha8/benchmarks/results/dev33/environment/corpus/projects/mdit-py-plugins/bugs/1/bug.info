@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="19de2ffafd4a9db0d5398bfba81cf4f40a78dab5"
+fixed_commit_id="de7f783a309ec3a5a9c5a81cd5c89136ad93a57e"
+test_file="tests/test_dollarmath.py"

@@ -1,0 +1,1 @@
+pytest tests/test_inference.py::test_classmethod_returned_tuple_subscript_ignores_unrelated_boundnode

@@ -1,0 +1,13 @@
+diff --git a/loguru/_colorizer.py b/loguru/_colorizer.py
+index b74a194..7cffe4d 100644
+--- a/loguru/_colorizer.py
++++ b/loguru/_colorizer.py
+@@ -280,7 +280,7 @@ class AnsiParser:
+                 if ansi is None:
+                     raise ValueError(
+                         'Tag "%s" does not correspond to any known color directive, '
+-                        "make sure you did not misspelled it (or prepend '\\' to escape it)"
++                        "make sure you have not misspelled it (or prepend '\\' to escape it)"
+                         % markup
+                     )
+ 

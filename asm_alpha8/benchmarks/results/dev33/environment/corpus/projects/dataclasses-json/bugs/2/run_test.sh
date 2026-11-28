@@ -1,0 +1,1 @@
+pytest tests/test_letter_case.py::TestLetterCase::test_duplicated_encoding tests/test_letter_case.py::TestLetterCase::test_protected_decode tests/test_letter_case.py::TestLetterCase::test_protected_encode

@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="c811bdff9f5c6d1c54888d5af5c257709e957c6e"
+fixed_commit_id="e0d4979d12e9a8451735f0044ac691c9fb35093c"
+test_file="tests/test_level1/test_pseudo_class.py"

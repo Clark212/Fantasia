@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="62089a7e2637bd342f48f45dedb9a79b5d9ee274"
+fixed_commit_id="6d6de76457dfa45bb48c75289be727a264139dcf"
+test_file="tests/dicts/keylist/test_keylist_dict.py;tests/dicts/keypath/test_keypath_dict.py;tests/github/test_issue_0432.py"

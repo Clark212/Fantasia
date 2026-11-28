@@ -1,0 +1,13 @@
+diff --git a/loguru/_simple_sinks.py b/loguru/_simple_sinks.py
+index e36020c..50069d7 100644
+--- a/loguru/_simple_sinks.py
++++ b/loguru/_simple_sinks.py
+@@ -70,6 +70,8 @@ class StandardSink:
+         message
+             The message to write.
+         """
++        if message.record["level"].no < self._handler.level:
++            return
+         raw_record = message.record
+         message = str(message)
+         exc = raw_record["exception"]

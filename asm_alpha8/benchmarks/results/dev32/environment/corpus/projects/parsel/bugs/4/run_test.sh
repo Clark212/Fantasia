@@ -1,0 +1,1 @@
+pytest tests/test_selector.py::TestSelector::test_absolute_xpath_via_selectorlist_checks_all_items

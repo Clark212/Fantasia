@@ -1,0 +1,20 @@
+{
+  "affine_generalization": {
+    "passed": 100,
+    "total": 100
+  },
+  "boolean_truth_tables": {
+    "passed": 100,
+    "total": 100
+  },
+  "claim_boundary": "Tiny supplied DSL and bounded inductors; not general program synthesis and not yet integrated into ASMEngine.",
+  "context_version_retention": {
+    "passed": 50,
+    "total": 50
+  },
+  "disagreement_probe": {
+    "passed": 100,
+    "total": 100
+  },
+  "experimental": true
+}

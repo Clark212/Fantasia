@@ -1,0 +1,1 @@
+pytest tests/test_selector.py::SelectorTestCase::test_json_selector_representation

@@ -1,0 +1,518 @@
+{
+  "after": {
+    "affine2": {
+      "auto": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "candidate_count": 1,
+        "evaluator_calls": 4,
+        "fit_evidence_ids": [
+          "aff2-fit-0",
+          "aff2-fit-1",
+          "aff2-fit-2",
+          "aff2-fit-3"
+        ],
+        "mode": "induction",
+        "origin": "multi_affine",
+        "program": {
+          "expression": [
+            "add",
+            [
+              "add",
+              [
+                "mul",
+                2,
+                "x"
+              ],
+              [
+                "mul",
+                3,
+                "y"
+              ]
+            ],
+            5
+          ],
+          "inputs": {
+            "x": "int",
+            "y": "int"
+          }
+        },
+        "status": "proposed",
+        "version": 1
+      },
+      "prediction": {
+        "confidence": 0.9,
+        "contradictions": 0,
+        "extrapolating": false,
+        "status": "predicted",
+        "support": 8,
+        "value": 35,
+        "version": 1
+      },
+      "unseen": {
+        "accuracy": 1.0,
+        "correct": 66,
+        "predicted": 66
+      }
+    },
+    "affine3": {
+      "auto": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "candidate_count": 1,
+        "evaluator_calls": 5,
+        "fit_evidence_ids": [
+          "aff3-fit-0",
+          "aff3-fit-1",
+          "aff3-fit-2",
+          "aff3-fit-3",
+          "aff3-fit-4"
+        ],
+        "mode": "induction",
+        "origin": "multi_affine",
+        "program": {
+          "expression": [
+            "add",
+            [
+              "add",
+              [
+                "add",
+                [
+                  "mul",
+                  2,
+                  "a"
+                ],
+                [
+                  "mul",
+                  -3,
+                  "b"
+                ]
+              ],
+              [
+                "mul",
+                4,
+                "c"
+              ]
+            ],
+            7
+          ],
+          "inputs": {
+            "a": "int",
+            "b": "int",
+            "c": "int"
+          }
+        },
+        "status": "proposed",
+        "version": 1
+      },
+      "unseen": {
+        "accuracy": 1.0,
+        "correct": 23,
+        "predicted": 23
+      }
+    },
+    "composition": {
+      "auto": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "budget_exhausted": false,
+        "candidate_count": 203,
+        "evaluator_calls": 812,
+        "fit_evidence_ids": [
+          "combo-fit-0",
+          "combo-fit-1",
+          "combo-fit-2",
+          "combo-fit-3"
+        ],
+        "mode": "induction",
+        "origin": "composition:add(donor:inc@:v1->y,donor:square@:v1->x)",
+        "program": {
+          "expression": [
+            "add",
+            [
+              "add",
+              [
+                "mul",
+                1,
+                "y"
+              ],
+              1
+            ],
+            [
+              "mul",
+              "x",
+              "x"
+            ]
+          ],
+          "inputs": {
+            "x": "int",
+            "y": "int"
+          }
+        },
+        "status": "proposed",
+        "version": 1
+      },
+      "prediction": {
+        "confidence": 0.9,
+        "contradictions": 0,
+        "extrapolating": false,
+        "status": "predicted",
+        "support": 8,
+        "value": 53,
+        "version": 1
+      },
+      "version": {
+        "contradictions": 0,
+        "created_seq": 26,
+        "dependencies": {
+          "oracle": 1
+        },
+        "program": {
+          "expression": [
+            "add",
+            [
+              "add",
+              [
+                "mul",
+                1,
+                "y"
+              ],
+              1
+            ],
+            [
+              "mul",
+              "x",
+              "x"
+            ]
+          ],
+          "inputs": {
+            "x": "int",
+            "y": "int"
+          }
+        },
+        "provenance": "asm_induction:composition:add(donor:inc@:v1->y,donor:square@:v1->x)",
+        "state": "active",
+        "support": 8,
+        "version": 1
+      }
+    },
+    "drift_reversal": {
+      "drift_auto": {
+        "automatic": true,
+        "boundary_seq": 12,
+        "candidate_count": 1,
+        "evaluator_calls": 4,
+        "fit_evidence_ids": [
+          "drift-bfit-0",
+          "drift-bfit-1",
+          "drift-bfit-2",
+          "drift-bfit-3"
+        ],
+        "mode": "induction",
+        "origin": "multi_affine",
+        "program": {
+          "expression": [
+            "add",
+            [
+              "add",
+              [
+                "sub",
+                0,
+                "x"
+              ],
+              [
+                "mul",
+                4,
+                "y"
+              ]
+            ],
+            2
+          ],
+          "inputs": {
+            "x": "int",
+            "y": "int"
+          }
+        },
+        "status": "proposed",
+        "version": 2
+      },
+      "drift_prediction": {
+        "confidence": 0.9,
+        "contradictions": 0,
+        "extrapolating": false,
+        "status": "predicted",
+        "support": 8,
+        "value": 2,
+        "version": 2
+      },
+      "reversal_auto": {
+        "automatic": true,
+        "boundary_seq": 24,
+        "fit_evidence_ids": [
+          "drift-cfit-0",
+          "drift-cfit-1",
+          "drift-cfit-2",
+          "drift-cfit-3"
+        ],
+        "mode": "revalidation",
+        "program": {
+          "expression": [
+            "add",
+            [
+              "add",
+              [
+                "mul",
+                2,
+                "x"
+              ],
+              "y"
+            ],
+            3
+          ],
+          "inputs": {
+            "x": "int",
+            "y": "int"
+          }
+        },
+        "status": "proposed",
+        "version": 3
+      },
+      "reversal_prediction": {
+        "confidence": 0.9,
+        "contradictions": 0,
+        "extrapolating": false,
+        "status": "predicted",
+        "support": 8,
+        "value": 21,
+        "version": 3
+      },
+      "versions": [
+        {
+          "contradictions": 1,
+          "created_seq": 4,
+          "dependencies": {
+            "oracle": 1
+          },
+          "program": {
+            "expression": [
+              "add",
+              [
+                "add",
+                [
+                  "mul",
+                  2,
+                  "x"
+                ],
+                "y"
+              ],
+              3
+            ],
+            "inputs": {
+              "x": "int",
+              "y": "int"
+            }
+          },
+          "provenance": "asm_induction:multi_affine",
+          "state": "suspended",
+          "support": 7,
+          "version": 1
+        },
+        {
+          "contradictions": 2,
+          "created_seq": 15,
+          "dependencies": {
+            "oracle": 1
+          },
+          "program": {
+            "expression": [
+              "add",
+              [
+                "add",
+                [
+                  "sub",
+                  0,
+                  "x"
+                ],
+                [
+                  "mul",
+                  4,
+                  "y"
+                ]
+              ],
+              2
+            ],
+            "inputs": {
+              "x": "int",
+              "y": "int"
+            }
+          },
+          "provenance": "asm_induction:multi_affine",
+          "state": "suspended",
+          "support": 8,
+          "version": 2
+        },
+        {
+          "contradictions": 0,
+          "created_seq": 27,
+          "dependencies": {
+            "oracle": 1
+          },
+          "program": {
+            "expression": [
+              "add",
+              [
+                "add",
+                [
+                  "mul",
+                  2,
+                  "x"
+                ],
+                "y"
+              ],
+              3
+            ],
+            "inputs": {
+              "x": "int",
+              "y": "int"
+            }
+          },
+          "provenance": "asm_auto_revalidation:version1",
+          "state": "active",
+          "support": 8,
+          "version": 3
+        }
+      ]
+    },
+    "product": {
+      "auto": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "budget_exhausted": false,
+        "candidate_count": 18,
+        "evaluator_calls": 72,
+        "fit_evidence_ids": [
+          "prod-fit-0",
+          "prod-fit-1",
+          "prod-fit-2",
+          "prod-fit-3"
+        ],
+        "mode": "induction",
+        "origin": "composition:mul(variable,variable)",
+        "program": {
+          "expression": [
+            "mul",
+            "x",
+            "y"
+          ],
+          "inputs": {
+            "x": "int",
+            "y": "int"
+          }
+        },
+        "status": "proposed",
+        "version": 1
+      },
+      "prediction": {
+        "outside": [
+          "y"
+        ],
+        "reason": "outside_evidence_support",
+        "status": "abstained",
+        "version": 1
+      },
+      "unseen": {
+        "accuracy": 1.0,
+        "correct": 99,
+        "predicted": 99
+      }
+    },
+    "safety": {
+      "duplicate_root": {
+        "last": {
+          "boundary_seq": 0,
+          "required": 4,
+          "status": "collecting",
+          "trusted_independent_roots": 1
+        },
+        "versions": 0
+      },
+      "noise_active": 0
+    }
+  },
+  "before": {
+    "baseline": "ASM v0.4.0-alpha.7.2 exact artifact",
+    "sha256": "6e8fbe1dce3c8af332e3b5be3693aa664418c76d2c667d4a87450230734236de",
+    "three_input_affine": {
+      "last_auto": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "fit_evidence_ids": [
+          "e1",
+          "e2",
+          "e3"
+        ],
+        "mode": "induction",
+        "reason": "built-in induction supports unary integers; other programs may be proposed",
+        "status": "unsupported"
+      },
+      "prediction": {
+        "reason": "no_validated_active_procedure",
+        "status": "abstained"
+      },
+      "versions": []
+    },
+    "two_input_affine": {
+      "last_auto": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "fit_evidence_ids": [
+          "e0",
+          "e1",
+          "e2"
+        ],
+        "mode": "induction",
+        "reason": "built-in induction supports unary integers; other programs may be proposed",
+        "status": "unsupported"
+      },
+      "prediction": {
+        "reason": "no_validated_active_procedure",
+        "status": "abstained"
+      },
+      "versions": []
+    },
+    "two_input_product": {
+      "last_auto": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "fit_evidence_ids": [
+          "e0",
+          "e1",
+          "e2"
+        ],
+        "mode": "induction",
+        "reason": "built-in induction supports unary integers; other programs may be proposed",
+        "status": "unsupported"
+      },
+      "prediction": {
+        "reason": "no_validated_active_procedure",
+        "status": "abstained"
+      },
+      "versions": []
+    }
+  },
+  "benchmark": "ASM v0.4.0-alpha.7.3 multi-input compositional induction",
+  "checks": {
+    "baseline_is_exact_alpha72": true,
+    "baseline_lacks_multiinput": true,
+    "bounded_product_composition": false,
+    "duplicate_root_guard_preserved": true,
+    "multiinput_drift_revision": true,
+    "multiinput_reversal_revalidation": true,
+    "random_outputs_no_false_active": true,
+    "three_input_affine_learned": false,
+    "two_input_affine_learned": false,
+    "validated_structure_reuse": true
+  },
+  "passed": 7,
+  "total": 10
+}

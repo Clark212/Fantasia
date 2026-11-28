@@ -1,0 +1,11 @@
+{
+  "alpha72_db_bytes": 147456,
+  "alpha72_discovery_auto_median_s": 0.004187047500010976,
+  "alpha72_steady_auto_median_s": 0.029649123000012878,
+  "alpha73_db_bytes": 147456,
+  "alpha73_discovery_auto_median_s": 0.004143467500000497,
+  "alpha73_steady_auto_median_s": 0.034667693000073996,
+  "baseline_alpha72_sha256": "6e8fbe1dce3c8af332e3b5be3693aa664418c76d2c667d4a87450230734236de",
+  "compat_ratio_alpha73_over_alpha72": 1.1692653775984854,
+  "discovery_ratio_alpha73_over_alpha72": 0.989591711101829
+}

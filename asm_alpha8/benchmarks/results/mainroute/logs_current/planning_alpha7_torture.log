@@ -1,0 +1,208 @@
+{
+  "benchmark": "ASM alpha.7 dependency torture",
+  "checks": {
+    "32_common_collapses": true,
+    "32_independent_preserved": true,
+    "fail_closed": true,
+    "no_false_dependencies": true,
+    "order_invariant": true,
+    "partial_25_not_worse": true,
+    "partial_50_improves": true,
+    "partial_75_improves": true,
+    "partial_decisions_preserved": true
+  },
+  "passed": 9,
+  "rows": {
+    "32_common": {
+      "effective": {
+        "correlation_denominator": 1023.9999999980238,
+        "effective_count": 1.00000000000193,
+        "raw_count": 32.0,
+        "scale": 0.03125000000006031
+      },
+      "pair_0_1": {
+        "active_correlation": 0.999999999999,
+        "cumulative_active_correlation": 0.999999999999,
+        "cumulative_raw_correlation": 1.0,
+        "current_regime_version": 0,
+        "raw_correlation": 1.0,
+        "recent_trials": 0,
+        "regime_count": 0,
+        "source_a": "s0",
+        "source_b": "s1",
+        "status": "dependent",
+        "trials": 500,
+        "view": "cumulative"
+      },
+      "stats": {
+        "active_cross_dependencies": 496,
+        "active_self_dependencies": 0,
+        "dependency_regimes": 0,
+        "last_temporal_index": null,
+        "pairs": 496,
+        "sources": 32,
+        "temporal_pair_views": 0,
+        "temporal_self_views": 0,
+        "trials": 500,
+        "version": 500
+      }
+    },
+    "32_independent": {
+      "effective": {
+        "correlation_denominator": 32.0,
+        "effective_count": 32.0,
+        "raw_count": 32.0,
+        "scale": 1.0
+      },
+      "pair_0_1": {
+        "active_correlation": 0.0,
+        "cumulative_active_correlation": 0.0,
+        "cumulative_raw_correlation": -0.04743021254948767,
+        "current_regime_version": 0,
+        "raw_correlation": -0.04743021254948767,
+        "recent_trials": 0,
+        "regime_count": 0,
+        "source_a": "s0",
+        "source_b": "s1",
+        "status": "independent_or_unproven",
+        "trials": 500,
+        "view": "cumulative"
+      },
+      "stats": {
+        "active_cross_dependencies": 0,
+        "active_self_dependencies": 0,
+        "dependency_regimes": 0,
+        "last_temporal_index": null,
+        "pairs": 496,
+        "sources": 32,
+        "temporal_pair_views": 0,
+        "temporal_self_views": 0,
+        "trials": 500,
+        "version": 500
+      }
+    },
+    "fail_closed": [
+      "bad_schema",
+      "source_capacity",
+      "trial_capacity"
+    ],
+    "false_positive_16_sources": {
+      "false_pair": 0,
+      "false_self": 0,
+      "pair_tests": 3000,
+      "runs": 25,
+      "self_tests": 400,
+      "trials_each": 300
+    },
+    "order_invariance": {
+      "max_probability_or_decision_difference": 1.1102230246251565e-16,
+      "permutations": 1000
+    },
+    "partial_self": [
+      {
+        "after": {
+          "accuracy": 0.8543333333333333,
+          "calibration_gap": 0.029875078241378583,
+          "confidence": 0.8842084115747119
+        },
+        "before": {
+          "accuracy": 0.8543333333333333,
+          "calibration_gap": 0.07276239281221075,
+          "confidence": 0.927095726145544
+        },
+        "effective": {
+          "correlation_denominator": 13.698661417387221,
+          "effective_count": 5.912986497877055,
+          "raw_count": 9.0,
+          "scale": 0.6569984997641173
+        },
+        "learned": {
+          "active_correlation": 0.25545877622935625,
+          "cumulative_active_correlation": 0.25545877622935625,
+          "cumulative_raw_correlation": 0.25545877622935625,
+          "current_regime_version": 0,
+          "pair_samples": 108000,
+          "raw_correlation": 0.25545877622935625,
+          "recent_trials": 0,
+          "redundancy_strength": 0.0652591863526003,
+          "regime_count": 0,
+          "source_id": "s",
+          "status": "dependent",
+          "trials": 1500,
+          "view": "cumulative"
+        },
+        "q": 0.25
+      },
+      {
+        "after": {
+          "accuracy": 0.7986666666666666,
+          "calibration_gap": 0.03671496919170614,
+          "confidence": 0.8353816358583728
+        },
+        "before": {
+          "accuracy": 0.7986666666666666,
+          "calibration_gap": 0.1509541272945616,
+          "confidence": 0.9496207939612282
+        },
+        "effective": {
+          "correlation_denominator": 26.163498641757048,
+          "effective_count": 3.095916226995868,
+          "raw_count": 9.0,
+          "scale": 0.3439906918884298
+        },
+        "learned": {
+          "active_correlation": 0.48824371535121575,
+          "cumulative_active_correlation": 0.48824371535121575,
+          "cumulative_raw_correlation": 0.48824371535121575,
+          "current_regime_version": 0,
+          "pair_samples": 108000,
+          "raw_correlation": 0.48824371535121575,
+          "recent_trials": 0,
+          "redundancy_strength": 0.238381925579959,
+          "regime_count": 0,
+          "source_id": "s",
+          "status": "dependent",
+          "trials": 1500,
+          "view": "cumulative"
+        },
+        "q": 0.5
+      },
+      {
+        "after": {
+          "accuracy": 0.7465833333333334,
+          "calibration_gap": 0.010208779173256466,
+          "confidence": 0.7567921125065898
+        },
+        "before": {
+          "accuracy": 0.7465833333333334,
+          "calibration_gap": 0.22808621351794567,
+          "confidence": 0.974669546851279
+        },
+        "effective": {
+          "correlation_denominator": 50.45756223164342,
+          "effective_count": 1.605309420779003,
+          "raw_count": 9.0,
+          "scale": 0.17836771341988922
+        },
+        "learned": {
+          "active_correlation": 0.758814519786945,
+          "cumulative_active_correlation": 0.758814519786945,
+          "cumulative_raw_correlation": 0.758814519786945,
+          "current_regime_version": 0,
+          "pair_samples": 108000,
+          "raw_correlation": 0.758814519786945,
+          "recent_trials": 0,
+          "redundancy_strength": 0.575799475439492,
+          "regime_count": 0,
+          "source_id": "s",
+          "status": "dependent",
+          "trials": 1500,
+          "view": "cumulative"
+        },
+        "q": 0.75
+      }
+    ]
+  },
+  "seed": 40771,
+  "total": 9
+}

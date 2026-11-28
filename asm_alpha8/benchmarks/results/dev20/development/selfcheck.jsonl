@@ -1,0 +1,848 @@
+{"id": "toolz@d2eba0374a45:interpose", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": true, "candidates": 1}
+{"id": "toolz@6a8de2e8f61b:TlzSpec.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "toolz@c696ac6f3c29:merge_with", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 30}
+{"id": "toolz@80ae19783d10:join", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 13}
+{"id": "toolz@01e4313cb9a2:nth", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "toolz@03cf714895ea:dissoc", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "toolz@307b0bbdc1d7:second", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "toolz@701712f8947a:second", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "toolz@dd87e4f20f6e:topk", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 11}
+{"id": "toolz@ba5a11c924ca:_num_required_args", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cachetools@5cf074fc11f5:_MethodDescriptor.__call__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cachetools@8c953ab8cabb:_ClassMethodDescriptor.__call__", "kind": "multi", "sites": [2], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cachetools@ffe21c44d3f7:Cache.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 15}
+{"id": "cachetools@1e5fd784aaa6:_UnboundTTLCache.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cachetools@7a7c836a2003:Cache.__repr__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cachetools@977e1c4f194c:Cache.__missing__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cachetools@34881215cfef:TTLCache.__getitem__", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 11}
+{"id": "cachetools@d5ef9cc6f386:TTLCache.__getitem__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "inflection@e32443bb7dc1:titleize", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "inflection@b1d3e63d0e84:humanize", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "semver@4e09ef0e4c94:Version.next_version", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "semver@4b03f867a3de:Version.replace", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": true, "candidates": 25}
+{"id": "semver@f332326e54a5:VersionInfo.__getitem__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "semver@f55559acfe25:VersionInfo.next_version", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": true, "candidates": 1}
+{"id": "semver@4405995eb05b:match", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 21, "code_reproduced": true, "candidates": 27}
+{"id": "parse@52bf0b3862c6:Parser._handle_field", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 48}
+{"id": "parse@bcf2f66197e5:date_convert", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 59, "code_reproduced": true, "candidates": 73}
+{"id": "parse@421c19919fbc:Parser._handle_field", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 830}
+{"id": "parse@19689cf5b4e0:findall", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "parse@38d21c01587b:Parser._handle_field", "kind": "multi", "sites": [2], "reproduced": true, "position": 42, "code_reproduced": true, "candidates": 46}
+{"id": "parse@90461fa4332d:Parser._handle_field", "kind": "single", "sites": [1], "reproduced": true, "position": 10, "code_reproduced": true, "candidates": 46}
+{"id": "parse@db1acf8a17e6:FixedTzOffset.__eq__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "parse@124cd7426b07:extract_format", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 9}
+{"id": "parse@1e71cd62eef1:Parser.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 12, "code_reproduced": true, "candidates": 18}
+{"id": "parse@3f0bf88f80f8:Parser._generate_result", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 46}
+{"id": "more_itertools@71e070b35d8c:all_unique", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 22}
+{"id": "more_itertools@67fcf640477c:bucket.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "more_itertools@262dbb980571:seekable.peek", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "more_itertools@f51a53bfd2fe:interleave_evenly", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "more_itertools@71b46b06fb48:windowed", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "more_itertools@b0aa91efbb45:random_product", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "more_itertools@cf186b5de479:product_index", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 79, "code_reproduced": true, "candidates": 728}
+{"id": "more_itertools@11c8280461c0:extract", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": true, "candidates": 1}
+{"id": "more_itertools@cca32949f12d:last", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "more_itertools@c904030580fe:sample", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "more_itertools@449dee231ef2:derangements", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 162, "code_reproduced": true, "candidates": 707}
+{"id": "more_itertools@4f4217c164eb:circular_shifts", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 6}
+{"id": "more_itertools@080fb1397fc0:seekable.relative_seek", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 8}
+{"id": "more_itertools@a71805e91e0c:run_length.decode", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "more_itertools@6ea811ad929f:totient", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 3}
+{"id": "more_itertools@876ac4ad4efe:totient", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 9}
+{"id": "more_itertools@810634f8fb3d:combination_with_replacement_index", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "more_itertools@cd0a3a87d231:iterate", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "more_itertools@49a4b3c94b0d:_chunked_even_online", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "more_itertools@fb89af02fdb7:repeat_each", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 8, "code_reproduced": true, "candidates": 9}
+{"id": "more_itertools@2e81a562fbac:split_before", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "more_itertools@62411c161849:spy", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 11}
+{"id": "more_itertools@68bc730770d1:ichunked", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "more_itertools@e38574428c95:bucket._get_values", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "more_itertools@e0f506dc1934:islice_extended", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 15}
+{"id": "more_itertools@dfa815212df5:intersperse", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "more_itertools@8e359f451651:peekable.__getitem__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "more_itertools@952cd82458de:separate._get_values", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "more_itertools@590cb9ff26d5:collate", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 3}
+{"id": "click@d340b0c12022:Option.get_help_extra", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@91de59c6c8ab:Option.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 6}
+{"id": "click@1b0e19f50595:Option.get_error_hint", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@4fd2fea0db42:Option.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@afc86c748c21:echo", "kind": "single", "sites": [1], "reproduced": true, "position": 4, "code_reproduced": true, "candidates": 7}
+{"id": "click@3f91d2154ebc:Path.convert", "kind": "single", "sites": [1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 11}
+{"id": "click@af2da1ef9b9f:ShellComplete.func_name", "kind": "multi", "sites": [2], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@ab7b6c300176:BashComplete._check_version", "kind": "single", "sites": [1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 10}
+{"id": "click@d19d0def9a2a:BaseCommand.invoke", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@92cebe902aa7:Path.convert", "kind": "single", "sites": [1], "reproduced": true, "position": 3, "code_reproduced": true, "candidates": 10}
+{"id": "click@bda6381ad05e:echo", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 15}
+{"id": "click@f30d0128c9aa:secho", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 8}
+{"id": "click@ee56925bc4f5:Option.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@42ee8a1f6011:Command.collect_usage_pieces", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@f6710e540602:StringParamType.convert", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@709a94f0a8de:_check_for_unicode_literals", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@f21f0140bab5:Argument.get_error_hint", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@7a32558c1a07:BoolParamType.convert", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@7eb990fab578:_verify_python3_env", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@72f1f3e20834:_check_multicommand", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "click@aae0ae2d87d6:get_choices", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@950463bd15f8:_verify_python3_env", "kind": "single", "sites": [1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 26}
+{"id": "click@f15f425bc11a:Option._parse_decls", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "click@5701c4000c39:_get_windows_console_stream", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "click@e6f22c652fb5:Path.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@8af7ec14f3d9:resolve_ctx", "kind": "pair", "sites": [2, 2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 75}
+{"id": "click@11a662df615c:_length_hint", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@a7f6cc2283b1:ProgressBar.render_progress", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@b47b11755f45:ProgressBar.render_progress", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@19655099e6cc:_WindowsConsoleRawIOBase.isatty", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@2df17b6e6642:_get_windows_argv", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 8}
+{"id": "click@4592098a58de:echo", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@4e519da58ac7:add_subsequent_indent", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@ce3ddd22ac54:MissingParameter.format_message", "kind": "single", "sites": [1], "reproduced": true, "position": 3, "code_reproduced": true, "candidates": 32}
+{"id": "click@58b5beee388f:Editor.get_editor", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 7}
+{"id": "click@7b1d403523a4:clear", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@7f4fcf718349:Context.invoke", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@8c369b9472dc:ProgressBar.format_progress_line", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@af627c2ec720:TextWrapper._cutdown", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 15}
+{"id": "click@6a790327145d:ProgressBar.__enter__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@579262766b1e:make_default_short_help", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 2}
+{"id": "click@8ff7d53fc908:FuncParamType.convert", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 14}
+{"id": "click@9877d9a2a7f5:_tempfilepager", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@3d34ddf667e6:Editor.edit", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@7b8486606f99:mine", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@a6af25df9c2e:Argument.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "click@bf94cbb1f404:invoke_param_callback", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "click@e0486c66a3ad:Editor.edit", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@0223fa20ab20:convert_type", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@f5b2e399da26:cli", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 19}
+{"id": "click@50469da33c5c:_NonClosingTextIOWrapper.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "click@7ebd3b9482ea:Context.forward", "kind": "multi", "sites": [4], "reproduced": true, "position": 9, "code_reproduced": true, "candidates": 10}
+{"id": "click@962e97add7fb:Choice.convert", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "click@8ca33a9fba18:Argument.consume_value", "kind": "pair", "sites": [2, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 8}
+{"id": "attrs@97f8d175656b:_is_class_var", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "attrs@01413df3db8e:_MinLengthValidator.__call__", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 0}
+{"id": "attrs@2257a0c60cba:_InValidator.__call__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "attrs@f31bb2850a52:resolve_types", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "attrs@e2b02ec39e9b:_ClassBuilder._patch_original_class", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "attrs@b8671adf9855:matches_re", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "attrs@4b94e0314cd9:_Nothing.__eq__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "attrs@ab6b3e9b4b68:_transform_attrs", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "packaging@5a7d3386d277:_try_parse_specifier_set", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "packaging@8efde605cc26:DependencyGroupResolver._validate", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 9}
+{"id": "packaging@71de7cb379c8:Pylock._from_dict", "kind": "single", "sites": [1], "reproduced": true, "position": 10, "code_reproduced": true, "candidates": 13}
+{"id": "packaging@ae9d39c13b5f:is_valid_pylock_path", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 4}
+{"id": "packaging@fa52d7237a74:_path_name", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "packaging@022ae6c6fe5c:_Validator._process_license_files", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "packaging@b80e6eb0a6c0:Pylock.select", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 40}
+{"id": "packaging@826426fc8877:Pylock.select", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "packaging@abf000549c2e:_Validator._process_description_content_type", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 70, "code_reproduced": true, "candidates": 517}
+{"id": "packaging@9a11fba3d532:_get", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "packaging@0a85b41e24c9:_format_marker", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "packaging@dec2caffa063:release_build", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 21, "code_reproduced": true, "candidates": 34}
+{"id": "packaging@256686340e6b:_generic_abi", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "packaging@82ca37d936df:sys_tags", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "packaging@08bb047794f4:_strip_auth_from_netloc", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "packaging@45d15309ac4a:_mac_binary_formats", "kind": "multi", "sites": [3], "reproduced": true, "position": 25, "code_reproduced": true, "candidates": 30}
+{"id": "packaging@553582d9162c:_Validator._process_description_content_type", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 0}
+{"id": "packaging@16f558722612:Specifier._compare_greater_than", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 39, "code_reproduced": true, "candidates": 91}
+{"id": "packaging@63af696867fd:SpecifierSet.filter", "kind": "single", "sites": [1], "reproduced": true, "position": 5, "code_reproduced": true, "candidates": 40}
+{"id": "packaging@1c4e8056b1c0:Marker.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "packaging@cb2975ebb291:Pylock._from_dict", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 47}
+{"id": "packaging@6da1c50d1354:Requirement._iter_parts", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 2}
+{"id": "packaging@a1f705642e50:canonicalize_license_expression", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "packaging@81d492398ae1:Tag.__setstate__", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 7, "code_reproduced": true, "candidates": 15}
+{"id": "packaging@a716c52b5f3c:_Validator._process_dynamic", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 20}
+{"id": "packaging@a6c9bc4dce96:Specifier._compare_equal", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "packaging@e7ce051e9191:_parse_marker_op", "kind": "single", "sites": [1], "reproduced": true, "position": 7, "code_reproduced": true, "candidates": 11}
+{"id": "packaging@08fe31273e4e:release", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 46}
+{"id": "packaging@2321192911f3:Requirement.__str__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "packaging@7b604fb7eae9:Requirement.__init__", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 3, "code_reproduced": true, "candidates": 5}
+{"id": "packaging@79c84ead5177:_parse_local_version", "kind": "single", "sites": [1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 10}
+{"id": "arrow@8cac5fabf588:Arrow.dehumanize", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": true, "candidates": 41}
+{"id": "arrow@1a60d8bb80c6:is_timestamp", "kind": "single", "sites": [1], "reproduced": true, "position": 6, "code_reproduced": true, "candidates": 18}
+{"id": "arrow@a8f34fc9bd80:DateTimeParser._generate_pattern_re", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 10}
+{"id": "arrow@f3c301573c5f:DateTimeParser._generate_pattern_re", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 10}
+{"id": "arrow@dafdb69f1dc0:Arrow.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "arrow@f872d7a56c43:ArrowFactory.get", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 26}
+{"id": "arrow@1011d9bdddbe:ArrowFactory.get", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 14}
+{"id": "arrow@88de0faf97ae:Arrow.humanize", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 34, "code_reproduced": true, "candidates": 64}
+{"id": "arrow@7437f2d72cae:Arrow.replace", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 15}
+{"id": "arrow@3f67c8be2cff:DateTimeParser._generate_pattern_re", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "arrow@7f69ace2d346:Arrow.fromtimestamp", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 21}
+{"id": "arrow@b1fcf1cc88f4:Arrow.__getattr__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 6}
+{"id": "arrow@fa5bce047651:DateTimeFormatter._format_token", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "arrow@b5eee6ddf91f:Arrow.replace", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "arrow@26a6dd1a5ce5:Arrow.__repr__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "arrow@fcaa831f1d60:Arrow.replace", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 15}
+{"id": "arrow@877cd14967ef:Arrow.span_range", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 5}
+{"id": "arrow@e88984c0b6b9:Arrow.to", "kind": "single", "sites": [1], "reproduced": true, "position": 3, "code_reproduced": true, "candidates": 19}
+{"id": "arrow@c3db6efff6dd:DateTimeParser.parse_iso", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "arrow@8eaafa6e954b:Arrow.__getattr__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "arrow@47912a42b4a9:DateTimeParser._build_datetime", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "arrow@02445de13eb1:DateTimeParser._parse_token", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 13, "code_reproduced": true, "candidates": 52}
+{"id": "arrow@af89e5fe6353:arrow", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 7}
+{"id": "humanize@318888db38ac:_abs_timedelta", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "humanize@ca892b368a53:intword", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "humanize@984526c02448:intcomma", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "humanize@08cf2c3026cf:fractional", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 49}
+{"id": "humanize@11e62eeedb89:naturalsize", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 50}
+{"id": "humanize@a178851b369e:naturalsize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "humanize@33119c0a88a2:naturalsize", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": true, "candidates": 2}
+{"id": "humanize@e5a3976c5a05:metric", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "humanize@cde0a3f63700:_ngettext", "kind": "single", "sites": [1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 9}
+{"id": "humanize@69dcb6054644:metric", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "humanize@414fe735ed08:metric", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "humanize@6d2dcf6bbb66:metric", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "humanize@b1ee68758208:metric", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "humanize@03863fed6c2b:intcomma", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": true, "candidates": 34}
+{"id": "humanize@1f19fea84773:naturaldelta", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 38}
+{"id": "humanize@2d891b89ebfb:get_default_locale_path", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "humanize@95879a79b18f:_suitable_minimum_unit", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "humanize@84457d96f838:activate", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "humanize@11fb45537bfc:activate", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "humanize@17f0780d015b:naturaltime", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "humanize@89ea236cc53c:activate", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 17}
+{"id": "humanize@41f5ed67b46b:naturaltime", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "tabulate@b577975155c3:_normalize_tabular_data", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@5373ebfa9568:_format", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@87a9a4e07a5e:tabulate", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 3}
+{"id": "tabulate@886e2ed87b49:_wrap_text_to_colwidths", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 56, "code_reproduced": true, "candidates": 88}
+{"id": "tabulate@bb1bf9f40978:_wrap_text_to_colwidths", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 5}
+{"id": "tabulate@4e97640cbc53:_is_separating_line_value", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@36fb3088a85c:_remove_separating_lines", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@392be0f2f021:_is_separating_line", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "tabulate@0978de5bb3a7:_normalize_tabular_data", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@69dc8ed3633e:_isint", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@170723430e43:_format", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 45}
+{"id": "tabulate@674dea81720f:_isnumber_with_thousands_separator", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@293ff59a4ed8:_normalize_tabular_data", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@bce1cd590430:_CustomTextWrap.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@d73521927845:_html_row_with_attrs", "kind": "single", "sites": [1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 13}
+{"id": "tabulate@261693284d87:tabulate", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@3c9800c77eb6:_pipe_line_with_colons", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@53ac1a7c7fcd:_append_multiline_row", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "tabulate@2d9b1dc70756:_align_column", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 56}
+{"id": "tabulate@fdf15756e0a7:_pprint_file", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@65484fb14fde:_format", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@f50230a978c7:tabulate", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "tabulate@ee1d64de8529:_main", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 77, "code_reproduced": true, "candidates": 806}
+{"id": "tabulate@f89db531cee8:_align_column", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@e32e200596d1:_pprint_file", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 10}
+{"id": "tabulate@efcf79cf4aa1:_format", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@281c0e639c5f:_normalize_tabular_data", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 56}
+{"id": "tabulate@4e67be0df828:_latex_line_begin_tabular", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@1295d13e26ef:_mediawiki_row_with_attrs", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@f80349d327dc:simple_separated_format", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": true, "candidates": 4}
+{"id": "tabulate@1a3940be5fc7:_normalize_tabular_data", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tabulate@5921892eb8ac:_normalize_tabular_data", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 48}
+{"id": "boltons@f5f5cd867ee9:GUIDerator.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@c1c25da365cf:Bits.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@4aa77cddb5d0:split_iter", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@766b5547392f:bytes2human", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@ce7c7d2b15ea:human_readable_list", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@f9c4f30511b5:BarrelList.sort", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@0c88f25323de:Table.to_text", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 92, "code_reproduced": true, "candidates": 588}
+{"id": "boltons@65e0354c94ad:GUIDerator.reseed", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@6cac49ce4eba:OneToOne.update", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@4815fc8dd176:LRI.__setitem__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@93185b224ebd:daterange", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@8ba3a7fa0d99:daterange", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@64e64300246f:IndexedSet._get_apparent_index", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@c57a0ae136e7:TracebackInfo.from_frame", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 6}
+{"id": "boltons@cf696809c59f:LRI._print_ll", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 7}
+{"id": "boltons@d69c177d2dea:_ComplementSet.__repr__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@21d37fc8a8f9:FunctionBuilder.get_func", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@139d5dcd3255:daterange", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@387e59b54caa:MultiSub.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "boltons@d4279cfb18f2:parse_url", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@e8da6fbe356b:SpooledBytesIO.readline", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@f3c6ff202b74:DeferredValue.get_value", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@4bae3f55894e:clamp", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 6, "code_reproduced": true, "candidates": 8}
+{"id": "boltons@c068fc34c901:GUIDerator.reseed", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "boltons@fbc7933a416f:SpooledBytesIO.tell", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@f74b7e5a7d6c:default_exit", "kind": "single", "sites": [1], "reproduced": true, "position": 6, "code_reproduced": true, "candidates": 33}
+{"id": "boltons@c7488f9f4969:BufferedSocket.getsockname", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@7bba06547be6:BufferedSocket.close", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@dd252de7b46c:BufferedSocket.recv_close", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 22}
+{"id": "boltons@dc06c07b11fc:BufferedSocket.recv_close", "kind": "multi", "sites": [2], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@4c5e39fcfa4e:get_path", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@40d8d7333218:backoff_iter", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "boltons@3bd7ea501690:one", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": true, "candidates": 8}
+{"id": "boltons@650b09c0b6b7:ExceptionInfo.from_exc_info", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@31873aebe9df:OrderedMultiDict.__eq__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@b5c0a79bb120:BufferedSocket.recv_until", "kind": "multi", "sites": [2], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "boltons@c4a489d853b9:ParsedException.from_string", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "boltons@bad95b645c5f:LRU.__repr__", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 5, "code_reproduced": true, "candidates": 10}
+{"id": "boltons@4b4dfed1b46c:chunked", "kind": "single", "sites": [1], "reproduced": true, "position": 3, "code_reproduced": true, "candidates": 14}
+{"id": "boltons@8021d0336b81:parse_td", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 5}
+{"id": "boltons@dc1c99bfc762:TracebackInfo.from_traceback", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@0d39463f0c08:OrderedMultiDict.add", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 27, "code_reproduced": true, "candidates": 64}
+{"id": "boltons@5b707455e2c1:OrderedMultiDict.keys", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "boltons@5ef5803c821d:OrderedMultiDict.get", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 9}
+{"id": "marshmallow@5761beab3985:Pluck._field_data_key", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@902f99c4151d:URL.RegexMemoizer._regex_generator", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 31}
+{"id": "marshmallow@252090c7c707:Schema._deserialize", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 63}
+{"id": "marshmallow@8dc078e2b863:URL.__call__", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 38, "code_reproduced": true, "candidates": 61}
+{"id": "marshmallow@94234acd1a98:Schema._invoke_processors", "kind": "single", "sites": [1], "reproduced": true, "position": 5, "code_reproduced": true, "candidates": 48}
+{"id": "marshmallow@eabaa8336039:validates_schema", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@fd79660afac3:Schema.from_dict", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 2}
+{"id": "marshmallow@2b835ecea5ed:get_fixed_timezone", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "marshmallow@eeba83587172:Schema._serialize", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 38, "code_reproduced": true, "candidates": 59}
+{"id": "marshmallow@24855ac0cffe:SchemaOpts.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@f2e555c30bd4:Nested.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 54}
+{"id": "marshmallow@bdcd9500a8e6:SchemaMeta.__new__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@10afde119b3b:Schema._deserialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@519aa8deeaa5:Schema._bind_field", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@2de97bc97891:Field._serialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 5}
+{"id": "marshmallow@0f55068438f0:AwareDateTime.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@08c4d36d6e8d:Nested.schema", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 5, "code_reproduced": true, "candidates": 6}
+{"id": "marshmallow@a5901db9392f:Version._deserialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@abe681ba8f91:register", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "marshmallow@5619eb995820:URL.RegexMemoizer._regex_generator", "kind": "single", "sites": [1], "reproduced": true, "position": 9, "code_reproduced": true, "candidates": 18}
+{"id": "marshmallow@e1e9d3d59727:IPv6._validated", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "marshmallow@c847b07b0649:Schema._init_fields", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@29265fc4831a:Nested.schema", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 39}
+{"id": "marshmallow@8e4e746f4625:Nested.schema", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 3}
+{"id": "marshmallow@34639aa2d010:SchemaMeta.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 11}
+{"id": "marshmallow@62e1aaa56939:Nested.__init__", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 14, "code_reproduced": true, "candidates": 32}
+{"id": "marshmallow@cf808fc8de9e:BaseSchema._invoke_field_validators", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 52}
+{"id": "marshmallow@7be032a66eb8:Unmarshaller.deserialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@893c2d2a9473:Number._validated", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@51549359de11:Number._validated", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@f30a6101afdc:OneOf.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@bc376a70006f:_get_value_for_key", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@03a8387c5f83:Pluck._serialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@1f899e9a8400:register", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 2}
+{"id": "marshmallow@4ff1f75278f0:Unmarshaller.deserialize", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 19}
+{"id": "marshmallow@d60dfba6544e:FieldABC._deserialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@2511e9342418:List._add_to_schema", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@f63a2ba15186:Unmarshaller.deserialize", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 82, "code_reproduced": true, "candidates": 100}
+{"id": "marshmallow@bf851497ef51:Unmarshaller.deserialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@02012d8d9148:Unmarshaller.deserialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@8a3f3278bef7:Nested.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 3, "code_reproduced": true, "candidates": 34}
+{"id": "marshmallow@336c7dc8306c:get_quotes", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@acc5853f5088:syntax", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@9f84247bad86:Unmarshaller.deserialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@b1b1458a5ecd:Unmarshaller.deserialize", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 60}
+{"id": "marshmallow@2e987c4bdcdc:UUID._validated", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "marshmallow@c41e3010cf89:_get_value_for_key", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@7f827137ca20:BaseSchema._invoke_validators", "kind": "single", "sites": [1], "reproduced": true, "position": 8, "code_reproduced": true, "candidates": 52}
+{"id": "marshmallow@0a56c929af3b:URL.RegexMemoizer._regex_generator", "kind": "single", "sites": [1], "reproduced": true, "position": 7, "code_reproduced": true, "candidates": 18}
+{"id": "marshmallow@b9f08bece3c2:ValidatedField._validated", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@be793cced00f:from_iso", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "marshmallow@71da74b5e155:SchemaMeta.__new__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@c411bd590216:SchemaMeta.__new__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@8f356cec7112:Field.root", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 8}
+{"id": "marshmallow@4db911d204b7:Nested._nested_normalized_option", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 4}
+{"id": "marshmallow@8190f49681ab:ErrorStore.reset_errors", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "marshmallow@d81cab413e23:Number.serialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@dbfaba2a57da:Time._serialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@22784765f2d1:get_func_args", "kind": "multi", "sites": [3], "reproduced": true, "position": 8, "code_reproduced": true, "candidates": 9}
+{"id": "marshmallow@ae0db6456276:Decimal._format_num", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 19}
+{"id": "marshmallow@78551b3d5833:UUID._deserialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@6e51dc082f12:BaseSchema._invoke_field_validators", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 44}
+{"id": "marshmallow@db5ae0db3a73:BaseSchema._invoke_validators", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@ac6885d6d158:get_value", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@c70f93c14ba2:BaseSchema._invoke_field_validators", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@eaca46fa753e:BaseSchema._invoke_field_validators", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@73a1c4b30d6b:Nested._deserialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@93667101df5b:QuerySelectList.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@27992463466a:URL.__call__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@ac508364601d:Nested._check_required", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@a56ae89edbb1:Nested._check_required", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@48903a31227e:BaseSchema.__filter_fields", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 49, "code_reproduced": true, "candidates": 86}
+{"id": "marshmallow@c35d7e13921b:Unmarshaller.deserialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@bd86d9f111f4:_get_value_for_key", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@6916d02d83ae:_Missing.__repr__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@c81ecb819032:Integer.__init__", "kind": "multi", "sites": [3], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@67fc4da460de:TimeDelta._serialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@0ae74bc14f2a:TimeDelta._deserialize", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 5}
+{"id": "marshmallow@e691d88bc93f:Marshaller.serialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@9266c4970e04:Marshaller.serialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@21d0d9e86b7b:String._validate_missing", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@cb173779ae1b:Field.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@6fd68748a9ce:Number._validated", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 17}
+{"id": "marshmallow@dd02ca6d8b42:from_datestring", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@6d4beafbc461:from_iso_date", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@4378fedfcc04:regexp", "kind": "single", "sites": [1], "reproduced": true, "position": 3, "code_reproduced": true, "candidates": 14}
+{"id": "marshmallow@7c6d14ad2934:Integer.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 10}
+{"id": "marshmallow@98159735bf63:DateTime._deserialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@0b94668b5a5d:Field._validate", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@ff2fefafb1f9:Field._call_with_validation", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 4}
+{"id": "marshmallow@d2967a662c1b:email", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@75bc5c238be3:Nested.serializer", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 3}
+{"id": "marshmallow@d3174d6bba7e:BaseSerializer.dumps", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@e171b1ab6b4d:BaseSerializer.dumps", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 6, "code_reproduced": true, "candidates": 8}
+{"id": "marshmallow@6a12c3ca7d28:String._deserialize", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "marshmallow@b0fb60a87f90:to_marshallable_type", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "dateutil@d23ff760f844:relativedelta.__init__", "kind": "multi", "sites": [2], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "dateutil@950abb6d1602:_rrulestr._parse_rfc", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 5}
+{"id": "dateutil@0e91aa699a81:__getattr__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "dateutil@393c770c4184:tzfile.fromutc", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 4}
+{"id": "dateutil@5cf3e3cbfa1b:isoparser.parse_isodate", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 15, "code_reproduced": true, "candidates": 33}
+{"id": "dateutil@79d2e486a349:parser.parse", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "dateutil@d0404c685dad:parser._build_tzinfo", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "dateutil@f48e256d62a1:isoparser.parse_isotime", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "dateutil@5ea7e5e3c154:datetime_ambiguous", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "dateutil@de868a6ab8a9:gettz", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "dateutil@38dcf0feeece:_tzparser.parse", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "dateutil@af20fd4240a2:_ymd.could_be_day", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 2}
+{"id": "dateutil@8395a1df31db:parser._parse_numeric_token", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "dateutil@6330d8e35c92:_ymd.resolve_ymd", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 9}
+{"id": "dateutil@b85b5770f145:_rrulestr._parse_rfc", "kind": "single", "sites": [1], "reproduced": true, "position": 5, "code_reproduced": true, "candidates": 6}
+{"id": "dateutil@6222418b2314:parser._parse", "kind": "single", "sites": [1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 52}
+{"id": "dateutil@0b773a582f56:parser._parse", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 73}
+{"id": "dateutil@32707253179c:parser._parse", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 6}
+{"id": "dateutil@9ec3b8960d40:_rrulestr._parse_rfc", "kind": "single", "sites": [1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 29}
+{"id": "dateutil@2d42e046d55b:_ymd.resolve_ymd", "kind": "single", "sites": [1], "reproduced": true, "position": 5, "code_reproduced": true, "candidates": 8}
+{"id": "dateutil@229936ba73a2:_rrulestr._handle_BYWEEKDAY", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "dateutil@96b2112d277b:rrule.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "dateutil@e3e19b35a1ed:rebuild", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "dateutil@186cff2b07c5:main", "kind": "single", "sites": [1], "reproduced": true, "position": 4, "code_reproduced": true, "candidates": 30}
+{"id": "dateutil@1ea9ed91a0e8:parser._parse", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "dateutil@770054be7d52:parser.parse", "kind": "multi", "sites": [2], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "dateutil@9c213cfa669a:parser._parse", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "dateutil@ed473a145b49:rrule.__init__", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 88, "code_reproduced": true, "candidates": 674}
+{"id": "dateutil@4885cf738032:rrule.__init__", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 13}
+{"id": "dateutil@b8e944b51113:tzwinbase._isdst", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "dateutil@7fc1cfa34ce2:parser.parse", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 53}
+{"id": "pyparsing@7232ce013b6d:ParseResults.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 49}
+{"id": "pyparsing@e378aaf45c5f:pyparsing_common.as_datetime", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 31}
+{"id": "pyparsing@c98332b9f058:_mini_tests", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "pyparsing@9db5b514a015:_mini_tests", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "pyparsing@f974aa5d78cd:replace_with", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "pyparsing@e6a60404fe6a:nested_expr", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 62}
+{"id": "pyparsing@7f6571e395f1:Regex._generateDefaultName", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 1}
+{"id": "pyparsing@72a28067b050:ParseResults.deepcopy", "kind": "pair", "sites": [3, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 833}
+{"id": "pyparsing@3fac92261b72:_to_diagram_element", "kind": "multi", "sites": [2], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "pyparsing@21ba705f7786:ParserElement.run_tests", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 74}
+{"id": "pyparsing@f02e4014427e:ParseElementEnhance.parseImpl", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@08f7b39e9948:QuotedString.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@d0d6a81ff27c:ParserElement.create_diagram", "kind": "multi", "sites": [2], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "pyparsing@498adfa547b5:railroad_to_html", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@c1d239103c00:__config_flags._set", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@e543ec9b46ad:Word.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@9c39a15cb424:ParseBaseException.mark_input_line", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@1a39f1133dff:Regex.re", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 10}
+{"id": "pyparsing@938f59d183ca:And.streamline", "kind": "multi", "sites": [2], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@5fb6e0d597f8:QuotedString.__init__", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 56}
+{"id": "pyparsing@577145948bd6:ParserElement.run_tests", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 4}
+{"id": "pyparsing@2f633f4a3d1f:delimited_list", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 55}
+{"id": "pyparsing@ae447cd7d3d8:Dict.postParse", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "pyparsing@46f4af6fee9b:one_of", "kind": "single", "sites": [1], "reproduced": true, "position": 3, "code_reproduced": true, "candidates": 10}
+{"id": "pyparsing@280f71a9fdc8:IndentedBlock.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@465c20f4b232:ParseResults.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@5d6c14a959d1:one_of", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 5}
+{"id": "pyparsing@29d2d8e7ac05:ParseResults.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 5, "code_reproduced": true, "candidates": 47}
+{"id": "pyparsing@e4ab1fe8ce80:ParserElement.create_diagram", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "pyparsing@e5994cc0eac6:Located.parseImpl", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@608b80725fca:ParseResults.getName", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@b6ee479e60a7:ParseResults.copy", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@31679fac4fb3:QuotedString._generateDefaultName", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@1181390886f3:ParseResults.dump", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@90f6fa2703e3:OnlyOnce.__call__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@9dbb88ea5bd3:ParserElement.runTests", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@8a57884ce0fe:ParserElement.runTests", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@fa1482d7c39d:expand_state_definition", "kind": "single", "sites": [1], "reproduced": true, "position": 3, "code_reproduced": true, "candidates": 31}
+{"id": "pyparsing@c024ce89feea:TestTransformStringUsingParseActions.markup_convert", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@df1bf408c570:ParserElement.runTests", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@61077f3fa478:TestResultsModifyingParseAction.compute_stats_parse_action", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@5515f54d8118:UpcaseDowncaseUnicode.runTest", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "pyparsing@356b0d636fbd:UpcaseDowncaseUnicode.runTest", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@72ec678f2260:ParseFileTest.runTest", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "pyparsing@bb85a2668d57:ParserElement.ignore", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@498a0e3f77a9:ParseResults.dump", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 0}
+{"id": "pyparsing@738012c56e26:oneOf", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyparsing@5f705055e1b6:And.__init__", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 16}
+{"id": "pyparsing@98cb3a32ffa3:And._ErrorStop.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "itsdangerous@3edfbbbc615b:TimestampSigner.unsign", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "itsdangerous@9c4f63cd6811:Signer.sign", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 7}
+{"id": "itsdangerous@2af6ef11079e:Serializer.load_payload", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "itsdangerous@13963243459d:URLSafeSerializerMixin.load_payload", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "itsdangerous@0631049e93b8:want_bytes", "kind": "multi", "sites": [2], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "itsdangerous@f119c1b35e63:Serializer.dumps", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "itsdangerous@8ce5ea36aea7:JSONWebSignatureSerializer.make_signer", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "itsdangerous@ea10d2dbec99:TimedSerializer.loads", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "itsdangerous@5d4acbb330c3:TimestampSigner.unsign", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "itsdangerous@d5b350b46bc2:Signer.unsign", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 4}
+{"id": "markupsafe@7add29c77b08:escape", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "markupsafe@c33d98c4e252:__getattr__", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 3}
+{"id": "markupsafe@a00944490877:escape", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "markupsafe@94e9fcad7b31:Markup.__mod__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@4f7d9e7047da:is_uuid", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@a916d8f8253b:Validator.__init__", "kind": "multi", "sites": [4], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@87b2e340e365:license_check", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@d71f96a65238:validator_for", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 28}
+{"id": "jsonschema@28778ee2e167:requirements", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@781f8cdf9c63:is_date", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@dbc398245a58:RefResolver.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@7ebe1614ce0d:Validator.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 5}
+{"id": "jsonschema@eef74176cfbe:extras_msg", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 7}
+{"id": "jsonschema@631fba10862d:Validator.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 4}
+{"id": "jsonschema@12a92ead0bac:dependentSchemas", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@d9d5fe1ef11a:is_date", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@c1de16cbb69c:parse_args", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@bf5e6cfd1871:_PrettyOutputWriter.write_parsing_error", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@7d8db2558022:parse_args", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@038f2e114f43:_PlainOutputWriter.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@ddc192e38ca5:run", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "jsonschema@21af2e472371:propertyNames", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@91c4a49b2cc4:validator_for", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@cff7cf16188d:validator_for", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@a4d778c54613:RefResolver.resolve_remote", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@9632422aa90c:contains", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "jsonschema@9b3f1c01b6a1:const", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@bfc06bd0a061:uniqueItems", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 8}
+{"id": "jsonschema@b7289fe17815:maxProperties_draft4", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 4}
+{"id": "jsonschema@314a753e7b38:ErrorTree.__getitem__", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@cf20b094e861:ValidatorMixin.iter_errors", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@faabedcfd9f0:_uniq", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 27}
+{"id": "jsonschema@5fc1f09afd3b:Draft3Validator.iter_errors", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@9a4a4ef512cb:Validator.validate_additionalItems", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@663ddba17f31:Validator.validate_dependencies", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@cbb37aad7e5b:Validator._validate", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@716d797a6938:Validator.validate_items", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jsonschema@2c0ff4f0d2f4:Validator.validate_properties", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pathspec@3228f14ca503:GitIgnoreSpecPattern.__normalize_segments", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 2}
+{"id": "pathspec@0f25585c043d:RegexPattern.__eq__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 13}
+{"id": "pathspec@7b2b70841fc8:_GitIgnoreBasePattern.escape", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "pathspec@4e782be9d3c8:generate_pyproject_toml", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "pathspec@69d9955dfc99:generate_setup_cfg", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 24}
+{"id": "pathspec@54acb0804468:_HyperscanGiR2BaseBackend._init_db", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 58}
+{"id": "pathspec@81368adefcf1:PathSpec.match_file", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 14}
+{"id": "pathspec@9302492483b0:GitWildMatchPattern._translate_segment_glob", "kind": "single", "sites": [1], "reproduced": true, "position": 3, "code_reproduced": true, "candidates": 21}
+{"id": "pathspec@48519078329c:GitWildMatchPattern.pattern_to_regex", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pathspec@82a4e52ecbc4:_iter_tree_next", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 2}
+{"id": "tomlkit@398c53e84c08:Table.append", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "tomlkit@8c30fc17d91a:Array.__delitem__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@3687d0dfbf53:boolean", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 6, "code_reproduced": true, "candidates": 8}
+{"id": "tomlkit@bd31dbd8e276:dumps", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 21}
+{"id": "tomlkit@990e325d72b9:Integer._new", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 3}
+{"id": "tomlkit@bf01a25e26e5:Float._new", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 3}
+{"id": "tomlkit@b963483b8ee6:Array.__delitem__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@5a61e5b5527a:item", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "tomlkit@b49a3e4ae4f6:Parser._parse_table", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 0}
+{"id": "tomlkit@cb822da80a53:TOMLFile.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 6}
+{"id": "tomlkit@a157e59aca84:Array.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "tomlkit@f5b1cdc8022d:Container._render_table", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@a639224f3b7d:Integer.__add__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@1cb4c2528818:String.unwrap", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@1621fa5d3375:KeyAlreadyPresent.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@03ad1124e8fb:item", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "tomlkit@017b4d8ef3f4:Source.consume", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@3c3f4695c376:Source.consume", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@aa920876b03c:Array.as_string", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@953fd3be54b9:Container.append", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 1}
+{"id": "tomlkit@f2443220bd7f:Container.__repr__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@8e0fa128ab06:Parser._peek_table", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@edb92c70ce26:InvalidControlChar.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@de23e483f73f:Parser._split_table_name", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@63f726aa25d0:item", "kind": "single", "sites": [1], "reproduced": true, "position": 13, "code_reproduced": true, "candidates": 55}
+{"id": "tomlkit@78ab7bd1312c:InvalidCharInStringError.__init__", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 8, "code_reproduced": true, "candidates": 15}
+{"id": "tomlkit@a777ee0f2688:Key.__eq__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@be59aded9dcd:Parser._parse_comment_trail", "kind": "single", "sites": [1], "reproduced": true, "position": 3, "code_reproduced": true, "candidates": 13}
+{"id": "tomlkit@446e78b40693:Container.append", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@2e1ebe36a5cb:TOMLChar.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@0400059e2084:item", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 2}
+{"id": "tomlkit@bebbc57aaff7:StringType.is_literal", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 4}
+{"id": "tomlkit@4254a5bc1b22:item", "kind": "single", "sites": [1], "reproduced": true, "position": 17, "code_reproduced": true, "candidates": 44}
+{"id": "tomlkit@f44754393a69:Container.__setitem__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "tomlkit@9013219567c9:Parser._is_child", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 6}
+{"id": "sqlparse@111b35cffcfe:group_functions", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 20}
+{"id": "sqlparse@5bb129d3fc8a:Lexer.get_default_instance", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@02819f620e59:Lexer.get_default_instance", "kind": "pair", "sites": [3, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 8}
+{"id": "sqlparse@39b5a02551de:group_order", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@403de6fc648a:group_functions", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 17}
+{"id": "sqlparse@0bbfd5f8326f:is_keyword", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@ab53a4b25f85:ReindentFilter._process_where", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@10231d89d76c:_group", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@d7b1ee37ad71:StatementSplitter._change_splitlevel", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "sqlparse@aa0b85e3f754:TokenList.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 14}
+{"id": "sqlparse@3f2ee7b32f74:StatementSplitter._reset", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "sqlparse@71fb55606b60:Statement.get_type", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "sqlparse@abda367a7e33:AlignedIndentFilter._process_statement", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@eabaac100830:validate_options", "kind": "single", "sites": [1], "reproduced": true, "position": 4, "code_reproduced": true, "candidates": 6}
+{"id": "sqlparse@66b36af84fbe:Lexer.get_tokens", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@a6d372d52469:Lexer.get_tokens", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 6}
+{"id": "sqlparse@d66b9247d1b1:ReindentFilter._flatten_up_to_token", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@e0970cc54af6:ReindentFilter._process_case", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "sqlparse@b68e4b781b8d:_group", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@e413b7867b85:_TokenType.__getattr__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@a16326e690d6:ReindentFilter._process_identifierlist", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@a03e7fd681e2:_TokenType.__getattr__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@44e66710fb22:Lexer.get_tokens", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@55a7d3ef1eee:Lexer.get_tokens", "kind": "single", "sites": [1], "reproduced": true, "position": 8, "code_reproduced": true, "candidates": 45}
+{"id": "sqlparse@42fb1d05b601:extract_definitions", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 4}
+{"id": "sqlparse@0c468f594774:TokenList.get_token_at_offset", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@5d77addc60bc:group_functions", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "sqlparse@d0124b877739:StatementFilter._change_splitlevel", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 5, "code_reproduced": true, "candidates": 8}
+{"id": "sqlparse@e7a40aa93ca5:TokenList.__str__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@5d71c27e5194:StatementFilter._change_splitlevel", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@621e1d84607a:StatementFilter._change_splitlevel", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@d74ea26ec3a7:group_where", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@2150a0aaef83:group_identifier_list", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@3942d09bd0be:group_identifier_list", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@fb9ba15d47f6:group_identifier_list", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@2a63e68ba78f:group_identifier_list", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "sqlparse@92ccbfc01210:Token.match", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 3}
+{"id": "sqlparse@92f767b05e7c:index", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyflakes@836631f2f73d:Reporter.syntaxError", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 33}
+{"id": "pyflakes@bb9aba69edb6:Message.__str__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyflakes@43541ee1dd39:Checker.addBinding", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyflakes@2136e1e9f455:Checker.handleDoctests", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyflakes@6ba3f8e0b59b:Message.__str__", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "pyflakes@1f4e3772155a:Checker.getDocstring", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 16}
+{"id": "pyflakes@72acff0029ba:Checker.CONTINUE", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "pyflakes@4feb31f04e47:Checker.GLOBAL", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyflakes@6e3355389615:Checker.GLOBAL", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyflakes@fdc5525b8ab6:Checker.handleNodeLoad", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyflakes@e30852960da8:Checker.RETURN", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyflakes@de8b2cb28e72:Checker.IMPORTFROM", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyflakes@32fb6d7280c6:Reporter.syntaxError", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 32}
+{"id": "pyflakes@2bb9beb7174a:Checker.handleDoctests", "kind": "single", "sites": [1], "reproduced": true, "position": 4, "code_reproduced": true, "candidates": 20}
+{"id": "pyflakes@3e82edf89123:Reporter.syntaxError", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyflakes@6dce640d3b5a:Reporter.syntaxError", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pyflakes@45c9b0925f43:Checker.TRY", "kind": "single", "sites": [1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 20}
+{"id": "pyflakes@595b0be5cf53:Checker.AUGASSIGN", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "pyflakes@75e5f7e6d7ba:Checker.EXCEPTHANDLER", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "pyflakes@ec18cfa2e046:check", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 39}
+{"id": "isort@661c23fd35fd:file_contents", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 13}
+{"id": "isort@c52f2d070ea2:_stream_with_preserved_newlines", "kind": "single", "sites": [1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 21}
+{"id": "isort@9f567676d3c6:process", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@44e4ff93b920:main", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@892248dc69d5:noqa", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 9}
+{"id": "isort@407e9373c35e:process", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 8}
+{"id": "isort@ec9dafe6b38d:_with_from_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@b80edb834a24:main", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@6d0496407252:process", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@b288021905f6:file_contents", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 5}
+{"id": "isort@fd2514b84c5b:process", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@bb0a2850f29c:RequirementsFinder._get_files_from_dir_cached", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 14}
+{"id": "isort@25d96f4ec43f:Config.__init__", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 49}
+{"id": "isort@ee8d87f79f7d:file_contents", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@3d0efc108cb7:section_key", "kind": "single", "sites": [1], "reproduced": true, "position": 3, "code_reproduced": true, "candidates": 19}
+{"id": "isort@5e3c2413e02e:RequirementsFinder._get_names_cached", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 19}
+{"id": "isort@924466e4f0fc:_get_config_data", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 66}
+{"id": "isort@9b37e895aaa6:process", "kind": "single", "sites": [1], "reproduced": true, "position": 6, "code_reproduced": true, "candidates": 7}
+{"id": "isort@c5e8fa75dda5:Config.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@d6e3056579a0:sort_stream", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 2}
+{"id": "isort@26819c0b2dda:sort_file", "kind": "pair", "sites": [1, 2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 855}
+{"id": "isort@b06a000a730e:Config._check_folder_gitignore", "kind": "multi", "sites": [2], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@013fb7f73dc3:_build_arg_parser", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 52}
+{"id": "isort@4d50ebd5a7ff:Config._check_folder_gitignore", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@915aa6814cc7:process", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "isort@c467a98e06b8:_build_arg_parser", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "isort@beea65dc10be:Linter.run", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 24, "code_reproduced": true, "candidates": 44}
+{"id": "isort@999961af7568:process", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@2c16b7cb49e3:_build_arg_parser", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 52}
+{"id": "isort@0ccefec5a394:UnsupportedSettings.__init__", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 1}
+{"id": "isort@d2f7a9fc5c77:_with_from_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@fb36ca3d3ccd:sorted_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@6efb3acde018:TomlPreserveCommentEncoder.__init__", "kind": "multi", "sites": [2], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@008d0a6e9042:line", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 2}
+{"id": "isort@fab05f271b19:FileSkipComment.__init__", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 0}
+{"id": "isort@f903034a584c:_get_config_data", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 14}
+{"id": "isort@e7f5e306a400:main", "kind": "multi", "sites": [2], "reproduced": true, "position": 11, "code_reproduced": true, "candidates": 12}
+{"id": "isort@e99a4786d60b:find_imports_in_paths", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 205, "code_reproduced": true, "candidates": 911}
+{"id": "isort@d37e4142a3ce:imports", "kind": "single", "sites": [1], "reproduced": true, "position": 3, "code_reproduced": true, "candidates": 8}
+{"id": "isort@aa464877a34f:imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@39b8f7528792:imports_in_code_string", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 15}
+{"id": "isort@76be45d844cf:imports", "kind": "multi", "sites": [2], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@8c1158b3f472:File.from_contents", "kind": "multi", "sites": [2], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@69f2a353dd54:process", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@5472c810943d:_with_straight_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@94ae8995739a:main", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 45}
+{"id": "isort@4c54a6392957:_with_straight_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 19}
+{"id": "isort@e478e7c8f8a5:vertical_prefix_from_module_import", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 16}
+{"id": "isort@2aab8d1b9bc5:_src_path", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@23f5fd69ef8e:_build_arg_parser", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 50}
+{"id": "isort@1e9bea3c84d2:UnsupportedSettings._format_option", "kind": "multi", "sites": [2], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@7431db7744ca:main", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@5c2362bc4c87:sort_file", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@80cc94e3de50:_build_arg_parser", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 50}
+{"id": "isort@c8cb55f1c11c:file_contents", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 80}
+{"id": "isort@d4defa927f63:_build_arg_parser", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 50}
+{"id": "isort@9baef903c529:_build_arg_parser", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 840}
+{"id": "isort@104ed84c66bb:process", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@cf44d6720f27:sorted_imports", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 78}
+{"id": "isort@9a6530c23f4f:process", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@e6c117cc6238:_build_arg_parser", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 50}
+{"id": "isort@2952db416502:_with_from_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@680c92b75280:parse_args", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@5c0ea8fba3ec:Config.__init__", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 49}
+{"id": "isort@e2656b7bfbdb:Config.is_skipped", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 4}
+{"id": "isort@e675a244edd2:Config.is_skipped", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@b668b554fbd8:_sort_imports", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 80}
+{"id": "isort@efd43522b7c5:main", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@0b26361d5d8f:_build_arg_parser", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 50}
+{"id": "isort@716966af6e0d:Config.is_skipped", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@9d12eb5567a1:file_contents", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@189fd97209fb:_build_arg_parser", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 50}
+{"id": "isort@5811f3edf74c:_build_arg_parser", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 50}
+{"id": "isort@94c3d6b5097d:sorted_imports", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 75}
+{"id": "isort@ea0642d254c3:git_hook", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@f16032d04d58:sort_file", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@7daceb6a9497:_sort_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "isort@340713cbe9ad:_sort_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@2e21943eacb6:line", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 33}
+{"id": "isort@9ce5f74c4b40:_sort_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@dbd5e3fdae3c:sorted_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@546ff329d4a7:format_profile", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 1}
+{"id": "isort@35c1f7030760:_src_path_is_module", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@0c9fa56439d1:PathFinder.find", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 27}
+{"id": "isort@685fd5958594:ConfigOption.__str__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@6ebf42d31d30:noqa", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@da1c5935de46:file_contents", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@2823efda9d6e:Linter.run", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@126deb0c7dfd:ISortCommand.run", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@333ffa3f7868:sort_imports", "kind": "pair", "sites": [1, 2], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "isort@2d7a6dce4545:read_file", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@490e13584090:File._open", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@74c800a4cac8:sorted_imports", "kind": "pair", "sites": [2, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 13}
+{"id": "isort@2b60f801eea4:git_hook", "kind": "pair", "sites": [1, 1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 3}
+{"id": "isort@63067802cedb:sort_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 4}
+{"id": "isort@c54b3dd4620f:sort_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "isort@c358425c2432:check_imports", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 48}
+{"id": "isort@b3d0ec68fc99:main", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@5a814c193fda:import_statement", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@f7fed6ca1b56:prepare_config", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "isort@173287f22231:RequirementsFinder._get_files_from_dir_cached", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 36}
+{"id": "isort@8924fe26bdf3:parse_args", "kind": "single", "sites": [1], "reproduced": true, "position": 4, "code_reproduced": true, "candidates": 5}
+{"id": "isort@5f4c6b4a9830:_as_list", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@cbf6ba7a1fcd:SortImports._skip_line", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@15b0f6838f5a:file_should_be_skipped", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@e1f83dd486b0:SortImports._parse", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@6a73db44c8bd:SortImports.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@0a64cc1b7c57:PathFinder.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@16daa7bcf901:SortImports.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 6, "code_reproduced": true, "candidates": 53}
+{"id": "isort@79a87b36dd28:SortImports._output_vertical_hanging_indent", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@da544deb4f3f:SortImports._output_vertical_hanging_indent", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@3ffe08faef73:FindersManager.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 7}
+{"id": "isort@cdb781b639bb:FindersManager.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "isort@67c04e18b873:_get_config_data", "kind": "single", "sites": [1], "reproduced": true, "position": 3, "code_reproduced": true, "candidates": 6}
+{"id": "isort@7ab65c103889:SortImports._parse", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@9465f0058091:SortImports._parse", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 3}
+{"id": "isort@bf2fd27841bb:SortImports._parse", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 66}
+{"id": "isort@b923ea29a395:create_parser", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 46}
+{"id": "isort@fc85cc93b90b:SortImports._add_straight_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@468aaa8ca7e0:SortImports._parse", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@a7e18efd06a3:SortImports._add_formatted_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@e7ac914a870a:SortImports._add_formatted_imports", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 834}
+{"id": "isort@7a56eef1d8c5:create_parser", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 46}
+{"id": "isort@e16ebe3b0999:SortImports.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@c48b27550c0f:exists_case_sensitive", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@789435882db5:create_parser", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 46}
+{"id": "isort@f8025c90bbb7:SortImports._wrap", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@0fe53f1b632b:SortImports._add_formatted_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@ef1bd7f60df4:SortImports.__init__", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 68}
+{"id": "isort@0b133dcc2000:SortImports._parse", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 59}
+{"id": "isort@6ff0927ff358:SortImports._parse", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 65}
+{"id": "isort@3af3a6db8d8c:SortImports._add_formatted_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@5f01488f8ecc:ISortCommand.run", "kind": "single", "sites": [1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 18}
+{"id": "isort@e748425d2145:SortImports._add_formatted_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@55946c702ba1:SortImports._parse", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 3}
+{"id": "isort@2afd9ea07bd6:SortImports._parse", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@b2056253572c:SortImports.place_module", "kind": "single", "sites": [1], "reproduced": true, "position": 4, "code_reproduced": true, "candidates": 29}
+{"id": "isort@a5b830d2d631:SortImports._parse", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@a59155468293:should_skip", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "isort@bd16d8c8dc1d:SortImports.__init__", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 55}
+{"id": "isort@dcd997699f64:SortImports._output_noqa", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 10}
+{"id": "isort@c37b0b2be5a4:SortImports._show_diff", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@f3c22486cffc:SortImports._skip_line", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@03576db40986:iter_source_code", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@2350ff103ed2:SortImports._parse", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 2}
+{"id": "isort@ce3ef536df8b:coding_check", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@9dfd9e60b6ea:_get_config_data", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@40fdbbe51c40:main", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 46}
+{"id": "isort@b1ccf0be9ec5:SortImports._parse", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@e1b2f3cd9e59:SortImports._parse", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@f7cc18ebd6b3:SortImports._wrap", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@08f046996aaa:SortImports._output_grid", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@73fe2d1784d7:SortImports._add_formatted_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@7fc780ca2541:SortImports.__init__", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 5}
+{"id": "isort@628384c6b2c0:_update_with_config_file", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "isort@d361ffdd05e3:main", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 45}
+{"id": "isort@c9b1d3e00ce0:SortImports._add_comments", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "isort@bb2dce7890ba:SortImports._import_type", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@acd4776e6bcb:SortImports.__init__", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 2}
+{"id": "isort@a4451280f7ec:SortImports.__init__", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 53}
+{"id": "isort@2b7c2eb995e2:SortImports.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "isort@21938bcbc11a:SortImports.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@39f727f16f81:SortImports._parse", "kind": "pair", "sites": [1, 4], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 707}
+{"id": "isort@3505efbe4b03:SortImports._add_formatted_imports", "kind": "multi", "sites": [3], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 12}
+{"id": "isort@15367607d581:SortImports.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@2f5853530b90:SortImports._import_type", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@ee4255733d20:SortImports.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@f6bcf6ca13fa:SortImports._add_formatted_imports", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "isort@164fc1801c40:SortImports._parse", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "isort@aa4af7eb2851:SortImports._parse", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "pluggy@e108fa449056:PluginManager.load_setuptools_entrypoints", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 13}
+{"id": "pluggy@6abdcf6ca167:PluginManager._verify_hook", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 30}
+{"id": "pluggy@74876c40efa3:varnames", "kind": "single", "sites": [1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 18}
+{"id": "pluggy@b806ff939278:run_recipe", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pluggy@b18141489d98:_multicall", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pluggy@443fee6d7a30:HookCaller.call_extra", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pluggy@b4c214659c61:PluginManager.parse_hookspec_opts", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pluggy@159d95ae56ec:changelog", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pluggy@aac593436a65:_HookCaller.set_specification", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 12}
+{"id": "pluggy@c501a32b34f1:_HookCaller.set_specification", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pluggy@fc6395ca27d5:create_branch", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 5}
+{"id": "pluggy@b2ffeb99627f:varnames", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 8}
+{"id": "pluggy@72e4c2597e70:PluginManager.load_setuptools_entrypoints", "kind": "multi", "sites": [2], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pluggy@5758ba098b67:varnames", "kind": "single", "sites": [1], "reproduced": true, "position": 2, "code_reproduced": true, "candidates": 7}
+{"id": "pluggy@0d5fd6a4119e:_Result.result", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "pluggy@672a98b4fce8:_HookCaller._add_hookimpl", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 12}
+{"id": "pluggy@df1f335a2c18:PluginManager.parse_hookimpl_opts", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "wcwidth@3a9f471acc93:WcCombinedCharacterGenerator.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 24}
+{"id": "wcwidth@a28f45c72810:WcCombinedCharacterGenerator.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "wcwidth@a6c421523b6b:Screen.msg_intro", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "wcwidth@7ff839312ec2:wcswidth", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "xmltodict@404175512ced:_emit", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 25}
+{"id": "xmltodict@ab4c86fed24d:_emit", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "xmltodict@f0322e578184:_DictSAXHandler.startElement", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 2}
+{"id": "xmltodict@cc54376200e7:_parse_args", "kind": "single", "sites": [1], "reproduced": true, "position": 10, "code_reproduced": true, "candidates": 16}
+{"id": "xmltodict@729df10c894d:_DictSAXHandler.startElement", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "xmltodict@e4bd90bc0e1f:unparse", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "xmltodict@7432c51effb6:parse", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 25}
+{"id": "xmltodict@872b005551bc:_DictSAXHandler.endElement", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 2}
+{"id": "slugify@a1543fe0ae01:slugify", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 51}
+{"id": "cerberus@2fa4a9973491:BareValidator._error", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cerberus@16991d464d02:SchemaValidatorMixin._check_with_type", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cerberus@74caea64b3d3:BareValidator._validate_nullable", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cerberus@2e638e35c2e4:BasicErrorHandler._rewrite_logic_error_path", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cerberus@a6de0a9fd7b1:BasicErrorHandler.add", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 3}
+{"id": "cerberus@38743aec4d5b:Validator.__normalize_mapping_per_schema", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cerberus@5e4815e69aa9:BasicErrorHandler.insert_logic_error", "kind": "multi", "sites": [2], "reproduced": true, "position": 32, "code_reproduced": true, "candidates": 33}
+{"id": "cerberus@9f7cc6c2d01d:Validator.__validate_logical", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 41}
+{"id": "cerberus@289234f2ebf9:Validator.__store_config", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cerberus@285bba7ac88e:DefinitionSchema.validate", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cerberus@b1fcb26eda09:Validator.__normalize_mapping_per_propertyschema", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cerberus@445f3ed4908b:get_version", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cerberus@abb433989602:Validator.__validate_dependencies_mapping", "kind": "single", "sites": [1], "reproduced": true, "position": 3, "code_reproduced": true, "candidates": 28}
+{"id": "cerberus@f66d8bd4880d:Validator._validate", "kind": "multi", "sites": [2], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 56}
+{"id": "cerberus@de390138a865:Validator._validate", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 54}
+{"id": "cerberus@5357062a53d9:Validator._validate", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 51}
+{"id": "cerberus@470a8f4b7868:Validator._validate_required_fields", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cerberus@5ee60dad33e4:Validator._validate", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 25}
+{"id": "cerberus@c4e802e2fe8b:Validator._validate_schema", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "cerberus@9ef07039e05a:Validator._error", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "schema@d81871b8644e:Schema.validate", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 80}
+{"id": "schema@a600fb465bdf:Regex.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 21}
+{"id": "schema@a651b394a23b:Schema.validate", "kind": "single", "sites": [1], "reproduced": true, "position": 1, "code_reproduced": true, "candidates": 2}
+{"id": "schema@5d420ab39017:Schema.validate", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 12}
+{"id": "schema@ca70195e1279:SchemaError.__init__", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "schema@e208263ebf1b:Schema.validate", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 15}
+{"id": "schema@afae9214941d:Schema.validate", "kind": "single", "sites": [1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 64}
+{"id": "schema@2af1f4e08b1a:Schema.validate", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 11}
+{"id": "schema@d8dc368dd016:Or.validate", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "schema@7d35c56d4f9c:Schema.validate", "kind": "single", "sites": [1], "reproduced": true, "position": 7, "code_reproduced": true, "candidates": 11}
+{"id": "schema@64f9f1d36b04:Schema.validate", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "schema@92fad7dc0082:Schema.validate", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jmespath@c50175160605:Parser._free_cache_entries", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jmespath@23ed645b4b38:_is_actual_number", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jmespath@360e742783f6:Parser._token_led_lparen", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jmespath@bdda80ec1618:Parser._parse_multi_select_list", "kind": "pair", "sites": [1, 1], "reproduced": false, "position": null, "code_reproduced": false, "candidates": 2}
+{"id": "jmespath@0321d0021b13:WildcardIndex.search", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "jmespath@8f14a303bf9c:_Projection.get_index", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "parsimonious@fc25e1ffa196:NodeVisitor.visit", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "parsimonious@2a8de9aaee8a:NodeVisitor.generic_visit", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "parsimonious@545806c7d25a:NodeVisitor.generic_visit", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"id": "parsimonious@457bca57ba6b:Grammar._copy", "kind": "single", "sites": [1], "reproduced": true, "position": 0, "code_reproduced": true, "candidates": 1}
+{"tally": {"single: reproduced apart from a docstring change": 11, "single: reproduced": 663, "a step with > 2 new values": 369, "multi: reproduced": 24, "3+ steps (not composed)": 37, "pair: reproduced": 45, "single: NOT reproduced": 48, "pair: NOT reproduced": 38, "multi: NOT reproduced": 17, "no steps": 1, "pair: reproduced apart from a docstring change": 1}}

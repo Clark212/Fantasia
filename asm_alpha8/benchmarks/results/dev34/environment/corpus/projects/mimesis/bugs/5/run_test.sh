@@ -1,0 +1,1 @@
+pytest tests/test_providers/test_address.py::TestAddress::test_country tests/test_providers/test_address.py::TestAddress::test_country_for_current_locale tests/test_providers/test_address.py::TestSeededAddress::test_country tests/test_providers/test_address.py::TestSeededAddress::test_country_for_current_locale

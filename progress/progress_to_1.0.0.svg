@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="214" viewBox="0 0 920 214" role="img" aria-label="ASM progress to v1.0.0: 47 of 100 roadmap milestones reached">
+<rect x="0.5" y="0.5" width="919" height="213" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+<text x="20.0" y="34.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="600" fill="#1f2328" text-anchor="start">ASM — progress to v1.0.0</text>
+<text x="20.0" y="58.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#59636e" text-anchor="start">v0.4.0-alpha.7.9 (promoted) · latest step 0.4.9 · 47 of 100 roadmap milestones reached (47%)</text>
+<text x="20.0" y="77.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#59636e" text-anchor="start">In development: 0.4.9 (not promoted; closure check passed, promotion is the owner's call) · next to promote: 0.4.9 = alpha 8</text>
+<rect x="20.00" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.0.1 Initial Seismic Engine: reached</title></rect>
+<rect x="28.22" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.0.2 Event and Impulse Processing: reached</title></rect>
+<rect x="36.44" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.0.3 Basic Memory System: reached</title></rect>
+<rect x="44.66" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.0.4 Signal Propagation: reached</title></rect>
+<rect x="52.88" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.0.5 Initial Learning Mechanism: reached</title></rect>
+<rect x="61.10" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.0.6 Associative Connections: reached</title></rect>
+<rect x="69.32" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.0.7 Basic Prediction: reached</title></rect>
+<rect x="77.54" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.0.8 Internal State Management: reached</title></rect>
+<rect x="85.76" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.0.9 Foundation Integration and Stability: reached</title></rect>
+<text x="56.0" y="138.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2328" text-anchor="middle">0.0</text>
+<text x="56.0" y="151.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#59636e" text-anchor="middle">Foundation</text>
+<rect x="99.98" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.1.0 Seismic Core Architecture: reached</title></rect>
+<rect x="108.20" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.1.1 Stabilized Seismic Core: reached</title></rect>
+<rect x="116.42" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.1.2 Adaptive Signal Processing: reached</title></rect>
+<rect x="124.64" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.1.3 Dynamic Memory Connections: reached</title></rect>
+<rect x="132.86" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.1.4 Associative Learning: reached</title></rect>
+<rect x="141.08" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.1.5 Reliability and Evidence Tracking: reached</title></rect>
+<rect x="149.30" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.1.6 Persistent Memory: reached</title></rect>
+<rect x="157.52" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.1.7 Online Learning: reached</title></rect>
+<rect x="165.74" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.1.8 Cognitive State Coordination: reached</title></rect>
+<rect x="173.96" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.1.9 Core Stage Closure: reached</title></rect>
+<text x="140.1" y="138.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2328" text-anchor="middle">0.1</text>
+<text x="140.1" y="151.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#59636e" text-anchor="middle">Core</text>
+<rect x="188.18" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.2.0 Predictive Core: reached</title></rect>
+<rect x="196.40" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.2.1 Prediction Error Learning: reached</title></rect>
+<rect x="204.62" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.2.2 Temporal Prediction: reached</title></rect>
+<rect x="212.84" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.2.3 Adaptive Prediction: reached</title></rect>
+<rect x="221.06" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.2.4 Uncertainty Estimation: reached</title></rect>
+<rect x="229.28" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.2.5 Prediction Calibration: reached</title></rect>
+<rect x="237.50" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.2.6 Long-Term Prediction: reached</title></rect>
+<rect x="245.72" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.2.7 Predictive Generalization: reached</title></rect>
+<rect x="253.94" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.2.8 Multi-Context Prediction: reached</title></rect>
+<rect x="262.16" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.2.9 Predictive Stage Closure: reached</title></rect>
+<text x="228.3" y="138.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2328" text-anchor="middle">0.2</text>
+<text x="228.3" y="151.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#59636e" text-anchor="middle">Prediction</text>
+<rect x="276.38" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.3.0 Concept Formation: reached</title></rect>
+<rect x="284.60" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.3.1 Pattern Discovery: reached</title></rect>
+<rect x="292.82" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.3.2 Hierarchical Abstraction: reached</title></rect>
+<rect x="301.04" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.3.3 Concept Relationships: reached</title></rect>
+<rect x="309.26" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.3.4 Dynamic Concept Formation: reached</title></rect>
+<rect x="317.48" y="92" width="6.22" height="30" rx="1.5" fill="#d4a72c"><title>0.3.5 Generalization: open</title></rect>
+<rect x="325.70" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.3.6 Concept Revision: reached</title></rect>
+<rect x="333.92" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.3.7 Cross-Domain Abstraction: reached</title></rect>
+<rect x="342.14" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.3.8 Self-Organizing Knowledge: reached</title></rect>
+<rect x="350.36" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.3.9 Abstraction Stage Closure: reached</title></rect>
+<text x="316.5" y="138.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2328" text-anchor="middle">0.3</text>
+<text x="316.5" y="151.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#59636e" text-anchor="middle">Concepts</text>
+<rect x="364.58" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.4.0 Dynamic Neural Tissue and Cognitive Coordination: reached</title></rect>
+<rect x="372.80" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.4.1 Internal Simulation: reached</title></rect>
+<rect x="381.02" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.4.2 Branching Simulation: reached</title></rect>
+<rect x="389.24" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.4.3 Probabilistic Futures: reached</title></rect>
+<rect x="397.46" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.4.4 Active Information Gathering: reached</title></rect>
+<rect x="405.68" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.4.5 Belief-State Planning: reached</title></rect>
+<rect x="413.90" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.4.6 Evidence Reliability: reached</title></rect>
+<rect x="422.12" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.4.7 Latent Dependency Structure: reached</title></rect>
+<rect x="430.34" y="92" width="6.22" height="30" rx="1.5" fill="#2da44e"><title>0.4.8 Higher-Order Epistemic Routing: reached</title></rect>
+<rect x="438.56" y="92" width="6.22" height="30" rx="1.5" fill="#54aeff" stroke="#1f2328" stroke-width="1.5"><title>0.4.9 Planning and Simulation Stage Closure: in progress</title></rect>
+<text x="404.7" y="138.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2328" text-anchor="middle">0.4</text>
+<text x="404.7" y="151.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#59636e" text-anchor="middle">Planning</text>
+<rect x="452.78" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.5.0 Causal Reasoning Foundation: not started</title></rect>
+<rect x="461.00" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.5.1 Causal Relationship Discovery: not started</title></rect>
+<rect x="469.22" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.5.2 Counterfactual Reasoning: not started</title></rect>
+<rect x="477.44" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.5.3 Controlled Experimentation: not started</title></rect>
+<rect x="485.66" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.5.4 Intervention Learning: not started</title></rect>
+<rect x="493.88" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.5.5 Causal World Models: not started</title></rect>
+<rect x="502.10" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.5.6 Causal Generalization: not started</title></rect>
+<rect x="510.32" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.5.7 Causal Planning: not started</title></rect>
+<rect x="518.54" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.5.8 Causal Knowledge Revision: not started</title></rect>
+<rect x="526.76" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.5.9 Causal Stage Closure: not started</title></rect>
+<text x="492.9" y="138.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2328" text-anchor="middle">0.5</text>
+<text x="492.9" y="151.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#59636e" text-anchor="middle">Causal</text>
+<rect x="540.98" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.6.0 Meta-Learning Foundation: not started</title></rect>
+<rect x="549.20" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.6.1 Learning Strategy Selection: not started</title></rect>
+<rect x="557.42" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.6.2 Adaptive Learning Rates and Priorities: not started</title></rect>
+<rect x="565.64" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.6.3 Learning From Few Examples: not started</title></rect>
+<rect x="573.86" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.6.4 Transfer Learning: not started</title></rect>
+<rect x="582.08" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.6.5 Skill Acquisition: not started</title></rect>
+<rect x="590.30" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.6.6 Knowledge Consolidation: not started</title></rect>
+<rect x="598.52" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.6.7 Learning Efficiency Optimization: not started</title></rect>
+<rect x="606.74" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.6.8 Adaptive Cognitive Strategies: not started</title></rect>
+<rect x="614.96" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.6.9 Meta-Learning Stage Closure: not started</title></rect>
+<text x="581.1" y="138.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2328" text-anchor="middle">0.6</text>
+<text x="581.1" y="151.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#59636e" text-anchor="middle">Meta</text>
+<rect x="629.18" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.7.0 Self-Model Foundation: not started</title></rect>
+<rect x="637.40" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.7.1 Capability Awareness: not started</title></rect>
+<rect x="645.62" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.7.2 Limitation Detection: not started</title></rect>
+<rect x="653.84" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.7.3 Internal Performance Diagnosis: not started</title></rect>
+<rect x="662.06" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.7.4 Improvement Hypothesis Generation: not started</title></rect>
+<rect x="670.28" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.7.5 Bounded Self-Modification: not started</title></rect>
+<rect x="678.50" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.7.6 Autonomous Experimentation: not started</title></rect>
+<rect x="686.72" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.7.7 Self-Improvement Validation: not started</title></rect>
+<rect x="694.94" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.7.8 Safe Version Evolution: not started</title></rect>
+<rect x="703.16" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.7.9 Self-Improvement Stage Closure: not started</title></rect>
+<text x="669.3" y="138.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2328" text-anchor="middle">0.7</text>
+<text x="669.3" y="151.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#59636e" text-anchor="middle">Self-model</text>
+<rect x="717.38" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.8.0 Native Language Interface: not started</title></rect>
+<rect x="725.60" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.8.1 Language Understanding: not started</title></rect>
+<rect x="733.82" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.8.2 Semantic Representation: not started</title></rect>
+<rect x="742.04" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.8.3 Language Generation: not started</title></rect>
+<rect x="750.26" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.8.4 Contextual Communication: not started</title></rect>
+<rect x="758.48" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.8.5 Internal Knowledge-to-Language Translation: not started</title></rect>
+<rect x="766.70" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.8.6 Multilingual Capabilities: not started</title></rect>
+<rect x="774.92" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.8.7 Language-Grounded Reasoning: not started</title></rect>
+<rect x="783.14" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.8.8 Language Independence Testing: not started</title></rect>
+<rect x="791.36" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.8.9 Communication Stage Closure: not started</title></rect>
+<text x="757.5" y="138.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2328" text-anchor="middle">0.8</text>
+<text x="757.5" y="151.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#59636e" text-anchor="middle">Language</text>
+<rect x="805.58" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.9.0 Multimodal Architecture: not started</title></rect>
+<rect x="813.80" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.9.1 Visual Perception: not started</title></rect>
+<rect x="822.02" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.9.2 Spatial Understanding: not started</title></rect>
+<rect x="830.24" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.9.3 Audio Perception: not started</title></rect>
+<rect x="838.46" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.9.4 Temporal Event Understanding: not started</title></rect>
+<rect x="846.68" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.9.5 Cross-Modal Associations: not started</title></rect>
+<rect x="854.90" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.9.6 Multimodal Memory: not started</title></rect>
+<rect x="863.12" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.9.7 Multimodal Prediction: not started</title></rect>
+<rect x="871.34" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.9.8 Integrated Perception and Reasoning: not started</title></rect>
+<rect x="879.56" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>0.9.9 Multimodal Stage Closure: not started</title></rect>
+<text x="845.7" y="138.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2328" text-anchor="middle">0.9</text>
+<text x="845.7" y="151.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#59636e" text-anchor="middle">Multimodal</text>
+<rect x="893.78" y="92" width="6.22" height="30" rx="1.5" fill="#eaeef2"><title>1.0.0 Artificial Seismic Machine: not started</title></rect>
+<text x="896.9" y="138.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="600" fill="#1f2328" text-anchor="middle">1.0</text>
+<text x="896.9" y="151.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#59636e" text-anchor="middle">v1.0.0</text>
+<rect x="20" y="168" width="12" height="12" rx="2" fill="#2da44e" stroke="#d0d7de"/>
+<text x="37.0" y="178.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#1f2328" text-anchor="start">reached (47)</text>
+<rect x="130" y="168" width="12" height="12" rx="2" fill="#54aeff" stroke="#d0d7de"/>
+<text x="147.0" y="178.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#1f2328" text-anchor="start">in progress, not promoted (1)</text>
+<rect x="359" y="168" width="12" height="12" rx="2" fill="#d4a72c" stroke="#d0d7de"/>
+<text x="376.0" y="178.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#1f2328" text-anchor="start">open: not yet shown (1)</text>
+<rect x="546" y="168" width="12" height="12" rx="2" fill="#eaeef2" stroke="#d0d7de"/>
+<text x="563.0" y="178.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#1f2328" text-anchor="start">not started (51)</text>
+<rect x="684" y="168" width="12" height="12" rx="2" fill="#54aeff" stroke="#1f2328" stroke-width="1.5"/>
+<text x="701.0" y="178.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#1f2328" text-anchor="start">next: 0.4.9</text>
+<text x="20.0" y="202.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">Position on the roadmap, not effort or time: the later stages include open research problems. Counting rule: progress/progress.json.</text>
+</svg>

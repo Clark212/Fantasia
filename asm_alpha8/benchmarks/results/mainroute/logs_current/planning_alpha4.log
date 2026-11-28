@@ -1,0 +1,12 @@
+{
+  "version": "0.4.0-alpha.7.9",
+  "passed": 9,
+  "total": 10,
+  "before_mean_goal_probability": 0.0,
+  "after_mean_goal_probability": 0.9441384736428008,
+  "learned_before_successes": 0,
+  "learned_after_successes": 3,
+  "useless_information_choice": "go",
+  "three_way_goal_probability": 1.0,
+  "noisy_unknown_probability": 0.09999999999999998
+}

@@ -1,0 +1,54 @@
+{
+  "independent_100": {
+    "activation_rate": 0.0,
+    "activations": 0,
+    "max_alpha78_support": 12.0,
+    "mean_alpha77_support": 12.0,
+    "mean_alpha78_support": 12.0,
+    "mean_fdr_pairs": 0.0,
+    "mean_raw": 0.003887617870709583,
+    "min_alpha78_support": 12.0,
+    "seeds": 40,
+    "trials": 100
+  },
+  "independent_192": {
+    "activation_rate": 0.0,
+    "activations": 0,
+    "max_alpha78_support": 12.0,
+    "mean_alpha77_support": 12.0,
+    "mean_alpha78_support": 12.0,
+    "mean_fdr_pairs": 0.0,
+    "mean_raw": 0.0012754881908725846,
+    "min_alpha78_support": 12.0,
+    "seeds": 40,
+    "trials": 192
+  },
+  "independent_64": {
+    "activation_rate": 0.0,
+    "activations": 0,
+    "max_alpha78_support": 12.0,
+    "mean_alpha77_support": 11.950869950146275,
+    "mean_alpha78_support": 11.950869950146275,
+    "mean_fdr_pairs": 0.075,
+    "mean_raw": 0.00576367177100646,
+    "min_alpha78_support": 11.339081780121102,
+    "seeds": 40,
+    "trials": 64
+  },
+  "performance": {
+    "alpha77_ms": 0.05964849999999999,
+    "alpha78_ms": 0.089997
+  },
+  "shared_192": {
+    "activation_rate": 1.0,
+    "activations": 24,
+    "max_alpha78_support": 5.18681774550952,
+    "mean_alpha77_support": 10.79826065319835,
+    "mean_alpha78_support": 4.575896321947956,
+    "mean_fdr_pairs": 2.9583333333333335,
+    "mean_raw": 0.16332229380634808,
+    "min_alpha78_support": 4.134091944070164,
+    "seeds": 24,
+    "trials": 192
+  }
+}

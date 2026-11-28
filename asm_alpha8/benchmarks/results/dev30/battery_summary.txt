@@ -1,0 +1,44 @@
+{
+ "G30-A": "passed",
+ "checks": {
+  "B1_transfer_everywhere": true,
+  "B2_gain_over_defaults": true,
+  "B3_no_false_transfer": true,
+  "B4_safe": true,
+  "B5_cost": true
+ },
+ "paired_transfer": {
+  "stack_only": 1064,
+  "defaults_only": 7,
+  "exact_one_sided_p": 1.251119404407612e-305
+ },
+ "by_arity": {
+  "defaults|arity2": 0.3237,
+  "defaults|arity3": 0.3248,
+  "stack|arity2": 0.8868,
+  "stack|arity3": 0.891
+ }
+}
+defaults|relevant      1.000 (0.987, 1.0) calls    43.4 asked 0.000 wrong 0 n 288
+defaults|far           0.000 (0.0, 0.017) calls  2286.7 asked 0.005 wrong 0 n 216
+defaults|ambiguous     0.997 (0.981, 0.999) calls    62.0 asked 0.000 wrong 0 n 288
+defaults|memory        0.000 (0.0, 0.013) calls  1534.2 asked 0.017 wrong 0 n 288
+defaults|restart       0.000 (0.0, 0.013) calls  1530.1 asked 0.000 wrong 0 n 288
+defaults|noisy         0.111 (0.08, 0.153) calls  2067.6 asked 0.000 wrong 0 n 288
+defaults|combined      0.000 (0.0, 0.017) calls  1539.4 asked 0.005 wrong 0 n 216
+defaults|none          0.000 (0.0, 0.013) calls  2499.8 asked 0.007 wrong 0 n 288
+defaults|unrelated     0.000 (0.0, 0.013) calls  1997.5 asked 0.010 wrong 0 n 288
+defaults|shuffled      0.000 (0.0, 0.013) calls  2280.7 asked 0.003 wrong 0 n 288
+stack|relevant         1.000 (0.987, 1.0) calls    48.4 asked 0.000 wrong 0 n 288
+stack|far              1.000 (0.983, 1.0) calls    47.7 asked 0.000 wrong 0 n 216
+stack|ambiguous        0.976 (0.951, 0.988) calls    62.3 asked 0.049 wrong 0 n 288
+stack|memory           1.000 (0.987, 1.0) calls   438.8 asked 0.049 wrong 0 n 288
+stack|restart          1.000 (0.987, 1.0) calls   438.2 asked 0.045 wrong 0 n 288
+stack|noisy            0.573 (0.515, 0.629) calls   838.9 asked 0.000 wrong 0 n 288
+stack|combined         0.639 (0.573, 0.7) calls   869.5 asked 0.023 wrong 0 n 216
+stack|none             0.000 (0.0, 0.013) calls  2499.8 asked 0.007 wrong 0 n 288
+stack|unrelated        0.000 (0.0, 0.013) calls  2214.3 asked 0.010 wrong 0 n 288
+stack|shuffled         0.000 (0.0, 0.013) calls  2376.9 asked 0.003 wrong 0 n 288
+defaults|transfer      0.324 (0.303, 0.346) calls  1247.2 asked 0.004 wrong 0 n 1872
+stack|transfer         0.889 (0.874, 0.902) calls   386.8 asked 0.025 wrong 0 n 1872
+HELDDONE

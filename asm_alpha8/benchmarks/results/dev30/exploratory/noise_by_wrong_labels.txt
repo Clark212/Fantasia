@@ -1,0 +1,16 @@
+combined | defaults | 2 or more in a donor | 0 of 47
+combined | defaults | 2 or more in the target | 0 of 31
+combined | defaults | at most 1 per hypothesis | 0 of 118
+combined | defaults | none | 0 of 20
+combined | stack | 2 or more in a donor | 0 of 47
+combined | stack | 2 or more in the target | 0 of 31
+combined | stack | at most 1 per hypothesis | 118 of 118
+combined | stack | none | 20 of 20
+noisy | defaults | 2 or more in a donor | 0 of 73
+noisy | defaults | 2 or more in the target | 0 of 50
+noisy | defaults | at most 1 per hypothesis | 0 of 133
+noisy | defaults | none | 32 of 32
+noisy | stack | 2 or more in a donor | 0 of 73
+noisy | stack | 2 or more in the target | 0 of 50
+noisy | stack | at most 1 per hypothesis | 133 of 133
+noisy | stack | none | 32 of 32

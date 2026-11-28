@@ -1,0 +1,1 @@
+pytest tests/test_filesink_rotation.py::test_weekday_rotation_first_rotation_on_requested_weekday

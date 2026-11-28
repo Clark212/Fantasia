@@ -1,0 +1,2 @@
+{"project": "sqlglot", "bug": 2, "mode": "control", "best_rank": null, "status": "unresolved", "families": null, "repair_seconds": 98.4, "test_copy": null}
+{"project": "sqlglot", "bug": 2, "mode": "learned", "best_rank": null, "status": "time_budget", "families": null, "repair_seconds": 251.3, "test_copy": null}

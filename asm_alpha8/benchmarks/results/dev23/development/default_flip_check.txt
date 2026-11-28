@@ -1,0 +1,28 @@
+Checks of the owner-approved default change (2026-11-23): ProcedureCortex(family_scope='any_int', family_mapping='rename')
+by default; 'one_input' and 'exact' remain available. Commands and outputs, run on the new defaults.
+
+Committed lab harnesses run unchanged on the new defaults (family_scope='any_int', family_mapping='rename'):
+  dev21/transfer.jsonl: 3888 attempts; identical 3726; differ beyond counts 18; gained 18; lost 0; wrong 0 (committed 0); success changes at {('mixed4', 'round_robin', 8): 18}
+  dev21/development/transfer_dev4_lab.jsonl: 1008 attempts; identical 1008; differ beyond counts 0; gained 0; lost 0; wrong 0 (committed 0)
+  dev22/transfer.jsonl: 2880 attempts; identical 2880; differ beyond counts 0; gained 0; lost 0; wrong 0 (committed 0)
+  dev22/development/transfer_dev.jsonl: 2592 attempts; identical 2592; differ beyond counts 0; gained 0; lost 0; wrong 0 (committed 0)
+  dev23/transfer.jsonl: 4176 attempts; identical 4176; differ beyond counts 0; gained 0; lost 0; wrong 0 (committed 0)
+  dev23/development/transfer_dev.jsonl: 2880 attempts; identical 2880; differ beyond counts 0; gained 0; lost 0; wrong 79 (committed 79)
+
+python benchmarks/dev23_lab_check.py exact <scratch>   (family_mapping='exact' forced: reproduces the committed records)
+  dev21/transfer.jsonl: 3888 attempts; identical 3888; differ beyond counts 0; gained 0; lost 0; wrong 0
+  dev21/development/transfer_dev4_lab.jsonl: 1008 attempts; identical 1008; differ beyond counts 0; gained 0; lost 0; wrong 0
+  dev22/transfer.jsonl: 2880 attempts; identical 2880; differ beyond counts 0; gained 0; lost 0; wrong 0
+  dev22/development/transfer_dev.jsonl: 2592 attempts; identical 2592; differ beyond counts 0; gained 0; lost 0; wrong 0
+
+Older release benchmarks that build a default cortex, run from scratch copies (they write result files next to
+themselves or in the working directory), old defaults vs new defaults, every output field compared:
+  benchmark_alpha79.py: 2 fields differ, both latency (alpha78_median_ms, alpha79_median_ms); every other field identical
+  benchmark_alpha77_covariance.py: 2 fields differ, both latency (covariance_median_ms, local_median_ms); others identical
+  benchmark_v040a73_performance.py: 8 fields differ, all timing (elapsed_s, predictions_per_s, median_s, p90_s); others identical
+  benchmark_v040a72_performance.py: stops with KeyError 'value' on the old defaults as well (its query x = 50 lies outside
+    the evidence range 0..17, so the extrapolation guard, 'abstain' by default since DEV3.3, gives no value); not run after
+
+Full tests/ except test_v030a7/a9/a10 (cannot import without torch): 57 failed, 971 passed, 4 skipped, 3 warnings, 99 subtests passed in 588.91s (0:09:48)
+  The 57 failing test IDs are identical to those on the DEV22 commit b5407bd (pre-existing PyTorch failures); log:
+  full_tests_family_defaults.log

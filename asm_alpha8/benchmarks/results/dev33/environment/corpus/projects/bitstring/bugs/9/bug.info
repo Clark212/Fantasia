@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="d2ee49bdc0d1fb944461d375f69dd210b2c4e9e1"
+fixed_commit_id="6106ecd25675ded902f55e3f7e1925210222f47a"
+test_file="tests/test_mxfp.py"

@@ -1,0 +1,3 @@
+youtube-dl-29, guarded arm run alone after the full development run (same code, guard on, phase3_seconds=150, budget 150):
+resolved in 166.7 s, rejected_by_reason {'failed': 80}, family guard_stmt (phase 1-2; the guard never acted).
+In the full run (dev32_guarded_*of3.jsonl) the same arm ended 'unresolved' at 255.9 s ({'failed': 137, 'test_copy': 20}).

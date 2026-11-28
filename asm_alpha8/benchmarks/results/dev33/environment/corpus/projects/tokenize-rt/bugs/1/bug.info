@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="106600ddff11a88554f5fa026db0f4454ec6b3ac"
+fixed_commit_id="cb7836bd8cfefaacd84b412a0fba10fcc3b353b8"
+test_file="tests/tokenize_rt_test.py"

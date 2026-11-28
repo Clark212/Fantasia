@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="4b10e63076aa60d774e16ab96c8ab816748c93ef"
+fixed_commit_id="f63a12a239e5eba99339e1a1576be2d049786323"
+test_file="tests/test_singular_ss.py"

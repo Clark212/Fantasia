@@ -1,0 +1,219 @@
+{
+ "G21-A": "passed",
+ "checks": {
+  "V3_control_shows_interference": true,
+  "C1_no_interference_relevant_last": true,
+  "C1_no_interference_relevant_first": true,
+  "C2_transfer_gain": true,
+  "C2_relevant_not_worse_than_listing": true,
+  "C3_no_false_transfer_unrelated": true,
+  "C3_shuffled_does_not_succeed": true,
+  "C4_safe_every_arm_and_mode": true,
+  "C5_unrelated_cost_ratio": true
+ },
+ "paired_mixed_relevant_last": {
+  "round_robin_only": 144,
+  "listing_only": 0,
+  "exact_one_sided_p": 4.484155085839415e-44
+ },
+ "per_structure": {
+  "cube": {
+   "V3_control_shows_interference": true,
+   "C1_no_interference_relevant_last": true,
+   "C1_no_interference_relevant_first": true,
+   "C2_transfer_gain": true,
+   "C2_relevant_not_worse_than_listing": true,
+   "C3_no_false_transfer_unrelated": true,
+   "C3_shuffled_does_not_succeed": true,
+   "C4_safe_every_arm_and_mode": true,
+   "C5_unrelated_cost_ratio": true
+  },
+  "shift": {
+   "V3_control_shows_interference": true,
+   "C1_no_interference_relevant_last": true,
+   "C1_no_interference_relevant_first": true,
+   "C2_transfer_gain": true,
+   "C2_relevant_not_worse_than_listing": true,
+   "C3_no_false_transfer_unrelated": true,
+   "C3_shuffled_does_not_succeed": true,
+   "C4_safe_every_arm_and_mode": true,
+   "C5_unrelated_cost_ratio": true
+  },
+  "flip": {
+   "V3_control_shows_interference": true,
+   "C1_no_interference_relevant_last": true,
+   "C1_no_interference_relevant_first": true,
+   "C2_transfer_gain": true,
+   "C2_relevant_not_worse_than_listing": true,
+   "C3_no_false_transfer_unrelated": true,
+   "C3_shuffled_does_not_succeed": true,
+   "C4_safe_every_arm_and_mode": true,
+   "C5_unrelated_cost_ratio": true
+  }
+ },
+ "seconds": 37.0
+}
+{
+"listing|none|last|in_range": [
+0.0,
+[
+0.0,
+0.026
+],
+302.46,
+0
+],
+"listing|one_relevant|last|in_range": [
+0.0,
+[
+0.0,
+0.026
+],
+302.46,
+0
+],
+"listing|relevant|last|in_range": [
+1.0,
+[
+0.974,
+1.0
+],
+14.0,
+0
+],
+"listing|unrelated|last|in_range": [
+0.0,
+[
+0.0,
+0.026
+],
+302.46,
+0
+],
+"listing|relevant_shuffled|last|in_range": [
+0.0,
+[
+0.0,
+0.026
+],
+311.74,
+0
+],
+"listing|mixed|last|in_range": [
+0.0,
+[
+0.0,
+0.026
+],
+302.46,
+0
+],
+"listing|mixed|first|in_range": [
+1.0,
+[
+0.974,
+1.0
+],
+14.0,
+0
+],
+"listing|mixed4|last|in_range": [
+0.0,
+[
+0.0,
+0.026
+],
+302.46,
+0
+],
+"listing|mixed4|first|in_range": [
+1.0,
+[
+0.974,
+1.0
+],
+14.0,
+0
+],
+"round_robin|none|last|in_range": [
+0.0,
+[
+0.0,
+0.026
+],
+302.46,
+0
+],
+"round_robin|one_relevant|last|in_range": [
+0.0,
+[
+0.0,
+0.026
+],
+302.46,
+0
+],
+"round_robin|relevant|last|in_range": [
+1.0,
+[
+0.974,
+1.0
+],
+14.0,
+0
+],
+"round_robin|unrelated|last|in_range": [
+0.0,
+[
+0.0,
+0.026
+],
+320.97,
+0
+],
+"round_robin|relevant_shuffled|last|in_range": [
+0.0,
+[
+0.0,
+0.026
+],
+311.74,
+0
+],
+"round_robin|mixed|last|in_range": [
+1.0,
+[
+0.974,
+1.0
+],
+32.72,
+0
+],
+"round_robin|mixed|first|in_range": [
+1.0,
+[
+0.974,
+1.0
+],
+30.31,
+0
+],
+"round_robin|mixed4|last|in_range": [
+0.9375,
+[
+0.885,
+0.967
+],
+59.2,
+0
+],
+"round_robin|mixed4|first|in_range": [
+0.9375,
+[
+0.885,
+0.967
+],
+55.97,
+0
+]
+}

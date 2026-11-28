@@ -1,0 +1,9 @@
+L91 shape known: 10 / 103
+L563 shape known: 17 / 103
+LALL shape known: 19 / 103
+P17 pluggy@672a98b4fce8:_HookCaller._add_hookimpl 8 1386
+P17 cerberus@5357062a53d9:Validator._validate 33 4518
+P17 schema@d81871b8644e:Schema.validate 4384 15211
+P17 schema@a600fb465bdf:Regex.__init__ 334 943
+P17 schema@afae9214941d:Schema.validate 2499 8780
+DIAGDONE

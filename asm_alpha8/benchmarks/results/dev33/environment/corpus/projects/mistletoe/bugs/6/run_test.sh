@@ -1,0 +1,1 @@
+pytest test/test_contrib/test_jira_renderer.py::TestJiraRenderer::test_render_link_with_escapes

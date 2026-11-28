@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="faaa852a33bd69d2897599d89b06b4c3d2fe5c22"
+fixed_commit_id="48ce46c131cc235c9e4cd8029962c37e23c5cc81"
+test_file="tests/test_tuples.py"

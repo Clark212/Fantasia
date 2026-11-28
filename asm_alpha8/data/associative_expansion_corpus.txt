@@ -1,0 +1,14 @@
+repeated requests increase queue pressure; queue pressure crosses threshold, server fails
+repeated charging increases battery heat; battery heat crosses threshold, battery shuts down
+repeated traffic increases road pressure; road pressure crosses threshold, traffic flow fails
+high wind causes branch motion; branch motion triggers sensor alarm
+strong sound causes membrane motion; membrane motion triggers detector response
+rapid vibration causes machine motion; machine motion triggers safety alarm
+cooling reduces component temperature; low temperature allows stable operation
+filtering reduces signal noise; low noise allows clear detection
+maintenance reduces system error; low error allows stable service
+camera detects object
+database stores record
+user enters password
+network sends packet
+program reads file

@@ -1,0 +1,20 @@
+diff --git a/email_validator/exceptions_types.py b/email_validator/exceptions_types.py
+index ee9d50a..4b8f200 100644
+--- a/email_validator/exceptions_types.py
++++ b/email_validator/exceptions_types.py
+@@ -84,7 +84,6 @@ class ValidatedEmail(object):
+         warnings.warn("ValidatedEmail.email is deprecated and will be removed, use ValidatedEmail.normalized instead", DeprecationWarning)
+         return self.normalized
+ 
+-
+     """For backwards compatibility, some fields are also exposed through a dict-like interface. Note
+     that some of the names changed when they became attributes."""
+     def __getitem__(self, key):
+diff --git a/email_validator/version.py b/email_validator/version.py
+index 7857319..80476c8 100644
+--- a/email_validator/version.py
++++ b/email_validator/version.py
+@@ -1 +1 @@
+-__version__ = "2.0.0.post2"
+\ No newline at end of file
++__version__ = "2.0.0.post2"

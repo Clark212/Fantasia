@@ -1,0 +1,110 @@
+{
+  "baseline_alpha73": {
+    "affine2": {
+      "candidates_median": 1.0,
+      "median_ms": 0.3848915,
+      "p90_ms": 0.401968
+    },
+    "prediction_per_s": 68781.32299295354,
+    "product2": {
+      "candidates_median": 18.0,
+      "median_ms": 1.0751439999999999,
+      "p90_ms": 1.171169
+    },
+    "version": "0.4.0-alpha.7.3"
+  },
+  "conditional_prediction_per_s": 80023.25347717243,
+  "piecewise_induction": {
+    "last": {
+      "budget_exhausted": false,
+      "candidate_count": 292,
+      "evaluator_calls": 303,
+      "origin": "conditional",
+      "program": {
+        "expression": [
+          "if",
+          [
+            "lt",
+            "x",
+            0
+          ],
+          [
+            "add",
+            [
+              "mul",
+              2,
+              "x"
+            ],
+            1
+          ],
+          [
+            "add",
+            [
+              "sub",
+              0,
+              "x"
+            ],
+            3
+          ]
+        ],
+        "inputs": {
+          "x": "int"
+        }
+      },
+      "status": "proposed",
+      "version": 1
+    },
+    "median_ms": 5.922784,
+    "p90_ms": 6.042275
+  },
+  "version": "0.4.0-alpha.7.4",
+  "xor_induction": {
+    "last": {
+      "budget_exhausted": false,
+      "candidate_count": 357,
+      "evaluator_calls": 1428,
+      "origin": "boolean:not_eq(bool_var,bool_var)",
+      "program": {
+        "expression": [
+          "not",
+          [
+            "eq",
+            "a",
+            "b"
+          ]
+        ],
+        "inputs": {
+          "a": "bool",
+          "b": "bool"
+        }
+      },
+      "status": "proposed",
+      "version": 1
+    },
+    "median_ms": 8.942765000000001,
+    "p90_ms": 9.289929
+  },
+  "xor_information_query": {
+    "last": {
+      "boundary_seq": 0,
+      "candidate_count": 213,
+      "distinct_predictions": 2,
+      "evaluator_calls": 639,
+      "hypotheses": 13,
+      "input": {
+        "a": true,
+        "b": true
+      },
+      "prediction_groups": {
+        "false": 6,
+        "true": 7
+      },
+      "read_only": true,
+      "score": 0.9957274520849255,
+      "status": "query_suggested",
+      "total_fit_hypotheses": 15
+    },
+    "median_ms": 5.4515025,
+    "p90_ms": 5.569591
+  }
+}

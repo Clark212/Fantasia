@@ -1,0 +1,45 @@
+diff --git a/yapf/yapflib/file_resources.py b/yapf/yapflib/file_resources.py
+index 6809ca9..da44b39 100644
+--- a/yapf/yapflib/file_resources.py
++++ b/yapf/yapflib/file_resources.py
+@@ -195,7 +195,7 @@ def LineEnding(lines):
+       endings[CR] += 1
+     elif line.endswith(LF):
+       endings[LF] += 1
+-  return (sorted(endings, key=endings.get, reverse=True) or [LF])[0]
++  return sorted((LF, CRLF, CR), key=endings.get, reverse=True)[0]
+ 
+ 
+ def _FindPythonFiles(filenames, recursive, exclude):
+diff --git a/yapf/yapflib/yapf_api.py b/yapf/yapflib/yapf_api.py
+index ff87c7b..13b02a4 100644
+--- a/yapf/yapflib/yapf_api.py
++++ b/yapf/yapflib/yapf_api.py
+@@ -99,11 +99,10 @@ def FormatFile(filename,
+       lines=lines,
+       print_diff=print_diff,
+       verify=verify)
+-  if reformatted_source.rstrip('\n'):
+-    lines = reformatted_source.rstrip('\n').split('\n')
+-    reformatted_source = newline.join(iter(lines)) + newline
++  if newline != '\n':
++    reformatted_source = reformatted_source.replace('\n', newline)
+   if in_place:
+-    if original_source and original_source != reformatted_source:
++    if changed:
+       file_resources.WriteReformattedCode(filename, reformatted_source,
+                                           encoding, in_place)
+     return None, encoding, changed
+@@ -221,10 +220,9 @@ def FormatCode(unformatted_source,
+   if unformatted_source == reformatted_source:
+     return '' if print_diff else reformatted_source, False
+ 
+-  code_diff = _GetUnifiedDiff(
+-      unformatted_source, reformatted_source, filename=filename)
+-
+   if print_diff:
++    code_diff = _GetUnifiedDiff(
++        unformatted_source, reformatted_source, filename=filename)
+     return code_diff, code_diff.strip() != ''  # pylint: disable=g-explicit-bool-comparison # noqa
+ 
+   return reformatted_source, True

@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="1144" viewBox="0 0 920 1144" role="img" aria-label="Each DEV step and how much of its pre-registered gate it reached">
+<rect x="0.5" y="0.5" width="919" height="1143" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+<text x="20.0" y="34.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="600" fill="#1f2328" text-anchor="start">Each DEV and its pre-registered gate</text>
+<text x="20.0" y="56.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#59636e" text-anchor="start">The bar is the share of the gate's threshold reached; a gate passed fills it. A version moves only when a pre-registered gate passes.</text>
+<text x="470.0" y="76.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#59636e" text-anchor="middle">0</text>
+<text x="730.0" y="76.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="600" fill="#59636e" text-anchor="middle">gate</text>
+<rect x="8" y="86" width="904" height="46" rx="4" fill="#f6f8fa"/>
+<text x="20.0" y="105.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV15</text>
+<text x="82.0" y="105.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Repair beyond single sites</text>
+<text x="82.0" y="122.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-20 · G1: wrong patches accepted on fresh faults stay…</text>
+<rect x="470" y="101" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="101" width="260.0" height="14" rx="3" fill="#2da44e"/>
+<text x="744.0" y="112.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2da44e" text-anchor="start">gate passed</text>
+<text x="20.0" y="151.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV16</text>
+<text x="82.0" y="151.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">A learning engine and a data pipeline</text>
+<text x="82.0" y="168.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-20 · pre-registered study; needs generated data from…</text>
+<rect x="470" y="147" width="260" height="14" rx="3" fill="#eaeef2"/>
+<text x="744.0" y="158.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#59636e" text-anchor="start">not run</text>
+<rect x="8" y="178" width="904" height="46" rx="4" fill="#f6f8fa"/>
+<text x="20.0" y="197.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV17</text>
+<text x="82.0" y="197.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">ASM learns its own repair procedures</text>
+<text x="82.0" y="214.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-21 · G17-1: real bugs only a learned procedure fixes</text>
+<rect x="470" y="193" width="260" height="14" rx="3" fill="#eaeef2"/>
+<text x="744.0" y="204.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#cf222e" text-anchor="start">0 of 1 needed · not passed</text>
+<text x="20.0" y="243.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV18</text>
+<text x="82.0" y="243.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Learned fix shapes, content from the problem</text>
+<text x="82.0" y="260.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-21 · G18-1: fresh fixes only learned shapes reproduce</text>
+<rect x="470" y="239" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="239" width="52.0" height="14" rx="3" fill="#cf222e"/>
+<text x="744.0" y="250.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#cf222e" text-anchor="start">2 of 10 needed · not passed</text>
+<rect x="8" y="270" width="904" height="46" rx="4" fill="#f6f8fa"/>
+<text x="20.0" y="289.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV19</text>
+<text x="82.0" y="289.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">More training data, same system</text>
+<text x="82.0" y="306.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-21 · G19-1: fresh fixes only learned knowledge…</text>
+<rect x="470" y="285" width="260" height="14" rx="3" fill="#eaeef2"/>
+<text x="744.0" y="296.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#cf222e" text-anchor="start">0 of 10 needed · not passed</text>
+<text x="20.0" y="335.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV20</text>
+<text x="82.0" y="335.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Learned edit steps that combine</text>
+<text x="82.0" y="352.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-22 · G20-1: fresh fixes only learned steps reproduce</text>
+<rect x="470" y="331" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="331" width="26.0" height="14" rx="3" fill="#cf222e"/>
+<text x="744.0" y="342.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#cf222e" text-anchor="start">1 of 10 needed · not passed</text>
+<rect x="8" y="362" width="904" height="46" rx="4" fill="#f6f8fa"/>
+<text x="20.0" y="381.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV21</text>
+<text x="82.0" y="381.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Sharing a candidate budget between learned sources</text>
+<text x="82.0" y="398.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-22 · G21-A: no interference between learned families,…</text>
+<rect x="470" y="377" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="377" width="260.0" height="14" rx="3" fill="#2da44e"/>
+<text x="744.0" y="388.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2da44e" text-anchor="start">gate passed</text>
+<text x="20.0" y="427.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV22</text>
+<text x="82.0" y="427.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Learned families for two-input targets</text>
+<text x="82.0" y="444.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-22 · G22-A: families transfer to held-out two-input…</text>
+<rect x="470" y="423" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="423" width="260.0" height="14" rx="3" fill="#2da44e"/>
+<text x="744.0" y="434.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2da44e" text-anchor="start">gate passed</text>
+<rect x="8" y="454" width="904" height="46" rx="4" fill="#f6f8fa"/>
+<text x="20.0" y="473.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV23</text>
+<text x="82.0" y="473.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Learned families over other input names</text>
+<text x="82.0" y="490.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-22 · G23-A: families transfer across input names,…</text>
+<rect x="470" y="469" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="469" width="260.0" height="14" rx="3" fill="#2da44e"/>
+<text x="744.0" y="480.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2da44e" text-anchor="start">gate passed</text>
+<text x="20.0" y="519.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV24</text>
+<text x="82.0" y="519.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Three-input transfer across names, and wrong labels</text>
+<text x="82.0" y="536.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-23 · G24-A/B: six role orders on three inputs; wrong…</text>
+<rect x="470" y="515" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="515" width="260.0" height="14" rx="3" fill="#2da44e"/>
+<text x="744.0" y="526.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2da44e" text-anchor="start">gate passed</text>
+<rect x="8" y="546" width="904" height="46" rx="4" fill="#f6f8fa"/>
+<text x="20.0" y="565.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV25</text>
+<text x="82.0" y="565.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Solving family parameters from the fit examples</text>
+<text x="82.0" y="582.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-23 · G25-A: constants beyond the grid and the budget's…</text>
+<rect x="470" y="561" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="561" width="260.0" height="14" rx="3" fill="#2da44e"/>
+<text x="744.0" y="572.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2da44e" text-anchor="start">gate passed</text>
+<text x="20.0" y="611.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV26</text>
+<text x="82.0" y="611.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Asking which family candidate is right</text>
+<text x="82.0" y="628.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-23 · G26-A: one question recovers ambiguous fits, no…</text>
+<rect x="470" y="607" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="607" width="260.0" height="14" rx="3" fill="#2da44e"/>
+<text x="744.0" y="618.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2da44e" text-anchor="start">gate passed</text>
+<rect x="8" y="638" width="904" height="46" rx="4" fill="#f6f8fa"/>
+<text x="20.0" y="657.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV27</text>
+<text x="82.0" y="657.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">A family memory past 32 procedures that survives restarts</text>
+<text x="82.0" y="674.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-23 · G27-A: transfer with 48 and 120 background…</text>
+<rect x="470" y="653" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="653" width="260.0" height="14" rx="3" fill="#2da44e"/>
+<text x="744.0" y="664.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2da44e" text-anchor="start">gate passed</text>
+<text x="20.0" y="703.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV28</text>
+<text x="82.0" y="703.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Tolerating one contradicting label</text>
+<text x="82.0" y="720.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-23 · G28-A: transfer under wrong labels rises, no…</text>
+<rect x="470" y="699" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="699" width="260.0" height="14" rx="3" fill="#2da44e"/>
+<text x="744.0" y="710.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2da44e" text-anchor="start">gate passed</text>
+<rect x="8" y="730" width="904" height="46" rx="4" fill="#f6f8fa"/>
+<text x="20.0" y="749.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV29</text>
+<text x="82.0" y="749.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Learned repair knowledge on real bugs, where fault localization points</text>
+<text x="82.0" y="766.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-23 · G29-A: real bugs repaired correctly only with…</text>
+<rect x="470" y="745" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="745" width="130.0" height="14" rx="3" fill="#cf222e"/>
+<text x="744.0" y="756.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#cf222e" text-anchor="start">1 of 2 needed · not passed</text>
+<text x="20.0" y="795.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV30</text>
+<text x="82.0" y="795.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">An M4-candidate battery of the whole transfer stack</text>
+<text x="82.0" y="812.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-23 · G30-A: the four opt-in transfer mechanisms…</text>
+<rect x="470" y="791" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="791" width="260.0" height="14" rx="3" fill="#2da44e"/>
+<text x="744.0" y="802.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2da44e" text-anchor="start">gate passed</text>
+<rect x="8" y="822" width="904" height="46" rx="4" fill="#f6f8fa"/>
+<text x="20.0" y="841.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV31</text>
+<text x="82.0" y="841.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Phase 3 on its own clock, on fresh real bugs</text>
+<text x="82.0" y="858.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-24 · G31-A: fresh real bugs repaired correctly only…</text>
+<rect x="470" y="837" width="260" height="14" rx="3" fill="#eaeef2"/>
+<text x="744.0" y="848.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#cf222e" text-anchor="start">0 of 2 needed · not passed</text>
+<text x="20.0" y="887.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV32</text>
+<text x="82.0" y="887.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">A guard against test-copied patches, on freshly mined real bugs</text>
+<text x="82.0" y="904.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-25 · G32-B: fresh real bugs repaired correctly only…</text>
+<rect x="470" y="883" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="883" width="260.0" height="14" rx="3" fill="#cf222e"/>
+<text x="744.0" y="894.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#cf222e" text-anchor="start">2 of 2 needed · not passed (2 extra wrong patches)</text>
+<rect x="8" y="914" width="904" height="46" rx="4" fill="#f6f8fa"/>
+<text x="20.0" y="933.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV33</text>
+<text x="82.0" y="933.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">The project's own test suite as an acceptance check, on fresh real bugs</text>
+<text x="82.0" y="950.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-27 · G33-A: the check halves learned knowledge's wrong…</text>
+<rect x="470" y="929" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="929" width="260.0" height="14" rx="3" fill="#2da44e"/>
+<text x="744.0" y="940.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2da44e" text-anchor="start">gate passed</text>
+<text x="20.0" y="979.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV34</text>
+<text x="82.0" y="979.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Project adaptation (development) and the M4 real-data gate with the fixed check</text>
+<text x="82.0" y="996.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-27 · G34-A: fresh real bugs repaired correctly only…</text>
+<rect x="470" y="975" width="260" height="14" rx="3" fill="#eaeef2"/>
+<text x="744.0" y="986.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#cf222e" text-anchor="start">0 of 2 needed · not passed</text>
+<rect x="8" y="1006" width="904" height="46" rx="4" fill="#f6f8fa"/>
+<text x="20.0" y="1025.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">DEV35</text>
+<text x="82.0" y="1025.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Causal repair by intervention (development only)</text>
+<text x="82.0" y="1042.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-28 · none: stopped in development, not pre-registered</text>
+<rect x="470" y="1021" width="260" height="14" rx="3" fill="#eaeef2"/>
+<text x="744.0" y="1032.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#59636e" text-anchor="start">not run</text>
+<text x="20.0" y="1071.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">0.4.9</text>
+<text x="82.0" y="1071.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#1f2328" text-anchor="start">Stage 4 closure check (main roadmap)</text>
+<text x="82.0" y="1088.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#59636e" text-anchor="start">2026-11-28 · G49: full ≥ .8 of oracle, hazard ≤ .05, every…</text>
+<rect x="470" y="1067" width="260" height="14" rx="3" fill="#eaeef2"/>
+<rect x="470" y="1067" width="260.0" height="14" rx="3" fill="#2da44e"/>
+<text x="744.0" y="1078.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#2da44e" text-anchor="start">gate passed</text>
+<line x1="730" y1="82" x2="730" y2="1098" stroke="#1f2328" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="20.0" y="1126.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#59636e" text-anchor="start">Promoted: none. Version after the latest DEV: v0.4.0-alpha.7.9 (promoted).</text>
+</svg>

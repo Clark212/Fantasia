@@ -1,0 +1,1 @@
+pytest tests/test_compounds.py::test_capitalized_compound_with_lowercase_y_ending

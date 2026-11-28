@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="48fff58c6b5dc26953da95f564815e66fbddd309"
+fixed_commit_id="764cd30d4b285ca01718ab3162a9f1a022bc49c6"
+test_file="tests/test_ansimarkup_basic.py;tests/test_ansimarkup_extended.py;tests/test_levels.py"

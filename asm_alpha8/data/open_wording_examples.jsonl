@@ -1,0 +1,7 @@
+{"text":"practice sharpens ability","expected_relation":"INCREASE"}
+{"text":"optimization trims system error","expected_relation":"DECREASE"}
+{"text":"wind induces branch motion","expected_relation":"CAUSE"}
+{"text":"electrical pulse provokes alarm","expected_relation":"TRIGGER"}
+{"text":"practice unlocks performance","expected_relation":"ENABLE"}
+{"text":"firewall thwarts intrusion","expected_relation":"PREVENT"}
+{"text":"water transforms into vapor","expected_relation":"BECOME"}

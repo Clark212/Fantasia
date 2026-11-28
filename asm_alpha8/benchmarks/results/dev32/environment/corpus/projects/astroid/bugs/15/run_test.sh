@@ -1,0 +1,1 @@
+pytest tests/test_inference.py::InferenceTest::test_getitem_of_class_with_non_class_metaclass

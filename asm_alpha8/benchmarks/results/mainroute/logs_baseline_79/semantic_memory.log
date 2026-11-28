@@ -1,0 +1,34 @@
+{
+  "version": "0.4.0-alpha.7.9",
+  "summary": {
+    "passed": 13,
+    "total": 13,
+    "accuracy_pct": 100.0
+  },
+  "scaling": {
+    "records": 10000,
+    "build_seconds": 13.102,
+    "query_cases": 200,
+    "typed_top1_correct": 200,
+    "typed_top1_accuracy_pct": 100.0,
+    "median_query_ms": 0.626483,
+    "p95_query_ms": 0.688336,
+    "db_bytes": 11112448,
+    "event_memory_stats": {
+      "records": 10000,
+      "links": 11300,
+      "by_type": {
+        "belief": 2500,
+        "expectation": 2500,
+        "fear": 2500,
+        "goal": 2500
+      },
+      "by_link": {
+        "agent_next": 9800,
+        "proposition_next": 1500
+      },
+      "latest_states": 10000
+    }
+  }
+}
+RESULT: /tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/baseline79/results/semantic_memory2_benchmark.json

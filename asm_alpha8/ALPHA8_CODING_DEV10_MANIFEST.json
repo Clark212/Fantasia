@@ -1,0 +1,26 @@
+{
+  "version": "alpha8-coding-dev10",
+  "status": "experimental-not-promoted",
+  "parent": "alpha8-dev8.1",
+  "tests": {
+    "new": 45,
+    "alpha8_passed": 294,
+    "mutants_caught": "21/21",
+    "v01": "72 passed",
+    "v02_v04": "identical failures to pristine DEV7 (PyTorch absent)"
+  },
+  "validation": {
+    "stdlib_recall": "44/44",
+    "stdlib_outside_acceptable": "0/47",
+    "stdlib_spurious_negatives": "0/25",
+    "asm_sweep_true_positives": "0 of 8 findings across versions; final sweep 0 findings"
+  },
+  "sha256": {
+    "asm/coding/semantics.py": "51995a1bf7c39b6611f1b0ca1b6632a2b3c0214f95e4cea9fdb5c2054159bc34",
+    "asm/coding/sandbox.py": "be62946b61a3d793763da110a0c60d0396bc1c99ae50f850537c7c11f61bbd09",
+    "asm/coding/agent.py": "c3d53226401c742fe2eeca87855e326b576adbf27bcd13007d6e3ffc022fbb1b",
+    "asm/coding/__init__.py": "e63ba34b4da8ffd2014f4ce671d63d2ce3de3a8f68df42045d2b84e0962ef92e",
+    "tests/test_alpha8_coding_dev10.py": "b5e70df8813efe8618e1a199603bdcfa5f0131aa3a90355b75a724f7d77638ef",
+    "ALPHA8_CODING_DEV10_IMPLEMENTATION.md": "f39adabd083a22b3d966067795f1b1f4348a692668867b03c9dc9a8020fd317d"
+  }
+}

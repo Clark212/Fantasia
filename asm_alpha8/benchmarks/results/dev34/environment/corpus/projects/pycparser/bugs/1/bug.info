@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="784754462363c6a10bf891d46800fe91d9532b4f"
+fixed_commit_id="ab00af87ede6a8444318f9c9963c3aa4b9c800fa"
+test_file="tests/test_c_parser.py"

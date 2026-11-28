@@ -1,0 +1,1 @@
+pytest tests/providers/test_bank.py::TestBaseBankProvider::test_bank_not_implemented_error

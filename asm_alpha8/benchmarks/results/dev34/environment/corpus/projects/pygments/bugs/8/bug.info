@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="6a7aa837d5001dd199f0094165d85568faa1142a"
+fixed_commit_id="2f0d713b396de53e8780c114b00a7adad99cbffc"
+test_file="tests/test_raw_token.py"

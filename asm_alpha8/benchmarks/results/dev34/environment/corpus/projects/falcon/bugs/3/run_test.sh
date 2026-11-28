@@ -1,0 +1,1 @@
+pytest tests/test_request_attrs.py::test_root_path_non_ascii_wsgi

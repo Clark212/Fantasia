@@ -1,0 +1,8 @@
+{
+  "benchmark": "alpha6.1 current drift gate rerun under alpha7.1",
+  "mean_recovery": 22.566666666666666,
+  "mean_tail_accuracy": 0.9041666666666667,
+  "pass": true,
+  "recovered": 30,
+  "total": 30
+}

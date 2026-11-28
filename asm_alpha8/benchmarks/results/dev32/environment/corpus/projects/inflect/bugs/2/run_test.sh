@@ -1,0 +1,1 @@
+pytest tests/test_singular_ss.py::test_singular_noun_ss_words tests/test_singular_ss.py::test_singular_noun_sses_plurals

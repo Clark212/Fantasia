@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="466fc93990c17a3ccac22b218898b7451443d54e"
+fixed_commit_id="dc8b180ab008137e01b0b7b2a34f553ef39660b9"
+test_file="tests/test_providers/test_hardware.py"

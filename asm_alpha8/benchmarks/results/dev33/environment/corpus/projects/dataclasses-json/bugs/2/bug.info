@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="8ffa5940c8df33f5f6ad0f01e884bc3d7922d9d8"
+fixed_commit_id="21d2ab263e833fb48e59ac7b037e1ca59d86b916"
+test_file="tests/test_letter_case.py"

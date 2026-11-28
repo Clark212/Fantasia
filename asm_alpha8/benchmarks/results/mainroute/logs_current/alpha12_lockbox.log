@@ -1,0 +1,10 @@
+{
+  "fresh_lockbox": {
+    "correct": 150,
+    "promoted": 30,
+    "restart_correct": 150,
+    "restart_total": 150,
+    "total": 150
+  },
+  "version": "0.4.0-alpha.7.9"
+}

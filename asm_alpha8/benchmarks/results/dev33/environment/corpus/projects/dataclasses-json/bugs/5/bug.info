@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="5a1174cec19837219ead1dd87c335f1ee235ff58"
+fixed_commit_id="4c087ebe3e28840a15e3ba1371dde94a31cb9ba5"
+test_file="tests/test_enum.py"

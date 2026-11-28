@@ -1,0 +1,197 @@
+{
+  "benchmark": "ASM v0.4.0-alpha.7.1 dependency regime learning",
+  "cases": {
+    "correlated_to_independent": {
+      "after_alpha71_temporal": {
+        "accuracy": 0.9021,
+        "calibration_gap": 0.00034222152628793356,
+        "confidence": 0.902442221526288
+      },
+      "after_status": {
+        "active_correlation": 0.0,
+        "cumulative_active_correlation": 0.49728236548298455,
+        "cumulative_raw_correlation": 0.49728236548298455,
+        "current_regime_version": 2,
+        "pair_samples": 144000,
+        "raw_correlation": -0.020249289306800696,
+        "recent_trials": 192,
+        "redundancy_strength": 0.0,
+        "regime_count": 2,
+        "source_id": "s",
+        "status": "independent_or_unproven",
+        "trials": 2000,
+        "view": "recent"
+      },
+      "before_alpha7_cumulative": {
+        "accuracy": 0.9021,
+        "calibration_gap": 0.1663126175325741,
+        "confidence": 0.7357873824674259
+      },
+      "before_status": {
+        "active_correlation": 0.49728236548298455,
+        "cumulative_active_correlation": 0.49728236548298455,
+        "cumulative_raw_correlation": 0.49728236548298455,
+        "current_regime_version": 0,
+        "pair_samples": 144000,
+        "raw_correlation": 0.49728236548298455,
+        "recent_trials": 0,
+        "redundancy_strength": 0.2472897510203526,
+        "regime_count": 0,
+        "source_id": "s",
+        "status": "dependent",
+        "trials": 2000,
+        "view": "cumulative"
+      },
+      "regimes": [
+        {
+          "active_correlation": 0.9715868454068881,
+          "detected_index": 64.0,
+          "end_index": 1028.0,
+          "label": "dependent",
+          "raw_correlation": 0.9715868454068881,
+          "start_index": 1.0,
+          "version": 1
+        },
+        {
+          "active_correlation": 0.0,
+          "detected_index": 1028.0,
+          "end_index": null,
+          "label": "independent_or_unproven",
+          "raw_correlation": 0.03495834091937169,
+          "start_index": 965.0,
+          "version": 2
+        }
+      ]
+    },
+    "independent_to_correlated": {
+      "after_alpha71_temporal": {
+        "accuracy": 0.6997,
+        "calibration_gap": 0.0003000000003162695,
+        "confidence": 0.7000000000003163
+      },
+      "after_status": {
+        "active_correlation": 0.999999999999,
+        "cumulative_active_correlation": 0.4881399662485169,
+        "cumulative_raw_correlation": 0.4881399662485169,
+        "current_regime_version": 2,
+        "pair_samples": 144000,
+        "raw_correlation": 1.0,
+        "recent_trials": 192,
+        "redundancy_strength": 0.999999999998,
+        "regime_count": 2,
+        "source_id": "s",
+        "status": "dependent",
+        "trials": 2000,
+        "view": "recent"
+      },
+      "before_alpha7_cumulative": {
+        "accuracy": 0.6997,
+        "calibration_gap": 0.23268365609681319,
+        "confidence": 0.9323836560968132
+      },
+      "before_status": {
+        "active_correlation": 0.4881399662485169,
+        "cumulative_active_correlation": 0.4881399662485169,
+        "cumulative_raw_correlation": 0.4881399662485169,
+        "current_regime_version": 0,
+        "pair_samples": 144000,
+        "raw_correlation": 0.4881399662485169,
+        "recent_trials": 0,
+        "redundancy_strength": 0.23828062664910324,
+        "regime_count": 0,
+        "source_id": "s",
+        "status": "dependent",
+        "trials": 2000,
+        "view": "cumulative"
+      },
+      "regimes": [
+        {
+          "active_correlation": 0.0,
+          "detected_index": 64.0,
+          "end_index": 1048.0,
+          "label": "independent_or_unproven",
+          "raw_correlation": 0.04025348732405084,
+          "start_index": 1.0,
+          "version": 1
+        },
+        {
+          "active_correlation": 0.9856632364578215,
+          "detected_index": 1048.0,
+          "end_index": null,
+          "label": "dependent",
+          "raw_correlation": 0.9856632364578215,
+          "start_index": 985.0,
+          "version": 2
+        }
+      ]
+    }
+  },
+  "checks": {
+    "c2i_after_gap_below_1pct": true,
+    "c2i_baseline_failure_reproduced": true,
+    "c2i_decision_accuracy_preserved": true,
+    "detection_20_of_20_both_directions": true,
+    "i2c_after_gap_below_1pct": true,
+    "i2c_baseline_failure_reproduced": true,
+    "i2c_decision_accuracy_preserved": true,
+    "reversal_20_of_20_three_regimes": true
+  },
+  "detection": {
+    "correlated_to_independent": {
+      "mean": 27.15,
+      "values": [
+        26,
+        30,
+        23,
+        30,
+        27,
+        29,
+        25,
+        29,
+        29,
+        28,
+        26,
+        27,
+        28,
+        26,
+        24,
+        24,
+        29,
+        29,
+        27,
+        27
+      ]
+    },
+    "independent_to_correlated": {
+      "mean": 50.1,
+      "values": [
+        49,
+        51,
+        49,
+        50,
+        52,
+        53,
+        51,
+        49,
+        50,
+        48,
+        50,
+        47,
+        46,
+        53,
+        51,
+        50,
+        49,
+        53,
+        50,
+        51
+      ]
+    }
+  },
+  "passed": 8,
+  "reversal": {
+    "passed": 20,
+    "total": 20
+  },
+  "total": 8
+}

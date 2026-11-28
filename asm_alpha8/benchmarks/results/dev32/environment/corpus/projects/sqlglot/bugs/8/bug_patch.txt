@@ -1,0 +1,12 @@
+diff --git a/sqlglot/dialects/postgres.py b/sqlglot/dialects/postgres.py
+index fefddeea..bf65edf7 100644
+--- a/sqlglot/dialects/postgres.py
++++ b/sqlglot/dialects/postgres.py
+@@ -277,6 +277,7 @@ class Postgres(Dialect):
+             "CONSTRAINT TRIGGER": TokenType.COMMAND,
+             "DECLARE": TokenType.COMMAND,
+             "DO": TokenType.COMMAND,
++            "EXEC": TokenType.COMMAND,
+             "HSTORE": TokenType.HSTORE,
+             "JSONB": TokenType.JSONB,
+             "MONEY": TokenType.MONEY,

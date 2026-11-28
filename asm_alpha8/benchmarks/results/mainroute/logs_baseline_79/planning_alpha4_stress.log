@@ -1,0 +1,29 @@
+{
+  "random_cases": 300,
+  "alpha3_acceptable": 0,
+  "alpha4_acceptable": 300,
+  "alpha4_sense_first": 300,
+  "alpha4_mean_goal": 1.0,
+  "alpha4_max_expansions": 25,
+  "useless_sensing_rejected": 200,
+  "useless_cases": 200,
+  "deep": {
+    "before_goal": 0.0,
+    "before_status": "risk_threshold_not_met",
+    "after_goal": 1.0,
+    "after_status": "contingent_plan_found",
+    "after_root": "sense1",
+    "contingent": true,
+    "policy_nodes": 11,
+    "expansions": 42
+  },
+  "checks": {
+    "random_300_all_solved": true,
+    "random_alpha3_control_not_solved": true,
+    "useless_200_all_rejected": true,
+    "deep_three_step_policy_solved": true,
+    "deep_alpha3_control_not_solved": true
+  },
+  "passed": 5,
+  "total": 5
+}

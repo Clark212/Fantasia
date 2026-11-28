@@ -1,0 +1,85 @@
+{
+  "after_alpha5_belief_state": {
+    "goal_probability_by_clues": {
+      "1": 0.6999999999999998,
+      "3": 0.7839999999999998,
+      "5": 0.8369199999999998,
+      "7": 0.8739639999999997
+    },
+    "outcome_specific_context": {
+      "branch_actions": {
+        "left": "left",
+        "right": "right"
+      },
+      "goal_probability": 1.0,
+      "policy_nodes": 7,
+      "status": "belief_contingent_plan_found"
+    },
+    "posterior_checks": {
+      "after_A": {
+        "A": 0.7,
+        "B": 0.30000000000000004
+      },
+      "after_AAA": {
+        "A": 0.927027027027027,
+        "B": 0.072972972972973
+      },
+      "after_AB": {
+        "A": 0.49999999999999994,
+        "B": 0.5000000000000001
+      },
+      "entropy_after_AAA": 0.3769215217171547,
+      "entropy_prior": 1.0,
+      "prior": {
+        "A": 0.5,
+        "B": 0.5
+      }
+    },
+    "seven_clue": {
+      "belief_merge_hits": 140,
+      "belief_updates": 216,
+      "expansions": 108,
+      "max_evidence_count": 8,
+      "policy_nodes": 77,
+      "status": "belief_contingent_plan_found",
+      "unique_belief_states": 19
+    },
+    "targets": {
+      "1": 0.7,
+      "3": 0.784,
+      "5": 0.83692,
+      "7": 0.873964
+    }
+  },
+  "before_alpha4_last_observation": {
+    "expansions": 45,
+    "prior_external_history_control_from_alpha4_hard_feed": {
+      "expansions": 765,
+      "note": "Recorded alpha.4 hard-feed control; history was externally supplied, not an ASM capability.",
+      "policy_nodes": 431,
+      "seven_clue_goal_probability": 0.873964
+    },
+    "seven_clue_goal_probability": 0.7,
+    "status": "contingent_plan_found"
+  },
+  "benchmark": "ASM v0.4.0-alpha.5.1 Belief-State Planning & Partial Observability",
+  "checks": {
+    "alpha4_last_observation_control_stays_at_70pct": true,
+    "belief_memo_merges_equivalent_posteriors": true,
+    "consistent_evidence_reduces_entropy": true,
+    "contradictory_AB_returns_to_prior": true,
+    "five_clue_expected_accuracy_matches_bayes": true,
+    "outcome_specific_branch_context_works": true,
+    "policy_representation_is_compact_dag": true,
+    "repeated_evidence_improves_policy": true,
+    "seven_clue_expected_accuracy_matches_bayes": true,
+    "seven_clue_search_within_256_expansions": true,
+    "single_clue_matches_bayes": true,
+    "three_clue_expected_accuracy_matches_bayes": true,
+    "version_is_current_release": true
+  },
+  "claim_boundary": "Controlled discrete latent-state planning. This does not establish broad Bayesian reasoning, automatic latent-variable discovery, general causality, AGI, or RSI.",
+  "passed": 13,
+  "total": 13,
+  "version": "0.4.0-alpha.7.7"
+}

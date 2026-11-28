@@ -1,0 +1,2 @@
+{"tabulate": {"url": "https://github.com/astanin/python-tabulate", "deps": ["wcwidth"]},
+ "toolz": {"url": "https://github.com/pytoolz/toolz", "deps": []}}

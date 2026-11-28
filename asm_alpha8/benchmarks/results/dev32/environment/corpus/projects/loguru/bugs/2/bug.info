@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="c926fd069dc9eadb04e48ca9692387b5e7372677"
+fixed_commit_id="b9acbad0f6cf53354af223c3afa811b912d9e0e7"
+test_file="tests/test_add_option_enqueue.py"

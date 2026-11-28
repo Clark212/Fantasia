@@ -1,0 +1,14 @@
+diff --git a/mistletoe/contrib/github_wiki.py b/mistletoe/contrib/github_wiki.py
+index 03e2287..9e5e904 100644
+--- a/mistletoe/contrib/github_wiki.py
++++ b/mistletoe/contrib/github_wiki.py
+@@ -11,7 +11,8 @@ __all__ = ['GithubWiki', 'GithubWikiRenderer']
+ 
+ 
+ class GithubWiki(SpanToken):
+-    pattern = re.compile(r"\[\[ *(.+?) *\| *(.+?) *\]\]")
++    # In order to avoid inefficient backtracking, we use positive lookahead here.
++    pattern = re.compile(r"\[\[(?=[^\n|]*\|[^\n]*\]\]) *([^\n|]+?) *\| *([^\n]+?) *\]\]")
+ 
+     def __init__(self, match):
+         self.target = match.group(2)

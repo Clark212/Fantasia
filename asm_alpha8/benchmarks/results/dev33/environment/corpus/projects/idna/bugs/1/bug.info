@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="d6ffd28be164dfbd3ebca8b3396e39d191f4909b"
+fixed_commit_id="47b5cde6fffd1a33c4a600228152c919c6de0eb4"
+test_file="tests/test_idna.py"

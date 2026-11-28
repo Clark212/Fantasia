@@ -1,0 +1,19 @@
+{
+  "ambiguous_control": {
+    "abstraction_suppressed": true,
+    "marked_ambiguous": true,
+    "no_exception": true
+  },
+  "distribution_shift": {
+    "had_rule_before": true,
+    "rule_demoted_after_diverse_change": true
+  },
+  "random_control": {
+    "accuracy": 0.01953125,
+    "candidates": 2048,
+    "correct": 5,
+    "promoted": 0,
+    "total": 256
+  },
+  "version": "0.4.0-alpha.7.9"
+}

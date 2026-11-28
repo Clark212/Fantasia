@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="b95650c2d605f1ff1562ca1d0ca0c0f29f181c32"
+fixed_commit_id="a34239c84772fdb5cee2117c83ca824dbd76ce7e"
+test_file="tests/oauth2/rfc6749/test_utils.py"

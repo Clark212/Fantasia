@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="fb6f5bc535e92471158333feddfa93e3614683bb"
+fixed_commit_id="0f9dfa6ba8e10fe46494797989711e853323f222"
+test_file="tests/test_regrtest.py"

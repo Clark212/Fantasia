@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="cf6d3e541c01ebb5f5249ed2c8ed97b60d5dd59d"
+fixed_commit_id="315e396b35cf131df1b8df15144fe2d60aa6d74a"
+test_file="tests/test_date_parser.py"

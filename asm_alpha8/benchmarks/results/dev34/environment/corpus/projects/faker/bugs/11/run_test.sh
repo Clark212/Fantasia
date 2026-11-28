@@ -1,0 +1,1 @@
+pytest tests/test_proxy.py::TestFakerProxyClass::test_copy tests/test_proxy.py::TestFakerProxyClass::test_copy_rebinds_multiple_locale_proxies tests/test_proxy.py::TestFakerProxyClass::test_copy_rebinds_single_locale_proxies tests/test_proxy.py::TestFakerProxyClass::test_copy_unique_uses_copied_proxy_state

@@ -1,0 +1,19 @@
+{"bug": "sqlglot-3", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "sqlglot-6", "work": "dev32fresh", "own_examples": 252, "learn_seconds": 11.2, "truth": ["sqlglot.transforms.explode_to_unnest._explode_to_unnest"], "dev20": {"candidates": 32850, "hit": null}, "adapted": {"candidates": 42421, "hit": {"function": "sqlglot.transforms.explode_to_unnest._explode_to_unnest", "index": 8316, "reason": "learned: pb9d2f6e0dad3437e [candidate] stmts: [] -> []"}}}
+{"bug": "sqlglot-9", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "sqlglot-12", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "sqlglot-15", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "sqlglot-18", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "pyupgrade-1", "work": "dev32fresh", "own_examples": 29, "learn_seconds": 9.8, "truth": ["pyupgrade._plugins.imports.FromImport.parse", "pyupgrade._plugins.imports.FromImport.remove_parts"], "dev20": {"candidates": 26345, "hit": null}, "adapted": {"candidates": 26782, "hit": null}}
+{"bug": "pyupgrade-5", "work": "dev32fresh", "own_examples": 30, "learn_seconds": 8.9, "truth": ["pyupgrade._plugins.typing_pep563._dequote"], "dev20": {"candidates": 5061, "hit": null}, "adapted": {"candidates": 5222, "hit": null}}
+{"bug": "pyupgrade-8", "work": "dev32fresh", "own_examples": 31, "learn_seconds": 10.1, "truth": ["pyupgrade._plugins.identity_equality._is_literal"], "dev20": {"candidates": 7689, "hit": null}, "adapted": {"candidates": 7995, "hit": {"function": "pyupgrade._plugins.identity_equality._is_literal", "index": 597, "reason": "learned: pbcddc14b11099077 [candidate] expr: V0.V1 not in {True, False} -> not isinstance(V0.V1, bool)"}}}
+{"bug": "astroid-4", "work": "dev32fresh", "own_examples": 238, "learn_seconds": 15.6, "truth": ["astroid.interpreter.objectmodel.UnicodeDecodeErrorInstanceModel.attr_object"], "dev20": {"candidates": 1517, "hit": {"function": "astroid.interpreter.objectmodel.UnicodeDecodeErrorInstanceModel.attr_object", "index": 20, "reason": "learned: p18fd3983525b5cdd [candidate] expr: '' -> b''"}}, "adapted": {"candidates": 1775, "hit": {"function": "astroid.interpreter.objectmodel.UnicodeDecodeErrorInstanceModel.attr_object", "index": 6, "reason": "learned: p18fd3983525b5cdd [active] expr: '' -> b''"}}}
+{"bug": "astroid-7", "work": "dev32fresh", "skipped": "no failing test traced"}
+{"bug": "astroid-10", "work": "dev32fresh", "skipped": "no failing test traced"}
+{"bug": "astroid-14", "work": "dev32fresh", "skipped": "no failing test traced"}
+{"bug": "astroid-17", "work": "dev32fresh", "own_examples": 289, "learn_seconds": 18.2, "truth": ["astroid.brain.brain_multiprocessing._multiprocessing_transform"], "dev20": {"candidates": 12851, "hit": null}, "adapted": {"candidates": 13933, "hit": null}}
+{"bug": "astroid-20", "work": "dev32fresh", "skipped": "no failing test traced"}
+{"bug": "rich-3", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "rich-6", "work": "dev32fresh", "skipped": "no changed function"}
+{"bug": "rich-9", "work": "dev32fresh", "own_examples": 105, "learn_seconds": 10.4, "truth": ["rich.pretty.traverse._traverse"], "dev20": {"candidates": 45149, "hit": null}, "adapted": {"candidates": 48970, "hit": {"function": "rich.pretty.traverse._traverse", "index": 12108, "reason": "learned: p8c50b03d417e2bea [candidate] expr: V0.V1 -> V0.V1 and hasattr(obj, V0.name)"}}}
+{"bug": "rich-14", "work": "dev32fresh", "own_examples": 106, "learn_seconds": 11.2, "truth": ["rich.panel.Panel.__rich_console__"], "dev20": {"candidates": 31694, "hit": null}, "adapted": {"candidates": 34656, "hit": {"function": "rich.panel.Panel.__rich_console__", "index": 10637, "reason": "learned: pddc3bcfd0f2761e5 [candidate] stmts: [] -> []"}}}

@@ -1,0 +1,13 @@
+{}
+one_input|none|in_range                0.319 (0.249, 0.399) calls   609.3 fam 0.00 wrong 0
+one_input|one_relevant|in_range        0.389 (0.313, 0.47) calls   530.9 fam 0.00 wrong 0
+one_input|relevant|in_range            0.451 (0.372, 0.533) calls   466.9 fam 0.00 wrong 0
+one_input|unrelated|in_range           0.319 (0.249, 0.399) calls   609.8 fam 0.00 wrong 0
+one_input|relevant_shuffled|in_range   0.000 (0.0, 0.026) calls  1408.2 fam 0.00 wrong 0
+one_input|mixed|in_range               0.417 (0.339, 0.498) calls   578.0 fam 0.00 wrong 0
+any_int|none|in_range                  0.319 (0.249, 0.399) calls   609.3 fam 0.00 wrong 0
+any_int|one_relevant|in_range          0.389 (0.313, 0.47) calls   530.9 fam 0.00 wrong 0
+any_int|relevant|in_range              1.000 (0.974, 1.0) calls    11.3 fam 1.00 wrong 0
+any_int|unrelated|in_range             0.319 (0.249, 0.399) calls   600.5 fam 0.00 wrong 0
+any_int|relevant_shuffled|in_range     0.000 (0.0, 0.026) calls  1379.0 fam 0.00 wrong 0
+any_int|mixed|in_range                 1.000 (0.974, 1.0) calls    29.7 fam 1.00 wrong 0

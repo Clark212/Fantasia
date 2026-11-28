@@ -1,0 +1,104 @@
+{"id": "pluggy@4d6b10d28b7a:PluginManager.load_setuptools_entrypoints", "class": "a step with > 2 new values"}
+{"id": "pluggy@e108fa449056:PluginManager.load_setuptools_entrypoints", "class": "ELIGIBLE single", "status": "active", "within_k": null, "unlimited": null, "unlimited_candidates": 9028, "holes": {"c0": "attr"}, "content": "a value not offered", "missing": [{"type": "attr", "value": "'has_plugin'"}]}
+{"id": "pluggy@6abdcf6ca167:PluginManager._verify_hook", "class": "a step never learned"}
+{"id": "pluggy@0b7790eb2adf:varnames", "class": "a step with > 2 new values"}
+{"id": "pluggy@74876c40efa3:varnames", "class": "ELIGIBLE single", "status": "active", "within_k": null, "unlimited": null, "unlimited_candidates": 13991, "holes": {"c0": "name"}, "content": "a value not offered", "missing": [{"type": "name", "value": "'_signature'"}]}
+{"id": "pluggy@40f3ab1293c4:subprocess_env", "class": "a step with > 2 new values"}
+{"id": "pluggy@198eb6aba335:subprocess_env", "class": "a step with > 2 new values"}
+{"id": "pluggy@b806ff939278:run_recipe", "class": "a step never learned"}
+{"id": "pluggy@b18141489d98:_multicall", "class": "a step never learned"}
+{"id": "pluggy@443fee6d7a30:HookCaller.call_extra", "class": "a step never learned"}
+{"id": "pluggy@b4c214659c61:PluginManager.parse_hookspec_opts", "class": "a step never learned"}
+{"id": "pluggy@159d95ae56ec:changelog", "class": "a step never learned"}
+{"id": "pluggy@aac593436a65:_HookCaller.set_specification", "class": "ELIGIBLE single", "status": "seen once", "within_k": 18, "holes": {"c0": "exc"}, "content": "every value offered", "missing": []}
+{"id": "pluggy@c501a32b34f1:_HookCaller.set_specification", "class": "a step never learned"}
+{"id": "pluggy@c5277e4e9d37:_HookCaller.set_specification", "class": "a step with > 2 new values"}
+{"id": "pluggy@fc6395ca27d5:create_branch", "class": "a pair not learned together in 2 fixes"}
+{"id": "pluggy@b2ffeb99627f:varnames", "class": "a step never learned"}
+{"id": "pluggy@bebd02418f67:varnames", "class": "a step never learned"}
+{"id": "pluggy@0e0f0544b44f:varnames", "class": "a step with > 2 new values"}
+{"id": "pluggy@72e4c2597e70:PluginManager.load_setuptools_entrypoints", "class": "a step never learned"}
+{"id": "pluggy@5758ba098b67:varnames", "class": "ELIGIBLE single", "status": "active", "within_k": null, "unlimited": null, "unlimited_candidates": 11868, "holes": {"c0": "name"}, "content": "a value not offered", "missing": [{"type": "name", "value": "'_getargspec'"}]}
+{"id": "pluggy@0d5fd6a4119e:_Result.result", "class": "a step never learned"}
+{"id": "pluggy@672a98b4fce8:_HookCaller._add_hookimpl", "class": "ELIGIBLE single", "status": "active", "within_k": null, "unlimited": 83, "unlimited_candidates": 8926, "holes": {}, "content": "every value offered", "missing": []}
+{"id": "pluggy@f1a227086408:_MultiCall.execute", "class": "a step with > 2 new values"}
+{"id": "pluggy@7748ba01bb5a:_HookCaller.__call__", "class": "a step with > 2 new values"}
+{"id": "pluggy@df1f335a2c18:PluginManager.parse_hookimpl_opts", "class": "a step never learned"}
+{"id": "pluggy@6d009de9befd:PluginManager.load_setuptools_entrypoints", "class": "a step with > 2 new values"}
+{"id": "wcwidth@6fd6039ed838:_process_hyperlink", "class": "a step with > 2 new values"}
+{"id": "wcwidth@3a9f471acc93:WcCombinedCharacterGenerator.__init__", "class": "ELIGIBLE single", "status": "active", "within_k": null, "unlimited": null, "unlimited_candidates": 7065, "holes": {"c0": "name"}, "content": "every value offered", "missing": []}
+{"id": "wcwidth@a28f45c72810:WcCombinedCharacterGenerator.__init__", "class": "a step never learned"}
+{"id": "wcwidth@a6c421523b6b:Screen.msg_intro", "class": "a step never learned"}
+{"id": "wcwidth@7ff839312ec2:wcswidth", "class": "a step never learned"}
+{"id": "xmltodict@404175512ced:_emit", "class": "a step never learned"}
+{"id": "xmltodict@ab4c86fed24d:_emit", "class": "a step never learned"}
+{"id": "xmltodict@f0322e578184:_DictSAXHandler.startElement", "class": "a step never learned"}
+{"id": "xmltodict@cc54376200e7:_parse_args", "class": "ELIGIBLE single", "status": "active", "within_k": null, "unlimited": null, "unlimited_candidates": 9020, "holes": {"c0": "str"}, "content": "a value not offered", "missing": [{"type": "str", "value": "'Directory to save (and reuse) package'"}]}
+{"id": "xmltodict@729df10c894d:_DictSAXHandler.startElement", "class": "a step never learned"}
+{"id": "xmltodict@e4bd90bc0e1f:unparse", "class": "a step never learned"}
+{"id": "xmltodict@7432c51effb6:parse", "class": "ELIGIBLE single", "status": "active", "within_k": null, "unlimited": null, "unlimited_candidates": 7475, "holes": {"c0": "name"}, "content": "a value not offered", "missing": [{"type": "name", "value": "'AttributeError'"}]}
+{"id": "xmltodict@75f885bfc81a:parse", "class": "a step with > 2 new values"}
+{"id": "xmltodict@872b005551bc:_DictSAXHandler.endElement", "class": "a step never learned"}
+{"id": "slugify@a1543fe0ae01:slugify", "class": "ELIGIBLE multi-site", "status": "active", "within_k": null, "unlimited": null, "unlimited_candidates": 15871}
+{"id": "cerberus@585a20089d24:BareValidator.__validate_schema_mapping", "class": "a step with > 2 new values"}
+{"id": "cerberus@2fa4a9973491:BareValidator._error", "class": "a step never learned"}
+{"id": "cerberus@40d586915956:BareValidator._validate_allowed", "class": "a step with > 2 new values"}
+{"id": "cerberus@16991d464d02:SchemaValidatorMixin._check_with_type", "class": "a step never learned"}
+{"id": "cerberus@74caea64b3d3:BareValidator._validate_nullable", "class": "a step never learned"}
+{"id": "cerberus@906ab77e63a9:BareValidator._validate_forbidden", "class": "a step with > 2 new values"}
+{"id": "cerberus@2e638e35c2e4:BasicErrorHandler._rewrite_logic_error_path", "class": "a step never learned"}
+{"id": "cerberus@a6de0a9fd7b1:BasicErrorHandler.add", "class": "a step never learned"}
+{"id": "cerberus@38743aec4d5b:Validator.__normalize_mapping_per_schema", "class": "a step never learned"}
+{"id": "cerberus@5e4815e69aa9:BasicErrorHandler.insert_logic_error", "class": "ELIGIBLE multi-site", "status": "seen once", "within_k": 57}
+{"id": "cerberus@9f7cc6c2d01d:Validator.__validate_logical", "class": "ELIGIBLE single", "status": "seen once", "within_k": null, "unlimited": null, "unlimited_candidates": 11504, "holes": {"c0": "name"}, "content": "every value offered", "missing": []}
+{"id": "cerberus@d42df85506f7:Validator.__normalize_containers", "class": "a step with > 2 new values"}
+{"id": "cerberus@ef7dfa920bbe:Validator.__validate_schema_sequence", "class": "a step with > 2 new values"}
+{"id": "cerberus@289234f2ebf9:Validator.__store_config", "class": "a step never learned"}
+{"id": "cerberus@b4c12799b4f4:Validator.__new__", "class": "a step with > 2 new values"}
+{"id": "cerberus@285bba7ac88e:DefinitionSchema.validate", "class": "a step never learned"}
+{"id": "cerberus@b1fcb26eda09:Validator.__normalize_mapping_per_propertyschema", "class": "a step never learned"}
+{"id": "cerberus@445f3ed4908b:get_version", "class": "a step never learned"}
+{"id": "cerberus@abb433989602:Validator.__validate_dependencies_mapping", "class": "ELIGIBLE single", "status": "active", "within_k": null, "unlimited": null, "unlimited_candidates": 8908, "holes": {"c0": "name"}, "content": "a value not offered", "missing": [{"type": "name", "value": "'bool'"}]}
+{"id": "cerberus@7d397e9972ce:Validator._validate_excludes", "class": "a step with > 2 new values"}
+{"id": "cerberus@f66d8bd4880d:Validator._validate", "class": "ELIGIBLE multi-site", "status": "active", "within_k": null, "timeout": true}
+{"id": "cerberus@483d2f6a787a:Validator.validate_schema", "class": "a step with > 2 new values"}
+{"id": "cerberus@de390138a865:Validator._validate", "class": "ELIGIBLE single", "status": "active", "within_k": null, "unlimited": null, "unlimited_candidates": 14494, "holes": {"c0": "name", "c1": "attr"}, "content": "a value not offered", "missing": [{"type": "name", "value": "'self'"}, {"type": "attr", "value": "'__class__'"}]}
+{"id": "cerberus@5357062a53d9:Validator._validate", "class": "ELIGIBLE single", "status": "active", "within_k": null, "unlimited": null, "unlimited_candidates": 13803, "holes": {}, "content": "every value offered", "missing": []}
+{"id": "cerberus@470a8f4b7868:Validator._validate_required_fields", "class": "a step never learned"}
+{"id": "cerberus@fc6f354eedf8:Validator._validate", "class": "a step with > 2 new values"}
+{"id": "cerberus@5ee60dad33e4:Validator._validate", "class": "a step never learned"}
+{"id": "cerberus@c4e802e2fe8b:Validator._validate_schema", "class": "ELIGIBLE single", "status": "active", "within_k": null, "unlimited": null, "unlimited_candidates": 9943, "holes": {"c0": "str"}, "content": "a value not offered", "missing": [{"type": "str", "value": "'dict or list'"}]}
+{"id": "cerberus@9ef07039e05a:Validator._error", "class": "a step never learned"}
+{"id": "schema@d81871b8644e:Schema.validate", "class": "ELIGIBLE single", "status": "seen once", "within_k": null, "timeout": true, "holes": {}, "content": "every value offered", "missing": []}
+{"id": "schema@a600fb465bdf:Regex.__init__", "class": "ELIGIBLE single", "status": "active", "within_k": null, "unlimited": null, "unlimited_candidates": 6082, "holes": {"c0": "name"}, "content": "a value not offered", "missing": [{"type": "name", "value": "'int'"}]}
+{"id": "schema@a2873bc406e8:Schema.validate", "class": "a step never learned"}
+{"id": "schema@a651b394a23b:Schema.validate", "class": "a step never learned"}
+{"id": "schema@bb856478b9b6:Or.validate", "class": "a step never learned"}
+{"id": "schema@5d420ab39017:Schema.validate", "class": "ELIGIBLE single", "status": "active", "within_k": null, "timeout": true, "holes": {"c0": "str"}, "content": "a value not offered", "missing": [{"type": "str", "value": "\"Key '%s' error:\""}]}
+{"id": "schema@ca70195e1279:SchemaError.__init__", "class": "a step never learned"}
+{"id": "schema@e208263ebf1b:Schema.validate", "class": "a step never learned"}
+{"id": "schema@e384e6456a1e:Schema.validate", "class": "a step with > 2 new values"}
+{"id": "schema@96666d04a1ac:Schema.validate", "class": "a step never learned"}
+{"id": "schema@afae9214941d:Schema.validate", "class": "ELIGIBLE single", "status": "seen once", "within_k": null, "timeout": true, "holes": {}, "content": "every value offered", "missing": []}
+{"id": "schema@f89810e5492d:Schema.validate", "class": "a step with > 2 new values"}
+{"id": "schema@2af1f4e08b1a:Schema.validate", "class": "a step never learned"}
+{"id": "schema@d8dc368dd016:Or.validate", "class": "a step never learned"}
+{"id": "schema@7d35c56d4f9c:Schema.validate", "class": "ELIGIBLE single", "status": "active", "within_k": null, "timeout": true, "holes": {"c0": "str"}, "content": "a value not offered", "missing": [{"type": "str", "value": "'%s(%r) should evaluate to True'"}]}
+{"id": "schema@64f9f1d36b04:Schema.validate", "class": "a step never learned"}
+{"id": "schema@92fad7dc0082:Schema.validate", "class": "a step never learned"}
+{"id": "schema@6a0c44178766:SchemaError.__init__", "class": "a step with > 2 new values"}
+{"id": "jmespath@c50175160605:Parser._free_cache_entries", "class": "a step never learned"}
+{"id": "jmespath@a89505ba7e9a:Functions._func_to_number", "class": "a step with > 2 new values"}
+{"id": "jmespath@23ed645b4b38:_is_actual_number", "class": "ELIGIBLE single", "status": "active", "within_k": null, "unlimited": null, "unlimited_candidates": 2469, "holes": {"c0": "name"}, "content": "a value not offered", "missing": [{"type": "name", "value": "'Number'"}]}
+{"id": "jmespath@360e742783f6:Parser._token_led_lparen", "class": "a step never learned"}
+{"id": "jmespath@bdda80ec1618:Parser._parse_multi_select_list", "class": "a step never learned"}
+{"id": "jmespath@f67b92129dc3:FunctionExpression._func_to_string", "class": "a step with > 2 new values"}
+{"id": "jmespath@0321d0021b13:WildcardIndex.search", "class": "a step never learned"}
+{"id": "jmespath@8f14a303bf9c:_Projection.get_index", "class": "a step never learned"}
+{"id": "parsimonious@fc25e1ffa196:NodeVisitor.visit", "class": "a step never learned"}
+{"id": "parsimonious@2a8de9aaee8a:NodeVisitor.generic_visit", "class": "ELIGIBLE single", "status": "active", "within_k": null, "unlimited": null, "unlimited_candidates": 1495, "holes": {"c0": "str"}, "content": "a value not offered", "missing": [{"type": "str", "value": "'No visitor method was defined for this expression: %s'"}]}
+{"id": "parsimonious@545806c7d25a:NodeVisitor.generic_visit", "class": "ELIGIBLE single", "status": "active", "within_k": null, "unlimited": null, "unlimited_candidates": 1429, "holes": {"c0": "str"}, "content": "a value not offered", "missing": [{"type": "str", "value": "'No visitor method was defined for \"%s\".'"}]}
+{"id": "parsimonious@457bca57ba6b:Grammar._copy", "class": "a step never learned"}
+{"id": "parsimonious@115539cbb590:Regex._regex_flags_from_bits", "class": "a step with > 2 new values"}
+{"id": "parsimonious@9b64d3847592:Grammar.__repr__", "class": "a step with > 2 new values"}
+{"summary": {"test": "dev19/fresh.jsonl", "knowledge": ["dev17/history.jsonl", "dev18/fresh.jsonl", "dev19/train.jsonl"], "test_fixes": 103, "library": {"steps": 683, "by_status": {"active": 57, "candidate": 626}, "examples": 1151, "pairs": 271, "pairs_usable": 13, "multi_site_steps": 39, "string_edits": 88}, "classes": {"a step never learned": 51, "a step with > 2 new values": 27, "ELIGIBLE single": 21, "ELIGIBLE multi-site": 3, "a pair not learned together in 2 fixes": 1}, "eligible_by_outcome": {"active | single | not produced: a value not offered": 12, "active | single | not produced: every value offered": 2, "seen once | single | timeout (90 s)": 2, "active | single | timeout (90 s)": 2, "seen once | single | reproduced within 80": 1, "active | single | produced, ranked beyond 80": 1, "active | multi-site | not produced (multi-site / pair: content not checked)": 1, "seen once | multi-site | reproduced within 80": 1, "seen once | single | not produced: every value offered": 1, "active | multi-site | timeout (90 s)": 1}, "holes_not_offered_by_type": {"attr": 2, "name": 7, "str": 6}, "unlimited_positions_beyond_80": [83]}}

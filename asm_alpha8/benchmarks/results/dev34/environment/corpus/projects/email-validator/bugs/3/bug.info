@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="d6d3d15da96483e830c851a65059ae651c08b96d"
+fixed_commit_id="da48fd13bcccc0df52d90f4709d3cf9ec257e181"
+test_file="tests/test_deliverability.py"

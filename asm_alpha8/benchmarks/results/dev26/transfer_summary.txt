@@ -1,0 +1,57 @@
+{
+ "G26-A": "passed",
+ "checks": {
+  "C1_recovery": true,
+  "C2_no_loss": true,
+  "C3_no_false_transfer": true,
+  "C4_safe": true,
+  "C5_few_questions": true,
+  "C6_cost": true,
+  "C7_order_free": true
+ },
+ "paired_degenerate": {
+  "ask_only": 150,
+  "first_only": 0,
+  "exact_one_sided_p": 7.006492321624085e-46
+ },
+ "per_structure": {
+  "antisym_plus": {
+   "first": 0.8542,
+   "ask": 1.0
+  },
+  "x_shift_minus_yy": {
+   "first": 0.9618,
+   "ask": 0.9861
+  },
+  "pair_times_y": {
+   "first": 0.8854,
+   "ask": 1.0
+  }
+ }
+}
+first|none                   0.000 (0.0, 0.017) calls  1525.8 asked 0.000 wrong 0 n 216
+first|unrelated              0.000 (0.0, 0.017) calls  1152.1 asked 0.000 wrong 0 n 216
+first|relevant_shuffled      0.000 (0.0, 0.017) calls  1344.9 asked 0.000 wrong 0 n 216
+first|relevant_r0            1.000 (0.983, 1.0) calls    26.5 asked 0.000 wrong 0 n 216
+first|relevant_r5            0.968 (0.935, 0.984) calls    33.8 asked 0.000 wrong 0 n 216
+first|mixed_r0               1.000 (0.983, 1.0) calls    65.0 asked 0.000 wrong 0 n 216
+first|mixed_r5               0.968 (0.935, 0.984) calls    72.3 asked 0.000 wrong 0 n 216
+first|deg_relevant_r0        0.977 (0.947, 0.99) calls    35.3 asked 0.000 wrong 0 n 216
+first|deg_relevant_r5        0.667 (0.601, 0.726) calls    43.3 asked 0.000 wrong 0 n 216
+first|deg_mixed_r0           0.968 (0.935, 0.984) calls    73.6 asked 0.000 wrong 0 n 216
+first|deg_mixed_r5           0.657 (0.592, 0.717) calls    81.5 asked 0.000 wrong 0 n 216
+ask|none                     0.000 (0.0, 0.017) calls  1525.8 asked 0.000 wrong 0 n 216
+ask|unrelated                0.000 (0.0, 0.017) calls  1152.1 asked 0.000 wrong 0 n 216
+ask|relevant_shuffled        0.000 (0.0, 0.017) calls  1345.1 asked 0.005 wrong 0 n 216
+ask|relevant_r0              1.000 (0.983, 1.0) calls    35.4 asked 0.032 wrong 0 n 216
+ask|relevant_r5              1.000 (0.983, 1.0) calls    35.4 asked 0.032 wrong 0 n 216
+ask|mixed_r0                 1.000 (0.983, 1.0) calls    77.5 asked 0.032 wrong 0 n 216
+ask|mixed_r5                 1.000 (0.983, 1.0) calls    77.5 asked 0.032 wrong 0 n 216
+ask|deg_relevant_r0          0.991 (0.967, 0.997) calls    63.7 asked 0.338 wrong 0 n 216
+ask|deg_relevant_r5          0.991 (0.967, 0.997) calls    63.7 asked 0.338 wrong 0 n 216
+ask|deg_mixed_r0             0.991 (0.967, 0.997) calls   147.8 asked 0.352 wrong 0 n 216
+ask|deg_mixed_r5             0.991 (0.967, 0.997) calls   147.8 asked 0.352 wrong 0 n 216
+first|standard               0.984 (0.973, 0.99) calls    49.4 asked 0.000 wrong 0 n 864
+first|degenerate             0.817 (0.79, 0.841) calls    58.4 asked 0.000 wrong 0 n 864
+ask|standard                 1.000 (0.996, 1.0) calls    56.5 asked 0.032 wrong 0 n 864
+ask|degenerate               0.991 (0.982, 0.995) calls   105.7 asked 0.345 wrong 0 n 864

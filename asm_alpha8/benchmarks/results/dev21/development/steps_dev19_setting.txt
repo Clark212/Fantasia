@@ -1,0 +1,32 @@
+{
+ "setting": "dev19",
+ "problems": 103,
+ "library": {
+  "steps": 683,
+  "by_status": {
+   "active": 57,
+   "candidate": 626
+  },
+  "examples": 1151,
+  "pairs": 271,
+  "pairs_usable": 13,
+  "multi_site_steps": 39,
+  "string_edits": 88
+ },
+ "seconds": 111,
+ "key": 2,
+ "key_new": 2,
+ "round_robin": 0,
+ "round_robin_new": 0,
+ "round_robin_gains_vs_key": [],
+ "round_robin_losses_vs_key": [
+  "pluggy@aac593436a65:_HookCaller.set_specification",
+  "cerberus@5e4815e69aa9:BasicErrorHandler.insert_logic_error"
+ ],
+ "raise_guard": 3,
+ "raise_guard_new": 2,
+ "raise_guard_gains_vs_key": [
+  "pluggy@672a98b4fce8:_HookCaller._add_hookimpl"
+ ],
+ "raise_guard_losses_vs_key": []
+}

@@ -1,0 +1,1 @@
+pytest tests/test_raw_building.py::RawBuildingTC::test_module_object_with_getattr_typeerror

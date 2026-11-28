@@ -1,0 +1,1 @@
+pytest tests/test_html.py::TestGetBaseUrl::test_base_url_after_script_end_tag tests/test_html.py::TestGetBaseUrl::test_base_url_ignores_similarly_named_script_end_tag

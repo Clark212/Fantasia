@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="f65936408e24ede5a4e3c05f624323bfc474c585"
+fixed_commit_id="748e48aec2aa87a2ad95fe4e0ec3216fcfaae1ab"
+test_file="tests/test_clean_api.py;tests/test_date_parser.py;tests/test_search.py"

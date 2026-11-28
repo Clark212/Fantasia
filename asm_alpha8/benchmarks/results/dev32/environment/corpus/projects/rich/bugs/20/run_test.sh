@@ -1,0 +1,1 @@
+pytest tests/test_markdown.py::test_inline_code_in_table_cells

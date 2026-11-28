@@ -1,0 +1,1 @@
+pytest tests/test_core.py::test_compile_binexpr_bitwise_and_issue_1039

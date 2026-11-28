@@ -1,0 +1,13 @@
+diff --git a/faker/providers/python/__init__.py b/faker/providers/python/__init__.py
+index 0d7070d0..15aa8257 100644
+--- a/faker/providers/python/__init__.py
++++ b/faker/providers/python/__init__.py
+@@ -87,7 +87,7 @@ class Provider(BaseProvider):
+         elif object_type == dict:
+             return self.pydict()
+         else:
+-            raise ValueError("Object type `{object_type}` is not supported by `pyobject` function")
++            raise ValueError(f"Object type `{object_type}` is not supported by `pyobject` function")
+ 
+     def pybool(self, truth_probability: int = 50) -> bool:
+         """

@@ -1,0 +1,1 @@
+pytest tests/object_test.py::test_compiled_regex_flags_roundtrip

@@ -1,0 +1,267 @@
+{
+  "about": "Data for progress/make_progress.py. After every DEV: add its entry to `devs`, update `roadmap` if a milestone was promoted, then run `python3 progress/make_progress.py`.",
+  "roadmap": {
+    "current": "v0.4.0-alpha.7.9 (promoted)",
+    "reached_through": "0.4.8",
+    "reached_rule": "up to the last promoted release, v0.4.0-alpha.7.9 (alpha 7.8 delivered 0.4.7 and 0.4.8); alpha 8 = 0.4.9 (project owner); except those listed as open",
+    "open": {
+      "0.3.5": "generalization to unseen data is not yet shown (ROADMAP.md)"
+    },
+    "in_progress": [
+      "0.4.9"
+    ],
+    "in_progress_note": "not promoted; closure check passed, promotion is the owner's call",
+    "next": "0.4.9",
+    "next_label": "= alpha 8",
+    "promoted_in_progress": []
+  },
+  "alpha8_plan": {
+    "target": "M4 — Generalizing Research AI",
+    "targets": 9,
+    "validated": 0,
+    "details": "ROADMAP.md#release-governance-and-the-alpha-8-plan",
+    "note": "update `validated` only when a pre-registered gate for that target passes",
+    "evidence_note": "DEV21–DEV28 each passed held-out gates in a lab (DEV24 and DEV28 also with wrong labels), and DEV30 all of them together; on real bugs, learned knowledge repaired 1 of the 2 needed (DEV29), 0 on 75 fresh bugs once given its own time (DEV31), and 2 of 143 fresh bugs with 2 extra wrong patches (DEV32); the project's own tests as an acceptance check halved the wrong patches on 48 fresh bugs (DEV33 G33-A passed), with 1 learned-only repair; with the check fixed, 0 on 59 fresh bugs (DEV34), and a project's own earlier fixes add none; three family mechanisms are defaults"
+  },
+  "devs": [
+    {
+      "dev": "DEV15",
+      "date": "2026-11-20",
+      "title": "Repair beyond single sites",
+      "gate": "G1: wrong patches accepted on fresh faults stay within the bound",
+      "kind": "passed",
+      "result": "passed: 0 of 18 accepted patches wrong; real bugs: 4 of 83 repaired correctly",
+      "promoted": false,
+      "why_not_promoted": "fixed in advance: the real-bug corpus has 83 bugs, below the bar of 100",
+      "report": "asm_alpha8/ALPHA8_CODING_DEV15_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV16",
+      "date": "2026-11-20",
+      "title": "A learning engine and a data pipeline",
+      "gate": "pre-registered study; needs generated data from the user's PC",
+      "kind": "not_run",
+      "result": "not run yet",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV16_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV17",
+      "date": "2026-11-21",
+      "title": "ASM learns its own repair procedures",
+      "gate": "G17-1: real bugs only a learned procedure fixes",
+      "kind": "at_least",
+      "needed": 1,
+      "value_reached": 0,
+      "of": 59,
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV17_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV18",
+      "date": "2026-11-21",
+      "title": "Learned fix shapes, content from the problem",
+      "gate": "G18-1: fresh fixes only learned shapes reproduce",
+      "kind": "at_least",
+      "needed": 10,
+      "value_reached": 2,
+      "of": 472,
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV18_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV19",
+      "date": "2026-11-21",
+      "title": "More training data, same system",
+      "gate": "G19-1: fresh fixes only learned knowledge reproduces",
+      "kind": "at_least",
+      "needed": 10,
+      "value_reached": 0,
+      "of": 103,
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV19_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV20",
+      "date": "2026-11-22",
+      "title": "Learned edit steps that combine",
+      "gate": "G20-1: fresh fixes only learned steps reproduce",
+      "kind": "at_least",
+      "needed": 10,
+      "value_reached": 1,
+      "of": 483,
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV20_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV21",
+      "date": "2026-11-22",
+      "title": "Sharing a candidate budget between learned sources",
+      "gate": "G21-A: no interference between learned families, held out",
+      "kind": "passed",
+      "result": "passed: relevant + unrelated donors 0.000 → 1.000 on 3 new structures (144 paired attempts, no wrong answer); Part B on learned steps not passed (2 gained, 0 lost)",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV21_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV22",
+      "date": "2026-11-22",
+      "title": "Learned families for two-input targets",
+      "gate": "G22-A: families transfer to held-out two-input tasks",
+      "kind": "passed",
+      "result": "passed: relevant donors 0.229 → 0.993 on 3 new two-input structures (110 vs 0 paired), no wrong answer, no loss on affine targets",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV22_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV23",
+      "date": "2026-11-22",
+      "title": "Learned families over other input names",
+      "gate": "G23-A: families transfer across input names, either role order, held out",
+      "kind": "passed",
+      "result": "passed: donors over other names 0.021 → 0.990 on 3 new two-input structures (279 vs 0 paired), both role orders, no wrong answer, no loss on exact-name or affine targets",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV23_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV24",
+      "date": "2026-11-23",
+      "title": "Three-input transfer across names, and wrong labels",
+      "gate": "G24-A/B: six role orders on three inputs; wrong labels cost only their own attempts",
+      "kind": "passed",
+      "result": "passed: donors over other names 0.000 → 0.979 on 3 new three-input structures, all six role orders (846 vs 0 paired); labels wrong at 0.10 cost exactly the corrupted attempts; no wrong answer",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV24_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV25",
+      "date": "2026-11-23",
+      "title": "Solving family parameters from the fit examples",
+      "gate": "G25-A: constants beyond the grid and the budget's reach, no loss, held out",
+      "kind": "passed",
+      "result": "passed: beyond the −8..8 grid 0.000 → 0.982 (212 vs 0 paired), beyond the budget's reach 0.000 → 1.000 (54 vs 0), no loss, half the evaluator calls, no wrong answer",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV25_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV26",
+      "date": "2026-11-23",
+      "title": "Asking which family candidate is right",
+      "gate": "G26-A: one question recovers ambiguous fits, no loss, held out",
+      "kind": "passed",
+      "result": "passed: degenerate fits 0.817 → 0.991 (150 vs 0 paired), standard fits 0.984 → 1.000, role order no longer matters, 0.03 questions per ordinary attempt, no wrong answer",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV26_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV27",
+      "date": "2026-11-23",
+      "title": "A family memory past 32 procedures that survives restarts",
+      "gate": "G27-A: transfer with 48 and 120 background procedures and after a restart, held out",
+      "kind": "passed",
+      "result": "passed: relevant donors 0.000 → 1.000 with 48 and 120 background procedures (288 vs 0 paired each), unchanged after reopening, no false transfer, no wrong answer",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV27_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV28",
+      "date": "2026-11-23",
+      "title": "Tolerating one contradicting label",
+      "gate": "G28-A: transfer under wrong labels rises, no wrong answer, held out",
+      "kind": "passed",
+      "result": "passed: wrong labels at 0.05 0.102 → 0.579, at 0.10 0.009 → 0.181 (168 vs 0 paired), clean 0.999 → 0.986, no false transfer, no wrong answer",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV28_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV29",
+      "date": "2026-11-23",
+      "title": "Learned repair knowledge on real bugs, where fault localization points",
+      "gate": "G29-A: real bugs repaired correctly only with learned knowledge (person-read), with no loss and no extra wrong patch",
+      "kind": "at_least",
+      "needed": 2,
+      "value_reached": 1,
+      "of": 83,
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV29_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV30",
+      "date": "2026-11-23",
+      "title": "An M4-candidate battery of the whole transfer stack",
+      "gate": "G30-A: the four opt-in transfer mechanisms together, under every lab condition at once, held out",
+      "kind": "passed",
+      "result": "passed: all transfer conditions 0.324 → 0.889 (1,064 vs 7 paired); far constants, 60 background procedures and restart 0 → 1.000; wrong labels 0.111 → 0.573; ambiguous fits 0.997 → 0.976; no false transfer, no wrong answer",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV30_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV31",
+      "date": "2026-11-24",
+      "title": "Phase 3 on its own clock, on fresh real bugs",
+      "gate": "G31-A: fresh real bugs repaired correctly only with learned knowledge, even against the same total time",
+      "kind": "at_least",
+      "needed": 2,
+      "value_reached": 0,
+      "of": 75,
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV31_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV32",
+      "date": "2026-11-25",
+      "title": "A guard against test-copied patches, on freshly mined real bugs",
+      "gate": "G32-B: fresh real bugs repaired correctly only with learned knowledge, with at most 1 extra wrong patch (G32-A, the guard, not passed either)",
+      "kind": "at_least",
+      "needed": 2,
+      "value_reached": 2,
+      "of": 143,
+      "passed": false,
+      "why": "2 extra wrong patches",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV32_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV33",
+      "date": "2026-11-27",
+      "title": "The project's own test suite as an acceptance check, on fresh real bugs",
+      "gate": "G33-A: the check halves learned knowledge's wrong patches on fresh real bugs, keeps its correct repairs, costs ≤ 5% of real fixes",
+      "kind": "passed",
+      "result": "G33-A passed: wrong learned patches 4 → 2 on 48 fresh bugs, both correct repairs kept, 1 of 48 developer fixes rejected (2.1%); G33-B not passed: 1 learned-only correct repair of 2 needed, one run 478 s (limit 360)",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV33_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV34",
+      "date": "2026-11-27",
+      "title": "Project adaptation (development) and the M4 real-data gate with the fixed check",
+      "gate": "G34-A: fresh real bugs repaired correctly only with learned knowledge, with the fixed acceptance check",
+      "kind": "at_least",
+      "needed": 2,
+      "value_reached": 0,
+      "of": 59,
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV34_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "DEV35",
+      "date": "2026-11-28",
+      "title": "Causal repair by intervention (development only)",
+      "gate": "none: stopped in development, not pre-registered",
+      "kind": "not_run",
+      "result": "not run: on 229 seen bugs, 13 plausible edits, 1 equal to the developer's fix (already repaired); the rest are wrong",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_CODING_DEV35_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "0.4.9",
+      "date": "2026-11-28",
+      "title": "Stage 4 closure check (main roadmap)",
+      "gate": "G49: full ≥ .8 of oracle, hazard ≤ .05, every component contributes",
+      "kind": "passed",
+      "result": "passed on 30 held-out worlds: .937 of the oracle's score, hazard .028; removing any component costs reward or safety",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_STAGE4_CLOSURE_CHECK.md"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="69e1618f1f3aae6589cd6210d9d318ab0cdf91da"
+fixed_commit_id="30e5ed61a6064220fe2ff40f4713463488ee6d07"
+test_file="tests/test_panel.py"

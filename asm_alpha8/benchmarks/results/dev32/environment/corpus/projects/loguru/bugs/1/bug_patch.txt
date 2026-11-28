@@ -1,0 +1,64 @@
+diff --git a/loguru/_handler.py b/loguru/_handler.py
+index cb99cf9..d4563e5 100644
+--- a/loguru/_handler.py
++++ b/loguru/_handler.py
+@@ -72,7 +72,6 @@ class Handler:
+         self._confirmation_lock = None
+         self._owner_process_pid = None
+         self._thread = None
+-        self._is_thread_dead = None
+ 
+         if self._is_formatter_dynamic:
+             if self._colorize:
+@@ -91,7 +90,6 @@ class Handler:
+             self._confirmation_event = multiprocessing.Event()
+             self._confirmation_lock = multiprocessing.Lock()
+             self._owner_process_pid = os.getpid()
+-            self._is_thread_dead = multiprocessing.Event()
+             self._thread = Thread(
+                 target=self._queued_writer, daemon=True, name="loguru-writer-%d" % self._id
+             )
+@@ -220,8 +218,6 @@ class Handler:
+             return
+ 
+         with self._confirmation_lock:
+-            if self._is_thread_dead.is_set():
+-                return
+             self._queue.put(True)
+             self._confirmation_event.wait()
+             self._confirmation_event.clear()
+@@ -295,10 +291,6 @@ class Handler:
+                 message = queue.get()
+             except Exception:
+                 with lock:
+-                    if not self._error_interceptor.should_catch():
+-                        self._is_thread_dead.set()
+-                        self._confirmation_event.set()
+-                        raise
+                     self._error_interceptor.print(None)
+                 continue
+ 
+@@ -313,10 +305,6 @@ class Handler:
+                 try:
+                     self._sink.write(message)
+                 except Exception:
+-                    if not self._error_interceptor.should_catch():
+-                        self._is_thread_dead.set()
+-                        self._confirmation_event.set()
+-                        raise
+                     self._error_interceptor.print(message.record)
+ 
+     def __getstate__(self):
+diff --git a/loguru/_logger.py b/loguru/_logger.py
+index 52a3cc4..bdc1fb4 100644
+--- a/loguru/_logger.py
++++ b/loguru/_logger.py
+@@ -267,7 +267,7 @@ class Logger:
+             Whether the exception trace should display the variables values to eases the debugging.
+             This should be set to ``False`` in production to avoid leaking sensitive data.
+         enqueue : |bool|, optional
+-            Whether the messages to be logged should first pass through a multiprocess-safe queue
++            Whether the messages to be logged should first pass through a multiprocessing-safe queue
+             before reaching the sink. This is useful while logging to a file through multiple
+             processes. This also has the advantage of making logging calls non-blocking.
+         catch : |bool|, optional

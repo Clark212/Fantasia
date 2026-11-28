@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="53750ec8def276668ce4ce6b565a70105b5085e3"
+fixed_commit_id="64226095eb736dbf23e16786f04c82f3a3a86b92"
+test_file="tests/test_regexopt.py"

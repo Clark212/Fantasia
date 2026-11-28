@@ -1,0 +1,56 @@
+{
+ "developer_fixes": 1843,
+ "flagged": 4,
+ "flagged_fixes": {
+  "marshmallow@b2451a7180b3:UUID._deserialize": [
+   "Could not deserialize {0!r} to a UUID object."
+  ],
+  "marshmallow@0b6cb61eeead:Price.__init__": [
+   "0.00"
+  ],
+  "isort@11991416d2f9:remove_whitespace": [
+   "\t"
+  ],
+  "isort@e5faa3063bb4:process": [
+   "\f"
+  ]
+ },
+ "learned_hits": {
+  "dev18:s18": {
+   "hits": 5,
+   "flagged": []
+  },
+  "dev19:s18": {
+   "hits": 2,
+   "flagged": []
+  },
+  "dev19:d18": {
+   "hits": 2,
+   "flagged": []
+  },
+  "dev20:s18": {
+   "hits": 8,
+   "flagged": []
+  },
+  "dev20:s20": {
+   "hits": 4,
+   "flagged": []
+  },
+  "dev21:control": {
+   "hits": 1,
+   "flagged": []
+  },
+  "dev21:guard": {
+   "hits": 1,
+   "flagged": []
+  },
+  "dev21:round_robin": {
+   "hits": 3,
+   "flagged": []
+  },
+  "dev21:both": {
+   "hits": 3,
+   "flagged": []
+  }
+ }
+}

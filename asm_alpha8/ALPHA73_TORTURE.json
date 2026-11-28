@@ -1,0 +1,137 @@
+{
+  "benchmark": "alpha.7.3 compositional multi-input torture",
+  "checks": {
+    "20_multiinput_drift_reversals": {
+      "failures": [],
+      "passed": true,
+      "runs": 20
+    },
+    "40_random_no_false_active": {
+      "false_active": [],
+      "passed": true,
+      "runs": 40
+    },
+    "48_random_affine_2_4_inputs": {
+      "cases": 48,
+      "failures": [],
+      "passed": true
+    },
+    "bounded_nonlinear_primitives": {
+      "cases": 5,
+      "details": [
+        [
+          "prod",
+          18,
+          "composition:mul(variable,variable)"
+        ],
+        [
+          "minimum",
+          19,
+          "composition:min(variable,variable)"
+        ],
+        [
+          "maximum",
+          20,
+          "composition:max(variable,variable)"
+        ],
+        [
+          "x2_plus_y",
+          101,
+          "composition:add(variable,self_square:x)"
+        ],
+        [
+          "xy_plus_x",
+          37,
+          "composition:add(variable,donor:prod@:v1)"
+        ]
+      ],
+      "failures": [],
+      "passed": true
+    },
+    "rank_root_trust_guards": {
+      "dup": {
+        "roots": 1,
+        "versions": 0
+      },
+      "passed": true,
+      "rank": {
+        "candidates": 512,
+        "status": "unresolved",
+        "versions": 0
+      },
+      "weak": {
+        "roots": 0,
+        "versions": 0
+      }
+    },
+    "unary_alpha72_regression": {
+      "auto": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "candidate_count": 228,
+        "evaluator_calls": 243,
+        "fit_evidence_ids": [
+          "legacy-fit-0",
+          "legacy-fit-1",
+          "legacy-fit-2"
+        ],
+        "mode": "induction",
+        "origin": "grammar",
+        "program": {
+          "expression": [
+            "add",
+            [
+              "mul",
+              5,
+              "x"
+            ],
+            -4
+          ],
+          "inputs": {
+            "x": "int"
+          }
+        },
+        "status": "proposed",
+        "version": 1
+      },
+      "passed": true,
+      "prediction": {
+        "confidence": 0.9,
+        "contradictions": 0,
+        "status": "predicted",
+        "support": 8,
+        "value": 496,
+        "version": 1
+      }
+    },
+    "validated_donor_composition": {
+      "cases": 4,
+      "failures": [],
+      "origins": [
+        [
+          "sqx_y",
+          "composition:add(variable,donor:square@:v1->x)",
+          93
+        ],
+        [
+          "sqy_x",
+          "composition:add(variable,donor:square@:v1->y)",
+          44
+        ],
+        [
+          "sqx_incy",
+          "composition:sub(donor:sqx_y@:v1,constant)",
+          264
+        ],
+        [
+          "sqx_sqy",
+          "composition:add(donor:square@:v1->x,donor:square@:v1->y)",
+          500
+        ]
+      ],
+      "passed": true
+    }
+  },
+  "passed": 7,
+  "total": 7
+}

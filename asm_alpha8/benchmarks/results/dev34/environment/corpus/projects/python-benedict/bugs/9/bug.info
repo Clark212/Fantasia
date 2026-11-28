@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="5cb4922f285baddf9c9ee1612a67a0ef1d370efb"
+fixed_commit_id="f33736acf5b9adc7a5188249c67e5c3be2789010"
+test_file="tests/core/test_clean.py;tests/dicts/test_benedict.py"

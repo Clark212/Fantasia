@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="ce44e4996e6632871c18cdd7a7fb641be8ef34ef"
+fixed_commit_id="cf198fcddc9230f06ed39f974eba0ce076b85cda"
+test_file="tests/test_performance.py"

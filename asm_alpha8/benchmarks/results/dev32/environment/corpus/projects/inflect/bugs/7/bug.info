@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="262a247d2d99a47a520cdb2d46adb90df88b4326"
+fixed_commit_id="a5c900bb870c61399ec5dda8e63490e0aaabcaac"
+test_file="tests/test_compounds.py"

@@ -1,0 +1,378 @@
+{
+ "bugs": 83,
+ "status": {
+  "control": {
+   "unresolved": 40,
+   "resolved": 9,
+   "time_budget": 32,
+   "partial": 2
+  },
+  "learned": {
+   "time_budget": 62,
+   "unresolved": 9,
+   "resolved": 10,
+   "partial": 2
+  }
+ },
+ "status_pairs": {
+  "unresolved -> time_budget": 30,
+  "unresolved -> unresolved": 9,
+  "resolved -> resolved": 9,
+  "time_budget -> time_budget": 32,
+  "partial -> partial": 2,
+  "unresolved -> resolved": 1
+ },
+ "best_rank": {
+  "1": 59,
+  "None": 8,
+  "6": 2,
+  "2": 11,
+  "4": 1,
+  "3": 2
+ },
+ "control_vs_dev15": {
+  "unresolved -> unresolved": 39,
+  "resolved -> resolved": 9,
+  "time_budget -> time_budget": 32,
+  "partial -> partial": 1,
+  "time_budget -> partial": 1,
+  "time_budget -> unresolved": 1
+ },
+ "phase3": {
+  "reached (control tried candidates, unresolved)": 37,
+  "learned outcome there": {
+   "time_budget": 30,
+   "unresolved": 6,
+   "resolved": 1
+  },
+  "no phase-3 candidate tested": {
+   "youtube-dl": 10,
+   "tqdm": 1
+  },
+  "phase-3 candidates tested where any: n, median, range": [
+   26,
+   80,
+   14,
+   160
+  ],
+  "seconds left for phase 3, median": 90.6,
+  "not reached: control status": {
+   "resolved": 9,
+   "no phase ran": 3,
+   "time_budget": 32,
+   "partial": 2
+  }
+ },
+ "learned runs past the 150 s budget": {
+  "n": 11,
+  "max_seconds": 809.2
+ },
+ "accepted": [
+  {
+   "bug": "thefuck-4",
+   "mode": "control",
+   "status": "partial",
+   "family": "try_except",
+   "desc": "try_except: wrap in `try/except ValueError: pass` at line 25",
+   "oracle_class": null,
+   "same_patch_as_dev15": true,
+   "dev15_status": "partial"
+  },
+  {
+   "bug": "thefuck-4",
+   "mode": "learned",
+   "status": "partial",
+   "family": "try_except",
+   "desc": "try_except: wrap in `try/except ValueError: pass` at line 25",
+   "oracle_class": null,
+   "same_patch_as_dev15": true,
+   "dev15_status": "partial"
+  },
+  {
+   "bug": "thefuck-9",
+   "mode": "control",
+   "status": "resolved",
+   "family": "try_except",
+   "desc": "try_except: wrap in `try/except IndexError: pass` at line 27",
+   "oracle_class": "restored",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "thefuck-9",
+   "mode": "learned",
+   "status": "resolved",
+   "family": "try_except",
+   "desc": "try_except: wrap in `try/except IndexError: pass` at line 27",
+   "oracle_class": "restored",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "thefuck-15",
+   "mode": "control",
+   "status": "resolved",
+   "family": "single_site",
+   "desc": "compare: 'in' -> 'not in' at line 9",
+   "oracle_class": "wrong_generated",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "thefuck-15",
+   "mode": "learned",
+   "status": "resolved",
+   "family": "single_site",
+   "desc": "compare: 'in' -> 'not in' at line 9",
+   "oracle_class": "wrong_generated",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "thefuck-19",
+   "mode": "learned",
+   "status": "resolved",
+   "family": "learned",
+   "desc": "learned: shape sd5f9d9b1e52ef42f via extend",
+   "oracle_class": "restored",
+   "same_patch_as_dev15": false,
+   "dev15_status": "unresolved"
+  },
+  {
+   "bug": "thefuck-21",
+   "mode": "control",
+   "status": "resolved",
+   "family": "try_except",
+   "desc": "try_except: wrap in `try/except IndexError: pass` at line 8",
+   "oracle_class": "wrong",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "thefuck-21",
+   "mode": "learned",
+   "status": "resolved",
+   "family": "try_except",
+   "desc": "try_except: wrap in `try/except IndexError: pass` at line 8",
+   "oracle_class": "wrong",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "thefuck-22",
+   "mode": "control",
+   "status": "resolved",
+   "family": "guard_stmt",
+   "desc": "guard_stmt: wrap in `if commands:` at line 85",
+   "oracle_class": "unknown",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "thefuck-22",
+   "mode": "learned",
+   "status": "resolved",
+   "family": "guard_stmt",
+   "desc": "guard_stmt: wrap in `if commands:` at line 85",
+   "oracle_class": "unknown",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "tqdm-2",
+   "mode": "control",
+   "status": "partial",
+   "family": "guard_return",
+   "desc": "guard_return: if s is None: return None at line 303",
+   "oracle_class": null,
+   "same_patch_as_dev15": false,
+   "dev15_status": "time_budget"
+  },
+  {
+   "bug": "tqdm-2",
+   "mode": "learned",
+   "status": "partial",
+   "family": "guard_return",
+   "desc": "guard_return: if s is None: return None at line 303",
+   "oracle_class": null,
+   "same_patch_as_dev15": false,
+   "dev15_status": "time_budget"
+  },
+  {
+   "bug": "tqdm-6",
+   "mode": "control",
+   "status": "resolved",
+   "family": "single_site",
+   "desc": "negate: 'hasattr(self.iterable, \"__len__\")' -> 'not (hasattr(self.iterable, \"__len__\"))' at line 855",
+   "oracle_class": "unknown",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "tqdm-6",
+   "mode": "learned",
+   "status": "resolved",
+   "family": "single_site",
+   "desc": "negate: 'hasattr(self.iterable, \"__len__\")' -> 'not (hasattr(self.iterable, \"__len__\"))' at line 855",
+   "oracle_class": "unknown",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "tqdm-8",
+   "mode": "control",
+   "status": "resolved",
+   "family": "name",
+   "desc": "name: 'r_bar' -> 'r_bar_user' at line 225",
+   "oracle_class": "equivalent",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "tqdm-8",
+   "mode": "learned",
+   "status": "resolved",
+   "family": "name",
+   "desc": "name: 'r_bar' -> 'r_bar_user' at line 225",
+   "oracle_class": "wrong",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "youtube-dl-11",
+   "mode": "control",
+   "status": "resolved",
+   "family": "try_except",
+   "desc": "try_except: wrap in `try/except TypeError: pass` at line 3524",
+   "oracle_class": "equivalent",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "youtube-dl-11",
+   "mode": "learned",
+   "status": "resolved",
+   "family": "try_except",
+   "desc": "try_except: wrap in `try/except TypeError: pass` at line 3524",
+   "oracle_class": "equivalent",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "youtube-dl-28",
+   "mode": "control",
+   "status": "resolved",
+   "family": "try_except",
+   "desc": "try_except: wrap in `try/except ValueError: pass` at line 399",
+   "oracle_class": "restored",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "youtube-dl-28",
+   "mode": "learned",
+   "status": "resolved",
+   "family": "try_except",
+   "desc": "try_except: wrap in `try/except ValueError: pass` at line 399",
+   "oracle_class": "restored",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "youtube-dl-29",
+   "mode": "control",
+   "status": "resolved",
+   "family": "guard_stmt",
+   "desc": "guard_stmt: wrap in `if upload_date:` at line 914",
+   "oracle_class": "equivalent",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  },
+  {
+   "bug": "youtube-dl-29",
+   "mode": "learned",
+   "status": "resolved",
+   "family": "guard_stmt",
+   "desc": "guard_stmt: wrap in `if upload_date:` at line 914",
+   "oracle_class": "equivalent",
+   "same_patch_as_dev15": true,
+   "dev15_status": "resolved"
+  }
+ ],
+ "seconds": {
+  "control": {
+   "repair_mean": 101.8,
+   "at_budget": 32
+  },
+  "learned": {
+   "repair_mean": 165.0,
+   "at_budget": 62
+  }
+ },
+ "projects": {
+  "PySnooper": {
+   "control": {
+    "unresolved": 1
+   },
+   "learned": {
+    "time_budget": 1
+   }
+  },
+  "cookiecutter": {
+   "control": {
+    "unresolved": 1
+   },
+   "learned": {
+    "unresolved": 1
+   }
+  },
+  "httpie": {
+   "control": {
+    "unresolved": 1,
+    "time_budget": 1
+   },
+   "learned": {
+    "unresolved": 1,
+    "time_budget": 1
+   }
+  },
+  "thefuck": {
+   "control": {
+    "unresolved": 25,
+    "resolved": 4,
+    "partial": 1,
+    "time_budget": 2
+   },
+   "learned": {
+    "unresolved": 7,
+    "time_budget": 19,
+    "resolved": 5,
+    "partial": 1
+   }
+  },
+  "tqdm": {
+   "control": {
+    "time_budget": 5,
+    "partial": 1,
+    "resolved": 2,
+    "unresolved": 1
+   },
+   "learned": {
+    "time_budget": 6,
+    "partial": 1,
+    "resolved": 2
+   }
+  },
+  "youtube-dl": {
+   "control": {
+    "time_budget": 24,
+    "resolved": 3,
+    "unresolved": 11
+   },
+   "learned": {
+    "time_budget": 35,
+    "resolved": 3
+   }
+  }
+ }
+}

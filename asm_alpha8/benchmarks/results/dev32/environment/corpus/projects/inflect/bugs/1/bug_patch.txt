@@ -1,0 +1,18 @@
+diff --git a/inflect/__init__.py b/inflect/__init__.py
+index 3eedc9f..93537a9 100644
+--- a/inflect/__init__.py
++++ b/inflect/__init__.py
+@@ -3260,11 +3260,11 @@ class engine:
+ 
+         if words.last in si_sb_irregular_caps:
+             llen = len(words.last)
+-            return "{}{}".format(word[:-llen], si_sb_irregular_caps[words.last])
++            return f"{word[:-llen]}{si_sb_irregular_caps[words.last]}"
+ 
+         if words.last.lower() in si_sb_irregular:
+             llen = len(words.last.lower())
+-            return "{}{}".format(word[:-llen], si_sb_irregular[words.last.lower()])
++            return f"{word[:-llen]}{si_sb_irregular[words.last.lower()]}"
+ 
+         dash_split = words.lowered.split("-")
+         if (" ".join(dash_split[-2:])).lower() in si_sb_irregular_compound:

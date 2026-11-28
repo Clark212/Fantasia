@@ -1,0 +1,13 @@
+diff --git a/soupsieve/css_parser.py b/soupsieve/css_parser.py
+index 4b9912e..2499d3e 100644
+--- a/soupsieve/css_parser.py
++++ b/soupsieve/css_parser.py
+@@ -857,7 +857,7 @@ class CSSParser:
+             pattern = re.compile(r'^%s(?:-.*)?$' % re.escape(value), flags)
+         elif op.startswith('!'):
+             # Value does not matches
+-            pattern = re.compile(r'^(?!%s).*$' % re.escape(value), flags)
++            pattern = re.compile(r'^(?!%s$)' % re.escape(value), flags)
+             inverse = True
+         else:
+             # Value matches

@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="c93f6841ef7b7dcb6048361ceeb4dc37a031fa3c"
+fixed_commit_id="ae1934d0fbdc6fe099287de135e54bc2286cfcba"
+test_file="tests/dialects/test_dialect.py;tests/dialects/test_duckdb.py"

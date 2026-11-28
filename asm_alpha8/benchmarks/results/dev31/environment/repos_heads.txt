@@ -1,0 +1,7 @@
+black https://github.com/psf/black a12e95913f5181f357f210207ea2c37f6b970174
+luigi https://github.com/spotify/luigi ef0824faa93c75f82440000a871aee2c33811c01
+tornado https://github.com/tornadoweb/tornado 73823edafa44e119a77f50957e67dff0e9455ec1
+fastapi https://github.com/tiangolo/fastapi 05e6df7e906c3decba377c37548019973f40bf15
+scrapy https://github.com/scrapy/scrapy 531bc329984701fcfa02993720382072f3a390d5
+ansible https://github.com/ansible/ansible cd313f0a8650ded36707a24e2bad61375f1214ce
+sanic https://github.com/huge-success/sanic 5ffc7b3710838eaf016d2f9612a86a08626915e5

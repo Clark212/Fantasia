@@ -1,0 +1,25 @@
+{
+ "setting": "dev19",
+ "problems": 103,
+ "library": {
+  "steps": 683,
+  "by_status": {
+   "active": 57,
+   "candidate": 626
+  },
+  "examples": 1151,
+  "pairs": 271,
+  "pairs_usable": 13,
+  "multi_site_steps": 39,
+  "string_edits": 88
+ },
+ "seconds": 77,
+ "key": 2,
+ "key_new": 2,
+ "round_robin_guard": 1,
+ "round_robin_guard_new": 1,
+ "round_robin_guard_gains_vs_key": [],
+ "round_robin_guard_losses_vs_key": [
+  "pluggy@aac593436a65:_HookCaller.set_specification"
+ ]
+}

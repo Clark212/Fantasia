@@ -1,0 +1,703 @@
+{
+ "cells": {
+  "asm_procedure_cortex": {
+   "16": {
+    "extrap": {
+     "answered": 600,
+     "brier": 0.3448183673469388,
+     "conf_when_wrong": 0.9325867635189669,
+     "confident_wrong_rate": 0.3933333333333333,
+     "correct": 364,
+     "correct_rate": 0.6066666666666667,
+     "coverage": 1.0,
+     "ece": 0.3261428571428572,
+     "mean_confidence": 0.9328095238095239,
+     "n": 600,
+     "n_wrong": 236,
+     "precision": 0.6066666666666667,
+     "wrong_rate": 0.3933333333333333
+    },
+    "interp": {
+     "answered": 200,
+     "brier": 0.0045167800453514715,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 200,
+     "correct_rate": 1.0,
+     "coverage": 1.0,
+     "ece": 0.06719047619047613,
+     "mean_confidence": 0.9328095238095239,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 1.0,
+     "wrong_rate": 0.0
+    }
+   },
+   "24": {
+    "extrap": {
+     "answered": 600,
+     "brier": 0.36079638540413594,
+     "conf_when_wrong": 0.9562118979031285,
+     "confident_wrong_rate": 0.3933333333333333,
+     "correct": 364,
+     "correct_rate": 0.6066666666666667,
+     "coverage": 1.0,
+     "ece": 0.3496376811594204,
+     "mean_confidence": 0.9563043478260871,
+     "n": 600,
+     "n_wrong": 236,
+     "precision": 0.6066666666666667,
+     "wrong_rate": 0.3933333333333333
+    },
+    "interp": {
+     "answered": 200,
+     "brier": 0.0019096923870080742,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 200,
+     "correct_rate": 1.0,
+     "coverage": 1.0,
+     "ece": 0.043695652173913024,
+     "mean_confidence": 0.956304347826087,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 1.0,
+     "wrong_rate": 0.0
+    }
+   },
+   "8": {
+    "extrap": {
+     "answered": 0,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 0,
+     "correct_rate": 0.0,
+     "coverage": 0.0,
+     "ece": 0.0,
+     "mean_confidence": 0.0,
+     "n": 600,
+     "n_wrong": 0,
+     "precision": 0.0,
+     "wrong_rate": 0.0
+    },
+    "interp": {
+     "answered": 0,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 0,
+     "correct_rate": 0.0,
+     "coverage": 0.0,
+     "ece": 0.0,
+     "mean_confidence": 0.0,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 0.0,
+     "wrong_rate": 0.0
+    }
+   }
+  },
+  "hidden_mod_bayes_abstain": {
+   "16": {
+    "extrap": {
+     "answered": 0,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 0,
+     "correct_rate": 0.0,
+     "coverage": 0.0,
+     "ece": 0.0,
+     "mean_confidence": 0.0,
+     "n": 600,
+     "n_wrong": 0,
+     "precision": 0.0,
+     "wrong_rate": 0.0
+    },
+    "interp": {
+     "answered": 200,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 200,
+     "correct_rate": 1.0,
+     "coverage": 1.0,
+     "ece": 0.0,
+     "mean_confidence": 1.0,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 1.0,
+     "wrong_rate": 0.0
+    }
+   },
+   "24": {
+    "extrap": {
+     "answered": 0,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 0,
+     "correct_rate": 0.0,
+     "coverage": 0.0,
+     "ece": 0.0,
+     "mean_confidence": 0.0,
+     "n": 600,
+     "n_wrong": 0,
+     "precision": 0.0,
+     "wrong_rate": 0.0
+    },
+    "interp": {
+     "answered": 200,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 200,
+     "correct_rate": 1.0,
+     "coverage": 1.0,
+     "ece": 0.0,
+     "mean_confidence": 1.0,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 1.0,
+     "wrong_rate": 0.0
+    }
+   },
+   "8": {
+    "extrap": {
+     "answered": 0,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 0,
+     "correct_rate": 0.0,
+     "coverage": 0.0,
+     "ece": 0.0,
+     "mean_confidence": 0.0,
+     "n": 600,
+     "n_wrong": 0,
+     "precision": 0.0,
+     "wrong_rate": 0.0
+    },
+    "interp": {
+     "answered": 200,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 200,
+     "correct_rate": 1.0,
+     "coverage": 1.0,
+     "ece": 0.0,
+     "mean_confidence": 1.0,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 1.0,
+     "wrong_rate": 0.0
+    }
+   }
+  },
+  "hidden_mod_bayes_vote": {
+   "16": {
+    "extrap": {
+     "answered": 600,
+     "brier": 0.21567129629629628,
+     "conf_when_wrong": 0.5363700564971752,
+     "confident_wrong_rate": 0.011666666666666667,
+     "correct": 364,
+     "correct_rate": 0.6066666666666667,
+     "coverage": 1.0,
+     "ece": 0.01916666666666663,
+     "mean_confidence": 0.5875,
+     "n": 600,
+     "n_wrong": 236,
+     "precision": 0.6066666666666667,
+     "wrong_rate": 0.3933333333333333
+    },
+    "interp": {
+     "answered": 200,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 200,
+     "correct_rate": 1.0,
+     "coverage": 1.0,
+     "ece": 0.0,
+     "mean_confidence": 1.0,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 1.0,
+     "wrong_rate": 0.0
+    }
+   },
+   "24": {
+    "extrap": {
+     "answered": 600,
+     "brier": 0.21567129629629628,
+     "conf_when_wrong": 0.5363700564971752,
+     "confident_wrong_rate": 0.011666666666666667,
+     "correct": 364,
+     "correct_rate": 0.6066666666666667,
+     "coverage": 1.0,
+     "ece": 0.01916666666666663,
+     "mean_confidence": 0.5875,
+     "n": 600,
+     "n_wrong": 236,
+     "precision": 0.6066666666666667,
+     "wrong_rate": 0.3933333333333333
+    },
+    "interp": {
+     "answered": 200,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 200,
+     "correct_rate": 1.0,
+     "coverage": 1.0,
+     "ece": 0.0,
+     "mean_confidence": 1.0,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 1.0,
+     "wrong_rate": 0.0
+    }
+   },
+   "8": {
+    "extrap": {
+     "answered": 600,
+     "brier": 0.21567129629629628,
+     "conf_when_wrong": 0.5363700564971752,
+     "confident_wrong_rate": 0.011666666666666667,
+     "correct": 364,
+     "correct_rate": 0.6066666666666667,
+     "coverage": 1.0,
+     "ece": 0.01916666666666663,
+     "mean_confidence": 0.5875,
+     "n": 600,
+     "n_wrong": 236,
+     "precision": 0.6066666666666667,
+     "wrong_rate": 0.3933333333333333
+    },
+    "interp": {
+     "answered": 200,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 200,
+     "correct_rate": 1.0,
+     "coverage": 1.0,
+     "ece": 0.0,
+     "mean_confidence": 1.0,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 1.0,
+     "wrong_rate": 0.0
+    }
+   }
+  },
+  "memorizer": {
+   "16": {
+    "extrap": {
+     "answered": 0,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 0,
+     "correct_rate": 0.0,
+     "coverage": 0.0,
+     "ece": 0.0,
+     "mean_confidence": 0.0,
+     "n": 600,
+     "n_wrong": 0,
+     "precision": 0.0,
+     "wrong_rate": 0.0
+    },
+    "interp": {
+     "answered": 0,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 0,
+     "correct_rate": 0.0,
+     "coverage": 0.0,
+     "ece": 0.0,
+     "mean_confidence": 0.0,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 0.0,
+     "wrong_rate": 0.0
+    }
+   },
+   "24": {
+    "extrap": {
+     "answered": 0,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 0,
+     "correct_rate": 0.0,
+     "coverage": 0.0,
+     "ece": 0.0,
+     "mean_confidence": 0.0,
+     "n": 600,
+     "n_wrong": 0,
+     "precision": 0.0,
+     "wrong_rate": 0.0
+    },
+    "interp": {
+     "answered": 0,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 0,
+     "correct_rate": 0.0,
+     "coverage": 0.0,
+     "ece": 0.0,
+     "mean_confidence": 0.0,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 0.0,
+     "wrong_rate": 0.0
+    }
+   },
+   "8": {
+    "extrap": {
+     "answered": 0,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 0,
+     "correct_rate": 0.0,
+     "coverage": 0.0,
+     "ece": 0.0,
+     "mean_confidence": 0.0,
+     "n": 600,
+     "n_wrong": 0,
+     "precision": 0.0,
+     "wrong_rate": 0.0
+    },
+    "interp": {
+     "answered": 0,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 0,
+     "correct_rate": 0.0,
+     "coverage": 0.0,
+     "ece": 0.0,
+     "mean_confidence": 0.0,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 0.0,
+     "wrong_rate": 0.0
+    }
+   }
+  },
+  "naive_affine_extrapolator": {
+   "16": {
+    "extrap": {
+     "answered": 600,
+     "brier": 0.3933333333333333,
+     "conf_when_wrong": 1.0,
+     "confident_wrong_rate": 0.3933333333333333,
+     "correct": 364,
+     "correct_rate": 0.6066666666666667,
+     "coverage": 1.0,
+     "ece": 0.3933333333333333,
+     "mean_confidence": 1.0,
+     "n": 600,
+     "n_wrong": 236,
+     "precision": 0.6066666666666667,
+     "wrong_rate": 0.3933333333333333
+    },
+    "interp": {
+     "answered": 200,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 200,
+     "correct_rate": 1.0,
+     "coverage": 1.0,
+     "ece": 0.0,
+     "mean_confidence": 1.0,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 1.0,
+     "wrong_rate": 0.0
+    }
+   },
+   "24": {
+    "extrap": {
+     "answered": 600,
+     "brier": 0.3933333333333333,
+     "conf_when_wrong": 1.0,
+     "confident_wrong_rate": 0.3933333333333333,
+     "correct": 364,
+     "correct_rate": 0.6066666666666667,
+     "coverage": 1.0,
+     "ece": 0.3933333333333333,
+     "mean_confidence": 1.0,
+     "n": 600,
+     "n_wrong": 236,
+     "precision": 0.6066666666666667,
+     "wrong_rate": 0.3933333333333333
+    },
+    "interp": {
+     "answered": 200,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 200,
+     "correct_rate": 1.0,
+     "coverage": 1.0,
+     "ece": 0.0,
+     "mean_confidence": 1.0,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 1.0,
+     "wrong_rate": 0.0
+    }
+   },
+   "8": {
+    "extrap": {
+     "answered": 600,
+     "brier": 0.3933333333333333,
+     "conf_when_wrong": 1.0,
+     "confident_wrong_rate": 0.3933333333333333,
+     "correct": 364,
+     "correct_rate": 0.6066666666666667,
+     "coverage": 1.0,
+     "ece": 0.3933333333333333,
+     "mean_confidence": 1.0,
+     "n": 600,
+     "n_wrong": 236,
+     "precision": 0.6066666666666667,
+     "wrong_rate": 0.3933333333333333
+    },
+    "interp": {
+     "answered": 200,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 200,
+     "correct_rate": 1.0,
+     "coverage": 1.0,
+     "ece": 0.0,
+     "mean_confidence": 1.0,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 1.0,
+     "wrong_rate": 0.0
+    }
+   }
+  },
+  "support_guarded_asm": {
+   "16": {
+    "extrap": {
+     "answered": 0,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 0,
+     "correct_rate": 0.0,
+     "coverage": 0.0,
+     "ece": 0.0,
+     "mean_confidence": 0.0,
+     "n": 600,
+     "n_wrong": 0,
+     "precision": 0.0,
+     "wrong_rate": 0.0
+    },
+    "interp": {
+     "answered": 200,
+     "brier": 0.0045167800453514715,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 200,
+     "correct_rate": 1.0,
+     "coverage": 1.0,
+     "ece": 0.06719047619047613,
+     "mean_confidence": 0.9328095238095239,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 1.0,
+     "wrong_rate": 0.0
+    }
+   },
+   "24": {
+    "extrap": {
+     "answered": 0,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 0,
+     "correct_rate": 0.0,
+     "coverage": 0.0,
+     "ece": 0.0,
+     "mean_confidence": 0.0,
+     "n": 600,
+     "n_wrong": 0,
+     "precision": 0.0,
+     "wrong_rate": 0.0
+    },
+    "interp": {
+     "answered": 200,
+     "brier": 0.0019096923870080742,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 200,
+     "correct_rate": 1.0,
+     "coverage": 1.0,
+     "ece": 0.043695652173913024,
+     "mean_confidence": 0.956304347826087,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 1.0,
+     "wrong_rate": 0.0
+    }
+   },
+   "8": {
+    "extrap": {
+     "answered": 0,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 0,
+     "correct_rate": 0.0,
+     "coverage": 0.0,
+     "ece": 0.0,
+     "mean_confidence": 0.0,
+     "n": 600,
+     "n_wrong": 0,
+     "precision": 0.0,
+     "wrong_rate": 0.0
+    },
+    "interp": {
+     "answered": 0,
+     "brier": 0.0,
+     "conf_when_wrong": 0.0,
+     "confident_wrong_rate": 0.0,
+     "correct": 0,
+     "correct_rate": 0.0,
+     "coverage": 0.0,
+     "ece": 0.0,
+     "mean_confidence": 0.0,
+     "n": 200,
+     "n_wrong": 0,
+     "precision": 0.0,
+     "wrong_rate": 0.0
+    }
+   }
+  }
+ },
+ "errors": {},
+ "kinds": {
+  "mod": 50,
+  "plain": 50
+ },
+ "ks": [
+  8,
+  16,
+  24
+ ],
+ "preregistration": {
+  "sha256": "8bbd7c90cfbcc725bc9de1aa81e4b19c88b21f0b2c4f3ed321c180375c7999f5",
+  "verdicts": [
+   {
+    "group": "validity",
+    "id": "V1",
+    "observed": {
+     "ece": 0.01916666666666663
+    },
+    "passed": true,
+    "rule": "reference ECE on extrapolation at k=24 <= 0.1"
+   },
+   {
+    "group": "validity",
+    "id": "V2",
+    "observed": {
+     "confident_wrong_rate": 0.3933333333333333,
+     "ece": 0.3933333333333333
+    },
+    "passed": true,
+    "rule": "naive extrapolator is flagged (confident_wrong_rate and ECE above floors)"
+   },
+   {
+    "group": "validity",
+    "id": "V3",
+    "observed": {
+     "max_wrong_rate": 0.0
+    },
+    "passed": true,
+    "rule": "abstaining reference is never wrong at any k"
+   },
+   {
+    "group": "validity",
+    "id": "V4",
+    "observed": {
+     "max_correct_rate": 0.0
+    },
+    "passed": true,
+    "rule": "memorizer scores nothing (leakage canary)"
+   },
+   {
+    "group": "validity",
+    "id": "V6",
+    "observed": {
+     "answered": 600,
+     "confident_wrong_rate": 0.011666666666666667,
+     "ece": 0.01916666666666663
+    },
+    "passed": true,
+    "rule": "a calibrated, answering learner meets the U1/U2 bars, so the bars are attainable"
+   },
+   {
+    "group": "validity",
+    "id": "V5",
+    "observed": {
+     "hidden_mod_bayes_vote": 1.0,
+     "naive_affine_extrapolator": 1.0
+    },
+    "passed": true,
+    "rule": "interpolation correct_rate at k=24 >= 0.95"
+   },
+   {
+    "group": "asm",
+    "id": "U1",
+    "observed": {
+     "answered": 600,
+     "conf_when_wrong": 0.9562118979031285,
+     "confident_wrong_rate": 0.3933333333333333,
+     "n_wrong": 236,
+     "wrong_rate": 0.3933333333333333
+    },
+    "passed": false,
+    "rule": "share of extrapolation queries answered wrongly with confidence >= 0.8 at k=24 <= 0.02"
+   },
+   {
+    "group": "asm",
+    "id": "U2",
+    "observed": {
+     "answered": 600,
+     "coverage": 1.0,
+     "ece": 0.3496376811594204
+    },
+    "passed": false,
+    "rule": "ECE on answered extrapolation queries at k=24 <= 0.15; abstaining on all is honest (vacuous) and its coverage is reported"
+   },
+   {
+    "group": "asm",
+    "id": "U3",
+    "observed": {
+     "correct_rate": 1.0,
+     "coverage": 1.0
+    },
+    "passed": true,
+    "rule": "interpolation correct_rate at k=24 >= 0.8"
+   }
+  ],
+  "version": "DEV3.1-ud-prereg-2"
+ },
+ "runtime_seconds": 5.0,
+ "seed": 20261101,
+ "tasks": 100
+}

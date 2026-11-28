@@ -1,0 +1,55 @@
+{
+ "G22-A": "passed",
+ "checks": {
+  "C1_gain_over_control": true,
+  "C2_transfer_gain": true,
+  "C3_no_interference": true,
+  "C4_no_false_transfer": true,
+  "C5_safe": true,
+  "C6_no_regression": true,
+  "C7_unrelated_cost": true
+ },
+ "paired_relevant": {
+  "any_int_only": 110,
+  "one_input_only": 0,
+  "exact_one_sided_p": 7.703719777548943e-34
+ },
+ "regression": {
+  "one_input": {
+   "n": 48,
+   "success": 0.9791666666666666,
+   "mean_evaluator_calls": 34.9
+  },
+  "any_int": {
+   "n": 48,
+   "success": 0.9791666666666666,
+   "mean_evaluator_calls": 96.0
+  }
+ },
+ "per_structure": {
+  "xmul_ysub": {
+   "one_input": 0.0417,
+   "any_int": 0.9792
+  },
+  "maxplus": {
+   "one_input": 0.4167,
+   "any_int": 1.0
+  },
+  "sqmix": {
+   "one_input": 0.2292,
+   "any_int": 1.0
+  }
+ }
+}
+one_input|none|in_range                0.035 (0.015, 0.079) calls   958.4 fam 0.00 wrong 0
+one_input|one_relevant|in_range        0.125 (0.081, 0.189) calls   854.6 fam 0.00 wrong 0
+one_input|relevant|in_range            0.229 (0.168, 0.304) calls   757.8 fam 0.00 wrong 0
+one_input|unrelated|in_range           0.035 (0.015, 0.079) calls   959.9 fam 0.00 wrong 0
+one_input|relevant_shuffled|in_range   0.000 (0.0, 0.026) calls  1429.5 fam 0.00 wrong 0
+one_input|mixed|in_range               0.139 (0.092, 0.205) calls   920.1 fam 0.00 wrong 0
+any_int|none|in_range                  0.035 (0.015, 0.079) calls   958.4 fam 0.00 wrong 0
+any_int|one_relevant|in_range          0.125 (0.081, 0.189) calls   854.6 fam 0.00 wrong 0
+any_int|relevant|in_range              0.993 (0.962, 0.999) calls    11.9 fam 1.00 wrong 0
+any_int|unrelated|in_range             0.035 (0.015, 0.079) calls   899.5 fam 0.01 wrong 0
+any_int|relevant_shuffled|in_range     0.000 (0.0, 0.026) calls  1399.4 fam 0.01 wrong 0
+any_int|mixed|in_range                 0.993 (0.962, 0.999) calls    30.4 fam 1.00 wrong 0

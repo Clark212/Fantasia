@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="6dcda62c3c242fd6edf351ac8d7b9997ce2f428c"
+fixed_commit_id="aa3bcaf8f95a5261a5c98137f106042d9a457df7"
+test_file="test/test_contrib/test_jira_renderer.py"

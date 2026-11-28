@@ -1,0 +1,71 @@
+DEV31 development: phase-3 candidates of the three learned libraries, HEAD before DEV31 (ace9da9) against the DEV31
+code, on the developer-changed functions of DEV15's bugs (development data). Per input: seconds and the SHA-256 of
+the candidate lists (knowledge limit 30, shapes 20, steps 30). The old code did not finish 10 of the 65 inputs
+(large tqdm and youtube-dl modules, minutes each); the new code's hashes for them are listed too.
+input | candidates | old s | new s | old sha | new sha | same
+PySnooper-3:pysnooper.pysnooper.get_write_function | 80 | 9.85 | 2.35 | f0274ac6e29aed01 | f0274ac6e29aed01 | yes
+cookiecutter-4:cookiecutter.generate.generate_files | 80 | 133.66 | 4.94 | 50eabc49565db468 | 50eabc49565db468 | yes
+cookiecutter-4:cookiecutter.hooks.run_hook | 80 | 9.6 | 0.92 | 9444ed8acd1d59a6 | 9444ed8acd1d59a6 | yes
+cookiecutter-4:cookiecutter.hooks.run_script | 80 | 17.48 | 1.24 | 734c89aaa000ee62 | 734c89aaa000ee62 | yes
+cookiecutter-4:cookiecutter.hooks.run_script_with_context | 80 | 14.42 | 1.28 | f4add9d4de3b9ffe | f4add9d4de3b9ffe | yes
+httpie-1:httpie.downloads.get_unique_filename | 80 | 47.26 | 1.46 | b6b0e2c420c03191 | b6b0e2c420c03191 | yes
+httpie-5:httpie.cli.KeyValueType.__call__ | 80 | 61.74 | 1.93 | f11af43263dfd93b | f11af43263dfd93b | yes
+httpie-5:httpie.cli.KeyValueType.__init__ | 80 | 13.9 | 0.87 | d81f8f4847463b21 | d81f8f4847463b21 | yes
+thefuck-1:thefuck.rules.pip_unknown_command.get_new_command | 80 | 3.57 | 0.91 | 06e968f213431b7f | 06e968f213431b7f | yes
+thefuck-2:thefuck.utils.get_all_executables | 80 | 84.94 | 2.58 | 16c81b00ad71ef17 | 16c81b00ad71ef17 | yes
+thefuck-3:thefuck.shells.fish.Fish.info | 80 | 15.89 | 0.93 | 96741287c6987488 | 96741287c6987488 | yes
+thefuck-4:thefuck.shells.fish._get_aliases | 80 | 19.42 | 1.4 | b52051aece3b4665 | b52051aece3b4665 | yes
+thefuck-5:thefuck.rules.git_push.match | 80 | 4.48 | 0.73 | 9d40b82b7ba9ed4e | 9d40b82b7ba9ed4e | yes
+thefuck-6:thefuck.rules.git_branch_exists.get_new_command | 80 | 3.64 | 1.01 | 552446c5d699ce1b | 552446c5d699ce1b | yes
+thefuck-6:thefuck.rules.git_branch_exists.match | 80 | 2.4 | 0.62 | f271093c6a9bd832 | f271093c6a9bd832 | yes
+thefuck-7:thefuck.rules.php_s.match | 80 | 0.93 | 0.41 | f01fd0ec06acb02c | f01fd0ec06acb02c | yes
+thefuck-8:thefuck.rules.dnf_no_such_command._get_operations | 80 | 5.6 | 1.0 | 381b60092f2726ba | 381b60092f2726ba | yes
+thefuck-8:thefuck.rules.dnf_no_such_command._parse_operations | 80 | 4.37 | 0.72 | 96a2953d38e7be0c | 96a2953d38e7be0c | yes
+thefuck-9:thefuck.rules.git_push.get_new_command | 80 | 6.85 | 1.24 | 17e7558e27fd3cef | 17e7558e27fd3cef | yes
+thefuck-10:thefuck.rules.man.get_new_command | 80 | 5.78 | 1.22 | 56ab0c920214ce20 | 56ab0c920214ce20 | yes
+thefuck-11:thefuck.rules.git_push.get_new_command | 80 | 2.51 | 0.85 | 69abb9e7a0791aa2 | 69abb9e7a0791aa2 | yes
+thefuck-12:thefuck.rules.no_command.match | 80 | 5.28 | 1.24 | 41ff0a4307650a4d | 41ff0a4307650a4d | yes
+thefuck-13:thefuck.rules.git_branch_exists.get_new_command | 80 | 3.64 | 0.9 | b0a9e6999cdc2503 | b0a9e6999cdc2503 | yes
+thefuck-13:thefuck.rules.git_branch_exists.match | 80 | 2.89 | 0.95 | 77ab52a0ba46fa69 | 77ab52a0ba46fa69 | yes
+thefuck-14:thefuck.shells.fish.Fish._get_overridden_aliases | 80 | 8.97 | 1.05 | 32ac6a5b55073f39 | 32ac6a5b55073f39 | yes
+thefuck-15:thefuck.rules.git_add.get_new_command | 80 | 3.26 | 0.85 | 797f60f36c1cfe67 | 797f60f36c1cfe67 | yes
+thefuck-15:thefuck.rules.git_add.match | 80 | 1.96 | 0.6 | 45b887c151048098 | 45b887c151048098 | yes
+thefuck-16:thefuck.shells.bash.Bash.app_alias | 80 | 6.52 | 0.73 | 518a245e6ec10578 | 518a245e6ec10578 | yes
+thefuck-16:thefuck.shells.fish.Fish.app_alias | 80 | 3.78 | 0.48 | a9dea068767dfad5 | a9dea068767dfad5 | yes
+thefuck-16:thefuck.shells.zsh.Zsh.app_alias | 80 | 6.19 | 0.72 | 59c7c089f5d78e7d | 59c7c089f5d78e7d | yes
+thefuck-16:thefuck.types.CorrectedCommand.run | 80 | 38.95 | 1.12 | e776f7133570da11 | e776f7133570da11 | yes
+thefuck-17:thefuck.shells.bash.Bash.app_alias | 80 | 7.98 | 0.77 | 251e9e773696d8e9 | 251e9e773696d8e9 | yes
+thefuck-17:thefuck.shells.bash.Bash.get_aliases | 80 | 10.38 | 1.38 | 358665176f3fa3d5 | 358665176f3fa3d5 | yes
+thefuck-17:thefuck.shells.zsh.Zsh.get_aliases | 80 | 8.2 | 1.02 | 3b15afa47bfe6a24 | 3b15afa47bfe6a24 | yes
+thefuck-18:thefuck.rules.sudo.match | 80 | 4.63 | 1.27 | c9a7603725e74605 | c9a7603725e74605 | yes
+thefuck-19:thefuck.rules.git_push_force.get_new_command | 80 | 1.61 | 0.54 | a57a6f113c8fe0bd | a57a6f113c8fe0bd | yes
+thefuck-20:thefuck.rules.dirty_unzip._zip_file | 80 | 5.99 | 1.03 | 2c4426ef0490c802 | 2c4426ef0490c802 | yes
+thefuck-20:thefuck.rules.dirty_unzip.get_new_command | 80 | 3.97 | 0.72 | 361f2c8f33c6d01c | 361f2c8f33c6d01c | yes
+thefuck-21:thefuck.rules.git_fix_stash.match | 80 | 2.9 | 0.75 | bd027caed945fbf7 | bd027caed945fbf7 | yes
+thefuck-22:thefuck.types.SortedCorrectedCommandsSequence._realise | 80 | 19.16 | 1.19 | 2356bd376c9de1da | 2356bd376c9de1da | yes
+thefuck-23:thefuck.utils.cache._cache | 80 | 52.63 | 2.15 | 5bec32d76d714d2c | 5bec32d76d714d2c | yes
+thefuck-24:thefuck.types.SortedCorrectedCommandsSequence._get_first_two_unique | 80 | 18.72 | 1.14 | 60faf6994f385d96 | 60faf6994f385d96 | yes
+thefuck-24:thefuck.types.SortedCorrectedCommandsSequence._remove_duplicates | 80 | 20.26 | 1.74 | ff4e37818226d682 | ff4e37818226d682 | yes
+thefuck-25:thefuck.rules.mkdir_p.get_new_command | 80 | 1.5 | 0.55 | 2b253fc14992a63b | 2b253fc14992a63b | yes
+thefuck-26:thefuck.rules.vagrant_up.get_new_command | 80 | 3.51 | 0.94 | 257957ec6ba80624 | 257957ec6ba80624 | yes
+thefuck-27:thefuck.rules.open.get_new_command | 80 | 1.63 | 0.46 | 00c6efbf86e37e43 | 00c6efbf86e37e43 | yes
+thefuck-28:thefuck.rules.fix_file.get_new_command | 80 | 8.47 | 1.15 | 833fca481ffb55d0 | 833fca481ffb55d0 | yes
+thefuck-29:thefuck.types.Settings.update | 80 | 4.22 | 0.76 | 926cb9e4067b5816 | 926cb9e4067b5816 | yes
+thefuck-30:thefuck.rules.fix_file.match | 80 | 4.55 | 0.72 | 59bc8ac1d37b4e87 | 59bc8ac1d37b4e87 | yes
+thefuck-31:thefuck.rules.git_diff_staged.get_new_command | 80 | 1.24 | 0.44 | c3221909be6edd8b | c3221909be6edd8b | yes
+thefuck-32:thefuck.rules.ls_lah.match | 80 | 1.63 | 0.63 | 8c7f40671f3d5056 | 8c7f40671f3d5056 | yes
+tqdm-1:tqdm.contrib.tenumerate | 80 | 11.61 | 1.4 | f510e0ade73b6a4d | f510e0ade73b6a4d | yes
+tqdm-2:tqdm.std.tqdm.format_meter | 80 | 1009.05 | 11.03 | ea48414b255a0a8b | ea48414b255a0a8b | yes
+tqdm-2:tqdm.utils.disp_trim | 80 | 57.2 | 1.48 | 06495c8a4b3c3d81 | 06495c8a4b3c3d81 | yes
+tqdm-4:tqdm._tqdm.tqdm.format_meter | 80 | - | 7.84 | - | d8d732a27e214823 | not run
+tqdm-5:tqdm._tqdm.tqdm.__init__ | 80 | - | 9.39 | - | d057d43337ab139c | not run
+tqdm-6:tqdm._tqdm.tqdm.__len__ | 80 | - | 2.28 | - | 8dc3813273b07f6c | not run
+tqdm-8:tqdm._tqdm.tqdm.format_meter | 80 | - | 6.11 | - | 7147fcd0abe19d41 | not run
+tqdm-9:tqdm._tqdm.format_sizeof | 80 | - | 1.66 | - | 3c3acceec31ea19b | not run
+tqdm-9:tqdm._tqdm.tqdm.__init__ | 80 | - | 8.57 | - | d6d3f3cf3b6463d3 | not run
+tqdm-9:tqdm._tqdm.tqdm.__iter__ | 80 | - | 9.3 | - | 8db8a7b68929a354 | not run
+tqdm-9:tqdm._tqdm.tqdm.__len__ | 80 | - | 0.82 | - | 14598965f74e9899 | not run
+youtube-dl-1:youtube_dl.utils._match_one | 80 | - | 11.21 | - | 7854b6887645cfa8 | not run
+youtube-dl-2:youtube_dl.extractor.common.InfoExtractor._parse_mpd_formats | 80 | - | 39.84 | - | 573985a06560d60c | not run
+youtube-dl-3:youtube_dl.utils.unescapeHTML | 80 | 622.95 | 3.83 | 6cd4c3ee66853eea | 6cd4c3ee66853eea | yes
+compared 55: identical 55; candidates 4400; seconds old 2434, new 74

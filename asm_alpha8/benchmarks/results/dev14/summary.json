@@ -1,0 +1,1500 @@
+{
+ "fresh_calibration_seed53": {
+  "file_sha256": {
+   "cal53_cachetools.jsonl": "35baf761473cf93a721fcd6ee86349c7dc5aece7867298e6b4da102a8951dbf1",
+   "cal53_inflection.jsonl": "35e1be65bc5f0e7f12781adcfdd1920afcd4c2275e074f954e18974b9cccab38",
+   "cal53_inflection_resume.jsonl": "245d03dac883a3029fa13c0afa7ed5009da9329b8d48b1178d9e1eb85945894e",
+   "cal53_toolz.jsonl": "b4c8c150d7b75e7f86641f7b309ee3d937a04cd3b644071349a6e119d83db9f4"
+  },
+  "files": [
+   "cal53_toolz.jsonl",
+   "cal53_cachetools.jsonl",
+   "cal53_inflection.jsonl",
+   "cal53_inflection_resume.jsonl"
+  ],
+  "kind": "calibration",
+  "summary": {
+   "faults": 30,
+   "half": {
+    "analysed": 30,
+    "plausible_classes": {
+     "equivalent": 10,
+     "restored": 25,
+     "unknown": 1
+    },
+    "plausible_wrong": {
+     "ci95": [
+      0.0,
+      0.0989
+     ],
+     "k": 0,
+     "n": 35,
+     "p": 0.0
+    },
+    "skipped": 0,
+    "top1": 20,
+    "top3": 25,
+    "verification_available": {
+     "ci95": [
+      0.5893,
+      0.8625
+     ],
+     "k": 27,
+     "n": 36,
+     "p": 0.75
+    },
+    "workflow_accepted_classes": {
+     "equivalent": 3,
+     "restored": 20,
+     "unknown": 1
+    },
+    "workflow_accepted_wrong": {
+     "ci95": [
+      0.0,
+      0.1431
+     ],
+     "k": 0,
+     "n": 23,
+     "p": 0.0
+    },
+    "workflow_status": {
+     "partial": 1,
+     "resolved": 24,
+     "unresolved": 5
+    },
+    "workflow_wrong_labels": []
+   },
+   "weak": {
+    "analysed": 30,
+    "plausible_classes": {
+     "equivalent": 13,
+     "restored": 23,
+     "unknown": 1,
+     "wrong": 17
+    },
+    "plausible_wrong": {
+     "ci95": [
+      0.2109,
+      0.4548
+     ],
+     "k": 17,
+     "n": 53,
+     "p": 0.3208
+    },
+    "skipped": 0,
+    "top1": 14,
+    "top3": 22,
+    "verification_available": {
+     "ci95": [
+      0.6506,
+      0.868
+     ],
+     "k": 42,
+     "n": 54,
+     "p": 0.7778
+    },
+    "workflow_accepted_classes": {
+     "equivalent": 3,
+     "restored": 15,
+     "unknown": 1,
+     "wrong": 5
+    },
+    "workflow_accepted_wrong": {
+     "ci95": [
+      0.0966,
+      0.419
+     ],
+     "k": 5,
+     "n": 23,
+     "p": 0.2174
+    },
+    "workflow_status": {
+     "partial": 1,
+     "resolved": 24,
+     "unresolved": 5
+    },
+    "workflow_wrong_labels": [
+     "low",
+     "medium",
+     "medium",
+     "medium",
+     "medium"
+    ]
+   }
+  }
+ },
+ "fresh_decoys_seed53": {
+  "file_sha256": {
+   "dec53_cachetools.jsonl": "74fa1ab1d7ef3782ee8a4373b98c259a7f853a5faac1d7f2abeaa2cea8e93c32",
+   "dec53_inflection.jsonl": "f06a6e697f4b955fe1886592ebc232612e5877d414447097f53e14f65e70c6ac",
+   "dec53_toolz.jsonl": "1b685f83cb126e964fb6bc24b01e7f094c01c0d2c15be8f301b11438b209ae89"
+  },
+  "files": [
+   "dec53_toolz.jsonl",
+   "dec53_cachetools.jsonl",
+   "dec53_inflection.jsonl"
+  ],
+  "kind": "decoys",
+  "summary": {
+   "any_flag": {
+    "on_correct": {
+     "ci95": [
+      0.4716,
+      0.6381
+     ],
+     "k": 74,
+     "n": 133,
+     "p": 0.5564
+    },
+    "on_wrong": {
+     "ci95": [
+      0.7216,
+      0.9328
+     ],
+     "k": 36,
+     "n": 42,
+     "p": 0.8571
+    }
+   },
+   "control_classes": {
+    "equivalent": 23,
+    "restored": 110,
+    "unknown": 2,
+    "wrong": 8
+   },
+   "decoy_classes": {
+    "equivalent": 36,
+    "unknown": 96,
+    "wrong": 42
+   },
+   "decoys_constructed": 957,
+   "decoys_kept": 174,
+   "distinct_decoy_programs": 87,
+   "faults": 30,
+   "flag_rates": {
+    "alternatives_disagree": {
+     "on_correct": {
+      "ci95": [
+       0.0118,
+       0.0748
+      ],
+      "k": 4,
+      "n": 133,
+      "p": 0.0301
+     },
+     "on_wrong": {
+      "ci95": [
+       0.3995,
+       0.6878
+      ],
+      "k": 23,
+      "n": 42,
+      "p": 0.5476
+     }
+    },
+    "behaviour_changed_where_tests_passed": {
+     "on_correct": {
+      "ci95": [
+       0.0414,
+       0.1329
+      ],
+      "k": 10,
+      "n": 133,
+      "p": 0.0752
+     },
+     "on_wrong": {
+      "ci95": [
+       0.0,
+       0.0838
+      ],
+      "k": 0,
+      "n": 42,
+      "p": 0.0
+     }
+    },
+    "behaviour_unverified": {
+     "on_correct": {
+      "ci95": [
+       0.2497,
+       0.4068
+      ],
+      "k": 43,
+      "n": 133,
+      "p": 0.3233
+     },
+     "on_wrong": {
+      "ci95": [
+       0.1907,
+       0.4603
+      ],
+      "k": 13,
+      "n": 42,
+      "p": 0.3095
+     }
+    },
+    "tied_localization": {
+     "on_correct": {
+      "ci95": [
+       0.1434,
+       0.2793
+      ],
+      "k": 27,
+      "n": 133,
+      "p": 0.203
+     },
+     "on_wrong": {
+      "ci95": [
+       0.0832,
+       0.306
+      ],
+      "k": 7,
+      "n": 42,
+      "p": 0.1667
+     }
+    },
+    "underdetermined": {
+     "on_correct": {
+      "ci95": [
+       0.1244,
+       0.2545
+      ],
+      "k": 24,
+      "n": 133,
+      "p": 0.1805
+     },
+     "on_wrong": {
+      "ci95": [
+       0.1907,
+       0.4603
+      ],
+      "k": 13,
+      "n": 42,
+      "p": 0.3095
+     }
+    }
+   },
+   "primary": {
+    "R1": "demote tied_localization to informational",
+    "R1_demote": true,
+    "R2": "ordering not confirmed",
+    "n_correct_controls": 133,
+    "n_wrong_decoys": 42,
+    "p_wrong_given_label": {
+     "high": {
+      "ci95": [
+       0.034,
+       0.1506
+      ],
+      "k": 6,
+      "n": 82,
+      "p": 0.0732
+     },
+     "low": {
+      "ci95": [
+       0.2183,
+       0.5124
+      ],
+      "k": 13,
+      "n": 37,
+      "p": 0.3514
+     },
+     "medium": {
+      "ci95": [
+       0.2917,
+       0.5412
+      ],
+      "k": 23,
+      "n": 56,
+      "p": 0.4107
+     }
+    },
+    "tied_fpr": {
+     "ci95": [
+      0.1434,
+      0.2793
+     ],
+     "k": 27,
+     "n": 133,
+     "p": 0.203
+    },
+    "tied_lr_plus": 0.821,
+    "tied_tpr": {
+     "ci95": [
+      0.0832,
+      0.306
+     ],
+     "k": 7,
+     "n": 42,
+     "p": 0.1667
+    }
+   },
+   "rows": 317,
+   "sensitivity_wrong_only": {
+    "R1": "demote tied_localization to informational",
+    "R1_demote": true,
+    "R2": "ordering not confirmed",
+    "n_correct_controls": 133,
+    "n_wrong_decoys": 42,
+    "p_wrong_given_label": {
+     "high": {
+      "ci95": [
+       0.034,
+       0.1506
+      ],
+      "k": 6,
+      "n": 82,
+      "p": 0.0732
+     },
+     "low": {
+      "ci95": [
+       0.2183,
+       0.5124
+      ],
+      "k": 13,
+      "n": 37,
+      "p": 0.3514
+     },
+     "medium": {
+      "ci95": [
+       0.2917,
+       0.5412
+      ],
+      "k": 23,
+      "n": 56,
+      "p": 0.4107
+     }
+    },
+    "tied_fpr": {
+     "ci95": [
+      0.1434,
+      0.2793
+     ],
+     "k": 27,
+     "n": 133,
+     "p": 0.203
+    },
+    "tied_lr_plus": 0.821,
+    "tied_tpr": {
+     "ci95": [
+      0.0832,
+      0.306
+     ],
+     "k": 7,
+     "n": 42,
+     "p": 0.1667
+    }
+   }
+  }
+ },
+ "realbugs_evaluate": {
+  "file_sha256": {
+   "realbugs_eval_a.jsonl": "90e1556aba1d4c360b50a8267e9fcb3303c7774b090a637d65af67e717af3c24",
+   "realbugs_eval_b.jsonl": "4f5455bedba5453da5b7df802f987d4bd160e7eb70efb78d07471f9aca83399d"
+  },
+  "files": [
+   "realbugs_eval_a.jsonl",
+   "realbugs_eval_b.jsonl"
+  ],
+  "kind": "realbugs_evaluate",
+  "summary": {
+   "evaluated": 83,
+   "localized": 83,
+   "per_bug": [
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 3,
+     "label": null,
+     "oracle_class": null,
+     "project": "PySnooper",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 1,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      3,
+      4
+     ],
+     "bug": 2,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 3,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 4,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      2,
+      2
+     ],
+     "bug": 5,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 6,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      2,
+      3
+     ],
+     "bug": 7,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      2
+     ],
+     "bug": 8,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 9,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      2
+     ],
+     "bug": 10,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      3
+     ],
+     "bug": 11,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": null,
+     "bug": 12,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      2,
+      4
+     ],
+     "bug": 13,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 14,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      2
+     ],
+     "bug": 15,
+     "label": "high",
+     "oracle_class": "equivalent",
+     "project": "thefuck",
+     "status": "resolved"
+    },
+    {
+     "best_rank": [
+      2,
+      3
+     ],
+     "bug": 16,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      2
+     ],
+     "bug": 17,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      2
+     ],
+     "bug": 18,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      3
+     ],
+     "bug": 19,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      2,
+      2
+     ],
+     "bug": 20,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 21,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      2,
+      2
+     ],
+     "bug": 22,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 23,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": null,
+     "bug": 24,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 25,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 26,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 27,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 28,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 29,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      2
+     ],
+     "bug": 30,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 31,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 32,
+     "label": null,
+     "oracle_class": null,
+     "project": "thefuck",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      6,
+      6
+     ],
+     "bug": 1,
+     "label": null,
+     "oracle_class": null,
+     "project": "tqdm",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      4,
+      7
+     ],
+     "bug": 2,
+     "label": null,
+     "oracle_class": null,
+     "project": "tqdm",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": null,
+     "bug": 3,
+     "label": null,
+     "oracle_class": null,
+     "project": "tqdm",
+     "status": "time_budget"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 4,
+     "label": null,
+     "oracle_class": null,
+     "project": "tqdm",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      2,
+      3
+     ],
+     "bug": 5,
+     "label": null,
+     "oracle_class": null,
+     "project": "tqdm",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 6,
+     "label": "medium",
+     "oracle_class": "unknown",
+     "project": "tqdm",
+     "status": "resolved"
+    },
+    {
+     "best_rank": null,
+     "bug": 7,
+     "label": null,
+     "oracle_class": null,
+     "project": "tqdm",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 8,
+     "label": null,
+     "oracle_class": null,
+     "project": "tqdm",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 9,
+     "label": null,
+     "oracle_class": null,
+     "project": "tqdm",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": null,
+     "bug": 4,
+     "label": null,
+     "oracle_class": null,
+     "project": "cookiecutter",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": null,
+     "bug": 1,
+     "label": null,
+     "oracle_class": null,
+     "project": "httpie",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      6,
+      6
+     ],
+     "bug": 5,
+     "label": null,
+     "oracle_class": null,
+     "project": "httpie",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      2
+     ],
+     "bug": 1,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "time_budget"
+    },
+    {
+     "best_rank": [
+      1,
+      9
+     ],
+     "bug": 2,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      2,
+      2
+     ],
+     "bug": 3,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 4,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 5,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 6,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      2
+     ],
+     "bug": 7,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      3,
+      5
+     ],
+     "bug": 8,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "time_budget"
+    },
+    {
+     "best_rank": [
+      2,
+      6
+     ],
+     "bug": 9,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "time_budget"
+    },
+    {
+     "best_rank": [
+      1,
+      2
+     ],
+     "bug": 10,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "time_budget"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 11,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      2,
+      2
+     ],
+     "bug": 12,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "time_budget"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 13,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": null,
+     "bug": 14,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 16,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 17,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      13
+     ],
+     "bug": 18,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 19,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "time_budget"
+    },
+    {
+     "best_rank": [
+      2,
+      2
+     ],
+     "bug": 20,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 21,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 22,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "time_budget"
+    },
+    {
+     "best_rank": [
+      1,
+      2
+     ],
+     "bug": 23,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      8
+     ],
+     "bug": 24,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "time_budget"
+    },
+    {
+     "best_rank": [
+      1,
+      2
+     ],
+     "bug": 25,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      2
+     ],
+     "bug": 26,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 27,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 28,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 29,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 30,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "time_budget"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 31,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 32,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 33,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      2
+     ],
+     "bug": 34,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 35,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": null,
+     "bug": 36,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 37,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 41,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    },
+    {
+     "best_rank": [
+      1,
+      1
+     ],
+     "bug": 43,
+     "label": null,
+     "oracle_class": null,
+     "project": "youtube-dl",
+     "status": "unresolved"
+    }
+   ],
+   "resolved_labels": {
+    "high": 1,
+    "medium": 1
+   },
+   "resolved_oracle_class": {
+    "equivalent": 1,
+    "unknown": 1
+   },
+   "resolved_wrong_by_label": {},
+   "top1": 41,
+   "top3": 65,
+   "top5": 68,
+   "truth_not_ranked": 8,
+   "truth_unmapped": 3,
+   "workflow_status": {
+    "resolved": 2,
+    "time_budget": 10,
+    "unresolved": 71
+   }
+  }
+ },
+ "realbugs_validate": {
+  "file_sha256": {
+   "realbugs_validate.jsonl": "5eaed8c9a20af0335beed98f52beeaf7fe94bc2898bd55e49e0e5ed43caf7a07"
+  },
+  "files": [
+   "realbugs_validate.jsonl"
+  ],
+  "kind": "realbugs_validate",
+  "summary": {
+   "bugs": 96,
+   "by_project": {
+    "PySnooper": {
+     "does_not_fail_on_buggy": 1,
+     "valid": 1,
+     "valid_buggy_does_not_import": 1
+    },
+    "cookiecutter": {
+     "not_runnable": 3,
+     "valid": 1
+    },
+    "httpie": {
+     "fixed_version_fails": 3,
+     "valid": 2
+    },
+    "thefuck": {
+     "valid": 32
+    },
+    "tqdm": {
+     "valid": 9
+    },
+    "youtube-dl": {
+     "no_parsable_test_command": 1,
+     "valid": 38,
+     "valid_buggy_does_not_import": 4
+    }
+   },
+   "env_augmented_bugs": 0,
+   "status": {
+    "does_not_fail_on_buggy": 1,
+    "fixed_version_fails": 3,
+    "no_parsable_test_command": 1,
+    "not_runnable": 3,
+    "valid": 83,
+    "valid_buggy_does_not_import": 5
+   },
+   "status_detail": {
+    "does_not_fail_on_buggy": 1,
+    "fixed_version_fails(tests_failed)": 3,
+    "no_parsable_test_command": 1,
+    "not_runnable(usage_error/usage_error)": 3,
+    "valid": 83,
+    "valid_buggy_does_not_import": 5
+   },
+   "valid": [
+    "PySnooper-3",
+    "cookiecutter-4",
+    "httpie-1",
+    "httpie-5",
+    "thefuck-1",
+    "thefuck-10",
+    "thefuck-11",
+    "thefuck-12",
+    "thefuck-13",
+    "thefuck-14",
+    "thefuck-15",
+    "thefuck-16",
+    "thefuck-17",
+    "thefuck-18",
+    "thefuck-19",
+    "thefuck-2",
+    "thefuck-20",
+    "thefuck-21",
+    "thefuck-22",
+    "thefuck-23",
+    "thefuck-24",
+    "thefuck-25",
+    "thefuck-26",
+    "thefuck-27",
+    "thefuck-28",
+    "thefuck-29",
+    "thefuck-3",
+    "thefuck-30",
+    "thefuck-31",
+    "thefuck-32",
+    "thefuck-4",
+    "thefuck-5",
+    "thefuck-6",
+    "thefuck-7",
+    "thefuck-8",
+    "thefuck-9",
+    "tqdm-1",
+    "tqdm-2",
+    "tqdm-3",
+    "tqdm-4",
+    "tqdm-5",
+    "tqdm-6",
+    "tqdm-7",
+    "tqdm-8",
+    "tqdm-9",
+    "youtube-dl-1",
+    "youtube-dl-10",
+    "youtube-dl-11",
+    "youtube-dl-12",
+    "youtube-dl-13",
+    "youtube-dl-14",
+    "youtube-dl-16",
+    "youtube-dl-17",
+    "youtube-dl-18",
+    "youtube-dl-19",
+    "youtube-dl-2",
+    "youtube-dl-20",
+    "youtube-dl-21",
+    "youtube-dl-22",
+    "youtube-dl-23",
+    "youtube-dl-24",
+    "youtube-dl-25",
+    "youtube-dl-26",
+    "youtube-dl-27",
+    "youtube-dl-28",
+    "youtube-dl-29",
+    "youtube-dl-3",
+    "youtube-dl-30",
+    "youtube-dl-31",
+    "youtube-dl-32",
+    "youtube-dl-33",
+    "youtube-dl-34",
+    "youtube-dl-35",
+    "youtube-dl-36",
+    "youtube-dl-37",
+    "youtube-dl-4",
+    "youtube-dl-41",
+    "youtube-dl-43",
+    "youtube-dl-5",
+    "youtube-dl-6",
+    "youtube-dl-7",
+    "youtube-dl-8",
+    "youtube-dl-9"
+   ]
+  }
+ },
+ "rejudge_dev13": {
+  "file_sha256": {
+   "rj_cachetools.jsonl": "3d1d97032b04ac11e29307d6a1dc9752e9197bd2b1a482e93f3b12bb7adcc667",
+   "rj_toolz.jsonl": "d9e54012bfc376d4e8fc644e345236e83fcca396b067d8136807423597ab30f8",
+   "rj_understanding.jsonl": "5b0b1c5ea6eb93b2aee197c128ca04d35eaba60388f0ffc8fa0c06b2bc950e78"
+  },
+  "files": [
+   "rj_cachetools.jsonl",
+   "rj_toolz.jsonl",
+   "rj_understanding.jsonl"
+  ],
+  "kind": "rejudge",
+  "summary": {
+   "ambiguous_by_dev13_class": {
+    "equivalent": 9,
+    "restored": 1
+   },
+   "ambiguous_records": 10,
+   "blind_by_subject": {
+    "cachetools": 12,
+    "toolz": 18,
+    "understanding": 49
+   },
+   "blind_decoys": 79,
+   "dev13_wrong_still_wrong": 8,
+   "dev13_wrong_total": 8,
+   "errors": 10,
+   "examples": [],
+   "exposed": 0,
+   "exposed_by_subject": {},
+   "exposed_generated_only": 0,
+   "exposed_generated_original_ok": 0,
+   "exposed_in_dist": 0,
+   "rows": 147,
+   "singles_now_wrong": 0,
+   "singles_previously_equivalent": 12,
+   "transitions": {
+    "decoy: equivalent -> equivalent": 84,
+    "decoy: unknown -> unknown": 4,
+    "decoy: wrong -> wrong": 8,
+    "single: equivalent -> equivalent": 12,
+    "single: restored -> restored": 29
+   },
+   "unique_programs_judged": 113
+  }
+ }
+}

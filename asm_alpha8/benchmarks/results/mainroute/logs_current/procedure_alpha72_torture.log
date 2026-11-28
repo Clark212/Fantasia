@@ -1,0 +1,115 @@
+{
+  "benchmark": "alpha.7.2 autonomous procedure torture",
+  "checks": {
+    "20_drift_reversal_runs": {
+      "failures": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "passed": false,
+      "runs": 20
+    },
+    "32_affine_rules": {
+      "cases": 32,
+      "failures": [
+        [
+          0,
+          -7,
+          -5,
+          {
+            "outside": [
+              "x"
+            ],
+            "reason": "outside_evidence_support",
+            "status": "abstained",
+            "version": 1
+          }
+        ],
+        [
+          1,
+          -5,
+          -4,
+          {
+            "outside": [
+              "x"
+            ],
+            "reason": "outside_evidence_support",
+            "status": "abstained",
+            "version": 1
+          }
+        ],
+        [
+          2,
+          -4,
+          3,
+          {
+            "outside": [
+              "x"
+            ],
+            "reason": "outside_evidence_support",
+            "status": "abstained",
+            "version": 1
+          }
+        ]
+      ],
+      "passed": false
+    },
+    "50_random_no_false_active": {
+      "false_active": [],
+      "passed": true,
+      "runs": 50
+    },
+    "capacity_fail_closed": {
+      "passed": true,
+      "status": "blocked",
+      "versions": 2
+    },
+    "manual_compatibility": {
+      "passed": false,
+      "prediction": {
+        "outside": [
+          "x"
+        ],
+        "reason": "outside_evidence_support",
+        "status": "abstained",
+        "version": 1
+      }
+    },
+    "restart_mid_validation": {
+      "after_attempts": 1,
+      "before_attempts": 1,
+      "passed": false
+    },
+    "root_and_trust_guards": {
+      "low_trust_versions": 0,
+      "passed": true,
+      "same_root_versions": 0
+    },
+    "single_outlier_recovery": {
+      "passed": false,
+      "recovery_mode": "revalidation",
+      "temporary_abstention": true,
+      "versions": 2
+    }
+  },
+  "passed": 3,
+  "total": 8
+}

@@ -1,0 +1,1 @@
+pytest tests/github/test_issue_0334.py::github_issue_0334_test_case::test_union_with_assignement_operator

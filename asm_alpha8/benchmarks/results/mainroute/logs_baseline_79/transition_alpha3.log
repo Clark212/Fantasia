@@ -1,0 +1,53 @@
+{
+  "version": "0.4.0-alpha.7.9",
+  "summary": {
+    "passed": 4,
+    "total": 4,
+    "accuracy_pct": 100.0
+  },
+  "model_results": [
+    {
+      "name": "feed_forward_balanced_replay",
+      "parameters": 10336,
+      "seconds": 2.115466287000345,
+      "static_retention": {
+        "correct": 14,
+        "total": 14
+      },
+      "all_final": {
+        "correct": 15,
+        "total": 16
+      },
+      "history": 1
+    },
+    {
+      "name": "detached_gru_balanced_replay",
+      "parameters": 35296,
+      "seconds": 4.108122192999872,
+      "static_retention": {
+        "correct": 14,
+        "total": 14
+      },
+      "all_final": {
+        "correct": 16,
+        "total": 16
+      },
+      "history": 2
+    },
+    {
+      "name": "asm_alpha3",
+      "parameters": 35296,
+      "seconds": 7.666555177000191,
+      "static_retention": {
+        "correct": 14,
+        "total": 14
+      },
+      "all_final": {
+        "correct": 16,
+        "total": 16
+      },
+      "history": 2
+    }
+  ]
+}
+RESULT: /tmp/claude-0/-home-user-Fantasia/93dc14ec-23ca-5520-8824-81059c2147d8/scratchpad/baseline79/results/multidomain_mechanism_benchmark.json

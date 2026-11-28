@@ -1,0 +1,51 @@
+{"project": "thefuck", "bug": 2, "mode": "control", "best_rank": 3, "status": "unresolved", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 2, "mode": "learned", "best_rank": 3, "status": "time_budget", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 5, "mode": "control", "best_rank": 2, "status": "unresolved", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 5, "mode": "learned", "best_rank": 2, "status": "time_budget", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 8, "mode": "control", "best_rank": 1, "status": "unresolved", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 8, "mode": "learned", "best_rank": 1, "status": "time_budget", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 11, "mode": "control", "best_rank": 1, "status": "unresolved", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 11, "mode": "learned", "best_rank": 1, "status": "time_budget", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 14, "mode": "control", "best_rank": 1, "status": "unresolved", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 14, "mode": "learned", "best_rank": 1, "status": "unresolved", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 17, "mode": "control", "best_rank": 1, "status": "time_budget", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 17, "mode": "learned", "best_rank": 1, "status": "time_budget", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 20, "mode": "control", "best_rank": 2, "status": "unresolved", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 20, "mode": "learned", "best_rank": 2, "status": "time_budget", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 23, "mode": "control", "best_rank": 1, "status": "unresolved", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 23, "mode": "learned", "best_rank": 1, "status": "time_budget", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 26, "mode": "control", "best_rank": 1, "status": "unresolved", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 26, "mode": "learned", "best_rank": 1, "status": "unresolved", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 29, "mode": "control", "best_rank": 1, "status": "unresolved", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 29, "mode": "learned", "best_rank": 1, "status": "time_budget", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 32, "mode": "control", "best_rank": 1, "status": "unresolved", "families": null, "oracle_class": null}
+{"project": "thefuck", "bug": 32, "mode": "learned", "best_rank": 1, "status": "unresolved", "families": null, "oracle_class": null}
+Traceback (most recent call last):
+  File "/home/user/Fantasia/asm_alpha8/benchmarks/dev29_realbugs.py", line 146, in <module>
+    main()
+    ~~~~^^
+  File "/home/user/Fantasia/asm_alpha8/benchmarks/dev29_realbugs.py", line 138, in main
+    stage_evaluate(work, (i, n), float(arg("budget", "150")))
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Fantasia/asm_alpha8/benchmarks/dev29_realbugs.py", line 115, in stage_evaluate
+    rec = repair(work, r, mode, budget, libs)
+  File "/home/user/Fantasia/asm_alpha8/benchmarks/dev29_realbugs.py", line 71, in repair
+    d = RepairWorkflow(runner, time_budget_seconds=budget, extended_ops=True, **learned).run(base / "buggy", suite)
+  File "/home/user/Fantasia/asm_alpha8/asm/coding/faultloc.py", line 927, in run
+    return self._run(root, targets, task, examples)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Fantasia/asm_alpha8/asm/coding/faultloc.py", line 1062, in _run
+    res = loop.run(work, f"{task} [{sus.qname}]", task_id=task_id, targets=targets)
+  File "/home/user/Fantasia/asm_alpha8/asm/coding/research.py", line 714, in run
+    att = self._evaluate(base, targets, cand, rnd, idx, seen, task_id, before,
+                         baseline_outcome, baseline_failed, remaining, proposals)
+  File "/home/user/Fantasia/asm_alpha8/asm/coding/research.py", line 559, in _evaluate
+    att.exceptions = _infer_exceptions(run, sorted({d.exception for d in self.analyzer.analyze(
+                                                                         ~~~~~~~~~~~~~~~~~~~~~^
+        run.stdout + "\n" + run.stderr, base) if d.exception}))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/Fantasia/asm_alpha8/asm/coding/diagnostics.py", line 63, in analyze
+    message = (exc_match.group(2) if exc_match else summary).strip()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strip'
+SHARDDONE

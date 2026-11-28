@@ -1,0 +1,46 @@
+diff --git a/loguru/_handler.py b/loguru/_handler.py
+index 6b684d2..81a3dca 100644
+--- a/loguru/_handler.py
++++ b/loguru/_handler.py
+@@ -1,5 +1,6 @@
+ import functools
+ import json
++import multiprocessing
+ import os
+ import threading
+ from contextlib import contextmanager
+@@ -88,10 +89,15 @@ class Handler:
+                 self._decolorized_format = self._formatter.strip()
+ 
+         if self._enqueue:
+-            self._queue = self._multiprocessing_context.SimpleQueue()
++            if self._multiprocessing_context is None:
++                self._queue = multiprocessing.SimpleQueue()
++                self._confirmation_event = multiprocessing.Event()
++                self._confirmation_lock = multiprocessing.Lock()
++            else:
++                self._queue = self._multiprocessing_context.SimpleQueue()
++                self._confirmation_event = self._multiprocessing_context.Event()
++                self._confirmation_lock = self._multiprocessing_context.Lock()
+             self._queue_lock = create_handler_lock()
+-            self._confirmation_event = self._multiprocessing_context.Event()
+-            self._confirmation_lock = self._multiprocessing_context.Lock()
+             self._owner_process_pid = os.getpid()
+             self._thread = Thread(
+                 target=self._queued_writer, daemon=True, name="loguru-writer-%d" % self._id
+diff --git a/loguru/_logger.py b/loguru/_logger.py
+index 09713f6..f750967 100644
+--- a/loguru/_logger.py
++++ b/loguru/_logger.py
+@@ -967,9 +967,9 @@ class Logger:
+         if not isinstance(encoding, str):
+             encoding = "ascii"
+ 
+-        if context is None or isinstance(context, str):
++        if isinstance(context, str):
+             context = get_context(context)
+-        elif not isinstance(context, BaseContext):
++        elif context is not None and not isinstance(context, BaseContext):
+             raise TypeError(
+                 "Invalid context, it should be a string or a multiprocessing context, "
+                 "not: '%s'" % type(context).__name__

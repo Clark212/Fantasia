@@ -1,0 +1,18 @@
+diff --git a/loguru/_simple_sinks.py b/loguru/_simple_sinks.py
+index 50069d7..0f2c4c6 100644
+--- a/loguru/_simple_sinks.py
++++ b/loguru/_simple_sinks.py
+@@ -96,6 +96,13 @@ class StandardSink:
+             record.exc_text = "\n"
+ 
+         record.levelname = raw_record["level"].name
++
++        record.thread = raw_record["thread"].id
++        record.threadName = raw_record["thread"].name
++
++        record.process = raw_record["process"].id
++        record.processName = raw_record["process"].name
++
+         self._handler.handle(record)
+ 
+     def stop(self):

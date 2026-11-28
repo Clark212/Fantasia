@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="968947c69271c58ed35ca57d7761675b62a3ab2f"
+fixed_commit_id="c26c3b9e6379fd89cc8e5b6d5d5b75ac4370352f"
+test_file="tests/test_undefined_parameters.py"

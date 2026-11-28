@@ -1,0 +1,227 @@
+{
+  "benchmark": "ASM v0.4.0-alpha.5.1 extreme belief-state torture",
+  "checks": {
+    "250_shuffled_balanced_sequences_return_prior": true,
+    "3_to_32_way_block_recovery_uniform": true,
+    "invalid_likelihood_matrix_fails_closed": true,
+    "invalid_prior_sanitation": true,
+    "memo_key_preserves_distinct_extreme_odds": true,
+    "one_million_updates_match_log_oracle": true,
+    "rare_branch_cutoff_is_explicitly_exposed": true,
+    "six_extreme_reversals_return_50_50": true,
+    "tiny_prior_can_recover_to_MAP": true
+  },
+  "known_limitations_exposed": {
+    "astronomically_rare_branch_pruning": "Planning intentionally drops evidence branches with probability <=1e-15; log-space belief preserves the hypothesis, but exhaustive planning does not follow such branches.",
+    "likelihood_model_misspecification": "Structurally valid likelihoods can still be factually wrong, stale, correlated, or misspecified; alpha.5.1 does not learn/calibrate the model."
+  },
+  "passed": 9,
+  "results": {
+    "extreme_reversible_binary": [
+      {
+        "acc": 0.7,
+        "error": 2.609024107869118e-14,
+        "final": {
+          "A": 0.5000000000000261,
+          "B": 0.4999999999999739
+        },
+        "final_log": {
+          "A": -0.6931471805598931,
+          "B": -0.6931471805599975
+        },
+        "mid_min_log": -1694.595720774456,
+        "mid_prob": {
+          "A": 1.0,
+          "B": 0.0
+        },
+        "n_each": 2000
+      },
+      {
+        "acc": 0.8,
+        "error": 2.531308496145357e-14,
+        "final": {
+          "A": 0.4999999999999747,
+          "B": 0.5000000000000253
+        },
+        "final_log": {
+          "A": -0.6931471805599959,
+          "B": -0.6931471805598947
+        },
+        "mid_min_log": -2079.4415416797624,
+        "mid_prob": {
+          "A": 1.0,
+          "B": 0.0
+        },
+        "n_each": 1500
+      },
+      {
+        "acc": 0.9,
+        "error": 4.374278717023117e-14,
+        "final": {
+          "A": 0.5000000000000437,
+          "B": 0.49999999999995626
+        },
+        "final_log": {
+          "A": -0.6931471805598578,
+          "B": -0.6931471805600328
+        },
+        "mid_min_log": -2197.224577336245,
+        "mid_prob": {
+          "A": 1.0,
+          "B": 0.0
+        },
+        "n_each": 1000
+      },
+      {
+        "acc": 0.95,
+        "error": 2.6423307986078726e-14,
+        "final": {
+          "A": 0.4999999999999736,
+          "B": 0.5000000000000264
+        },
+        "final_log": {
+          "A": -0.6931471805599981,
+          "B": -0.6931471805598924
+        },
+        "mid_min_log": -2208.3292343748817,
+        "mid_prob": {
+          "A": 1.0,
+          "B": 0.0
+        },
+        "n_each": 750
+      },
+      {
+        "acc": 0.99,
+        "error": 5.10702591327572e-14,
+        "final": {
+          "A": 0.5000000000000511,
+          "B": 0.49999999999994893
+        },
+        "final_log": {
+          "A": -0.6931471805598431,
+          "B": -0.6931471805600474
+        },
+        "mid_min_log": -2297.559925067291,
+        "mid_prob": {
+          "A": 1.0,
+          "B": 0.0
+        },
+        "n_each": 500
+      },
+      {
+        "acc": 0.999,
+        "error": 2.886579864025407e-14,
+        "final": {
+          "A": 0.49999999999997113,
+          "B": 0.5000000000000289
+        },
+        "final_log": {
+          "A": -0.693147180560003,
+          "B": -0.6931471805598876
+        },
+        "mid_min_log": -2072.0264335945903,
+        "mid_prob": {
+          "A": 1.0,
+          "B": 0.0
+        },
+        "n_each": 300
+      }
+    ],
+    "input_sanitation": {
+      "all_zero_rejected": true,
+      "negative_clamped": {
+        "A": 1.0
+      }
+    },
+    "invalid_likelihood_matrix": {
+      "goal": 0.5,
+      "hazard": 0.5,
+      "invalid_likelihood_models": 1,
+      "root_action": "chooseA",
+      "status": "belief_contingent_plan_found",
+      "unknown": 0.0
+    },
+    "memo_key_underflow_odds": {
+      "both_public_B_zero": true,
+      "keys_distinct": true,
+      "logB_170": -781.1703745228763,
+      "logB_200": -919.0239700269128
+    },
+    "million_update_log_oracle": {
+      "chains": 100,
+      "max_abs_log_posterior_seen": 400.38763309747884,
+      "max_log_error": 1.1368683772161603e-13,
+      "steps_each": 10000,
+      "updates": 1000000
+    },
+    "multiway_block_recovery": [
+      {
+        "acc": 0.97,
+        "error_uniform": 1.821875983409882e-13,
+        "evidence_count": 750,
+        "k": 3,
+        "log_spread": 9.130474154517287e-13,
+        "n_each": 250
+      },
+      {
+        "acc": 0.97,
+        "error_uniform": 1.2079226507921703e-13,
+        "evidence_count": 900,
+        "k": 5,
+        "log_spread": 1.0178524689763435e-12,
+        "n_each": 180
+      },
+      {
+        "acc": 0.97,
+        "error_uniform": 6.446232436729815e-14,
+        "evidence_count": 960,
+        "k": 8,
+        "log_spread": 9.778844400898379e-13,
+        "n_each": 120
+      },
+      {
+        "acc": 0.97,
+        "error_uniform": 9.634654185575187e-14,
+        "evidence_count": 960,
+        "k": 16,
+        "log_spread": 2.8457236567192012e-12,
+        "n_each": 60
+      },
+      {
+        "acc": 0.97,
+        "error_uniform": 1.4710455076283324e-15,
+        "evidence_count": 960,
+        "k": 32,
+        "log_spread": 8.348877145181177e-14,
+        "n_each": 30
+      }
+    ],
+    "rare_branch_cutoff": {
+      "belief_logs": {
+        "A": 0.0,
+        "B": -919.0239700269128
+      },
+      "below_planner_branch_cutoff": true,
+      "next_evidence_log_probability": -919.0239700269128,
+      "next_evidence_probability": 0.0
+    },
+    "shuffled_balanced_extreme": {
+      "cases": 250,
+      "max_error": 5.284661597215745e-14
+    },
+    "tiny_prior_1e_300_recovery": {
+      "final": {
+        "A": 0.04362292408938094,
+        "B": 0.956377075910619
+      },
+      "logs": {
+        "A": -3.1321724849354675,
+        "B": -0.04460301282929403
+      },
+      "recovered": true,
+      "steps_to_B_MAP": 151
+    }
+  },
+  "runtime_seconds": 11.030041217803955,
+  "total": 9
+}

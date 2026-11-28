@@ -1,0 +1,110 @@
+{
+ "bugs": 13,
+ "arms": [
+  "control",
+  "learned",
+  "guarded"
+ ],
+ "status": {
+  "control": {
+   "time_budget": 9,
+   "no_spectrum": 3,
+   "unresolved": 1
+  },
+  "learned": {
+   "time_budget": 9,
+   "no_spectrum": 3,
+   "unresolved": 1
+  },
+  "guarded": {
+   "time_budget": 9,
+   "no_spectrum": 3,
+   "unresolved": 1
+  }
+ },
+ "no_spectrum_reasons": {
+  "the traced test run timed out, so coverage is missing or partial": 3
+ },
+ "resolved": {
+  "control": [],
+  "learned": [],
+  "guarded": []
+ },
+ "not_by_control": {
+  "learned": [],
+  "guarded": []
+ },
+ "control_only": [],
+ "flagged_accepted": {
+  "control": {},
+  "learned": {},
+  "guarded": {}
+ },
+ "diffs_not_applying": {
+  "control": [],
+  "learned": [],
+  "guarded": []
+ },
+ "seconds": {
+  "control": {
+   "median": 148.0,
+   "max": 148.2,
+   "over_300": 0,
+   "over_360": 0
+  },
+  "learned": {
+   "median": 295.8,
+   "max": 296.2,
+   "over_300": 0,
+   "over_360": 0
+  },
+  "guarded": {
+   "median": 295.9,
+   "max": 297.8,
+   "over_300": 0,
+   "over_360": 0
+  }
+ },
+ "tried_median": {
+  "control": 32,
+  "learned": 57,
+  "guarded": 55
+ },
+ "phase3": {
+  "guarded": {
+   "reached": 10,
+   "candidates_tested_median": 58.0,
+   "none_tested": 0,
+   "outcome": {
+    "time_budget": 9,
+    "unresolved": 1
+   }
+  },
+  "learned": {
+   "reached": 10,
+   "candidates_tested_median": 57.5,
+   "none_tested": 0,
+   "outcome": {
+    "time_budget": 9,
+    "unresolved": 1
+   }
+  }
+ },
+ "guard_dropped": {
+  "bugs": 5,
+  "candidates": 26,
+  "by_bug": {
+   "tabulate-5": 1,
+   "tabulate-2": 4,
+   "tabulate-6": 4,
+   "tabulate-9": 7,
+   "tabulate-14": 10
+  }
+ },
+ "developer_fixes": {
+  "valid_bugs": 13,
+  "checked": 13,
+  "flagged": {},
+  "not_applying": []
+ }
+}

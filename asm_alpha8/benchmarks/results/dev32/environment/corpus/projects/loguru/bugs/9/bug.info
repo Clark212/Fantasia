@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="62952bd97465db3b35999ac89b7acfde25f0a926"
+fixed_commit_id="ffe1617122cc6c56f6fdfb1715a006fbf85bea1c"
+test_file="tests/test_standard_handler.py"

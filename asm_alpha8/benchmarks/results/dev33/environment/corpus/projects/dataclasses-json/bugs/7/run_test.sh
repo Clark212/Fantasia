@@ -1,0 +1,1 @@
+pytest tests/test_undefined_parameters.py::test_undefined_inheritance

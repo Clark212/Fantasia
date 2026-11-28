@@ -1,0 +1,29 @@
+diff --git a/bitstring/dtypes.py b/bitstring/dtypes.py
+index e39e23c..f2a4953 100644
+--- a/bitstring/dtypes.py
++++ b/bitstring/dtypes.py
+@@ -102,6 +102,8 @@ class Dtype:
+         self._scale = value
+         if self._scale is None:
+             return
++        if self._scale == 0:
++            raise ValueError("A Dtype's scale factor must not be zero.")
+         if not hasattr(self, 'unscaled_get_fn'):
+             self.unscaled_get_fn = self._get_fn
+             self.unscaled_set_fn = self._set_fn
+diff --git a/bitstring/mxfp.py b/bitstring/mxfp.py
+index 7e4d134..5ee3f2d 100644
+--- a/bitstring/mxfp.py
++++ b/bitstring/mxfp.py
+@@ -43,6 +43,11 @@ class MXFPFormat:
+             b = struct.pack('>e', f)
+         except (OverflowError, struct.error):
+             # Return the largest representable positive or negative value
++            # Special cases for e4m3 and e5m2
++            if self.exp_bits == 4 and self.mantissa_bits == 3:
++                return 0b01111110 if f > 0 else 0b11111110
++            if self.exp_bits == 5 and self.mantissa_bits == 2:
++                return 0b01111011 if f > 0 else 0b11111011
+             return (1 << (self.exp_bits + self.mantissa_bits)) - 1 if f > 0 else (1 << (1 + self.exp_bits + self.mantissa_bits)) - 1
+         f16_int = int.from_bytes(b, byteorder='big')
+         # Then use this as an index to our large LUT

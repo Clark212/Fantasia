@@ -1,0 +1,421 @@
+{
+  "after": {
+    "discovery": {
+      "accuracy": {
+        "accuracy": 1.0,
+        "correct": 18,
+        "predicted": 18
+      },
+      "after_fit": {
+        "reason": "no_validated_active_procedure",
+        "status": "abstained"
+      },
+      "auto_last": {
+        "automatic": true,
+        "boundary_seq": 0,
+        "candidate_count": 184,
+        "evaluator_calls": 196,
+        "fit_evidence_ids": [
+          "fit-0",
+          "fit-1",
+          "fit-2"
+        ],
+        "mode": "induction",
+        "origin": "grammar",
+        "program": {
+          "expression": [
+            "add",
+            [
+              "mul",
+              2,
+              "x"
+            ],
+            3
+          ],
+          "inputs": {
+            "x": "int"
+          }
+        },
+        "status": "proposed",
+        "version": 1
+      },
+      "elapsed_s": 0.01544401499995729,
+      "final": {
+        "outside": [
+          "x"
+        ],
+        "reason": "outside_evidence_support",
+        "status": "abstained",
+        "version": 1
+      },
+      "versions": [
+        {
+          "contradictions": 0,
+          "created_seq": 3,
+          "dependencies": {
+            "oracle": 1
+          },
+          "program": {
+            "expression": [
+              "add",
+              [
+                "mul",
+                2,
+                "x"
+              ],
+              3
+            ],
+            "inputs": {
+              "x": "int"
+            }
+          },
+          "provenance": "asm_induction:grammar",
+          "state": "active",
+          "support": 8,
+          "version": 1
+        }
+      ]
+    },
+    "drift": {
+      "accuracy": {
+        "accuracy": 1.0,
+        "correct": 38,
+        "predicted": 38
+      },
+      "after_three": {
+        "reason": "no_validated_active_procedure",
+        "status": "abstained"
+      },
+      "auto_last": {
+        "automatic": true,
+        "boundary_seq": 12,
+        "candidate_count": 103,
+        "evaluator_calls": 105,
+        "fit_evidence_ids": [
+          "b-fit-20",
+          "b-fit-21",
+          "b-fit-22"
+        ],
+        "mode": "induction",
+        "origin": "grammar",
+        "program": {
+          "expression": [
+            "add",
+            [
+              "mul",
+              -3,
+              "x"
+            ],
+            7
+          ],
+          "inputs": {
+            "x": "int"
+          }
+        },
+        "status": "proposed",
+        "version": 2
+      },
+      "final": {
+        "outside": [
+          "x"
+        ],
+        "reason": "outside_evidence_support",
+        "status": "abstained",
+        "version": 2
+      },
+      "versions": [
+        {
+          "contradictions": 2,
+          "created_seq": 3,
+          "dependencies": {
+            "oracle": 1
+          },
+          "program": {
+            "expression": [
+              "add",
+              [
+                "mul",
+                2,
+                "x"
+              ],
+              3
+            ],
+            "inputs": {
+              "x": "int"
+            }
+          },
+          "provenance": "asm_induction:grammar",
+          "state": "suspended",
+          "support": 8,
+          "version": 1
+        },
+        {
+          "contradictions": 0,
+          "created_seq": 14,
+          "dependencies": {
+            "oracle": 1
+          },
+          "program": {
+            "expression": [
+              "add",
+              [
+                "mul",
+                -3,
+                "x"
+              ],
+              7
+            ],
+            "inputs": {
+              "x": "int"
+            }
+          },
+          "provenance": "asm_induction:grammar",
+          "state": "active",
+          "support": 8,
+          "version": 2
+        }
+      ]
+    },
+    "reversal": {
+      "accuracy": {
+        "accuracy": 1.0,
+        "correct": 58,
+        "predicted": 58
+      },
+      "final": {
+        "outside": [
+          "x"
+        ],
+        "reason": "outside_evidence_support",
+        "status": "abstained",
+        "version": 3
+      },
+      "reversal_mode": "revalidation",
+      "versions": [
+        {
+          "contradictions": 2,
+          "created_seq": 3,
+          "dependencies": {
+            "oracle": 1
+          },
+          "program": {
+            "expression": [
+              "add",
+              [
+                "mul",
+                2,
+                "x"
+              ],
+              3
+            ],
+            "inputs": {
+              "x": "int"
+            }
+          },
+          "provenance": "asm_induction:grammar",
+          "state": "suspended",
+          "support": 8,
+          "version": 1
+        },
+        {
+          "contradictions": 2,
+          "created_seq": 14,
+          "dependencies": {
+            "oracle": 1
+          },
+          "program": {
+            "expression": [
+              "add",
+              [
+                "mul",
+                -3,
+                "x"
+              ],
+              7
+            ],
+            "inputs": {
+              "x": "int"
+            }
+          },
+          "provenance": "asm_induction:grammar",
+          "state": "suspended",
+          "support": 8,
+          "version": 2
+        },
+        {
+          "contradictions": 0,
+          "created_seq": 25,
+          "dependencies": {
+            "oracle": 1
+          },
+          "program": {
+            "expression": [
+              "add",
+              [
+                "mul",
+                2,
+                "x"
+              ],
+              3
+            ],
+            "inputs": {
+              "x": "int"
+            }
+          },
+          "provenance": "asm_auto_revalidation:version1",
+          "state": "active",
+          "support": 8,
+          "version": 3
+        }
+      ]
+    }
+  },
+  "after_definition": "same core/evidence with auto_induce enabled; held-out validation unchanged",
+  "before": {
+    "discovery": {
+      "accuracy": {
+        "accuracy": null,
+        "correct": 0,
+        "predicted": 0
+      },
+      "after_fit": {
+        "reason": "no_validated_active_procedure",
+        "status": "abstained"
+      },
+      "auto_last": null,
+      "elapsed_s": 0.009458448000259523,
+      "final": {
+        "reason": "no_validated_active_procedure",
+        "status": "abstained"
+      },
+      "versions": []
+    },
+    "drift": {
+      "accuracy": {
+        "accuracy": null,
+        "correct": 0,
+        "predicted": 0
+      },
+      "after_three": {
+        "reason": "no_validated_active_procedure",
+        "status": "abstained"
+      },
+      "auto_last": null,
+      "final": {
+        "reason": "no_validated_active_procedure",
+        "status": "abstained"
+      },
+      "versions": [
+        {
+          "contradictions": 2,
+          "created_seq": 3,
+          "dependencies": {
+            "oracle": 1
+          },
+          "program": {
+            "expression": [
+              "add",
+              [
+                "mul",
+                2,
+                "x"
+              ],
+              3
+            ],
+            "inputs": {
+              "x": "int"
+            }
+          },
+          "provenance": "asm_induction:grammar",
+          "state": "suspended",
+          "support": 8,
+          "version": 1
+        }
+      ]
+    },
+    "reversal": {
+      "accuracy": {
+        "accuracy": null,
+        "correct": 0,
+        "predicted": 0
+      },
+      "final": {
+        "reason": "no_validated_active_procedure",
+        "status": "abstained"
+      },
+      "versions": [
+        {
+          "contradictions": 2,
+          "created_seq": 3,
+          "dependencies": {
+            "oracle": 1
+          },
+          "program": {
+            "expression": [
+              "add",
+              [
+                "mul",
+                2,
+                "x"
+              ],
+              3
+            ],
+            "inputs": {
+              "x": "int"
+            }
+          },
+          "provenance": "asm_induction:grammar",
+          "state": "suspended",
+          "support": 8,
+          "version": 1
+        }
+      ]
+    }
+  },
+  "before_definition": "procedure graft with identical evidence but auto_induce disabled and no manual repair/discovery call where autonomy is under test",
+  "benchmark": "ASM v0.4.0-alpha.7.2 autonomous procedure induction candidate",
+  "checks": {
+    "autonomous_discovery": false,
+    "autonomous_drift_revision": false,
+    "full_reversal_revalidation": false,
+    "heldout_gate": true,
+    "low_trust_no_false_induction": true,
+    "manual_accuracy_preserved": true,
+    "same_root_no_false_induction": true,
+    "unseen_coverage_preserved": false
+  },
+  "equivalence": {
+    "autonomous_after": {
+      "accuracy": 1.0,
+      "correct": 18,
+      "predicted": 18
+    },
+    "manual_before": {
+      "accuracy": 1.0,
+      "correct": 18,
+      "predicted": 18
+    }
+  },
+  "passed": 4,
+  "safety": {
+    "low_trust": {
+      "last": {
+        "boundary_seq": 0,
+        "required": 3,
+        "status": "collecting",
+        "trusted_independent_roots": 0
+      },
+      "versions": 0
+    },
+    "same_root": {
+      "last": {
+        "boundary_seq": 0,
+        "required": 3,
+        "status": "collecting",
+        "trusted_independent_roots": 1
+      },
+      "versions": 0
+    }
+  },
+  "total": 8
+}

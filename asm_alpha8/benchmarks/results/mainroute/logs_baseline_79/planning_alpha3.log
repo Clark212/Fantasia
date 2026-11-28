@@ -1,0 +1,16 @@
+{
+  "version": "0.4.0-alpha.7.9",
+  "passed": 9,
+  "total": 10,
+  "before_safe_choices_80_20": null,
+  "after_safe_choices_80_20": 3,
+  "before_mean_abs_calibration_error": null,
+  "after_mean_abs_calibration_error": 0.0025000000000000022,
+  "before_mean_expected_brier": null,
+  "after_mean_expected_brier": 0.16690000000000002,
+  "cost_choice": [
+    "step",
+    "step"
+  ],
+  "chain_goal_probability": 0.81
+}

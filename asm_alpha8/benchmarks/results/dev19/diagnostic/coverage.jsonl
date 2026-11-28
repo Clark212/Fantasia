@@ -1,0 +1,320 @@
+{"code": "8e32f96665342b8cc63999b425def54d9d67a3a706e249e93c2bd191169b4a7c", "budget_s": 180}
+{"own_status": {"abstract_none": 27, "ok": 76}}
+{"level": "L91", "id": "pluggy@4d6b10d28b7a:PluginManager.load_setuptools_entrypoints", "status": "abstract_none"}
+{"level": "L91", "id": "pluggy@e108fa449056:PluginManager.load_setuptools_entrypoints", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "pluggy@6abdcf6ca167:PluginManager._verify_hook", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.5}
+{"level": "L91", "id": "pluggy@0b7790eb2adf:varnames", "status": "abstract_none"}
+{"level": "L91", "id": "pluggy@74876c40efa3:varnames", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 1.0}
+{"level": "L91", "id": "pluggy@40f3ab1293c4:subprocess_env", "status": "abstract_none"}
+{"level": "L91", "id": "pluggy@198eb6aba335:subprocess_env", "status": "abstract_none"}
+{"level": "L91", "id": "pluggy@b806ff939278:run_recipe", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.6}
+{"level": "L91", "id": "pluggy@b18141489d98:_multicall", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 1.0}
+{"level": "L91", "id": "pluggy@443fee6d7a30:HookCaller.call_extra", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "pluggy@b4c214659c61:PluginManager.parse_hookspec_opts", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "pluggy@159d95ae56ec:changelog", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "pluggy@aac593436a65:_HookCaller.set_specification", "status": "ok", "C_hits": 1, "C_best": 3, "C_active": 1, "s": 0.1}
+{"level": "L91", "id": "pluggy@c501a32b34f1:_HookCaller.set_specification", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "pluggy@c5277e4e9d37:_HookCaller.set_specification", "status": "abstract_none"}
+{"level": "L91", "id": "pluggy@fc6395ca27d5:create_branch", "status": "abstract_none"}
+{"level": "L91", "id": "pluggy@b2ffeb99627f:varnames", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.3}
+{"level": "L91", "id": "pluggy@bebd02418f67:varnames", "status": "abstract_none"}
+{"level": "L91", "id": "pluggy@0e0f0544b44f:varnames", "status": "abstract_none"}
+{"level": "L91", "id": "pluggy@72e4c2597e70:PluginManager.load_setuptools_entrypoints", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "L91", "id": "pluggy@5758ba098b67:varnames", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.4}
+{"level": "L91", "id": "pluggy@0d5fd6a4119e:_Result.result", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "pluggy@672a98b4fce8:_HookCaller._add_hookimpl", "status": "ok", "C_hits": 1, "C_best": 1, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "pluggy@f1a227086408:_MultiCall.execute", "status": "abstract_none"}
+{"level": "L91", "id": "pluggy@7748ba01bb5a:_HookCaller.__call__", "status": "abstract_none"}
+{"level": "L91", "id": "pluggy@df1f335a2c18:PluginManager.parse_hookimpl_opts", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "pluggy@6d009de9befd:PluginManager.load_setuptools_entrypoints", "status": "abstract_none"}
+{"level": "L91", "id": "wcwidth@6fd6039ed838:_process_hyperlink", "status": "abstract_none"}
+{"level": "L91", "id": "wcwidth@3a9f471acc93:WcCombinedCharacterGenerator.__init__", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "wcwidth@a28f45c72810:WcCombinedCharacterGenerator.__init__", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "wcwidth@a6c421523b6b:Screen.msg_intro", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "wcwidth@7ff839312ec2:wcswidth", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "xmltodict@404175512ced:_emit", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 5.2}
+{"level": "L91", "id": "xmltodict@ab4c86fed24d:_emit", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 4.5}
+{"level": "L91", "id": "xmltodict@f0322e578184:_DictSAXHandler.startElement", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "xmltodict@cc54376200e7:_parse_args", "status": "ok", "C_hits": 1, "C_best": 8, "C_active": 1, "s": 0.1}
+{"level": "L91", "id": "xmltodict@729df10c894d:_DictSAXHandler.startElement", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "L91", "id": "xmltodict@e4bd90bc0e1f:unparse", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "xmltodict@7432c51effb6:parse", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.3}
+{"level": "L91", "id": "xmltodict@75f885bfc81a:parse", "status": "abstract_none"}
+{"level": "L91", "id": "xmltodict@872b005551bc:_DictSAXHandler.endElement", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "L91", "id": "slugify@a1543fe0ae01:slugify", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.5}
+{"level": "L91", "id": "cerberus@585a20089d24:BareValidator.__validate_schema_mapping", "status": "abstract_none"}
+{"level": "L91", "id": "cerberus@2fa4a9973491:BareValidator._error", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.7}
+{"level": "L91", "id": "cerberus@40d586915956:BareValidator._validate_allowed", "status": "abstract_none"}
+{"level": "L91", "id": "cerberus@16991d464d02:SchemaValidatorMixin._check_with_type", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "cerberus@74caea64b3d3:BareValidator._validate_nullable", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "cerberus@906ab77e63a9:BareValidator._validate_forbidden", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "cerberus@2e638e35c2e4:BasicErrorHandler._rewrite_logic_error_path", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "cerberus@a6de0a9fd7b1:BasicErrorHandler.add", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "cerberus@38743aec4d5b:Validator.__normalize_mapping_per_schema", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "cerberus@5e4815e69aa9:BasicErrorHandler.insert_logic_error", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.3}
+{"level": "L91", "id": "cerberus@9f7cc6c2d01d:Validator.__validate_logical", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.4}
+{"level": "L91", "id": "cerberus@d42df85506f7:Validator.__normalize_containers", "status": "abstract_none"}
+{"level": "L91", "id": "cerberus@ef7dfa920bbe:Validator.__validate_schema_sequence", "status": "abstract_none"}
+{"level": "L91", "id": "cerberus@289234f2ebf9:Validator.__store_config", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "cerberus@b4c12799b4f4:Validator.__new__", "status": "abstract_none"}
+{"level": "L91", "id": "cerberus@285bba7ac88e:DefinitionSchema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "cerberus@b1fcb26eda09:Validator.__normalize_mapping_per_propertyschema", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "L91", "id": "cerberus@445f3ed4908b:get_version", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "cerberus@abb433989602:Validator.__validate_dependencies_mapping", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "L91", "id": "cerberus@7d397e9972ce:Validator._validate_excludes", "status": "abstract_none"}
+{"level": "L91", "id": "cerberus@f66d8bd4880d:Validator._validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 1.4}
+{"level": "L91", "id": "cerberus@483d2f6a787a:Validator.validate_schema", "status": "abstract_none"}
+{"level": "L91", "id": "cerberus@de390138a865:Validator._validate", "status": "ok", "C_hits": 1, "C_best": 1, "C_active": 0, "s": 3.0}
+{"level": "L91", "id": "cerberus@5357062a53d9:Validator._validate", "status": "ok", "C_hits": 1, "C_best": 3, "C_active": 1, "s": 0.5}
+{"level": "L91", "id": "cerberus@470a8f4b7868:Validator._validate_required_fields", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "cerberus@fc6f354eedf8:Validator._validate", "status": "abstract_none"}
+{"level": "L91", "id": "cerberus@5ee60dad33e4:Validator._validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 1.5}
+{"level": "L91", "id": "cerberus@c4e802e2fe8b:Validator._validate_schema", "status": "ok", "C_hits": 1, "C_best": 8, "C_active": 1, "s": 0.2}
+{"level": "L91", "id": "cerberus@9ef07039e05a:Validator._error", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "schema@d81871b8644e:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 5.2}
+{"level": "L91", "id": "schema@a600fb465bdf:Regex.__init__", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "schema@a2873bc406e8:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 3.9}
+{"level": "L91", "id": "schema@a651b394a23b:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 8.5}
+{"level": "L91", "id": "schema@bb856478b9b6:Or.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "schema@5d420ab39017:Schema.validate", "status": "ok", "C_hits": 2, "C_best": 8, "C_active": 1, "s": 2.1}
+{"level": "L91", "id": "schema@ca70195e1279:SchemaError.__init__", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "schema@e208263ebf1b:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 5.6}
+{"level": "L91", "id": "schema@e384e6456a1e:Schema.validate", "status": "abstract_none"}
+{"level": "L91", "id": "schema@96666d04a1ac:Schema.validate", "status": "abstract_none"}
+{"level": "L91", "id": "schema@afae9214941d:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 2.1}
+{"level": "L91", "id": "schema@f89810e5492d:Schema.validate", "status": "abstract_none"}
+{"level": "L91", "id": "schema@2af1f4e08b1a:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 1.5}
+{"level": "L91", "id": "schema@d8dc368dd016:Or.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "schema@7d35c56d4f9c:Schema.validate", "status": "ok", "C_hits": 1, "C_best": 8, "C_active": 1, "s": 1.7}
+{"level": "L91", "id": "schema@64f9f1d36b04:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 1.4}
+{"level": "L91", "id": "schema@92fad7dc0082:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 1.3}
+{"level": "L91", "id": "schema@6a0c44178766:SchemaError.__init__", "status": "abstract_none"}
+{"level": "L91", "id": "jmespath@c50175160605:Parser._free_cache_entries", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "jmespath@a89505ba7e9a:Functions._func_to_number", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "jmespath@23ed645b4b38:_is_actual_number", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "jmespath@360e742783f6:Parser._token_led_lparen", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "jmespath@bdda80ec1618:Parser._parse_multi_select_list", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "jmespath@f67b92129dc3:FunctionExpression._func_to_string", "status": "abstract_none"}
+{"level": "L91", "id": "jmespath@0321d0021b13:WildcardIndex.search", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "jmespath@8f14a303bf9c:_Projection.get_index", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "parsimonious@fc25e1ffa196:NodeVisitor.visit", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L91", "id": "parsimonious@2a8de9aaee8a:NodeVisitor.generic_visit", "status": "ok", "C_hits": 1, "C_best": 8, "C_active": 1, "s": 0.0}
+{"level": "L91", "id": "parsimonious@545806c7d25a:NodeVisitor.generic_visit", "status": "ok", "C_hits": 1, "C_best": 8, "C_active": 1, "s": 0.0}
+{"level": "L91", "id": "parsimonious@457bca57ba6b:Grammar._copy", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "parsimonious@115539cbb590:Regex._regex_flags_from_bits", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L91", "id": "parsimonious@9b64d3847592:Grammar.__repr__", "status": "abstract_none"}
+{"level": "L91", "shapes": {"shapes": 64, "by_status": {"active": 3, "candidate": 61}, "examples": 91, "string_edits": 4}, "shape_known": 10}
+{"level": "L563", "id": "pluggy@4d6b10d28b7a:PluginManager.load_setuptools_entrypoints", "status": "abstract_none"}
+{"level": "L563", "id": "pluggy@e108fa449056:PluginManager.load_setuptools_entrypoints", "status": "ok", "C_hits": 2, "C_best": 9, "C_active": 1, "s": 0.6}
+{"level": "L563", "id": "pluggy@6abdcf6ca167:PluginManager._verify_hook", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 1.7}
+{"level": "L563", "id": "pluggy@0b7790eb2adf:varnames", "status": "abstract_none"}
+{"level": "L563", "id": "pluggy@74876c40efa3:varnames", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 5.7}
+{"level": "L563", "id": "pluggy@40f3ab1293c4:subprocess_env", "status": "abstract_none"}
+{"level": "L563", "id": "pluggy@198eb6aba335:subprocess_env", "status": "abstract_none"}
+{"level": "L563", "id": "pluggy@b806ff939278:run_recipe", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 3.2}
+{"level": "L563", "id": "pluggy@b18141489d98:_multicall", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 3.7}
+{"level": "L563", "id": "pluggy@443fee6d7a30:HookCaller.call_extra", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.6}
+{"level": "L563", "id": "pluggy@b4c214659c61:PluginManager.parse_hookspec_opts", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L563", "id": "pluggy@159d95ae56ec:changelog", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L563", "id": "pluggy@aac593436a65:_HookCaller.set_specification", "status": "ok", "C_hits": 1, "C_best": 17, "C_active": 1, "s": 0.2}
+{"level": "L563", "id": "pluggy@c501a32b34f1:_HookCaller.set_specification", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "L563", "id": "pluggy@c5277e4e9d37:_HookCaller.set_specification", "status": "abstract_none"}
+{"level": "L563", "id": "pluggy@fc6395ca27d5:create_branch", "status": "abstract_none"}
+{"level": "L563", "id": "pluggy@b2ffeb99627f:varnames", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.8}
+{"level": "L563", "id": "pluggy@bebd02418f67:varnames", "status": "abstract_none"}
+{"level": "L563", "id": "pluggy@0e0f0544b44f:varnames", "status": "abstract_none"}
+{"level": "L563", "id": "pluggy@72e4c2597e70:PluginManager.load_setuptools_entrypoints", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 1.6}
+{"level": "L563", "id": "pluggy@5758ba098b67:varnames", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 3.0}
+{"level": "L563", "id": "pluggy@0d5fd6a4119e:_Result.result", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "L563", "id": "pluggy@672a98b4fce8:_HookCaller._add_hookimpl", "status": "ok", "C_hits": 1, "C_best": 3, "C_active": 1, "s": 0.4}
+{"level": "L563", "id": "pluggy@f1a227086408:_MultiCall.execute", "status": "abstract_none"}
+{"level": "L563", "id": "pluggy@7748ba01bb5a:_HookCaller.__call__", "status": "abstract_none"}
+{"level": "L563", "id": "pluggy@df1f335a2c18:PluginManager.parse_hookimpl_opts", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.5}
+{"level": "L563", "id": "pluggy@6d009de9befd:PluginManager.load_setuptools_entrypoints", "status": "abstract_none"}
+{"level": "L563", "id": "wcwidth@6fd6039ed838:_process_hyperlink", "status": "abstract_none"}
+{"level": "L563", "id": "wcwidth@3a9f471acc93:WcCombinedCharacterGenerator.__init__", "status": "ok", "C_hits": 1, "C_best": 5, "C_active": 1, "s": 0.7}
+{"level": "L563", "id": "wcwidth@a28f45c72810:WcCombinedCharacterGenerator.__init__", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "L563", "id": "wcwidth@a6c421523b6b:Screen.msg_intro", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L563", "id": "wcwidth@7ff839312ec2:wcswidth", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L563", "id": "xmltodict@404175512ced:_emit", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 32.0}
+{"level": "L563", "id": "xmltodict@ab4c86fed24d:_emit", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 37.6}
+{"level": "L563", "id": "xmltodict@f0322e578184:_DictSAXHandler.startElement", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.7}
+{"level": "L563", "id": "xmltodict@cc54376200e7:_parse_args", "status": "ok", "C_hits": 1, "C_best": 48, "C_active": 1, "s": 0.3}
+{"level": "L563", "id": "xmltodict@729df10c894d:_DictSAXHandler.startElement", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.7}
+{"level": "L563", "id": "xmltodict@e4bd90bc0e1f:unparse", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L563", "id": "xmltodict@7432c51effb6:parse", "status": "ok", "C_hits": 1, "C_best": 1, "C_active": 0, "s": 0.8}
+{"level": "L563", "id": "xmltodict@75f885bfc81a:parse", "status": "abstract_none"}
+{"level": "L563", "id": "xmltodict@872b005551bc:_DictSAXHandler.endElement", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.7}
+{"level": "L563", "id": "slugify@a1543fe0ae01:slugify", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 2.4}
+{"level": "L563", "id": "cerberus@585a20089d24:BareValidator.__validate_schema_mapping", "status": "abstract_none"}
+{"level": "L563", "id": "cerberus@2fa4a9973491:BareValidator._error", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 2.3}
+{"level": "L563", "id": "cerberus@40d586915956:BareValidator._validate_allowed", "status": "abstract_none"}
+{"level": "L563", "id": "cerberus@16991d464d02:SchemaValidatorMixin._check_with_type", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "L563", "id": "cerberus@74caea64b3d3:BareValidator._validate_nullable", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L563", "id": "cerberus@906ab77e63a9:BareValidator._validate_forbidden", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "L563", "id": "cerberus@2e638e35c2e4:BasicErrorHandler._rewrite_logic_error_path", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "L563", "id": "cerberus@a6de0a9fd7b1:BasicErrorHandler.add", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.4}
+{"level": "L563", "id": "cerberus@38743aec4d5b:Validator.__normalize_mapping_per_schema", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.3}
+{"level": "L563", "id": "cerberus@5e4815e69aa9:BasicErrorHandler.insert_logic_error", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.8}
+{"level": "L563", "id": "cerberus@9f7cc6c2d01d:Validator.__validate_logical", "status": "ok", "C_hits": 1, "C_best": 1, "C_active": 0, "s": 2.2}
+{"level": "L563", "id": "cerberus@d42df85506f7:Validator.__normalize_containers", "status": "abstract_none"}
+{"level": "L563", "id": "cerberus@ef7dfa920bbe:Validator.__validate_schema_sequence", "status": "abstract_none"}
+{"level": "L563", "id": "cerberus@289234f2ebf9:Validator.__store_config", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L563", "id": "cerberus@b4c12799b4f4:Validator.__new__", "status": "abstract_none"}
+{"level": "L563", "id": "cerberus@285bba7ac88e:DefinitionSchema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L563", "id": "cerberus@b1fcb26eda09:Validator.__normalize_mapping_per_propertyschema", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.6}
+{"level": "L563", "id": "cerberus@445f3ed4908b:get_version", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L563", "id": "cerberus@abb433989602:Validator.__validate_dependencies_mapping", "status": "ok", "C_hits": 1, "C_best": 1, "C_active": 0, "s": 0.8}
+{"level": "L563", "id": "cerberus@7d397e9972ce:Validator._validate_excludes", "status": "abstract_none"}
+{"level": "L563", "id": "cerberus@f66d8bd4880d:Validator._validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 4.5}
+{"level": "L563", "id": "cerberus@483d2f6a787a:Validator.validate_schema", "status": "abstract_none"}
+{"level": "L563", "id": "cerberus@de390138a865:Validator._validate", "status": "ok", "C_hits": 1, "C_best": 3, "C_active": 1, "s": 11.0}
+{"level": "L563", "id": "cerberus@5357062a53d9:Validator._validate", "status": "ok", "C_hits": 1, "C_best": 3, "C_active": 1, "s": 2.3}
+{"level": "L563", "id": "cerberus@470a8f4b7868:Validator._validate_required_fields", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.3}
+{"level": "L563", "id": "cerberus@fc6f354eedf8:Validator._validate", "status": "abstract_none"}
+{"level": "L563", "id": "cerberus@5ee60dad33e4:Validator._validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 7.7}
+{"level": "L563", "id": "cerberus@c4e802e2fe8b:Validator._validate_schema", "status": "ok", "C_hits": 1, "C_best": 48, "C_active": 1, "s": 0.5}
+{"level": "L563", "id": "cerberus@9ef07039e05a:Validator._error", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.6}
+{"level": "L563", "id": "schema@d81871b8644e:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 14.9}
+{"level": "L563", "id": "schema@a600fb465bdf:Regex.__init__", "status": "ok", "C_hits": 1, "C_best": 5, "C_active": 1, "s": 0.4}
+{"level": "L563", "id": "schema@a2873bc406e8:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 12.7}
+{"level": "L563", "id": "schema@a651b394a23b:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 69.2}
+{"level": "L563", "id": "schema@bb856478b9b6:Or.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "L563", "id": "schema@5d420ab39017:Schema.validate", "status": "ok", "C_hits": 2, "C_best": 48, "C_active": 2, "s": 8.4}
+{"level": "L563", "id": "schema@ca70195e1279:SchemaError.__init__", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L563", "id": "schema@e208263ebf1b:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 48.7}
+{"level": "L563", "id": "schema@e384e6456a1e:Schema.validate", "status": "abstract_none"}
+{"level": "L563", "id": "schema@96666d04a1ac:Schema.validate", "status": "abstract_none"}
+{"level": "L563", "id": "schema@afae9214941d:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 5.0}
+{"level": "L563", "id": "schema@f89810e5492d:Schema.validate", "status": "abstract_none"}
+{"level": "L563", "id": "schema@2af1f4e08b1a:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 6.4}
+{"level": "L563", "id": "schema@d8dc368dd016:Or.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.4}
+{"level": "L563", "id": "schema@7d35c56d4f9c:Schema.validate", "status": "ok", "C_hits": 1, "C_best": 48, "C_active": 1, "s": 6.2}
+{"level": "L563", "id": "schema@64f9f1d36b04:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 4.1}
+{"level": "L563", "id": "schema@92fad7dc0082:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 4.2}
+{"level": "L563", "id": "schema@6a0c44178766:SchemaError.__init__", "status": "abstract_none"}
+{"level": "L563", "id": "jmespath@c50175160605:Parser._free_cache_entries", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L563", "id": "jmespath@a89505ba7e9a:Functions._func_to_number", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "L563", "id": "jmespath@23ed645b4b38:_is_actual_number", "status": "ok", "C_hits": 1, "C_best": 1, "C_active": 0, "s": 0.1}
+{"level": "L563", "id": "jmespath@360e742783f6:Parser._token_led_lparen", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "L563", "id": "jmespath@bdda80ec1618:Parser._parse_multi_select_list", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "L563", "id": "jmespath@f67b92129dc3:FunctionExpression._func_to_string", "status": "abstract_none"}
+{"level": "L563", "id": "jmespath@0321d0021b13:WildcardIndex.search", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L563", "id": "jmespath@8f14a303bf9c:_Projection.get_index", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L563", "id": "parsimonious@fc25e1ffa196:NodeVisitor.visit", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.3}
+{"level": "L563", "id": "parsimonious@2a8de9aaee8a:NodeVisitor.generic_visit", "status": "ok", "C_hits": 1, "C_best": 48, "C_active": 1, "s": 0.0}
+{"level": "L563", "id": "parsimonious@545806c7d25a:NodeVisitor.generic_visit", "status": "ok", "C_hits": 1, "C_best": 48, "C_active": 1, "s": 0.0}
+{"level": "L563", "id": "parsimonious@457bca57ba6b:Grammar._copy", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "L563", "id": "parsimonious@115539cbb590:Regex._regex_flags_from_bits", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "L563", "id": "parsimonious@9b64d3847592:Grammar.__repr__", "status": "abstract_none"}
+{"level": "L563", "shapes": {"shapes": 365, "by_status": {"active": 25, "candidate": 340}, "examples": 563, "string_edits": 29}, "shape_known": 17}
+{"level": "LALL", "id": "pluggy@4d6b10d28b7a:PluginManager.load_setuptools_entrypoints", "status": "abstract_none"}
+{"level": "LALL", "id": "pluggy@e108fa449056:PluginManager.load_setuptools_entrypoints", "status": "ok", "C_hits": 2, "C_best": 11, "C_active": 1, "s": 0.7}
+{"level": "LALL", "id": "pluggy@6abdcf6ca167:PluginManager._verify_hook", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 2.8}
+{"level": "LALL", "id": "pluggy@0b7790eb2adf:varnames", "status": "abstract_none"}
+{"level": "LALL", "id": "pluggy@74876c40efa3:varnames", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 6.7}
+{"level": "LALL", "id": "pluggy@40f3ab1293c4:subprocess_env", "status": "abstract_none"}
+{"level": "LALL", "id": "pluggy@198eb6aba335:subprocess_env", "status": "abstract_none"}
+{"level": "LALL", "id": "pluggy@b806ff939278:run_recipe", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 3.8}
+{"level": "LALL", "id": "pluggy@b18141489d98:_multicall", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 7.1}
+{"level": "LALL", "id": "pluggy@443fee6d7a30:HookCaller.call_extra", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.9}
+{"level": "LALL", "id": "pluggy@b4c214659c61:PluginManager.parse_hookspec_opts", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "LALL", "id": "pluggy@159d95ae56ec:changelog", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "LALL", "id": "pluggy@aac593436a65:_HookCaller.set_specification", "status": "ok", "C_hits": 1, "C_best": 32, "C_active": 1, "s": 0.4}
+{"level": "LALL", "id": "pluggy@c501a32b34f1:_HookCaller.set_specification", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.3}
+{"level": "LALL", "id": "pluggy@c5277e4e9d37:_HookCaller.set_specification", "status": "abstract_none"}
+{"level": "LALL", "id": "pluggy@fc6395ca27d5:create_branch", "status": "abstract_none"}
+{"level": "LALL", "id": "pluggy@b2ffeb99627f:varnames", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 1.5}
+{"level": "LALL", "id": "pluggy@bebd02418f67:varnames", "status": "abstract_none"}
+{"level": "LALL", "id": "pluggy@0e0f0544b44f:varnames", "status": "abstract_none"}
+{"level": "LALL", "id": "pluggy@72e4c2597e70:PluginManager.load_setuptools_entrypoints", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 2.3}
+{"level": "LALL", "id": "pluggy@5758ba098b67:varnames", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 3.8}
+{"level": "LALL", "id": "pluggy@0d5fd6a4119e:_Result.result", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "LALL", "id": "pluggy@672a98b4fce8:_HookCaller._add_hookimpl", "status": "ok", "C_hits": 1, "C_best": 5, "C_active": 1, "s": 0.6}
+{"level": "LALL", "id": "pluggy@f1a227086408:_MultiCall.execute", "status": "abstract_none"}
+{"level": "LALL", "id": "pluggy@7748ba01bb5a:_HookCaller.__call__", "status": "abstract_none"}
+{"level": "LALL", "id": "pluggy@df1f335a2c18:PluginManager.parse_hookimpl_opts", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 1.0}
+{"level": "LALL", "id": "pluggy@6d009de9befd:PluginManager.load_setuptools_entrypoints", "status": "abstract_none"}
+{"level": "LALL", "id": "wcwidth@6fd6039ed838:_process_hyperlink", "status": "abstract_none"}
+{"level": "LALL", "id": "wcwidth@3a9f471acc93:WcCombinedCharacterGenerator.__init__", "status": "ok", "C_hits": 1, "C_best": 10, "C_active": 1, "s": 0.8}
+{"level": "LALL", "id": "wcwidth@a28f45c72810:WcCombinedCharacterGenerator.__init__", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.6}
+{"level": "LALL", "id": "wcwidth@a6c421523b6b:Screen.msg_intro", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.3}
+{"level": "LALL", "id": "wcwidth@7ff839312ec2:wcswidth", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "LALL", "id": "xmltodict@404175512ced:_emit", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 46.7}
+{"level": "LALL", "id": "xmltodict@ab4c86fed24d:_emit", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 50.3}
+{"level": "LALL", "id": "xmltodict@f0322e578184:_DictSAXHandler.startElement", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 1.1}
+{"level": "LALL", "id": "xmltodict@cc54376200e7:_parse_args", "status": "ok", "C_hits": 1, "C_best": 97, "C_active": 1, "s": 0.4}
+{"level": "LALL", "id": "xmltodict@729df10c894d:_DictSAXHandler.startElement", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 1.3}
+{"level": "LALL", "id": "xmltodict@e4bd90bc0e1f:unparse", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.3}
+{"level": "LALL", "id": "xmltodict@7432c51effb6:parse", "status": "ok", "C_hits": 1, "C_best": 4, "C_active": 1, "s": 1.6}
+{"level": "LALL", "id": "xmltodict@75f885bfc81a:parse", "status": "abstract_none"}
+{"level": "LALL", "id": "xmltodict@872b005551bc:_DictSAXHandler.endElement", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 1.3}
+{"level": "LALL", "id": "slugify@a1543fe0ae01:slugify", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 3.6}
+{"level": "LALL", "id": "cerberus@585a20089d24:BareValidator.__validate_schema_mapping", "status": "abstract_none"}
+{"level": "LALL", "id": "cerberus@2fa4a9973491:BareValidator._error", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 4.0}
+{"level": "LALL", "id": "cerberus@40d586915956:BareValidator._validate_allowed", "status": "abstract_none"}
+{"level": "LALL", "id": "cerberus@16991d464d02:SchemaValidatorMixin._check_with_type", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.3}
+{"level": "LALL", "id": "cerberus@74caea64b3d3:BareValidator._validate_nullable", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "LALL", "id": "cerberus@906ab77e63a9:BareValidator._validate_forbidden", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.5}
+{"level": "LALL", "id": "cerberus@2e638e35c2e4:BasicErrorHandler._rewrite_logic_error_path", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.5}
+{"level": "LALL", "id": "cerberus@a6de0a9fd7b1:BasicErrorHandler.add", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.7}
+{"level": "LALL", "id": "cerberus@38743aec4d5b:Validator.__normalize_mapping_per_schema", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.6}
+{"level": "LALL", "id": "cerberus@5e4815e69aa9:BasicErrorHandler.insert_logic_error", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 1.3}
+{"level": "LALL", "id": "cerberus@9f7cc6c2d01d:Validator.__validate_logical", "status": "ok", "C_hits": 1, "C_best": 1, "C_active": 0, "s": 3.1}
+{"level": "LALL", "id": "cerberus@d42df85506f7:Validator.__normalize_containers", "status": "abstract_none"}
+{"level": "LALL", "id": "cerberus@ef7dfa920bbe:Validator.__validate_schema_sequence", "status": "abstract_none"}
+{"level": "LALL", "id": "cerberus@289234f2ebf9:Validator.__store_config", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "LALL", "id": "cerberus@b4c12799b4f4:Validator.__new__", "status": "abstract_none"}
+{"level": "LALL", "id": "cerberus@285bba7ac88e:DefinitionSchema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "LALL", "id": "cerberus@b1fcb26eda09:Validator.__normalize_mapping_per_propertyschema", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.9}
+{"level": "LALL", "id": "cerberus@445f3ed4908b:get_version", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "LALL", "id": "cerberus@abb433989602:Validator.__validate_dependencies_mapping", "status": "ok", "C_hits": 1, "C_best": 4, "C_active": 1, "s": 1.2}
+{"level": "LALL", "id": "cerberus@7d397e9972ce:Validator._validate_excludes", "status": "abstract_none"}
+{"level": "LALL", "id": "cerberus@f66d8bd4880d:Validator._validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 6.7}
+{"level": "LALL", "id": "cerberus@483d2f6a787a:Validator.validate_schema", "status": "abstract_none"}
+{"level": "LALL", "id": "cerberus@de390138a865:Validator._validate", "status": "ok", "C_hits": 1, "C_best": 4, "C_active": 1, "s": 14.5}
+{"level": "LALL", "id": "cerberus@5357062a53d9:Validator._validate", "status": "ok", "C_hits": 1, "C_best": 3, "C_active": 1, "s": 3.4}
+{"level": "LALL", "id": "cerberus@470a8f4b7868:Validator._validate_required_fields", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.7}
+{"level": "LALL", "id": "cerberus@fc6f354eedf8:Validator._validate", "status": "abstract_none"}
+{"level": "LALL", "id": "cerberus@5ee60dad33e4:Validator._validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 13.1}
+{"level": "LALL", "id": "cerberus@c4e802e2fe8b:Validator._validate_schema", "status": "ok", "C_hits": 1, "C_best": 97, "C_active": 1, "s": 0.8}
+{"level": "LALL", "id": "cerberus@9ef07039e05a:Validator._error", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.9}
+{"level": "LALL", "id": "schema@d81871b8644e:Schema.validate", "status": "ok", "C_hits": 2, "C_best": 1, "C_active": 0, "s": 27.1}
+{"level": "LALL", "id": "schema@a600fb465bdf:Regex.__init__", "status": "ok", "C_hits": 1, "C_best": 10, "C_active": 1, "s": 0.7}
+{"level": "LALL", "id": "schema@a2873bc406e8:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 22.1}
+{"level": "LALL", "id": "schema@a651b394a23b:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 88.5}
+{"level": "LALL", "id": "schema@bb856478b9b6:Or.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.3}
+{"level": "LALL", "id": "schema@5d420ab39017:Schema.validate", "status": "ok", "C_hits": 2, "C_best": 97, "C_active": 2, "s": 13.5}
+{"level": "LALL", "id": "schema@ca70195e1279:SchemaError.__init__", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "LALL", "id": "schema@e208263ebf1b:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 60.2}
+{"level": "LALL", "id": "schema@e384e6456a1e:Schema.validate", "status": "abstract_none"}
+{"level": "LALL", "id": "schema@96666d04a1ac:Schema.validate", "status": "abstract_none"}
+{"level": "LALL", "id": "schema@afae9214941d:Schema.validate", "status": "ok", "C_hits": 2, "C_best": 1, "C_active": 0, "s": 7.6}
+{"level": "LALL", "id": "schema@f89810e5492d:Schema.validate", "status": "abstract_none"}
+{"level": "LALL", "id": "schema@2af1f4e08b1a:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 8.7}
+{"level": "LALL", "id": "schema@d8dc368dd016:Or.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.4}
+{"level": "LALL", "id": "schema@7d35c56d4f9c:Schema.validate", "status": "ok", "C_hits": 1, "C_best": 97, "C_active": 1, "s": 8.5}
+{"level": "LALL", "id": "schema@64f9f1d36b04:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 6.6}
+{"level": "LALL", "id": "schema@92fad7dc0082:Schema.validate", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 5.7}
+{"level": "LALL", "id": "schema@6a0c44178766:SchemaError.__init__", "status": "abstract_none"}
+{"level": "LALL", "id": "jmespath@c50175160605:Parser._free_cache_entries", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "LALL", "id": "jmespath@a89505ba7e9a:Functions._func_to_number", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "LALL", "id": "jmespath@23ed645b4b38:_is_actual_number", "status": "ok", "C_hits": 1, "C_best": 2, "C_active": 1, "s": 0.1}
+{"level": "LALL", "id": "jmespath@360e742783f6:Parser._token_led_lparen", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.3}
+{"level": "LALL", "id": "jmespath@bdda80ec1618:Parser._parse_multi_select_list", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "LALL", "id": "jmespath@f67b92129dc3:FunctionExpression._func_to_string", "status": "abstract_none"}
+{"level": "LALL", "id": "jmespath@0321d0021b13:WildcardIndex.search", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.0}
+{"level": "LALL", "id": "jmespath@8f14a303bf9c:_Projection.get_index", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "LALL", "id": "parsimonious@fc25e1ffa196:NodeVisitor.visit", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.5}
+{"level": "LALL", "id": "parsimonious@2a8de9aaee8a:NodeVisitor.generic_visit", "status": "ok", "C_hits": 1, "C_best": 97, "C_active": 1, "s": 0.0}
+{"level": "LALL", "id": "parsimonious@545806c7d25a:NodeVisitor.generic_visit", "status": "ok", "C_hits": 1, "C_best": 97, "C_active": 1, "s": 0.0}
+{"level": "LALL", "id": "parsimonious@457bca57ba6b:Grammar._copy", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.1}
+{"level": "LALL", "id": "parsimonious@115539cbb590:Regex._regex_flags_from_bits", "status": "ok", "C_hits": 0, "C_best": null, "C_active": 0, "s": 0.2}
+{"level": "LALL", "id": "parsimonious@9b64d3847592:Grammar.__repr__", "status": "abstract_none"}
+{"level": "LALL", "shapes": {"shapes": 730, "by_status": {"active": 50, "candidate": 680}, "examples": 1151, "string_edits": 55}, "shape_known": 19}
+{"p17_position": 8, "id": "pluggy@672a98b4fce8:_HookCaller._add_hookimpl", "p17_programs": 1386}
+{"p17_position": 33, "id": "cerberus@5357062a53d9:Validator._validate", "p17_programs": 4518}
+{"p17_position": 4384, "id": "schema@d81871b8644e:Schema.validate", "p17_programs": 15211}
+{"p17_position": 334, "id": "schema@a600fb465bdf:Regex.__init__", "p17_programs": 943}
+{"p17_position": 2499, "id": "schema@afae9214941d:Schema.validate", "p17_programs": 8780}
+{"done": true}

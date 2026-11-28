@@ -1,0 +1,24 @@
+diff --git a/soupsieve/__meta__.py b/soupsieve/__meta__.py
+index 5369314..6f35e15 100644
+--- a/soupsieve/__meta__.py
++++ b/soupsieve/__meta__.py
+@@ -193,5 +193,5 @@ def parse_version(ver: str) -> Version:
+     return Version(major, minor, micro, release, pre, post, dev)
+ 
+ 
+-__version_info__ = Version(2, 4, 0, "final")
++__version_info__ = Version(2, 4, 1, "final")
+ __version__ = __version_info__._get_canonical()
+diff --git a/soupsieve/css_parser.py b/soupsieve/css_parser.py
+index 3698f2e..10ac6f2 100644
+--- a/soupsieve/css_parser.py
++++ b/soupsieve/css_parser.py
+@@ -113,7 +113,7 @@ VALUE = r'''
+ '''.format(nl=NEWLINE, ident=IDENTIFIER)
+ # Attribute value comparison. `!=` is handled special as it is non-standard.
+ ATTR = r'''
+-(?:{ws}*(?P<cmp>[!~^|*$]?=){ws}*(?P<value>{value})(?:{ws}+(?P<case>[is]))?)?{ws}*\]
++(?:{ws}*(?P<cmp>[!~^|*$]?=){ws}*(?P<value>{value})(?:{ws}*(?P<case>[is]))?)?{ws}*\]
+ '''.format(ws=WSC, value=VALUE)
+ 
+ # Selector patterns

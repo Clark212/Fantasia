@@ -1,0 +1,34 @@
+[
+  {
+    "backend": "hybrid",
+    "startup_ms": 14.374913999745331,
+    "rss_ready_mib": 233.2421875,
+    "rss_end_mib": 242.98046875,
+    "writer_median_ms": 0.00018799983081407845,
+    "writer_p95_ms": 0.0002789993231999688,
+    "behavior_passed": 15,
+    "behavior_total": 15,
+    "fallback_count": 0,
+    "exact_content_preserved": 100,
+    "novel_content_cases": 100,
+    "unsupported_claim_cases": 0,
+    "claim_audited_cases": 7,
+    "unsupported_claim_rate": 0.0
+  },
+  {
+    "backend": "recurrent",
+    "startup_ms": 16.9801500005633,
+    "rss_ready_mib": 233.375,
+    "rss_end_mib": 243.37109375,
+    "writer_median_ms": 0.3672509997159068,
+    "writer_p95_ms": 0.4456570004549576,
+    "behavior_passed": 15,
+    "behavior_total": 15,
+    "fallback_count": 0,
+    "exact_content_preserved": 100,
+    "novel_content_cases": 100,
+    "unsupported_claim_cases": 0,
+    "claim_audited_cases": 7,
+    "unsupported_claim_rate": 0.0
+  }
+]

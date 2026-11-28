@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="7f87991686c04c8b217f18c54a74f2453da94729"
+fixed_commit_id="69af65df22193da5993e075813daa82f0fb17608"
+test_file="tests/test_level4/test_in_range.py;tests/test_level4/test_out_of_range.py"

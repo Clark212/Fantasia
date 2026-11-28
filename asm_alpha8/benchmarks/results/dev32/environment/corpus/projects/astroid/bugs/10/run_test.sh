@@ -1,0 +1,1 @@
+pytest tests/test_inference.py::InferenceTest::test_bool_value_not_implemented

@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="43d6f8a5cd2b89aa02430549cb68f792982feeb3"
+fixed_commit_id="c44af8f8a566620f389ceb52a9d9a9e0864a4ac6"
+test_file="tests/features/identity_equality_test.py"

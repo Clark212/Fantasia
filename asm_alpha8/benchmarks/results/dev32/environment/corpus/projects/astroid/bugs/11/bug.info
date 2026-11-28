@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="b7855ff0da0aa2f21bb769ec5040f1637890be86"
+fixed_commit_id="3774c0a788ca665ecd7d28a064e56651efc4a3c1"
+test_file="tests/test_scoped_nodes.py"

@@ -1,0 +1,13 @@
+diff --git a/astroid/interpreter/objectmodel.py b/astroid/interpreter/objectmodel.py
+index 54e10fc4..199e8285 100644
+--- a/astroid/interpreter/objectmodel.py
++++ b/astroid/interpreter/objectmodel.py
+@@ -818,7 +818,7 @@ class ImportErrorInstanceModel(ExceptionInstanceModel):
+ class UnicodeDecodeErrorInstanceModel(ExceptionInstanceModel):
+     @property
+     def attr_object(self):
+-        return node_classes.Const("")
++        return node_classes.Const(b"")
+ 
+ 
+ BUILTIN_EXCEPTIONS = {

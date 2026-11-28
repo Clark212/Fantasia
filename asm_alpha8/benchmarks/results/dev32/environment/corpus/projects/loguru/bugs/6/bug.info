@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="14fa062bdb4388d77250b1f7224024fea3c84bbf"
+fixed_commit_id="086126fd8d0065336e40f7ea05546c5e62313e1b"
+test_file="tests/test_add_option_context.py"

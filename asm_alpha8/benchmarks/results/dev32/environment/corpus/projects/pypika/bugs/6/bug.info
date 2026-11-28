@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="5e800d83a0f0ae14210410c02fd97e51e2e3f1d5"
+fixed_commit_id="465fb9ae12f7727d28785d087b64e6226da5714e"
+test_file="pypika/tests/dialects/test_postgresql.py"

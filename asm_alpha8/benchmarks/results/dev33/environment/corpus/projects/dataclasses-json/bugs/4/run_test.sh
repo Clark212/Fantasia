@@ -1,0 +1,1 @@
+pytest tests/test_tuples.py::TestSchemaDecoder::test_ellipsis_tuple tests/test_tuples.py::TestSchemaDecoder::test_enum_with_tuple tests/test_tuples.py::TestSchemaDecoder::test_nested_tuple tests/test_tuples.py::TestSchemaEncoder::test_ellipsis_tuple tests/test_tuples.py::TestSchemaEncoder::test_enum_with_tuple tests/test_tuples.py::TestSchemaEncoder::test_nested_tuple

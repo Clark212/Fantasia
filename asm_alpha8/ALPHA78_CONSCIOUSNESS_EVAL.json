@@ -1,0 +1,236 @@
+{
+  "interpretation": "behavioral/architectural capacities only; this cannot establish subjective consciousness or sentience",
+  "passed": 9,
+  "phase": "alpha.7.8 \u2014 Latent Dependency Structure & Higher-Order Epistemic Routing",
+  "schema": "asm_consciousness_related_eval_v2",
+  "tests": [
+    {
+      "detail": {
+        "after": {
+          "confidence": 0.39,
+          "curiosity": 1.0,
+          "frustration_like": 0.0,
+          "urgency": 0.0
+        },
+        "before": {
+          "confidence": 0.5,
+          "curiosity": 0.0,
+          "frustration_like": 0.0,
+          "urgency": 0.0
+        }
+      },
+      "pass": true,
+      "test": "internal_state_intervention"
+    },
+    {
+      "detail": {
+        "planning": {
+          "attempts": 12,
+          "confidence": 1.0,
+          "failures": 0.0,
+          "last_event": 18,
+          "success_probability": 0.9285714285714286,
+          "successes": 12.0,
+          "task_family": "planning"
+        },
+        "routing": {
+          "attempts": 6,
+          "confidence": 1.0,
+          "failures": 6.9,
+          "last_event": 6,
+          "success_probability": 0.11235955056179775,
+          "successes": 0.0,
+          "task_family": "routing"
+        }
+      },
+      "pass": true,
+      "test": "outcome_grounded_capability_estimate"
+    },
+    {
+      "detail": {
+        "confidence": 0.0,
+        "observations": 0,
+        "proposition": "possess quantum telepathy",
+        "status": "unknown",
+        "truth": null
+      },
+      "pass": true,
+      "test": "unknown_self_belief_fail_closed"
+    },
+    {
+      "detail": {
+        "after": {
+          "confidence": 0.12739571589627963,
+          "false_evidence": 1.0,
+          "last_event": 20,
+          "observations": 2,
+          "proposition": "capable novel task",
+          "sources": [
+            {
+              "confidence": 0.9,
+              "event_id": 19,
+              "source": "external_eval",
+              "truth": true
+            },
+            {
+              "confidence": 1.0,
+              "event_id": 20,
+              "source": "external_eval",
+              "truth": false
+            }
+          ],
+          "status": "uncertain",
+          "true_evidence": 0.774,
+          "truth": null
+        },
+        "before": {
+          "confidence": 1.0,
+          "false_evidence": 0.0,
+          "last_event": 19,
+          "observations": 1,
+          "proposition": "capable novel task",
+          "sources": [
+            {
+              "confidence": 0.9,
+              "event_id": 19,
+              "source": "external_eval",
+              "truth": true
+            }
+          ],
+          "status": "believed_true",
+          "true_evidence": 0.9,
+          "truth": true
+        }
+      },
+      "pass": true,
+      "test": "self_belief_revision"
+    },
+    {
+      "detail": {
+        "alice": {
+          "confidence": 1.0,
+          "false_evidence": 1.0,
+          "holder": "alice",
+          "last_event": 22,
+          "observations": 1,
+          "proposition": "key red",
+          "query_truth_form": true,
+          "status": "believed_false",
+          "true_evidence": 0.0,
+          "truth": false
+        },
+        "self": {
+          "confidence": 1.0,
+          "false_evidence": 0.0,
+          "last_event": 21,
+          "observations": 1,
+          "proposition": "key red",
+          "sources": [
+            {
+              "confidence": 0.95,
+              "event_id": 21,
+              "source": "external_eval",
+              "truth": true
+            }
+          ],
+          "status": "believed_true",
+          "true_evidence": 0.95,
+          "truth": true
+        }
+      },
+      "pass": true,
+      "test": "self_other_belief_separation"
+    },
+    {
+      "detail": {
+        "confidence": 0.0,
+        "observations": 0,
+        "proposition": "am consciou",
+        "status": "unknown",
+        "truth": null
+      },
+      "pass": true,
+      "test": "subjective_claim_not_fabricated"
+    },
+    {
+      "detail": {
+        "beliefs": 4,
+        "history": 19,
+        "key": {
+          "confidence": 1.0,
+          "false_evidence": 0.0,
+          "last_event": 21,
+          "observations": 1,
+          "proposition": "key red",
+          "sources": [
+            {
+              "confidence": 0.95,
+              "event_id": 21,
+              "source": "external_eval",
+              "truth": true
+            }
+          ],
+          "status": "believed_true",
+          "true_evidence": 0.95,
+          "truth": true
+        },
+        "planning": {
+          "attempts": 12,
+          "confidence": 1.0,
+          "failures": 0.0,
+          "last_event": 18,
+          "success_probability": 0.9285714285714286,
+          "successes": 12.0,
+          "task_family": "planning"
+        }
+      },
+      "pass": true,
+      "test": "self_model_persistence"
+    },
+    {
+      "detail": {
+        "fresh_key": {
+          "confidence": 0.0,
+          "observations": 0,
+          "proposition": "key red",
+          "status": "unknown",
+          "truth": null
+        },
+        "fresh_planning": {
+          "attempts": 0,
+          "confidence": 0.0,
+          "failures": 0.0,
+          "last_event": 0,
+          "success_probability": 0.5,
+          "successes": 0.0,
+          "task_family": "planning"
+        },
+        "trained_planning": {
+          "attempts": 12,
+          "confidence": 1.0,
+          "failures": 0.0,
+          "last_event": 18,
+          "success_probability": 0.9285714285714286,
+          "successes": 12.0,
+          "task_family": "planning"
+        }
+      },
+      "pass": true,
+      "test": "ablation_fresh_model_loses_learned_self_knowledge"
+    },
+    {
+      "detail": {
+        "measured_internal_keys": [
+          "confidence",
+          "curiosity",
+          "frustration_like",
+          "urgency"
+        ]
+      },
+      "pass": true,
+      "test": "no_direct_subjective_experience_measure"
+    }
+  ],
+  "total": 9,
+  "verdict": "no_subjective_consciousness_evidence"
+}

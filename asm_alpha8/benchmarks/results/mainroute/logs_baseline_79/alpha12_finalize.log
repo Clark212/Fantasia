@@ -1,0 +1,82 @@
+{
+  "ambiguous_control": {
+    "abstraction_suppressed": true,
+    "marked_ambiguous": true,
+    "no_exception": true
+  },
+  "benchmark": "ASM v0.3.0-alpha.12 Robust Abstraction Hardening",
+  "checks": {
+    "ambiguous_visible_input_blocks_abstraction": true,
+    "at_least_64_competing_abstractions": true,
+    "beats_alpha11_style_drop_only_by_70_points": true,
+    "candidate_main_memory_bounded_2048": true,
+    "candidate_pending_memory_bounded_256": true,
+    "diverse_distribution_shift_demotes_rule": true,
+    "fresh_lockbox_150_of_150": true,
+    "fresh_lockbox_restart_150_of_150": true,
+    "generalization_survives_exceptions_256_of_256": true,
+    "high_dim_unseen_384_of_384": true,
+    "late_exact_exceptions_16_of_16": true,
+    "new_nuisance_feature_keys_do_not_break_transfer": true,
+    "random_control_promotes_no_rules": true,
+    "random_control_unseen_at_or_below_10pct": true,
+    "restart_exceptions_16_of_16": true,
+    "restart_generalization_256_of_256": true,
+    "sparse_projection_search_is_bounded": true,
+    "version_is_alpha12": false
+  },
+  "distribution_shift": {
+    "had_rule_before": true,
+    "rule_demoted_after_diverse_change": true
+  },
+  "fresh_lockbox": {
+    "correct": 150,
+    "promoted": 30,
+    "restart_correct": 150,
+    "restart_total": 150,
+    "total": 150
+  },
+  "passed": 17,
+  "random_control": {
+    "accuracy": 0.01953125,
+    "candidates": 2048,
+    "correct": 5,
+    "promoted": 0,
+    "total": 256
+  },
+  "structured": {
+    "candidates": 2048,
+    "drop_only_baseline": [
+      111,
+      384
+    ],
+    "exceptions": [
+      16,
+      16
+    ],
+    "new_key_shift": [
+      384,
+      384
+    ],
+    "pending_candidates": 256,
+    "post_exception_unseen": [
+      256,
+      256
+    ],
+    "promoted": 64,
+    "restart_exceptions": [
+      16,
+      16
+    ],
+    "restart_unseen": [
+      256,
+      256
+    ],
+    "unseen": [
+      384,
+      384
+    ]
+  },
+  "total": 18,
+  "version": "0.4.0-alpha.7.9"
+}

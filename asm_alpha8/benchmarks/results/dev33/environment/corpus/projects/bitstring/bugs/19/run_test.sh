@@ -1,0 +1,1 @@
+pytest tests/test_array.py::TestArrayMethods::test_extended_slice_assignment_from_shared_array

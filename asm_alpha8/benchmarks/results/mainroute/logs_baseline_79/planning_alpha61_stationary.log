@@ -1,0 +1,44 @@
+{
+  "claim_boundary": "Synthetic binary source-reliability stress; does not test correlated evidence or latent-cause discovery.",
+  "return_90_10_90": {
+    "all_recovered_down": true,
+    "all_recovered_up": true,
+    "down_recovery_mean": 22.9,
+    "mean_final_effective_r": 0.899264705882353,
+    "mean_regimes": 3,
+    "seeds": 20,
+    "up_recovery_mean": 22
+  },
+  "stationary_by_rate": {
+    "0.1": {
+      "false_split_seeds": 0,
+      "mean_effective_r": 0.09926470588235295,
+      "mean_regimes": 1,
+      "seeds": 20
+    },
+    "0.3": {
+      "false_split_seeds": 0,
+      "mean_effective_r": 0.30367647058823527,
+      "mean_regimes": 1,
+      "seeds": 20
+    },
+    "0.5": {
+      "false_split_seeds": 0,
+      "mean_effective_r": 0.4676470588235294,
+      "mean_regimes": 1,
+      "seeds": 20
+    },
+    "0.7": {
+      "false_split_seeds": 0,
+      "mean_effective_r": 0.7117647058823529,
+      "mean_regimes": 1,
+      "seeds": 20
+    },
+    "0.9": {
+      "false_split_seeds": 0,
+      "mean_effective_r": 0.8904411764705883,
+      "mean_regimes": 1,
+      "seeds": 20
+    }
+  }
+}

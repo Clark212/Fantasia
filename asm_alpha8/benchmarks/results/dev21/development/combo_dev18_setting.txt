@@ -1,0 +1,25 @@
+{
+ "setting": "dev18",
+ "problems": 472,
+ "library": {
+  "steps": 61,
+  "by_status": {
+   "active": 5,
+   "candidate": 56
+  },
+  "examples": 91,
+  "pairs": 26,
+  "pairs_usable": 1,
+  "multi_site_steps": 3,
+  "string_edits": 7
+ },
+ "seconds": 80,
+ "key": 2,
+ "key_new": 0,
+ "round_robin_guard": 1,
+ "round_robin_guard_new": 0,
+ "round_robin_guard_gains_vs_key": [],
+ "round_robin_guard_losses_vs_key": [
+  "packaging@8efde605cc26:DependencyGroupResolver._validate"
+ ]
+}

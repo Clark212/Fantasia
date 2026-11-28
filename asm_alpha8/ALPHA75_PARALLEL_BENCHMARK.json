@@ -1,0 +1,21 @@
+{
+  "all_checks_pass": true,
+  "ambiguous_status": "needs_information",
+  "drift_history_records": 14,
+  "drift_p1_context": "A",
+  "drift_p2_context": "B",
+  "drift_p3_context": "A",
+  "noise_false_routed": false,
+  "noise_status": "abstain",
+  "query_plan_latency_ms_median": 1.1942585000000001,
+  "query_tree_all_leaves_routed": true,
+  "query_tree_nodes": 7,
+  "query_tree_resolved_contexts": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "route_latency_ms_median": 0.3127935,
+  "two_context_accuracy": 1.0
+}

@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="53cd2243deb7edcaffa2feb8abb5c8f6c158af16"
+fixed_commit_id="3b4b7d437074f55ea0595ca3035d185e8704bb75"
+test_file="tests/brain/test_brain.py"

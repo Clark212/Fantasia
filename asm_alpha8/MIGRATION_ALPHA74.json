@@ -1,0 +1,228 @@
+{
+  "after": {
+    "dependency": {
+      "active_correlation": 0.0,
+      "cumulative_active_correlation": 0.0,
+      "cumulative_raw_correlation": 0.0,
+      "current_regime_version": 0,
+      "raw_correlation": 0.0,
+      "recent_trials": 40,
+      "regime_count": 0,
+      "source_a": "s1",
+      "source_b": "s2",
+      "status": "independent_or_unproven",
+      "trials": 40,
+      "view": "cumulative"
+    },
+    "lineage": [
+      "evidence:root-e"
+    ],
+    "prediction": {
+      "confidence": 0.9,
+      "contradictions": 0,
+      "status": "predicted",
+      "support": 8,
+      "value": 35,
+      "version": 1
+    },
+    "regimes": [],
+    "snapshot73_present": true,
+    "snapshot74_after_save": true,
+    "snapshot74_before_save": false,
+    "source": {
+      "active_regime_id": 1,
+      "active_regime_observations": 80.0,
+      "alpha": 82.0,
+      "beta": 2.0,
+      "calibrated": true,
+      "drift_log_bayes_factor": -2.8186278530373556,
+      "drift_score": 0.0,
+      "drift_zscore": 0.0,
+      "effective_model_mismatch_abs": 0.47058823529411764,
+      "effective_reliability": 0.9705882352941176,
+      "effective_uncertainty_stddev": 0.020340119847297784,
+      "last_change_temporal_index": null,
+      "last_temporal_index": 79.0,
+      "model_mismatch_abs": 0.47619047619047616,
+      "prior_reliability": 0.5,
+      "prior_strength": 4.0,
+      "regime_count": 1,
+      "regimes": [
+        {
+          "alpha": 82.0,
+          "beta": 2.0,
+          "end_temporal_index": null,
+          "regime_id": 1,
+          "reliability": 0.9761904761904762,
+          "resolved_observations": 80.0,
+          "start_observation": 0.0,
+          "start_temporal_index": null,
+          "trigger": "initial",
+          "uncertainty_stddev": 0.01653610324161954
+        }
+      ],
+      "reliability": 0.9761904761904762,
+      "resolved_observations": 80.0,
+      "source_id": "oracle",
+      "status": "ok",
+      "supplied_reliability": 0.5,
+      "uncertainty_stddev": 0.01653610324161954
+    },
+    "version": "0.4.0-alpha.7.4",
+    "versions": [
+      {
+        "contradictions": 0,
+        "created_seq": 4,
+        "dependencies": {
+          "oracle": 1
+        },
+        "program": {
+          "expression": [
+            "add",
+            [
+              "add",
+              [
+                "mul",
+                2,
+                "x"
+              ],
+              [
+                "mul",
+                3,
+                "y"
+              ]
+            ],
+            5
+          ],
+          "inputs": {
+            "x": "int",
+            "y": "int"
+          }
+        },
+        "provenance": "asm_induction:multi_affine",
+        "state": "active",
+        "support": 8,
+        "version": 1
+      }
+    ]
+  },
+  "before": {
+    "dependency": {
+      "active_correlation": 0.0,
+      "cumulative_active_correlation": 0.0,
+      "cumulative_raw_correlation": 0.0,
+      "current_regime_version": 0,
+      "raw_correlation": 0.0,
+      "recent_trials": 40,
+      "regime_count": 0,
+      "source_a": "s1",
+      "source_b": "s2",
+      "status": "independent_or_unproven",
+      "trials": 40,
+      "view": "cumulative"
+    },
+    "lineage": [
+      "evidence:root-e"
+    ],
+    "prediction": {
+      "confidence": 0.9,
+      "contradictions": 0,
+      "status": "predicted",
+      "support": 8,
+      "value": 35,
+      "version": 1
+    },
+    "regimes": [],
+    "snapshot73": true,
+    "source": {
+      "active_regime_id": 1,
+      "active_regime_observations": 80.0,
+      "alpha": 82.0,
+      "beta": 2.0,
+      "calibrated": true,
+      "drift_log_bayes_factor": -2.8186278530373556,
+      "drift_score": 0.0,
+      "drift_zscore": 0.0,
+      "effective_model_mismatch_abs": 0.47058823529411764,
+      "effective_reliability": 0.9705882352941176,
+      "effective_uncertainty_stddev": 0.020340119847297784,
+      "last_change_temporal_index": null,
+      "last_temporal_index": 79.0,
+      "model_mismatch_abs": 0.47619047619047616,
+      "prior_reliability": 0.5,
+      "prior_strength": 4.0,
+      "regime_count": 1,
+      "regimes": [
+        {
+          "alpha": 82.0,
+          "beta": 2.0,
+          "end_temporal_index": null,
+          "regime_id": 1,
+          "reliability": 0.9761904761904762,
+          "resolved_observations": 80.0,
+          "start_observation": 0.0,
+          "start_temporal_index": null,
+          "trigger": "initial",
+          "uncertainty_stddev": 0.01653610324161954
+        }
+      ],
+      "reliability": 0.9761904761904762,
+      "resolved_observations": 80.0,
+      "source_id": "oracle",
+      "status": "ok",
+      "supplied_reliability": 0.5,
+      "uncertainty_stddev": 0.01653610324161954
+    },
+    "version": "0.4.0-alpha.7.3",
+    "versions": [
+      {
+        "contradictions": 0,
+        "created_seq": 4,
+        "dependencies": {
+          "oracle": 1
+        },
+        "program": {
+          "expression": [
+            "add",
+            [
+              "add",
+              [
+                "mul",
+                2,
+                "x"
+              ],
+              [
+                "mul",
+                3,
+                "y"
+              ]
+            ],
+            5
+          ],
+          "inputs": {
+            "x": "int",
+            "y": "int"
+          }
+        },
+        "provenance": "asm_induction:multi_affine",
+        "state": "active",
+        "support": 8,
+        "version": 1
+      }
+    ]
+  },
+  "checks": {
+    "alpha73_snapshot_used_without_fake_alpha74_snapshot": true,
+    "alpha74_snapshot_written_on_save": true,
+    "dependency_state_preserved": true,
+    "lineage_preserved": true,
+    "no_fabricated_procedure_versions": true,
+    "prediction_preserved": true,
+    "procedure_versions_preserved": true,
+    "source_calibration_preserved": true,
+    "source_version_alpha73": true
+  },
+  "migration": "alpha.7.3 -> alpha.7.4",
+  "passed": 9,
+  "total": 9
+}

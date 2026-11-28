@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/user/Fantasia/asm_alpha8/benchmarks/dev21_transfer.py", line 197, in <module>
+    main()
+    ~~~~^^
+  File "/home/user/Fantasia/asm_alpha8/benchmarks/dev21_transfer.py", line 179, in main
+    rec = attempt(structure, arm, order, c, s, seed, mode, unrelated)
+  File "/home/user/Fantasia/asm_alpha8/benchmarks/dev21_transfer.py", line 76, in attempt
+    fit_labels = T.derange(fit_labels, random.Random(f"{seed}:shuffle:{structure}:{c}:{fit_seed}"))
+  File "/home/user/Fantasia/asm_alpha8/asm/learning/structtransfer.py", line 47, in derange
+    raise RuntimeError("could not derange")
+RuntimeError: could not derange

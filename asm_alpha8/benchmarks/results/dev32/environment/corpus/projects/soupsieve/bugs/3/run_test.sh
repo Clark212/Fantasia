@@ -1,0 +1,1 @@
+pytest tests/test_extra/test_attribute.py::TestAttribute::test_bad_attribute

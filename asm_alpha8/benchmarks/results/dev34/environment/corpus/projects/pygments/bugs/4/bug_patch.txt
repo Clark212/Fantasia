@@ -1,0 +1,13 @@
+diff --git a/pygments/formatters/html.py b/pygments/formatters/html.py
+index 827cf3fa..6523f74d 100644
+--- a/pygments/formatters/html.py
++++ b/pygments/formatters/html.py
+@@ -429,7 +429,7 @@ class HtmlFormatter(Formatter):
+         self.noclobber_cssfile = get_bool_opt(options, 'noclobber_cssfile', False)
+         self.tagsfile = self._decodeifneeded(options.get('tagsfile', ''))
+         self.tagurlformat = self._decodeifneeded(options.get('tagurlformat', ''))
+-        self.filename = html_escape(self._decodeifneeded(options.get('filename', '')))
++        self.filename = html_escape(self._decodeifneeded(options.get('filename', '') or ''))
+         self.wrapcode = get_bool_opt(options, 'wrapcode', False)
+         self.span_element_openers = {}
+         self.debug_token_types = get_bool_opt(options, 'debug_token_types', False)

@@ -1,0 +1,18 @@
+{
+  "source": "v0.4.0-alpha.6 schema-1 adaptive evidence snapshot",
+  "target": "v0.4.0-alpha.6.1 schema-2 regime-aware adaptive evidence",
+  "source_test_observations": 100,
+  "source_reliability": 0.7365384615384615,
+  "target_cumulative_reliability": 0.7365384615384615,
+  "target_effective_reliability_before_temporal_evidence": 0.7365384615384615,
+  "target_resolved_observations": 100.0,
+  "target_regime_count": 1,
+  "trained_db": {
+    "episodic_events": 897,
+    "semantic_vectors": 897,
+    "typed_semantic_event_records": 897,
+    "current_world_states": 24,
+    "world_state_history": 50
+  },
+  "result": "PASS"
+}

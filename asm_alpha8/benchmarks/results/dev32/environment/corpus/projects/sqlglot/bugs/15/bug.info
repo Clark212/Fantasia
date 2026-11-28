@@ -1,0 +1,4 @@
+python_version="3.11"
+buggy_commit_id="b6c09043dff6d9d6eaa4f0660dd25091bd37d887"
+fixed_commit_id="37429d6777a97ba42390a377199b47fbba60edba"
+test_file="tests/dialects/test_singlestore.py"

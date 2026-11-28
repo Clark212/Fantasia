@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/user/Fantasia/asm_alpha8/benchmarks/dev22_transfer.py", line 187, in <module>
+    main()
+    ~~~~^^
+  File "/home/user/Fantasia/asm_alpha8/benchmarks/dev22_transfer.py", line 172, in main
+    rec = attempt(structures, structure, arm, c, s, seed, mode, unrelated)
+  File "/home/user/Fantasia/asm_alpha8/benchmarks/dev22_transfer.py", line 71, in attempt
+    queries = rng.sample(sorted({(x, y) for x in range(lo[0], 10) for y in range(lo[1], 10)} - set(fit)), 6)
+  File "/usr/local/lib/python3.13/random.py", line 434, in sample
+    raise ValueError("Sample larger than population or is negative")
+ValueError: Sample larger than population or is negative
