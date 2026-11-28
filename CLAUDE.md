@@ -29,6 +29,7 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
       `extrapolation_guard='abstain'`; they pass with it off (`asm_alpha8/tools/with_cortex_options.py
       extrapolation_guard=off <script>`).
   - No Stage 4 planning capability was lost.
+  - The release gate is refreshed (owner-approved 2026-11-28): today's code passes 56 of 56 (`release_checks_refreshed.json`).
 - **DEV34** (project adaptation in development; the M4 real-data gate again with the fixed check, on 59 fresh
   real bugs). G34-A **not passed**.
   - **The changes:** DEV33's check fixed. Its suite runs get at most the remaining time, and test ids are compared

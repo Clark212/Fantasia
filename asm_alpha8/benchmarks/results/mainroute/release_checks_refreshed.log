@@ -1,0 +1,56 @@
+{"name": "unit_legacy_a", "returncode": 0, "pass": true, "elapsed_seconds": 20.187, "command": ["/usr/local/bin/python3", "-m", "unittest", "tests/test_v01110.py", "tests/test_v0114.py", "tests/test_v0115.py", "-q"], "tests": 37}
+{"name": "unit_legacy_b", "returncode": 0, "pass": true, "elapsed_seconds": 10.816, "command": ["/usr/local/bin/python3", "-m", "unittest", "tests/test_v0116.py", "tests/test_v0117.py", "tests/test_v0118.py", "tests/test_v0119.py", "-q"], "tests": 35}
+{"name": "unit_v02_a", "returncode": 0, "pass": true, "elapsed_seconds": 4.131, "command": ["/usr/local/bin/python3", "-m", "unittest", "tests/test_v020a1.py", "tests/test_v020a2.py", "tests/test_v020a3.py", "-q"], "tests": 29}
+{"name": "unit_v02_b", "returncode": 0, "pass": true, "elapsed_seconds": 6.369, "command": ["/usr/local/bin/python3", "-m", "unittest", "tests/test_v020a4.py", "tests/test_v020a5.py", "tests/test_v020a6.py", "tests/test_v020a7.py", "-q"], "tests": 55}
+{"name": "unit_v03_a", "returncode": 0, "pass": true, "elapsed_seconds": 25.369, "command": ["/usr/local/bin/python3", "-m", "unittest", "tests/test_v030a1.py", "tests/test_v030a2.py", "tests/test_v030a3.py", "tests/test_v030a4.py", "tests/test_v030a5.py", "-q"], "tests": 37}
+{"name": "unit_v03_b", "returncode": 0, "pass": true, "elapsed_seconds": 4.928, "command": ["/usr/local/bin/python3", "-m", "unittest", "tests/test_v030a6.py", "tests/test_v030a7.py", "tests/test_v030a8.py", "tests/test_v030a9.py", "tests/test_v030a10.py", "tests/test_v030a11.py", "tests/test_v030a12.py", "-q"], "tests": 40}
+{"name": "unit_v04_a", "returncode": 0, "pass": true, "elapsed_seconds": 6.323, "command": ["/usr/local/bin/python3", "-m", "unittest", "tests/test_v040a1.py", "tests/test_v040a2.py", "tests/test_v040a3.py", "tests/test_v040a4.py", "tests/test_v040a5.py", "tests/test_v040a51.py", "tests/test_v040a51_contract.py", "tests/test_v040a52.py", "tests/test_v040a6.py", "tests/test_v040a61.py", "tests/test_v040a62.py", "tests/test_v040a7.py", "tests/test_v040a71.py", "tests/test_v040a72.py", "tests/test_v040a73.py", "tests/test_v040a74.py", "tests/test_alpha71_astra_graft.py", "-q"], "tests": 160}
+{"name": "hard_regression", "returncode": 0, "pass": true, "elapsed_seconds": 10.039, "command": ["/usr/local/bin/python3", "hard_benchmark_v030a5_regression.py"]}
+{"name": "semantic_event", "returncode": 0, "pass": true, "elapsed_seconds": 1.44, "command": ["/usr/local/bin/python3", "benchmark_v020a6_regression.py"]}
+{"name": "semantic_memory", "returncode": 0, "pass": true, "elapsed_seconds": 19.987, "command": ["/usr/local/bin/python3", "benchmark_v020a7.py"]}
+{"name": "world_state", "returncode": 0, "pass": true, "elapsed_seconds": 9.061, "command": ["/usr/local/bin/python3", "benchmark_v030a1.py"]}
+{"name": "transition_alpha2", "returncode": 0, "pass": true, "elapsed_seconds": 10.702, "command": ["/usr/local/bin/python3", "benchmark_v030a2.py"]}
+{"name": "transition_alpha3", "returncode": 0, "pass": true, "elapsed_seconds": 18.548, "command": ["/usr/local/bin/python3", "benchmark_v030a3.py"]}
+{"name": "scheduler_alpha4", "returncode": 0, "pass": true, "elapsed_seconds": 9.202, "command": ["/usr/local/bin/python3", "benchmark_v030a4.py"]}
+{"name": "scheduler_alpha5", "returncode": 0, "pass": true, "elapsed_seconds": 5.12, "command": ["/usr/local/bin/python3", "benchmark_v030a5.py"]}
+{"name": "retention_alpha6", "returncode": 0, "pass": true, "elapsed_seconds": 27.869, "command": ["/usr/local/bin/python3", "benchmark_v030a6.py"]}
+{"name": "capacity_alpha7", "returncode": 0, "pass": true, "elapsed_seconds": 22.616, "command": ["/usr/local/bin/python3", "benchmark_v030a7.py"]}
+{"name": "abstraction_alpha11", "returncode": 0, "pass": true, "elapsed_seconds": 4.87, "command": ["/usr/local/bin/python3", "benchmark_v030a11.py", "--mode", "all"]}
+{"name": "alpha12_structured_train", "returncode": 0, "pass": true, "elapsed_seconds": 6.334, "command": ["/usr/local/bin/python3", "benchmark_v030a12_split.py", "--mode", "structured_train"]}
+{"name": "alpha12_structured_finish", "returncode": 0, "pass": true, "elapsed_seconds": 5.765, "command": ["/usr/local/bin/python3", "benchmark_v030a12_split.py", "--mode", "structured_finish"]}
+{"name": "alpha12_baseline", "returncode": 0, "pass": true, "elapsed_seconds": 10.032, "command": ["/usr/local/bin/python3", "benchmark_v030a12_split.py", "--mode", "baseline"]}
+{"name": "alpha12_controls", "returncode": 0, "pass": true, "elapsed_seconds": 5.65, "command": ["/usr/local/bin/python3", "benchmark_v030a12_split.py", "--mode", "controls"]}
+{"name": "alpha12_lockbox", "returncode": 0, "pass": true, "elapsed_seconds": 3.645, "command": ["/usr/local/bin/python3", "benchmark_v030a12_split.py", "--mode", "lockbox"]}
+{"name": "alpha12_finalize", "returncode": 0, "pass": true, "elapsed_seconds": 1.209, "command": ["/usr/local/bin/python3", "benchmark_v030a12_split.py", "--mode", "finalize"]}
+{"name": "planning_alpha1_preservation", "returncode": 0, "pass": true, "elapsed_seconds": 2.824, "command": ["/usr/local/bin/python3", "benchmark_v040a1.py"]}
+{"name": "planning_alpha2", "returncode": 0, "pass": true, "elapsed_seconds": 5.249, "command": ["/usr/local/bin/python3", "benchmark_v040a2.py"]}
+{"name": "planning_alpha3", "returncode": 0, "pass": true, "elapsed_seconds": 4.089, "command": ["/usr/local/bin/python3", "benchmark_v040a3.py"]}
+{"name": "planning_alpha4", "returncode": 0, "pass": true, "elapsed_seconds": 4.385, "command": ["/usr/local/bin/python3", "benchmark_v040a4.py"]}
+{"name": "planning_alpha4_stress", "returncode": 0, "pass": true, "elapsed_seconds": 1.686, "command": ["/usr/local/bin/python3", "benchmark_v040a4_stress.py"]}
+{"name": "planning_alpha5", "returncode": 0, "pass": true, "elapsed_seconds": 1.681, "command": ["/usr/local/bin/python3", "benchmark_v040a5.py"]}
+{"name": "planning_alpha5_stress", "returncode": 0, "pass": true, "elapsed_seconds": 1.854, "command": ["/usr/local/bin/python3", "benchmark_v040a5_stress.py"]}
+{"name": "planning_alpha5_mega", "returncode": 0, "pass": true, "elapsed_seconds": 6.994, "command": ["/usr/local/bin/python3", "benchmark_v040a5_mega_stress.py"]}
+{"name": "planning_alpha5_extreme", "returncode": 0, "pass": true, "elapsed_seconds": 14.912, "command": ["/usr/local/bin/python3", "benchmark_v040a5_extreme_torture.py"]}
+{"name": "planning_alpha6", "returncode": 0, "pass": true, "elapsed_seconds": 11.338, "command": ["/usr/local/bin/python3", "benchmark_v040a6.py"]}
+{"name": "planning_alpha6_torture", "returncode": 0, "pass": true, "elapsed_seconds": 8.905, "command": ["/usr/local/bin/python3", "benchmark_v040a6_torture.py"]}
+{"name": "planning_alpha61_current", "returncode": 0, "pass": true, "elapsed_seconds": 2.288, "command": ["/usr/local/bin/python3", "benchmark_v040a61_current_gate.py"]}
+{"name": "planning_alpha61_stationary", "returncode": 0, "pass": true, "elapsed_seconds": 5.107, "command": ["/usr/local/bin/python3", "benchmark_v040a61_stationary_torture.py"]}
+{"name": "planning_alpha62", "returncode": 0, "pass": true, "elapsed_seconds": 18.243, "command": ["/usr/local/bin/python3", "benchmark_v040a62.py"]}
+{"name": "planning_alpha62_torture", "returncode": 0, "pass": true, "elapsed_seconds": 3.141, "command": ["/usr/local/bin/python3", "benchmark_v040a62_torture.py"]}
+{"name": "planning_alpha7", "returncode": 0, "pass": true, "elapsed_seconds": 11.451, "command": ["/usr/local/bin/python3", "benchmark_v040a7.py"]}
+{"name": "planning_alpha7_torture", "returncode": 0, "pass": true, "elapsed_seconds": 10.826, "command": ["/usr/local/bin/python3", "benchmark_v040a7_torture.py"]}
+{"name": "planning_alpha71", "returncode": 0, "pass": true, "elapsed_seconds": 7.458, "command": ["/usr/local/bin/python3", "benchmark_v040a71.py"]}
+{"name": "planning_alpha71_torture", "returncode": 0, "pass": true, "elapsed_seconds": 5.782, "command": ["/usr/local/bin/python3", "benchmark_v040a71_torture.py"]}
+{"name": "planning_alpha71_performance", "returncode": 0, "pass": true, "elapsed_seconds": 3.829, "command": ["/usr/local/bin/python3", "benchmark_v040a71_performance.py"]}
+{"name": "procedure_alpha72", "returncode": 0, "pass": true, "elapsed_seconds": 2.065, "command": ["/usr/local/bin/python3", "tools/with_cortex_options.py", "extrapolation_guard=off", "benchmark_v040a72.py"]}
+{"name": "procedure_alpha72_torture", "returncode": 0, "pass": true, "elapsed_seconds": 18.836, "command": ["/usr/local/bin/python3", "tools/with_cortex_options.py", "extrapolation_guard=off", "benchmark_v040a72_torture.py"]}
+{"name": "procedure_alpha72_performance", "returncode": 0, "pass": true, "elapsed_seconds": 6.654, "command": ["/usr/local/bin/python3", "tools/with_cortex_options.py", "extrapolation_guard=off", "benchmark_v040a72_performance.py"]}
+{"name": "procedure_alpha73", "returncode": 0, "pass": true, "elapsed_seconds": 3.117, "command": ["/usr/local/bin/python3", "tools/with_cortex_options.py", "extrapolation_guard=off", "benchmark_v040a73.py"]}
+{"name": "procedure_alpha73_torture", "returncode": 0, "pass": true, "elapsed_seconds": 46.576, "command": ["/usr/local/bin/python3", "tools/with_cortex_options.py", "extrapolation_guard=off", "benchmark_v040a73_torture.py"]}
+{"name": "procedure_alpha73_performance", "returncode": 0, "pass": true, "elapsed_seconds": 3.928, "command": ["/usr/local/bin/python3", "tools/with_cortex_options.py", "extrapolation_guard=off", "benchmark_v040a73_performance.py"]}
+{"name": "procedure_alpha74", "returncode": 0, "pass": true, "elapsed_seconds": 2.115, "command": ["/usr/local/bin/python3", "tools/with_cortex_options.py", "extrapolation_guard=off", "benchmark_v040a74.py"]}
+{"name": "procedure_alpha74_torture", "returncode": 0, "pass": true, "elapsed_seconds": 37.254, "command": ["/usr/local/bin/python3", "tools/with_cortex_options.py", "extrapolation_guard=off", "benchmark_v040a74_torture.py"]}
+{"name": "procedure_alpha74_performance", "returncode": 0, "pass": true, "elapsed_seconds": 3.955, "command": ["/usr/local/bin/python3", "tools/with_cortex_options.py", "extrapolation_guard=off", "benchmark_v040a74_performance.py"]}
+{"name": "writer", "returncode": 0, "pass": true, "elapsed_seconds": 3.547, "command": ["/usr/local/bin/python3", "benchmark_v020a5.py"]}
+{"name": "smoke", "returncode": 0, "pass": true, "elapsed_seconds": 1.805, "command": ["/usr/local/bin/python3", "smoke_test.py"]}
+{"name": "trained_state", "pass": true}

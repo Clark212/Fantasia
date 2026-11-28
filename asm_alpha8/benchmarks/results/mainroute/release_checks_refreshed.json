@@ -1,0 +1,799 @@
+{
+  "version": "0.4.0-alpha.7.9",
+  "full": false,
+  "planning_only": false,
+  "unit_tests": 393,
+  "checks": [
+    {
+      "name": "unit_legacy_a",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 20.187,
+      "command": [
+        "/usr/local/bin/python3",
+        "-m",
+        "unittest",
+        "tests/test_v01110.py",
+        "tests/test_v0114.py",
+        "tests/test_v0115.py",
+        "-q"
+      ],
+      "tests": 37
+    },
+    {
+      "name": "unit_legacy_b",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 10.816,
+      "command": [
+        "/usr/local/bin/python3",
+        "-m",
+        "unittest",
+        "tests/test_v0116.py",
+        "tests/test_v0117.py",
+        "tests/test_v0118.py",
+        "tests/test_v0119.py",
+        "-q"
+      ],
+      "tests": 35
+    },
+    {
+      "name": "unit_v02_a",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 4.131,
+      "command": [
+        "/usr/local/bin/python3",
+        "-m",
+        "unittest",
+        "tests/test_v020a1.py",
+        "tests/test_v020a2.py",
+        "tests/test_v020a3.py",
+        "-q"
+      ],
+      "tests": 29
+    },
+    {
+      "name": "unit_v02_b",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 6.369,
+      "command": [
+        "/usr/local/bin/python3",
+        "-m",
+        "unittest",
+        "tests/test_v020a4.py",
+        "tests/test_v020a5.py",
+        "tests/test_v020a6.py",
+        "tests/test_v020a7.py",
+        "-q"
+      ],
+      "tests": 55
+    },
+    {
+      "name": "unit_v03_a",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 25.369,
+      "command": [
+        "/usr/local/bin/python3",
+        "-m",
+        "unittest",
+        "tests/test_v030a1.py",
+        "tests/test_v030a2.py",
+        "tests/test_v030a3.py",
+        "tests/test_v030a4.py",
+        "tests/test_v030a5.py",
+        "-q"
+      ],
+      "tests": 37
+    },
+    {
+      "name": "unit_v03_b",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 4.928,
+      "command": [
+        "/usr/local/bin/python3",
+        "-m",
+        "unittest",
+        "tests/test_v030a6.py",
+        "tests/test_v030a7.py",
+        "tests/test_v030a8.py",
+        "tests/test_v030a9.py",
+        "tests/test_v030a10.py",
+        "tests/test_v030a11.py",
+        "tests/test_v030a12.py",
+        "-q"
+      ],
+      "tests": 40
+    },
+    {
+      "name": "unit_v04_a",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 6.323,
+      "command": [
+        "/usr/local/bin/python3",
+        "-m",
+        "unittest",
+        "tests/test_v040a1.py",
+        "tests/test_v040a2.py",
+        "tests/test_v040a3.py",
+        "tests/test_v040a4.py",
+        "tests/test_v040a5.py",
+        "tests/test_v040a51.py",
+        "tests/test_v040a51_contract.py",
+        "tests/test_v040a52.py",
+        "tests/test_v040a6.py",
+        "tests/test_v040a61.py",
+        "tests/test_v040a62.py",
+        "tests/test_v040a7.py",
+        "tests/test_v040a71.py",
+        "tests/test_v040a72.py",
+        "tests/test_v040a73.py",
+        "tests/test_v040a74.py",
+        "tests/test_alpha71_astra_graft.py",
+        "-q"
+      ],
+      "tests": 160
+    },
+    {
+      "name": "hard_regression",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 10.039,
+      "command": [
+        "/usr/local/bin/python3",
+        "hard_benchmark_v030a5_regression.py"
+      ]
+    },
+    {
+      "name": "semantic_event",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 1.44,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v020a6_regression.py"
+      ]
+    },
+    {
+      "name": "semantic_memory",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 19.987,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v020a7.py"
+      ]
+    },
+    {
+      "name": "world_state",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 9.061,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v030a1.py"
+      ]
+    },
+    {
+      "name": "transition_alpha2",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 10.702,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v030a2.py"
+      ]
+    },
+    {
+      "name": "transition_alpha3",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 18.548,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v030a3.py"
+      ]
+    },
+    {
+      "name": "scheduler_alpha4",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 9.202,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v030a4.py"
+      ]
+    },
+    {
+      "name": "scheduler_alpha5",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 5.12,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v030a5.py"
+      ]
+    },
+    {
+      "name": "retention_alpha6",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 27.869,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v030a6.py"
+      ]
+    },
+    {
+      "name": "capacity_alpha7",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 22.616,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v030a7.py"
+      ]
+    },
+    {
+      "name": "abstraction_alpha11",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 4.87,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v030a11.py",
+        "--mode",
+        "all"
+      ]
+    },
+    {
+      "name": "alpha12_structured_train",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 6.334,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v030a12_split.py",
+        "--mode",
+        "structured_train"
+      ]
+    },
+    {
+      "name": "alpha12_structured_finish",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 5.765,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v030a12_split.py",
+        "--mode",
+        "structured_finish"
+      ]
+    },
+    {
+      "name": "alpha12_baseline",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 10.032,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v030a12_split.py",
+        "--mode",
+        "baseline"
+      ]
+    },
+    {
+      "name": "alpha12_controls",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 5.65,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v030a12_split.py",
+        "--mode",
+        "controls"
+      ]
+    },
+    {
+      "name": "alpha12_lockbox",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 3.645,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v030a12_split.py",
+        "--mode",
+        "lockbox"
+      ]
+    },
+    {
+      "name": "alpha12_finalize",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 1.209,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v030a12_split.py",
+        "--mode",
+        "finalize"
+      ]
+    },
+    {
+      "name": "planning_alpha1_preservation",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 2.824,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a1.py"
+      ]
+    },
+    {
+      "name": "planning_alpha2",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 5.249,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a2.py"
+      ]
+    },
+    {
+      "name": "planning_alpha3",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 4.089,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a3.py"
+      ]
+    },
+    {
+      "name": "planning_alpha4",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 4.385,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a4.py"
+      ]
+    },
+    {
+      "name": "planning_alpha4_stress",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 1.686,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a4_stress.py"
+      ]
+    },
+    {
+      "name": "planning_alpha5",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 1.681,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a5.py"
+      ]
+    },
+    {
+      "name": "planning_alpha5_stress",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 1.854,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a5_stress.py"
+      ]
+    },
+    {
+      "name": "planning_alpha5_mega",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 6.994,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a5_mega_stress.py"
+      ]
+    },
+    {
+      "name": "planning_alpha5_extreme",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 14.912,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a5_extreme_torture.py"
+      ]
+    },
+    {
+      "name": "planning_alpha6",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 11.338,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a6.py"
+      ]
+    },
+    {
+      "name": "planning_alpha6_torture",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 8.905,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a6_torture.py"
+      ]
+    },
+    {
+      "name": "planning_alpha61_current",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 2.288,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a61_current_gate.py"
+      ]
+    },
+    {
+      "name": "planning_alpha61_stationary",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 5.107,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a61_stationary_torture.py"
+      ]
+    },
+    {
+      "name": "planning_alpha62",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 18.243,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a62.py"
+      ]
+    },
+    {
+      "name": "planning_alpha62_torture",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 3.141,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a62_torture.py"
+      ]
+    },
+    {
+      "name": "planning_alpha7",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 11.451,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a7.py"
+      ]
+    },
+    {
+      "name": "planning_alpha7_torture",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 10.826,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a7_torture.py"
+      ]
+    },
+    {
+      "name": "planning_alpha71",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 7.458,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a71.py"
+      ]
+    },
+    {
+      "name": "planning_alpha71_torture",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 5.782,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a71_torture.py"
+      ]
+    },
+    {
+      "name": "planning_alpha71_performance",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 3.829,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v040a71_performance.py"
+      ]
+    },
+    {
+      "name": "procedure_alpha72",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 2.065,
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/with_cortex_options.py",
+        "extrapolation_guard=off",
+        "benchmark_v040a72.py"
+      ]
+    },
+    {
+      "name": "procedure_alpha72_torture",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 18.836,
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/with_cortex_options.py",
+        "extrapolation_guard=off",
+        "benchmark_v040a72_torture.py"
+      ]
+    },
+    {
+      "name": "procedure_alpha72_performance",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 6.654,
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/with_cortex_options.py",
+        "extrapolation_guard=off",
+        "benchmark_v040a72_performance.py"
+      ]
+    },
+    {
+      "name": "procedure_alpha73",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 3.117,
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/with_cortex_options.py",
+        "extrapolation_guard=off",
+        "benchmark_v040a73.py"
+      ]
+    },
+    {
+      "name": "procedure_alpha73_torture",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 46.576,
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/with_cortex_options.py",
+        "extrapolation_guard=off",
+        "benchmark_v040a73_torture.py"
+      ]
+    },
+    {
+      "name": "procedure_alpha73_performance",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 3.928,
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/with_cortex_options.py",
+        "extrapolation_guard=off",
+        "benchmark_v040a73_performance.py"
+      ]
+    },
+    {
+      "name": "procedure_alpha74",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 2.115,
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/with_cortex_options.py",
+        "extrapolation_guard=off",
+        "benchmark_v040a74.py"
+      ]
+    },
+    {
+      "name": "procedure_alpha74_torture",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 37.254,
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/with_cortex_options.py",
+        "extrapolation_guard=off",
+        "benchmark_v040a74_torture.py"
+      ]
+    },
+    {
+      "name": "procedure_alpha74_performance",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 3.955,
+      "command": [
+        "/usr/local/bin/python3",
+        "tools/with_cortex_options.py",
+        "extrapolation_guard=off",
+        "benchmark_v040a74_performance.py"
+      ]
+    },
+    {
+      "name": "writer",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 3.547,
+      "command": [
+        "/usr/local/bin/python3",
+        "benchmark_v020a5.py"
+      ]
+    },
+    {
+      "name": "smoke",
+      "returncode": 0,
+      "pass": true,
+      "elapsed_seconds": 1.805,
+      "command": [
+        "/usr/local/bin/python3",
+        "smoke_test.py"
+      ]
+    },
+    {
+      "name": "trained_state",
+      "pass": true,
+      "stats": {
+        "events": 904,
+        "episodic_events": 897,
+        "semantic_memory_vectors": 897,
+        "semantic_event_records": 897,
+        "semantic_event_links": 1380,
+        "world_model": {
+          "current_states": 24,
+          "state_history": 50,
+          "nodes": 65,
+          "edges": 75,
+          "transitions": 50,
+          "dependencies": 116
+        },
+        "transition_mechanisms": {
+          "enabled": true,
+          "mechanisms": 0,
+          "experiences": 0,
+          "retention": {
+            "anchors": 0,
+            "covered_outcomes": 0,
+            "anchor_limit_per_mechanism": 96,
+            "anchor_batch_limit": 6
+          },
+          "consolidation": {
+            "enabled": true,
+            "table_size_per_hash": 1024,
+            "hashes": 3,
+            "min_support": 4,
+            "layout_version": 3,
+            "max_displacements": 24,
+            "fixed_bytes": 0,
+            "used_cells": 0
+          },
+          "abstraction": {
+            "enabled": true,
+            "min_support": 8,
+            "min_precision": 0.95,
+            "min_diversity": 4,
+            "max_dropped_features": 2,
+            "sparse_enabled": true,
+            "pending_enabled": true,
+            "sparse_max_retained_features": 2,
+            "candidates_per_observation": 48,
+            "candidate_limit_per_mechanism": 2048,
+            "pending_candidates": 0,
+            "exception_limit_per_mechanism": 512,
+            "candidates": 0,
+            "promoted": 0,
+            "exceptions": 0
+          },
+          "scheduler": {
+            "max_calls": 1,
+            "medium_calls": 3,
+            "min_relevance": 0.45,
+            "high_confidence": 0.74,
+            "low_confidence": 0.46,
+            "min_margin": 0.08,
+            "recovery_uncertainty": 0.72,
+            "calibration_min_support": 4,
+            "calls": 0,
+            "dense_equivalent_calls": 0,
+            "observed_call_reduction": 0.0,
+            "fallbacks": 0,
+            "confidence_fallbacks": 0,
+            "recoveries": 0,
+            "high_confidence_routes": 0,
+            "competitive_routes": 0,
+            "feedback_updates": 0,
+            "recent_routes": 0,
+            "applicability_features": 0,
+            "routing_evidence_features": 0,
+            "negative_evidence": 0,
+            "calibration_samples": 0
+          },
+          "input_dim": 128,
+          "hidden_dim": 64,
+          "max_outcomes": 32,
+          "initial_outcome_capacity": 32,
+          "outcome_capacity_limit": 4096,
+          "outcome_growth_factor": 2.0,
+          "detail": []
+        },
+        "evidence_lineage": {
+          "evidence_nodes": 0,
+          "independent_roots": 0,
+          "derived_or_copied_nodes": 0,
+          "max_nodes": 65536,
+          "max_roots_per_item": 256
+        },
+        "concept_nodes": 2189,
+        "association_edges": 2999,
+        "prediction_edges": 1345,
+        "predictive_coding_edges": 1457,
+        "rule_edges": 10,
+        "structural_schemas": 13,
+        "structural_abstractions": 12,
+        "structural_examples": 151,
+        "latent_candidates": 19,
+        "latent_concepts": 13,
+        "belief_holders": 7,
+        "belief_propositions": 8,
+        "emotion_labels": 5,
+        "emotion_agent_states": 10,
+        "appraisal_holders": 12,
+        "appraisal_drives": 12,
+        "appraisal_emotion_labels": 4,
+        "nested_belief_paths": 9,
+        "nested_belief_propositions": 9,
+        "self_beliefs": 2,
+        "self_capabilities": 2,
+        "self_strategies": 4,
+        "attention_targets": 8,
+        "perception_examples": 192.62729500299912,
+        "perception_connector_phrases": 14,
+        "perception_inferred_phrases": 6,
+        "discovered_relations": 3,
+        "promoted_discovered_relations": 2,
+        "dormant_discovered_relations": 0,
+        "relation_discovery_episodes": 14,
+        "relation_merges": 2,
+        "relation_splits": 0,
+        "evidence_dependency": {
+          "sources": 0,
+          "pairs": 0,
+          "trials": 0,
+          "active_self_dependencies": 0,
+          "active_cross_dependencies": 0,
+          "temporal_self_views": 0,
+          "temporal_pair_views": 0,
+          "dependency_regimes": 0,
+          "last_temporal_index": null,
+          "version": 0
+        },
+        "language_core_backend": "recurrent-reader",
+        "language_core_embedding_dims": 96,
+        "active_nodes": 23,
+        "semantic_terms": 329,
+        "goals": 0
+      }
+    }
+  ],
+  "pass": true
+}

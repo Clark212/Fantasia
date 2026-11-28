@@ -65,3 +65,15 @@ Logs: `logs_baseline_79/`, `logs_current/`, `release_checks_*.log`.
 - **No Stage 4 planning capability was lost.**
 - **Not changed** (benchmark definitions, the owner's call): the version pins, the runner, and running the procedure
   benchmarks with the guard off inside the release gate.
+
+## 3. The refreshed release gate (owner-approved 2026-11-28)
+- **What changed:**
+  - the six version pins accept the alpha 7 line (`__version__.startswith('0.4.0-alpha.7')`);
+  - the nine alpha 7.2-7.4 procedure jobs run with `extrapolation_guard=off`, through `tools/with_cortex_options.py`;
+  - `benchmark_v040a74_performance.py` falls back to `ALPHA73_PERFORMANCE.json`, which the job before it writes, when
+    `/tmp/perf73.json` is missing;
+  - the runner's final print is fixed and its payload reports `asm.__version__`.
+
+  No check's measure changed.
+- **Result** (today's code, from a scratch copy): **56 of 56 pass**, the 55 jobs and the trained-state check; 393 unit
+  tests; `pass: true` (`release_checks_refreshed.json`, `release_checks_refreshed.log`).
