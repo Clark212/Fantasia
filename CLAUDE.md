@@ -10,13 +10,25 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
   not promoted (Structural Transfer & Analogical Procedure Generalization, toward M4); alpha 7.8 delivered 0.4.7 and
   0.4.8 ("Latent Dependency Structure & Higher-Order Epistemic Routing"). DEV steps are experiments inside
   alpha 8 (side tracks), not milestones; none is promoted. The alpha.8.1–8.9 plan and its evidence: `ROADMAP.md`, Stage 4.
-- Latest: **DEV35** (causal repair by intervention, `asm/coding/causal.py`, opt-in; development only, no gate). While
+- Latest: **the 0.4.9 closure check, main roadmap (2026-11-28): gate G49 passed** (`asm_alpha8/ALPHA8_STAGE4_CLOSURE_CHECK.md`;
+  pre-registration `benchmarks/preregistration/stage4_closure_study.md`; battery `benchmarks/stage4_closure.py`,
+  analysis `benchmarks/stage4_closure_analyze.py`; raw records `benchmarks/results/stage4_closure/`).
+  - **The battery:** partially observable two-door worlds. The agent learns transitions, source reliability and source
+    redundancy from 300 resolved episodes, then plans with `plan_world_actions_belief`, probing when that pays. It
+    is compared with ablations and with an oracle.
+  - **Held-out result** (30 worlds, seeds 1000-1029): full reaches .937 of the oracle's score with a .028 hazard rate
+    (worst world .09). Removing reliability learning, dependency learning (safety only), probing or planning each
+    costs reward or safety.
+  - **Limits:** a lab battery of one world family. The full agent still declines more often than the oracle.
+  - **Running it:** one thread per process (`OMP_NUM_THREADS=1`, set by the battery). Parallel PyTorch processes
+    otherwise stall: a first run produced nothing in 2 hours. About 4 minutes per world per shard, 4 shards on 4 CPUs.
+  - **Promoting 0.4.9 is the owner's decision**; nothing is promoted. M4 (structural transfer on real data) is still
+    not met.
+- **DEV35** (causal repair by intervention, `asm/coding/causal.py`, opt-in; development only, no gate). While
   the bug's tests run, ASM flips conditions, moves constants and swaps locals one site at a time (one pytest process,
   5 s per test), and turns causes into edits. On 229 seen bugs: a cause in 41, 13 plausible edits, 1 equal to the
   developer's fix (mistletoe-2, already repaired by the workflow); every other plausible edit is wrong. Not run fresh.
   **The owner's instruction (2026-11-28): if the DEV route cannot pass M4's real-data gate, focus on the main roadmap.**
-  The next step there is the 0.4.9 closure check (`ROADMAP.md`, Stage 4: a pre-registered check that the Stage 4
-  components work together).
 - **Main route, step 1 done (2026-11-28): the frozen baseline reproduces**
   (`asm_alpha8/benchmarks/results/mainroute/BASELINE_REPRODUCTION.md`).
   - With CPU PyTorch installed (`pip install torch --index-url https://download.pytorch.org/whl/cpu`), the historical
@@ -94,8 +106,11 @@ benchmark integrity, release governance, final reporting format): @MASTER_DEVELO
     - whether to keep `phase3_seconds`, `test_copy_guard` and `regression_suite` (all opt-in, free when off), and
       whether `regression_suite` should become the default for real-bug repair (DEV33 G33-A);
     - whether G33-A counts as alpha.8.4 evidence on real data (`alpha8_plan.validated` was not changed).
-  - Next (owner, 2026-11-28): the main roadmap, starting with the 0.4.9 closure check. The DEV coding track has tried
-    learned knowledge (DEV29, DEV31-DEV34) and causal intervention (DEV35) on real bugs without passing M4's gate.
+    - whether to promote 0.4.9: its closure check (G49) passed, the baseline reproduces, and the refreshed release
+      gate passes 56 of 56 (M4 is not met).
+  - Next (owner, 2026-11-28): the main roadmap. The 0.4.9 closure check is done. Then comes cognitive-architecture
+    integration (`ROADMAP.md`). The DEV coding track has tried learned knowledge (DEV29, DEV31-DEV34) and causal
+    intervention (DEV35) on real bugs without passing M4's gate.
   - Roadmap: the owner's DEV8–DEV40 list is a long-range map in `ROADMAP.md`, merged so the final DEV is DEV36 (DEV33
     and DEV34 spent on the M4 real-data gate, DEV34 also on adaptation; DEV35 causal reasoning with integration; DEV36
     closure). The repository's DEV numbers stay as they are. The owner said "U pick" for DEV33 and "I trust you" for

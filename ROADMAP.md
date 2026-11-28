@@ -43,7 +43,12 @@ Probabilistic Futures · 0.4.4 Active Information Gathering · 0.4.5 Belief-Stat
 
 This incorporates the planning and simulation work from the existing alpha development rather than throwing it away.
 
-**Open before 0.4.9 can be promoted:** a pre-registered check that the Stage 4 components work together. Related, from
+**The Stage 4 closure check passed (2026-11-28; `asm_alpha8/ALPHA8_STAGE4_CLOSURE_CHECK.md`):** in 30 held-out
+partially observable worlds, an agent that learns transitions, source reliability and source redundancy, then plans with
+the belief-state planner and probes when that pays, reaches .937 of an oracle's score with a .028 hazard rate. Removing
+reliability learning, dependency learning, probing or planning each costs reward or safety (pre-registered gate G49).
+It is a lab battery of one world family. **Promoting 0.4.9 is the project owner's decision**, together with the frozen
+baseline's reproduction (`asm_alpha8/benchmarks/results/mainroute/BASELINE_REPRODUCTION.md`). Related, from
 Stage 3: generalization to unseen data (0.3.5) is not yet shown. The alpha 8 coding track (DEV15–DEV20) is the current
 measurement. Learned fix patterns reproduce 2 of 472 fresh real fixes that nothing else in ASM reproduces (DEV18; its
 gate needed 10). With 12.6× the training fixes, that number is 0 of 103 (DEV19). More data alone does not close the gap.
@@ -89,7 +94,8 @@ not passed): learned knowledge repairs none the checked workflow without it does
 project's own earlier fixes added no reproduced fix on 149 seen bugs: what ASM learns rarely recurs in new bugs.
 DEV35 tries causal repair by intervention (flip a condition, move a constant, swap a variable while the tests run;
 development only): on 229 seen bugs it finds a cause in 41 and no correct repair the workflow does not already make,
-so it is not run on fresh data. By the owner's instruction, work turns to the main roadmap: the 0.4.9 closure check.
+so it is not run on fresh data. By the owner's instruction, work turns to the main roadmap: the 0.4.9 closure check,
+which passed (above).
 
 ### Release governance and the alpha 8 plan
 - Official frozen baseline: **v0.4.0-alpha.7.9** (`asm.__version__`), milestone **M3 — Adaptive Research AI**.
@@ -126,8 +132,9 @@ are**. The list is the long-range map:
     M4 real-data gate repeated with the fixed check (not passed);
   - DEV35 (done, development only): causal reasoning as interventions on the buggy program; no correct repair beyond
     the workflow's, so no fresh run;
-  - next, by the owner's instruction (2026-11-28): the main roadmap, starting with the 0.4.9 closure check (the Stage
-    4 components working together), with cognitive-architecture integration (list DEV36–DEV38);
+  - by the owner's instruction (2026-11-28), the main roadmap: the 0.4.9 closure check (the Stage 4 components working
+    together) passed its pre-registered gate G49; promotion is the owner's decision. Cognitive-architecture
+    integration (list DEV36–DEV38) follows;
   - DEV36: generalized engineering intelligence, with the full architecture evaluation and stage closure (list DEV39–DEV40).
 - **M4 first:** the real-data gate (learned knowledge repairing real bugs the workflow without it does not) is still open
   and comes before closure. A DEV that fails its gate is repeated or redesigned, so DEV36 is a target, not a date.

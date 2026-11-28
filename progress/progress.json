@@ -10,7 +10,7 @@
     "in_progress": [
       "0.4.9"
     ],
-    "in_progress_note": "not promoted; the DEV steps are its experiments",
+    "in_progress_note": "not promoted; closure check passed, promotion is the owner's call",
     "next": "0.4.9",
     "next_label": "= alpha 8",
     "promoted_in_progress": []
@@ -252,6 +252,16 @@
       "result": "not run: on 229 seen bugs, 13 plausible edits, 1 equal to the developer's fix (already repaired); the rest are wrong",
       "promoted": false,
       "report": "asm_alpha8/ALPHA8_CODING_DEV35_IMPLEMENTATION.md"
+    },
+    {
+      "dev": "0.4.9",
+      "date": "2026-11-28",
+      "title": "Stage 4 closure check (main roadmap)",
+      "gate": "G49: full ≥ .8 of oracle, hazard ≤ .05, every component contributes",
+      "kind": "passed",
+      "result": "passed on 30 held-out worlds: .937 of the oracle's score, hazard .028; removing any component costs reward or safety",
+      "promoted": false,
+      "report": "asm_alpha8/ALPHA8_STAGE4_CLOSURE_CHECK.md"
     }
   ]
 }

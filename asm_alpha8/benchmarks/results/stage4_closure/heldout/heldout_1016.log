@@ -1,0 +1,7 @@
+{"seed": 1016, "full": [0.88, 0.09, 0.89], "no_reliability": [0.78, 0.16, 1.74], "no_dependency": [0.9, 0.09, 0.39], "no_probe": [0.53, 0.04, 0.0], "no_planning": [0.86, 0.14, 0.0], "oracle": [0.7, 0.06, 0.23]}
+{"seed": 1017, "full": [0.8, 0.0, 0.01], "no_reliability": [0.66, 0.04, 0.0], "no_dependency": [0.88, 0.0, 0.04], "no_probe": [0.79, 0.0, 0.0], "no_planning": [0.94, 0.06, 0.0], "oracle": [0.9, 0.01, 0.1]}
+{"seed": 1018, "full": [0.95, 0.01, 0.78], "no_reliability": [0.68, 0.14, 2.9], "no_dependency": [0.94, 0.02, 0.7], "no_probe": [0.67, 0.0, 0.0], "no_planning": [0.89, 0.11, 0.0], "oracle": [0.86, 0.0, 0.09]}
+{"seed": 1019, "full": [0.95, 0.05, 1.52], "no_reliability": [0.79, 0.21, 1.39], "no_dependency": [0.86, 0.14, 0.96], "no_probe": [0.0, 0.0, 0.0], "no_planning": [0.73, 0.27, 0.0], "oracle": [0.97, 0.03, 1.98]}
+{"seed": 1020, "full": [0.57, 0.05, 0.56], "no_reliability": [0.45, 0.03, 1.07], "no_dependency": [0.58, 0.05, 0.58], "no_probe": [0.39, 0.04, 0.0], "no_planning": [0.83, 0.17, 0.0], "oracle": [0.9, 0.1, 0.84]}
+{"seed": 1021, "full": [0.74, 0.03, 0.28], "no_reliability": [0.46, 0.15, 0.4], "no_dependency": [0.79, 0.04, 0.17], "no_probe": [0.55, 0.02, 0.0], "no_planning": [0.9, 0.1, 0.0], "oracle": [0.73, 0.02, 0.12]}
+{"seed": 1022, "full": [0.77, 0.07, 0.0], "no_reliability": [0.49, 0.05, 0.0], "no_dependency": [0.81, 0.09, 0.0], "no_probe": [0.77, 0.07, 0.0], "no_planning": [0.83, 0.17, 0.0], "oracle": [0.68, 0.01, 0.07]}
